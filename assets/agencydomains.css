@@ -154,3 +154,11 @@ sup a{font-family:var(--mono);font-size:.7em;text-decoration:none}
 .prevnext a:hover{color:var(--accent);text-decoration:none}
 .prevnext .dir{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.25rem}
 .prevnext .nx{margin-left:auto;text-align:right}
+
+/* ---------- toggle de idioma ---------- */
+.hero{position:relative}
+.langtoggle{position:absolute;top:clamp(1.1rem,3vh,1.9rem);right:clamp(1.25rem,5vw,2.4rem);
+  display:flex;gap:.45rem;align-items:center;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;z-index:5}
+.langtoggle a{color:var(--faint)} .langtoggle a:hover{color:var(--accent);text-decoration:none}
+.langtoggle a.on{color:var(--ink);font-weight:500}
+.langtoggle .sep{color:var(--rule)}

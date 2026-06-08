@@ -1,22 +1,23 @@
 # AgencyDomains
 
-> Especificación abierta del Mundo Agentivo (trilogía) e implementación de referencia.
-> Define el AgencyDomain como unidad mínima de despliegue, cuatro capas (Interacción,
-> Cognición, Autonomía, Acceso), y primitivas canónicas: Botlet, Capability,
-> Trust Infrastructure, Faceta. Editado por GegoLabs. Pre-1.0.
+> The formal architecture of the Agentive World. An open specification for building agentic and
+> agentive AI in production: the AgencyDomain as the minimal unit of deployment; four layers
+> (Interaction, Cognition, Autonomy, Access); canonical primitives — Botlet, Capability,
+> Trust Infrastructure, Faceta. Edited by GegoLabs. Pre-1.0.
+> Note: the book is currently published in Spanish; the English edition is in progress.
 
-## Libros
+## The book
 
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/agencydomains/agentes.md): el libro destilado para que un agente razone dentro del framework. v0.4.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/agencydomains/llms-full.txt)
-- [AgencyDomains — versión web (humanos)](https://agencydomains.org/agencydomains/): el libro completo, navegable.
-- [AgencyDomains — PDF (humanos)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
+- [AgencyDomains — canonical manifesto for agents (Spanish, Markdown)](https://agencydomains.org/agencydomains/agentes.md): the book distilled for an agent to reason within the framework. v0.4.
+- [AgencyDomains — web edition (Spanish)](https://agencydomains.org/agencydomains/)
+- [AgencyDomains — PDF (Spanish)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
 
-## Implementación de referencia
+## Reference implementation
 
-- [Vergis (código, AGPL-3.0)](https://github.com/gegolabs/vergis): el AgencyDomain hecho operativo — Botler + Mira.
+- [Vergis (code, AGPL-3.0)](https://github.com/gegolabs/vergis): the AgencyDomain made operational — Botler + Mira.
 
-## Próximamente
+## Coming soon
 
-- Postchat · Mundo Agentivo (el destino)
-- Aura · Camino Agentivo (la ruta)
+- Postchat · The Agentive World (the destination)
+- Aura · The Agentive Path (the route)
+- English edition of the book
