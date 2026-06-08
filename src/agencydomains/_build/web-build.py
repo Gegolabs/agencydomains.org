@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Genera el libro-web multipágina (una página por capítulo) desde el Markdown único.
+Barra lateral persistente con sub-índice del capítulo activo + navegación prev/next.
+Salida: <out>/index.html (portada) y <out>/<slug>/index.html por capítulo."""
+import argparse, os, re, shutil, subprocess, sys, unicodedata
+
+FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
+ '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+ '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;'
+ '1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&'
+ 'family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">')
+
+def slugify(t):
+    t = unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode()
+    t = re.sub(r'[^a-zA-Z0-9]+', '-', t).strip('-').lower()
+    return t
+
+def pandoc(md):
+    r = subprocess.run(['pandoc', '-f', 'markdown', '-t', 'html'],
+                       input=md, capture_output=True, text=True)
+    if r.returncode: sys.exit('pandoc falló:\n' + r.stderr)
+    return r.stdout
+
+def strip_tags(s): return re.sub(r'<[^>]+>', '', s).strip()
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--md', required=True); ap.add_argument('--figuras', required=True)
+    ap.add_argument('--out', required=True); ap.add_argument('--pdf'); ap.add_argument('--agents')
+    ap.add_argument('--base', default='/agencydomains')   # ruta absoluta de servido
+    a = ap.parse_args()
+
+    md = open(a.md, encoding='utf-8').read()
+    chunks = [c for c in re.split(r'(?m)(?=^# )', md) if c.strip()]
+    pages = []
+    for c in chunks:
+        title = strip_tags(c.splitlines()[0].lstrip('# ').strip())
+        pages.append({'title': title, 'md': c})
+    # portada = primer chunk (AgencyDomains); resto = capítulos
+    pages[0]['slug'] = ''; pages[0]['cover'] = True; pages[0]['label'] = 'Portada'
+    for p in pages[1:]:
+        p['slug'] = slugify(p['title']); p['cover'] = False; p['label'] = p['title']
+
+    def url(p): return f"{a.base}/" if p['cover'] else f"{a.base}/{p['slug']}/"
+
+    # render cuerpo + sub-toc por página
+    for p in pages:
+        body = pandoc(p['md']).replace('src="figuras/', f'src="{a.base}/figuras/')
+        p['body'] = body
+        p['sub'] = [(m.group(1), strip_tags(m.group(2)))
+                    for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', body, re.S)]
+
+    os.makedirs(a.out, exist_ok=True)
+    for i, p in enumerate(pages):
+        # barra lateral (mismos capítulos en todas; sub-índice bajo el activo)
+        nav = []
+        for j, q in enumerate(pages):
+            active = ' active' if j == i else ''
+            sub = ''
+            if j == i and q['sub']:
+                items = ''.join(f'<li><a href="#{sid}">{txt}</a></li>' for sid, txt in q['sub'])
+                sub = f'<ul class="subtoc">{items}</ul>'
+            nav.append(f'<li><a class="{active.strip()}" href="{url(q)}">{q["label"]}</a>{sub}</li>')
+        nav_html = ''.join(nav)
+        # prev / next
+        pn = []
+        if i > 0:
+            pp = pages[i-1]
+            pn.append(f'<a href="{url(pp)}"><span class="dir">← Anterior</span>{pp["label"]}</a>')
+        if i < len(pages)-1:
+            nx = pages[i+1]
+            pn.append(f'<a class="nx" href="{url(nx)}"><span class="dir">Siguiente →</span>{nx["label"]}</a>')
+        prevnext = ''.join(pn) if pn else ''
+        co, cc = ('<section class="book-cover">', '</section>') if p['cover'] else ('', '')
+        crumb = 'Portada' if p['cover'] else p['title']
+        html = (f'<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            f'<title>{p["title"]} · AgencyDomains</title>\n{FONTS}\n'
+            f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
+            f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
+            f'<span class="crumb">{crumb}</span></div>\n'
+            f'<div class="book-shell">\n'
+            f'<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p>'
+            f'<ol>{nav_html}</ol></nav>\n'
+            f'<main class="book-main"><article class="book">{co}\n{p["body"]}\n{cc}'
+            f'<nav class="prevnext">{prevnext}</nav></article></main>\n'
+            f'</div>\n</body>\n</html>\n')
+        dest = os.path.join(a.out, 'index.html') if p['cover'] else os.path.join(a.out, p['slug'], 'index.html')
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        open(dest, 'w', encoding='utf-8').write(html)
+
+    # assets del libro
+    figdst = os.path.join(a.out, 'figuras'); shutil.rmtree(figdst, ignore_errors=True)
+    shutil.copytree(a.figuras, figdst)
+    if a.agents:
+        shutil.copy(a.agents, os.path.join(a.out, 'agentes.md'))
+        shutil.copy(a.agents, os.path.join(a.out, 'llms-full.txt'))
+    if a.pdf and os.path.exists(a.pdf):
+        shutil.copy(a.pdf, os.path.join(a.out, 'AgencyDomains-v0.4.pdf'))
+    print(f"  ✓ {len(pages)} páginas → {a.out}")
+    print("    " + " · ".join((p['slug'] or 'index') for p in pages))
+
+if __name__ == '__main__': main()

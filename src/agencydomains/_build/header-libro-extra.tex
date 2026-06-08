@@ -1,0 +1,62 @@
+% Estilo híbrido académico moderno (tipo O'Reilly):
+% Header: título del capítulo (par) / título de sección (impar)
+% Footer: número de página alineado al borde exterior
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % limpia todos los campos
+\fancyhead[LE]{\nouppercase{\small\itshape\leftmark}}
+\fancyhead[RO]{\nouppercase{\small\itshape\rightmark}}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Páginas plain (inicio de capítulo): solo número de página al pie exterior
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[LE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% Páginas en blanco automáticas (forzadas por book class para que cada
+% capítulo inicie en recto): leyenda centrada en gris discreto que aclara
+% al lector que la página no es un error de impresión.
+\makeatletter
+\renewcommand*{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else
+      \thispagestyle{empty}%
+      \vspace*{\fill}%
+      \begin{center}\textcolor{gray!60}{\small\itshape Esta página se dejó intencionalmente en blanco.}\end{center}%
+      \vspace*{\fill}%
+      \newpage
+    \fi
+  \fi
+}
+\makeatother
+
+% --- Fallbacks para caracteres Unicode no presentes en STIX Two Text ---
+% Mapean glifos (≠ → ✓ △ etc.) a sus equivalentes math, que sí están en
+% STIX Two Math. Sin esto, xelatex emite warnings y los caracteres
+% aparecen como cuadrados vacíos en el PDF.
+\usepackage{newunicodechar}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{←}{\ensuremath{\leftarrow}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{⇄}{\ensuremath{\leftrightarrow}}
+\newunicodechar{⟺}{\ensuremath{\Longleftrightarrow}}
+\newunicodechar{⇔}{\ensuremath{\Leftrightarrow}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{✗}{\ensuremath{\times}}
+\newunicodechar{∞}{\ensuremath{\infty}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{△}{\ensuremath{\triangle}}
+\newunicodechar{▲}{\ensuremath{\blacktriangle}}
+\newunicodechar{▼}{\ensuremath{\blacktriangledown}}
+\newunicodechar{▽}{\ensuremath{\bigtriangledown}}
+\newunicodechar{◇}{\ensuremath{\diamond}}
+\newunicodechar{◆}{\ensuremath{\blacklozenge}}

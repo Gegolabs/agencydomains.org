@@ -1,0 +1,22 @@
+# AgencyDomains
+
+> Especificación abierta del Mundo Agentivo (trilogía) e implementación de referencia.
+> Define el AgencyDomain como unidad mínima de despliegue, cuatro capas (Interacción,
+> Cognición, Autonomía, Acceso), y primitivas canónicas: Botlet, Capability,
+> Trust Infrastructure, Faceta. Editado por GegoLabs. Pre-1.0.
+
+## Libros
+
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/agencydomains/agentes.md): el libro destilado para que un agente razone dentro del framework. v0.4.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/agencydomains/llms-full.txt)
+- [AgencyDomains — versión web (humanos)](https://agencydomains.org/agencydomains/): el libro completo, navegable.
+- [AgencyDomains — PDF (humanos)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
+
+## Implementación de referencia
+
+- [Vergis (código, AGPL-3.0)](https://github.com/gegolabs/vergis): el AgencyDomain hecho operativo — Botler + Mira.
+
+## Próximamente
+
+- Postchat · Mundo Agentivo (el destino)
+- Aura · Camino Agentivo (la ruta)

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgencyDomains · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Portada</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p><ol><li><a class="active" href="/agencydomains/">Portada</a><ul class="subtoc"><li><a href="#sobre-este-libro">Sobre este libro</a></li><li><a href="#estructura">Estructura</a></li><li><a href="#quién-debe-leer-este-libro">¿Quién debe leer este libro?</a></li><li><a href="#cómo-citar">Cómo citar</a></li><li><a href="#licencia">Licencia</a></li><li><a href="#información-de-contacto">Información de contacto</a></li></ul></li><li><a class="" href="/agencydomains/prologo/">Prólogo</a></li><li><a class="" href="/agencydomains/prefacio/">Prefacio</a></li><li><a class="" href="/agencydomains/capitulo-1-la-linea-nadella/">Capítulo 1 · La Línea Nadella</a></li><li><a class="" href="/agencydomains/capitulo-2-el-mundo-agentivo/">Capítulo 2 · El Mundo Agentivo</a></li><li><a class="" href="/agencydomains/capitulo-3-bounded-concerns-architecture/">Capítulo 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/agencydomains/capitulo-4-arquitectura-agentiva/">Capítulo 4 · Arquitectura Agentiva</a></li><li><a class="" href="/agencydomains/capitulo-5-primitivas/">Capítulo 5 · Primitivas</a></li><li><a class="" href="/agencydomains/capitulo-6-mercado/">Capítulo 6 · Mercado</a></li><li><a class="" href="/agencydomains/capitulo-7-conocimiento-en-tiempo-real/">Capítulo 7 · Conocimiento en tiempo real</a></li><li><a class="" href="/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/">Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a></li><li><a class="" href="/agencydomains/capitulo-9-vergis-la-implementacion-de-referencia/">Capítulo 9 · Vergis — la implementación de referencia</a></li><li><a class="" href="/agencydomains/epilogo-la-frontera-de-evolucion/">Epílogo · La frontera de evolución</a></li><li><a class="" href="/agencydomains/apendice-a-glosario-canonico/">Apéndice A · Glosario canónico</a></li><li><a class="" href="/agencydomains/apendice-b-referencias/">Apéndice B · Referencias</a></li><li><a class="" href="/agencydomains/colofon-sobre-como-se-escribio-este-libro/">Colofón · Sobre cómo se escribió este libro</a></li></ol></nav>
+<main class="book-main"><article class="book"><section class="book-cover">
+<h1 id="agencydomains">AgencyDomains</h1>
+<h3 id="arquitectura-del-mundo-agentivo">Arquitectura del Mundo
+Agentivo</h3>
+<p><strong>Autor:</strong> César Obach-Renner <strong>Editor:</strong>
+GegoLabs <strong>Edición:</strong> Borrador de desarrollo · Junio 2026 ·
+v0.4 <strong>Licencia:</strong> GNU Free Documentation License v1.3
+<em>(propuesta)</em></p>
+<blockquote>
+<p><strong>Nota sobre la versión.</strong> Este es un <strong>borrador
+de desarrollo pre-1.0</strong>: las referencias y las figuras pueden
+reorganizarse entre iteraciones hasta la versión <strong>1.0</strong>,
+que será la primera publicación pública estable. Comentarios y erratas
+son bienvenidos en el repositorio. El historial de versiones vive en
+<code>CHANGELOG.md</code>.</p>
+</blockquote>
+<h2 id="sobre-este-libro">Sobre este libro</h2>
+<p>La industria de la IA construye agentes con la misma actitud con que
+construyó aplicaciones web en 2005: cada proveedor con su propio stack,
+sin contratos comunes, sin separación clara de responsabilidades.
+Gartner proyecta que más del <strong>cuarenta por ciento de los
+proyectos de IA agentiva serán cancelados antes de fines de
+2027</strong> por costos, valor de negocio poco claro o controles de
+riesgo inadecuados. <strong>Solo el veintiuno por ciento de las
+organizaciones tiene gobernanza madura sobre sus agentes</strong>. La
+causa raíz es estructural: la categoría carece de una arquitectura
+formal compartida — y no tiene un nombre concreto para la unidad mínima
+de despliegue.</p>
+<p>Este libro propone ese nombre y esa arquitectura. La unidad mínima de
+despliegue es el <strong>AgencyDomain</strong> — el ámbito computacional
+donde los agentes habitan, los Botlets ejecutan y la Trust
+Infrastructure se ejerce. Alrededor del AgencyDomain, el libro define un
+paradigma (<strong>el Mundo Agentivo</strong> —
+<em>post-aplicaciones</em>), una arquitectura formal (<strong>cuatro
+capas con responsabilidades distintas</strong>, organizadas en topología
+paralela), un conjunto de primitivas técnicas canónicas
+(<strong>Botlets</strong>, <strong>Capabilities</strong>, <strong>Trust
+Infrastructure</strong>) y un modelo bidimensional para situar a
+cualquier actor en el mercado de IA (<strong>la cadena de valor de
+IA</strong> — once eslabones × cuatro profundidades).</p>
+<p>El libro es <strong>agnóstico a productos</strong>. Las
+construcciones formales aquí descritas admiten múltiples
+implementaciones. La <strong>implementación de referencia
+pública</strong> —Vergis— se desarrolla en el Capítulo 9.</p>
+<h2 id="estructura">Estructura</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capítulo</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prólogo</strong></td>
+<td><em>(por completar)</em></td>
+</tr>
+<tr>
+<td><strong>Prefacio</strong></td>
+<td>Origen del libro · quién debe leerlo · cómo está organizado ·
+términos en inglés</td>
+</tr>
+<tr>
+<td><strong>1 · La Línea Nadella</strong></td>
+<td>La pregunta canónica · Agéntico vs Agentivo · los CEOs · por qué
+importa estratégicamente</td>
+</tr>
+<tr>
+<td><strong>2 · El Mundo Agentivo</strong></td>
+<td>Las consecuencias del cruce · transformación organizacional · la
+nueva economía de la información · datos del campo</td>
+</tr>
+<tr>
+<td><strong>3 · Bounded Concerns Architecture</strong></td>
+<td>El estado pre-agentivo · tres capas y siete separaciones · la
+séptima separación Procedural/Agentic · mapping al Mundo Agentivo</td>
+</tr>
+<tr>
+<td><strong>4 · Arquitectura Agentiva</strong></td>
+<td>Las cuatro capas en topología paralela · <strong>tres tiempos del
+agente</strong> (Preparación · Atención · Ingeniería) · interfaz Capa 2
+↔︎ Capa 3 vía <code>MCP</code> · Trust Infrastructure transversal ·
+principio Agent First · GUI generada on-the-fly · <strong>composición de
+la Capa 1</strong> (shell · vista · operación · <strong>PI multi-vista y
+drill-through</strong>) · <strong>Faceta vs Botlet</strong></td>
+</tr>
+<tr>
+<td><strong>5 · Primitivas</strong></td>
+<td>AgencyDomains (con Capa 3 distribuida + portabilidad) · Botlets (con
+madurez + seed/emergente + <strong>proto-Botlet · manifestación ·
+temporalidad</strong> + Botler genérico) · Capabilities
+(<strong>estricta a Capa 2</strong> + localidad + certificación
+regulatoria + <strong>portabilidad · feature · Conector ·
+Plantilla</strong>) · Trust Infrastructure (con continuidad operacional
++ <strong>contrato declarativo de calidad</strong>) · Asistente vs
+Agente Autónomo · <strong>Facetas (sexta primitiva — Capa 1) ·
+interacción declarada acotada</strong></td>
+</tr>
+<tr>
+<td><strong>6 · Mercado</strong></td>
+<td>Cadena de valor de IA · profundidades y arquetipos · deep-dives por
+eslabón · mundo de carbono</td>
+</tr>
+<tr>
+<td><strong>7 · Aplicaciones canónicas</strong></td>
+<td>Conocimiento en tiempo real · Kimball Barnizada · BI
+conversacional</td>
+</tr>
+<tr>
+<td><strong>8 · Operación</strong></td>
+<td>Trust Infrastructure operacionalizada · CRUDLEX · políticas ·
+continuidad de negocio operacional</td>
+</tr>
+<tr>
+<td><strong>9 · Vergis</strong></td>
+<td>La implementación de referencia · nota de alcance del canon ·
+esquema Vergis · Botler · Mira · qué incluye · production grade · modelo
+de adopción · catálogo común y efectos de red</td>
+</tr>
+<tr>
+<td><strong>Epílogo</strong></td>
+<td>Frontera de evolución · <strong>generaciones del Botlet
+(G1/G2/G3)</strong> · cognición no-LLM · federación · mundo de
+carbono</td>
+</tr>
+<tr>
+<td><strong>Apéndices</strong></td>
+<td>Glosario · referencias</td>
+</tr>
+</tbody>
+</table>
+<!-- FIG:g01-lamina-indice -->
+<figure>
+<img src="/agencydomains/figuras/g01-lamina-indice.png"
+alt="Lámina-índice · los cuatro pilares de la propuesta" />
+<figcaption aria-hidden="true">Lámina-índice · los cuatro pilares de la
+propuesta</figcaption>
+</figure>
+<h2 id="quién-debe-leer-este-libro">¿Quién debe leer este libro?</h2>
+<p>Este libro está dirigido a:</p>
+<ul>
+<li><strong>Arquitectos de sistemas</strong> que diseñan o evalúan
+plataformas agentivas y necesitan un marco común para razonar sobre
+separación de responsabilidades, gobernanza y resiliencia.</li>
+<li><strong>CTOs y líderes técnicos</strong> que deben tomar decisiones
+de stack agentivo en horizonte de tres a cinco años.</li>
+<li><strong>Estrategas y consultores</strong> que asesoran a empresas en
+su tránsito hacia el Mundo Agentivo.</li>
+<li><strong>Investigadores y académicos</strong> interesados en la
+formalización de la arquitectura agentiva como categoría de
+estudio.</li>
+<li><strong>Constructores de productos</strong> que quieren situar su
+contribución en una cadena de valor más amplia que su producto
+particular.</li>
+</ul>
+<p>El libro es introductorio en el sentido de que no asume conocimiento
+previo de implementaciones específicas, pero sí asume familiaridad
+básica con sistemas distribuidos, modelos de lenguaje y operación de
+sistemas en producción.</p>
+<h2 id="cómo-citar">Cómo citar</h2>
+<blockquote>
+<p>Obach-Renner, César. <em>AgencyDomains: arquitectura del Mundo
+Agentivo</em>. Borrador de desarrollo v0.4. GegoLabs, 2026.</p>
+</blockquote>
+<h2 id="licencia">Licencia</h2>
+<p>Este libro se publica bajo <strong>GNU Free Documentation License
+v1.3</strong> (propuesta). El lector puede copiar, distribuir y
+modificar la obra bajo los términos de la licencia. La sección
+invariante es el Prefacio.</p>
+<p>El motivo de la apertura de licenciamiento es deliberado: la
+Arquitectura Agentiva pretende establecer una categoría que sirva al
+ecosistema completo, no a un proveedor particular. Al adoptarla y
+desarrollarla, otras empresas, investigadores y constructores la
+enriquecen y consolidan como estándar de facto. Esto sirve al campo y
+refuerza simultáneamente la autoridad de quienes la acuñaron.</p>
+<h2 id="información-de-contacto">Información de contacto</h2>
+<ul>
+<li><strong>Sitio web:</strong> <a href="https://agencydomains.org"
+class="uri">https://agencydomains.org</a></li>
+<li><strong>Repositorio:</strong> <a
+href="https://github.com/gegolabs/agencydomains.org"
+class="uri">https://github.com/gegolabs/agencydomains.org</a></li>
+<li><strong>Errata y comentarios:</strong> <a
+href="https://github.com/gegolabs/agencydomains.org/issues"
+class="uri">https://github.com/gegolabs/agencydomains.org/issues</a></li>
+</ul>
+
+</section><nav class="prevnext"><a class="nx" href="/agencydomains/prologo/"><span class="dir">Siguiente →</span>Prólogo</a></nav></article></main>
+</div>
+</body>
+</html>

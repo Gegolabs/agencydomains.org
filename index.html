@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgencyDomains · Arquitectura del Mundo Agentivo</title>
+<meta name="description" content="Especificación abierta del Mundo Agentivo e implementación de referencia. El AgencyDomain como unidad mínima de despliegue; Botlet, Capability, Trust Infrastructure.">
+<meta property="og:title" content="AgencyDomains · Arquitectura del Mundo Agentivo">
+<meta property="og:description" content="Especificación abierta del Mundo Agentivo e implementación de referencia.">
+<meta property="og:type" content="website">
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="Índice para modelos (llms.txt)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/agencydomains.css">
+</head>
+<body>
+<main class="wrap">
+
+  <header class="masthead reveal">
+    <p class="eyebrow">Especificación abierta · GegoLabs</p>
+    <h1>AgencyDomains</h1>
+    <p class="deck">Arquitectura del Mundo Agentivo</p>
+  </header>
+
+  <p class="lead reveal">
+    Un marco formal para construir sistemas agentivos productivos: el
+    <strong>AgencyDomain</strong> como unidad mínima de despliegue, cuatro capas con
+    responsabilidades distintas, y un vocabulario canónico de primitivas —
+    <em>Botlet</em>, <em>Capability</em>, <em>Trust Infrastructure</em>, <em>Faceta</em>.
+  </p>
+
+  <section class="section reveal">
+    <h2>La trilogía</h2>
+    <ol class="canon">
+      <li class="work soon">
+        <span class="num">I</span>
+        <div>
+          <h3>Postchat <span class="vol">· Mundo Agentivo</span><span class="tag">próximamente</span></h3>
+          <p class="q">¿A dónde vamos? — el destino.</p>
+        </div>
+      </li>
+      <li class="work soon">
+        <span class="num">II</span>
+        <div>
+          <h3>Aura <span class="vol">· Camino Agentivo</span><span class="tag">próximamente</span></h3>
+          <p class="q">¿Por dónde vamos? — la ruta.</p>
+        </div>
+      </li>
+      <li class="work">
+        <span class="num">III</span>
+        <div>
+          <h3>AgencyDomains <span class="vol">· Arquitectura Agentiva</span><span class="v">v0.4</span></h3>
+          <p class="q">¿Cómo vamos? — el tipo de vehículo.</p>
+          <p class="links">
+            <a href="agencydomains/">Leer en web →</a>
+            <a href="agencydomains/AgencyDomains-v0.4.pdf">PDF</a>
+            <a href="agencydomains/agentes.md">para agentes (.md)</a>
+            <a href="agencydomains/llms-full.txt">.txt</a>
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section prose reveal">
+    <h2>Implementación de referencia</h2>
+    <p><strong>Vergis</strong> — el AgencyDomain hecho operativo: un <em>Botler</em> (runtime
+    genérico de Capa&nbsp;3) que ejecuta <em>Botlets</em>; <em>Mira</em> como proto-Botlet de
+    información. Código abierto bajo <strong>AGPL-3.0</strong>.</p>
+    <p class="links" style="font-family:var(--mono);font-size:.86rem">
+      <a href="https://github.com/gegolabs/vergis">github.com/gegolabs/vergis →</a></p>
+  </section>
+
+  <section class="section prose">
+    <h2>Para máquinas</h2>
+    <p>Índice legible por modelos en <code><a href="llms.txt">/llms.txt</a></code>; manifiesto
+    canónico completo en <code><a href="agencydomains/llms-full.txt">/agencydomains/llms-full.txt</a></code>.
+    El libro es agnóstico a productos y se escribe para que un agente pueda razonar dentro del marco.</p>
+  </section>
+
+  <section class="section prose">
+    <h2>Contribuir</h2>
+    <p>Los libros se publican bajo <strong>GNU&nbsp;FDL&nbsp;v1.3</strong> y su fuente Markdown es
+    pública. Erratas y mejoras vía <em>pull request</em> en
+    <a href="https://github.com/gegolabs/agencydomains.org">el repositorio</a>.</p>
+  </section>
+
+  <footer class="colophon">
+    <strong>AgencyDomains</strong> — Arquitectura del Mundo Agentivo · César Obach-Renner<br>
+    Editado por <strong>GegoLabs</strong> · 2026 · borrador de desarrollo (pre-1.0)<br>
+    Libros: GNU FDL v1.3 · Vergis: AGPL-3.0
+  </footer>
+
+</main>
+</body>
+</html>
