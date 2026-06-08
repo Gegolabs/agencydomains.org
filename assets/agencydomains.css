@@ -60,7 +60,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:560;line-height:1.12;letter-s
 .canon i{display:block;font-style:italic;color:var(--ink-soft);font-size:.92rem;margin-top:.05rem}
 .canon .v{font-family:var(--mono);font-size:.66rem;color:var(--accent);letter-spacing:.08em;vertical-align:.2em;margin-left:.2rem}
 .canon li.soon{opacity:.58}
-.links{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.3rem 1.1rem;font-family:var(--mono);font-size:.8rem}
+.links{margin-top:.45rem;font-family:var(--mono);font-size:.8rem;line-height:1.7;color:var(--faint)}
+.links a{color:var(--ink-soft)}.links a:hover{color:var(--accent)}
 .hfoot{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:flex;flex-direction:column;
   gap:.5rem;font-family:var(--mono);font-size:.78rem}
 .hfoot a{color:var(--ink-soft)} .hfoot a:hover{color:var(--accent)} .hfoot .k{color:var(--faint)}
