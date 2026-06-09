@@ -7,7 +7,8 @@ Publicado en <https://agencydomains.org>. Licencia: **GNU FDL v1.3**.
 
 - `contenido/` — el libro, un archivo por capítulo/sección (orden en `_build/manifest.txt`).
 - `figuras/` — las 51 figuras (PNG).
-- `para-agentes.md` — manifiesto canónico para agentes.
+- `para-agentes.md` — manifiesto canónico para agentes (español).
+- `para-agents.md` — manifiesto canónico para agentes (inglés).
 - `_build/` — scripts de construcción (Markdown único + PDF).
 
 ## Construir

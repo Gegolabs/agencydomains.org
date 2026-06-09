@@ -8,10 +8,12 @@ Publicado en **https://agencydomains.org** vía GitHub Pages.
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` | Landing / hub |
-| `agencydomains/` | El libro **AgencyDomains** publicado: web (`index.html`), `AgencyDomains-v0.4.pdf`, `llms-full.txt`, `agentes.md`, `figuras/` |
+| `index.html` | Landing / hub (EN, default) |
+| `agents.md`, `llms-full.txt` | Manifiesto canónico para agentes — **inglés** (`agents.md` y su alias `.txt`) |
+| `agencydomains/` | El libro **AgencyDomains** publicado: web (`index.html`), `AgencyDomains-v0.4.pdf`, `figuras/` — **español** |
+| `es/` | Landing ES (`index.html`) + manifiesto para agentes en español (`agentes.md`, `llms-full.txt`) |
 | `src/agencydomains/` | **Fuente canónica** del libro (Markdown) — aquí llegan los *pull requests* |
-| `llms.txt` | Índice legible por modelos (convención `llms.txt`) |
+| `llms.txt`, `es/llms.txt` | Índices legibles por modelos (convención `llms.txt`) — EN y ES |
 | `aura/`, `postchat/` | Los otros dos libros de la trilogía (próximamente) |
 
 ## Contribuir

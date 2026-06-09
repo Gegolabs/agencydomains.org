@@ -3,14 +3,15 @@
 > The formal architecture of the Agentive World. An open specification for building agentic and
 > agentive AI in production: the AgencyDomain as the minimal unit of deployment; four layers
 > (Interaction, Cognition, Autonomy, Access); canonical primitives — Botlet, Capability,
-> Trust Infrastructure, Faceta. Edited by GegoLabs. Pre-1.0.
-> Note: the book is currently published in Spanish; the English edition is in progress.
+> Trust Infrastructure, Facet. Edited by GegoLabs. Pre-1.0.
 
 ## The book
 
-- [AgencyDomains — canonical manifesto for agents (Spanish, Markdown)](https://agencydomains.org/agencydomains/agentes.md): the book distilled for an agent to reason within the framework. v0.4.
-- [AgencyDomains — web edition (Spanish)](https://agencydomains.org/agencydomains/)
+- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/agents.md): the book distilled for an agent to reason within the framework. v0.4.
+- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/llms-full.txt)
+- [AgencyDomains — web edition (Spanish)](https://agencydomains.org/agencydomains/): the full book, navigable. English edition in progress.
 - [AgencyDomains — PDF (Spanish)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
+- [AgencyDomains — manifiesto para agentes (Spanish)](https://agencydomains.org/es/agentes.md)
 
 ## Reference implementation
 
@@ -20,4 +21,4 @@
 
 - Postchat · The Agentive World (the destination)
 - Aura · The Agentive Path (the route)
-- English edition of the book
+- English edition of the full human book

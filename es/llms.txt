@@ -7,8 +7,8 @@
 
 ## Libros
 
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/agencydomains/agentes.md): el libro destilado para que un agente razone dentro del framework. v0.4.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/agencydomains/llms-full.txt)
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/agentes.md): el libro destilado para que un agente razone dentro del framework. v0.4.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/llms-full.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/agencydomains/): el libro completo, navegable.
 - [AgencyDomains — PDF (humanos)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
 
