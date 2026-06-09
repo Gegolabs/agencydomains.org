@@ -9,9 +9,9 @@
 
 - [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/agents.md): the book distilled for an agent to reason within the framework. v0.4.
 - [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/llms-full.txt)
-- [AgencyDomains — web edition (Spanish)](https://agencydomains.org/agencydomains/): the full book, navigable. English edition in progress.
-- [AgencyDomains — PDF (Spanish)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
-- [AgencyDomains — manifiesto para agentes (Spanish)](https://agencydomains.org/es/agentes.md)
+- [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable. (Figures are still in Spanish; their English versions are forthcoming.)
+- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4.pdf)
+- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.4.pdf) · [agents manifest](https://agencydomains.org/es/agentes.md)
 
 ## Reference implementation
 
@@ -21,4 +21,3 @@
 
 - Postchat · The Agentive World (the destination)
 - Aura · The Agentive Path (the route)
-- English edition of the full human book

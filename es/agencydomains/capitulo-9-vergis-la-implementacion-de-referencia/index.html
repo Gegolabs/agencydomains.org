@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 9 · Vergis — la implementación de referencia · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Capítulo 9 · Vergis — la implementación de referencia</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p><ol><li><a class="" href="/es/agencydomains/">Portada</a></li><li><a class="" href="/es/agencydomains/prologo/">Prólogo</a></li><li><a class="" href="/es/agencydomains/prefacio/">Prefacio</a></li><li><a class="" href="/es/agencydomains/capitulo-1-la-linea-nadella/">Capítulo 1 · La Línea Nadella</a></li><li><a class="" href="/es/agencydomains/capitulo-2-el-mundo-agentivo/">Capítulo 2 · El Mundo Agentivo</a></li><li><a class="" href="/es/agencydomains/capitulo-3-bounded-concerns-architecture/">Capítulo 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/es/agencydomains/capitulo-4-arquitectura-agentiva/">Capítulo 4 · Arquitectura Agentiva</a></li><li><a class="" href="/es/agencydomains/capitulo-5-primitivas/">Capítulo 5 · Primitivas</a></li><li><a class="" href="/es/agencydomains/capitulo-6-mercado/">Capítulo 6 · Mercado</a></li><li><a class="" href="/es/agencydomains/capitulo-7-conocimiento-en-tiempo-real/">Capítulo 7 · Conocimiento en tiempo real</a></li><li><a class="" href="/es/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/">Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a></li><li><a class="active" href="/es/agencydomains/capitulo-9-vergis-la-implementacion-de-referencia/">Capítulo 9 · Vergis — la implementación de referencia</a><ul class="subtoc"><li><a href="#nota-de-alcance-del-canon">Nota de alcance del canon</a></li><li><a href="#qué-es-y-por-qué-existe">¿Qué es y por qué existe?</a></li><li><a href="#dónde-vive">¿Dónde vive?</a></li><li><a href="#cómo-se-nombran-las-piezas-vergis-botler-mira">¿Cómo se nombran
+las piezas? — Vergis · Botler · Mira</a></li><li><a href="#qué-incluye">¿Qué incluye?</a></li><li><a href="#por-qué-es-production-grade">¿Por qué es production grade?</a></li><li><a href="#cómo-se-adopta-el-modelo">¿Cómo se adopta? — el modelo</a></li><li><a href="#cómo-crece-el-catálogo-catálogo-común-y-efectos-de-red">¿Cómo
+crece el catálogo? — catálogo común y efectos de red</a></li><li><a href="#cómo-se-contribuye">¿Cómo se contribuye?</a></li><li><a href="#conviven-la-referencia-y-los-códices-propietarios">¿Conviven la
+referencia y los códices propietarios?</a></li><li><a href="#conformidad">Conformidad</a></li><li><a href="#frontera-de-evolución">Frontera de evolución</a></li></ul></li><li><a class="" href="/es/agencydomains/epilogo-la-frontera-de-evolucion/">Epílogo · La frontera de evolución</a></li><li><a class="" href="/es/agencydomains/apendice-a-glosario-canonico/">Apéndice A · Glosario canónico</a></li><li><a class="" href="/es/agencydomains/apendice-b-referencias/">Apéndice B · Referencias</a></li><li><a class="" href="/es/agencydomains/colofon-sobre-como-se-escribio-este-libro/">Colofón · Sobre cómo se escribió este libro</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="capítulo-9-vergis-la-implementación-de-referencia">Capítulo 9 ·
+Vergis — la implementación de referencia</h1>
+<p>Los capítulos anteriores entregaron una especificación: primitivas,
+propiedades exigidas, separaciones canónicas, contratos declarativos.
+Una especificación, por precisa que sea, no es un sistema vivo. Entre el
+contrato y la práctica hay un salto que cada lector externo intuye al
+cerrar el último capítulo de la spec: <em>“¿cómo se ve esto cuando
+funciona?”</em>. Esta es la sección que responde esa pregunta con un
+artefacto concreto, descargable y ejecutable.</p>
+<h2 id="nota-de-alcance-del-canon">Nota de alcance del canon</h2>
+<p>Conviene fijar primero qué es y qué no es este canon, porque la
+respuesta delimita el rol de todo lo que sigue.</p>
+<blockquote>
+<p>Este canon contiene la <strong>estructura y el vocabulario</strong>
+del Mundo Agentivo: definiciones, primitivas, propiedades exigidas,
+separaciones canónicas. <strong>No contiene métodos para implementar ni
+catálogos operacionales</strong> — esos viven en cuerpos
+complementarios. La implementación de referencia pública es
+<strong>AgencyDomains.org</strong>, materializada en
+<strong>Vergis</strong>: diseñada para que cualquier desarrollador o
+estudiante pueda descargarla, leerla, ejecutarla y aprender cómo el
+canon se traduce en sistemas vivos. Otros implementadores —productos
+comerciales, códices propietarios— ofrecen sus propios cuerpos
+complementarios sobre la misma estructura canónica.</p>
+</blockquote>
+<p>La separación es deliberada. El canon describe <em>qué</em>
+propiedades satisface un AgencyDomain conforme; no prescribe
+<em>cómo</em> se descubre un caso de uso, <em>cómo</em> se forja un
+proto-Botlet, ni <em>qué</em> proto-Botlets concretos debe contener un
+catálogo. Esos son método y catálogo — materia de los cuerpos
+complementarios. Sin esta nota, el lector se preguntaría por qué la spec
+no incluye un capítulo sobre Discovery o un repertorio de proto-Botlets
+listos. No los incluye porque no le corresponden: pertenecen al nivel de
+la implementación, y la implementación de referencia es donde se vuelven
+visibles.</p>
+<p>Esta nota acota el eje <em>canon vs implementación de referencia</em>
+— qué pertenece a la spec y qué a quien la implementa. Es distinta de la
+declaración de <strong>lo que el libro deliberadamente omite</strong>
+(verticales detallados, código operativo, análisis de ROI por stack),
+que vive en el Epílogo, sección “Lo que NO está en este libro”.</p>
+<h2 id="qué-es-y-por-qué-existe">¿Qué es y por qué existe?</h2>
+<p><strong>Vergis</strong> es la implementación de referencia pública de
+AgencyDomains — el AgencyDomain hecho operativo. Es el puente concreto
+entre el canon y la práctica: un sistema que cualquiera puede descargar,
+leer, ejecutar y contribuir, construido para demostrar que las
+primitivas de la spec no son teoría sino piezas que componen un runtime
+que funciona.</p>
+<p>Una especificación sin implementación de referencia corre el riesgo
+de quedar como ejercicio formal sin tracción. La implementación de
+referencia cumple cuatro funciones que el texto del canon por sí solo no
+puede cumplir. Da al lector externo una <strong>puerta de entrada
+concreta</strong> después de leer la spec. Prueba que el canon es
+<strong>implementable</strong> —la implementación es la prueba viva—.
+Habilita un <strong>modelo de adopción claro</strong>: descargar,
+operar, extender, contribuir. Y ancla el vocabulario abstracto en
+componentes que se pueden inspeccionar línea a línea.</p>
+<p>Vergis no es tutorial ni juguete pedagógico. Es el sustrato sobre el
+que corren sistemas productivos. Esa cualidad —que se desarrolla más
+abajo— es lo que distingue una implementación de referencia seria de una
+colección de ejemplos.</p>
+<h2 id="dónde-vive">¿Dónde vive?</h2>
+<p>Vergis vive en <strong>AgencyDomains.org</strong>, en un repositorio
+público. El código se distribuye bajo <strong><code>AGPL</code></strong>
+(Affero General Public License); la documentación, bajo
+<strong><code>GFDL</code></strong> (GNU Free Documentation License).</p>
+<p>La elección de licencias es estructural, no incidental. La
+<code>AGPL</code> garantiza que las mejoras al runtime —incluidas las
+que operan como servicio de red— permanezcan disponibles para la
+comunidad: quien despliega una versión modificada de Vergis y la ofrece
+por red MUST publicar su fuente. La <code>GFDL</code> mantiene la
+documentación libre y derivable. Juntas, sostienen la promesa de una
+base común que ningún actor puede cerrar: la plataforma de referencia
+permanece abierta aunque los catálogos que se construyan sobre ella sean
+privados.</p>
+<h2 id="cómo-se-nombran-las-piezas-vergis-botler-mira">¿Cómo se nombran
+las piezas? — Vergis · Botler · Mira</h2>
+<p>Tres etiquetas de <strong>naturaleza distinta</strong> intervienen en
+la implementación de referencia. Confundir su naturaleza —en particular,
+confundir un tipo con un nombre propio— oscurece la arquitectura. El
+esquema:</p>
+<!-- FIG:g49-vergis-botler-mira -->
+<figure>
+<img src="/es/agencydomains/figuras/g49-vergis-botler-mira.png"
+alt="Vergis · Botler · Mira — tipo vs nombre propio" />
+<figcaption aria-hidden="true">Vergis · Botler · Mira — tipo vs nombre
+propio</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 65%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capa</th>
+<th>Tipo · categoría / primitiva canónica</th>
+<th>Nombre propio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plataforma · <em>Meta-Cognitive Platform</em></td>
+<td>implementación de referencia de AgencyDomains (el AgencyDomain hecho
+operativo)</td>
+<td><strong>Vergis</strong></td>
+</tr>
+<tr>
+<td>Runtime de Capa 3</td>
+<td><strong>Botler</strong> (primitiva canónica)</td>
+<td>— <em>(genérico; “el Botler”. La build de Vergis no le pone nombre
+propio.)</em></td>
+</tr>
+<tr>
+<td>Componente del catálogo</td>
+<td>proto-Botlet platafórmico de operación informativa</td>
+<td><strong>Mira</strong></td>
+</tr>
+</tbody>
+</table>
+<p>La distinción tipo / nombre propio:</p>
+<ul>
+<li><strong>Botler</strong> es un <strong>tipo</strong> — una primitiva
+del canon, junto a AgencyDomain, Botlet, Capability y Faceta. Cualquier
+runtime de Capa 3 conforme <em>es un</em> Botler. No es nombre propio;
+el Botler que Vergis empaqueta es “el Botler” genérico, sin nombre de
+instancia.</li>
+<li><strong>Vergis</strong> y <strong>Mira</strong> son <strong>nombres
+propios</strong> de instancias específicas — viven en el mismo cajón que
+Soveria, Agentia o ultraPRO. Vergis nombra <em>esta</em> plataforma;
+Mira nombra <em>este</em> proto-Botlet del catálogo.</li>
+</ul>
+<p>Por categoría, Vergis es una <strong>Meta-Cognitive
+Platform</strong>: no realiza la cognición de objeto —eso es la Capa 2—,
+sino que <strong>administra la economía de la cognición</strong>. Decide
+cuándo el agente corre con músculo pre-forjado (G1) y cuándo invoca
+cognición fresca (fallback), gestiona el ciclo <code>95/4/1</code>, la
+maduración junior→senior y la cristalización de experiencia en
+estructura reutilizable. Eso es metacognición en sentido preciso:
+monitoreo y control de los procesos cognitivos.</p>
+<blockquote>
+<p>El descriptor <strong>Meta-Cognitive Platform</strong> <strong>MUST
+NOT</strong> abreviarse a <code>MCP</code>. En el espacio agentivo
+actual, <code>MCP</code> nombra el <strong>Model Context
+Protocol</strong>; la sigla está tomada. El descriptor se usa
+deletreado.</p>
+</blockquote>
+<p>El nombre <strong>Vergis</strong> proviene de <em>Caprica</em>
+(universo <em>Battlestar Galactica</em>): Tomas Vergis fue el inventor
+legítimo del Meta-Cognitive Processor, la pieza que dio independencia
+cognitiva a las máquinas. El nombre reclama la metacognición para su
+fuente legítima. Y carga, de fábrica, el principio de diseño que
+gobierna la plataforma: en aquel relato, el sustrato metacognitivo
+<strong>nunca funcionó hasta fusionarse con una consciencia
+viva</strong>. El sustrato es <strong>inerte hasta que algo lo
+anima</strong> — el principio “aliento de vida”: Vergis cobra vida solo
+cuando Mira y los agentes lo animan. La plataforma, por sí sola, es
+músculo en reposo; la cognición y los Botlets son lo que la
+actualizan.</p>
+<h2 id="qué-incluye">¿Qué incluye?</h2>
+<p>Vergis empaqueta un conjunto inicial de componentes. Cada uno
+materializa una primitiva canónica, y se nombra aquí citándola:</p>
+<ul>
+<li><strong>Contrato abstracto del Botler</strong> — la primitiva
+runtime de <strong>Capa 3</strong> (§5). El Botler de Vergis es genérico
+por definición: gestiona ciclo de vida, aislamiento y ejecución de
+<em>cualquier</em> Botlet sin entender su dominio. Expone los puntos de
+control —<code>capability_call</code>, <code>log</code>— en los que se
+enchufan los especialistas, y hace valer la validación de cada spec
+orquestando el punto de validación que el tipo de Botlet provee, sin
+ejecutarla con conocimiento de dominio.</li>
+<li><strong>Mira</strong> — un <strong>proto-Botlet
+platafórmico</strong> (§5) de operación informativa. Su código es
+genérico —el motor compartido—; su especialización vive en una
+configuración composicional que el agente rellena en tiempo de
+Ingeniería. Cada Producto de Información es su propio Botlet, instancia
+especializada del motor común. Mira opera en <strong>G1</strong>: el
+agente configura, no escribe el cuerpo del motor.</li>
+<li><strong>Conjunto starter de Capabilities</strong> — un repertorio
+mínimo de <strong>Capabilities</strong> canónicas (§5, sentido estricto:
+saber-hacer cognitivo de Capa 2) y los <strong>Conectores</strong> (Capa
+4) que las alimentan, suficiente para componer los ejemplos.</li>
+<li><strong>Plantillas de Trust Infrastructure</strong> — esqueletos del
+eje transversal (§5): políticas, append-only log, contrato declarativo
+de calidad (Frescura · SLA · Política de degradación · Audiencia ·
+Política de refresh) que cualquier Botlet conforme puede declarar.</li>
+<li><strong>Ejemplos ejecutables</strong> — casos completos y
+anonimizados que recorren la cadena de derivación
+<code>caso de uso → Botlets → proto-Botlets</code> y muestran las piezas
+operando juntas.</li>
+</ul>
+<h2 id="por-qué-es-production-grade">¿Por qué es production grade?</h2>
+<p>La implementación de referencia no es código didáctico ni prototipo.
+Es el <strong>mismo runtime</strong> que opera los productos comerciales
+del Grupo Ultra —<strong>Agentia</strong>, <strong>Soveria</strong>,
+<strong>ultraPRO</strong>— en operación productiva.</p>
+<p>La diferencia entre Vergis público y esos productos <strong>no es la
+calidad del código</strong>, sino el <strong>catálogo</strong>. Los
+productos consumen la implementación de referencia pública <strong>más
+un códice propietario</strong> —en el caso del Grupo Ultra,
+<strong>ucodex</strong>— que cura proto-Botlets, Capabilities y patrones
+refinados por casos reales. El runtime es el mismo; lo que cambia es el
+repertorio pre-forjado que cada uno trae y el método con que lo forja y
+mantiene.</p>
+<p>Esto importa para el lector que evalúa adoptar el canon. Descargar
+Vergis no es descargar una demo que habrá que reescribir para
+producción: es descargar la base sobre la que ya corren sistemas
+productivos. La ruta de un implementador no es “aprender con la
+referencia y luego comprar lo serio”, sino “operar la referencia y curar
+el catálogo que el propio caso exige”.</p>
+<h2 id="cómo-se-adopta-el-modelo">¿Cómo se adopta? — el modelo</h2>
+<p>El modelo de adopción es replicable por cualquier implementador, sin
+permiso ni contrato con un actor central:</p>
+<ol type="1">
+<li><strong>Consume</strong> la implementación de referencia pública
+(Vergis, <code>AGPL</code>).</li>
+<li><strong>Cura</strong> su propio códice — su catálogo privado de
+proto-Botlets, Capabilities y patrones, refinado por sus casos.</li>
+<li><strong>Ofrece</strong> sus propios productos sobre esa base.</li>
+</ol>
+<p>AgencyDomains.org <strong>no es propiedad de un actor</strong>: es
+base común. El Grupo Ultra es un adoptante más —con ucodex como su
+códice—, no el dueño de la plataforma de referencia. Cualquier otro
+implementador puede recorrer el mismo camino con un códice distinto. La
+spec pretende ser estándar de industria, no propiedad intelectual de un
+proveedor; la implementación de referencia hereda esa pretensión.</p>
+<h2 id="cómo-crece-el-catálogo-catálogo-común-y-efectos-de-red">¿Cómo
+crece el catálogo? — catálogo común y efectos de red</h2>
+<p>Los proto-Botlets se acumulan en <strong>catálogos
+compartidos</strong> por comunidades de implementadores. Cada
+implementador que consume un proto-Botlet contribuye a su maduración:
+variantes nuevas, configuraciones probadas, refinamientos. Mientras más
+implementadores consumen un proto-Botlet, más rápido madura, más casos
+cubre y más confiable se vuelve. El implementador n+1 recibe versiones
+refinadas por los implementadores 1 a n — un efecto de red sobre la
+capacidad operativa.</p>
+<p>Un catálogo no es necesariamente público. La pertenencia a una
+comunidad de catálogo admite cuatro <strong>modos</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr>
+<th>Modo</th>
+<th>¿Qué es?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrato privado</strong></td>
+<td>Catálogo cerrado entre un cliente y su proveedor.</td>
+</tr>
+<tr>
+<td><strong>Códice propietario</strong></td>
+<td>Un implementador mantiene su catálogo privado curado (p. ej.
+ucodex).</td>
+</tr>
+<tr>
+<td><strong>Catálogo público abierto</strong></td>
+<td>AgencyDomains.org como ejemplar: cualquier implementador consume y
+contribuye.</td>
+</tr>
+<tr>
+<td><strong>Acuerdo soberano</strong></td>
+<td>AgencyDomains que adoptan estándares comunes sin contrato comercial
+directo.</td>
+</tr>
+</tbody>
+</table>
+<p>Los cuatro modos coexisten sobre la misma estructura canónica. Un
+proto-Botlet puede nacer en un códice propietario, madurar contra casos
+reales y promoverse al catálogo público cuando su naturaleza es
+estructural y no metodológica; o permanecer privado si encapsula ventaja
+competitiva. La estructura es común; la curaduría es de cada quien.</p>
+<h2 id="cómo-se-contribuye">¿Cómo se contribuye?</h2>
+<p>La contribución a Vergis se gobierna por un proceso de propuestas
+público. A alto nivel:</p>
+<ul>
+<li>Una contribución <strong>SHOULD</strong> llegar como propuesta
+trazable —issue o request— antes que como código terminado, para que la
+discusión de diseño preceda a la implementación.</li>
+<li>Lo que se acepta es lo <strong>estructural y reusable</strong>:
+proto-Botlets de valor general, Capabilities canónicas, Conectores,
+refinamientos al contrato del Botler, mejoras al contrato declarativo de
+calidad.</li>
+<li>Lo que <strong>no</strong> sube a la referencia pública es el
+<strong>método</strong> y el <strong>catálogo propietario</strong>: cómo
+una organización particular hace Discovery, cura su códice o forja sus
+proto-Botlets de nicho. Eso vive en los cuerpos complementarios de cada
+implementador.</li>
+<li>El criterio de admisión es el mismo que separa canon de
+implementación: <em>¿es necesario para describir o ejecutar cualquier
+implementación conforme, o es una de N maneras posibles de hacerlo?</em>
+Lo primero pertenece a la referencia; lo segundo, a un códice.</li>
+</ul>
+<p>Toda contribución aceptada queda bajo <code>AGPL</code> (código) y
+<code>GFDL</code> (docs), heredando la apertura de la base.</p>
+<h2 id="conviven-la-referencia-y-los-códices-propietarios">¿Conviven la
+referencia y los códices propietarios?</h2>
+<p>Sí, y sin tensión. La relación entre la implementación de referencia
+pública y los códices propietarios es <strong>armónica por
+diseño</strong>, no un equilibrio precario.</p>
+<p>El runtime es común; el catálogo es propio. Un códice propietario no
+compite con Vergis: lo <strong>consume</strong> y lo
+<strong>extiende</strong>. Las mejoras al runtime fluyen hacia la base
+pública por la mecánica de la <code>AGPL</code>; las mejoras al catálogo
+permanecen donde su dueño decida, según el modo de pertenencia que
+elija. Un implementador no enfrenta la disyuntiva “abierto o cerrado”:
+opera abierto en la base y elige, proto-Botlet a proto-Botlet, qué cura
+en público y qué retiene en su códice.</p>
+<p>Esta coexistencia es la que hace sostenible el ecosistema. La base
+común evita que cada implementador reinvente el runtime; el catálogo
+propio preserva el espacio donde cada uno construye su ventaja. Sin la
+base común no habría interoperabilidad; sin catálogos propios no habría
+incentivo a invertir en curaduría profunda. La implementación de
+referencia sostiene ambos.</p>
+<h2 id="conformidad">Conformidad</h2>
+<p>Un sistema que pretenda presentarse como <strong>implementación de
+referencia conforme</strong> de AgencyDomains —no meramente como
+AgencyDomain conforme (§5)— satisface, además de los <code>MUST</code>
+de la spec, los siguientes requisitos. Convención IETF:
+<code>MUST</code> obligatorio, <code>SHOULD</code> fuertemente
+recomendado, <code>MAY</code> opcional.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Nivel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disponible públicamente, descargable y ejecutable</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Código bajo licencia libre con copyleft de red
+(<code>AGPL</code>)</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Documentación bajo licencia libre (<code>GFDL</code>)</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Botler genérico, sin especialización por dominio</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Al menos un proto-Botlet platafórmico del catálogo, operando en
+G1</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Cadena de derivación trazable en sus ejemplos
+(<code>caso → Botlets → proto-Botlets</code>)</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Contrato declarativo de calidad en los Botlets de ejemplo</td>
+<td><strong>SHOULD</strong></td>
+</tr>
+<tr>
+<td>Proceso de contribución público y gobernado</td>
+<td><strong>SHOULD</strong></td>
+</tr>
+<tr>
+<td>Conjunto starter de Capabilities y Conectores</td>
+<td><strong>SHOULD</strong></td>
+</tr>
+<tr>
+<td>Catálogo público abierto con efectos de red activos</td>
+<td><strong>MAY</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Una implementación de referencia que cumple todos los
+<code>MUST</code> es la prueba viva de que el canon es ejecutable.
+Vergis es tal implementación.</p>
+<h2 id="frontera-de-evolución">Frontera de evolución</h2>
+<p>Tres áreas de la implementación de referencia están en evolución
+activa, en correspondencia con las fronteras de la spec misma.</p>
+<p>La <strong>generación operativa</strong> es la primera. Vergis opera
+hoy en <strong>G1</strong>: el agente configura proto-Botlets
+pre-forjados del catálogo. La migración incremental hacia G2 y el
+horizonte asintótico G3 no exigen re-arquitectura; exigen que el estado
+del arte de la cognición avance. La referencia evolucionará su alcance
+de Ingeniería sin reescribir su estructura. La definición de las
+generaciones G1/G2/G3 vive en el Epílogo (y se ancla en el Capítulo 5
+§2); aquí solo se sitúa a Vergis dentro de ellas.</p>
+<p>La <strong>federación de catálogos</strong> es la segunda. Los modos
+de pertenencia están descritos; el protocolo concreto por el cual
+catálogos soberanos descubren, versionan y reconcilian proto-Botlets
+entre sí es trabajo abierto, en correspondencia con la frontera de
+federación entre AgencyDomains.</p>
+<p>La <strong>amplitud del catálogo público</strong> es la tercera. El
+conjunto starter cubre lo necesario para los ejemplos; el catálogo
+público crecerá por contribución de la comunidad, y su maduración
+seguirá la dinámica de efectos de red descrita arriba. La velocidad de
+ese crecimiento depende de la comunidad de implementadores, no de un
+plan central.</p>
+
+<nav class="prevnext"><a href="/es/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/"><span class="dir">← Anterior</span>Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a><a class="nx" href="/es/agencydomains/epilogo-la-frontera-de-evolucion/"><span class="dir">Siguiente →</span>Epílogo · La frontera de evolución</a></nav></article></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6 · Market · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Chapter 6 · Market</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Book contents"><p class="nav-label">The book · v0.4</p><ol><li><a class="" href="/agencydomains/">Cover</a></li><li><a class="" href="/agencydomains/prologue/">Prologue</a></li><li><a class="" href="/agencydomains/preface/">Preface</a></li><li><a class="" href="/agencydomains/chapter-1-the-nadella-line/">Chapter 1 · The Nadella Line</a></li><li><a class="" href="/agencydomains/chapter-2-the-agentive-world/">Chapter 2 · The Agentive World</a></li><li><a class="" href="/agencydomains/chapter-3-bounded-concerns-architecture/">Chapter 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/agencydomains/chapter-4-agentive-architecture/">Chapter 4 · Agentive Architecture</a></li><li><a class="" href="/agencydomains/chapter-5-primitives/">Chapter 5 · Primitives</a></li><li><a class="active" href="/agencydomains/chapter-6-market/">Chapter 6 · Market</a><ul class="subtoc"><li><a href="#the-ai-value-chain">The AI value chain</a></li><li><a href="#deep-dive-observability-link-8">Deep-dive · Observability (link
+8)</a></li><li><a href="#carbon-world-link-11">Carbon World · link 11</a></li></ul></li><li><a class="" href="/agencydomains/chapter-7-real-time-knowledge/">Chapter 7 · Real-time knowledge</a></li><li><a class="" href="/agencydomains/chapter-8-trust-infrastructure-operationalized-policies-and-crudlex/">Chapter 8 · Trust Infrastructure operationalized — policies and CRUDLEX</a></li><li><a class="" href="/agencydomains/chapter-9-vergis-the-reference-implementation/">Chapter 9 · Vergis — the reference implementation</a></li><li><a class="" href="/agencydomains/epilogue-the-evolution-frontier/">Epilogue · The Evolution Frontier</a></li><li><a class="" href="/agencydomains/appendix-a-canonical-glossary/">Appendix A · Canonical glossary</a></li><li><a class="" href="/agencydomains/appendix-b-references/">Appendix B · References</a></li><li><a class="" href="/agencydomains/colophon-on-how-this-book-was-written/">Colophon · On how this book was written</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="chapter-6-market">Chapter 6 · Market</h1>
+<p>An architecture does not live in a vacuum: it competes in a market.
+This chapter situates any actor by means of the <strong>AI value
+chain</strong> —eleven links × four depths—, drills into select links
+with <em>deep-dives</em>, and extends the model to the <strong>Carbon
+World</strong>. §1 develops the general model; the sections that follow
+apply it.</p>
+<h2 id="the-ai-value-chain">The AI value chain</h2>
+<blockquote>
+<p><strong>Note on the datability of the products mentioned.</strong>
+The listings of specific products in this chapter describe the state of
+the agentive AI market as of <strong>May 2026</strong>. The conceptual
+structure of the value chain’s links is stable; the actors listed are
+illustrative of the moment. Later readings should take the names as a
+snapshot, not as permanent coverage.</p>
+</blockquote>
+<p>The Artificial Intelligence industry presents itself, as of May 2026,
+as a dense ecosystem where dozens of products, platforms, and frameworks
+compete and coexist. Without a clear classification model, it becomes
+difficult to answer the fundamental questions any serious executive,
+architect, or strategist asks when facing the field: where does each
+actor play? which links does it dominate? where is there concentration
+and where is there room? in what territory does my proposal compete, and
+against whom?</p>
+<p>The fragmentation of the field is no accident. It is the result of
+explosive growth where each new entrant builds its own category, chooses
+its own vocabulary, defines its own positioning. The consumer — be it an
+enterprise buyer, a market analyst, an investor — ends up overwhelmed by
+a language that each actor molds to its own convenience. <em>Agent
+platform, AI gateway, LLM framework, agentive infrastructure, autonomous
+agent, vertical assistant, model marketplace</em> — all terms that
+circulate without precise definition, all terms that different vendors
+use with different meanings.</p>
+<p>This chapter proposes a map that disciplines that conversation. The
+map does not resolve every ambiguity in the field — the industry is too
+young for a single map to capture all its complexity —, but it delivers
+a shareable frame: a precise language that allows one to situate any
+actor in its position, compare actors with one another, and reason about
+a particular product’s strategy relative to the broader field. The map
+that follows is the <strong>AI value chain</strong>, in its
+two-dimensional version. It is an original contribution of this book,
+derived from the author’s prior work conceptualizing the field, and it
+is offered as an open tool for the industry, not as proprietary
+intellectual property.</p>
+<h3 id="the-two-dimensions">The two dimensions</h3>
+<p>The model organizes the AI technology value chain along <strong>two
+dimensions</strong>. The two dimensions operate orthogonally — an actor
+situates itself on each one independently —, and the combination of the
+two produces the positioning space where the actor lives. The two
+dimensions are <strong>coverage</strong> and <strong>depth</strong>.</p>
+<p><strong>Coverage</strong> is the horizontal dimension: which links of
+the value chain the actor touches. An actor may touch a single one,
+several, or many. Coverage is a metric of <strong>reach</strong> — how
+much of the field’s territory the actor operates. An actor with broad
+coverage touches many links; an actor with focal coverage touches one or
+a few.</p>
+<p><strong>Depth</strong> is the vertical dimension: with what level of
+control the actor operates within each link. An actor may consume a link
+superficially — using third-party APIs — or build the link deeply —
+manufacturing the base technology. Depth is a metric of
+<strong>control</strong> — how much of the link the actor dominates. An
+actor with shallow depth depends on underlying providers; an actor with
+deep depth builds the substrate on which others operate.</p>
+<p>Each actor can position itself in one or more links, at different
+depths in each one. A single actor may operate at Core depth in its
+native link and at Platform depth in adjacent links — a common pattern
+in the contemporary market.</p>
+<p>The result is a <strong>map that allows one</strong> to classify any
+AI product by the links it spans, compare actors by coverage and depth
+in the chain, identify zones of concentration and zones of opportunity,
+and strategically position one’s own products against the market.</p>
+<h3 id="the-eleven-links">The eleven links</h3>
+<!-- FIG:g33-once-eslabones -->
+<figure>
+<img src="/agencydomains/figuras/g33-once-eslabones.png"
+alt="The eleven links of the AI value chain" />
+<figcaption aria-hidden="true">The eleven links of the AI value
+chain</figcaption>
+</figure>
+<p>The AI value chain decomposes into eleven sequential links, each with
+a clear and separable function. The separation is not arbitrary: each
+link corresponds to a distinct functional capability that an actor can
+operate independently, with its own economics and competitive
+dynamics.</p>
+<p>We lay out each link with its functional description. The sequence is
+not linear in the sense that a data process passes through all the links
+in order, but it does reflect a conceptual progression from the field’s
+raw material (data) to where the agent touches the real world (the
+environment).</p>
+<p><strong>Link 1 · Data</strong> (Data Layer). Acquisition, annotation,
+management of training datasets. It is the raw material that feeds the
+foundation models. The actors in this link produce curated datasets,
+annotation tools, large-scale data-processing pipelines. Without this
+link, the models do not exist.</p>
+<p><strong>Link 2 · Model</strong> (Foundation Model). Base AI models:
+LLMs and multimodal models that provide fundamental capabilities of
+language, reasoning, and generation. It is where the great labs —
+OpenAI, Anthropic, Google, Meta, DeepSeek — concentrate capacity. The
+actors here build the models that the rest of the field consumes.</p>
+<p><strong>Link 3 · Access</strong> (Access Layer). APIs and model
+access layers. Quota control, authentication, and monetization of
+consumption. It is where inference is sold as a service: OpenAI’s,
+Anthropic’s APIs, AWS Bedrock, Google’s Vertex AI. It is also where
+products such as model gateways (Portkey) operate, offering abstraction
+over multiple models.</p>
+<p><strong>Link 4 · Agents</strong> (AI Agents). Conversational
+interfaces and assistants. From reactive agents — chat — to autonomous
+agents capable of executing complex tasks. It is where the most visible
+products appear: ChatGPT, Claude, GPT-4 with plugins, orchestrated agent
+systems.</p>
+<p><strong>Link 5 · Specializations</strong> (Domain Experts).
+Autonomous agents specialized by vertical domain: coding, legal,
+marketing, support, productivity, professional-work memory. It is where
+the vertical specialists appear: Cursor for coding, Harvey for legal,
+Jasper for marketing, Fin for customer support, umeeta for the memory of
+consulting engagements. The difference from link 4 is one of know-how
+depth in a specific domain.</p>
+<p><strong>Link 6 · Runtime</strong> (Agent Runtime). The operational
+environment where agents live and operate autonomously. Lifecycle, state
+persistence, identity, scheduling, and multi-agent orchestration. It is
+where Layer 3 of the Agentive Architecture materializes as a product. An
+emergent link — most traditional actors still do not cover it
+explicitly.</p>
+<p><strong>Link 7 · Firewall</strong> (Security Layer). Security,
+control, and governance. Protection against prompt injection,
+hallucinations, content filtering, and usage auditing. Products such as
+Lakera, Lasso Security operate here. It is a critical link for
+enterprise production — without a firewall, the agentive system cannot
+operate in regulated industries.</p>
+<p><strong>Link 8 · Observability</strong> (Observability). Monitoring,
+traceability, costs, and quality of AI systems in production. The
+operational feedback loop. Products such as Langfuse, LangSmith,
+Helicone, Arize operate here. It is a mature link — AI observability has
+several Core-depth products actively competing.</p>
+<p><strong>Link 9 · Tools</strong> (Tools). Specific capabilities that
+agents can invoke. Includes meta-tools: protocols (MCP), vector
+databases (Pinecone, Weaviate), RAG frameworks. It is where the agent
+extends its capability to touch specific systems.</p>
+<p><strong>Link 10 · Integrations</strong> (Integration Layer). The
+bridge between the AI world and the Environment. Orchestration,
+transformation, and mapping of integration logic between systems.
+Products such as Zapier, Make, n8n operate in this link in their
+traditional form; the agentive equivalent is still an emergent
+category.</p>
+<p><strong>Link 11 · Environment</strong> (Environment). What is
+external to the chain: enterprise systems (ERPs, CRMs, databases), the
+physical world (IoT, industrial processes), and biological systems. It
+is the least developed link, and we develop its implications in detail
+in the Carbon World section.</p>
+<p>The links are not arbitrary. Each one corresponds to an
+<strong>operational design decision</strong> in any productive AI
+system. Skipping a link is not elegance: it is architectural debt that
+is paid in production.</p>
+<h3 id="the-four-depths">The four depths</h3>
+<p>The links define <strong>where</strong> an actor participates in the
+chain. But within a single link, actors operate at different levels of
+depth. An actor that consumes a model API and another that trains the
+foundation model <strong>both participate in the Model link</strong>,
+but their differentiation, dependency, and competitive moat are
+radically different.</p>
+<p>The model defines four levels of depth, from lesser to greater
+control over the link’s capability. The four depths apply to any link —
+an actor may be Wrapper in Data, Platform in Model, Core in Access. The
+uniformity enables cross-comparison between distinct links.</p>
+<p><strong>Wrapper</strong> (level 1). The actor consumes capabilities
+via third-party APIs or SDKs. It adds user experience or business logic
+without building the underlying capability. Characteristics: low
+differentiation relative to other wrappers that use the same underlying
+providers, high dependency on the provider, low switching cost. An app
+that calls the OpenAI API to answer questions is a Wrapper in the Model
+link.</p>
+<p><strong>Platform</strong> (level 2). The actor operates and manages
+its own capability over third-party Core components. It adds
+orchestration, SLAs, and operational control. Moderate differentiation:
+the customer pays for the operational capabilities the Platform adds,
+not for the underlying capability that remains third-party. Azure OpenAI
+is a Platform in Model: it operates OpenAI’s models with SLAs and
+enterprise governance, but the models belong to the original
+provider.</p>
+<p><strong>Core</strong> (level 3). The actor builds the link’s
+foundational capability with its own technology: differentiated models,
+engines, or algorithms. High competitive moat based on intellectual
+property. OpenAI is Core in Model: it builds its own models. Anthropic,
+Google with Gemini, Meta with Llama — all are Core in Model. The
+distinction between Core and the higher levels is where most of the
+value captured in the AI field resides.</p>
+<p><strong>Infrastructure</strong> (level 4). The actor provides the
+computational, storage, or connectivity substrate on which the higher
+levels operate. A very high moat based on scale and capital. NVIDIA is
+Infrastructure in Model: the GPUs NVIDIA manufactures are the substrate
+on which the models operate. AWS, GCP, Azure are Infrastructure in many
+links — they provide the compute and storage underlying almost the
+entire industry.</p>
+<p>The progression Wrapper → Platform → Core → Infrastructure is one of
+<strong>increasing control</strong> over the link. Wrapper consumes;
+Platform operates; Core builds; Infrastructure sustains. Each level of
+depth typically implies greater investment, greater technical
+specialization, a greater competitive moat. It also implies greater
+risk: a Core that bet on a technology the market discarded is left with
+an asset hard to reposition; a Wrapper that bets wrong switches
+providers in hours.</p>
+<h3 id="coverage-depth-the-positioning-space">Coverage × Depth — the
+positioning space</h3>
+<!-- FIG:g34-cobertura-profundidad -->
+<figure>
+<img src="/agencydomains/figuras/g34-cobertura-profundidad.png"
+alt="Two-dimensional space · coverage × depth" />
+<figcaption aria-hidden="true">Two-dimensional space · coverage ×
+depth</figcaption>
+</figure>
+<p>The combination of coverage (links) and depth (levels) produces a
+<strong>two-dimensional space</strong> where any actor is positioned.
+The horizontal axis shows <strong>how many links</strong> an actor
+spans; the vertical axis shows <strong>at what depth</strong> it
+participates in each one.</p>
+<p>A single actor may operate at different depths in different links.
+OpenAI is Core in Model but Platform in Access (its APIs) and Platform
+in Agents (ChatGPT). This per-link heterogeneity is the rule, not the
+exception. Few actors have uniform depth across all the links they touch
+— and when they do, they are typically very focused actors such as
+NVIDIA in computational Infrastructure.</p>
+<p>The diversity of positions in the two-dimensional space allows one to
+identify positioning archetypes that recur in the market, with distinct
+strategic properties. The next section develops the four canonical
+archetypes.</p>
+<h3 id="emerging-strategic-archetypes">Emerging strategic
+archetypes</h3>
+<!-- FIG:g35-cuatro-arquetipos -->
+<figure>
+<img src="/agencydomains/figuras/g35-cuatro-arquetipos.png"
+alt="The four strategic archetypes" />
+<figcaption aria-hidden="true">The four strategic
+archetypes</figcaption>
+</figure>
+<p>From this two-dimensional space, <strong>four recurring
+archetypes</strong> emerge. Each archetype describes a positioning
+pattern with characteristic strategic properties. The four archetypes
+are: Comprehensive platform, Vertical specialist, Domain infrastructure,
+Substrate provider.</p>
+<h4 id="comprehensive-platform">Comprehensive platform</h4>
+<p>The <strong>Comprehensive platform</strong> archetype combines broad
+coverage (three or more links) with <strong>Core</strong> depth in its
+native link and <strong>Platform</strong> depth in adjacent links. It is
+the archetype of the great AI labs that dominate the field in 2026.</p>
+<p>OpenAI exemplifies the archetype: Core in Model (builds GPT),
+Platform in Access (sells the API), Platform in Agents (operates ChatGPT
+and Operator), Platform in emerging Specializations (the verticalized
+GPTs). Anthropic follows a similar pattern but with a different
+emphasis: Core in Model (builds Claude), Core in Access via MCP (its
+open contribution to Tools), Platform in Agents. Google with Gemini does
+the analogous. Meta with Llama is a particular case: Core in Model
+distributing open source, with no proprietary Access or Agents platform
+— its moat is model distribution, not operation.</p>
+<p>The competitive moat of the Comprehensive platform is the
+intellectual property of the Core combined with vertical integration
+into adjacent links. A Wrapper that calls OpenAI cannot easily replicate
+what OpenAI does in its entirety — to do so, it would have to train its
+own model (Model link at Core depth), build its own Access
+infrastructure, operate its own Agents platform. That complete chain
+requires capital and talent that few actors have.</p>
+<h4 id="vertical-specialist">Vertical specialist</h4>
+<p>The <strong>Vertical specialist</strong> archetype combines focal
+coverage (one or two links) with <strong>Core</strong> depth. It is the
+archetype of the actors that have concentrated on specific domains and
+build depth there.</p>
+<p>Cursor exemplifies the archetype in coding: Core in Specializations
+for programming. Harvey AI does the same in legal. Jasper in marketing.
+Fin (from Intercom) in customer support. Devin aims for Core in
+Specializations of autonomous coding. umeeta operates the same archetype
+in professional consulting, with Core in the engagement-memory layer.
+Each one has narrow coverage — one or a few links — but Core depth in
+its specific vertical.</p>
+<p>The competitive moat of the Vertical specialist is the depth of
+vertical know-how, which typically materializes as dense Capabilities —
+the codified professional knowledge we discussed in Chapter 5. A generic
+GPT can answer legal questions, but Harvey AI answers them at much
+higher quality because it has Legal Capabilities built with discipline.
+The difference is not marketing — it is structural. A competitor that
+wanted to replicate Harvey would have to build the Legal Capability tree
+with the same rigor, which takes years.</p>
+<h4 id="domain-infrastructure">Domain infrastructure</h4>
+<p>The <strong>Domain infrastructure</strong> archetype is the most
+recent in the industry and the least populated. It combines zonal
+coverage (two or more contiguous links) with <strong>Core</strong> depth
+across a functional domain, with possible extensions to non-contiguous
+links at lesser depth.</p>
+<p>An actor that is Core in Runtime, Firewall, Observability, Tools, and
+Integrations — links 6, 7, 8, 9, 10 — with a Platform extension in
+Access constitutes the paradigmatic case of the archetype. The
+combination of zonal coverage across five contiguous links with Core
+depth constitutes an <strong>enterprise gateway</strong>: the
+foundational layer for connecting and controlling AI in production.</p>
+<p>The competitive moat of Domain infrastructure is the deep integration
+between links that other actors treat separately. Building Core in
+Runtime is a merit; building Core simultaneously in Runtime, Firewall,
+Observability, Tools, and Integrations, <strong>coherently
+integrated</strong>, is architectural property that few actors have. The
+structural reason is that these five links operate together in
+production — without one, the others lose value — and building only one
+leaves the actor dependent on complements that typically do not exist as
+an integrated product.</p>
+<h4 id="substrate-provider">Substrate provider</h4>
+<p>The <strong>Substrate provider</strong> archetype combines minimal
+coverage (one link) with <strong>Infrastructure</strong> depth. It is
+the archetype of the actors that sustain the industry from the deepest
+layer.</p>
+<p>NVIDIA exemplifies the archetype in Model: the GPUs NVIDIA
+manufactures are the computational substrate on which the models
+operate. AWS, GCP, and Azure are Substrate providers across multiple
+links — Data, Model, Compute in general. Cisco is one in networking for
+distributed AI.</p>
+<p>The competitive moat of the Substrate provider is scale, capital
+intensity, and network effects in hardware or the data center. Building
+a company that competes with NVIDIA in GPUs requires investments of
+trillions of dollars and accumulated generations of R&amp;D. Building a
+company that competes with AWS in compute at scale requires global
+physical infrastructure. These moats are the highest in the field, but
+they are also the ones that require the greatest initial capital and
+have the longest return cycles.</p>
+<h3 id="mapping-the-principal-actors">Mapping the principal actors</h3>
+<p>By way of example, the following table classifies representative
+product families from the current market by the links they span and the
+depth in each one. The figures are <strong>depth levels</strong> (1-4);
+the parentheses indicate a framework or meta-tool (to build with, not to
+use).</p>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th style="text-align: center;">Da</th>
+<th style="text-align: center;">Mo</th>
+<th style="text-align: center;">Ac</th>
+<th style="text-align: center;">Ag</th>
+<th style="text-align: center;">Xp</th>
+<th style="text-align: center;">Ru</th>
+<th style="text-align: center;">Fi</th>
+<th style="text-align: center;">Ob</th>
+<th style="text-align: center;">He</th>
+<th style="text-align: center;">In</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data and annotation</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Scale AI / Labelbox</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Hugging Face</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Comprehensive platforms</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>OpenAI (ChatGPT, GPT API)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Anthropic (Claude, MCP)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Google (Gemini)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Meta (Llama)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Perplexity</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>DeepSeek / Qwen / Ernie</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Vertical specializations</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Cursor / Replit</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Devin</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Harvey / Jasper / Fin</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>umeeta (engagement memory)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Agentive substrates</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Agentia (private regime)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Soveria (public regime)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Frameworks and tools</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>LangChain / Graph</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>AutoGPT / CrewAI</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Pinecone / Weaviate</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(3)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Operations and governance</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Guardrails / NeMo / Lakera</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Langfuse / LangSmith / W&amp;B</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>Zapier / Make / n8n</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>ultraPRO (enterprise gateway)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td><strong>Computational infrastructure</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>NVIDIA</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>AWS / GCP / Azure</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Legend of links: <strong>Da</strong> Data · <strong>Mo</strong> Model
+· <strong>Ac</strong> Access · <strong>Ag</strong> Agents ·
+<strong>Xp</strong> Specializations · <strong>Ru</strong> Runtime ·
+<strong>Fi</strong> Firewall · <strong>Ob</strong> Observability ·
+<strong>He</strong> Tools · <strong>In</strong> Integrations. Depth
+levels: <strong>1</strong> Wrapper · <strong>2</strong> Platform ·
+<strong>3</strong> Core · <strong>4</strong> Infrastructure. The
+parentheses — e.g. (3) — indicate a framework or meta-tool (to build
+with, not to use).</p>
+<blockquote>
+<p><strong>Note.</strong> The table covers links 1 through 10. Link 11
+(Environment) is omitted as being external to the chain — it is the
+territory on which the preceding links act, not a link that an AI actor
+occupies at some depth. Its implications are developed in the Carbon
+World section.</p>
+</blockquote>
+<p>The table, read as a whole, lets one see patterns that the individual
+inspection of each product does not reveal. The comprehensive platforms
+tend to concentrate in links 2-4. The vertical specialists accumulate in
+link 5. The operations and governance products distribute across links
+7-10. Computational infrastructure occupies principally link 2 at depth
+4.</p>
+<h3 id="strategic-readings-of-the-map">Strategic readings of the
+map</h3>
+<p>The map is not merely descriptive — it is a tool for strategic
+analysis. Three readings of the 2026 map make it possible to understand
+the state of the field and where the opportunities lie.</p>
+<h4 id="concentration-by-archetype">Concentration by archetype</h4>
+<p>The <strong>vertical specialists</strong> dominate link 5
+(Specializations). Cursor, Harvey, Jasper, Fin, Devin: each built dense
+vertical Capabilities and captures market in its domain. The
+concentration is healthy — multiple actors with little overlap, each
+owner of its vertical. It is where innovation is most vibrant in
+2026.</p>
+<p>The <strong>comprehensive platforms</strong> concentrate links 2-4
+(Model, Access, Agents). Five dominant global actors — OpenAI,
+Anthropic, Google, Meta, DeepSeek/Qwen/Ernie — and derived positions.
+The concentration is high and grows over time, because building Core in
+Model requires capital and talent that few actors can sustain. It is the
+link with the highest barrier to entry.</p>
+<p>The <strong>infrastructure</strong> is concentrated in NVIDIA for
+compute and the hyperscalers for data and compute at scale. An extreme
+capital moat. The concentration here is structural and probably
+persistent — it is reasonable to expect that no significant entrant will
+appear in these links at Infrastructure depth within the foreseeable
+horizon.</p>
+<h4 id="the-less-contested-spaces">The less-contested spaces</h4>
+<p>There are zones of the map where Core depth is open and where an
+actor with discipline can build a competitive position without facing
+massive incumbents.</p>
+<p><strong>Link 1 (Data) at Core depth</strong>: few Core actors (Scale
+AI, Labelbox); the rest are commodity. There is room for actors that
+build their own capability in specialized data.</p>
+<p><strong>Links 6-10 simultaneously</strong> — Runtime, Firewall,
+Observability, Tools, Integrations — at Core depth with zonal coverage:
+the territory of Domain infrastructure. Actors that combine these five
+links at Core depth are rare. It is the space where the category of the
+<strong>complete enterprise gateway</strong> is opening.</p>
+<p><strong>Link 11 (Environment)</strong> with connection to IoT and the
+physical world: practically empty in terms of actors specifically
+designed for the Agentive World. It is the frontier of the next
+generation, and the Carbon World section develops the implications.</p>
+<h4 id="the-trajectory-of-the-giants">The trajectory of the giants</h4>
+<!-- FIG:g36-trayectoria-gigantes -->
+<figure>
+<img src="/agencydomains/figuras/g36-trayectoria-gigantes.png"
+alt="The trajectory of the giants · and the open window" />
+<figcaption aria-hidden="true">The trajectory of the giants · and the
+open window</figcaption>
+</figure>
+<p>The giants — OpenAI, Anthropic, Google, Microsoft — advance
+<strong>link by link</strong>: from Model to Access, from Access to
+Agents, from Agents to Specializations. The progression is historically
+observable. OpenAI was born as a Model lab, expanded to Access (API),
+expanded to Agents (ChatGPT), is expanding to Specializations
+(GPTs).</p>
+<p>But reaching the Integrations link — where the agent touches the real
+systems of the enterprise — demands an integrative effort, company by
+company, that does not scale with these actors’ logic. OpenAI can offer
+ChatGPT Enterprise with connectors to Slack and Salesforce, but
+integrating deeply with each customer’s ERP, with its particular CRM,
+with its legacy data warehouse — that is not platform work, it is
+integration work. <strong>This creates a temporal window</strong> for
+actors specialized in links 6-10 (domain infrastructure) to build a
+position before the giants arrive. The window is not indefinite — the
+giants eventually reach integrations, possibly via acquisition — but it
+exists now and offers strategic opportunity to whoever understands
+it.</p>
+<h4 id="the-enterprise-gateway-as-a-category">The enterprise gateway as
+a category</h4>
+<!-- FIG:g37-gateway -->
+<figure>
+<img src="/agencydomains/figuras/g37-gateway.png"
+alt="The enterprise AI gateway · connect and control" />
+<figcaption aria-hidden="true">The enterprise AI gateway · connect and
+control</figcaption>
+</figure>
+<p>The combination <strong>Core in Runtime + Firewall + Observability +
+Tools + Integrations</strong>, with a <strong>Platform extension in
+Access</strong>, defines an architectural category with a unique
+function: to <strong>connect and control simultaneously</strong> the
+operation of enterprise agents. It is the formal materialization of
+Layer 4 of the Agentive Architecture over the market links.</p>
+<p>This category is called the <strong>enterprise AI gateway</strong>
+(figure above).</p>
+<p>To <strong>connect</strong> without <strong>controlling</strong> is
+Zapier — integration capability without governance. To
+<strong>control</strong> without <strong>connecting</strong> is Lakera —
+security capability without integration. The combination of both in a
+single architectural point is a recent and still sparsely populated
+category. The actors that occupy it first capture the space before the
+giants arrive.</p>
+<h3 id="competitive-analysis-of-the-enterprise-gateway">Competitive
+analysis of the enterprise gateway</h3>
+<p>When evaluating actors that aim to occupy the enterprise gateway, a
+useful rubric compares nine capabilities across the principal actors in
+the field.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capability</th>
+<th style="text-align: center;">Portkey</th>
+<th style="text-align: center;">Lasso</th>
+<th style="text-align: center;">Lakera</th>
+<th style="text-align: center;">Langfuse</th>
+<th style="text-align: center;">Credo AI</th>
+<th style="text-align: center;">Noma</th>
+<th style="text-align: center;">Complete enterprise gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM routing</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Semantic cache</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Prompt security</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Tokenization</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>DLP</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Policies / CRUDLEX</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Human approval</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Response validation</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">△</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td><strong>Enterprise connectivity (Tools + Integrations)</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<p>The rubric documents, column by column, the thesis already stated in
+the previous section: each actor covers some capabilities — Portkey
+covers routing and cache, Lasso covers prompt security and DLP, Langfuse
+covers observability —, but none integrates deep enterprise connectivity
+and control under a single architecture. The last row — <strong>complete
+enterprise gateway</strong> — is the only one with integral coverage of
+the rubric.</p>
+<p>This is the clearest strategic opportunity the map reveals. The
+complete enterprise gateway is a category that is only just emerging,
+with room for actors that build it with architectural discipline.
+ultraPRO is one of the actors positioning itself in this category,
+integrating the five links of control and connectivity under the
+tripartite Cloud + Client + Local pattern that Chapter 8 develops in
+detail.</p>
+<h3 id="implications-for-builders">Implications for builders</h3>
+<p>The value chain map has three operational readings for whoever builds
+in the AI field.</p>
+<p>The first: <strong>do not compete in the wrong link</strong>. If a
+small company tries to be Core in the Model link, it competes against
+OpenAI, Anthropic, Google, Meta — labs with trillion-dollar backing. The
+defeat is structural. If the same company seeks Domain infrastructure in
+links 6-10, it competes in a sparsely contested category with a
+buildable moat. The asymmetry is real and favorable. Choosing the link
+well is probably the most important strategic decision for a company
+entering the field.</p>
+<p>The second: <strong>Core depth requires discipline</strong>. Reaching
+Core depth in any link demands building deep technical capability — not
+third-party integration. The difference between Wrapper, Platform, and
+Core is not a matter of opinion: it is measured by the product’s
+structural dependencies. A Wrapper stops operating if the provider turns
+it off; a Core operates independently. If your product stops working
+when OpenAI changes its pricing, you are a Wrapper. If your product
+keeps working, you are a Core.</p>
+<p>The third: <strong>broad coverage demands integration</strong>. A
+company that aims to cover multiple links at Core depth (domain
+infrastructure) must solve the problem of internal integration between
+those links. Operating Runtime + Firewall + Observability + Tools +
+Integrations as five separate products produces a company with five
+products. Operating them as a coherent architecture produces a gateway.
+The difference is what the customer perceives as value.</p>
+<h3
+id="agentive-discoverability-the-displacement-of-the-discovery-layer">Agentive
+discoverability — the displacement of the discovery layer</h3>
+<!-- FIG:g38-discoverability -->
+<figure>
+<img src="/agencydomains/figuras/g38-discoverability.png"
+alt="From SEO to MEO · web discovery vs. agentive discovery" />
+<figcaption aria-hidden="true">From SEO to MEO · web discovery
+vs. agentive discovery</figcaption>
+</figure>
+<p>The value chain model describes where value is <em>produced</em>. But
+there is a structural property of the Agentive World that the chain
+model on its own does not capture: <strong>where</strong> the produced
+value <strong>is discovered</strong>. The discovery layer of enterprise
+software changed, and the chain does not operate well if the reader does
+not understand that change.</p>
+<p>In the world of applications, discovery happened in search engines:
+Google for web services, the app stores for mobile, the vertical
+marketplaces for SaaS. The human who needed a capability found it by
+typing a search, and the actors invested in positioning — SEO, ASO,
+content, ads — to be found. The layer was the search engine, and the
+search engines were a handful.</p>
+<p>In the Agentive World, the human who needs a capability does not open
+Google — they ask the assistant they already have open. <em>“Where can I
+publish this agent?”</em>, <em>“What tool serves me for this
+task?”</em>, <em>“Is there an AgencyDomain that covers this
+domain?”</em>. The answer does not come from the web’s index — it comes
+from the trained model. The discovery layer shifted from the <em>search
+index</em> to the <em>model of cognition</em>.</p>
+<p>This has three structural consequences for any actor building in the
+agentive value chain.</p>
+<p>The first consequence is that <strong>trained presence matters more
+than ranking</strong>. An actor that does not appear in the training
+corpus of the frontier models is invisible, regardless of its SEO or its
+traditional marketing. The conceptual equivalent of SEO in this new
+world is what the industry is beginning to call <strong>MEO — Model
+Engine Optimization</strong>: the set of practices that ensure the
+frontier models (Claude, GPT, Gemini, Llama, whichever come) have the
+actor in their trained and operative knowledge. It is built with
+structured public presence — open source repositories with READMEs rich
+in use cases, abundant documentation with citable examples, papers,
+native integration with the MCP spec, mentions in relevant technical
+blogs and forums.</p>
+<p>The second consequence is that <strong>the dynamic is persistent and
+asymmetric</strong>. Once a frontier model “learns” an actor in the
+chain, the reference scales with the model’s usage. It does not depend
+on paying per click nor on maintaining continuous investment in
+positioning. It is a cumulative advantage that survives marketing
+cycles, and it has a winner-take-all tendency: if an actor is the first
+that the frontier models systematically reference for a category, the
+following ones fight against that default. Whoever builds today with an
+MEO vision captures a temporal advantage that becomes progressively hard
+to reverse.</p>
+<p>The third consequence is that <strong>integration with MCP is a
+diffusion vector</strong>. When an actor publishes capabilities as Model
+Context Protocol tools that a model can invoke natively, that model does
+not merely <em>mention</em> the actor — it <em>executes</em> it.
+Repeated invocation builds the model’s structural familiarity with the
+actor, distinct from the citational familiarity that public
+documentation produces. The MCP spec is then, besides a protocol of
+technical integration, a vector of presence in the frontier models.</p>
+<p>For the architect and for the investor, the operational conclusion is
+that <strong>the AI value chain operates over an agentive discovery
+layer</strong>, and that layer has rules distinct from those of web
+discovery. Whoever builds agentive products must think of trained
+presence as an investment category of its own — not as a sub-problem of
+traditional marketing.</p>
+<hr />
+<p>The value chain model is the map. The next two sections of Chapter 6
+drill into specific links where whoever builds or invests will find
+distinct but equally operational readings: one on an already-mature link
+that separates the serious actors from those who improvise, and another
+on the least developed and most promising link of the field, where the
+next decade of economic value is going to be defined.</p>
+<h2 id="deep-dive-observability-link-8">Deep-dive · Observability (link
+8)</h2>
+<p>There is an observable pattern in any maturing industry: the first
+generation of products sells capability — <em>“this can do X”</em> — and
+the second generation sells observability — <em>“this can do X and you
+can know what it is doing while it does it”</em>. The agentive AI field
+is going through exactly that transition. The category’s first three
+years were sold around growing capabilities; the coming years will be
+sold around operability, and operability rests on Observability.</p>
+<p>This section develops link 8 — Observability — with the detail the
+link deserves. It is one of the fastest links to consolidate within the
+AI value chain, and probably the first to reach market maturity where
+multiple Core actors compete actively. For the architect, Observability
+is the link without which agentive systems in production are inoperable
+black boxes. For the investor, it is the link where the next generation
+of enterprise products will define its category.</p>
+<h3 id="why-does-observability-deserve-a-deep-dive">Why does
+Observability deserve a deep-dive?</h3>
+<p>Observability is one of the <strong>fastest links to
+consolidate</strong> within the AI value chain. The reason is
+operational: an organization running agents in production — whether one
+or a hundred — needs to know, in real time, what they do, how much they
+cost, how well they work, and when they fail. Without that visibility,
+it operates blind, and operating a system that makes autonomous
+decisions blind is indefensible both in regulatory and commercial
+terms.</p>
+<p>Unlike earlier links such as Model or Access, where the market is
+concentrated in a few dominant actors, Observability is a
+<strong>fragmented and young market</strong>: multiple Core actors with
+partial coverage, room for differentiation by domain or by integration
+with adjacent links. The fragmentation is not weakness — it is a symptom
+of a market where different actors choose different emphases among the
+many capabilities Observability covers, and buyers combine products
+according to their specific priorities.</p>
+<blockquote>
+<p><em>Without Observability, agents are black boxes. With
+Observability, they are operable systems.</em></p>
+</blockquote>
+<p>The quotation above captures the link’s role well. An agentive system
+without observability may work technically, but the organization cannot
+operate it: it cannot diagnose failures, it cannot optimize costs, it
+cannot defend its decisions, it cannot improve its performance.
+Observability turns technical capability into enterprise
+operability.</p>
+<h3 id="canonical-definition">Canonical definition</h3>
+<p><strong>Observability</strong> (link 8) is the layer that
+<strong>observes, measures, and feeds back</strong> on the behavior of
+an AI system in production. Its architectural function is to provide the
+<strong>operational feedback loop</strong> that lets the organization
+keep reliability, cost, and quality under control.</p>
+<p>Observability must be delimited against nearby links that the
+industry tends to confuse with it. Three precise distinctions.
+<strong>Observability is not security</strong>: security — link 7,
+Firewall — protects; Observability describes. They are distinct
+functions that cooperate in practice but answer distinct problems. An
+organization can have Firewall without Observability or Observability
+without Firewall, though most mature ones have both.
+<strong>Observability is not tools</strong>: tools — link 9 — are what
+the agent uses to touch the world; Observability observes which tools it
+uses, when, and with what result. <strong>Observability is not
+validation</strong>: validation — part of Trust Infrastructure, Pillar 3
+— verifies that the response is correct before emitting it;
+Observability records what was emitted and lets you reconstruct it
+afterward.</p>
+<table>
+<thead>
+<tr>
+<th>Question it answers</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is it safe?</td>
+<td>Firewall (7)</td>
+</tr>
+<tr>
+<td><strong>How does it work?</strong></td>
+<td><strong>Observability (8)</strong></td>
+</tr>
+<tr>
+<td>What can it do?</td>
+<td>Tools (9)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-six-canonical-capabilities">The six canonical
+capabilities</h3>
+<p>A complete implementation of Observability for agentive systems
+covers six capabilities. The six are distinct, they attack distinct
+operational problems, and market products typically cover some more
+deeply than others. We lay them out with the detail each one
+deserves.</p>
+<p>The first capability is <strong>tracing</strong>. It is end-to-end
+traceability of each agent operation. It lets you reconstruct, after the
+fact, what happened: what request came in, which Capabilities were
+applied, which tools were invoked, in what order, with what latency,
+what result was generated. Tracing demands explicit instrumentation — a
+well-instrumented agent emits structured events at every significant
+step (cognitive decision, tool invocation, response generation,
+escalation to the human). Those events are correlated by a trace ID that
+follows the request through the system, making it possible to assemble
+the complete history of an operation. Products such as Langfuse,
+LangSmith, Helicone, and Arize AI do tracing as a core capability.</p>
+<p>The second capability is <strong>cost monitoring</strong>. Real-time
+breakdown of token consumption and other paid resources: by model, by
+user, by project, by tool. The operational economics of an agentive
+system depend critically on this visibility — an agent can be
+technically correct and economically unviable if expensive cognition is
+invoked when a Botlet would suffice. Cost monitoring in mature systems
+is <strong>prediction, not just recording</strong>: advanced platforms
+project the month’s spend based on the usage pattern of the days
+elapsed, alert when the pace is headed for an overrun, and let you
+configure quotas that halt the system when they are reached. Helicone
+and Langfuse stand out especially on costs. Portkey integrates cost
+monitoring with intelligent routing, directing each request to the most
+efficient model according to configurable parameters.</p>
+<p>The third capability is <strong>quality evaluation</strong>.
+Systematic verification that the agent’s responses meet quality
+standards. It has two canonical sub-modes. <strong>Automated
+evaluation</strong> — eval as service — regularly runs a test dataset
+against the model in production, measuring precision, completeness,
+format. It detects degradation: if the model or the Capabilities change
+and quality drops, the evaluation catches it before the customer
+notices. <strong>Human evaluation</strong> complements this with sample
+review of real responses by qualified humans — it catches problems the
+automatic metrics do not capture: inappropriate tone, lost subtlety,
+questionable professional judgment. Products such as Braintrust,
+Patronus AI, and Weights &amp; Biases stand out in eval. The industry is
+converging on frameworks like LangChain Evaluators and OpenAI Evals as
+common frameworks that multiple eval products can share.</p>
+<p>The fourth capability is <strong>performance metrics</strong> — the
+classic operational metrics adapted to the agentive system.
+<strong>Latency</strong> measures the time from request to response,
+distinguishing percentiles (p50, p95, p99). A high p99 can degrade the
+experience even with a good p50 — and in agentive systems in production,
+p99 matters because that is where the outliers of expensive cognition or
+slow tools materialize. <strong>Throughput</strong> measures requests
+handled per unit of time, critical for multi-tenant systems operating at
+scale. <strong>Availability</strong> measures uptime of the agentive
+system, distinguishing availability of the agent, of the underlying
+model, and of downstream tools. <strong>Success rate</strong> measures
+the proportion of requests completed correctly — and in systems with
+Botlets, it must distinguish success by Botlet versus by agent versus by
+system, because each level fails for distinct reasons.</p>
+<p>The fifth capability is <strong>debugging and
+reproducibility</strong>. The capability of <strong>invocation
+replay</strong> — re-executing a past operation exactly as it occurred,
+to diagnose failures. It demands saving the full context: prompt, model,
+parameters, data consulted, tools invoked, result. Agentive debugging is
+structurally more complex than traditional debugging for three reasons.
+First, LLM models are <strong>probabilistic</strong> — the same input
+can produce distinct outputs, which makes reproducing a failure exactly
+difficult. Second, agents can have <strong>persistent state</strong> —
+the context changes between invocations, and reproducing a failure also
+requires reproducing the state. Third, Botlets
+<strong>regenerate</strong> — the version that failed may no longer
+exist when you try to reproduce it, because the agent regenerated it
+when the environment changed. LangSmith and Langfuse productize replay
+as a core capability, with mechanisms to preserve state and
+versions.</p>
+<p>The sixth capability is <strong>alerts and anomalies</strong>.
+Proactive detection of out-of-pattern behaviors: latency or cost
+spiking, success rate falling below threshold, changes in the
+distribution of request types, Botlets regenerating with unusual
+frequency, tools failing more often. Alerts do not only notify: they can
+trigger automatic actions — circuit breakers that halt the system when
+conditions deteriorate, rollback to a previous version of the agent when
+a new one degrades quality, escalation to the human when thresholds
+approach violation.</p>
+<h3 id="representative-products-of-the-link">Representative products of
+the link</h3>
+<p>The agentive Observability market already has several Core actors
+competing actively. The main Core actors include the following products,
+with their differentiators:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Product</th>
+<th>Main coverage</th>
+<th>Differentiator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Langfuse</td>
+<td>All 6 capabilities, strong in tracing and costs</td>
+<td>Open source, self-hosted deployment</td>
+</tr>
+<tr>
+<td>LangSmith</td>
+<td>Tracing, evaluation, debugging</td>
+<td>Native integration with LangChain</td>
+</tr>
+<tr>
+<td>Helicone</td>
+<td>Tracing, costs, proxy observability</td>
+<td>Drop-in proxy for OpenAI/Anthropic</td>
+</tr>
+<tr>
+<td>Arize AI</td>
+<td>Eval, drift monitoring</td>
+<td>Focus on classic ML extended to LLMs</td>
+</tr>
+<tr>
+<td>Braintrust</td>
+<td>Automated and human eval</td>
+<td>Eval workflow as CI/CD</td>
+</tr>
+<tr>
+<td>Patronus AI</td>
+<td>Eval specialized in hallucination and safety</td>
+<td>Proprietary evaluation categories</td>
+</tr>
+<tr>
+<td>Weights &amp; Biases</td>
+<td>Experiment tracking, evaluation</td>
+<td>Product maturity in classic ML</td>
+</tr>
+</tbody>
+</table>
+<p>The fragmentation is intentional: different actors choose different
+capabilities as their differentiator. A mature organization
+<strong>combines two or three products</strong> according to its mix of
+needs, rather than seeking a monolithic solution. This combination is
+what the market calls an “observability stack” — analogous to the
+traditional monitoring stack with Datadog for metrics, Splunk for logs,
+PagerDuty for alerts. Each capability link is operated by the product
+that attacks it best; integration between products is the operator’s
+responsibility.</p>
+<h3 id="differentiation-from-adjacent-links">Differentiation from
+adjacent links</h3>
+<p>We make the differences from adjacent links precise with comparative
+tables that lay out the functional separation clearly.</p>
+<p><strong>Against Firewall</strong> (link 7), the two categories
+operate at distinct moments in the cycle of the agent’s action. The
+Firewall operates <strong>before</strong> execution; Observability
+operates <strong>during and after</strong>. The Firewall acts by
+<strong>blocking</strong> what it considers prohibited; Observability
+acts by <strong>recording and describing</strong>. The Firewall’s focus
+is prevention; Observability’s focus is diagnosis. A well-designed
+system integrates both: the Firewall blocks the prohibited in real time;
+Observability records what was blocked to detect patterns and improve
+the policies. But they are distinct functions with distinct products —
+confusing them leads to solutions that cover both poorly.</p>
+<p><strong>Against Tools</strong> (link 9), the difference is between
+<strong>active capability</strong> and <strong>descriptive
+capability</strong>. Tools extend what the agent can do — that is active
+capability. Observability observes how the agent uses the tools — that
+is descriptive capability. Without Observability, tools are opaque: the
+developer can know which tools the agent has registered, but not how it
+uses them in practice, which tools it executes most, which ones fail
+most, what usage patterns emerge.</p>
+<p><strong>Against Trust Infrastructure</strong> (cross-cutting),
+Observability <strong>is one of the components</strong> of Trust
+Infrastructure, specifically of Pillar 5 (Transparency). But Trust
+Infrastructure is <strong>broader in scope</strong>: it also includes
+governance, audit, validation, and resilience. Observability is
+necessary but not sufficient for complete Trust Infrastructure. An
+organization that has excellent Observability but has not
+operationalized the other pillars is still not ready for enterprise
+production.</p>
+<h3 id="the-links-trajectory">The link’s trajectory</h3>
+<p>Three trends visible in the agentive Observability market at the
+start of 2026 anticipate where the field is heading.</p>
+<p>The first trend is the <strong>convergence of eval and
+tracing</strong>. Products that started as pure eval (Braintrust,
+Patronus) are adding tracing. Products that started as tracing
+(LangSmith, Helicone) are adding eval. The market is converging toward
+<strong>comprehensive agentive observability</strong> that covers the
+six capabilities — but with specialized products that have distinct
+focuses. It is likely that within two to three years products will
+emerge that cover the six capabilities to a respectable depth, competing
+with specialized products that cover one or two capabilities to
+excellent depth.</p>
+<p>The second trend is the <strong>competition between open source and
+SaaS</strong>. Langfuse pioneered the open-source self-hosted model,
+against the dominant SaaS model. Enterprise adoption of Langfuse —
+especially in regulated sectors that cannot send sensitive data to an
+external SaaS — suggests the open-source model has sustainable room. The
+question of the coming years is whether the open-source model captures
+the regulated enterprise segment while the SaaS model captures the rest,
+or whether the dynamic converges toward a single dominant model.</p>
+<p>The third trend is <strong>integration with development
+stacks</strong>. LangSmith integrates with LangChain. Braintrust
+integrates with popular eval frameworks. The trend is for the developer
+not to switch IDE to view observability — it becomes a natural part of
+the agent development workflow. This integration is probably the
+sustainable competitive differentiation — the products that integrate
+best with the popular development stacks capture adoption that those
+remaining as standalone tools do not achieve.</p>
+<h3 id="implications-for-builders-1">Implications for builders</h3>
+<p>For an organization running agents in production, three operational
+lessons emerge from the link’s analysis.</p>
+<p>The first: <strong>Observability is not optional</strong>. The six
+capabilities are the <strong>minimum viable</strong>. Running agents in
+production without tracing, without cost monitoring, without eval,
+without metrics, without replay, without alerts, is operating blind.
+Mature platforms know this; exploratory pilots typically do not learn it
+until an incident exposes it. The first serious incident is typically
+when the organization discovers it needs real Observability — and
+regrets not having designed it from the start.</p>
+<p>The second: <strong>integration matters more than the individual
+product</strong>. Combining two or three specialized products — for
+example Langfuse for tracing and costs, Braintrust for eval, alerts in a
+proprietary corporate tool — <strong>is usually superior</strong> to
+using a single product that covers everything to medium depth.
+Integration demands work, but the depth per capability compensates for
+it. Organizations that try to minimize the number of vendors typically
+end up with superficial observability; those that accept the stack’s
+complexity and integrate it well end up with deep observability.</p>
+<p>The third: <strong>instrumentation is designed up front</strong>.
+Adding observability to an agentive system built without instrumentation
+is costly work and produces incomplete visibility. Systems designed with
+observability in mind from the start — emitting structured events at
+every significant step — end up with far more useful observability than
+those that add it later. The initial investment in instrumentation pays
+for itself many times over during operation.</p>
+<blockquote>
+<p><em>Observability is not bought. It is designed.</em></p>
+</blockquote>
+<h2 id="carbon-world-link-11">Carbon World · link 11</h2>
+<p>The first ten links of the AI value chain cover the operation of
+agents in the digital world: digital data, digital models, agents that
+invoke digital tools over digital systems. This coverage is necessary,
+but <strong>it is not sufficient</strong> to account for most of the
+economic value that exists in the world. The bulk of global GDP is not
+generated in software — it is generated in industries that produce
+matter: manufacturing, energy, agriculture, transport, health,
+construction. These physical-world industries are the territory the next
+generation of the agentive field must reach, and they are precisely what
+link 11 — Environment — captures.</p>
+<p>This section develops the least developed link of the AI value chain
+and, at the same time, the most important one for the coming decade. It
+is where the Agentive Architecture confronts its next generation of
+problems, and where the organizations that build correctly will capture
+a competitive position hard to match.</p>
+<h3 id="the-frontier-of-link-11">The frontier of link 11</h3>
+<p>Link 11 — <strong>Environment</strong> — extends the chain to the
+territory where digital operation meets the physical world. The
+extension is not trivial. The digital world operates with bits that
+replicate at no cost, transactions that revert with relative ease,
+after-the-fact validation by log review. The physical world operates
+with matter that has mass, processes that have irreversible
+consequences, validation that occurs in physical sensors that can fail.
+Operating agents in this territory requires considerations the digital
+world did not face.</p>
+<p>We call this expanded territory the <strong>Carbon World</strong> —
+matter, physical processes, machines, living beings. The frontier
+between the silicon world (digital) and the Carbon World (physical) is
+where the Agentive Architecture confronts its next generation of
+problems. The metaphor — silicon versus carbon — captures something
+important: the difference is not merely one of medium, it is one of
+nature. Silicon is manipulated with bits; carbon is manipulated with
+matter. The architectures that worked for the former need deep
+adaptation for the latter.</p>
+<blockquote>
+<p><em>Agents do not finish serving when they reach the edge of the
+digital world. They begin to serve in earnest when they cross
+it.</em></p>
+</blockquote>
+<h3 id="why-does-this-extension-matter">Why does this extension
+matter?</h3>
+<p>Three concrete operational reasons justify attending to link 11 with
+strategic priority, not as a footnote to the digital field.</p>
+<p>The first reason is that <strong>most economic value lives in the
+Carbon World</strong>. The industries that move global GDP —
+manufacturing, energy, agriculture, transport, health, construction —
+are Carbon World industries. Their productive processes are not flows of
+information: they are flows of matter and energy with sensors and
+controllers that govern them. The contemporary AI industry,
+predominantly concentrated in digital-world applications — chatbots,
+assistants, content generation, software tools —, is covering the
+<strong>periphery of economic value</strong>. The crossing into the
+Carbon World is where the higher-impact problems lie and where the
+business volumes the field can capture are orders of magnitude
+larger.</p>
+<p>The second reason is that <strong>Carbon World industries already
+generate massive data</strong>. A modern manufacturing plant generates
+terabytes of sensor data per day. A connected truck fleet, the same. An
+agricultural field with smart irrigation and monitoring drones, the
+same. A telecommunications network, the same. <strong>The data
+exists.</strong> What is missing is not the raw material — it is the
+architectural layer that turns that data into governed autonomous
+operation. The AI value chain, developed up to link 10, connects. Link
+11 is where the agent acts upon the world the data describes.</p>
+<p>The third reason is that <strong>the crossing opens new technical
+categories</strong>. Operating agents that touch the physical world
+demands solving problems that purely digital agents do not face.
+<strong>Latency with physical consequences</strong> is one: an agent
+that takes thirty seconds to decide whether to open a valve may be
+unacceptable; the physical process does not wait, and a delay may mean
+lost product, equipment damage, or a safety risk. <strong>Limited
+reversibility</strong> is another: in the digital world, most actions
+are reversible (with enough work); in the physical world, once a part
+has been cut, a fertilizer applied, or a medication injected, there is
+no rollback. <strong>Validation with physical sensors</strong> is the
+third: Layer 4 validation is not done only against data schemas — it is
+done against physical measurements (temperature, pressure, weight,
+position), and the agent must read the world, not just APIs, with all
+the complications of sensors that can fail, drift, or return outlier
+readings. <strong>Resilience to hardware failure</strong> is the fourth:
+a bad sensor, a stuck actuator, an intermittent network — these are
+everyday conditions in the physical world, and the Trust Infrastructure
+must treat them as the normal case, not as an exception.</p>
+<h3 id="sub-categories-of-link-11">Sub-categories of link 11</h3>
+<!-- FIG:g39-mundo-carbono -->
+<figure>
+<img src="/agencydomains/figuras/g39-mundo-carbono.png"
+alt="Carbon World · four sub-categories by maturity × regulation" />
+<figcaption aria-hidden="true">Carbon World · four sub-categories by
+maturity × regulation</figcaption>
+</figure>
+<p>The Environment is not uniform. For analytical purposes, we
+distinguish four sub-categories with distinct properties. Each has its
+own current market maturity, its leading actors, its specific
+challenges.</p>
+<p>The first sub-category is <strong>traditional enterprise
+systems</strong>: ERPs (SAP, Oracle, Microsoft Dynamics), CRMs
+(Salesforce, HubSpot), DBMS (Oracle, SQL Server, PostgreSQL), HR
+systems, legacy financial systems. They are <strong>digital but
+institutional</strong> — the agent touches them via APIs, but the APIs
+reflect data models that have been evolving for decades with their own
+logic. It is the most mature sub-category of link 11. The
+<strong>enterprise integration</strong> industry — Zapier, Make, n8n,
+Workato, MuleSoft — is Core in this sub-link but operates mostly in an
+agentic model, not an autonomous one. Contemporary products integrate
+systems but do not operate agentively over them; that is the next
+generation.</p>
+<p>The second sub-category is the <strong>industrial physical
+world</strong> — manufacturing and energy. SCADA systems, MES
+(Manufacturing Execution Systems), PLCs (Programmable Logic
+Controllers), industrial sensors, line robots, valves, pumps, furnaces,
+turbines, electrical grids. They are <strong>digital but connected to
+hardware</strong> — each API ends, eventually, in a physical piece of
+equipment that acts upon matter. It is the most promising sub-category
+in terms of capturable economic value, and simultaneously the most
+conservative. Industrial processes operate under strict regulations —
+plant safety, product quality, equipment certifications — that admit no
+free experimentation. The agent must demonstrate exemplary Trust
+Infrastructure before being authorized to touch critical systems.</p>
+<p>The third sub-category is the <strong>mobile physical world</strong>
+— transport, logistics, agriculture. Connected vehicles, fleets, drones,
+agricultural equipment with sensors. They are <strong>digital, connected
+to hardware, and mobile</strong> — adding to the previous challenge
+intermittent connectivity and geographically distributed coordination.
+It is the sub-category with the fastest adoption. Logistics fleets
+(Amazon, FedEx, DHL) already operate with autonomous agents in routing
+and dispatch. Precision agriculture is advancing rapidly in developed
+countries.</p>
+<p>The fourth sub-category is the <strong>biological world</strong>.
+Genomic data, continuous medical monitoring, electronic health records,
+pharmacovigilance systems, epidemiological tracking. These are data of
+the biological Carbon World, with extremely strict regulations — HIPAA,
+health GDPR, pharmaceutical regulations. It is the sub-category with the
+greatest potential for human impact and, simultaneously, the highest
+demand for Trust Infrastructure. An agent that interprets medical
+results operates in territory where an error has a direct human
+consequence.</p>
+<h3 id="integration-patterns-for-the-carbon-world">Integration patterns
+for the Carbon World</h3>
+<p>Operating agents in link 11 demands specific architectural patterns
+that are not common in the purely digital world. The adaptation of the
+Agentive Architecture to this territory deserves to be made
+explicit.</p>
+<p>The first pattern is <strong>edge computing as distributed Layer
+3</strong>. Agents that touch industrial processes cannot depend on
+remote cognition — latency and intermittent connectivity prohibit it. If
+an agent controlling a valve has to wait for the round-trip to a cloud
+server before each decision, the system is not viable. Layer 3 —
+Autonomy — is distributed to the <strong>edge</strong>: industrial
+gateways, edge controllers, on-premises devices that keep agents
+operating locally with eventual synchronization to the center. Botlets
+are particularly useful here: they execute locally without requiring
+remote cognition; cognition is invoked only when a change in the
+environment demands it and connectivity is available.</p>
+<p>The second pattern is the <strong>digital twin of the physical
+world</strong>. A growing practice: agents operate not over the physical
+world directly, but over a <strong>digital twin</strong> that reflects
+the state of the physical system in real time. The digital twin acts as
+a Layer 4 abstraction — the agent queries and modifies it; the twin
+propagates to the physical world when it is safe to do so. The digital
+twin enables <strong>prior validation</strong>: the agent can simulate
+in the twin the effect of a decision before applying it to the real
+world. This is critical when reversibility is limited — if the
+simulation shows that the decision produces a problematic result, the
+agent can adjust before affecting the physical world.</p>
+<p>The third pattern is <strong>multiple approval levels</strong>.
+Unlike the digital world, where most of the agent’s decisions execute
+autonomously, in the Carbon World human approval is habitual for
+high-impact actions. The Trust Infrastructure must model approval
+layers: the agent decides, a local operator approves, a remote
+supervisor verifies. Each approval layer adds latency but also adds
+safety — and in the physical world, where the consequences are
+irreversible, the additional latency is justified for high-impact
+decisions.</p>
+<p>The fourth pattern is <strong>sensors as Layer 4 tools</strong>. A
+peculiarity of the Carbon World: sensors are Layer 4 tools. The agent
+“queries” a temperature sensor the same way it queries an API. The
+difference is that the sensor does not return synthetic data — it
+returns measurements of the physical world, with all the noise, drift,
+and possible failures that entails. Layer 4 validation must account for
+<strong>measurement quality</strong>: detecting sensors with outlier
+values, sensors that stopped updating, sensors whose calibration has
+drifted. This differs from the validation of digital API responses,
+where the datum is right or wrong by clear rules; the sensor may be
+technically operating yet return readings that do not correctly reflect
+reality.</p>
+<h3 id="current-state-of-the-market">Current state of the market</h3>
+<p>As of early 2026, the link 11 market for agents is fragmented and
+young. Maturity varies significantly across the four sub-categories, and
+the leading actors are typically actors from each specific vertical who
+are adding agentive capability, not agentive-AI actors entering the
+vertical.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Sub-category</th>
+<th>Market maturity</th>
+<th>Representative actors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traditional enterprise systems</td>
+<td>High (mature integration industry)</td>
+<td>Salesforce · SAP · Oracle · Workato · Zapier</td>
+</tr>
+<tr>
+<td>Industrial world — manufacturing/energy</td>
+<td>Low-medium (pilots underway, partial scaling)</td>
+<td>Siemens (Mindsphere) · GE (Predix) · PTC (ThingWorx) · Aveva</td>
+</tr>
+<tr>
+<td>Mobile world — transport/logistics</td>
+<td>Medium (large operators with proprietary capabilities)</td>
+<td>Amazon Logistics · Tesla · Deere · fleet management providers</td>
+</tr>
+<tr>
+<td>Biological world</td>
+<td>Low (high potential, high regulation)</td>
+<td>Tempus · Flatiron · Veeva — actors specialized by sub-vertical</td>
+</tr>
+</tbody>
+</table>
+<p>The visible pattern: in highly regulated sub-categories, the market
+is one of vertical-specialized actors. In less regulated sub-categories,
+there is room for horizontal infrastructure not yet built.</p>
+<h3
+id="the-opportunity-for-agentive-infrastructure-for-the-carbon-world">The
+opportunity for agentive infrastructure for the Carbon World</h3>
+<p>The current AI value chain covers links 1-10 with growing maturity in
+each. Link 11 remains, for the most part, the territory of legacy actors
+that were not born designed to integrate with autonomous agents.
+Siemens, GE, PTC, Aveva — the traditional actors of the industrial world
+— have the domain knowledge but not the agentive architectural
+discipline. Their platforms operate principally in a monitoring and
+human-supervised control model, not in an agentive model where agents
+execute autonomously.</p>
+<p>This creates an <strong>architectural opportunity</strong>: an
+agentive infrastructure specified as a gateway toward the Carbon World,
+offering normalized tools to connect to SCADA/MES/PLC systems, pre-built
+edge computing patterns, digital twins as a native abstraction, Trust
+Infrastructure tuned to the regulations of each sub-vertical, and
+multi-level human approval models.</p>
+<p>This infrastructure is not a contemporary product of any actor in the
+digital AI market. Building it demands deep knowledge of the Carbon
+World — industrial vocabulary, regulations, operational practices —
+combined with the architectural discipline of the AI value chain. The
+actors who achieve it first capture the space before the giants
+arrive.</p>
+<blockquote>
+<p><em>The AI enterprise gateway connects cognition with digital
+systems. The enterprise gateway extended to the Carbon World connects
+cognition with matter.</em></p>
+</blockquote>
+<h3 id="the-evolution-frontier">The evolution frontier</h3>
+<p>Link 11 is the most visible evolution frontier of the Agentive
+Architecture. Three open problems the technical community will have to
+solve for the crossing to become massive.</p>
+<p>The first open problem is <strong>tool standards for the industrial
+world</strong>. MCP (Model Context Protocol) provides a standard for
+digital-world tools. <strong>No mature equivalent exists</strong> for
+industrial-world tools. The existing protocols — OPC UA, MQTT, Modbus —
+are of the pre-agentive era: the agent can consume them but they are not
+designed for it. The open problem is to build an <strong>MCP for
+industry</strong> that defines how an agent discovers, authenticates,
+and operates industrial sensors and actuators with the same uniformity
+with which it operates digital APIs today.</p>
+<p>The second open problem is <strong>Trust Infrastructure specialized
+by vertical</strong>. The regulations of the Carbon World — functional
+safety (IEC 61508, ISO 26262), process safety (IEC 61511), health
+(HIPAA, FDA), aviation (DO-178C) — demand specific requirements that
+generic Trust Infrastructure does not fully cover. The open problem is
+to build vertical extensions of Trust Infrastructure that codify the
+regulatory requirements of each vertical, formally certifiable. A Trust
+Infrastructure with IEC 61508 certification can be used in regulated
+industrial plants; without that certification, the agentive system
+simply cannot operate in those environments.</p>
+<p>The third open problem is <strong>model learning in the Carbon
+World</strong>. Foundation models were trained mostly on digital data —
+text, images, code. Their understanding of the physical world is
+indirect — they read documentation, they do not operate equipment. The
+technical frontier of Layer 2 (Cognition) is to train models that
+understand the Carbon World <strong>directly</strong>: from sensor data,
+physical simulations, industrial video, biomedical data. The open
+problem is to build multimodal models that integrate Carbon World data
+as a native modality, not as a translation into text.</p>
+<h3 id="strategic-implications">Strategic implications</h3>
+<p>For those building on the Agentive Architecture, three operational
+lessons matter.</p>
+<p>The first: <strong>the Carbon World is not a distant horizon for all
+industries</strong>. For industries that already operate in the Carbon
+World — manufacturing, energy, telco, health, agriculture, logistics —,
+link 11 is the immediate link of their reality. Postponing it is not an
+option: every agentive-stack decision they make has to account for it
+from the start. An industrial organization that adopts agentive AI
+without considering how it will touch its PLCs and SCADAs builds a
+system that will serve office tasks but not productive operation.</p>
+<p>The second: <strong>the infrastructure gap is a temporary
+advantage</strong>. For the actors who build an enterprise gateway
+extended to the Carbon World now, there is a window of several years
+before the digital-world actors arrive. The current industrial-world
+actors have the domain knowledge but not the agentive architectural
+discipline. The digital-world actors have the opposite. Whoever combines
+both first defines the category. That window eventually closes — the
+giants acquire capability or build it — but it exists now.</p>
+<p>The third: <strong>Trust Infrastructure is the filter</strong>. In
+the Carbon World, the filter for entering the market <strong>is not the
+most capable agent</strong> — it is the agent with certifiable Trust
+Infrastructure. A brilliant agent that cannot demonstrate conformance
+with functional-safety regulations simply cannot operate in a plant.
+This inverts the typical priority of the digital world, where capability
+dominates over conformance. In the Carbon World, conformance is a
+prerequisite; capability is a secondary differentiator once the
+prerequisite is met.</p>
+<h3 id="what-comes-next">What comes next</h3>
+<p>With the market model closed, the book enters its most concrete
+stretch. Whoever seeks a case where the Agentive Architecture delivers
+demonstrable value today will find in the next chapter the development
+of a foundational canonical application. Whoever needs the operational
+detail to build what has so far been described as principle will find in
+the final chapter the translation into actionable artifacts.</p>
+
+<nav class="prevnext"><a href="/agencydomains/chapter-5-primitives/"><span class="dir">← Previous</span>Chapter 5 · Primitives</a><a class="nx" href="/agencydomains/chapter-7-real-time-knowledge/"><span class="dir">Next →</span>Chapter 7 · Real-time knowledge</a></nav></article></main>
+</div>
+</body>
+</html>

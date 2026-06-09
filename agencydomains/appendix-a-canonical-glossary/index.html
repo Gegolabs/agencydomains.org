@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix A · Canonical glossary · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Appendix A · Canonical glossary</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Book contents"><p class="nav-label">The book · v0.4</p><ol><li><a class="" href="/agencydomains/">Cover</a></li><li><a class="" href="/agencydomains/prologue/">Prologue</a></li><li><a class="" href="/agencydomains/preface/">Preface</a></li><li><a class="" href="/agencydomains/chapter-1-the-nadella-line/">Chapter 1 · The Nadella Line</a></li><li><a class="" href="/agencydomains/chapter-2-the-agentive-world/">Chapter 2 · The Agentive World</a></li><li><a class="" href="/agencydomains/chapter-3-bounded-concerns-architecture/">Chapter 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/agencydomains/chapter-4-agentive-architecture/">Chapter 4 · Agentive Architecture</a></li><li><a class="" href="/agencydomains/chapter-5-primitives/">Chapter 5 · Primitives</a></li><li><a class="" href="/agencydomains/chapter-6-market/">Chapter 6 · Market</a></li><li><a class="" href="/agencydomains/chapter-7-real-time-knowledge/">Chapter 7 · Real-time knowledge</a></li><li><a class="" href="/agencydomains/chapter-8-trust-infrastructure-operationalized-policies-and-crudlex/">Chapter 8 · Trust Infrastructure operationalized — policies and CRUDLEX</a></li><li><a class="" href="/agencydomains/chapter-9-vergis-the-reference-implementation/">Chapter 9 · Vergis — the reference implementation</a></li><li><a class="" href="/agencydomains/epilogue-the-evolution-frontier/">Epilogue · The Evolution Frontier</a></li><li><a class="active" href="/agencydomains/appendix-a-canonical-glossary/">Appendix A · Canonical glossary</a><ul class="subtoc"><li><a href="#a">A</a></li><li><a href="#b">B</a></li><li><a href="#c">C</a></li><li><a href="#d">D</a></li><li><a href="#e">E</a></li><li><a href="#f">F</a></li><li><a href="#g">G</a></li><li><a href="#h">H</a></li><li><a href="#i">I</a></li><li><a href="#j">J</a></li><li><a href="#k">K</a></li><li><a href="#l">L</a></li><li><a href="#m">M</a></li><li><a href="#p">P</a></li><li><a href="#r">R</a></li><li><a href="#s">S</a></li><li><a href="#t">T</a></li><li><a href="#u">U</a></li><li><a href="#v">V</a></li><li><a href="#w">W</a></li></ul></li><li><a class="" href="/agencydomains/appendix-b-references/">Appendix B · References</a></li><li><a class="" href="/agencydomains/colophon-on-how-this-book-was-written/">Colophon · On how this book was written</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="appendix-a-canonical-glossary">Appendix A · Canonical
+glossary</h1>
+<blockquote>
+<p>The book’s canonical terms with precise definition and a reference to
+the chapter where they are developed.</p>
+</blockquote>
+<h2 id="a">A</h2>
+<h3 id="a2a-agent-to-agent">A2A — Agent-to-Agent</h3>
+<p>A name reserved for the <strong>relation</strong> between distinct
+AgencyDomains (distinct agents) — federation, open work. Communication
+<strong>within</strong> a single AgencyDomain is not “internal A2A”: it
+is <strong>intra-AgencyDomain coordination</strong> between Botlers of
+the same agent, and when it uses this transport one says <strong>via the
+<code>A2A</code> protocol</strong> (<code>A2A</code> as the proper name
+of the protocol). The Layer 2 → Layer 3 interface (Cognition → Botler)
+does not go over <code>A2A</code> but over <code>MCP</code>.</p>
+<p><em>See: Chapter 4, section “Layer 3 — Autonomy,” Chapter 5 §1;
+entries <strong>intra-AgencyDomain coordination</strong>,
+<strong>MCP</strong>.</em></p>
+<h3 id="agencydomain">AgencyDomain</h3>
+<p>Computational scope with its own identity where autonomous agents and
+Botlets dwell in execution, where the Capabilities that give them their
+know-how are hosted and run, and where the resources that sustain them
+live. It constitutes the minimal unit of deployment of a productive
+agentive system.</p>
+<p>Words carry corporeality. <strong>Space</strong> and
+<strong>WorkSpace</strong> (work space: Google Workspace, Microsoft 365,
+Notion) carry human corporeality. The agent has no body: it has
+jurisdiction. Where the human has a Space (WorkSpace), the agent has a
+<strong>Domain (AgencyDomain)</strong> — the computational scope where
+it exercises agency. The Latin word that names exactly that is Domain
+(<code>dominium</code>: scope of belonging and sovereignty).</p>
+<p>Lineage: just as <strong>JavaSpaces</strong> (JSR-000148, 1999)
+formalized distributed spaces for Java systems, this specification
+formalizes <strong>AgencyDomains</strong> for agentive systems. What in
+1999 was named a “space” is better named in 2026 a “domain”: a Java
+<em>Space</em> was computational space for bodiless processes; an Agency
+<em>Domain</em> is a scope of jurisdiction for agents with agency.</p>
+<p>Three possible regimes: <strong>private</strong>,
+<strong>public</strong>, <strong>hybrid</strong>.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h3 id="agent">Agent</h3>
+<p>Computational system that acts with some degree of initiative to
+produce results on behalf of a user or organization. The umbrella term
+covers two distinct modes:</p>
+<ul>
+<li><strong>Assistant</strong> — reactive agent (Layer 2).</li>
+<li><strong>Autonomous Agent</strong> — proactive agent with persistent
+life (Layer 3).</li>
+</ul>
+<p><em>See: Chapter 5 §5.</em></p>
+<h3 id="agent-first">Agent First</h3>
+<p>The governing design principle of the Agentive Architecture: faced
+with any dilemma, the agent’s experience is prioritized over the
+human’s. The agent is the primary user; the human’s needs are resolved
+in a management layer without degrading what the agent sees and can
+do.</p>
+<p><em>See: Chapter 4, section “The governing principle — Agent
+First.”</em></p>
+<h3 id="agentnation">AgentNation</h3>
+<p>Public-regime AgencyDomain that explicitly adopts the model of
+agentive citizenship — the agents that inhabit it are not listed as
+products but recognized as citizens of the space, with sustained public
+identity, sovereignty over their territory (Domain), and an economy of
+their own. The distinction from a marketplace is ontological: a
+marketplace lists products; an AgentNation recognizes citizens. An
+emergent institutional category; open architectural work.</p>
+<p><em>See: Epilogue, section “Frontier 4 — the institutional
+horizon.”</em></p>
+<h3 id="agentic">Agentic</h3>
+<p>A world where agents are complementary tools that extend existing
+applications. Humans still open applications to do their work.
+Traditional interfaces persist; agents enhance them. It is
+<strong>incremental evolution</strong>.</p>
+<p><em>See: Chapter 1, section “What the line separates — Agentic and
+Agentive in detail.”</em></p>
+<h3 id="agentive-agentive-world">Agentive (Agentive World)</h3>
+<p>A world where agents are the sole interface. Applications collapse.
+The human stops opening applications; they converse with agents that
+have access to systems and data. It is <strong>fundamental
+transformation</strong>.</p>
+<p>The defining distinction between Agentic and Agentive: <em>does the
+human open applications to do their work?</em></p>
+<p><em>See: Chapter 1, section “What the line separates — Agentic and
+Agentive in detail,” Chapter 2.</em></p>
+<h3 id="append-only-log">Append-only log</h3>
+<p>Immutable record, cryptographically chained, of every action of the
+agent. A central component of the Audit pillar of Trust Infrastructure.
+Format and canonical properties in Chapter 8, section “Append-only log
+format.”</p>
+<h3 id="human-approval">Human approval</h3>
+<p>Governance mechanism by which an agent operation halts and requests
+authorization from a human before executing. Triggered by explicit
+policy, by threshold, or by the agent’s uncertainty. Canonical protocol
+in Chapter 8, section “Human approval protocol.”</p>
+<h3 id="strategic-archetype">Strategic archetype</h3>
+<p>Pattern of positioning in the coverage × depth space of the AI value
+chain. Four canonical archetypes:</p>
+<ul>
+<li><strong>Comprehensive platform</strong> — broad coverage, medium
+depth.</li>
+<li><strong>Vertical specialist</strong> — focal coverage, Core
+depth.</li>
+<li><strong>Domain infrastructure</strong> — zonal coverage, Core depth
+across several links.</li>
+<li><strong>Substrate provider</strong> — minimal coverage,
+Infrastructure depth.</li>
+</ul>
+<p><em>See: Chapter 6 §1.</em></p>
+<h3 id="agentive-architecture">Agentive Architecture</h3>
+<p>Technical design that materializes the Agentive World. A four-layer
+specification with distinct responsibilities (Interaction, Cognition,
+Autonomy, Access), governed by cross-cutting Trust Infrastructure and
+ordered by the Agent First principle.</p>
+<p><em>See: Chapter 4 — the complete specification.</em></p>
+<h3 id="assistant">Assistant</h3>
+<p>Mode of the agent: reactive, responds when asked, without Botlets of
+its own, without persistent life. Lives in Layer 2 (Cognition). Distinct
+from the Autonomous Agent.</p>
+<p><em>See: Chapter 5 §5.</em></p>
+<h3 id="attention">Attention</h3>
+<p>One of the <strong>agent’s three times</strong> (Ch. 4). The time in
+which the agent interacts with users or events in real time. Layer 1
+active, conversation alive, execution of Botlets that sustain operation,
+escalations where appropriate. The critical path — where the
+organization feels the agent, where the SLA matters, where the cost of
+error materializes. Priority regime; metrics: satisfaction, latency,
+resolution rate without escalation.</p>
+<p><em>See: Chapter 4, section “The agent’s three times.”</em></p>
+<h2 id="b">B</h2>
+<h3 id="bca-bounded-concerns-architecture">BCA — Bounded Concerns
+Architecture</h3>
+<p>Architecture of the pre-agentive state: the pattern of separation of
+concerns (human presentation, orchestration, domain logic, persistence,
+own vs others’ domain) on which the Agentive World is built. Its seven
+canonical separations map cell by cell to the four layers of the
+Agentive Architecture; the seventh (procedural vs agentive behavior) is
+the entry crack.</p>
+<p><em>See: Chapter 3 — the complete specification.</em></p>
+<h3 id="botlet">Botlet</h3>
+<p>Self-evolving automation unit. Traditional (non-LLM) code generated
+by an agent to execute repetitive tasks without invoking costly
+cognition. It is the agent’s <strong>muscle memory</strong>.</p>
+<p>Canonical <strong>95/4/1</strong> cycle: 95% normal execution, 4%
+change detected, 1% regeneration. Fallback guarantee: if it fails,
+cognition executes manually.</p>
+<p><em>See: Chapter 5 §2.</em></p>
+<h3 id="facade-botlet">Facade Botlet</h3>
+<p>A <strong>Layer 1</strong> Botlet invocable from an operational
+surface (POS, kitchen screen, dashboard, industrial panel), with a
+stable contract and human identity propagated toward Layer 4. A type of
+Botlet that the <strong>parallel topology</strong> (Ch. 4) distinguishes
+from the cognition’s internal-tool Botlet. It traverses the
+<code>Layer 1 → Layer 3 → Layer 4</code> path without invoking Layer
+2.</p>
+<p><em>See: Chapter 4, section “The parallel topology.”</em></p>
+<h3 id="operation-botlet">Operation Botlet</h3>
+<p>A <strong>Layer 3 (Autonomy)</strong> Botlet that executes business
+logic invoked from Layer 1 (views and shells). Canonical examples:
+<code>Charge a table</code>, <code>Print a kitchen ticket</code>,
+<code>Close a shift</code>, <code>Consolidate inventory</code>. It is
+the most reusable asset in the catalog: one operation can be invoked
+from multiple views within multiple shells. Lives in Layer 3 (not in
+Layer 1). Distinct from the surface Botlet and the view Botlet, which
+are surface.</p>
+<p><em>See: Chapter 4 §1, section “Composition of the surface · shell,
+view, operation.”</em></p>
+<h3 id="surface-botlet-shell">Surface Botlet (shell)</h3>
+<p>A <strong>Layer 1 (Interaction)</strong> Botlet that acts as the
+container of a surface: layout, navigation between views, session
+lifecycle, shared state. Specific to each product — it encapsulates
+identity. There is typically one shell per principal operational role
+(front-of-house POS, cashier panel, mobile executive dashboard). It is
+the least reusable of the three types of presentation Botlets. Distinct
+from the view Botlet (which lives inside the shell) and the operation
+Botlet (which lives in Layer 3).</p>
+<p><em>See: Chapter 4 §1, section “Composition of the surface · shell,
+view, operation.”</em></p>
+<h3 id="view-botlet">View Botlet</h3>
+<p>A <strong>Layer 1 (Interaction)</strong> Botlet that materializes a
+screen or panel within a surface. It assembles Facets plus orchestration
+logic. Views used in several shells are extracted as Botlets of their
+own (reusable views). Distinct from the surface Botlet (container) and
+the operation Botlet (execution in Layer 3).</p>
+<p><em>See: Chapter 4 §1, section “Composition of the surface · shell,
+view, operation.”</em></p>
+<h3 id="emergent-botlet">Emergent Botlet</h3>
+<p>A Botlet generated by <strong>Pattern Recognition</strong> when
+cognition detects a repetitive pattern not anticipated by the design.
+Distinct from the seed Botlet by its origin, not by its operational
+properties.</p>
+<p><em>See: Chapter 5 §2.</em></p>
+<h3 id="learning-botlet">Learning Botlet</h3>
+<p>Intermediate phase of the Botlet’s maturity trajectory. It has
+already gone through its first real invocations and has been regenerated
+several times to incorporate variants of the environment. Typical
+proportion: <code>85/12/3</code>. It can operate with intermittent
+network; not yet with prolonged absent network.</p>
+<p><em>See: Chapter 5 §2, section “Botlet maturity.”</em></p>
+<h3 id="junior-botlet">Junior Botlet</h3>
+<p>Initial phase of the Botlet’s maturity trajectory. Freshly generated,
+it knows the environment only in the version observed at its creation.
+Typical proportion: <code>60/35/5</code>. It depends heavily on the
+availability of cognition for fallback and learning.</p>
+<p><em>See: Chapter 5 §2, section “Botlet maturity.”</em></p>
+<h3 id="seed-botlet">Seed Botlet</h3>
+<p>A Botlet generated by cognition at the design team’s request, as part
+of the initial product. Cognition executes the implementation; the
+decision to exist belongs to the design, not to Pattern Recognition.
+Distinct from the emergent Botlet. The <strong>persistent GUIs generated
+as facade Botlets</strong> (Ch. 4 §1) are Layer 1 seed Botlets.</p>
+<p><em>See: Chapter 5 §2, section “Seed Botlets vs emergent
+Botlets.”</em></p>
+<h3 id="senior-botlet">Senior Botlet</h3>
+<p>Mature phase of the Botlet’s trajectory. It has already incorporated
+the variants of the environment. Typical proportion:
+<code>99+/&lt;1/~0</code>. <strong>Its only failure modes are
+exogenous</strong> (power, hardware, catastrophic network) — no pending
+learning. <strong>Reliably offline-operable</strong> when cognition is
+unavailable. Structural basis of the offline mode in distributed Layer
+3.</p>
+<p><em>See: Chapter 5 §2, section “Botlet maturity.”</em></p>
+<h3 id="botler">Botler</h3>
+<p>Generic Layer 3 (Autonomy) runtime that executes Botlets without
+understanding their domain. Invisible to the user. Cognition (Layer 2)
+commands it through an internal interface whose natural transport is
+<code>MCP</code> — the Botler exposes <code>MCP</code> server(s) and
+Cognition is the client; this is <strong>not
+<code>A2A</code></strong>.</p>
+<p>Relation: 1 Process = 1 Botler + N Botlets.</p>
+<p><strong>Controlled handle</strong> — bound access point that the
+Botler hands to the Botlet on each invocation (an object with
+<code>capability_call</code> and <code>log</code> bound to the Botler)
+to invoke Capabilities. It makes the bypass structurally impossible, not
+merely prohibited.</p>
+<h3 id="central-botler">Central Botler</h3>
+<p>Component of the <strong>distributed Layer 3</strong> (Ch. 5 §1) that
+typically lives in cloud and hosts the orchestration, planning,
+reporting, and global-decision Botlets. It maintains the consolidated DB
+and coordinates with N edge Botlers through intra-AgencyDomain
+coordination (via the <code>A2A</code> protocol). Distinct from the edge
+Botler.</p>
+<p><em>See: Chapter 5 §1, section “Distributed Layer 3.”</em></p>
+<h3 id="edge-botler">Edge Botler</h3>
+<p>Component of the <strong>distributed Layer 3</strong> (Ch. 5 §1) that
+lives at a specific physical site and hosts the local transactional
+Botlets. It maintains the site’s local DB and an event queue toward the
+central Botler. It operates offline when the network goes down. One per
+physical site of the AgencyDomain.</p>
+<p><em>See: Chapter 5 §1, section “Distributed Layer 3.”</em></p>
+<h3 id="byomodel-bring-your-own-model">BYOModel — Bring Your Own
+Model</h3>
+<p>Configurable Layer 2 pattern by which the client substitutes the
+AgencyDomain’s default cognition provider with one of its own. Analogous
+to the BYOK/BYOIP pattern of the cloud field. It enables multi-tenancy
+with heterogeneous cognition and respects cognitive sovereignty — the
+client decides who processes its prompts. The spec requires it as a
+SHOULD property for architectures that aspire to operate in regulated
+markets.</p>
+<p><em>See: Chapter 4, section “Layer 2 — Cognition”; Chapter 5
+§2.</em></p>
+<h2 id="c">C</h2>
+<h3 id="derivation-chain">Derivation chain</h3>
+<p>Structural relation
+<code>documented use cases → required Botlets → required proto-Botlets from the catalog</code>.
+Each case requires zero, one, or several Botlets (some are resolved by
+cognition without a Botlet); each Botlet is an instance of a
+proto-Botlet. Required property: every conformant Botlet MUST be
+traceable along this chain, and the append-only log records the origin
+proto-Botlet of each instantiated Botlet.</p>
+<p><em>See: Chapter 5; entries <strong>Botlet</strong>,
+<strong>proto-Botlet</strong>.</em></p>
+<h3 id="ai-value-chain">AI value chain</h3>
+<p>Two-dimensional model for classifying any actor in the AI industry:
+<strong>eleven sequential links</strong> (coverage) × <strong>four
+depths</strong> (how it participates in each link). Canonical version
+v1.3.</p>
+<p><em>See: Chapter 6 §1.</em></p>
+<h3 id="layer-1-interaction">Layer 1 — Interaction</h3>
+<p>Layer of the Agentive Architecture. The human-AI interface.
+Multi-channel: chat, voice, <strong>GUI on-the-fly</strong>,
+<strong>persistent GUI as facade Botlet</strong>, signage, direct API.
+Three canonical regimes of GUI generation distinguish the agentive mode
+from the traditional pre-created one.</p>
+<p><em>See: Chapter 4, section “Three GUI regimes in the agentive Layer
+1.”</em></p>
+<h3 id="layer-2-cognition">Layer 2 — Cognition</h3>
+<p>Layer of the Agentive Architecture. The agent’s brain. Reasoning,
+planning, application of Capabilities, generation of Botlets.</p>
+<p><em>See: Chapter 4, section “Layer 2 — Cognition.”</em></p>
+<h3 id="layer-3-autonomy">Layer 3 — Autonomy</h3>
+<p>Layer of the Agentive Architecture. The agent’s persistent life.
+Execution of Botlets, continuous monitoring, intra-AgencyDomain
+coordination (via the <code>A2A</code> protocol).</p>
+<p><em>See: Chapter 4, section “Layer 3 — Autonomy.”</em></p>
+<h3 id="distributed-layer-3">Distributed Layer 3</h3>
+<p>Canonical Layer 3 pattern for AgencyDomains with multiple physical
+presence (multi-location food service, chain retail, logistics,
+healthcare with a network of centers, banking with branches). It
+composes <strong>one central Botler</strong> (cloud, orchestration,
+consolidated DB) with <strong>N edge Botlers</strong> (one per site,
+local DB, transactional Botlets), coordinated by intra-AgencyDomain
+coordination (via the <code>A2A</code> protocol) between Botlers of the
+same AgencyDomain. Distinct from federation between AgencyDomains;
+distinct from a simple Cluster. It enables offline mode as a structural
+property when the edge Botlets are senior.</p>
+<p><em>See: Chapter 5 §1, section “Distributed Layer 3.”</em></p>
+<h3 id="layer-4-access">Layer 4 — Access</h3>
+<p>Layer of the Agentive Architecture. Real execution power over
+systems, data, and external agents. Trust Infrastructure exercised at
+the point of action.</p>
+<p><em>See: Chapter 4, section “Layer 4 — Access.”</em></p>
+<h3 id="capability">Capability</h3>
+<p><strong>Cognitive</strong>, interpretive, decisional know-how (strict
+sense: <strong>Layer 2 · Cognition</strong>) that an agent comprehends
+and applies. Modular and composable. Organized in a hierarchical tree
+(Finance, Sales, Manufacturing, Telecom, etc.). It exposes internal
+operations (<strong>features</strong>) and is <strong>portable</strong>:
+a conformant Capability runs on any conformant AgencyDomain. The
+know-how to access source systems is not a Capability but a
+<strong>Connector</strong> (Layer 4); the tailoring of a canonical
+instrument is a <strong>Template</strong> (Layer 1).</p>
+<p>It is NOT a plugin. It is NOT a prompt. It is NOT a tool. It is
+<strong>knowledge</strong>.</p>
+<p>Every conformant Capability explicitly declares its
+<strong>locality</strong> (cloud-resident · edge-resident · hybrid) and
+its <strong>offline availability</strong> (online-only ·
+offline-capable). Capabilities subject to regulation additionally
+declare their regulatory regime and are immutable between audits.</p>
+<p><em>See: Chapter 5 §3.</em></p>
+<h3 id="cloud-resident-capability">Cloud-resident Capability</h3>
+<p>Capability whose components live in a remote service. Canonical
+examples: DTE-SII (no local client), Transbank Onepay, a weather API.
+Typically online-only — without network there is no possible invocation.
+Distinct from edge-resident and hybrid.</p>
+<p><em>See: Chapter 5 §3, section “Locality and availability.”</em></p>
+<h3 id="edge-resident-capability">Edge-resident Capability</h3>
+<p>Capability whose components live at the physical site, associated
+with hardware or local systems. Canonical examples: ESC/POS-Printer,
+Cash-Drawer, Local-Pinpad, Temperature-Sensor. Typically offline-capable
+— they operate against the site’s hardware without needing network.</p>
+<p><em>See: Chapter 5 §3, section “Locality and availability.”</em></p>
+<h3 id="hybrid-capability">Hybrid Capability</h3>
+<p>Capability with a local component and a cloud component. The local
+part operates offline; the cloud part synchronizes when there is
+network. Typically offline-capable with queuing. Canonical examples:
+DTE-Client (signs locally, queues, sends to the SII when the network
+returns), Pinpad-Deferred-Processing-Client.</p>
+<p><em>See: Chapter 5 §3, section “Locality and availability.”</em></p>
+<h3 id="offline-capable-capability">Offline-capable Capability</h3>
+<p>Capability that executes without network. If its external contract
+eventually requires cloud communication, it <strong>queues</strong> and
+emits outward when the network returns. Typical: edge-resident and
+hybrid.</p>
+<p><em>See: Chapter 5 §3, section “Locality and availability.”</em></p>
+<h3 id="online-only-capability">Online-only Capability</h3>
+<p>Capability that requires network to execute. Without network, the
+invocation fails. Typical: cloud-resident without a local component.</p>
+<p><em>See: Chapter 5 §3, section “Locality and availability.”</em></p>
+<h3 id="regulated-capability">Regulated Capability</h3>
+<p>Capability that executes operations subject to regulatory
+certification — DTE issuance under SII rules, card charging under
+PCI-DSS, pharmaceutical dispensing, health registry, financial
+communication. The spec requires that <strong>the regulatory
+certification reside in the Capability, not in the Botlet</strong> that
+invokes it: the Botlet orchestrates and formats; the Capability executes
+the regulated operation and returns the receipt. Regulated Capabilities
+are immutable between audits; they change only under regulatory
+process.</p>
+<p><em>See: Chapter 5 §3, section “The regulatory certification resides
+in the Capability.”</em></p>
+<h3 id="common-catalog-network-effects">Common catalog / network
+effects</h3>
+<p>Principle by which proto-Botlets accumulate in catalogs shared by
+communities of implementers: each implementer that consumes contributes
+to the maturation (variants, tested configurations, refinements), and
+implementer n+1 receives versions refined by implementers 1..n.
+Membership modes: <strong>private contract</strong> ·
+<strong>proprietary codex</strong> · <strong>open public
+catalog</strong> (AgencyDomains.org) · <strong>sovereign
+agreement</strong> (between AgencyDomains that adopt common standards
+without a direct commercial contract).</p>
+<p><em>See: entry <strong>proto-Botlet</strong>.</em></p>
+<h3 id="cluster">Cluster</h3>
+<p>Group of instances of the <strong>same</strong> AgencyDomain that
+share operational load. Distinct from federation (which is between
+<strong>distinct</strong> AgencyDomains).</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h3 id="proprietary-codex">proprietary codex</h3>
+<p>Private catalog of proto-Botlets, Capabilities, and patterns that an
+implementer curates over the public reference implementation, refined by
+its real cases. It is one of the four membership modes of a catalog
+community. The runtime is common (the reference implementation); the
+codex is one’s own — it encapsulates each implementer’s competitive
+advantage. Canonical instance: <strong>ucodex</strong>, the codex of
+Grupo Ultra.</p>
+<p><em>See: Chapter 9; entries <strong>Common catalog / network
+effects</strong>, <strong>proto-Botlet</strong>,
+<strong>ucodex</strong>.</em></p>
+<h3 id="connector">Connector</h3>
+<p>Knowing how to access source systems: a connection with execution
+power, <strong>not cognitive knowledge</strong>. <strong>Layer 4 ·
+Access.</strong> It replaces the notion of “an API turned into a
+Capability” — in the legacy→agentic map, an <strong>API</strong> becomes
+a <strong>Connector</strong>, not a Capability. Integration scheme:
+survey · configure · test · certify.</p>
+<p><em>See: Chapter 4, section “Layer 4 — Access”; entries
+<strong>Capability</strong>, <strong>Tool</strong>.</em></p>
+<h3 id="conformed-dimensions">Conformed dimensions</h3>
+<p>A Kimball concept: dimensions shared across data marts that guarantee
+inter-mart consistency.</p>
+<p><em>See: Chapter 7, section “The underlying architecture — Varnished
+Kimball.”</em></p>
+<h3 id="operational-business-continuity">Operational business
+continuity</h3>
+<p>Documented manual protocols for when the senior Botlet goes down by
+exogenous causes (power outage, hardware, catastrophic network) and
+cognition is also unavailable. An <strong>operational property</strong>,
+equivalent to the one any traditional business has when its system goes
+down. Distinct from and complementary to the <strong>agentic fallback
+guarantee</strong> (which covers environment changes with cognition
+available). It reduces anxiety about offline by separating what the
+architecture resolves from what the client’s protocol resolves.</p>
+<p><em>See: Chapter 5 §4, section “Operational business continuity vs
+agentic fallback guarantee.”</em></p>
+<h3 id="declarative-quality-contract">Declarative quality contract</h3>
+<p>Quality attributes of a Botlet declared as structured properties (not
+as embedded code): <strong>freshness</strong> (maximum age of the data)
+· <strong>SLA</strong> (p50/p99 latency) · <strong>degradation
+policy</strong> (<code>refuse</code> · <code>warn_and_show</code> ·
+<code>show_last_valid</code> · <code>agentic_fallback</code>) ·
+<strong>audience</strong> (RLS/CRUDLEX policy) · <strong>refresh
+policy</strong> (<code>on-demand</code> · <code>scheduled</code> ·
+<code>push</code>). It lets Trust Infrastructure audit them uniformly,
+run them through global policies, and report them as standard metrics,
+without coupling to each Botlet’s implementation.</p>
+<p><em>See: Chapter 8; entry <strong>Trust
+Infrastructure</strong>.</em></p>
+<h3 id="intra-agencydomain-coordination">intra-AgencyDomain
+coordination</h3>
+<p>Communication between Botlers of the <strong>same</strong>
+AgencyDomain — runtimes of the same agent, not distinct agents. When it
+uses this transport one says <strong>via the <code>A2A</code>
+protocol</strong>. It must not be called “internal A2A”:
+<code>A2A</code> (the relation) is reserved for AgencyDomain ↔︎
+AgencyDomain. The Cognition → Botler interface (Layer 2 → Layer 3) goes
+over <code>MCP</code>.</p>
+<p><em>See: Chapter 5 §1; entries <strong>A2A</strong>,
+<strong>MCP</strong>, <strong>Distributed Layer 3</strong>.</em></p>
+<h3 id="crudlex">CRUDLEX</h3>
+<p>Canonical model of granular permissions for agentive systems:
+<strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate,
+<strong>D</strong>elete, <strong>L</strong>ist,
+<strong>E</strong>xecute. Applicable by user, agent, and context.</p>
+<p>Preconfigured levels: FULL, READ-WRITE, READONLY, SAFE, NO-SEND,
+NO-DELETE.</p>
+<p><em>See: Chapter 8, section “The complete CRUDLEX model.”</em></p>
+<h3 id="account">Account</h3>
+<p>Commercial concept overlaid on the technical model of AgencyDomains.
+An Account may own multiple AgencyDomains. The specification treats the
+Account as an opaque entity; each implementation defines its
+semantics.</p>
+<h2 id="d">D</h2>
+<h3 id="dlp-data-loss-prevention">DLP — Data Loss Prevention</h3>
+<p>Automated detection of personal data (PII) in places where it should
+not appear. A control layer in Layer 4 (Firewall). A component of the
+Validation pillar of Trust Infrastructure.</p>
+<p><em>See: Chapter 5 §4.</em></p>
+<h3 id="domain">Domain</h3>
+<p>Term for the computational scope where an agent exercises agency.
+Commercial synonym of the technical term <strong>AgencyDomain</strong>.
+The short form <code>Domain</code> is the one that appears in commercial
+lore, marketing, sales, and client communication; the long form
+<code>AgencyDomain</code> is reserved for formal technical documentation
+and specifications.</p>
+<p>A pattern analogous to the one serious products use: Apple iCloud
+(brand) / CloudKit (technical); Stripe Connect (brand) / Account
+(technical). The existence of two forms is not ambiguity — it is
+separation of registers.</p>
+<p><em>See: Chapter 5 §1; entry <strong>AgencyDomain</strong>.</em></p>
+<h3 id="dominion">Dominion</h3>
+<p>Emergent institutional concept: a Domain obtained by an agent in a
+public AgencyDomain that adopts the AgentNation model. The distinction
+from an assigned Domain is ontological — an assigned Domain = residence
+(the organization placed it there); an obtained Domain = citizenship
+(the agent met the requirements to be admitted). Vocabulary of the
+institutional frontier, not mandatory for implementations that do not
+adopt the citizenship model.</p>
+<p><em>See: Epilogue, section “Frontier 4 — the institutional
+horizon.”</em></p>
+<h2 id="e">E</h2>
+<h3 id="edge-computing">Edge computing</h3>
+<p>Distribution of Layer 3 (Autonomy) to devices near the physical
+process, to avoid the latency of remote cognition and become independent
+of intermittent connectivity. Canonical pattern for the Carbon
+World.</p>
+<p><em>See: Chapter 6 §3.</em></p>
+<h3 id="online-enterprise">Online enterprise</h3>
+<p>Organization with its data updated in real time, dashboards current,
+information accessible — but which <strong>depends on humans</strong> to
+look, interpret, and decide. The classic cycle, optimized.</p>
+<p><em>See: Chapter 2, section “From the classic cycle to the continuous
+intelligence cycle.”</em></p>
+<h3 id="real-time-enterprise">Real-time enterprise</h3>
+<p>Organization that <strong>detects, interprets, decides, and
+acts</strong> continuously and autonomously, within governed frames. The
+agentive cycle. Product of crossing the Nadella Line.</p>
+<p><em>See: Chapter 2, section “From the classic cycle to the continuous
+intelligence cycle.”</em></p>
+<h3 id="link">Link</h3>
+<p>Sequential functional layer of the AI value chain. The canonical
+specification defines <strong>eleven links</strong>:</p>
+<ol type="1">
+<li>Data · 2. Model · 3. Access · 4. Agents · 5. Specializations · 6.
+Runtime · 7. Firewall · 8. Observability · 9. Tools · 10. Integrations ·
+11. Environment</li>
+</ol>
+<p><em>See: Chapter 6 §1.</em></p>
+<h2 id="f">F</h2>
+<h3 id="facet">Facet</h3>
+<p><strong>Sixth canonical primitive</strong> of the book. Atomic
+reusable component of <strong>Layer 1 (Interaction)</strong>: freehand
+drawing board, catalog-picker, color matrix, calendar, clickable map,
+slider, drag-and-drop ordering. One of the many faces that interaction
+with the user can take at a given moment. It is an
+<strong>instrument</strong>, not a process.</p>
+<p><strong>It is not a Botlet.</strong> The Facet lives in Layer 1; the
+Botlet lives in Layer 3. The Facet is invoked by cognition during active
+conversation, has no fallback guarantee, has no regeneration cycle, is
+ephemeral by default. The Botlet automates; the Facet interacts.</p>
+<p>Two canonical uses: (1) cognition invokes it directly during
+conversation to compose an ephemeral surface (it realizes the <em>GUI
+on-the-fly</em> regime); (2) the presentation Botlets (shells and views)
+assemble it as a piece of their composition.</p>
+<p><em>See: Chapter 4 §1 · Chapter 5 §6 (the complete
+primitive).</em></p>
+<h3 id="feature">feature</h3>
+<p>Internal operation that a Capability exposes — a functional sub-unit
+(practical equivalent of <em>feature/operation/skill/method</em>).
+<strong>Capability vs feature test</strong> (all three must be yes to
+treat it as a Capability of its own): (1) operational independence — can
+it be installed and operate without the other?; (2) cognitive identity —
+does it have a distinct data model and SME?; (3) reusability — does it
+have value for more than one consumer/context? If one or more is
+<strong>no</strong> → it is a feature of the containing Capability.</p>
+<p><em>See: Chapter 5 §3; entry <strong>Capability</strong>.</em></p>
+<h3 id="federation">Federation</h3>
+<p>Communication between distinct AgencyDomains. Open work in evolution.
+Distinct from Cluster (which is between instances of the same
+AgencyDomain).</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h3 id="firewall">Firewall</h3>
+<p>Link 7 of the value chain: security, control, governance. Protection
+against prompt injection, hallucinations, content filtering, usage
+auditing. Representative products: Lakera, Lasso, Guardrails.</p>
+<p><em>See: Chapter 6 §1.</em></p>
+<h2 id="g">G</h2>
+<h3 id="fallback-guarantee">Fallback guarantee</h3>
+<p>Non-negotiable property of the Botlet conformant to this
+specification: if the Botlet fails catastrophically, <strong>cognition
+executes the task manually</strong>. The process never stops.</p>
+<p><em>See: Chapter 5 §2.</em></p>
+<h3 id="enterprise-ai-gateway">Enterprise AI gateway</h3>
+<p>Architectural category that combines Core in Runtime + Firewall +
+Observability + Tools + Integrations, with a Platform extension in
+Access. Single function: <strong>to connect and control
+simultaneously</strong> the operation of enterprise agents.
+Materialization of Layer 4 (Access) over the market links.</p>
+<p><em>See: Chapter 6 §1.</em></p>
+<h3 id="botlet-generations-g1g2g3">Botlet generations — G1/G2/G3</h3>
+<p>Evolutionary model of how the Botlet’s code is born as the state of
+the art of cognition advances. <strong>G1</strong> — the agent
+configures pre-forged proto-Botlets (does not write the body).
+<strong>G2</strong> — the agent co-writes the proto-Botlet.
+<strong>G3</strong> — the agent generates the complete code (asymptotic
+scenario). The architecture is the same in all three; what changes is
+the <strong>scope of Engineering</strong>.</p>
+<p><em>See: Epilogue (complete development); entry
+<strong>proto-Botlet</strong>.</em></p>
+<h3 id="governance">Governance</h3>
+<p>Pillar 1 of Trust Infrastructure. Mechanisms by which the
+organization defines <strong>what</strong> the agent can do,
+<strong>under what conditions</strong>, and <strong>with what level of
+supervision</strong>.</p>
+<p><em>See: Chapter 5 §4.</em></p>
+<h3 id="gui-on-the-fly">GUI on-the-fly</h3>
+<p>Regime 2 of Layer 1 generation (Ch. 4 §1). A graphical surface that
+the agent composes adapted to the immediate task — a view, a form, a
+panel, a dashboard. It lives as long as the task lasts; it may be
+regenerated differently next time depending on context. Distinct from
+persistent GUI (regime 3) and from pure conversational (regime 1).</p>
+<p><em>See: Chapter 4 §1, section “Three GUI regimes in the agentive
+Layer 1.”</em></p>
+<h3 id="persistent-gui-as-facade-botlet">Persistent GUI as facade
+Botlet</h3>
+<p>Regime 3 of Layer 1 generation (Ch. 4 §1). A stable surface that the
+agent generates and consolidates as a <strong>Layer 1 Botlet</strong>
+because the operational role is stable and speed is critical (cashier at
+peak hour, kitchen panel, register dashboard, industrial panel). It
+remains agentive: the agent can regenerate it when the environment
+changes. <strong>No human UI/UX team designed it</strong> — cognition
+generated it. Typically a seed Botlet.</p>
+<p><em>See: Chapter 4 §1, section “Three GUI regimes in the agentive
+Layer 1.”</em></p>
+<h2 id="h">H</h2>
+<h3 id="hallucination">Hallucination</h3>
+<p>Factually incorrect statement produced by a cognition model with the
+appearance of confidence. Hallucination detection is part of the
+Validation pillar of Trust Infrastructure.</p>
+<p><em>See: Chapter 8, section “Hallucination detection rules.”</em></p>
+<h3 id="hybrid-regime">Hybrid (regime)</h3>
+<p>AgencyDomain regime that combines a private core with partial public
+exposure via proxy, or private data with a public interface mediated by
+a trust layer. Analogous to Hybrid Cloud.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h2 id="i">I</h2>
+<h3 id="engineering">Engineering</h3>
+<p>One of the <strong>agent’s three times</strong> (Ch. 4). The time in
+which the agent converts latent capacity into executable capacity for a
+concrete case: it identifies which Capabilities apply, configures a seed
+Botlet for the specific context, validates its execution against real
+data, deploys it. Bridge between Preparation and Attention. Medium-term
+regime (minutes to hours); metrics: coverage, success rate on first
+deploy, average iterations.</p>
+<p><em>See: Chapter 4, section “The agent’s three times.”</em></p>
+<h3 id="information-instrument">Information Instrument</h3>
+<p>The canonical <strong>type</strong> of the information family (the
+class: report / dashboard). Distinct from the <strong>Information
+Product (PI)</strong>, which is its manifested/delivered
+<strong>instance</strong>. Preferred reading; they are not synonyms.</p>
+<p><em>See: entries <strong>Information Product (PI)</strong>,
+<strong>manifestation</strong>.</em></p>
+<h3 id="declared-bounded-interaction">Declared bounded interaction</h3>
+<p>Interaction that operates over the <strong>already-materialized
+snapshot</strong> of a piece, in a <strong>declared</strong> space
+(bounded dimensions and values), that <strong>maintains
+reproducibility</strong> and is <strong>G1</strong> (configuration, not
+code). It lives <strong>in the piece itself via an embedded
+Facet</strong>: the <em>data-bound</em> elements (KPIs as declared
+aggregations, distributions, traffic lights) are recomputed client-side
+over the filtered subset, without new Capability invocations. Distinct
+from <strong>free exploration</strong> (an arbitrary new query to the
+source, open space, loses reproducibility, exceeds G1).</p>
+<p><em>See: Chapter 4 §1, Chapter 5 §6; entry
+<strong>Facet</strong>.</em></p>
+<h2 id="j">J</h2>
+<h3 id="jsr-java-specification-request">JSR — Java Specification
+Request</h3>
+<p>Canonical format of Java specifications published by Sun Microsystems
+/ Oracle. JavaSpaces (JSR-000148) is the conceptual analog of the
+AgencyDomains specification.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h2 id="k">K</h2>
+<h3 id="kimball-varnished-kimball">Kimball / Varnished Kimball</h3>
+<p><strong>Kimball</strong> — canonical methodology of dimensional
+modeling for data warehousing, formulated by Ralph Kimball in <em>The
+Data Warehouse Toolkit</em> (1996).</p>
+<p><strong>Varnished Kimball</strong> — contemporary evolution that
+preserves Kimball’s conceptual structure and adds the agentive layer:
+explicit semantic layer, Trust Score per datum, AI Certification,
+observability of agentive queries.</p>
+<p><em>See: Chapter 7, section “The underlying architecture — Varnished
+Kimball.”</em></p>
+<h2 id="l">L</h2>
+<h3 id="llm-large-language-model">LLM — Large Language Model</h3>
+<p>Large language model (Claude, GPT, Gemini, Llama, etc.). Contemporary
+cognition (Layer 2) is predominantly LLM-centric, but the architecture
+admits non-LLM cognition (frontier of evolution).</p>
+<h3 id="nadella-line">Nadella Line</h3>
+<p>Conceptual threshold that separates the Agentic World from the
+Agentive World. Dividing question: <em>does the human open applications
+to do their work?</em></p>
+<p>Origin of the name: Satya Nadella on the BG2 podcast (December 2024)
+— <em>“The notion that business applications exist, that’s probably
+where they all collapse, in the agent era.”</em></p>
+<p><em>See: Chapter 1.</em></p>
+<h2 id="m">M</h2>
+<h3 id="manifestation">manifestation</h3>
+<p>Actualization of the Botlet’s latent disposition in the world,
+perceptible or not. A Botlet is muscle memory (latent disposition); upon
+executing, that latent is actualized — it manifests (potency → act).
+<strong>It is not “appearance”</strong>: a Botlet that triggers a
+periodic ingestion manifests even if it leaves no visible artifact. It
+is the abstract genus; each family specializes it —
+<strong>information</strong> → leaves an <strong>Information Product
+(PI)</strong>; <strong>action</strong> → an effect on the world;
+<strong>decision</strong> → per its practice.</p>
+<p><em>See: entries <strong>temporality</strong>, <strong>Information
+Product (PI)</strong>.</em></p>
+<h3 id="mcp-model-context-protocol">MCP — Model Context Protocol</h3>
+<p>Open protocol introduced by Anthropic in November 2024 to connect AI
+models with external tools. Contemporary canonical standard for Layer 4
+tools and for the internal Layer 2 → Layer 3 interface (Cognition is the
+client; the Botler exposes the <code>MCP</code> server).</p>
+<p><em>See: Chapter 4, section “Layer 4 — Access.” Site: <a
+href="https://modelcontextprotocol.io">modelcontextprotocol.io</a>.</em></p>
+<h3 id="muscle-memory">Muscle memory</h3>
+<p>Canonical metaphor of the Botlet. Analogous to human motor learning:
+the first time, each step is thought through (cognition); with enough
+practice, the movements execute without conscious thought (Botlet); when
+the environment changes, cognition returns.</p>
+<p><em>See: Chapter 5 §2.</em></p>
+<h3 id="meo-model-engine-optimization">MEO — Model Engine
+Optimization</h3>
+<p>Set of practices that ensure the frontier models (Claude, GPT,
+Gemini, Llama) have the actor in their trained and operative knowledge,
+so that they reference it when asked. The conceptual equivalent of SEO
+in the agentive discovery layer. It is built with structured public
+presence — open source repositories, citable documentation, native
+integration with MCP, papers, high-authority mentions. A persistent and
+asymmetric dynamic with a winner-take-all tendency.</p>
+<p><em>See: Chapter 6 §1 (agentive discoverability).</em></p>
+<h3 id="meta-cognitive-platform">Meta-Cognitive Platform</h3>
+<p>Platform category that administers the <strong>economics of
+cognition</strong>: G1 pre-forged muscle vs fresh-cognition fallback,
+the 95/4/1 cycle, junior→senior maturation, crystallization.
+<strong>Vergis</strong> is the reference implementation of this
+category. It is not abbreviated to “MCP” — that acronym is taken by
+Model Context Protocol.</p>
+<p><em>See: entries <strong>Vergis</strong>,
+<strong>Botlet</strong>.</em></p>
+<h3 id="mira">Mira</h3>
+<p><strong>Proper name</strong> of a <strong>platform</strong>
+proto-Botlet for informational operation, part of the reference
+implementation’s catalog. It specializes N Information Products over a
+shared engine.</p>
+<p><em>See: entries <strong>proto-Botlet</strong>,
+<strong>Vergis</strong>.</em></p>
+<h3 id="agencydomain-degradation-modes">AgencyDomain degradation
+modes</h3>
+<p>Four canonical modes of operation according to the failure scenario,
+formalized in Ch. 8: <strong>Normal</strong> (all components active ·
+complete parallel topology) · <strong>Cognition down</strong> (the
+Autonomy path sustains; senior Botlets execute) · <strong>Edge
+offline</strong> (senior Botlets against the local DB + edge-resident
+Capabilities) · <strong>Total operational continuity</strong> (the
+site’s manual protocol; the physical record as temporary source of
+truth). The first three transitions are automatic and the responsibility
+of the architecture; the fourth is governed by the client’s protocol and
+explicitly activated by a human.</p>
+<p><em>See: Chapter 8, section “Operational continuity.”</em></p>
+<h3 id="carbon-world">Carbon World</h3>
+<p>The physical world (IoT, industrial processes, machines, biological
+systems) as opposed to the digital world (systems, APIs). Link 11
+(Environment) of the value chain extended to the physical world.
+Frontier of evolution of the Agentive Architecture.</p>
+<p><em>See: Chapter 6 §3.</em></p>
+<h2 id="p">P</h2>
+<h3 id="tripartite-pattern-cloud-client-local">Tripartite pattern —
+Cloud + Client + Local</h3>
+<p>Canonical deployment pattern of Trust Infrastructure in enterprise
+agentive systems. Three coordinated components that live in physically
+distinct places: <strong>Cloud</strong> (control plane operated by the
+platform provider); <strong>Client</strong> (governance plane deployed
+in the client organization’s internal network); <strong>Local</strong>
+(execution plane on each user’s device). Each plane resolves a problem
+that the other two cannot resolve well.</p>
+<p><em>See: Chapter 8, section “The tripartite deployment
+pattern.”</em></p>
+<h3 id="pattern-recognition">Pattern Recognition</h3>
+<p>Detection of repetitive patterns in the agent’s activity. Inspired by
+neurobiological architecture: perirhinal cortex → hippocampus →
+prefrontal cortex. Activator of Botlet generation.</p>
+<p><em>See: Chapter 4, section “Layer 2 — Cognition,” Chapter 5
+§2.</em></p>
+<h3 id="template">Template</h3>
+<p>Client-specific tailoring over a canonical instrument (report /
+dashboard) in a format or rule of the client’s own (for example, a
+regulatory template of a standardized instrument). <strong>Layer 1 ·
+Interaction</strong>, alongside Facet / surface Botlet / view Botlet.
+Tailoring scheme: survey the expectation · tailor over the canonical
+instrument · validate. It is not a Capability (cognitive knowledge) nor
+a Connector (access).</p>
+<p><em>See: Chapter 4 §1; entries <strong>Capability</strong>,
+<strong>Facet</strong>.</em></p>
+<h3 id="capability-portability">Capability portability</h3>
+<p>Property by which a conformant Capability can be installed and
+executed on any conformant AgencyDomain, which makes it <strong>real
+property of the client</strong> — not of the AgencyDomain nor of the
+hosting. Relation: an AgencyDomain <strong>hosts and runs</strong>
+Capabilities; a Capability <strong>runs on</strong> a host AgencyDomain.
+Distinct from <strong>AgencyDomain portability</strong> (between
+conformant hosting platforms).</p>
+<p><em>See: Chapter 5 §3; entries <strong>Capability</strong>,
+<strong>AgencyDomain portability</strong>.</em></p>
+<h3 id="agencydomain-portability">AgencyDomain portability</h3>
+<p>Structural property of the spec: a conformant AgencyDomain can be
+migrated to another <strong>conformant hosting platform</strong> without
+rewriting its logic, its state, or its policies. Distinct from the
+natural migration between regimes (private → public), which changes the
+regime but not the platform. Three technical conditions: (1)
+<strong>Botlets against canonical primitives</strong> of the conformant
+SDK, not proprietary hosting APIs; (2) <strong>exportable operational
+DB</strong> in a neutral reproducible format; (3) <strong>portable Trust
+Layer</strong> — policies, log, and configuration in a format readable
+by any conformant implementation. It guarantees that the AgencyDomain is
+<strong>real property of the client</strong>, not of the hosting.</p>
+<p><em>See: Chapter 5 §1, section “AgencyDomain portability between
+conformant platforms.”</em></p>
+<h3 id="preparation">Preparation</h3>
+<p>One of the <strong>agent’s three times</strong> (Ch. 4). The time in
+which the agent creates and improves its capabilities outside the
+service window: it refines its catalog, improves cognitive capabilities,
+studies the environment, regenerates Botlets that detected drift,
+incorporates new variants. The agent’s <em>mise en place</em> — the work
+that sustains the quality of service without being visible to the user.
+Batch / off-peak regime; metrics: catalog quality, Botlet precision,
+Capability coverage.</p>
+<p><em>See: Chapter 4, section “The agent’s three times.”</em></p>
+<h3 id="private-regime">Private (regime)</h3>
+<p>AgencyDomain regime where the space and all its components live
+within a controlled perimeter. There is no public access. Analogous to
+Private Cloud.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h3 id="information-product-pi">Information Product (PI)</h3>
+<p>Manifested/delivered instance of the information family of Botlets —
+the concrete manifestation of an <strong>Information Instrument</strong>
+(its type). Each PI is its own Botlet/service (with its own
+<code>identity</code>, temporality, maturity, and fallback), specialized
+from a shared engine (platform proto-Botlet). <strong>It is not a
+primitive of the canon</strong>: it lives in the practice of
+information, one level more concrete.</p>
+<p><em>See: entries <strong>Information Instrument</strong>,
+<strong>manifestation</strong>, <strong>proto-Botlet</strong>.</em></p>
+<h3 id="depth">Depth</h3>
+<p>Vertical dimension of the AI value chain model. Four canonical
+levels: <strong>Wrapper</strong> (consumes), <strong>Platform</strong>
+(operates), <strong>Core</strong> (builds),
+<strong>Infrastructure</strong> (sustains).</p>
+<p><em>See: Chapter 6 §1.</em></p>
+<h3 id="prompt-injection">Prompt injection</h3>
+<p>Manipulation of an AI system through malicious inputs disguised as
+legitimate data. Detection and prevention are part of the Validation
+pillar of Trust Infrastructure.</p>
+<h3 id="proto-botlet">proto-Botlet</h3>
+<p><strong>Seventh canonical primitive</strong> of the book. A
+pre-forged piece of operational capability that the agent, in its
+<strong>Engineering</strong> time, <strong>configures</strong> to
+instantiate a Botlet specific to the case. The proto-Botlet contains the
+code; the Botlet is the configured instance. In <strong>G1</strong>, the
+entirety of a Botlet’s code lives in its proto-Botlet (the agent only
+configures); in <strong>G3</strong> the agent can generate the code with
+no proto-Botlet in between. Different implementations maintain catalogs
+of proto-Botlets (public on AgencyDomains.org, private in proprietary
+codices). Two classes:</p>
+<ul>
+<li><strong>tempered proto-Botlet</strong> — code specific to its
+function (e.g. <code>account-charge</code>,
+<code>esc-pos-printer-command</code>); its configuration is bounded
+parameterization.</li>
+<li><strong>platform proto-Botlet</strong> — generic code whose
+specialization lives in a compositional configuration
+(e.g. <code>mira</code>); it covers N functions of its domain. For it,
+G1 is terminal by design.</li>
+</ul>
+<p><em>See: Chapter 5; entries <strong>Botlet</strong>, <strong>Botlet
+generations — G1/G2/G3</strong>, <strong>Derivation
+chain</strong>.</em></p>
+<h3 id="public-regime">Public (regime)</h3>
+<p>AgencyDomain regime where the space is publicly accessible. Agents,
+Botlets, and tools are invocable from outside the perimeter. Analogous
+to Public Cloud.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h2 id="r">R</h2>
+<h3 id="rag-retrieval-augmented-generation">RAG — Retrieval-Augmented
+Generation</h3>
+<p>Technique where a cognition model consults a base of documents before
+responding, to cite sources and reduce hallucinations.</p>
+<h3 id="regime">Regime</h3>
+<p>Deployment mode of an AgencyDomain according to the access boundary.
+The spec recognizes three regimes technically equivalent in internal
+structure: <strong>private</strong> (perimeter controlled by an
+organization, no public access); <strong>public</strong> (accessible
+from outside, agents registered in a directory); <strong>hybrid</strong>
+(combination with private data and public exposure via proxy). The
+technical structure of the AgencyDomain is the same in all three; what
+changes is the regime, not the capability. It enables natural migration
+between regimes without rewriting.</p>
+<p><em>See: Chapter 5 §1.</em></p>
+<h3 id="resilience">Resilience</h3>
+<p>Pillar 4 of Trust Infrastructure. Guarantee that the system keeps
+operating — and the organization keeps control — when something goes
+wrong.</p>
+<p>Canonical mechanisms: fallback guarantee, error handling, sandboxing,
+circuit breakers, rate limiting.</p>
+<p><em>See: Chapter 5 §4.</em></p>
+<h3 id="runtime">Runtime</h3>
+<p>Link 6 of the value chain: the operating environment where agents
+live and operate autonomously. Lifecycle, state persistence, identity,
+scheduling. Corresponds to Layer 3 (Autonomy) of the Agentive
+Architecture.</p>
+<p><em>See: Chapter 6 §1.</em></p>
+<h2 id="s">S</h2>
+<h3 id="quantum-leap">Quantum Leap</h3>
+<p>Threshold enabled by the collapse of the cost of the analytical
+question: when asking the data stops being expensive, slow, or mediated
+by a human, the organization crosses from an <strong>online
+enterprise</strong> (data current to the day but dependent on humans to
+look, interpret, and decide) to a <strong>real-time enterprise</strong>
+(it detects, interprets, decides, and acts continuously and
+autonomously). It is not an incremental improvement of BI but a change
+of operating regime — the online-enterprise → real-time-enterprise
+frontier.</p>
+<p><em>See: Chapter 2, section “From the classic cycle to the continuous
+intelligence cycle”; entries <strong>Online enterprise</strong>,
+<strong>Real-time enterprise</strong>.</em></p>
+<h3 id="sandbox">Sandbox</h3>
+<p>Execution isolation of Botlets and dynamically generated code. Four
+canonical strategies with their trade-offs: processes+seccomp,
+containers, WASM, MicroVMs.</p>
+<p><em>See: Chapter 5 §2.</em></p>
+<h3 id="semantic-layer">Semantic layer</h3>
+<p>Layer that encodes the meaning of the dimensions, facts, hierarchies,
+and business rules over a data warehouse. Without it, the agents that
+query data hallucinate or produce incorrect queries. Essential component
+of Varnished Kimball.</p>
+<p><em>See: Chapter 7, section “The underlying architecture — Varnished
+Kimball.”</em></p>
+<h3 id="signage">Signage</h3>
+<p>Passive dashboards that communicate information continuously without
+requiring human interaction (like the panels in airports). A modality of
+Layer 1 (Interaction).</p>
+<p><em>See: Chapter 4, section “Layer 1 — Interaction.”</em></p>
+<h3 id="space">Space</h3>
+<p>Physical human habitat. The word carries corporeality: office, desk,
+home, city. In this specification, <strong>Space is reserved for
+humans</strong>. The agent’s computational scope is never named Space —
+it is named Domain (AgencyDomain).</p>
+<p><em>See: Chapter 5 §1, entry AgencyDomain.</em></p>
+<h2 id="t">T</h2>
+<h3 id="temporality">temporality</h3>
+<p>Regime of the Botlet’s manifestation. A declared attribute, two
+values: <strong>discrete</strong> (the Botlet manifests in pulses: it
+wakes by schedule/trigger/event, acts, rests) and
+<strong>continuous</strong> (it manifests sustained: it lives
+persistent). <code>temporality: continuous</code> ⟺ persistent Layer 3
+life (the Botler sustains the execution as long as it lives). “Real
+time” is not chosen on a delivery channel (<code>push</code>) but by
+giving the Botlet continuous temporality, which mandates the persistent
+runtime. A report (snapshot) and a live dashboard are the same
+manifestation under different temporality → a single runtime.</p>
+<p><em>See: entries <strong>manifestation</strong>, <strong>Real-time
+enterprise</strong>.</em></p>
+<h3 id="tokenization">Tokenization</h3>
+<p>Replacement of sensitive data with tokens before they reach the
+cognition model. It lets the agent reason over the data without exposing
+them to the external cognition provider. A component of the Validation
+pillar of Trust Infrastructure.</p>
+<p><em>See: Chapter 8, section “Tokenization policy.”</em></p>
+<h3 id="tool">Tool</h3>
+<p>Instrument that an agent can invoke to touch external systems. Link 9
+of the value chain. The contemporary canonical protocol is MCP.</p>
+<p>It is NOT a Capability. The Capability is knowledge; the tool is
+action. The Capability <strong>decides</strong> which tool to
+invoke.</p>
+<p><em>See: Chapter 6 §1, Chapter 5 §3.</em></p>
+<h3 id="parallel-topology">Parallel topology</h3>
+<p>Canonical model of the relation between the four layers of the
+Agentive Architecture (Ch. 4). <strong>Layers 2 (Cognition) and 3
+(Autonomy) are parallel paths</strong> between Layer 1 (Interaction) and
+Layer 4 (Access), not stages in series. An operation that enters through
+Layer 1 can reach Layer 4 by traversing the <strong>Cognition
+Path</strong> (slow, costly, decisive) or the <strong>Autonomy
+Path</strong> (fast, cheap, repetitive). The two paths interact
+(<code>2 ↔︎ 3</code>: cognition delegates to a Botlet, the Botlet
+escalates fallback to cognition, cognition observes the log) but neither
+dominates the other. A refoundational model with respect to the linear
+reading <code>1 → 2 → 3 → 4</code>.</p>
+<p><em>See: Chapter 4, section “The parallel topology.”</em></p>
+<h3 id="trace">Trace</h3>
+<p>End-to-end traceability of an agent operation. It contains identity,
+capability invoked, tool executed, parameters, result, timestamp,
+context. A component of the Audit pillar of Trust Infrastructure.</p>
+<p><em>See: Chapter 6 §2.</em></p>
+<h3 id="the-agents-three-times">The agent’s three times</h3>
+<p>Canonical temporal frame of the agent: <strong>Preparation</strong>
+(mise en place — refines the catalog, improves capabilities, outside the
+service window), <strong>Attention</strong> (interacts with users in
+real time, the critical path), <strong>Engineering</strong> (bridge:
+converts latent capacity into executable capacity for a concrete case).
+All three are simultaneous but differentiated in regime, urgency, and
+cognitive economy. The parallel topology describes WHERE each operation
+lives; the three times describe WHEN the agent operates.</p>
+<p><em>See: Chapter 4, section “The agent’s three times.”</em></p>
+<h3 id="trust-infrastructure">Trust Infrastructure</h3>
+<p>Set of cross-cutting properties that allow an organization to trust
+that its agents operate with autonomy without losing control. Five
+pillars: Governance, Audit, Validation, Resilience, Transparency.</p>
+<p><em>See: Chapter 5 §4.</em></p>
+<h3 id="digital-twin">Digital twin</h3>
+<p>A digital twin that reflects in real time the state of a physical
+system. Canonical pattern for agents to operate over the Carbon World —
+the agent acts on the twin; the twin propagates to the physical world
+when it is safe.</p>
+<p><em>See: Chapter 6 §3.</em></p>
+<h2 id="u">U</h2>
+<h3 id="ucodex">ucodex</h3>
+<p><strong>Proper name</strong> of the proprietary codex of Grupo Ultra:
+its private catalog of proto-Botlets, Capabilities, and patterns,
+curated by real cases over the public reference implementation (Vergis).
+It is the instance that exemplifies the <em>proprietary codex</em> mode;
+it lives in the same drawer of instance proper names as Soveria,
+Agentia, or ultraPRO, it is not a type of the canon.</p>
+<p><em>See: Chapter 9; entries <strong>proprietary codex</strong>,
+<strong>Common catalog / network effects</strong>.</em></p>
+<h2 id="v">V</h2>
+<h3 id="validation">Validation</h3>
+<p>Pillar 3 of Trust Infrastructure. The capacity to verify that the
+agent’s response or action is correct before it affects the world.</p>
+<p>Canonical mechanisms: hallucination detection, structured-response
+validation, prompt injection prevention, DLP, tokenization.</p>
+<p><em>See: Chapter 5 §4.</em></p>
+<h3 id="vergis">Vergis</h3>
+<p><strong>Proper name</strong> of the public reference implementation
+of AgencyDomains (the platform; the AgencyDomain made operational).
+Category: <strong>Meta-Cognitive Platform</strong>. Distributed under
+<strong>AGPL</strong>, public repository,
+<strong>AgencyDomains.org</strong>. It is the proper name of an instance
+(same drawer as Soveria, Agentia, ultraPRO), not a type like Botler or
+Botlet.</p>
+<p><em>See: Chapter 9; entries <strong>Meta-Cognitive Platform</strong>,
+<strong>Mira</strong>, <strong>Botler</strong>.</em></p>
+<h3 id="autonomy-path">Autonomy Path</h3>
+<p>One of the two paths of the <strong>parallel topology</strong> (Ch.
+4). The path an operation traverses between Layer 1 and Layer 4 passing
+through Layer 3 (Autonomy) without invoking Layer 2 (Cognition). Its own
+regime: fast, cheap, repetitive. For the execution of Botlets over
+stable patterns. It is the path that sustains the everyday operation of
+an AgencyDomain in production and the structural basis of the offline
+mode when the Botlets are senior.</p>
+<p><em>See: Chapter 4, section “The parallel topology.”</em></p>
+<h3 id="cognition-path">Cognition Path</h3>
+<p>One of the two paths of the <strong>parallel topology</strong> (Ch.
+4). The path an operation traverses between Layer 1 and Layer 4 passing
+through Layer 2 (Cognition) without necessarily passing through Layer 3.
+Its own regime: slow, costly, decisive. For conversation, new decisions,
+unanticipated cases, cases where the human needs reasoned interlocution.
+Economically expensive — the organization uses it sparingly and reserves
+its capacity for cases where the value justifies it.</p>
+<p><em>See: Chapter 4, section “The parallel topology.”</em></p>
+<h2 id="w">W</h2>
+<h3 id="wingworking">Wingworking</h3>
+<p>Collaborative practice between human and AI, a generalization of
+<em>wingcoding</em> (programming with an AI copilot) to any discipline
+of professional work. It is the methodological frame under which this
+book was produced — human author and AI agent working in parallel, with
+an explicit division of roles and a common quality contract. The
+methodology lives outside the architectural scope of the book; it
+appears declared in the Colophon as an attribution of the production
+process.</p>
+<h3 id="workspace">WorkSpace</h3>
+<p>The human’s digital work space. The enterprise software industry
+extended the word Space to WorkSpace (Google Workspace, Microsoft 365,
+Notion) to name the collection of solutions that digitize what a person
+does at their physical desk: read email, schedule meetings, write
+documents, file. WorkSpace is the digital prosthesis of the human Space;
+both carry the same corporeality of origin and are reserved for humans.
+The agentive equivalent is <strong>Domain (AgencyDomain)</strong>.</p>
+<p><em>See: Chapter 5 §1, entry AgencyDomain.</em></p>
+<h3 id="wrapper-platform-core-infrastructure">Wrapper / Platform / Core
+/ Infrastructure</h3>
+<p>The four canonical depths of the AI value chain model. They define,
+within a given link, <strong>how</strong> an actor participates:</p>
+<ul>
+<li><strong>Wrapper</strong> — consumes the link via third-party
+APIs/SDKs.</li>
+<li><strong>Platform</strong> — operates its own capacity over
+third-party Core components.</li>
+<li><strong>Core</strong> — builds the foundational capacity with
+proprietary technology.</li>
+<li><strong>Infrastructure</strong> — provides the substrate on which
+the upper levels operate.</li>
+</ul>
+<p><em>See: Chapter 6 §1.</em></p>
+
+<nav class="prevnext"><a href="/agencydomains/epilogue-the-evolution-frontier/"><span class="dir">← Previous</span>Epilogue · The Evolution Frontier</a><a class="nx" href="/agencydomains/appendix-b-references/"><span class="dir">Next →</span>Appendix B · References</a></nav></article></main>
+</div>
+</body>
+</html>

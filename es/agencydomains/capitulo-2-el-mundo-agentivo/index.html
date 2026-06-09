@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 2 · El Mundo Agentivo · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Capítulo 2 · El Mundo Agentivo</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p><ol><li><a class="" href="/es/agencydomains/">Portada</a></li><li><a class="" href="/es/agencydomains/prologo/">Prólogo</a></li><li><a class="" href="/es/agencydomains/prefacio/">Prefacio</a></li><li><a class="" href="/es/agencydomains/capitulo-1-la-linea-nadella/">Capítulo 1 · La Línea Nadella</a></li><li><a class="active" href="/es/agencydomains/capitulo-2-el-mundo-agentivo/">Capítulo 2 · El Mundo Agentivo</a><ul class="subtoc"><li><a href="#el-colapso-de-la-aplicación-como-interfaz">El colapso de la
+aplicación como interfaz</a></li><li><a href="#la-nueva-economía-de-la-información">La nueva economía de la
+información</a></li><li><a href="#del-ciclo-clásico-al-ciclo-de-inteligencia-continua">Del ciclo
+clásico al ciclo de inteligencia continua</a></li><li><a href="#tres-ejes-de-cambio-profundo">Tres ejes de cambio profundo</a></li><li><a href="#la-naturaleza-de-la-transición">La naturaleza de la
+transición</a></li><li><a href="#el-estado-del-campo">El estado del campo</a></li><li><a href="#la-obligación-arquitectónica">La obligación arquitectónica</a></li><li><a href="#resumen-visual">Resumen visual</a></li></ul></li><li><a class="" href="/es/agencydomains/capitulo-3-bounded-concerns-architecture/">Capítulo 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/es/agencydomains/capitulo-4-arquitectura-agentiva/">Capítulo 4 · Arquitectura Agentiva</a></li><li><a class="" href="/es/agencydomains/capitulo-5-primitivas/">Capítulo 5 · Primitivas</a></li><li><a class="" href="/es/agencydomains/capitulo-6-mercado/">Capítulo 6 · Mercado</a></li><li><a class="" href="/es/agencydomains/capitulo-7-conocimiento-en-tiempo-real/">Capítulo 7 · Conocimiento en tiempo real</a></li><li><a class="" href="/es/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/">Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a></li><li><a class="" href="/es/agencydomains/capitulo-9-vergis-la-implementacion-de-referencia/">Capítulo 9 · Vergis — la implementación de referencia</a></li><li><a class="" href="/es/agencydomains/epilogo-la-frontera-de-evolucion/">Epílogo · La frontera de evolución</a></li><li><a class="" href="/es/agencydomains/apendice-a-glosario-canonico/">Apéndice A · Glosario canónico</a></li><li><a class="" href="/es/agencydomains/apendice-b-referencias/">Apéndice B · Referencias</a></li><li><a class="" href="/es/agencydomains/colofon-sobre-como-se-escribio-este-libro/">Colofón · Sobre cómo se escribió este libro</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="capítulo-2-el-mundo-agentivo">Capítulo 2 · El Mundo
+Agentivo</h1>
+<p>El Capítulo 1 estableció la pregunta divisoria: si el humano abre
+aplicaciones para hacer su trabajo, la organización vive en el lado
+agéntico; si no, ha cruzado al lado Agentivo. Este capítulo asume que la
+respuesta es <strong>no</strong> — que la organización ha cruzado la
+Línea Nadella — y desarrolla, con la calma y el detalle que la pregunta
+merece, qué significa ese cruce en la práctica.</p>
+<p>La pregunta no es trivial. Cualquier ejecutivo, arquitecto o
+consultor que haya enfrentado una transición tecnológica grande sabe que
+las consecuencias del cruce nunca son el conjunto de slides con flechas
+optimistas que el primer evangelista promete. Las consecuencias reales
+son rugosas, asimétricas, parcialmente predecibles y parcialmente
+sorprendentes. Pero hay un núcleo de cambios que sí pueden anticiparse
+con disciplina, y son esos cambios los que este capítulo describe.</p>
+<p>El cruce de la Línea Nadella cambia simultáneamente seis dimensiones
+de la operación de cualquier organización: la forma en que el humano
+interactúa con el sistema, la naturaleza de los datos que el sistema
+consume, los roles del trabajo humano, la economía de la información, la
+gobernanza, y el modelo operativo. Ninguna de las seis cambia
+aisladamente. Avanzar en una sin las demás produce <strong>pilotos
+exitosos pero no transformación real</strong> — observación que las
+firmas de consultoría que han documentado el campo repiten con
+frecuencia incómoda. El cruce es sistémico o no es.</p>
+<p>Comenzaremos por la consecuencia más visible: el colapso de la
+aplicación como interfaz primaria del trabajo cognitivo.</p>
+<h2 id="el-colapso-de-la-aplicación-como-interfaz">El colapso de la
+aplicación como interfaz</h2>
+<!-- FIG:g04-seis-dimensiones -->
+<figure>
+<img src="/es/agencydomains/figuras/g04-seis-dimensiones.png"
+alt="Las seis dimensiones del cruce" />
+<figcaption aria-hidden="true">Las seis dimensiones del
+cruce</figcaption>
+</figure>
+<p>Durante cuarenta años el sistema de software empresarial se construyó
+alrededor de un postulado implícito que rara vez se hizo explícito:
+<strong>la unidad mínima de interacción es la aplicación</strong>. El
+humano abre Excel para modelar números. Abre Salesforce para gestionar
+oportunidades. Abre Power BI para revisar dashboards. Abre ServiceNow
+para abrir tickets. Abre Confluence para documentar. Cada aplicación
+tiene su pantalla, su menú, su modelo mental, su curva de aprendizaje.
+La habilidad valiosa del trabajador del conocimiento moderno consistía,
+en buena parte, en saber operar bien una colección razonable de
+aplicaciones — saber dónde está cada cosa, cómo se llega, qué botón
+pulsar.</p>
+<p>Ese postulado deja de operar en el Mundo Agentivo. La aplicación,
+vista como interfaz primaria del trabajo, <strong>colapsa</strong>. Pero
+hay que ser preciso sobre qué exactamente colapsa, porque la afirmación
+leída sin matices puede sonar más radical de lo que es.</p>
+<p>No todo desaparece. Distinguir es importante para no perder
+credibilidad ante un ejecutivo que tiene que decidir presupuesto. Las
+<strong>GUIs como punto de entrada al trabajo</strong> mueren rápido: el
+humano deja de abrir Salesforce para revisar pipeline, le pregunta a un
+agente cuáles oportunidades requieren atención. Las <strong>aplicaciones
+como sistemas backend</strong> sobreviven, pero invisibles: el agente
+que respondió sobre el pipeline consultó Salesforce vía API. Salesforce,
+como sistema, sigue ahí. Como interfaz humana, no. Las <strong>suites
+ofimáticas tradicionales</strong> — Office, Google Workspace — se
+reposicionan: Word, Excel y PowerPoint dejan de ser la primera elección
+del usuario que necesita escribir, calcular o presentar — el agente lo
+hace. Sobreviven en casos de edición fina, formato específico o trabajo
+creativo donde la conversación es ineficiente respecto al trabajo
+directo. Y las <strong>herramientas especializadas con superficie
+compleja</strong> — CAD, Figma, IDEs avanzados, DAWs musicales —
+sobreviven más tiempo: su interfaz codifica saber profesional que la
+conversación tarda en reemplazar.</p>
+<p>El patrón emergente es nítido. Las aplicaciones que existen para
+<strong>navegar y filtrar información</strong> mueren rápido bajo la
+presión del Mundo Agentivo. Eran intermediarios visuales entre el humano
+y los datos, y un agente con acceso directo a los datos hace innecesario
+al intermediario. Las que existen para <strong>producir artefactos
+especializados</strong> sobreviven más, aunque eventualmente con
+copiloto o agente como mediador. La transición no es uniforme entre
+categorías de aplicaciones, y los responsables de stack que la
+planifican bien aceptan esa desigualdad.</p>
+<p>Una imagen útil para sostener intuitivamente lo que ocurre: pensar el
+Mundo Agentivo como aquél en el que las aplicaciones empresariales viven
+<strong>debajo</strong> de una capa conversacional, no encima. El humano
+nunca las ve, pero los agentes las consultan continuamente. Salesforce
+no desaparece: se vuelve la base de datos de relaciones de cliente que
+un agente comercial consume sin que el humano vea jamás su UI. Power BI
+no desaparece: se vuelve un endpoint de consultas analíticas que un
+agente financiero invoca cuando se le pregunta sobre desempeño
+trimestral. ServiceNow no desaparece: sigue siendo el registro de
+tickets que un agente de operaciones consulta y actualiza sin abrir el
+portal. Las aplicaciones se convierten en <strong>infraestructura
+backend invisible</strong>. Su valor sobrevive como almacén estructurado
+de datos y lógica de negocio. Pierden su valor como interfaz.</p>
+<blockquote>
+<p><em>Las aplicaciones no desaparecen. Desaparece la obligación de que
+el humano las abra.</em></p>
+</blockquote>
+<p>La industria de analytics — la más antigua y consolidada del software
+empresarial — fue la primera en aceptar abiertamente que el modelo de
+“humano abre aplicación” llegó a su techo. Tellius lo formula con la
+franqueza propia de un actor que ha visto el ciclo: <em>“Dashboards
+still tell you what happened, but rarely why — and never what to do
+next.”</em> Superwise extiende la observación: <em>“BI was built for a
+slower business environment — that assumption no longer holds
+true.”</em> No son provocaciones de marketing — son reconocimientos de
+un problema operativo persistente que la industria de BI ha tratado de
+resolver durante quince años con sucesivos rediseños cosméticos, hasta
+entender que el problema no era cosmético sino estructural. La interfaz
+misma — el dashboard como artefacto visual que el humano debe abrir,
+mirar e interpretar — era el cuello de botella.</p>
+<h2 id="la-nueva-economía-de-la-información">La nueva economía de la
+información</h2>
+<p>Si tuviera que destacar un solo cambio que el cruce de la Línea
+Nadella produce sobre la operación cotidiana de una organización, sería
+este: <strong>el colapso del costo marginal de una pregunta
+analítica</strong>. Es el cambio menos visible de los seis y, al mismo
+tiempo, el más transformador. Es la <strong>condición
+habilitante</strong> de todo lo demás que este capítulo describe.</p>
+<p>En el modelo tradicional, cada pregunta nueva de negocio implica un
+proyecto. La secuencia es conocida y dolorosa: el ejecutivo formula la
+pregunta a su área de BI; el área de BI coordina con el ejecutivo para
+precisar el alcance; los analistas levantan los datos relevantes; los
+desarrolladores construyen el reporte o dashboard; los validadores
+confirman que el resultado es correcto; el ejecutivo recibe la
+respuesta. El proceso completo toma típicamente entre cuatro y doce
+semanas. El cuello de botella real, como suele decirse en las
+organizaciones maduras, <strong>no es la tecnología — es la
+transferencia de conocimiento entre personas</strong>. Hay humanos en el
+medio, y cada humano introduce latencia y posibilidad de error de
+interpretación.</p>
+<p>El costo de poner el modelo tradicional en operación tampoco es
+trivial: construir la cadena Data Lake → Synapse → Power BI, o cualquier
+equivalente moderno, exige setup inicial de seis cifras, operación
+mensual sostenida y meses hasta el primer dashboard útil (el
+<strong>Capítulo 7 desarrolla</strong> las cifras detalladas de costo de
+BI). Y toda esa inversión entrega capacidad de responder solo aquellas
+preguntas que alguien previó al diseñar el sistema. Las preguntas no
+anticipadas — las que el ejecutivo realmente quiere hacer cuando llega
+el lunes con una intuición nueva — no están en el menú. Esperan en cola,
+o no se hacen.</p>
+<p>Cuando ese costo colapsa de semanas a segundos, <strong>cambia la
+naturaleza misma</strong> de la relación entre la organización y su
+información. Tres efectos inmediatos transforman la operación
+cotidiana.</p>
+<p>El primero es que <strong>la capacidad analítica se vuelve
+elástica</strong>. Se adapta en tiempo real a la necesidad actual, no a
+lo que alguien pre-definió hace meses. No hay menú fijo: hay capacidad
+de respuesta ilimitada dentro de los límites de los datos disponibles.
+El ejecutivo que tiene una intuición el lunes la explora el lunes — no
+espera al jueves a que el equipo de BI tenga el dashboard listo. La
+velocidad de la curiosidad analítica deja de estar limitada por la
+infraestructura.</p>
+<p>El segundo es que <strong>la iteración reemplaza a la
+especificación</strong>. En el modelo tradicional, el ejecutivo debía
+especificar por adelantado qué quería ver, esperar el resultado, y a
+partir de ahí formular la siguiente pregunta. La latencia de cada ciclo
+era de semanas, así que las preguntas tenían que ser muy bien planteadas
+— el costo del error de planteamiento era alto. En el modelo agentivo,
+el ejecutivo plantea una primera pregunta aproximada, recibe la
+respuesta en segundos, refina, profundiza, descarta hipótesis, persigue
+otras. El conocimiento emerge del <strong>diálogo</strong>, no del
+proyecto. La forma misma de hacer análisis cambia: de proyecto
+secuencial a conversación continua.</p>
+<p>El tercero es quizá el más profundo: <strong>las preguntas que nunca
+se hacían, ahora se hacen</strong>. Cuando preguntar es gratis, la
+organización descubre insights que ni siquiera sabía que necesitaba. La
+curiosidad analítica deja de estar limitada por el presupuesto de BI. Un
+ejecutivo que en el modelo tradicional reservaba sus consultas a las
+preguntas más obvias y de mayor retorno — porque cada una le costaba al
+área de BI un proyecto — empieza a preguntar también las preguntas
+marginales, las hipótesis exóticas, los detalles que en el modelo viejo
+no justificaban el costo. Y descubre, con frecuencia, que las preguntas
+marginales contenían los insights más valiosos.</p>
+<p>Esta transformación no es solo una mejora cuantitativa. Es
+<strong>condición habilitante</strong> de todo lo demás en este
+capítulo. El ciclo de inteligencia continua que describiremos en la
+próxima sección no puede existir si cada iteración toma semanas. La
+gobernanza de autonomía que describiremos más adelante no tiene sentido
+si los agentes no operan en tiempo real. La transformación de roles
+humanos que describiremos al final no ocurre si el acceso al
+conocimiento sigue dependiendo de intermediarios humanos. El colapso del
+costo de la pregunta no es feature de los agentes — es la
+<strong>precondición</strong> de todo lo demás.</p>
+<h2 id="del-ciclo-clásico-al-ciclo-de-inteligencia-continua">Del ciclo
+clásico al ciclo de inteligencia continua</h2>
+<!-- FIG:g05-ciclos -->
+<figure>
+<img src="/es/agencydomains/figuras/g05-ciclos.png"
+alt="Del ciclo clásico al ciclo de inteligencia continua" />
+<figcaption aria-hidden="true">Del ciclo clásico al ciclo de
+inteligencia continua</figcaption>
+</figure>
+<p>Durante treinta años el paradigma de gestión de información se
+sostuvo sobre el principio <strong>“las personas van hacia los
+datos”</strong>. La frase suena anodina pero codifica todo el modelo
+operativo del BI clásico: se construye un data warehouse, se montan
+dashboards, se entrenan usuarios, y se espera que alguien mire el
+reporte correcto en el momento correcto y tome la decisión correcta.
+Todo el modelo descansa sobre la <strong>atención humana</strong> como
+el recurso escaso, el cuello de botella alrededor del cual se diseña el
+sistema.</p>
+<p>El ciclo clásico es lineal: descriptive → diagnostic → predictive →
+prescriptive → humano decide. Empieza con datos describiendo qué pasó,
+sigue diagnosticando por qué pasó, predice qué pasará, prescribe qué
+hacer, y termina con un humano evaluando la prescripción y decidiendo.
+El humano que decide es el final del ciclo — el último paso, el cierre.
+Y la velocidad del ciclo está atada a la velocidad de ese humano. Si el
+humano está ocupado, el ciclo no avanza. Si el humano está en
+vacaciones, el ciclo no avanza. Si el humano duerme, el ciclo no
+avanza.</p>
+<p>La IA agentiva invierte ese flujo. La frase canónica del nuevo
+paradigma — y la encontrarán repetida en este libro porque es central —
+es: <strong>“la inteligencia va hacia las personas, y actúa en su
+nombre.”</strong> Un sistema de agentes monitorea continuamente,
+interpreta lo que detecta, decide dentro de los límites que la
+organización ha definido, ejecuta la decisión, y escala al humano solo
+cuando corresponde — cuando algo sale del rango previsto, cuando el
+impacto excede umbrales, cuando se requiere juicio que el agente no
+tiene. El ciclo deja de ser lineal y se vuelve <strong>continuo,
+autorregulado, agente-ejecutado, humano-gobernado</strong>.</p>
+<p>El cambio crítico es estructural. El paso de <em>prescriptive</em> a
+acción ya no es una recomendación que un humano evalúa. Es una decisión
+que un agente ejecuta, monitorea el resultado, y ajusta. La organización
+deja de <strong>hacer analytics</strong> para <strong>ser</strong> un
+sistema inteligente. Esta es la formulación que el campo ha empezado a
+usar — <em>“continuous intelligence”</em> en el lenguaje de Gartner,
+<em>“agentic analytics”</em> en el de Tableau y Tellius, <em>“agentic
+BI”</em> en el de Databricks. Todos nombran el mismo desplazamiento: del
+ciclo donde el humano cierra al ciclo donde el agente cierra y el humano
+gobierna.</p>
+<p>La transición entre los dos ciclos da lugar a una distinción
+organizacional que vale acuñar con cuidado, porque será referencia
+recurrente en el resto del libro. Una <strong>empresa en línea</strong>
+tiene sus datos actualizados, sus dashboards al día, su información
+accesible. Pero <strong>depende de que un humano mire, interprete y
+decida</strong>. Vive con el ciclo clásico, optimizado al máximo. Una
+<strong>empresa en tiempo real</strong>, en cambio, no solo accede a
+información: <strong>detecta, interpreta, decide y actúa</strong> de
+forma continua y autónoma, dentro de marcos gobernados. Vive con el
+ciclo agentivo. La frontera entre ambas es exactamente lo que el colapso
+del costo de la pregunta analítica habilita — es lo que llamamos
+<strong>el Salto Cuántico</strong>, el evento a partir del cual la
+naturaleza misma de la operación cambia. Antes del Salto, una
+organización puede tener la mejor infraestructura del mundo y seguir
+siendo empresa en línea. Después del Salto, la misma infraestructura se
+vuelve sustrato de una empresa en tiempo real.</p>
+<p>La distinción importa porque captura algo que las métricas
+tradicionales de madurez en BI no capturan. Una organización con
+dashboards perfectos, datos actualizados al segundo, y todo el equipo de
+BI funcionando como reloj, sigue siendo empresa en línea si los humanos
+siguen siendo los que miran y deciden. La empresa en tiempo real no es
+la versión más rápida de la empresa en línea — es <strong>otra
+cosa</strong>. La diferencia no es de velocidad, es de modelo
+operativo.</p>
+<p>En el vocabulario de la arquitectura que el resto del libro
+desarrolla, empresa en línea y empresa en tiempo real son <strong>puntos
+del continuo de temporalidad</strong> de los componentes que sostienen
+la operación: el “tiempo real” no se habilita eligiendo un canal que
+empuje datos más seguido, sino dando <strong>temporalidad
+continua</strong> a los componentes que operan en nombre de la
+organización. La spec de manifestación y temporalidad
+(<code>discreta</code>/<code>continua</code>) vive en el
+<strong>Capítulo 5 §2</strong>.</p>
+<p>Cube lo plantea sin retórica: <em>“The modern data stack is beginning
+to show its age.”</em> BCG lo lleva al plano operativo, describiendo
+cómo la IA agentiva orquesta acciones en toda la cadena de valor,
+<em>“closing the loop between insight and execution.”</em> La frase es
+exacta: el ciclo clásico <strong>dejaba el lazo abierto</strong> —
+terminaba con una recomendación que el humano cerraba con su decisión.
+El ciclo agentivo <strong>cierra el lazo</strong> — el sistema mismo
+decide y ejecuta, dentro de los marcos que el humano definió. Es
+paradigma distinto, no incremento sobre el actual.</p>
+<p>El cruce no es un interruptor: una organización lo atraviesa de forma
+gradual, y dentro de ella la proporción entre trabajo asistido (el
+agente como <strong>Asistente</strong> reactivo) y trabajo autónomo (el
+<strong>Agente Autónomo</strong> que cierra el lazo) se desplaza a
+medida que madura. A modo ilustrativo:</p>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th style="text-align: center;">Asistente</th>
+<th style="text-align: center;">Agente Autónomo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 · Inicial</strong></td>
+<td style="text-align: center;">90 %</td>
+<td style="text-align: center;">10 %</td>
+</tr>
+<tr>
+<td><strong>2 · Adopción</strong></td>
+<td style="text-align: center;">70 %</td>
+<td style="text-align: center;">30 %</td>
+</tr>
+<tr>
+<td><strong>3 · Madurez</strong></td>
+<td style="text-align: center;">50 %</td>
+<td style="text-align: center;">50 %</td>
+</tr>
+<tr>
+<td><strong>4 · Avanzada</strong></td>
+<td style="text-align: center;">30 %</td>
+<td style="text-align: center;">70 %</td>
+</tr>
+</tbody>
+</table>
+<p>Las cifras son orientativas, no medidas: marcan la
+<strong>dirección</strong> del desplazamiento — de un mundo donde el
+humano gobierna cada paso a uno donde el agente sostiene la operación y
+el humano gobierna los marcos. La distinción Asistente vs Agente
+Autónomo se desarrolla en el Capítulo 5 §5.</p>
+<h2 id="tres-ejes-de-cambio-profundo">Tres ejes de cambio profundo</h2>
+<!-- FIG:g06-empresa-linea-tiemporeal -->
+<figure>
+<img src="/es/agencydomains/figuras/g06-empresa-linea-tiemporeal.png"
+alt="Empresa en línea → empresa en tiempo real · el Salto Cuántico" />
+<figcaption aria-hidden="true">Empresa en línea → empresa en tiempo real
+· el Salto Cuántico</figcaption>
+</figure>
+<p>Una organización que cruza la Línea Nadella experimenta tres ejes
+simultáneos de transformación — los tres ejes agrupan las seis
+dimensiones del cruce: la relación humano-información y los roles del
+trabajo humano se condensan en el primero; los datos y el modelo
+operativo, en el segundo; la gobernanza y la economía de la información,
+en el tercero. Tomados aisladamente, cada eje suena como mejora
+razonable. Tomados juntos, constituyen un cambio de modelo operativo. La
+advertencia, recurrente entre las firmas que han documentado el campo:
+avanzar en uno solo de los ejes sin los demás produce <strong>pilotos
+exitosos pero no transformación real</strong>. Los tres son
+interdependientes.</p>
+<h3 id="de-consumir-información-a-gobernar-agentes">De consumir
+información a gobernar agentes</h3>
+<p>El primer eje cambia la relación del humano con la información. En el
+paradigma actual, el trabajador del conocimiento es <strong>consumidor
+de información</strong>: alguien construye reportes, alguien construye
+dashboards, y el trabajador los lee, interpreta y decide. La habilidad
+valiosa es <strong>literacy de datos</strong> — saber leer tablas,
+entender visualizaciones, formular hipótesis a partir de números. El
+valor está en <em>entender</em> la información.</p>
+<p>En el paradigma emergente, el trabajador del conocimiento se mueve
+hacia un rol distinto: <strong>diseñador y gobernador de
+agentes</strong>. Las personas dejan de mirar reportes y pasan a diseñar
+las reglas, los umbrales, los protocolos bajo los cuales agentes
+monitorean, interpretan y actúan. La habilidad valiosa es <strong>diseño
+y supervisión de sistemas autónomos</strong> — saber formular las reglas
+correctas, saber evaluar el comportamiento agregado del agente, saber
+detectar cuándo el agente opera fuera de rango. El valor está en
+<em>gobernar la acción inteligente</em>, no en consumir información
+sobre ella.</p>
+<p>El cambio es radical pero no súbito. El CFO que en el paradigma
+actual revisa un dashboard de cashflow todas las mañanas, en el
+paradigma emergente define los umbrales y protocolos que un agente
+financiero ejecuta autónomamente. El agente monitorea continuamente,
+ejecuta acciones de gestión de liquidez dentro de los límites que el CFO
+definió, escala al CFO solo cuando se aproxima a los umbrales o cuando
+detecta condiciones anómalas. El CFO ya no mira el dashboard — mira el
+comportamiento del agente, ajusta los umbrales cuando aprende algo
+nuevo, interviene cuando el agente le notifica una anomalía. El CFO
+sigue siendo CFO, pero su trabajo cotidiano cambió de naturaleza.</p>
+<p>McKinsey describe esta transición con precisión en su reporte sobre
+la “Organización Agentiva”: los empleados pasan de ejecutar tareas a
+orquestar resultados, supervisar agentes, establecer objetivos y
+gestionar trade-offs. La frase recurrente entre los analistas —
+<em>“humanos above the loop”</em> — captura el desplazamiento. El humano
+no está fuera del lazo de decisión, ni dentro: está
+<strong>encima</strong> del lazo, definiendo sus parámetros y
+supervisando su comportamiento agregado. McKinsey estima que el setenta
+y cinco por ciento de los roles actuales requerirán rediseño, upskilling
+o reubicación para 2030.</p>
+<p>BCG documenta una consecuencia organizacional concreta de este
+desplazamiento: el cuarenta y cinco por ciento de los líderes de IA
+esperan necesitar menos capas de management intermedio. La razón es
+estructural. El management intermedio existe en buena parte para
+coordinar la ejecución entre niveles — pasar instrucciones del nivel
+ejecutivo al nivel operativo, monitorear que se ejecuten, reportar de
+vuelta. Cuando el agente ejecuta autónomamente, ese rol coordinativo
+pierde necesidad. Lo que sobrevive del management intermedio es la parte
+que aporta juicio profesional: definir las reglas correctas, manejar
+excepciones complejas, mediar entre objetivos en tensión. La parte
+coordinativa pura desaparece.</p>
+<p>Aparecen, simétricamente, roles nuevos. Un análisis de CIO.com los
+enumera con detalle: <strong>AI Agent Orchestrator</strong> (la persona
+responsable de la flota de agentes que opera en una función o área),
+<strong>Human-Agent Interaction Designer</strong> (la persona que diseña
+cómo los humanos interactúan productivamente con los agentes que
+gobiernan), <strong>AI Ethics &amp; Governance Specialist</strong> (la
+persona que asegura que los agentes operen dentro de los límites éticos
+y regulatorios), <strong>AgentOps Specialist</strong> (el equivalente
+del DevOps Engineer pero para flotas de agentes). Es un organigrama
+nuevo. No reemplaza al organigrama tradicional inmediatamente — convive
+con él durante años — pero refleja el desplazamiento del trabajo humano
+hacia gobernar agentes que ejecutan.</p>
+<h3 id="de-arquitectura-para-humanos-a-arquitectura-para-agentes">De
+arquitectura para humanos a arquitectura para agentes</h3>
+<p>El segundo eje cambia los datos y la arquitectura subyacente. Esta es
+la dimensión menos visible para el ejecutivo y más crítica para el
+arquitecto técnico. La razón: la arquitectura de datos del paradigma
+actual está optimizada para que humanos consulten — y eso es
+estructuralmente incompatible con que agentes consulten
+correctamente.</p>
+<p>El paradigma actual asume que el consumidor final de los datos es un
+humano operando una aplicación. Los data warehouses se optimizan para
+consultas SQL escritas por analistas. La calidad de dato significa
+<strong>limpieza</strong>: filas sin nulos, formatos consistentes,
+fechas en su lugar. Los modelos de datos se diseñan para alimentar
+visualizaciones — Power BI, Tableau, Looker. La integración entre
+sistemas opera por batches o bajo demanda, en frecuencias que el humano
+puede tolerar.</p>
+<p>El paradigma emergente cambia cada uno de estos supuestos. Los datos
+se consumen por agentes, que no leen filas — interpretan
+<strong>significado</strong>. Los warehouses por sí solos son
+insuficientes: necesitan capa semántica explícita encima, donde el
+agente lea no solo las tablas sino la <strong>intención de las
+tablas</strong>: qué significa este indicador, cómo se relaciona con
+esos otros, qué transformaciones son legítimas, qué casos especiales
+aplican. La calidad de dato deja de significar limpieza y pasa a
+significar <strong>accionabilidad</strong> — un dato bien limpiado pero
+sin contexto semántico es inservible para un agente, mientras que un
+dato algo sucio pero rico en contexto puede ser utilísimo.</p>
+<p>AtScale midió esta diferencia cuantitativamente. Según AtScale, los
+agentes que consultan datos sin capa semántica fallan en más del
+<strong>ochenta por ciento</strong> de las consultas — generan SQL
+incorrecto, malinterpretan métricas, alucinan relaciones que no existen;
+los mismos agentes con capa semántica explícita alcanzan, en el mismo
+estudio de AtScale, una precisión muy alta. La conclusión que AtScale
+extrae no admite ambigüedad: <em>“Para los agentes de IA, el semantic
+layer no es nice-to-have — es el fundamento que hace que la IA sea
+verdaderamente útil.”</em> El <strong>Capítulo 7 desarrolla</strong> el
+detalle cuantitativo de este estudio.</p>
+<p>ThoughtSpot acuñó el término <strong>Agentic Semantic Layer</strong>
+para describir la capa semántica diseñada nativamente para agentes —
+dinámica, context-aware, conectada a los flujos del agente. Salesforce,
+en su arquitectura de empresa agentiva, propone un <strong>Enterprise
+Knowledge Graph</strong> como capa central — knowledge graph en lugar de
+dimensional model, porque el grafo captura relaciones que la tabla
+bidimensional no puede capturar. Databricks habla de unificar
+infraestructura, datos y semántica para habilitar <strong>Agentic
+BI</strong>. Cada uno de estos vendors está atacando, desde su ángulo,
+el mismo problema: el agente necesita mucho más que datos; necesita
+<em>significado</em> asociado a los datos.</p>
+<p>La industria todavía debate los detalles — knowledge graph versus
+capa semántica versus ontología versus modelo dimensional extendido —
+pero el reconocimiento de que algo nuevo es necesario es ya consenso.
+Informatica lo formula con franqueza: <em>“Because agents act without
+human approval loops, the data they use must be fully trusted, verified,
+and monitored.”</em> Y propone SLAs de calidad de datos explícitos:
+menos de cinco minutos de frescura para agentes transaccionales, menos
+de una hora para agentes analíticos. Los SLAs viejos — actualizar el
+data warehouse cada noche — no sirven para sistemas que actúan en tiempo
+real.</p>
+<p>Deloitte encontró que el cuarenta y ocho por ciento de las
+organizaciones citan la <strong>descubribilidad de datos</strong> como
+barrera principal para su estrategia agentiva, y el cuarenta y siete por
+ciento citan la <strong>reutilización</strong>. Los datos existen, pero
+los agentes no pueden encontrarlos o no pueden interpretarlos. Es
+problema arquitectónico, no de cantidad. La transición del paradigma
+actual al emergente exige un cambio de paradigma en la arquitectura de
+datos: de pipelines ETL diseñados para alimentar dashboards a fabrics
+semánticos diseñados para razonamiento autónomo.</p>
+<h3 id="de-gobernanza-de-acceso-a-gobernanza-de-autonomía">De gobernanza
+de acceso a gobernanza de autonomía</h3>
+<p>El tercer eje cambia cómo la organización ejerce control sobre lo que
+el sistema hace. Es el eje donde la mayor parte de los proyectos
+agentivos fracasan, según los datos de campo, y por eso merece atención
+cuidadosa.</p>
+<p>La gobernanza tradicional de IT pregunta: <strong>¿quién puede ver
+qué datos?</strong>. El modelo de control es <strong>acceso</strong>:
+identidades autenticadas, roles asignados, permisos concedidos sobre
+recursos específicos. La pregunta es estática (los permisos rara vez
+cambian) y discreta (un usuario tiene o no tiene acceso a un recurso).
+Las herramientas tradicionales — IAM (Identity and Access Management),
+SSO, RBAC — están optimizadas para este modelo. Funcionan bien porque el
+sujeto del acceso (el humano) tiene identidad estable y el objeto del
+acceso (el recurso) tiene granularidad clara.</p>
+<p>La gobernanza agentiva pregunta algo distinto: <strong>¿qué puede
+hacer un agente, bajo qué condiciones?</strong>. El sujeto del control
+no es un humano — es un agente que actúa en nombre de un humano u
+organización. El objeto del control no es un recurso aislado — es una
+secuencia de acciones que el agente puede ejecutar autónomamente. La
+pregunta es dinámica (las condiciones cambian con el contexto), continua
+(el agente actúa todo el tiempo, no solo cuando alguien apunta el
+cursor), y multi-dimensional (qué acción, sobre qué dato, con qué
+impacto, bajo qué umbral).</p>
+<p>Las herramientas tradicionales de IAM son insuficientes en este
+modelo. Están diseñadas para sujetos humanos con identidad estable y
+permisos discretos, no para agentes que actúan continuamente con grados
+variables de autonomía. La organización que intenta gobernar a un agente
+con permisos clásicos descubre rápido que el modelo no captura las
+preguntas que necesita responder: ¿el agente puede ejecutar
+transferencias bancarias? Sí, pero ¿hasta qué monto sin aprobación
+humana? ¿bajo qué horarios? ¿con qué nivel de validación previa? ¿con
+qué auditoría posterior? Cada pregunta exige un mecanismo nuevo que el
+modelo de acceso clásico no tiene.</p>
+<p>Los reguladores han reconocido este desplazamiento más rápido de lo
+que la industria suele aceptar. Singapore IMDA publicó en enero de 2026
+el primer framework estatal de gobernanza para IA agentiva, el
+<strong>Model AI Governance Framework for Generative AI</strong> (MGF).
+El framework establece, con claridad poco habitual en regulación
+temprana, que aunque los agentes actúan autónomamente, <em>“la
+responsabilidad humana continúa aplicando”</em>. Las organizaciones
+deben hacer que la accountability humana sea significativa y que el
+human-in-the-loop sea efectivo en el tiempo. El World Economic Forum
+propone gobernanza progresiva: logging y trazabilidad para todos los
+agentes, identity tagging por acción, monitoreo en tiempo real. Su
+distinción clave: <em>“autonomy entails decision-making flexibility;
+automation emphasizes execution reliability”</em> — son design choices,
+no propiedades inherentes del sistema. La organización elige cuánta
+autonomía darle al agente; no la hereda como propiedad técnica del
+sistema.</p>
+<p>BCG reporta que el cincuenta y ocho por ciento de los adoptadores
+pesados de IA esperan un cambio fundamental en su estructura de
+gobernanza en los próximos tres años, y un tercio cree que la IA tendrá
+más autoridad de decisión en el mismo período. NACD — la asociación
+nacional de directores corporativos en Estados Unidos — advierte que la
+IA agentiva impacta la supervisión del board, el cumplimiento
+regulatorio y la exposición al riesgo. La frase de KPMG resume bien el
+período: <em>“The winners won’t be the ones with the most pilots but the
+ones investing now in scalable data architectures, agent governance
+models, and workforce readiness.”</em></p>
+<p>La cifra que más preocupa, sin embargo, es la operativa. Gartner
+predice que más del cuarenta por ciento de los proyectos de IA agentiva
+serán cancelados antes de fines de 2027 — por costos, valor de negocio
+poco claro, o controles de riesgo inadecuados. La gobernanza no es
+opcional; es lo que separa pilotos de producción. La escala del problema
+es significativa: el ochenta por ciento de las organizaciones reportan
+comportamientos riesgosos de sus agentes — acceso no autorizado a datos,
+interacciones inesperadas, decisiones fuera de rango — y solo el
+veintiuno por ciento tiene modelos de gobernanza maduros. ISACA destaca
+que la IA agentiva presenta un desafío creciente para funciones de
+auditoría porque sus procesos de decisión carecen de trazabilidad
+clara.</p>
+<p>El mensaje de los datos es nítido. Las organizaciones que sobrevivan
+al cruce serán las que hayan invertido en gobernanza de autonomía con la
+misma seriedad que invirtieron en gobernanza de acceso durante los
+últimos veinte años. Las que traten el problema como aplicación tardía
+de las herramientas viejas — un permiso más en el IAM, un rol más en el
+SSO — se quedarán entre el cuarenta por ciento que cancela proyectos. Y
+la gobernanza de autonomía no se construye en el último mes antes del
+lanzamiento — se diseña desde el inicio, en la arquitectura misma del
+sistema. Es lo que el Capítulo 5 desarrolla bajo el nombre de
+<strong>Trust Infrastructure</strong>.</p>
+<h2 id="la-naturaleza-de-la-transición">La naturaleza de la
+transición</h2>
+<!-- FIG:g07-transicion -->
+<figure>
+<img src="/es/agencydomains/figuras/g07-transicion.png"
+alt="La transición no es un evento · coexistencia evolutiva" />
+<figcaption aria-hidden="true">La transición no es un evento ·
+coexistencia evolutiva</figcaption>
+</figure>
+<p>Hay un riesgo de leer las consecuencias del cruce como si fueran un
+evento único — el día que la organización pasó al lado Agentivo. Esa
+lectura es errada y, en términos prácticos, peligrosa: lleva a
+planificar la transición como un big bang que casi siempre fracasa. La
+realidad es <strong>coexistencia evolutiva</strong>: el paradigma actual
+y el emergente coexisten durante años, con la proporción cambiando
+gradualmente de uno hacia el otro.</p>
+<p>La infraestructura existente — data warehouses, pipelines ETL,
+herramientas de BI tradicional, ERPs, CRMs — no desaparece cuando una
+organización cruza la Línea Nadella. Cambia su rol. Deja de ser
+superficie con la cual el humano interactúa y se vuelve <strong>fuente
+de datos consumida por agentes</strong>. La arquitectura tradicional
+sigue siendo válida para data warehousing histórico a gran escala, para
+modelos analíticos altamente complejos que requieren pre-cálculo, para
+pipelines con lógica de negocio muy específica, para requerimientos
+regulatorios de retención y linaje formal. Lo que cambia no es si esos
+sistemas existen — es <strong>quién los consume</strong>. En las etapas
+tempranas, el noventa por ciento del consumo es por humanos vía
+dashboards y reportes; el agente es asistente puntual en el margen. En
+las etapas avanzadas, el agente orquesta la mayor parte de las consultas
+analíticas y la infraestructura tradicional opera invisible debajo,
+alimentándolo.</p>
+<blockquote>
+<p><em>Cada etapa de la transición no invalida la anterior — la
+subsume.</em></p>
+</blockquote>
+<p>Una organización avanzada en la transición no eliminó su data
+warehouse. Lo integró en un fabric semántico que agentes consumen
+autónomamente. La empresa en línea no desaparece cuando emerge la
+empresa en tiempo real — se convierte en su cimiento. Esta es lectura
+crítica para no caer en el error opuesto al “big bang”: el del
+fundamentalismo agentivo que descarta toda la infraestructura existente
+y trata de reconstruir desde cero. La organización seria reconoce que
+veinte años de inversión en BI tradicional construyeron un activo — los
+datos están limpios, los modelos están consensuados, los pipelines son
+confiables — y que ese activo es exactamente lo que el agente necesita
+por debajo. Tirarlo y empezar de nuevo es renunciar al activo.
+Mantenerlo y agregarle capa agentiva encima es capitalizarlo.</p>
+<p>La transición tiene además dos asimetrías que importa reconocer. La
+primera, <strong>asimetría entre funciones</strong>: no todas las
+funciones cruzan al mismo ritmo. Funciones repetitivas con datos
+estructurados — finanzas, operaciones, atención al cliente, gestión de
+inventario — cruzan rápido, porque la economía es evidente y el riesgo
+del error es contenido. Funciones creativas o de juicio profundo —
+diseño, estrategia, negociación — cruzan más lentamente, no por
+incapacidad técnica de los agentes sino por aceptación cultural y por la
+economía del riesgo. Forzar un cruce uniforme en todas las funciones es
+uno de los antipatrones más comunes en programas de transformación
+agentiva fallidos. Las organizaciones serias dejan que cada función
+cruce a su ritmo, con planes específicos por área, en lugar de imponer
+un calendario único.</p>
+<p>La segunda asimetría es <strong>temporal</strong>: las organizaciones
+que invierten temprano en arquitectura agentiva pagan el costo de
+explorar antes de tener referentes maduros, pero también capturan el
+aprendizaje que viene de operar el modelo nuevo durante más tiempo. Las
+que esperan a que el campo madure pagan menos costo de exploración pero
+llegan al mercado con menor experiencia operativa. La elección entre las
+dos posiciones no es obvia — depende del apetito de riesgo, de la
+posición competitiva, del horizonte temporal del decisor. Pero la
+elección debe ser consciente. Quedar en la mitad — invertir lo
+suficiente para tener un piloto pero no lo suficiente para llegar a
+producción — es la peor posición posible. Es exactamente la posición que
+produce el cuarenta por ciento de proyectos cancelados que Gartner
+proyecta.</p>
+<h2 id="el-estado-del-campo">El estado del campo</h2>
+<p>Tratar el Mundo Agentivo como horizonte lejano es un error de
+diagnóstico. Los datos de campo a inicios de 2026 documentan una
+transición ya en curso, con velocidad significativamente mayor de lo que
+el marketing tradicional sugería hace dieciocho meses. Tres cifras dan
+dimensión al fenómeno y enmarcan la lectura del resto del libro.</p>
+<p>La primera: para fines de 2026, <strong>el cuarenta por ciento de las
+aplicaciones empresariales incluirán agentes de IA</strong>, comparado
+con menos del cinco por ciento en 2025. La proyección es de Gartner, y
+el orden de magnitud — un crecimiento de ocho veces en doce meses — es
+lo que la hace remarcable. No es la cifra absoluta lo importante; es la
+pendiente. Una pendiente así implica que la transición está
+acelerándose, no estabilizándose.</p>
+<p>La segunda: para 2028, <strong>al menos el quince por ciento de las
+decisiones operativas diarias serán tomadas autónomamente por
+agentes</strong>, sin humano en el lazo de decisión. La cifra es
+proyección de Gartner. Un quince por ciento parece poco, hasta que uno
+calcula cuántas decisiones operativas toma una empresa mediana al día —
+del orden de decenas de miles entre todas sus áreas — y entiende que el
+quince por ciento es un volumen significativo de operación autónoma
+cotidiana, con implicaciones regulatorias, organizacionales y técnicas
+que las empresas todavía no han mapeado completamente.</p>
+<p>La tercera: el mercado global de IA agentiva pasa de <strong>7.3 mil
+millones de dólares en 2025 a 139.2 mil millones proyectados para
+2034</strong> — una tasa compuesta superior al cuarenta por ciento anual
+sostenido durante una década. Esta cifra es la apuesta colectiva del
+capital sobre el horizonte agentivo. Cuando el capital apuesta así, no
+garantiza que la transición ocurra como predicha — pero sí garantiza que
+las organizaciones que apuesten en contra tendrán que justificar la
+apuesta contra inversión masiva en la dirección opuesta.</p>
+<p>Hay tres lecturas posibles de estos datos, todas válidas, y la
+organización seria debe sostener las tres simultáneamente sin que se
+contradigan. La primera lectura: <strong>el cruce está
+ocurriendo</strong>. No es escenario futuro sobre el cual debatir si
+llegará — es presente medible. La segunda: <strong>pero la mayoría está
+mal preparada</strong> — los datos de gobernanza ya citados (riesgo
+extendido, madurez escasa, proyectos en camino a fallar) lo confirman.
+La tercera: <strong>la diferencia entre éxito y fracaso es
+estructural</strong>. Las organizaciones que sobrevivan al cruce serán
+las que hayan invertido en arquitectura agentiva formal, no en pilotos
+aislados sin disciplina.</p>
+<p>Las tres lecturas son, en última instancia, la misma. Hay una
+transformación real ocurriendo. Hay un costo real de hacerla mal. Y la
+diferencia entre quienes la harán bien y quienes la harán mal no es
+sutil — es arquitectónica.</p>
+<h2 id="la-obligación-arquitectónica">La obligación arquitectónica</h2>
+<p>Las consecuencias del cruce que este capítulo ha documentado no son
+aspiracionales — son <strong>exigencias técnicas</strong>. Cada
+consecuencia tiene una implicación arquitectónica directa, y la lista de
+implicaciones, leída en conjunto, es casi exactamente la lista de las
+cuatro capas y la infraestructura transversal que el Capítulo 4
+propondrá como arquitectura formal.</p>
+<p>El colapso de la aplicación como interfaz exige una capa de
+<strong>Interacción</strong> agnóstica al canal. Si el humano va a
+conversar con agentes en lugar de abrir aplicaciones, el sistema debe
+poder manifestarse coherentemente en chat, voz, canales corporativos,
+GUI on-the-fly, y eventualmente en cualquier canal nuevo que aparezca.
+Una capa de Interacción rígida, atada a una superficie particular, falla
+en el Mundo Agentivo.</p>
+<p>La nueva economía de la información exige una capa de
+<strong>Cognición</strong> que pueda razonar sobre datos en tiempo real,
+multi-LLM, capaz de aplicar saber especializado y de delegar tareas
+repetitivas a otra capa que las ejecute sin invocarla cada vez. Una
+cognición monolítica, atada a un proveedor único, falla cuando la
+economía de operación lo exige.</p>
+<p>La transformación de roles humanos hacia gobernar agentes exige que
+el agente tenga <strong>vida persistente</strong> — no sea solo
+asistente reactivo que responde y se olvida. Una capa de
+<strong>Autonomía</strong> donde el agente pueda mantener estado,
+ejecutar continuamente, monitorear, y actuar por iniciativa propia es lo
+que hace al humano <em>above the loop</em> en lugar de <em>in the
+loop</em>. Sin esa capa, el humano sigue siendo cuello de botella aunque
+crea estar gobernando.</p>
+<p>La gobernanza de autonomía exige un punto de control donde se ejerza
+la política antes de la ejecución. Una capa de <strong>Acceso</strong>
+donde toda acción del agente sobre el mundo real pase por validación de
+políticas, registro auditable y controles configurables es lo que separa
+pilotos de producción. Sin esa capa, el sistema es indefendible
+regulatoriamente y operativamente.</p>
+<p>Y la transición de pilotos a producción exige una
+<strong>infraestructura de confianza transversal</strong> — que no viva
+en una capa específica sino que atraviese las cuatro. Es lo que el
+Capítulo 5 desarrolla bajo el nombre de Trust Infrastructure: cinco
+pilares — Gobernanza, Auditoría, Validación, Resiliencia, Transparencia
+— que se ejercen en distintos puntos según el caso pero que juntos
+sostienen la confianza de la organización en lo que el sistema hace.</p>
+<p>Cada exigencia es una capa. Cada capa es la respuesta a una
+consecuencia del cruce. La arquitectura agentiva no es propuesta
+abstracta diseñada en pizarra — es la lista de cosas que hay que
+resolver para no quedar entre el cuarenta por ciento de proyectos que
+Gartner pronostica cancelados. Esa arquitectura, sus capas, sus
+primitivas, sus interfaces formales, es lo que el resto del libro
+desarrolla.</p>
+<hr />
+<p>Quien haya seguido este capítulo entiende ahora qué cambia al cruzar
+la Línea Nadella, por qué el cruce es sistémico, y qué se le exige a una
+arquitectura que pretenda sostenerlo. Los capítulos siguientes entregan
+esa arquitectura. El lector que vaya a tomar decisiones de stack en
+horizonte de cinco años encontrará en ellos la disciplina que previene
+quedar entre el cuarenta por ciento de proyectos cancelados.</p>
+<h2 id="resumen-visual">Resumen visual</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimensión</th>
+<th>Antes del cruce</th>
+<th>Después del cruce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Interfaz</strong></td>
+<td>Aplicaciones (GUIs, menús, pantallas)</td>
+<td>Conversación con agentes</td>
+</tr>
+<tr>
+<td><strong>Datos</strong></td>
+<td>Data warehouses optimizados para SQL · calidad = limpieza</td>
+<td>Capas semánticas donde agentes razonan · calidad =
+accionabilidad</td>
+</tr>
+<tr>
+<td><strong>Roles humanos</strong></td>
+<td>Consumidores de información · ejecutores de tareas</td>
+<td>Diseñadores y supervisores de sistemas autónomos</td>
+</tr>
+<tr>
+<td><strong>Economía de la información</strong></td>
+<td>Cada pregunta nueva = un proyecto (semanas)</td>
+<td>Cada pregunta nueva = una conversación (segundos)</td>
+</tr>
+<tr>
+<td><strong>Gobernanza</strong></td>
+<td>Quién puede ver qué datos · permisos estáticos</td>
+<td>Qué puede hacer un agente, bajo qué condiciones</td>
+</tr>
+<tr>
+<td><strong>Modelo operativo</strong></td>
+<td>Centros de competencia · funciones especializadas</td>
+<td>Fábricas de agentes · orquestación de ecosistemas</td>
+</tr>
+</tbody>
+</table>
+
+<nav class="prevnext"><a href="/es/agencydomains/capitulo-1-la-linea-nadella/"><span class="dir">← Anterior</span>Capítulo 1 · La Línea Nadella</a><a class="nx" href="/es/agencydomains/capitulo-3-bounded-concerns-architecture/"><span class="dir">Siguiente →</span>Capítulo 3 · Bounded Concerns Architecture</a></nav></article></main>
+</div>
+</body>
+</html>

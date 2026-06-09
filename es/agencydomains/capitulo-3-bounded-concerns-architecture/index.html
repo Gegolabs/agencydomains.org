@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capítulo 3 · Bounded Concerns Architecture · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Capítulo 3 · Bounded Concerns Architecture</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p><ol><li><a class="" href="/es/agencydomains/">Portada</a></li><li><a class="" href="/es/agencydomains/prologo/">Prólogo</a></li><li><a class="" href="/es/agencydomains/prefacio/">Prefacio</a></li><li><a class="" href="/es/agencydomains/capitulo-1-la-linea-nadella/">Capítulo 1 · La Línea Nadella</a></li><li><a class="" href="/es/agencydomains/capitulo-2-el-mundo-agentivo/">Capítulo 2 · El Mundo Agentivo</a></li><li><a class="active" href="/es/agencydomains/capitulo-3-bounded-concerns-architecture/">Capítulo 3 · Bounded Concerns Architecture</a><ul class="subtoc"><li><a href="#la-era-agentic-exige-tratamiento-arquitectónico-explícito">La
+era Agentic exige tratamiento arquitectónico explícito</a></li><li><a href="#la-delgadez-del-dominio-como-respuesta">La delgadez del dominio
+como respuesta</a></li><li><a href="#las-tres-capas">Las tres capas</a></li><li><a href="#las-siete-separaciones-estructurales">Las siete separaciones
+estructurales</a></li><li><a href="#genealogía-intelectual">Genealogía intelectual</a></li><li><a href="#mapa-comparativo-de-propuestas">Mapa comparativo de
+propuestas</a></li><li><a href="#modelo-de-scoring-para-el-eje-cualitativo">Modelo de scoring
+para el eje cualitativo</a></li><li><a href="#implicaciones-arquitectónicas">Implicaciones
+arquitectónicas</a></li><li><a href="#limitaciones-del-modelo">Limitaciones del modelo</a></li><li><a href="#mapping-al-mundo-agentivo">Mapping al Mundo Agentivo</a></li><li><a href="#cierre-la-frontera-de-bca">Cierre · La frontera de BCA</a></li></ul></li><li><a class="" href="/es/agencydomains/capitulo-4-arquitectura-agentiva/">Capítulo 4 · Arquitectura Agentiva</a></li><li><a class="" href="/es/agencydomains/capitulo-5-primitivas/">Capítulo 5 · Primitivas</a></li><li><a class="" href="/es/agencydomains/capitulo-6-mercado/">Capítulo 6 · Mercado</a></li><li><a class="" href="/es/agencydomains/capitulo-7-conocimiento-en-tiempo-real/">Capítulo 7 · Conocimiento en tiempo real</a></li><li><a class="" href="/es/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/">Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a></li><li><a class="" href="/es/agencydomains/capitulo-9-vergis-la-implementacion-de-referencia/">Capítulo 9 · Vergis — la implementación de referencia</a></li><li><a class="" href="/es/agencydomains/epilogo-la-frontera-de-evolucion/">Epílogo · La frontera de evolución</a></li><li><a class="" href="/es/agencydomains/apendice-a-glosario-canonico/">Apéndice A · Glosario canónico</a></li><li><a class="" href="/es/agencydomains/apendice-b-referencias/">Apéndice B · Referencias</a></li><li><a class="" href="/es/agencydomains/colofon-sobre-como-se-escribio-este-libro/">Colofón · Sobre cómo se escribió este libro</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="capítulo-3-bounded-concerns-architecture">Capítulo 3 · Bounded
+Concerns Architecture</h1>
+<p>Los Capítulos 1 y 2 establecieron la frontera y describieron el
+destino. La Línea Nadella separa dos futuros del software, y el Mundo
+Agentivo es el lado al que las organizaciones cruzarán durante la
+próxima década. Pero antes de describir la arquitectura del destino —
+tarea del Capítulo 4 — hay que mirar con cuidado el lugar desde el cual
+se parte. La inmensa mayoría de las organizaciones que cruzarán la línea
+no lo harán construyendo desde cero: lo harán transformando un
+patrimonio de sistemas empresariales que llevan décadas operando,
+sostienen el corazón del negocio, y no pueden apagarse durante la
+travesía.</p>
+<p>Este capítulo describe ese punto de partida con el mismo rigor con
+que el resto del libro describe el destino. El instrumento que vamos a
+usar se llama <strong>Bounded Concerns Architecture</strong> — abreviado
+BCA. No es una arquitectura del Mundo Agentivo: es la cartografía formal
+del estado <em>previo</em> al cruce, diseñada para que un arquitecto
+pueda mirar un sistema empresarial existente, identificar dónde vive
+cada responsabilidad, y razonar disciplinadamente sobre qué componentes
+migrarán al Mundo Agentivo, qué componentes desaparecerán, y qué
+componentes permanecerán como infraestructura backend invisible que los
+agentes consumirán sin que el humano la vea jamás.</p>
+<p>La elección del nombre no es ornamental. <em>Bounded</em> — acotado —
+captura el principio operacional que sostiene la arquitectura completa:
+cada responsabilidad ocupa su lugar y no se desborda al territorio de la
+responsabilidad vecina. Esa disciplina, que en la era pre-agentiva era
+buena práctica recomendada, se vuelve <strong>condición de
+viabilidad</strong> apenas el sistema empieza a incorporar componentes
+agénticos. Sin esa disciplina, la volatilidad estadística que los
+agentes traen consigo contamina el núcleo estable del negocio, y lo que
+llevaba veinte años funcionando deja de ser confiable. Con esa
+disciplina, la incursión agéntica queda confinada a la capa que está
+diseñada para tolerar volatilidad, y el núcleo del negocio queda
+protegido durante toda la travesía.</p>
+<blockquote>
+<p><em>BCA es la arquitectura de la transición, no la del destino.
+Describe el estado desde el cual se cruza la Línea Nadella, no el estado
+al que se cruza.</em></p>
+</blockquote>
+<h2 id="la-era-agentic-exige-tratamiento-arquitectónico-explícito">La
+era Agentic exige tratamiento arquitectónico explícito</h2>
+<p>La incorporación de agentes a sistemas empresariales no es la adición
+de una nueva tecnología más. Es la introducción de una clase de
+comportamiento cuya naturaleza es estructuralmente distinta del código
+tradicional, y que por tanto exige tratamiento arquitectónico
+distinto.</p>
+<p>El código tradicional — workflows, motores de reglas, clases de
+servicio, scripts de orquestación — tiene una propiedad común: su
+comportamiento está <strong>especificado explícitamente</strong> por
+humanos. Alguien escribió, paso a paso, qué pasa cuando, en qué orden,
+con qué condiciones. Para entender qué hace, basta leer el código. Su
+evolución es deliberada: cuando cambia, alguien decidió cambiarlo y
+modificó el código correspondiente.</p>
+<p>El código agéntico — agentes basados en modelos de lenguaje, sistemas
+de recomendación, optimizadores de aprendizaje automático, sistemas
+expertos — tiene una propiedad opuesta: su comportamiento está
+<strong>derivado contextualmente</strong> desde un modelo. Nadie
+programó paso a paso qué hace; alguien describió un objetivo o un
+patrón, y la entidad deriva el comportamiento desde sus pesos, datos de
+entrenamiento, prompts o reglas heurísticas. Para entender qué hace, no
+basta leer el código — hay que entender los datos o el modelo del que el
+comportamiento emerge. Su evolución es estadística: cuando cambia, no es
+porque alguien modificó una línea sino porque cambiaron los datos, los
+pesos o los prompts que sintetizan el razonamiento.</p>
+<p>Esta diferencia tiene cuatro consecuencias arquitectónicas concretas
+que separan a los componentes agénticos de los componentes
+tradicionales. Los componentes procedurales se prueban con tests
+unitarios deterministas; los agénticos se prueban con datasets de
+evaluación y métricas agregadas. Los procedurales producen logs
+predecibles que reflejan ejecución de código; los agénticos producen
+logs que requieren interpretación porque el comportamiento varía con el
+contexto. Los procedurales son auditables línea por línea; los agénticos
+son auditables por sus inputs, outputs y métricas pero no por su lógica
+interna. Los procedurales evolucionan mediante refactor de código; los
+agénticos evolucionan mediante reentrenamiento, ajuste de prompts o
+cambio de modelos. Estas cuatro propiedades son lo suficientemente
+distintas como para justificar que la arquitectura las trate como
+ciudadanos separados.</p>
+<p>La amenaza estructural que esta diferencia introduce en el sistema
+empresarial es la siguiente: <strong>los agentes son volátiles, pero las
+invariantes del negocio no pueden serlo</strong>.</p>
+<p>Un agente evoluciona rápidamente. Cambia con cada actualización del
+modelo subyacente, con cada ajuste de prompt, con cada incorporación de
+nuevas herramientas o nuevos datos. Su comportamiento puede variar entre
+dos invocaciones idénticas. Su corrección no es binaria sino
+estadística: opera correctamente la mayoría de las veces, con un umbral
+de error tolerable que depende del caso de uso.</p>
+<p>Las invariantes del negocio son lo opuesto. Un cliente tiene un
+identificador único. Una factura tiene un total que iguala la suma de
+sus líneas. Un servicio activado tiene una fecha de activación. Estas
+reglas no admiten errores estadísticos: o se cumplen siempre o el
+sistema deja de ser confiable. Su corrección es binaria, su ritmo de
+cambio es estructural, y su violación tiene consecuencias regulatorias,
+financieras u operacionales graves.</p>
+<p>Cuando un agente y una invariante coexisten en la misma capa
+arquitectónica sin frontera explícita entre ellos, la volatilidad del
+primero contamina la confiabilidad de la segunda. Cada actualización del
+agente arriesga romper invariantes que llevaban años funcionando
+correctamente. Cada cambio de prompt puede alterar inadvertidamente el
+cumplimiento de una regla regulatoria. La auditoría se vuelve imposible
+porque ya no hay separación entre lo que se programó deliberadamente y
+lo que el agente decidió contextualmente.</p>
+<h2 id="la-delgadez-del-dominio-como-respuesta">La delgadez del dominio
+como respuesta</h2>
+<p>La respuesta operacional a esta amenaza es lo que llamaremos
+<strong>la delgadez del dominio</strong>. Si el núcleo autoritativo del
+sistema — donde viven las invariantes y la persistencia de la verdad del
+negocio — se mantiene estrictamente delgado, admitiendo únicamente lo
+que es estructural al dominio y expulsando toda lógica volátil hacia
+afuera, entonces la incursión agéntica queda confinada a la capa que
+está diseñada para tolerar volatilidad. Los agentes operan en la lógica
+de orquestación, junto a los workflows procedurales tradicionales, y
+ambos invocan al núcleo como un servicio con contrato estable. El
+corazón del negocio queda protegido.</p>
+<p>Esta es la posición operacional que sustenta toda la arquitectura.
+Mantener el dominio delgado no es una preferencia estética sino una
+condición necesaria para que capacidades procedurales y agénticas puedan
+coexistir en un mismo sistema sin que la última corroa la confiabilidad
+de la primera.</p>
+<p>La distinción entre Systems of Record y Systems of Engagement,
+articulada por Geoffrey Moore<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>, opera convergentemente
+con esta tesis pero a un nivel distinto. Moore distingue entre dos
+categorías de sistemas según su propósito y su ritmo de cambio: los
+Systems of Record almacenan el estado autoritativo del negocio y
+obtienen su valor de su confiabilidad, lo cual exige estabilidad; los
+Systems of Engagement median la interacción y obtienen su valor de su
+capacidad de adaptación, lo cual exige velocidad. Forrester<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> extendería más tarde la taxonomía
+agregando los Systems of Insight, orientados a generación de
+conocimiento. La dicotomía de Moore opera a nivel de inventario de
+sistemas — qué sistemas tiene una organización; la delgadez del dominio
+opera a nivel de organización del código dentro de un componente. Ambas
+convergen en la misma intuición fundamental, que Buschmann y colegas<a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> articulan en términos del patrón
+Layers como criterio de descomposición: cada capa debe tener una
+responsabilidad distinta y específica respecto a abstracción,
+granularidad o <strong>ritmo de cambio</strong>. La era Agentic
+intensifica esta lógica: los componentes agénticos cambian a un ritmo
+aún más rápido que las políticas comerciales tradicionales — ritmo de
+modelo, no ritmo de negocio — y por tanto deben quedar aún más alejados
+arquitectónicamente del núcleo estable.</p>
+<p>La tesis sostiene una posición específica sobre la jerarquía de
+decisiones arquitectónicas. Otras decisiones frecuentemente debatidas —
+la elección entre arquitectura monolítica o microservicios, la dirección
+de las dependencias, el grado de adopción de event sourcing, la
+separación command/query, la modalidad de despliegue de agentes — son
+importantes pero subordinadas. Operan dentro de un espacio cuya forma
+queda determinada antes por la decisión sobre dónde termina el dominio.
+Una arquitectura de microservicios con dominios obesos donde se
+introducen agentes reproduce los problemas de un monolito mal
+estructurado, distribuidos y ahora con volatilidad agéntica adicional.
+Una arquitectura hexagonal con un núcleo que mezcla invariantes y
+workflows usa la dirección correcta de las dependencias para proteger un
+núcleo mal diseñado, pero la incorporación de agentes en ese núcleo
+invalida la protección. Un dominio delgado, en cambio, produce un
+componente cuyo núcleo es estable, cuyas reglas son auditables y cuyas
+integraciones — procedurales o agénticas — son intercambiables.</p>
+<p>Mantener el dominio delgado requiere una operación arquitectónica
+concreta: trazar una frontera explícita entre el dominio y la lógica de
+orquestación, y defender esa frontera contra el deslizamiento
+incremental que tiende a engordar el núcleo en el tiempo. El término
+<em>Bounded</em> del nombre del modelo recoge el principio de Separación
+de Preocupaciones articulado por Dijkstra<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>: la
+disciplina de estudiar un aspecto de un problema en profundidad, por su
+propia consistencia, sabiendo todo el tiempo que es solo uno entre
+varios. La separación de Dijkstra es originalmente cognitiva. Su
+transformación en principio arquitectónico durante las décadas
+siguientes — visible en patrones como Layers<a href="#fn5"
+class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>,
+Hexagonal<a href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a>, Clean Architecture<a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> y
+DDD<a href="#fn8" class="footnote-ref" id="fnref8"
+role="doc-noteref"><sup>8</sup></a> — produce el linaje teórico al que
+pertenece BCA. La diferencia entre BCA y sus predecesoras está en qué
+frontera específica se elige como la más consecuente: BCA elige la
+frontera del dominio, y la sostiene como condición de viabilidad para la
+era Agentic.</p>
+<h2 id="las-tres-capas">Las tres capas</h2>
+<p>BCA descompone un componente empresarial en tres capas. La Capa 1,
+<strong>Presentation</strong>, contiene las dos fronteras externas del
+componente: UI hacia humanos y API hacia sistemas. La Capa 2,
+<strong>Business Logic</strong>, contiene la lógica de orquestación,
+organizada en dos cajas paralelas: <em>Procedural</em> para el
+comportamiento programado explícitamente, <em>Agentic</em> para el
+comportamiento derivado contextualmente. La Capa 3,
+<strong>Domain</strong>, contiene el núcleo estable del componente,
+organizado en dos dimensiones ortogonales: dominio propio frente a
+dominio ajeno en el eje vertical, lógica frente a persistencia en el eje
+horizontal.</p>
+<figure>
+<img src="/es/agencydomains/figuras/g08-bca-3capas.png"
+alt="Bounded Concerns Architecture en tres capas con la séptima separación Procedural / Agentic en Business Logic." />
+<figcaption aria-hidden="true">Bounded Concerns Architecture en tres
+capas con la séptima separación Procedural / Agentic en Business
+Logic.</figcaption>
+</figure>
+<p>La <strong>Capa 1</strong> trata UI y API como ciudadanos paralelos,
+no como variantes del mismo concern. UI son los controladores, vistas y
+manejadores que median la interacción con humanos; evoluciona al ritmo
+de las necesidades de UX. API son los endpoints, contratos, mecanismos
+de routing y políticas de versionado que median la interacción con otros
+sistemas; evoluciona al ritmo de los contratos públicos del componente,
+bajo restricciones específicas de retrocompatibilidad y semántica
+precisa<a href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a>. En la era pre-agentiva esta
+separación era buena práctica de microservicios; en la era Agentic cobra
+relevancia adicional, porque los agentes pueden operar tanto sobre la UI
+(asistiendo al usuario humano) como sobre la API (consumiendo y
+produciendo contratos máquina-a-máquina), y reconocer la distinción
+permite gestionar adecuadamente sus respectivos modos de invocación.</p>
+<p>La <strong>Capa 2</strong> contiene la lógica de orquestación: la
+lógica que sabe qué pasos componen un caso de uso, en qué orden ocurren,
+qué ocurre si uno falla. Aquí vive la <strong>séptima separación
+canónica</strong> del modelo, sobre la que vamos a volver con detalle
+más adelante. <em>Procedural</em> comprende toda la lógica cuyo
+comportamiento está programado explícitamente por humanos: motores de
+procesos, motores de reglas, sagas, choreography frameworks,
+orquestadores de workflows, clases de servicio, scripts de coordinación.
+La distinción operativa no es de tecnología sino de naturaleza: el
+comportamiento está codificado paso a paso por un humano y puede
+entenderse leyendo el código línea por línea. <em>Agentic</em> comprende
+los componentes cuyo comportamiento se deriva contextualmente desde un
+modelo, no desde una secuencia codificada. Las dos cajas comparten capa
+porque ambas son lógica de orquestación — ambas operan sobre el dominio
+sin formar parte de él — pero su naturaleza operacional distinta
+justifica el tratamiento como ciudadanos paralelos.</p>
+<p>La frontera entre la Capa 2 y la Capa 3 — entre orquestación y
+dominio — es la frontera operacional de la tesis. La Capa 3 contiene
+exclusivamente lógica que el negocio considera estructural; todo lo
+demás vive en la Capa 2, sea Procedural o Agentic. El criterio operativo
+es de naturaleza temporal: si una regla puede cambiar como consecuencia
+de una decisión comercial sin alterar el modelo fundamental del negocio
+— o si la regla es derivada estadísticamente y no explícitamente
+codificada — pertenece a la Capa 2; si la regla es estructural al
+dominio y cambiarla implicaría un cambio en la naturaleza misma del
+negocio, pertenece a la Capa 3.</p>
+<p>La <strong>Capa 3</strong> se organiza en dos dimensiones ortogonales
+que producen cuatro celdas. La dimensión vertical separa el dominio
+propio del ajeno: la columna <strong>SOR</strong> (System of Record)
+contiene los componentes que modelan datos cuya autoridad pertenece al
+sistema — el núcleo autoritativo, lo que se valida, lo que se persiste
+como verdad, lo que emite eventos cuando cambia; la columna
+<strong>External</strong> contiene los componentes que conocen, traducen
+y representan localmente datos cuya autoridad vive afuera, en sistemas
+con los que el componente colabora — CRMs, billing externo, OSS de
+provisión, partners B2B, APIs de terceros. La dimensión horizontal
+separa la lógica de la persistencia: la banda <strong>Logic</strong>
+contiene las invariantes en SOR y las traducciones desde el modelo ajeno
+en External; la banda <strong>Persistence</strong> contiene los
+mecanismos físicos de almacenamiento.</p>
+<p>Cada una de las cuatro cajas resultantes se subdivide internamente en
+una vía síncrona y una vía asíncrona. La asimetría léxica entre
+<strong>Streams</strong> (lado SOR) y <strong>Hooks</strong> (lado
+External) es deliberada. En el lado SOR el sistema emite hechos propios
+y los persiste como un log apendable; la autoría es propia y la
+dirección es saliente. En el lado External los eventos llegan porque
+sistemas externos los empujan mediante webhooks o equivalentes; la
+autoría es ajena y la dirección es entrante. Llamar a ambos
+<em>Streams</em> perdería esa información direccional importante.</p>
+<h2 id="las-siete-separaciones-estructurales">Las siete separaciones
+estructurales</h2>
+<p>Tomadas en conjunto, las decisiones de las tres capas producen siete
+separaciones estructurales explícitas. Cada una responde a la
+observación clásica de que las preocupaciones diferenciadas tienen
+ritmos de cambio distintos, audiencias distintas y semánticas distintas,
+y por tanto merecen tratamiento arquitectónico distinto.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Separación</th>
+<th>Materializada por</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Presentación humana vs contrato externo</td>
+<td>Cajas UI y API en la Capa 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Orquestación vs reglas del dominio</td>
+<td>Frontera entre la Capa 2 y la Capa 3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lógica vs persistencia</td>
+<td>Bandas horizontales en la Capa 3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dominio propio vs ajeno</td>
+<td>Columnas SOR y External en la Capa 3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Comunicación síncrona vs asíncrona</td>
+<td>Vías paralelas dentro de cada celda</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Estado mutable vs log de eventos</td>
+<td>Pares Repository/Streams y Proxies/Hooks</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Comportamiento procedural vs agéntico</td>
+<td>Cajas Procedural y Agentic en la Capa 2</td>
+</tr>
+</tbody>
+</table>
+<p>La separación 2 es la frontera operacional de la tesis. Las
+separaciones 3 a 6 estructuran el contenido interno de la Capa 3. La
+separación 1 estructura el contenido interno de la Capa 1. Y la
+separación 7 — la séptima separación canónica — estructura el contenido
+interno de la Capa 2 reflejando explícitamente la naturaleza dual de la
+lógica de orquestación en la era Agentic.</p>
+<p>Cada celda de la arquitectura tiene su propio ritmo de cambio. SOR ·
+Logic y SOR · Persistence cambian al ritmo de la evolución del modelo
+del negocio fundamental — años o décadas. External · Logic y External ·
+Persistence cambian al ritmo de los sistemas externos a los que sirven.
+Business Logic Procedural cambia al ritmo de las políticas comerciales —
+meses. Business Logic Agentic cambia al ritmo de los modelos subyacentes
+— semanas o días. API cambia al ritmo de los contratos públicos. UI
+cambia al ritmo de las necesidades de UX. Esta diferenciación justifica
+políticas de versionado, despliegue y testeo distintas para cada celda,
+y es la razón estructural por la que la séptima separación es necesaria:
+el ritmo Agentic es lo suficientemente rápido como para requerir su
+propio régimen.</p>
+<h2 id="genealogía-intelectual">Genealogía intelectual</h2>
+<p>BCA no inventa primitivas. Sintetiza patrones publicados, debatidos y
+refinados por la comunidad de arquitectura de software durante las
+últimas dos décadas, los reorganiza alrededor de un principio
+operacional explícito — la delgadez del dominio — y los reposiciona en
+relación con un fenómeno emergente: la incorporación de capacidades
+agénticas en sistemas empresariales. Cada decisión del modelo se ancla
+en literatura previa.</p>
+<p>La frontera entre las Capas 2 y 3 — entre orquestación y dominio —
+proviene directamente de Fowler<a href="#fn10" class="footnote-ref"
+id="fnref10" role="doc-noteref"><sup>10</sup></a>. En <em>Patterns of
+Enterprise Application Architecture</em>, Stafford —autor del patrón
+<em>Service Layer</em> en esa obra— articula la distinción entre
+<em>domain logic</em>, que tiene que ver puramente con el dominio del
+problema, y <em>application logic</em>, que tiene que ver con
+responsabilidades de aplicación como notificaciones, integraciones y
+workflows. Fowler refuerza la distinción en <em>Domain Logic and
+SQL</em><a href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a> y reconoce sus límites prácticos en
+<em>Organizing Presentation Logic</em><a href="#fn12"
+class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.
+La separación entre lógica y persistencia dentro de la Capa 3 se
+desprende de los patrones <em>Data Mapper</em> y <em>Repository</em><a
+href="#fn13" class="footnote-ref" id="fnref13"
+role="doc-noteref"><sup>13</sup></a>, cuyo propósito explícito es
+mantener el modelo del dominio limpio de detalles de almacenamiento.</p>
+<p>El Domain Layer como contenedor de invariantes proviene de Evans<a
+href="#fn14" class="footnote-ref" id="fnref14"
+role="doc-noteref"><sup>14</sup></a>. En <em>Domain-Driven Design</em>
+propone una arquitectura de cuatro capas (UI / Application / Domain /
+Infrastructure) que coincide estructuralmente con BCA, con dos
+diferencias deliberadas: BCA bifurca el dominio en SOR y External,
+incorporando explícitamente la integración con sistemas ajenos como
+ciudadana plena del dominio; y BCA separa la persistencia del dominio
+dentro de la misma capa, mientras que en Evans la persistencia queda en
+Infrastructure.</p>
+<p>BCA se aparta deliberadamente del DDD canónico en un punto
+específico: la ubicación de los Domain Services. Bajo DDD canónico, los
+Domain Services — la lógica que coordina múltiples agregados —
+pertenecen al Domain Layer. BCA los ubica en Business Logic. La razón es
+la asimetría temporal articulada antes: los Domain Services contienen
+frecuentemente políticas comerciales que cambian con el negocio
+(políticas de elegibilidad, reglas de descuento, procedimientos de
+aprobación), mientras que las invariantes estructurales del dominio
+cambian a un ritmo fundamentalmente más lento. En la era Agentic esta
+asimetría se intensifica: parte de la coordinación pasa a ser
+responsabilidad de agentes, lo cual añade volatilidad estadística a la
+volatilidad temporal ya presente. Vernon<a href="#fn15"
+class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a>
+discute la tensión entre Domain Services y Application Services sin
+resolverla en una sola dirección, reconociendo que la elección depende
+del contexto. BCA toma posición.</p>
+<p>La filosofía de la pierna asíncrona se ancla en Helland<a
+href="#fn16" class="footnote-ref" id="fnref16"
+role="doc-noteref"><sup>16</sup></a>. <em>Data on the Outside vs. Data
+on the Inside</em> articula que los datos autoritativos viven dentro de
+un servicio en un mundo transaccional con cambios serializables,
+mientras que los datos que circulan entre servicios son inmutables. Una
+década más tarde, en <em>Immutability Changes Everything</em><a
+href="#fn17" class="footnote-ref" id="fnref17"
+role="doc-noteref"><sup>17</sup></a>, Helland profundiza: los hechos del
+dominio son intrínsecamente inmutables — los eventos que ocurren no
+pueden borrarse; las correcciones son nuevos eventos. Kleppmann<a
+href="#fn18" class="footnote-ref" id="fnref18"
+role="doc-noteref"><sup>18</sup></a> sintetiza esta tradición
+articulando que estado mutable y log de eventos pueden coexistir como
+representaciones complementarias del mismo dominio, posición que es la
+base conceptual de la coexistencia de Repository y Streams en la columna
+SOR de BCA.</p>
+<p>Young<a href="#fn19" class="footnote-ref" id="fnref19"
+role="doc-noteref"><sup>19</sup></a> articula CQRS defendiendo que el
+lado de comandos debe ser delgado y centrado en proteger invariantes; la
+lógica de procesos vive en sagas y process managers que coordinan los
+SoR, no dentro de ellos. BCA adopta el espíritu de CQRS sin llegar al
+CQRS estricto: las celdas síncronas de la Capa 3 están delgadas, las
+celdas asíncronas existen como ciudadanas complementarias, pero el
+estado mutable y el event log coexisten en lugar de uno derivar del
+otro. Fowler<a href="#fn20" class="footnote-ref" id="fnref20"
+role="doc-noteref"><sup>20</sup></a> sintetiza la posición de Young en
+su entrada de bliki sobre CQRS.</p>
+<p>La columna External de la Capa 3 generaliza el patrón Anti-Corruption
+Layer originalmente propuesto por Evans<a href="#fn21"
+class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> y
+refinado por Vernon<a href="#fn22" class="footnote-ref" id="fnref22"
+role="doc-noteref"><sup>22</sup></a> con foco específico en cómo se
+integran bounded contexts entre sí. Vernon articula explícitamente que
+la integración con sistemas legados es uno de los casos paradigmáticos
+donde el patrón aplica.</p>
+<p>La separación de la API como concern arquitectónico distinto no
+aparece en los textos clásicos de Fowler<a href="#fn23"
+class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a>,
+Evans<a href="#fn24" class="footnote-ref" id="fnref24"
+role="doc-noteref"><sup>24</sup></a> o Moore<a href="#fn25"
+class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a>,
+pero es práctica establecida en arquitectura de microservicios moderna.
+Newman<a href="#fn26" class="footnote-ref" id="fnref26"
+role="doc-noteref"><sup>26</sup></a> dedica capítulos enteros a las
+decisiones de diseño de API, separándolas explícitamente de la
+presentación al usuario. La pierna asíncrona se apoya en el catálogo
+formal de patrones de mensajería de Hohpe y Woolf<a href="#fn27"
+class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> —
+sus 65 patrones constituyen el vocabulario de las celdas Events, Streams
+y Hooks. En el contexto telco específicamente, el TM Forum<a
+href="#fn28" class="footnote-ref" id="fnref28"
+role="doc-noteref"><sup>28</sup></a> clasifica los bloques funcionales
+de la Open Digital Architecture según la dicotomía de Moore: Party
+Management, Core Commerce Management y Production como SoR; Engagement
+Management como SoE; Intelligence Management como SoI. La adopción de la
+columna SOR en BCA es coherente con esta clasificación: si TMF ya define
+ciertos bloques funcionales como SoR, tiene sentido que la lógica que
+reside dentro de ellos sea consistente con el propósito de un SoR según
+Moore.</p>
+<p>La séptima separación canónica — Procedural / Agentic — y el
+reposicionamiento del modelo como arquitectura del estado pre-agentivo
+se anclan en <em>El Futuro Agentivo</em><a href="#fn29"
+class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a> y
+en este libro. Allí se articula la Línea Nadella como frontera
+conceptual entre dos mundos posibles para el software empresarial. BCA
+toma posición específica: es la arquitectura de la transición Agentic, y
+cede el lugar al marco de la Arquitectura Agentiva del Mundo Agentivo
+(Capítulo 4) cuando la organización cruza la línea.</p>
+<h2 id="mapa-comparativo-de-propuestas">Mapa comparativo de
+propuestas</h2>
+<p>Las propuestas mencionadas en la genealogía conviven en la
+conversación arquitectónica como un archipiélago donde cada autor traza
+líneas en lugares distintos. La figura siguiente las ubica en un mapa
+bidimensional que permite visualizar cómo se relacionan entre sí y por
+qué la posición de BCA es una elección, no la única opción
+razonable.</p>
+<figure>
+<img src="/es/agencydomains/figuras/g09-bca-mapa-comparativo.png"
+alt="Mapa comparativo de propuestas arquitectónicas en el espacio “grosor del dominio” × “rigor teórico vs flexibilidad real”." />
+<figcaption aria-hidden="true">Mapa comparativo de propuestas
+arquitectónicas en el espacio “grosor del dominio” × “rigor teórico vs
+flexibilidad real”.</figcaption>
+</figure>
+<p>El mapa se construye sobre dos dimensiones cuya naturaleza
+metodológica es deliberadamente distinta. El eje X es
+<strong>medible</strong> según una escala discreta de cinco niveles. El
+eje Y es <strong>cualitativo</strong> y se construye mediante una
+inferencia interpretativa que la sección siguiente formaliza.</p>
+<p>El <strong>eje X — Grosor del dominio</strong> mide cuánta lógica
+acumula el componente que maneja datos autoritativos. Los niveles son
+acumulativos: cada nivel incluye lo que está en los niveles inferiores.
+<em>Nivel 0 — DAO puro</em>: solo CRUD sobre el almacenamiento, sin
+invariantes ni auditoría; no califica como dominio en sentido estricto.
+<em>Nivel 1 — Dominio estricto</em>: añade invariantes intrínsecas del
+agregado, identidad estable y auditoría de cambios. Es el grosor que la
+tesis defiende como óptimo para la era Agentic. <em>Nivel 2 —
+Multi-entidad</em>: añade operaciones que coordinan varios agregados del
+mismo dominio (Domain Services). <em>Nivel 3 — +políticas</em>: añade
+reglas comerciales cambiables (campañas, descuentos, restricciones de
+elegibilidad). <em>Nivel 4 — +workflows</em>: añade orquestación de
+procesos completos con múltiples pasos e integraciones externas.</p>
+<p>El <strong>eje Y — Rigor teórico vs flexibilidad real</strong> mide
+qué tan dogmática es la propuesta sobre exigir su separación. En el polo
+purista están las propuestas que sostienen <em>“si no separas
+estrictamente, no estás haciendo X de verdad”</em>. En el polo
+pragmático están las propuestas que reconocen explícitamente que la
+línea conceptual se ensucia en la práctica. El polo pragmático refleja
+exactamente el caveat que Fowler<a href="#fn30" class="footnote-ref"
+id="fnref30" role="doc-noteref"><sup>30</sup></a> reconoce sobre las
+arquitecturas en capas.</p>
+<p>Las posiciones reflejan la postura del autor original de cada
+propuesta, no las interpretaciones que las distintas comunidades han
+hecho de ellas. En el cuadrante superior-izquierdo — puristas con núcleo
+mínimo — viven CQRS estricto<a href="#fn31" class="footnote-ref"
+id="fnref31" role="doc-noteref"><sup>31</sup></a> y Data on the Inside<a
+href="#fn32" class="footnote-ref" id="fnref32"
+role="doc-noteref"><sup>32</sup></a>. Ambas propuestas exigen un dominio
+delgado y son dogmáticas al respecto. En el cuadrante superior-medio —
+puristas con marcos arquitectónicos — viven Clean Architecture<a
+href="#fn33" class="footnote-ref" id="fnref33"
+role="doc-noteref"><sup>33</sup></a> y Hexagonal<a href="#fn34"
+class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a>.
+Ambas definen reglas estrictas sobre la dirección de las dependencias y
+la separación entre dominio e infraestructura, pero permiten cierta
+riqueza multi-entidad dentro del núcleo. En el cuadrante
+superior-derecho — purista con núcleo grueso — vive DDD canónico<a
+href="#fn35" class="footnote-ref" id="fnref35"
+role="doc-noteref"><sup>35</sup></a>, refinado por Vernon<a href="#fn36"
+class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a>.
+Acumula más lógica dentro del Domain Layer mediante Domain Services pero
+con disciplina estricta sobre Bounded Contexts, Anti-Corruption Layers y
+agregados bien delimitados.</p>
+<p>En la zona intermedia se ubica <strong>Bounded Concerns
+Architecture</strong>. En el eje X coincide con CQRS y Helland (nivel 1,
+dominio estricto). En el eje Y queda en zona intermedia: adopta la
+formalidad de Fowler y Moore en la <em>frontera</em> del dominio (qué
+entra y qué no), pero es pragmática sobre la <em>implementación
+interna</em> del componente, reconociendo que en sistemas empresariales
+con productos COTS no se tiene control sobre la organización interna del
+software comprado, y que en la era Agentic los componentes Agentic
+introducen una capa adicional de variabilidad que requiere flexibilidad
+operacional.</p>
+<p>En el cuadrante inferior-medio — pragmático declarado — vive Service
+Layer<a href="#fn37" class="footnote-ref" id="fnref37"
+role="doc-noteref"><sup>37</sup></a>. Es la propuesta más explícitamente
+pragmática de las maduras: el propio Fowler<a href="#fn38"
+class="footnote-ref" id="fnref38" role="doc-noteref"><sup>38</sup></a>
+escribe que la distinción entre application logic y domain logic se
+ensucia en la práctica. En el cuadrante inferior-derecho — pragmáticos
+con núcleo grueso — viven Active Record<a href="#fn39"
+class="footnote-ref" id="fnref39" role="doc-noteref"><sup>39</sup></a> y
+3-layer clásico<a href="#fn40" class="footnote-ref" id="fnref40"
+role="doc-noteref"><sup>40</sup></a>. Active Record fue diseñado para
+productividad — el lema <em>“convención sobre configuración”</em> de
+Rails es su ethos. El 3-layer clásico, sin disciplina arquitectónica
+adicional, tiende a acumular workflows enteros dentro de la capa de
+Business Logic mezclados con persistencia.</p>
+<p>El mapa es una herramienta de orientación, no una clasificación
+oficial. Tres precauciones de lectura. Primera, las posiciones reflejan
+la postura del autor original; distintas comunidades han interpretado
+las mismas propuestas con mayor o menor rigor (existe DDD-lite y existe
+DDD ortodoxo). Segunda, el eje Y es cualitativo y depende de una
+inferencia interpretativa que la siguiente sección formaliza. Tercera,
+este mapa cubre propuestas para organizar el interior de un componente;
+no habla de patrones de integración entre componentes, que son
+ortogonales y están catalogados en otros trabajos<a href="#fn41"
+class="footnote-ref" id="fnref41" role="doc-noteref"><sup>41</sup></a><a
+href="#fn42" class="footnote-ref" id="fnref42"
+role="doc-noteref"><sup>42</sup></a>.</p>
+<h2 id="modelo-de-scoring-para-el-eje-cualitativo">Modelo de scoring
+para el eje cualitativo</h2>
+<p>El eje Y del mapa ubica las propuestas en una dimensión cualitativa
+de “rigor teórico vs flexibilidad real”. Esta posición no proviene de
+las fuentes — Fowler nunca escribió que CQRS es más purista que Service
+Layer en términos formales — es una inferencia interpretativa construida
+a partir de la lectura de las fuentes.</p>
+<p>Para que esa inferencia sea verificable y discutible, el
+“pragmatismo” se descompone en cinco dimensiones observables, cada una
+puntuable de 0 a 3 según criterios textuales explícitos. La suma
+resultante (0 a 15) ubica a cada propuesta en el eje Y, donde 0
+representa máximo rigor purista y 15 representa máxima flexibilidad
+pragmática. Este modelo no pretende producir un score definitivo.
+Pretende hacer visible y disputable el razonamiento que llevó a cada
+ubicación. Cualquier lector con acceso a las fuentes primarias puede
+recalibrar las celdas y obtener una posición distinta — eso es deseable,
+no un defecto.</p>
+<p><strong>D1 — Lenguaje normativo.</strong> ¿La propuesta usa frases
+del tipo <em>“debes / nunca / siempre / strict / must”</em> sobre la
+separación, o usa <em>“considera / muchas veces / depende / a
+menudo”</em>? <strong>D2 — Reconocimiento del gris práctico.</strong>
+¿La propuesta admite explícitamente casos donde aplicar la regla causa
+daño, o defiende la pureza ante todo escenario? <strong>D3 —
+Permisividad ante variantes lite.</strong> ¿Existen variantes flexibles
+toleradas o promovidas por el autor original? <strong>D4 —
+Foco.</strong> ¿La propuesta pretende reorganizar todo el sistema, o se
+ofrece como un patrón entre muchos en una caja de herramientas?
+<strong>D5 — Compatibilidad con sistemas legados.</strong> ¿La propuesta
+ofrece caminos para integrarse con sistemas existentes que no la siguen,
+o exige greenfield?</p>
+<p>La aplicación a las propuestas evaluadas produce los scores de la
+tabla siguiente.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Propuesta</th>
+<th style="text-align: center;">D1</th>
+<th style="text-align: center;">D2</th>
+<th style="text-align: center;">D3</th>
+<th style="text-align: center;">D4</th>
+<th style="text-align: center;">D5</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CQRS estricto<a href="#fn43" class="footnote-ref" id="fnref43"
+role="doc-noteref"><sup>43</sup></a></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td>Clean Architecture<a href="#fn44" class="footnote-ref" id="fnref44"
+role="doc-noteref"><sup>44</sup></a></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td>Data on the Inside<a href="#fn45" class="footnote-ref" id="fnref45"
+role="doc-noteref"><sup>45</sup></a></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td>Hexagonal<a href="#fn46" class="footnote-ref" id="fnref46"
+role="doc-noteref"><sup>46</sup></a></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>7</strong></td>
+</tr>
+<tr>
+<td>DDD canónico<a href="#fn47" class="footnote-ref" id="fnref47"
+role="doc-noteref"><sup>47</sup></a></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>8</strong></td>
+</tr>
+<tr>
+<td><strong>Bounded Concerns Architecture</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;"><strong>9</strong></td>
+</tr>
+<tr>
+<td>Service Layer<a href="#fn48" class="footnote-ref" id="fnref48"
+role="doc-noteref"><sup>48</sup></a></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>13</strong></td>
+</tr>
+<tr>
+<td>Active Record<a href="#fn49" class="footnote-ref" id="fnref49"
+role="doc-noteref"><sup>49</sup></a></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>13</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Los scores producen una correlación que sustenta la tesis del
+capítulo. Las propuestas con menor score en el eje Y (CQRS estricto:
+4/15; Clean Architecture: 4/15; Data on the Inside: 5/15) son también
+las que mantienen los dominios más delgados cuando se aplican con
+disciplina. Las propuestas con mayor score (Service Layer y Active
+Record: 13/15 ambas) tienden a producir dominios variables porque su
+flexibilidad lo permite.</p>
+<p>BCA ocupa una posición intermedia (9/15) que la tesis defiende como
+pragmáticamente óptima en contextos empresariales con sistemas legados y
+capacidades agénticas en incorporación: suficientemente firme en la
+frontera del dominio como para preservar su delgadez, suficientemente
+flexible en la implementación interna como para coexistir con software
+comprado, motores de procesos heredados y agentes de naturaleza
+estadística sobre los cuales no se tiene control arquitectónico
+tradicional.</p>
+<h2
+id="caso-de-aplicación-activar-el-servicio-de-banda-ancha-de-un-cliente-nuevo">Caso
+de aplicación · Activar el servicio de banda ancha de un cliente
+nuevo</h2>
+<p>Para hacer tangibles las tres capas y la distribución de
+responsabilidades — incluida la séptima separación Procedural / Agentic
+— considérese un caso del dominio de las telecomunicaciones: la
+activación del servicio de banda ancha de un cliente nuevo. Es un
+workflow representativo de las operaciones cotidianas bajo el marco TM
+Forum ODA<a href="#fn50" class="footnote-ref" id="fnref50"
+role="doc-noteref"><sup>50</sup></a> que toca tanto el dominio propio
+(cliente, servicio, suscripción) como dominios ajenos (OSS de provisión
+de red, billing externo, proveedor de email), y se enriquece en la era
+actual con la incorporación de un asistente conversacional que apoya al
+agente de call center y un generador automatizado de contenido para la
+comunicación al cliente.</p>
+<p>La distribución de las acciones entre las celdas de BCA es la
+siguiente:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Capa</th>
+<th>Celda específica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recibir petición HTTP del agente de call center</td>
+<td>1 · Presentation</td>
+<td>UI</td>
+</tr>
+<tr>
+<td>Validar contrato de la API (campos, tipos, autenticación)</td>
+<td>1 · Presentation</td>
+<td>API</td>
+</tr>
+<tr>
+<td><strong>El asistente conversacional sugiere el plan óptimo según
+contexto del cliente</strong></td>
+<td><strong>2 · Business Logic</strong></td>
+<td><strong>Agentic</strong></td>
+</tr>
+<tr>
+<td>Verificar elegibilidad del plan según cobertura geográfica</td>
+<td>2 · Business Logic</td>
+<td>Procedural</td>
+</tr>
+<tr>
+<td>Consultar al OSS si hay puerto disponible</td>
+<td>3 · Domain</td>
+<td>External · Logic → Gateway</td>
+</tr>
+<tr>
+<td>Cachear localmente la respuesta del OSS</td>
+<td>3 · Domain</td>
+<td>External · Persistence → Proxies</td>
+</tr>
+<tr>
+<td>Aplicar campañas vigentes y descuentos promocionales</td>
+<td>2 · Business Logic</td>
+<td>Procedural</td>
+</tr>
+<tr>
+<td>Validar que el cliente no tenga otro servicio activo del mismo
+tipo</td>
+<td>3 · Domain</td>
+<td>SOR · Logic</td>
+</tr>
+<tr>
+<td>Cambiar atómicamente el estado a <code>active</code> con
+timestamp</td>
+<td>3 · Domain</td>
+<td>SOR · Persistence → Repository</td>
+</tr>
+<tr>
+<td>Emitir evento <code>ServiceActivated</code></td>
+<td>3 · Domain</td>
+<td>SOR · Logic → Events</td>
+</tr>
+<tr>
+<td>Persistir el evento en el log autoritativo</td>
+<td>3 · Domain</td>
+<td>SOR · Persistence → Streams</td>
+</tr>
+<tr>
+<td>Recibir webhook del OSS confirmando provisión</td>
+<td>3 · Domain</td>
+<td>External · Logic → Events</td>
+</tr>
+<tr>
+<td>Persistir el webhook en el log de eventos externos</td>
+<td>3 · Domain</td>
+<td>External · Persistence → Hooks</td>
+</tr>
+<tr>
+<td>Notificar a billing del nuevo servicio</td>
+<td>2 · Business Logic</td>
+<td>Procedural</td>
+</tr>
+<tr>
+<td><strong>Generar email de bienvenida personalizado al perfil del
+cliente</strong></td>
+<td><strong>2 · Business Logic</strong></td>
+<td><strong>Agentic</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Cinco observaciones se desprenden de esta distribución.
+<strong>Primera</strong>, la mayoría del comportamiento vive en Business
+Logic, distribuido entre Procedural y Agentic. Solo cuatro de las quince
+acciones tocan el dominio propio, y dos tocan el dominio ajeno; las
+nueve restantes viven en la Capa 2 o en Presentation. La era Agentic
+añade naturaleza al comportamiento de la Capa 2 sin tocar el núcleo del
+dominio. <strong>Segunda</strong>, Procedural y Agentic coexisten
+naturalmente en la misma capa: las dos acciones agénticas no están
+aisladas en una capa especial ni son tratadas como casos excepcionales —
+son ciudadanos plenos de Business Logic, intercalados con las acciones
+procedurales según la lógica del workflow. <strong>Tercera</strong>, las
+acciones agénticas no tocan el dominio: operan exclusivamente en
+Business Logic, toman como input información del dominio y producen
+output que vuelve a la Capa 2 o a la Capa 1, pero nunca modifican
+directamente el estado autoritativo del SOR. Es la materialización
+operacional de la tesis: las invariantes del dominio quedan protegidas
+de la volatilidad agéntica porque la frontera entre las Capas 2 y 3 es
+respetada estrictamente. <strong>Cuarta</strong>, las dos vías de
+comunicación coexisten naturalmente: las acciones síncronas usan las
+celdas síncronas de cada caja, las acciones asíncronas usan las celdas
+asíncronas, y ningún workflow está obligado a usar exclusivamente una
+vía u otra<a href="#fn51" class="footnote-ref" id="fnref51"
+role="doc-noteref"><sup>51</sup></a>. <strong>Quinta</strong>, el núcleo
+del dominio queda intacto y delgado: las cuatro acciones marcadas con
+SOR son precisamente lo que la tesis identifica como núcleo autoritativo
+— invariantes y persistencia, con sus contrapartes asíncronas. Toda la
+lógica volátil — sea procedural o agéntica — vive afuera del
+dominio.</p>
+<h2 id="implicaciones-arquitectónicas">Implicaciones
+arquitectónicas</h2>
+<p>La adopción de BCA tiene implicaciones específicas para el diseño de
+componentes empresariales en la era Agentic. <strong>Los componentes que
+cumplen rol de SOR deben exponer APIs delgadas centradas en operaciones
+que preservan invariantes</strong>, coherente con la visión de Young<a
+href="#fn52" class="footnote-ref" id="fnref52"
+role="doc-noteref"><sup>52</sup></a> sobre el lado de comandos en CQRS.
+Los componentes de orquestación procedural y agéntica deben ser
+explícitos y separados; no deben estar disfrazados como extensiones del
+dominio. La persistencia debe ser intercambiable sin tocar la lógica del
+dominio. Los componentes de integración (Gateway, Proxies, Events,
+Hooks) deben tratarse como modeladores de un dominio ajeno<a
+href="#fn53" class="footnote-ref" id="fnref53"
+role="doc-noteref"><sup>53</sup></a><a href="#fn54" class="footnote-ref"
+id="fnref54" role="doc-noteref"><sup>54</sup></a>. Los componentes
+asíncronos (Events, Streams, Hooks) deben tratarse como ciudadanos
+plenos del diseño con su propia lógica de versionado, su propia
+semántica de entrega y sus propios SLAs<a href="#fn55"
+class="footnote-ref" id="fnref55"
+role="doc-noteref"><sup>55</sup></a>.</p>
+<p><strong>La ubicación de la lógica de IA y agentes autónomos</strong>
+merece atención específica. Los componentes de inteligencia y agentes —
+orquestadores basados en modelos de lenguaje, recomendadores,
+optimizadores, sistemas expertos — son por naturaleza lógica de procesos
+coordinadores. Su lugar correcto en BCA es la caja Agentic dentro de
+Business Logic, no Domain. Esto preserva la estabilidad del SOR mientras
+permite que la lógica agéntica evolucione rápidamente. La pierna
+asíncrona del dominio (celdas Events, Streams, Hooks) es particularmente
+útil para integrar agentes: pueden suscribirse a eventos del dominio
+para reaccionar autónomamente sin acoplarse al núcleo del SOR. La
+séptima separación dentro de Business Logic permite además aplicar
+regímenes de gobernanza específicos a cada tipo de componente: testing
+determinista versus evaluación con datasets, observabilidad
+línea-por-línea versus métricas agregadas, auditoría por código versus
+auditoría por inputs/outputs, evolución por refactor versus evolución
+por reentrenamiento. Estos regímenes diferenciados son críticos para
+mantener trazabilidad y cumplimiento regulatorio en sistemas que
+combinan ambos tipos de comportamiento.</p>
+<p><strong>La coexistencia de estado mutable y log de eventos</strong>
+es una decisión arquitectónica explícita de BCA. El estado mutable y el
+log de eventos coexisten como representaciones complementarias del
+dominio, no como sustitutos. Esto sitúa la propuesta en una posición
+intermedia entre los sistemas tradicionales — donde solo existe estado
+mutable y los eventos, si los hay, son emergentes y no autoritativos — y
+el Event Sourcing puro — donde el estado se reconstruye siempre desde el
+log de eventos y el estado no es autoritativo, solo derivado. En BCA, el
+estado mutable es la fuente de verdad principal y el log de eventos es
+un complemento autoritativo. La técnica de Change Data Capture discutida
+por Kleppmann<a href="#fn56" class="footnote-ref" id="fnref56"
+role="doc-noteref"><sup>56</sup></a> proporciona el mecanismo concreto
+para mantener ambas representaciones sincronizadas.</p>
+<h2 id="limitaciones-del-modelo">Limitaciones del modelo</h2>
+<p>BCA es una posición arquitectónica entre varias legítimas, no la
+única. DDD canónico<a href="#fn57" class="footnote-ref" id="fnref57"
+role="doc-noteref"><sup>57</sup></a><a href="#fn58" class="footnote-ref"
+id="fnref58" role="doc-noteref"><sup>58</sup></a> es una posición
+arquitectónica respetable y tiene méritos genuinos, especialmente en
+dominios donde la lógica del negocio es muy rica y se beneficia de
+quedar concentrada en objetos del dominio. La elección entre DDD
+canónico y BCA debe hacerse caso por caso, considerando el contexto. La
+tesis del capítulo sostiene que en la era Agentic BCA produce mejores
+resultados, pero esta afirmación no se extiende universalmente a todos
+los contextos.</p>
+<p>La frontera del dominio no siempre es nítida en la práctica. Como
+reconoce Fowler<a href="#fn59" class="footnote-ref" id="fnref59"
+role="doc-noteref"><sup>59</sup></a>, la distinción entre <em>domain
+logic</em> y <em>application logic</em> se ensucia en sistemas reales.
+Habrá casos ambiguos donde no esté claro si una validación es intrínseca
+al dominio o es política de negocio. El criterio operativo recomendado
+es de naturaleza temporal — si la regla puede cambiar por una decisión
+comercial sin alterar el modelo del negocio fundamental, va en Business
+Logic; si la regla es estructural al dominio, va en SOR · Logic — pero
+este criterio no elimina la ambigüedad: la hace discutible y resoluble
+caso por caso.</p>
+<p>La frontera entre Procedural y Agentic puede difuminarse. Una
+limitación específica de la era actual es que la separación entre
+componentes Procedural y Agentic no siempre es nítida. Un BRMS clásico
+puede incorporar reglas heurísticas con propiedades estadísticas; un
+agente moderno puede operar dentro de un workflow procedural rígido. La
+séptima separación captura una distinción fundamental — origen explícito
+versus derivación contextual del comportamiento — pero su aplicación
+práctica requiere juicio en casos límite, particularmente en sistemas
+híbridos que combinan razonamiento simbólico con inferencia
+estadística.</p>
+<p>BCA no reemplaza a otros marcos. Esta descomposición es
+complementaria, no sustitutiva, de otros marcos: TM Forum ODA<a
+href="#fn60" class="footnote-ref" id="fnref60"
+role="doc-noteref"><sup>60</sup></a> para clasificación funcional a
+nivel de inventario de sistemas, principios cloud-native para
+despliegue, patrones de integración como los catalogados por Hohpe y
+Woolf<a href="#fn61" class="footnote-ref" id="fnref61"
+role="doc-noteref"><sup>61</sup></a> para comunicación entre
+componentes, y el marco de la Arquitectura Agentiva del Mundo Agentivo
+(Capítulo 4) para sistemas que han cruzado la Línea Nadella. BCA aplica
+al <em>interior</em> de un componente o conjunto de componentes que
+operan en el estado pre-agentivo.</p>
+<p>Y el modelo de scoring de la sección anterior tiene tres limitaciones
+reconocidas. Primera, las puntuaciones reflejan interpretaciones del
+autor sobre los textos de cada propuesta; un evaluador con acceso a las
+mismas fuentes puede llegar a puntuaciones distintas, especialmente en
+dimensiones como D2 y D3 que requieren juicio sobre el espíritu de los
+textos. Segunda, la suma simple de las cinco dimensiones asume
+implícitamente que tienen pesos iguales, lo cual es una simplificación;
+en algunos contextos D5 (compatibilidad con legados) puede pesar más que
+D4 (foco), y viceversa. Tercera, el modelo evalúa la postura del autor
+original, no la práctica efectiva de las comunidades que adoptan cada
+propuesta.</p>
+<h2 id="mapping-al-mundo-agentivo">Mapping al Mundo Agentivo</h2>
+<p>Hasta aquí hemos descrito la cartografía del estado pre-agentivo. La
+pregunta operativa que este libro plantea — y que justifica la presencia
+de BCA en él — es la pregunta del puente: cuando una organización cruza
+la Línea Nadella, ¿qué le pasa a cada una de las celdas de BCA? ¿Cuáles
+migran al Mundo Agentivo y se transforman en algo distinto? ¿Cuáles
+permanecen como infraestructura backend invisible? ¿Cuáles
+desaparecen?</p>
+<p>La respuesta no es uniforme entre celdas. El cruce afecta a cada una
+de manera distinta, en momentos distintos, con consecuencias distintas.
+Lo que sigue es el mapping celda por celda — la pieza que convierte a
+BCA en instrumento de migración, no en mera descripción del pasado.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Celda BCA</th>
+<th>Trayectoria al cruzar la Línea Nadella</th>
+<th>Destino en el Mundo Agentivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UI</strong> (Capa 1)</td>
+<td>Se vacía progresivamente. La aplicación como interfaz primaria del
+trabajo cognitivo colapsa, según describimos en el Capítulo 2.</td>
+<td>Reemplazada por la <strong>Capa 1 — Interacción</strong> del Mundo
+Agentivo (modalidades conversacionales, GUI on-the-fly, señalética
+pasiva, canales corporativos). La UI tradicional sobrevive sólo en
+herramientas especializadas con superficie compleja.</td>
+</tr>
+<tr>
+<td><strong>API</strong> (Capa 1)</td>
+<td>Persiste y se intensifica. El agente que resolvió la pregunta del
+humano consulta la API del componente sin que el humano la vea.</td>
+<td>Se convierte en <strong>Conector</strong> dentro de la <strong>Capa
+4 — Acceso</strong> (no en Capability). Lo que era contrato
+máquina-a-máquina entre sistemas pasa a ser contrato máquina-a-agente,
+descubrible y gobernado por Trust Infrastructure.</td>
+</tr>
+<tr>
+<td><strong>Business Logic — Procedural</strong> (Capa 2)</td>
+<td>Se contrae. Los workflows que codifican secuencias rígidas de pasos
+se reabsorben en agentes que componen los pasos contextualmente desde el
+catálogo de Capabilities.</td>
+<td>Reemplazada por <strong>Botlets</strong> que orquestan dinámicamente
+el caso de uso. Sobreviven como Procedural sólo los workflows con
+requisitos regulatorios estrictos donde la trazabilidad línea por línea
+es no-negociable.</td>
+</tr>
+<tr>
+<td><strong>Business Logic — Agentic</strong> (Capa 2)</td>
+<td>Se expande hasta volverse el comportamiento dominante de la capa. Lo
+que en BCA era ciudadano paralelo del Procedural pasa a ser el centro de
+gravedad del sistema.</td>
+<td>Es la <strong>semilla operativa del Botlet</strong> del Capítulo 4.
+La séptima separación de BCA es, retrospectivamente, la primera grieta
+visible del Mundo Agentivo dentro del Mundo Agéntico.</td>
+</tr>
+<tr>
+<td><strong>SOR · Logic</strong> (Capa 3)</td>
+<td>Se preserva. Las invariantes estructurales del dominio no cambian al
+cruzar la línea — un cliente sigue teniendo identificador único, una
+factura sigue cuadrando con sus líneas.</td>
+<td>Se convierte en lógica de invariantes dentro del
+<strong>AgencyDomain</strong> correspondiente. La regla operativa es la
+misma: el dominio sigue siendo delgado, ahora también frente a Botlets
+en lugar de frente a workflows procedurales.</td>
+</tr>
+<tr>
+<td><strong>SOR · Persistence</strong> (Capa 3)</td>
+<td>Se preserva. El estado autoritativo del negocio sigue viviendo en
+bases de datos transaccionales con sus garantías ACID.</td>
+<td>Persiste como capa de almacenamiento del
+<strong>AgencyDomain</strong>. Lo que cambia es quién la consulta: ya no
+usuarios humanos vía aplicaciones, sino Botlets vía Capabilities.</td>
+</tr>
+<tr>
+<td><strong>External · Logic</strong> (Capa 3)</td>
+<td>Se preserva pero se reposiciona. La lógica que traduce modelos
+ajenos a modelo propio sigue siendo necesaria, pero ahora opera dentro
+de una red federada de AgencyDomains que se confían entre sí.</td>
+<td>Se reabsorbe en patrones de federación entre AgencyDomains
+gestionados por <strong>Trust Infrastructure</strong> (el Capítulo 4
+describe la mecánica).</td>
+</tr>
+<tr>
+<td><strong>External · Persistence</strong> (Capa 3)</td>
+<td>Se preserva. Los proxies locales y los logs de eventos recibidos
+siguen siendo el mecanismo físico para integrar dominios ajenos.</td>
+<td>Permanecen como capa de almacenamiento de la federación. La novedad
+agentiva no es estructural sino de gobierno: Trust Infrastructure
+registra qué AgencyDomain leyó qué de quién y bajo qué política.</td>
+</tr>
+<tr>
+<td><strong>Eventos</strong> (síncronos y asíncronos en SOR)</td>
+<td>Se preservan y se elevan en importancia. La pierna asíncrona del
+dominio es particularmente útil para integrar agentes: un Botlet puede
+suscribirse a eventos del SOR para reaccionar autónomamente sin
+acoplarse al núcleo.</td>
+<td>Se convierten en el sustrato de coordinación entre Botlets y
+AgencyDomains. La inmutabilidad del log autoritativo permite que Botlets
+razonen sobre la historia del dominio sin contaminar el estado
+actual.</td>
+</tr>
+</tbody>
+</table>
+<p>Cuatro patrones generales emergen del mapping.
+<strong>Primero</strong>, la <strong>Capa 3 sobrevive casi
+intacta</strong>. Las invariantes estructurales y la persistencia
+autoritativa son lo que el sistema empresarial tiene que preservar
+durante el cruce, y la disciplina de la delgadez del dominio es lo que
+asegura que sobrevivan. La Capa 3 de BCA es, en buena medida, lo que se
+vuelve el sustrato de los AgencyDomains del Capítulo 4.
+<strong>Segundo</strong>, la <strong>Capa 2 se transforma
+profundamente</strong>. La caja Procedural se contrae; la caja Agentic
+se expande hasta dominar; ambas eventualmente dejan de ser cajas
+paralelas y se convierten en Botlets que componen comportamiento desde
+el catálogo de Capabilities. La séptima separación de BCA es la grieta
+inicial por la cual el Mundo Agentivo entra al sistema empresarial; con
+el tiempo, esa grieta se ensancha hasta consumir la capa entera.
+<strong>Tercero</strong>, la <strong>Capa 1 se bifurca</strong>. La UI
+se vacía y eventualmente desaparece como interfaz primaria; la API se
+intensifica y se transforma en Conector (Capa 4), no en Capability. La
+transformación es asimétrica: una de las dos cajas de la Capa 1 muere;
+la otra prospera con un nombre distinto. <strong>Cuarto</strong>,
+<strong>Trust Infrastructure aparece como concern transversal
+nuevo</strong> que en BCA no estaba materializado. La gobernanza,
+auditabilidad y políticas de identidad y acceso, que en BCA eran
+responsabilidades dispersas entre las celdas, se elevan a una capa
+transversal explícita en el Mundo Agentivo. Esta es una de las
+contribuciones arquitectónicas del Capítulo 4: hacer visible lo que en
+la era pre-agentiva quedaba implícito en cada componente.</p>
+<p>El mapping también permite contestar preguntas operativas que un
+arquitecto en transición se hace cotidianamente. <em>¿Tengo que
+reescribir mi SOR para entrar al Mundo Agentivo?</em> No: la Capa 3
+sobrevive. Lo que tienes que hacer es exponerla con disciplina vía
+Capabilities. <em>¿Mis workflows actuales mueren?</em> No todos:
+sobreviven los que tienen requisitos de trazabilidad regulatoria; los
+demás se reabsorben en Botlets. <em>¿Mis APIs actuales sirven?</em> Sí,
+pero hay que renegociar su contrato como Conector (Capa 4) descubrible y
+gobernado por Trust Infrastructure. <em>¿Mis aplicaciones con UI
+mueren?</em> Las que existían para navegar y filtrar información, sí.
+Las que producen artefactos especializados, sobreviven más tiempo,
+eventualmente con copiloto o agente como mediador, según ya describimos
+en el Capítulo 2.</p>
+<h2 id="cierre-la-frontera-de-bca">Cierre · La frontera de BCA</h2>
+<p>BCA es la arquitectura del estado pre-agentivo. Su valor en este
+libro es doble. Primero, ofrece una cartografía formal de lo que la
+mayoría de las organizaciones que cruzarán la Línea Nadella tienen hoy:
+tres capas, siete separaciones, un núcleo delgado, una orquestación dual
+entre Procedural y Agentic. Segundo, y más importante, ofrece el
+instrumento de mapping que permite razonar disciplinadamente sobre qué
+migra, qué desaparece, qué permanece — y por qué.</p>
+<p>Pero BCA tiene una frontera explícita. Cuando una organización cruza
+la Línea Nadella y entra plenamente al Mundo Agentivo, las separaciones
+que BCA articula tienden a colapsar. La Capa 1 se convierte en una
+conversación con un agente. La distinción entre Procedural y Agentic se
+diluye porque la primera caja se vacía progresivamente. Eventualmente,
+incluso la frontera entre Business Logic y Domain queda mediada por una
+entidad agéntica que decide qué pasos invocar. En ese momento, BCA ha
+cumplido su propósito de transición y cede el lugar a un marco
+arquitectónico distinto — un marco que ya no se organiza en torno a la
+separación entre dominio y orquestación, sino en torno a las cuatro
+capas del Mundo Agentivo: Interacción, Cognición, Autonomía y
+Acceso.</p>
+<p>Ese marco es el que el Capítulo 4 desarrolla. Lo hace sobre la base
+que BCA acaba de establecer: sabemos qué teníamos antes, sabemos qué
+migra, sabemos qué permanece. Ahora podemos describir, con la calma que
+el cambio merece, la arquitectura del lado al que vamos.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Moore G. “Systems of Engagement and the Future of
+Enterprise IT — A sea change in enterprise IT”. AIIM White Paper,
+2011.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Hopkins B. “Systems of insight will power digital
+business”. Forrester Research, Julio 2014.<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Buschmann F., Meunier R., Rohnert H., Sommerlad P., Stal
+M. <em>Pattern-Oriented Software Architecture, Volume 1: A System of
+Patterns</em>. John Wiley &amp; Sons, 1996.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Dijkstra E. W. “On the role of scientific thought”
+(EWD447), 1974. Reimpreso en <em>Selected Writings on Computing: A
+Personal Perspective</em>, Springer-Verlag, 1982.<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Buschmann F., Meunier R., Rohnert H., Sommerlad P., Stal
+M. <em>Pattern-Oriented Software Architecture, Volume 1: A System of
+Patterns</em>. John Wiley &amp; Sons, 1996.<a href="#fnref5"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Cockburn A. “Hexagonal architecture”, Abril 2005.
+<code>https://alistair.cockburn.us/hexagonal-architecture/</code>.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Martin R. C. <em>Clean Architecture: A Craftsman’s Guide
+to Software Structure and Design</em>. Prentice Hall, 2017.<a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref8"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Newman S. <em>Building Microservices: Designing
+Fine-Grained Systems</em>, 2ª ed. O’Reilly, 2021.<a href="#fnref9"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref10" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Fowler M. “Domain logic and SQL”.
+<em>martinfowler.com</em>, Febrero 2003.
+<code>https://martinfowler.com/articles/dblogic.html</code>.<a
+href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Fowler M. “Organizing presentation logic”.
+<code>https://martinfowler.com/eaaDev/OrganizingPresentations.html</code>.<a
+href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref13" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref14"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Vernon V. <em>Implementing Domain-Driven Design</em>.
+Addison-Wesley, 2013.<a href="#fnref15" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>Helland P. “Data on the outside versus data on the
+inside”. <em>2nd Biennial Conference on Innovative Data Systems Research
+(CIDR)</em>, 2005. Republicado en <em>ACM Queue</em> 18(3), 2020.<a
+href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>Helland P. “Immutability changes everything”. <em>7th
+Biennial Conference on Innovative Data Systems Research (CIDR)</em>,
+2015. Republicado en <em>Communications of the ACM</em> 59(1), 2016.<a
+href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>Kleppmann M. <em>Designing Data-Intensive Applications:
+The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</em>.
+O’Reilly, 2017.<a href="#fnref18" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>Young G. “CQRS Documents”, 2010. Disponible en
+<code>https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf</code>.<a
+href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>Fowler M. “CQRS”. <em>martinfowler.com</em>, Julio
+2011. <code>https://martinfowler.com/bliki/CQRS.html</code>.<a
+href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref21"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>Vernon V. <em>Implementing Domain-Driven Design</em>.
+Addison-Wesley, 2013.<a href="#fnref22" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref23" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref24"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>Moore G. “Systems of Engagement and the Future of
+Enterprise IT — A sea change in enterprise IT”. AIIM White Paper,
+2011.<a href="#fnref25" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p>Newman S. <em>Building Microservices: Designing
+Fine-Grained Systems</em>, 2ª ed. O’Reilly, 2021.<a href="#fnref26"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>Hohpe G., Woolf B. <em>Enterprise Integration Patterns:
+Designing, Building, and Deploying Messaging Solutions</em>.
+Addison-Wesley, 2003.<a href="#fnref27" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>TM Forum. “ODA functional architecture”, IG1167,
+Versión 5.1.0, Marzo 2021.<a href="#fnref28" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>Obach C. <em>El Futuro Agentivo</em>. Documento
+técnico, ultraBASE — Grupo Ultra, 2025. Material absorbido en los
+Capítulos 1 y 2 de este libro.<a href="#fnref29" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p>Fowler M. “Organizing presentation logic”.
+<code>https://martinfowler.com/eaaDev/OrganizingPresentations.html</code>.<a
+href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p>Young G. “CQRS Documents”, 2010. Disponible en
+<code>https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf</code>.<a
+href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn32"><p>Helland P. “Data on the outside versus data on the
+inside”. <em>2nd Biennial Conference on Innovative Data Systems Research
+(CIDR)</em>, 2005. Republicado en <em>ACM Queue</em> 18(3), 2020.<a
+href="#fnref32" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn33"><p>Martin R. C. <em>Clean Architecture: A Craftsman’s
+Guide to Software Structure and Design</em>. Prentice Hall, 2017.<a
+href="#fnref33" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn34"><p>Cockburn A. “Hexagonal architecture”, Abril 2005.
+<code>https://alistair.cockburn.us/hexagonal-architecture/</code>.<a
+href="#fnref34" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn35"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref35"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn36"><p>Vernon V. <em>Implementing Domain-Driven Design</em>.
+Addison-Wesley, 2013.<a href="#fnref36" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn37"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref37" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn38"><p>Fowler M. “Organizing presentation logic”.
+<code>https://martinfowler.com/eaaDev/OrganizingPresentations.html</code>.<a
+href="#fnref38" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn39"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref39" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn40"><p>Buschmann F., Meunier R., Rohnert H., Sommerlad P.,
+Stal M. <em>Pattern-Oriented Software Architecture, Volume 1: A System
+of Patterns</em>. John Wiley &amp; Sons, 1996.<a href="#fnref40"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn41"><p>Hohpe G., Woolf B. <em>Enterprise Integration Patterns:
+Designing, Building, and Deploying Messaging Solutions</em>.
+Addison-Wesley, 2003.<a href="#fnref41" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn42"><p>Newman S. <em>Building Microservices: Designing
+Fine-Grained Systems</em>, 2ª ed. O’Reilly, 2021.<a href="#fnref42"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn43"><p>Young G. “CQRS Documents”, 2010. Disponible en
+<code>https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf</code>.<a
+href="#fnref43" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn44"><p>Martin R. C. <em>Clean Architecture: A Craftsman’s
+Guide to Software Structure and Design</em>. Prentice Hall, 2017.<a
+href="#fnref44" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn45"><p>Helland P. “Data on the outside versus data on the
+inside”. <em>2nd Biennial Conference on Innovative Data Systems Research
+(CIDR)</em>, 2005. Republicado en <em>ACM Queue</em> 18(3), 2020.<a
+href="#fnref45" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn46"><p>Cockburn A. “Hexagonal architecture”, Abril 2005.
+<code>https://alistair.cockburn.us/hexagonal-architecture/</code>.<a
+href="#fnref46" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn47"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref47"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn48"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref48" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn49"><p>Fowler M., Rice D., Foemmel M., Hieatt E., Mee R.,
+Stafford R. <em>Patterns of Enterprise Application Architecture</em>.
+Addison-Wesley, 2002.<a href="#fnref49" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn50"><p>TM Forum. “ODA functional architecture”, IG1167,
+Versión 5.1.0, Marzo 2021.<a href="#fnref50" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn51"><p>Hohpe G., Woolf B. <em>Enterprise Integration Patterns:
+Designing, Building, and Deploying Messaging Solutions</em>.
+Addison-Wesley, 2003.<a href="#fnref51" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn52"><p>Young G. “CQRS Documents”, 2010. Disponible en
+<code>https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf</code>.<a
+href="#fnref52" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn53"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref53"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn54"><p>Vernon V. <em>Implementing Domain-Driven Design</em>.
+Addison-Wesley, 2013.<a href="#fnref54" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn55"><p>Hohpe G., Woolf B. <em>Enterprise Integration Patterns:
+Designing, Building, and Deploying Messaging Solutions</em>.
+Addison-Wesley, 2003.<a href="#fnref55" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn56"><p>Kleppmann M. <em>Designing Data-Intensive Applications:
+The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</em>.
+O’Reilly, 2017.<a href="#fnref56" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn57"><p>Evans E. <em>Domain-Driven Design: Tackling Complexity
+in the Heart of Software</em>. Addison-Wesley, 2003.<a href="#fnref57"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn58"><p>Vernon V. <em>Implementing Domain-Driven Design</em>.
+Addison-Wesley, 2013.<a href="#fnref58" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn59"><p>Fowler M. “Organizing presentation logic”.
+<code>https://martinfowler.com/eaaDev/OrganizingPresentations.html</code>.<a
+href="#fnref59" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn60"><p>TM Forum. “ODA functional architecture”, IG1167,
+Versión 5.1.0, Marzo 2021.<a href="#fnref60" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn61"><p>Hohpe G., Woolf B. <em>Enterprise Integration Patterns:
+Designing, Building, and Deploying Messaging Solutions</em>.
+Addison-Wesley, 2003.<a href="#fnref61" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+<nav class="prevnext"><a href="/es/agencydomains/capitulo-2-el-mundo-agentivo/"><span class="dir">← Anterior</span>Capítulo 2 · El Mundo Agentivo</a><a class="nx" href="/es/agencydomains/capitulo-4-arquitectura-agentiva/"><span class="dir">Siguiente →</span>Capítulo 4 · Arquitectura Agentiva</a></nav></article></main>
+</div>
+</body>
+</html>

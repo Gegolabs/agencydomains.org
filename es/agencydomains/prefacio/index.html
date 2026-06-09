@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prefacio · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Prefacio</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Índice del libro"><p class="nav-label">El libro · v0.4</p><ol><li><a class="" href="/es/agencydomains/">Portada</a></li><li><a class="" href="/es/agencydomains/prologo/">Prólogo</a></li><li><a class="active" href="/es/agencydomains/prefacio/">Prefacio</a><ul class="subtoc"><li><a href="#quién-debe-leer-este-libro">¿Quién debe leer este libro?</a></li><li><a href="#cómo-está-organizado-este-libro">¿Cómo está organizado este
+libro?</a></li><li><a href="#sobre-los-términos-en-inglés">Sobre los términos en inglés</a></li></ul></li><li><a class="" href="/es/agencydomains/capitulo-1-la-linea-nadella/">Capítulo 1 · La Línea Nadella</a></li><li><a class="" href="/es/agencydomains/capitulo-2-el-mundo-agentivo/">Capítulo 2 · El Mundo Agentivo</a></li><li><a class="" href="/es/agencydomains/capitulo-3-bounded-concerns-architecture/">Capítulo 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/es/agencydomains/capitulo-4-arquitectura-agentiva/">Capítulo 4 · Arquitectura Agentiva</a></li><li><a class="" href="/es/agencydomains/capitulo-5-primitivas/">Capítulo 5 · Primitivas</a></li><li><a class="" href="/es/agencydomains/capitulo-6-mercado/">Capítulo 6 · Mercado</a></li><li><a class="" href="/es/agencydomains/capitulo-7-conocimiento-en-tiempo-real/">Capítulo 7 · Conocimiento en tiempo real</a></li><li><a class="" href="/es/agencydomains/capitulo-8-trust-infrastructure-operacionalizada-politicas-y-crudlex/">Capítulo 8 · Trust Infrastructure operacionalizada — políticas y CRUDLEX</a></li><li><a class="" href="/es/agencydomains/capitulo-9-vergis-la-implementacion-de-referencia/">Capítulo 9 · Vergis — la implementación de referencia</a></li><li><a class="" href="/es/agencydomains/epilogo-la-frontera-de-evolucion/">Epílogo · La frontera de evolución</a></li><li><a class="" href="/es/agencydomains/apendice-a-glosario-canonico/">Apéndice A · Glosario canónico</a></li><li><a class="" href="/es/agencydomains/apendice-b-referencias/">Apéndice B · Referencias</a></li><li><a class="" href="/es/agencydomains/colofon-sobre-como-se-escribio-este-libro/">Colofón · Sobre cómo se escribió este libro</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1 id="prefacio">Prefacio</h1>
+<p><em>Por César Obach-Renner · Junio 2026</em></p>
+<hr />
+<p>Después de dieciocho meses observando cómo la industria construía
+agentes de IA — algunos como capricho de demo, otros como pilotos
+enterprise que morían al pasar a producción —, sinteticé una
+arquitectura formal para el problema. La llamo <strong>Arquitectura
+Agentiva</strong>. Este libro es su especificación.</p>
+<p>Llegué al problema por la vía menos elegante: lo necesitaba. En 2025
+empecé a construir, dentro de mi empresa, un portafolio de productos
+donde humanos y agentes debían coexistir como ciudadanos digitales de
+primera clase. Pronto descubrí que la categoría no existía con la
+madurez necesaria para sostener ese diseño. Había mucho lenguaje suelto
+— <em>“agentic AI”</em>, <em>“AI copilots”</em>, <em>“AI agents”</em>,
+<em>“autonomous workflows”</em> —, mucho marketing y poca arquitectura.
+La industria nombraba el horizonte; pero no había una especificación
+común del sustrato técnico, ni un vocabulario compartido para
+discutirlo.</p>
+<p>Frente a eso me ofrecía dos caminos: improvisar sobre lo disperso o
+construir el marco que mi empresa necesitaba. Opté por el segundo. Lo
+construí primero como notas internas; después como documentos canónicos
+del proyecto; después como la columna vertebral del portafolio entero.
+En algún momento se hizo evidente que el resultado tenía valor más allá
+de mi empresa — que cualquier organización que esté construyendo en este
+horizonte enfrenta el mismo problema y necesita el mismo marco.</p>
+<p>Este libro es la formalización de ese marco. Define el paradigma
+(<strong>el Mundo Agentivo</strong>), una arquitectura formal de cuatro
+capas, las primitivas técnicas que las habitan
+(<strong>Botlets</strong>, <strong>Capabilities</strong>,
+<strong>AgencyDomains</strong>), una infraestructura de confianza
+transversal (<strong>Trust Infrastructure</strong>) y un modelo de
+mercado bidimensional (<strong>la cadena de valor de IA</strong>). El
+propósito no es convencer al lector de adoptar mi implementación
+particular. El propósito es ofrecer al ecosistema completo un lenguaje
+común para razonar sobre sistemas agentivos productivos.</p>
+<p>Tengo claro de dónde vengo. Hace casi veinte años escribí un libro
+similar para otra categoría que entonces empezaba a tomar forma —
+<em>SOAr: El concepto</em> (2008), una formalización de Arquitectura
+Orientada a Servicios para integración empresarial. Aquel trabajo nació
+también de un proyecto real donde la metodología no existía, así que la
+creé y la documenté. Lo que aprendí entonces, y aplico aquí, es que las
+categorías técnicas se establecen no cuando alguien las inventa, sino
+cuando alguien las <strong>escribe con disciplina suficiente como para
+que otros las adopten</strong>. Este libro es ese intento.</p>
+<h2 id="quién-debe-leer-este-libro">¿Quién debe leer este libro?</h2>
+<p>Este libro está dirigido a quienes están construyendo, evaluando o
+gobernando sistemas agentivos productivos.</p>
+<p>Si es <strong>arquitecto de sistemas</strong> o <strong>CTO</strong>,
+encontrará un marco común para razonar sobre separación de
+responsabilidades, gobernanza, primitivas técnicas y posicionamiento de
+stack en horizonte de tres a cinco años. Si es <strong>estratega de
+producto</strong> o <strong>consultor</strong>, encontrará un mapa de
+mercado bidimensional para situar a cualquier actor — propio o ajeno —
+en la cadena de valor de IA. Si es <strong>investigador</strong> o
+<strong>académico</strong>, encontrará una formalización razonablemente
+rigurosa de una categoría aún en consolidación.</p>
+<p>El libro es introductorio en el sentido de que no asume conocimiento
+previo de implementaciones específicas. Pero asume familiaridad básica
+con sistemas distribuidos, modelos de lenguaje y operación de sistemas
+en producción. No es un manual de implementación — es la especificación
+que un manual debería respetar.</p>
+<h2 id="cómo-está-organizado-este-libro">¿Cómo está organizado este
+libro?</h2>
+<p>El libro avanza del paradigma a la implementación, en una secuencia
+donde cada parte se apoya en la anterior:</p>
+<ul>
+<li><strong>El paradigma</strong> — La Línea Nadella (la pregunta) · El
+Mundo Agentivo (las consecuencias).</li>
+<li><strong>La Arquitectura Agentiva</strong> — cuatro capas distintas ·
+Trust Infrastructure transversal · Agent First (principio rector).</li>
+<li><strong>Las primitivas (siete)</strong> — AgencyDomain · Botlet ·
+proto-Botlet (+ manifestación + temporalidad) · Capability (cognitiva,
+Capa 2) · Trust Infrastructure · Asistente vs Agente Autónomo
+(primitiva-eje) · Faceta (Capa 1).</li>
+<li><strong>El posicionamiento de mercado</strong> — Cadena de valor de
+IA (11 × 4) · Observabilidad · Mundo de carbono.</li>
+<li><strong>Las aplicaciones</strong> — Conocimiento en tiempo real
+(caso canónico: Kimball Barnizada · BI conversacional).</li>
+<li><strong>La operación</strong> — Trust Infrastructure
+operacionalizada (políticas · CRUDLEX · log).</li>
+<li><strong>La implementación de referencia</strong> — Vergis (Capítulo
+9).</li>
+<li><strong>El epílogo</strong> — frontera de evolución (cognición
+no-LLM · federación · mundo de carbono · AgentNation).</li>
+</ul>
+<p>El recorrido encadena los capítulos así: <strong>La Línea
+Nadella</strong> (la pregunta) → <strong>El Mundo Agentivo</strong> (las
+consecuencias) → <strong>la Arquitectura Agentiva</strong> (las cuatro
+capas) → <strong>las primitivas</strong> que las pueblan → <strong>el
+posicionamiento de mercado</strong> → <strong>la aplicación
+canónica</strong> → <strong>la operación</strong> →
+<strong>Vergis</strong>, la implementación de referencia → <strong>el
+epílogo</strong>. El glosario al final fija el vocabulario canónico.</p>
+<h2 id="sobre-los-términos-en-inglés">Sobre los términos en inglés</h2>
+<p>Buena parte del vocabulario técnico de esta categoría nace en inglés
+y carece de traducciones al español que sean a la vez precisas y
+reconocidas: <em>agent</em>, <em>agentic</em>, <em>agentive</em>,
+<em>runtime</em>, <em>guardrails</em>, <em>tool</em>, <em>prompt
+injection</em>, entre otros. Este libro adopta el original en inglés
+cuando la traducción sería forzada o cuando el término ya circula con
+autoridad en el campo. Cuando una traducción al español sí captura el
+concepto sin pérdida — <em>capa</em>, <em>modelo</em>,
+<em>gobernanza</em>, <em>cognición</em> —, se utiliza esa.</p>
+<p>Los conceptos canónicos acuñados en este libro — <strong>Arquitectura
+Agentiva</strong>, <strong>Línea Nadella</strong>,
+<strong>AgencyDomains</strong>, <strong>Botlet</strong>,
+<strong>Capability</strong>, <strong>Trust Infrastructure</strong>,
+<strong>Mundo Agentivo</strong> — se mantienen en su forma original a
+través de toda la obra, capitalizados, como nombres propios. Su
+definición precisa vive en el glosario al final del libro.</p>
+<p>A medida que la categoría madura en regiones de habla hispana,
+traducciones consensuadas pueden emerger. Si así ocurre, futuras
+ediciones las recogerán. Por ahora, la prioridad es no romper la
+trazabilidad del concepto entre comunidades.</p>
+
+<nav class="prevnext"><a href="/es/agencydomains/prologo/"><span class="dir">← Anterior</span>Prólogo</a><a class="nx" href="/es/agencydomains/capitulo-1-la-linea-nadella/"><span class="dir">Siguiente →</span>Capítulo 1 · La Línea Nadella</a></nav></article></main>
+</div>
+</body>
+</html>

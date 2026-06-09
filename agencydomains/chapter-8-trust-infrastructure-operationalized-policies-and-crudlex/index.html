@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 8 · Trust Infrastructure operationalized — policies and CRUDLEX · AgencyDomains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/agencydomains.css">
+</head>
+<body>
+<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a><span class="crumb">Chapter 8 · Trust Infrastructure operationalized — policies and CRUDLEX</span></div>
+<div class="book-shell">
+<nav class="book-nav" aria-label="Book contents"><p class="nav-label">The book · v0.4</p><ol><li><a class="" href="/agencydomains/">Cover</a></li><li><a class="" href="/agencydomains/prologue/">Prologue</a></li><li><a class="" href="/agencydomains/preface/">Preface</a></li><li><a class="" href="/agencydomains/chapter-1-the-nadella-line/">Chapter 1 · The Nadella Line</a></li><li><a class="" href="/agencydomains/chapter-2-the-agentive-world/">Chapter 2 · The Agentive World</a></li><li><a class="" href="/agencydomains/chapter-3-bounded-concerns-architecture/">Chapter 3 · Bounded Concerns Architecture</a></li><li><a class="" href="/agencydomains/chapter-4-agentive-architecture/">Chapter 4 · Agentive Architecture</a></li><li><a class="" href="/agencydomains/chapter-5-primitives/">Chapter 5 · Primitives</a></li><li><a class="" href="/agencydomains/chapter-6-market/">Chapter 6 · Market</a></li><li><a class="" href="/agencydomains/chapter-7-real-time-knowledge/">Chapter 7 · Real-time knowledge</a></li><li><a class="active" href="/agencydomains/chapter-8-trust-infrastructure-operationalized-policies-and-crudlex/">Chapter 8 · Trust Infrastructure operationalized — policies and CRUDLEX</a><ul class="subtoc"><li><a href="#policy-catalog">Policy catalog</a></li><li><a href="#complete-crudlex-model">Complete CRUDLEX model</a></li><li><a href="#append-only-log-format">Append-only log format</a></li><li><a href="#human-approval-protocol">Human approval protocol</a></li><li><a href="#hallucination-detection-rules">Hallucination-detection
+rules</a></li><li><a href="#tokenization-policy">Tokenization policy</a></li><li><a href="#minimum-viable-catalog">Minimum viable catalog</a></li><li><a href="#the-tripartite-deployment-pattern-cloud-client-local">The
+tripartite deployment pattern — Cloud + Client + Local</a></li><li><a href="#the-economics-of-operationalized-trust-infrastructure">The
+economics of operationalized Trust Infrastructure</a></li><li><a href="#what-comes-next">What comes next</a></li></ul></li><li><a class="" href="/agencydomains/chapter-9-vergis-the-reference-implementation/">Chapter 9 · Vergis — the reference implementation</a></li><li><a class="" href="/agencydomains/epilogue-the-evolution-frontier/">Epilogue · The Evolution Frontier</a></li><li><a class="" href="/agencydomains/appendix-a-canonical-glossary/">Appendix A · Canonical glossary</a></li><li><a class="" href="/agencydomains/appendix-b-references/">Appendix B · References</a></li><li><a class="" href="/agencydomains/colophon-on-how-this-book-was-written/">Colophon · On how this book was written</a></li></ol></nav>
+<main class="book-main"><article class="book">
+<h1
+id="chapter-8-trust-infrastructure-operationalized-policies-and-crudlex">Chapter
+8 · Trust Infrastructure operationalized — policies and CRUDLEX</h1>
+<p>Chapter 5 described Trust Infrastructure as a set of five pillars —
+Governance, Auditing, Validation, Resilience, Transparency — that cuts
+across the four layers of the Agentive Architecture. The description was
+conceptual: it named the pillars, their canonical mechanisms, the
+properties they demand. This chapter closes the loop: it translates
+those concepts into concrete constructs that an implementer can take and
+build.</p>
+<p>The distinction between concept and operationalization is critical to
+the success of an agentive system in production. A pillar is
+<strong>conceptual</strong>: <em>“the organization must be able to
+govern what the agent does”</em>. An operationalization is
+<strong>constructive</strong>: <em>“the organization configures policies
+in YAML format that apply the CRUDLEX model, evaluated on every tool
+invocation, with a declarative catalog and explicit inheritance”</em>.
+The distance between the two is exactly what separates a project that
+moves from pilot to production from one that stalls in the forty percent
+that Gartner forecasts cancelled before the end of 2027.</p>
+<blockquote>
+<p><em>The pillars answer what trust is needed. The operationalizations
+answer how it is built.</em></p>
+</blockquote>
+<p>This chapter develops the complete operationalization of Trust
+Infrastructure. Policy catalog, complete CRUDLEX model, append-only log
+format, human approval protocols, hallucination-detection rules,
+tokenization policy. Each component with the detail an architect needs
+to implement and an auditor needs to evaluate. The chapter is the most
+technical in the book, and it is so deliberately — operationalized Trust
+Infrastructure is where the architecture becomes real.</p>
+<h2 id="policy-catalog">Policy catalog</h2>
+<!-- FIG:g43-jerarquia-politicas -->
+<figure>
+<img src="/agencydomains/figuras/g43-jerarquia-politicas.png"
+alt="Hierarchical composition of policies · downward monotonicity" />
+<figcaption aria-hidden="true">Hierarchical composition of policies ·
+downward monotonicity</figcaption>
+</figure>
+<p><strong>Policies</strong> are declarative rules — not embedded code —
+that define what an agent may do and under what conditions. The
+distinction between declarative policy and imperative code matters. A
+declarative policy can be modified without redeploying the system, can
+be versioned independently, can be audited without requiring a code
+review, can be understood by non-technical people (compliance officers,
+lawyers, auditors). Imperative code entangled with policies confuses
+three distinct roles — developer, compliance officer, auditor — into a
+single surface, and that guarantees all three roles operate poorly.</p>
+<p>The canonical operationalization defines a catalog with <strong>five
+categories</strong> of policies. The five categories are distinct,
+attack distinct problems, and a well-designed agentive system has active
+policies in all five. We develop them one by one.</p>
+<h3 id="tool-policies">Tool policies</h3>
+<p>Tool policies define which tools the agent may invoke, over which
+resources. They are the first control mechanism an agentive system
+needs: if the agent can invoke tools indiscriminately, no governance is
+possible. Tool policies establish the <strong>permitted scope</strong>
+of the agent’s invocations, with granularity by agent, by tool, by scope
+(the specific resources the tool operates over), and with special
+conditions (approval required, categorical prohibition).</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> tool-access</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-finance-001</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tools</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ledger.read</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scope</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;company-A&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;company-B&quot;</span><span class="kw">]</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ledger.write</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scope</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;company-A&quot;</span><span class="kw">]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">require_approval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # human approval before executing</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> bank.transfer</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">                  # categorically prohibited</span></span></code></pre></div>
+<p>A typical tool policy for a finance agent might permit reads of the
+ledger over two specific companies, permit writes over only one of them
+but requiring human approval, and categorically prohibit any
+bank-transfer operation. The granularity allows a balance between
+operational autonomy and risk control: the agent operates autonomously
+for low-impact operations, escalates to a human for medium operations,
+does not operate for high-impact operations.</p>
+<h3 id="data-policies">Data policies</h3>
+<p>Data policies define which classes of data the agent may query or
+emit. They are complementary to tool policies — a tool may be permitted
+in general, but the specific data it returns may be restricted by class.
+Data policies classify data by sensitivity and apply distinct rules
+according to the class.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> data-access</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-customer-support-001</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data_classes</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">class</span><span class="kw">:</span><span class="at"> pii.name</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">class</span><span class="kw">:</span><span class="at"> pii.ssn</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> read</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">require_tokenization</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    # tokenized before invoking cognition</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">class</span><span class="kw">:</span><span class="at"> pii.financial</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">class</span><span class="kw">:</span><span class="at"> internal.public</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> read-write</span></span></code></pre></div>
+<p>A customer-support agent may read customer names (low-sensitivity
+PII), may read social security numbers but only tokenized (the cognition
+sees the token, not the real datum), may not access the customer’s
+financial data, and may read and write internal public information.
+Granularity by data class lets the agent operate productively with
+non-sensitive data without exposing sensitive data to external cognition
+providers.</p>
+<h3 id="schedule-and-threshold-policies">Schedule and threshold
+policies</h3>
+<p>Schedule and threshold policies limit when, or with which thresholds,
+the agent acts. They capture the temporal and magnitude dimensions of
+operations — what time it is, how large the operation is, with what
+associated risk.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> temporal-and-thresholds</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-trading-001</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">condition</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;amount &gt; 100000&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">require_approval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">condition</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;amount &gt; 1000000&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">allow</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">condition</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;time NOT IN business_hours&quot;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">require_approval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<p>A trading agent may operate autonomously for small amounts, requires
+approval for medium amounts, does not operate for large amounts, and
+requires approval for any operation outside business hours. The
+declarative construct allows thresholds to be adjusted without modifying
+code — a regulatory policy change that moves the approval threshold from
+one hundred thousand to fifty thousand dollars is executed as a
+configuration change, not as a software release.</p>
+<h3 id="identity-policies">Identity policies</h3>
+<p>Identity policies define which identities operate on behalf of the
+agent and how they authenticate. They capture the federated identity
+model typical of complex organizations, where an agent acts on behalf of
+a human user, authenticated by the corporate identity provider, with
+limited scope.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> identity</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-finance-001</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">authentication</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">method</span><span class="kw">:</span><span class="at"> oauth2</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">issuer</span><span class="kw">:</span><span class="at"> corporate-idp.example.com</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">delegation</span><span class="kw">:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">on_behalf_of</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;user-cfo&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;user-controller&quot;</span><span class="kw">]</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">scope_limited_to</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;agent-finance-001&quot;</span><span class="kw">]</span></span></code></pre></div>
+<p>The agent authenticates via OAuth2 against the corporate identity
+provider, operates on behalf of two specific users (CFO and Controller),
+and its scope is limited to the operations of the finance agent — it
+cannot act as another agent or assume a different identity. The identity
+policy is what ensures that the agent’s actions can be traced back to
+identifiable humans, a necessary condition for serious auditing.</p>
+<h3 id="validation-policies">Validation policies</h3>
+<p>Validation policies define which validations are applied before
+executing actions. They connect to the mechanisms of Pillar 3
+(Validation) that Chapter 5 described, specifying them as concrete
+policies.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">policy</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> validation</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">agent</span><span class="kw">:</span><span class="at"> agent-customer-support-001</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">validation</span><span class="kw">:</span><span class="at"> hallucination-check</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">threshold</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.95</span><span class="co">              # minimum confidence</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">validation</span><span class="kw">:</span><span class="at"> prompt-injection-check</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">action_on_detection</span><span class="kw">:</span><span class="at"> block-and-alert</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">validation</span><span class="kw">:</span><span class="at"> dlp-scan</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">data_classes</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;pii.*&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;financial.*&quot;</span><span class="kw">]</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">action_on_detection</span><span class="kw">:</span><span class="at"> tokenize</span></span></code></pre></div>
+<p>A customer-support agent requires hallucination validation with a
+confidence threshold of ninety-five percent — if the detection system
+detects less confidence, the response is not emitted. It detects
+prompt-injection attempts and, if it detects one, blocks the operation
+and alerts the security team. It applies a DLP scan over sensitive data
+classes — PII and financial data — and, if it detects data that requires
+tokenization, tokenizes it before the cognition processes it.</p>
+<h3 id="policy-composition">Policy composition</h3>
+<p>Policies compose hierarchically. The organization defines a root
+policy that applies to all agents; each area defines specific policies
+that inherit from the root; each team refines further; each agent has a
+specific policy that inherits from all the preceding ones.</p>
+<p>The agent’s policy <strong>inherits</strong> the restrictions of
+those above it and can only <strong>add</strong> restrictions, not
+remove them. This prevents accidental privilege escalations. If the
+organization’s root policy prohibits bank transfers greater than one
+million, the agent’s policy cannot permit them — it can only add further
+restrictions (for example, prohibit transfers greater than one hundred
+thousand for the specific agent). Hierarchical composition with downward
+monotonicity is the structural property that sustains complex
+governance.</p>
+<h2 id="complete-crudlex-model">Complete CRUDLEX model</h2>
+<!-- FIG:g44-crudlex-matriz -->
+<figure>
+<img src="/agencydomains/figuras/g44-crudlex-matriz.png"
+alt="Preconfigured levels × the six operations" />
+<figcaption aria-hidden="true">Preconfigured levels × the six
+operations</figcaption>
+</figure>
+<p><strong>CRUDLEX</strong> is the canonical operationalization of
+granular permissions for agentive systems. The model extends the classic
+CRUD with two critical operations in agentive systems:
+<strong>List</strong> and <strong>Execute</strong>. The extension is not
+decoration — it reflects operational distinctions that the traditional
+CRUD model did not capture but that, in agentive systems, matter.</p>
+<p>The six canonical operations are as follows. <strong>Create</strong>
+corresponds to creating a new resource — creating a ticket, adding a
+record. <strong>Read</strong> corresponds to reading a specific resource
+— querying a customer by ID. <strong>Update</strong> corresponds to
+modifying an existing resource — updating an order’s status.
+<strong>Delete</strong> corresponds to removing a resource — deleting a
+comment. <strong>List</strong> corresponds to enumerating resources with
+filters — listing open tickets. <strong>Execute</strong> corresponds to
+invoking an operation with a side effect — sending an email, executing a
+payment, triggering a workflow.</p>
+<p>The distinction between <strong>Read</strong> (reading a specific
+resource) and <strong>List</strong> (enumerating resources by filter) is
+deliberate and critical. An agent may have Read permission over
+individual customers but not List over the whole base — to prevent it
+from extracting the complete customer catalog even while having
+permission to read each one individually. This distinction does not
+exist in classic CRUD, but in agentive systems it is where
+mass-exfiltration attacks materialize: an agent with Read but no List is
+safe; an agent with unrestricted List can dump the entire base with a
+single query.</p>
+<p>The distinction between <strong>Update</strong> (modify) and
+<strong>Execute</strong> (operation with a side effect) is also
+deliberate. Update modifies a resource; Execute triggers a process that
+may touch multiple resources or have effects in the real world — sending
+an email, a bank transfer, executing an external workflow. The two
+operations have distinct risk profiles: an Update has contained impact;
+an Execute can have impact that propagates. CRUDLEX treats them
+distinctly so that policies can be applied with precision.</p>
+<h3 id="applying-crudlex">Applying CRUDLEX</h3>
+<!-- FIG:g45-venn-crudlex -->
+<figure>
+<img src="/agencydomains/figuras/g45-venn-crudlex.png"
+alt="The three dimensions of CRUDLEX · the intersection as effective permission" />
+<figcaption aria-hidden="true">The three dimensions of CRUDLEX · the
+intersection as effective permission</figcaption>
+</figure>
+<p>CRUDLEX is applied along <strong>three dimensions</strong>: user,
+agent, context. The three dimensions operate independently and compose
+to produce the effective permission of a particular operation.</p>
+<p>The <strong>per-user</strong> dimension captures which CRUDLEX
+<strong>the human</strong> on whose behalf the agent acts holds. If the
+human user does not have Update over a certain resource, the agent
+acting on their behalf does not have it either — the agent cannot exceed
+the permissions of whoever invokes it. The <strong>per-agent</strong>
+dimension captures which CRUDLEX <strong>the agent</strong> holds over
+the system’s resources. Different agents may hold different permissions
+over the same resources according to their role. The
+<strong>per-context</strong> dimension captures additional CRUDLEX
+enabled or restricted by operational context — schedule, location,
+urgency.</p>
+<p>The <strong>effective CRUDLEX</strong> of an operation is the
+<strong>intersection</strong> of the three dimensions. If the user has
+Read but not Write, and the agent has Read+Write, <strong>the effective
+operation is only Read</strong> — the agent cannot exceed the scope of
+the user on whose behalf it acts. The intersection as a composition
+mechanism is an important property: it guarantees that no dimension can
+escalate privileges beyond what the other dimensions permit.</p>
+<h3 id="preconfigured-levels">Preconfigured levels</h3>
+<p>To avoid ad hoc configurations for every case, the canonical
+specification defines <strong>preconfigured levels</strong> by
+convention. The levels cover the common cases; special cases are
+configured granularly.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Level</th>
+<th>CRUDLEX enabled</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FULL</strong></td>
+<td>C R U D L E</td>
+<td>Agent with complete authority over the system</td>
+</tr>
+<tr>
+<td><strong>READ-WRITE</strong></td>
+<td>C R U D L (no E)</td>
+<td>Full data write —including deletion— without triggering external
+actions</td>
+</tr>
+<tr>
+<td><strong>READONLY</strong></td>
+<td>R L</td>
+<td>Pure query</td>
+</tr>
+<tr>
+<td><strong>SAFE</strong></td>
+<td>R L E (with E limited to reversible operations)</td>
+<td>Limited executive action</td>
+</tr>
+<tr>
+<td><strong>NO-SEND</strong></td>
+<td>C R U L (no E)</td>
+<td>Editing without triggering external actions</td>
+</tr>
+<tr>
+<td><strong>NO-DELETE</strong></td>
+<td>C R U L E (no D)</td>
+<td>Normal operation without destruction</td>
+</tr>
+</tbody>
+</table>
+<p>The FULL and READONLY levels are extremes that are almost never used
+in production — FULL is too permissive, READONLY too restrictive. The
+intermediate levels — READ-WRITE, SAFE, NO-SEND, NO-DELETE — cover the
+typical cases. A customer-support agent typically operates in SAFE: it
+can query, list, execute reversible actions (such as reassigning a
+ticket), but cannot create or delete irreversibly. An operational
+back-office agent typically operates in NO-DELETE: it can create, read,
+update, list, execute — but cannot delete records, because auditing
+demands preservation.</p>
+<h2 id="append-only-log-format">Append-only log format</h2>
+<!-- FIG:g46-cadena-log -->
+<figure>
+<img src="/agencydomains/figuras/g46-cadena-log.png"
+alt="Cryptographic chain of the log · immutability by construction" />
+<figcaption aria-hidden="true">Cryptographic chain of the log ·
+immutability by construction</figcaption>
+</figure>
+<p>The <strong>append-only log</strong> is the central component of
+auditing. The canonical specification defines its format and properties
+in enough detail for an implementer to build a conformant log and an
+auditor to evaluate whether a particular log is conformant.</p>
+<h3 id="record-structure">Record structure</h3>
+<p>Each log record contains a defined set of fields:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;log_id&quot;</span><span class="fu">:</span> <span class="st">&quot;lr-2026-05-02T14:23:45.123Z-7f3a&quot;</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-05-02T14:23:45.123Z&quot;</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;agent_id&quot;</span><span class="fu">:</span> <span class="st">&quot;agent-finance-001&quot;</span><span class="fu">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;trace_id&quot;</span><span class="fu">:</span> <span class="st">&quot;tr-2026-05-02-abc123&quot;</span><span class="fu">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;operation&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;tool_invocation&quot;</span><span class="fu">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;tool&quot;</span><span class="fu">:</span> <span class="st">&quot;ledger.write&quot;</span><span class="fu">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;parameters_hash&quot;</span><span class="fu">:</span> <span class="st">&quot;sha256:...&quot;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;context&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;user_id&quot;</span><span class="fu">:</span> <span class="st">&quot;user-cfo&quot;</span><span class="fu">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;session_id&quot;</span><span class="fu">:</span> <span class="st">&quot;sess-2026-05-02-xyz&quot;</span><span class="fu">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;capability_applied&quot;</span><span class="fu">:</span> <span class="st">&quot;Finance/Treasury/cashflow-management&quot;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;policy_evaluation&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;policies_applied&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;policy-finance-001&quot;</span><span class="ot">,</span> <span class="st">&quot;policy-trade-001&quot;</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;decision&quot;</span><span class="fu">:</span> <span class="st">&quot;allow&quot;</span><span class="fu">,</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;approval&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;required&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;approver&quot;</span><span class="fu">:</span> <span class="st">&quot;user-controller&quot;</span><span class="fu">,</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;approved_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-05-02T14:23:42.000Z&quot;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;success&quot;</span><span class="fu">,</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;result_hash&quot;</span><span class="fu">:</span> <span class="st">&quot;sha256:...&quot;</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;previous_log_hash&quot;</span><span class="fu">:</span> <span class="st">&quot;sha256:...&quot;</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>Each field serves a specific purpose. <strong>log_id</strong> is the
+record’s unique identifier. <strong>timestamp</strong> is the moment of
+the operation with millisecond precision. <strong>agent_id</strong>
+identifies the agent. <strong>trace_id</strong> correlates with other
+events of the same trace (other operations that stem from the same
+original request). <strong>operation</strong> describes what was done.
+<strong>context</strong> captures who requested it, which Capability was
+applied. <strong>policy_evaluation</strong> records which policies were
+evaluated and with what decision, including human approval when it was
+required. <strong>outcome</strong> records the result of the operation.
+<strong>previous_log_hash</strong> is the hash of the preceding record —
+forming the cryptographic chain.</p>
+<h3 id="properties-demanded">Properties demanded</h3>
+<p>The log must satisfy five non-negotiable properties.
+<strong>Immutability</strong> ensures that records are never edited or
+deleted — only appended. <strong>Cryptographic chaining</strong> ensures
+that each record contains the hash of the previous one, forming a
+verifiable chain; a retroactive alteration would be immediately
+detectable. <strong>Hashing of parameters and results, not
+content</strong> ensures that the log does not store sensitive data
+(parameters, full results), but their hashes — the raw data live in a
+separate store with specific retention policies. <strong>Configurable
+minimum retention</strong> ensures that the retention policy is defined
+per domain: finance typically seven years, health typically ten years,
+whatever the applicable regulation requires. <strong>Queryable
+format</strong> ensures that the log is queryable by filters — by agent,
+by user, by trace, by date range, by operation type.</p>
+<h3 id="difference-from-application-logs">Difference from application
+logs</h3>
+<p>The Trust Infrastructure append-only log is <strong>distinct</strong>
+from the application log (which records normal-operation events). The
+differences are substantive and the two systems should not be
+confused.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Application log</th>
+<th>Trust append-only log</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Diagnosis, debug</td>
+<td>Auditing, compliance</td>
+</tr>
+<tr>
+<td><strong>Mutability</strong></td>
+<td>Sometimes editable</td>
+<td>Never</td>
+</tr>
+<tr>
+<td><strong>Cryptographic chaining</strong></td>
+<td>Rare</td>
+<td>Mandatory</td>
+</tr>
+<tr>
+<td><strong>Retention</strong></td>
+<td>Days or weeks</td>
+<td>Years (regulatory)</td>
+</tr>
+<tr>
+<td><strong>Audience</strong></td>
+<td>Developers</td>
+<td>Auditors, regulators</td>
+</tr>
+</tbody>
+</table>
+<p>A serious organization maintains <strong>both</strong> and integrates
+them only where appropriate. The application log serves the operations
+team to diagnose problems; the Trust append-only log serves the
+organization to defend itself before audits and regulators. Confusing
+the two — using the application log for auditing, or adding audit weight
+to the application log — ends up serving both purposes poorly.</p>
+<h2 id="human-approval-protocol">Human approval protocol</h2>
+<!-- FIG:g47-flujo-aprobacion -->
+<figure>
+<img src="/agencydomains/figuras/g47-flujo-aprobacion.png"
+alt="Human approval protocol · canonical flow" />
+<figcaption aria-hidden="true">Human approval protocol · canonical
+flow</figcaption>
+</figure>
+<p>When an operation requires human approval before executing, the
+canonical specification defines the protocol with enough precision for
+the implementation to be verifiable.</p>
+<h3 id="approval-triggers">Approval triggers</h3>
+<p>Three typical triggers activate the human-approval flow. The first is
+<strong>by explicit policy</strong>: the agent’s policy declares
+<code>require_approval: true</code> for the operation. It is the
+simplest case — the policy is predefined and the system applies it
+automatically. The second is <strong>by threshold</strong>: the
+operation exceeds a configured threshold — amount, scope, severity. For
+example, a payments agent that operates autonomously for small amounts
+may require approval when the amount exceeds one hundred thousand
+dollars. The third is <strong>by agent uncertainty</strong>: the agent
+itself declares low confidence in its decision and requests validation.
+It is the least common trigger but useful for cases where the agent
+recognizes it is outside its comfort zone.</p>
+<h3 id="canonical-flow">Canonical flow</h3>
+<p>When a trigger activates the need for approval, the canonical flow is
+as follows. The agent decides to execute an action. The policy evaluates
+whether it requires approval. If it does not, the agent executes and
+records. If it does, the system creates an approval request, notifies
+the configured approver or approvers, and waits for a response with a
+timeout. If the response is approval, it executes. If the response is
+rejection or the timeout expires, it aborts. In every case, it records
+the whole chain in the append-only log.</p>
+<h3 id="approval-rules">Approval rules</h3>
+<p>The approval has four operational rules that the specification
+demands.</p>
+<p>The first rule: <strong>authenticated approver</strong>. The approval
+is tied to the approver’s verified identity, not to an anonymous click.
+If the approver is Juan Pérez with corporate credentials, the approval
+is recorded under a verified identity — not as a generic approval by
+“someone who had access to the system”. Without this rule, the approval
+loses regulatory value.</p>
+<p>The second rule: <strong>configurable timeout</strong>. Each
+operation has a timeout for the approval. If it expires without
+approval, the operation is aborted — a safe default. In special cases
+(urgent critical operations), automatic escalation to a secondary
+approver may be configured, but the escalation itself is recorded and
+must be permitted by policy.</p>
+<p>The third rule: <strong>immutability of the record</strong>. The
+approver’s decision remains in the append-only log with identity,
+timestamp and, optionally, a comment. Once recorded, it cannot be
+modified. This protects both the approver (their decision stays as they
+made it) and the organization (the chain of approvals is traceable).</p>
+<p>The fourth rule: <strong>batch approval</strong> for repetitive
+cases. For repetitive, low-risk operations, pattern approval may be
+configured — <em>“pre-approve all operations of type X for the next 4
+hours”</em>. But the pre-approval itself is an operation that is
+recorded, with the approver’s identity, the pattern’s scope, and its
+duration. Batch approval is operationally efficient but requires
+discipline so as not to become a generic approval that empties the
+model.</p>
+<h2 id="hallucination-detection-rules">Hallucination-detection
+rules</h2>
+<p>Response validation — Pillar 3 of Trust Infrastructure — operates
+with a set of rules that we describe below. Each one attacks a distinct
+type of agent error.</p>
+<p>The <strong>self-consistency</strong> rule works as follows: the
+agent formulates the same question in N distinct ways. If the N
+responses are consistent, confidence increases. If they differ, it
+alerts. The technique exploits a property of LLM models: when the model
+is certain, its responses are stable across small variations of the
+question; when it is hallucinating, the responses are unstable.
+Self-consistency is relatively cheap and useful for detecting flagrant
+hallucinations.</p>
+<p>The <strong>retrieval-augmented verification</strong> rule works as
+follows: before asserting a fact, the agent searches for evidence in its
+corpus of trusted data. If it finds consistent evidence, it asserts with
+high confidence. If it finds no evidence, it responds with explicit
+uncertainty or abstains. This technique requires that the organization
+maintain a corpus of trusted data — curated knowledge bases, not
+unverified internet data.</p>
+<p>The <strong>model-as-judge</strong> rule works as follows: a second
+model, ideally distinct from the first, evaluates the agent’s response
+and emits a quality score. If the score is below threshold, it alerts or
+re-asks. The technique is costly (it doubles the inference) but useful
+for critical cases where the cost of the error exceeds the cost of the
+validation.</p>
+<p>The <strong>constraint validation</strong> rule works as follows:
+structured responses — JSON, tables, numbers — are validated against an
+explicit schema. If they do not comply, they are reformulated or
+escalated. This technique is practically free and should always be
+active for structured responses — not using it is waste.</p>
+<p>The <strong>domain-specific guardrails</strong> rule works as
+follows: domain-specific rules operate as additional verification. In
+finance, validating that figures reconcile in control totals. In health,
+validating that diagnoses reference recognized clinical guidelines. In
+legal, validating that citations to laws exist. These rules are
+domain-specific and demand investment from the domain experts to build
+them.</p>
+<p>The five rules are applied selectively according to context and cost.
+Not all are activated on every operation — they are activated according
+to the criticality of the decision. An agent answering casual questions
+about the weather does not need all five; an agent making investment
+decisions needs them all and possibly more.</p>
+<h2 id="tokenization-policy">Tokenization policy</h2>
+<p>Tokenization replaces sensitive data with tokens before they reach
+the cognition model. It is a critical mechanism when the organization
+handles sensitive data that cannot be exposed to the external cognition
+provider, but that the agent needs to be able to reason over in order to
+deliver value.</p>
+<h3 id="typically-tokenized-data">Typically tokenized data</h3>
+<p>Four categories of data typically require tokenization.
+<strong>PII</strong> (Personally Identifiable Information) — names,
+addresses, phone numbers, emails — for privacy and compliance reasons.
+<strong>Financial data</strong> — account numbers, credit cards,
+balances — for financial regulation. <strong>Health data</strong> —
+medical identifiers, diagnoses, conditions — for HIPAA and equivalents.
+<strong>Corporate secrets</strong> — API keys, passwords, classified
+data — for operational security.</p>
+<h3 id="mechanism">Mechanism</h3>
+<p>The canonical mechanism operates as follows. The original datum
+arrives at the tokenization service, which returns an opaque token that
+replaces the datum. The service maintains an internal mapping between
+the token and the original datum, in a store with reinforced security.
+The opaque token is what the cognition receives — the model reasons over
+the token without knowing what it represents. When the agent makes a
+decision and emits a result, the result may contain the token; the
+result passes back through the tokenization service, which de-tokenizes
+only where required — for example, in the final delivery to the
+authorized human user or in the invocation of a tool that requires the
+real datum.</p>
+<ol type="1">
+<li>The <strong>original datum</strong> arrives at the tokenization
+service.</li>
+<li>The service returns an <strong>opaque token</strong> and maintains
+the token↔︎datum mapping in a store with reinforced security.</li>
+<li>The <strong>cognition reasons over the token</strong>, without
+knowing what it represents.</li>
+<li>The agent emits its <strong>decision</strong>, which may contain the
+token.</li>
+<li>The result returns to the tokenization service, which
+<strong>de-tokenizes only where required</strong> — the final delivery
+to the authorized human or the invocation of a tool that needs the real
+datum.</li>
+</ol>
+<p>The model never sees the original datum. De-tokenization occurs only
+at the point where the real datum is necessary.</p>
+<h3 id="operational-rules">Operational rules</h3>
+<p>Three operational rules demand discipline in implementation. The
+first: <strong>tokenization before external cognition</strong>. If the
+agent uses a third-party cognition provider — Claude, GPT, Gemini —, the
+sensitive data are tokenized <strong>before</strong> leaving the
+corporate perimeter. Without this rule, the data are exposed to the
+provider even if the organization wished to avoid it. The second:
+<strong>audited de-tokenization</strong>. Each de-tokenization is
+recorded in the append-only log. It allows reconstructing, afterward,
+where the original datum was exposed. The third: <strong>mapping in a
+separate store</strong>. The token-to-original-datum mapping lives in a
+store with reinforced security — typically an HSM (Hardware Security
+Module) or a dedicated tokenization service. Keeping the mapping in the
+same database as the operational data empties the tokenization
+guarantee.</p>
+<h2 id="minimum-viable-catalog">Minimum viable catalog</h2>
+<p>An organization operating agents in production must have, as a
+<strong>minimum viable</strong> baseline, the following components
+operationalized. Below this minimum, operating agents leaves the
+organization exposed. Above it, there is progressive refinement
+according to the domain’s maturity and regulatory demands.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Minimum viable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Policy catalog</td>
+<td>At least tool, data, schedule, identity, validation policies</td>
+</tr>
+<tr>
+<td>CRUDLEX</td>
+<td>Applied on all Layer 4 tools, with preconfigured levels</td>
+</tr>
+<tr>
+<td>Append-only log</td>
+<td>Immutable, chained, retention per domain</td>
+</tr>
+<tr>
+<td>Human approval</td>
+<td>Configurable per operation, with timeout and record</td>
+</tr>
+<tr>
+<td>Hallucination detection</td>
+<td>At least self-consistency + domain guardrails, plus constraint
+validation always active on structured responses</td>
+</tr>
+<tr>
+<td>Tokenization</td>
+<td>For PII and financial data if applicable</td>
+</tr>
+<tr>
+<td>Agent inventory</td>
+<td>Who operates, which Capabilities, which tools, who approved</td>
+</tr>
+<tr>
+<td>Governance dashboard</td>
+<td>Visualization of the inventory + operational metrics</td>
+</tr>
+</tbody>
+</table>
+<p>What is critical about this catalog is not the list itself — it is
+that it is built with the same discipline with which any serious
+organization builds its financial control system or its security system.
+Trust Infrastructure is not a byproduct of having agentive AI. It is
+specific discipline that the organization adopts when it decides to
+operate agents in production.</p>
+<h2 id="the-tripartite-deployment-pattern-cloud-client-local">The
+tripartite deployment pattern — Cloud + Client + Local</h2>
+<!-- FIG:g48-tripartito -->
+<figure>
+<img src="/agencydomains/figuras/g48-tripartito.png"
+alt="Tripartite pattern · Cloud + Client + Local" />
+<figcaption aria-hidden="true">Tripartite pattern · Cloud + Client +
+Local</figcaption>
+</figure>
+<p>Operationalizing Trust Infrastructure in an enterprise organization
+is not a purely technical exercise — it is an exercise in the separation
+of responsibilities among three planes that operate in physically
+distinct places. The canonical pattern the industry has consolidated to
+solve this problem is the <strong>tripartite deployment</strong>: three
+coordinated components that live in three places with three
+differentiated functional roles.</p>
+<p>The first component is the <strong>Cloud</strong> — the plane
+operated by the provider of the agentive infrastructure. Its role is
+<strong>control plane</strong>: license management, registry of
+available providers, integration with upstream cognition providers,
+aggregated telemetry with privacy preserved. It is where the provider
+keeps the platform alive and resolves the problems that require
+cross-client visibility — incidents that affect multiple tenants,
+updates to the canonical policy catalog, aggregated health monitoring of
+the system. The end client does not operate this component; it consumes
+it.</p>
+<p>The second component is the <strong>Client</strong> — the plane
+deployed inside the client organization’s internal network. Its role is
+<strong>governance plane</strong>: definition and enforcement of
+corporate policies, integration with the client’s identity provider,
+central auditing of all the agent’s actions, connections to the internal
+systems the agent must access. This is where enterprise governance is
+exercised — because governance lives where the organization has direct
+control, not where an external provider promises it. The Client
+component is what allows the organization to exercise Trust
+Infrastructure on its own terms.</p>
+<p>The third component is the <strong>Local</strong> — the plane
+deployed on each user’s device. Its role is <strong>execution
+plane</strong>: the app that connects the user’s agent (Claude Code,
+Cursor, Windsurf, any MCP client) with the Client component and with the
+local providers. This is where the operation actually occurs — where the
+user’s agent invokes tools, where the user’s credentials live encrypted
+locally, where the operation’s latency materializes.</p>
+<p>The reason this pattern is structural and not arbitrary is that each
+of the three planes resolves a problem the other two cannot resolve
+well. The Cloud cannot exercise corporate governance because it does not
+live inside the company’s perimeter. The Client cannot keep the platform
+alive on its own because each company would replicate the common work.
+The Local cannot make governance decisions because it is under the
+individual user’s control, not the organization’s. The three planes
+cooperate, but none substitutes for the others.</p>
+<blockquote>
+<p><em>Policy is defined where the company controls. The AI operates
+where the user works. The ecosystem is maintained where the provider can
+operate it.</em></p>
+</blockquote>
+<p>This pattern is replicable by any actor operating enterprise agentive
+infrastructure. The spec demands that the three planes be clearly
+separated — mixing responsibilities among them produces systems the
+client cannot govern (when governance lives in the provider’s cloud) or
+that the provider cannot operate (when everything lives in the client’s
+network). The separation is the fundamental property.</p>
+<h2 id="the-economics-of-operationalized-trust-infrastructure">The
+economics of operationalized Trust Infrastructure</h2>
+<p>Implementing Trust Infrastructure has a cost. It is worth being
+explicit about the cost because the decision to invest or not invest
+directly affects the viability of the agentive system in production.</p>
+<p>The cost has three components. The <strong>initial
+construction</strong> is one-time: policy catalog, CRUDLEX model,
+append-only log with cryptographic chaining, validation mechanisms,
+integration with tokenization services. It is several months of work for
+a medium-sized organization. The <strong>operational
+maintenance</strong> is continuous: adding new policies as the system
+evolves, monitoring that the existing ones remain valid, adjusting
+thresholds according to learning, keeping the inventory up to date. It
+is continuous work for a dedicated team. The <strong>operating
+overhead</strong> is per operation: latency and compute to validate
+before acting, record afterward, evaluate policies on every invocation.
+It is a percentage on top of the normal operating cost — typically five
+to twenty percent depending on implementation.</p>
+<p>The cost is real, but <strong>it is less than the cost of not having
+Trust Infrastructure</strong>. Chapter 2 documents two field findings
+that sustain the asymmetry: more than forty percent of agentive AI
+projects cancelled before the end of 2027 due to inadequate governance
+and related reasons, and eighty percent of organizations reporting risky
+behaviors from their agents. The cost of a cancelled project or of an
+incident — a data leak, an incorrect high-impact decision, a regulatory
+failure — is typically far greater than the cost of preventing it.</p>
+<blockquote>
+<p><em>Trust Infrastructure is not an expense. It is insurance against
+the asymmetric cost of its absence.</em></p>
+</blockquote>
+<p>The asymmetry of the cost is what justifies the investment.
+Implementing Trust Infrastructure costs a relatively predictable amount.
+Not implementing it exposes the organization to potentially catastrophic
+costs whose magnitude it cannot bound in advance. The balance, when
+calculated with discipline, favors the investment.</p>
+<h2
+id="operational-continuity-operationalizing-the-second-mechanism">Operational
+continuity — operationalizing the second mechanism</h2>
+<p>Chapter 5 §4 formalizes the distinction between the two complementary
+continuity mechanisms — agentic fallback and operational business
+continuity — and it is assumed here as given. The first is already
+covered operationally by the Botlet spec (Ch 5 §2) and the no-stop
+guarantee of Layer 3 (Ch 4). The second needs its own operationalization
+— the section that follows delivers it.</p>
+<h3 id="continuity-protocol-per-physical-site">Continuity protocol per
+physical site</h3>
+<p>Each operational physical site of an AgencyDomain with distributed
+Layer 3 must have a <strong>documented continuity protocol</strong>. The
+spec defines the document’s minimum content. Without that content, the
+site is not operable under the spec in continuity scenarios — not
+because the architecture fails, but because the human operation has no
+guidance when the computational components fall.</p>
+<p>The minimum content comprises five elements:</p>
+<ul>
+<li><strong>Operator role in continuity mode</strong> — who does what
+when the system falls. The definition must be nominal by position, not
+by person. <em>“The cashier switches to continuity mode and records
+sales in the foliated backup notebook. The store supervisor validates
+each shift closed in continuity mode.”</em></li>
+<li><strong>Physical backup records</strong> — pre-foliated notebooks,
+numbered receipt books, order tickets, official regulator forms when
+applicable. Each physical record is the temporary source of truth for
+the duration of the continuity; when the network returns, its content is
+entered into the system.</li>
+<li><strong>Activation thresholds</strong> — at what duration of
+inactivity the site switches to continuity mode. Canonical
+recommendation: ten minutes for hospitality and retail, thirty seconds
+for card charges with online authorization, immediate for the issuance
+of a regulated receipt. The thresholds are the site’s policy,
+adjustable.</li>
+<li><strong>Return procedure</strong> — how the physical records are
+entered retroactively into the system when the network returns. It must
+make explicit who enters them, in what order, how conflicts are
+reconciled with events that may have been partially processed before the
+cut.</li>
+<li><strong>Drill frequency</strong> — how often the protocol is
+exercised. Canonical recommendation: quarterly with a scheduled network
+cut and a minimum duration of fifteen minutes. Without drills, the
+protocol exists only on paper and fails when it is seriously
+needed.</li>
+</ul>
+<h3 id="agencydomain-degradation-modes">AgencyDomain degradation
+modes</h3>
+<p>An operation in production does not always operate in normal mode.
+The spec formalizes the <strong>four canonical degradation
+modes</strong> according to the failure scenario, and the organization
+must be able to identify at every moment which mode each site operates
+in. This identification is what allows operational expectations to be
+governed.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Condition</th>
+<th>Who sustains the operation?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normal</strong></td>
+<td>All components active: cognition, central, edge, corporate
+network.</td>
+<td>Full parallel topology. The operation chooses the Cognition Path or
+the Autonomy Path according to the pattern.</td>
+</tr>
+<tr>
+<td><strong>Cognition down</strong></td>
+<td>Layer 2 unreachable; central and edge active.</td>
+<td><strong>The Autonomy Path</strong> sustains it. Senior Botlets
+execute; junior and learning Botlets degrade to their last functional
+version. The cognition rescues failures when it returns.</td>
+</tr>
+<tr>
+<td><strong>Edge offline</strong></td>
+<td>Edge Botler with no connection to the central; cognition
+unreachable; physical site isolated.</td>
+<td><strong>Senior Botlets against the local DB + edge-resident
+Capabilities</strong>. The event queue toward the central accumulates;
+when the network returns, it drains and reconciles.</td>
+</tr>
+<tr>
+<td><strong>Total operational continuity</strong></td>
+<td>Cognition + edge down due to an exogenous cause (power outage,
+destroyed hardware, catastrophically lost network).</td>
+<td><strong>The site’s manual protocol</strong>. The physical record is
+the temporary source of truth; retroactive entry into the system is the
+reconciliation.</td>
+</tr>
+</tbody>
+</table>
+<p>The transition between modes is <strong>automatic up to
+<code>Edge offline</code></strong> — the system detects the failure and
+degrades on its own. The transition to <strong>Total operational
+continuity</strong> is <strong>governed by the site’s protocol</strong>
+— a human activates it explicitly when they recognize that no
+computational component is operating. This difference matters: the first
+three modes are the architecture’s responsibility; the fourth is the
+client’s responsibility, executed by its operators.</p>
+<h3 id="traceability-of-the-transition-to-continuity-mode">Traceability
+of the transition to continuity mode</h3>
+<p>The append-only log must record the transitions between modes so that
+subsequent auditing can reconstruct what sustained the operation at each
+moment. The spec defines the canonical marks:</p>
+<ul>
+<li><strong>Start of operational continuity</strong> — when the site
+activates the manual protocol, it emits (when the network returns,
+retroactively) a <code>mode-change: continuity-operational</code> event
+with the timestamp of the cut and the estimated duration.</li>
+<li><strong>Physical records entered retroactively</strong> — each
+transaction entered from a physical record carries the tag
+<code>provenance: manual-continuity</code> and
+<code>original-timestamp: &lt;physical time&gt;</code> distinct from
+<code>system-timestamp: &lt;time of entry&gt;</code>. The distinction
+lets reports and reconciliations distinguish physical events from
+digital events.</li>
+<li><strong>Edge queue reconciliation</strong> — when an edge Botler
+drains its queue toward the central after the network returns, the
+events carry the tag <code>provenance: edge-queue-replay</code> with the
+site’s original timestamp.</li>
+<li><strong>Auditable distinction between agentic fallback and
+operational continuity</strong> — the log distinguishes
+<code>agentic-fallback</code> events (the cognition rescued the Botlet)
+from <code>operational-continuity</code> events (a human sustained the
+operation). Subsequent auditing can separate the two cases without
+ambiguity. This distinction is what the organization presents when a
+regulator asks how it operated during an incident.</li>
+</ul>
+<h3 id="operational-properties-demanded">Operational properties
+demanded</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explicit distinction in product documentation</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Documented continuity protocol per physical site</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Documented drills at a minimum quarterly frequency</td>
+<td><strong>SHOULD</strong></td>
+</tr>
+<tr>
+<td>Four degradation modes recognizable by the organization</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Traceability of the transition to continuity mode in the append-only
+log</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Auditable distinction between agentic fallback and operational
+continuity</td>
+<td><strong>MUST</strong></td>
+</tr>
+<tr>
+<td>Retroactive reconciliation of physical records into the system</td>
+<td><strong>MUST</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The complete operationalization of the second mechanism closes the
+loop opened in Ch 5 §4. The distinction between agentic fallback and
+operational continuity is no longer merely conceptual — it has a field
+protocol, canonical operation modes, and auditable traceability.</p>
+<h2 id="what-comes-next">What comes next</h2>
+<p>With the operational block closed, the book enters its epilogue.
+Anyone who has read the preceding chapters with the sense that each one
+leaves open questions will find there the explicit confirmation that
+this reading is correct: what follows is not a closure but the
+recognition that this specification is a formalized point of departure,
+not a final destination.</p>
+
+<nav class="prevnext"><a href="/agencydomains/chapter-7-real-time-knowledge/"><span class="dir">← Previous</span>Chapter 7 · Real-time knowledge</a><a class="nx" href="/agencydomains/chapter-9-vergis-the-reference-implementation/"><span class="dir">Next →</span>Chapter 9 · Vergis — the reference implementation</a></nav></article></main>
+</div>
+</body>
+</html>
