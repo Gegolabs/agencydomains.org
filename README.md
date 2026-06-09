@@ -9,6 +9,7 @@ Publicado en **https://agencydomains.org** vía GitHub Pages.
 | Ruta | Qué es |
 |---|---|
 | `src/agencydomains/` | **Fuente canónica** del libro AgencyDomains (Markdown ES + EN, figuras, builds) — aquí llegan los *pull requests* |
+| `src/agencydomains/editorial/` | Historia editorial pública del libro: auditorías y decisiones |
 | `src/_fonts/` | Tipografías del PDF (STIX Two · Source Code Pro), vendorizadas bajo SIL OFL |
 | `site/` | Shell estático del sitio: landings EN/ES, `llms.txt`, assets, y las landings de `aura/` y `postchat/` (próximamente) |
 | `.github/workflows/publish.yml` | El **publicador**: un tag `agencydomains-vX.Y` construye todo (web ES/EN, PDFs, manifiestos para agentes) y despliega a Pages |
