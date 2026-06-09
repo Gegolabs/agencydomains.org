@@ -9,7 +9,7 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 LIBRO_DIR="$( dirname "$SCRIPT_DIR" )"
 DIST="$LIBRO_DIR/_dist"
-VERSION=$(grep -oE 'v[0-9]+\.[0-9]+(\.[0-9]+)?' "$LIBRO_DIR/README.md" | head -1)
+VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "$LIBRO_DIR/CHANGELOG.md" | cut -d" " -f2)
 OUT="${1:-$LIBRO_DIR/../../agencydomains}"
 
 echo "→ concat (Markdown único)…"

@@ -23,7 +23,7 @@ DIST_DIR="$LIBRO_DIR/_dist"
 bash "$SCRIPT_DIR/concat.sh"
 
 # Detectar versión (igual que concat.sh)
-VERSION=$(grep -oE 'v[0-9]+\.[0-9]+(\.[0-9]+)?' "$LIBRO_DIR/README.md" | head -1)
+VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "$LIBRO_DIR/CHANGELOG.md" | cut -d" " -f2)
 
 INPUT="$DIST_DIR/AgencyDomains-${VERSION}-humanos.md"
 OUTPUT="$DIST_DIR/AgencyDomains-${VERSION}-humanos.pdf"

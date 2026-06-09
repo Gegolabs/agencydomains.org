@@ -20,7 +20,7 @@ Publicado en **https://agencydomains.org** vía GitHub Pages.
 
 Los libros se publican bajo **GNU Free Documentation License v1.3**. Su fuente Markdown vive en
 `src/`. Para corregir una errata o proponer una mejora, abre un *pull request* sobre el archivo
-correspondiente en `src/agencydomains/contenido/`.
+correspondiente en `src/agencydomains/contenido/` (español, fuente primaria) o `src/agencydomains/contenido-en/` (inglés).
 
 La **implementación de referencia (Vergis)** vive en su propio repositorio, bajo **AGPL-3.0**:
 [github.com/gegolabs/vergis](https://github.com/gegolabs/vergis).

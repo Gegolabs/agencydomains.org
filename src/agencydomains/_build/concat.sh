@@ -16,7 +16,7 @@ DIST_DIR="$LIBRO_DIR/_dist"
 MANIFEST="$SCRIPT_DIR/manifest.txt"
 
 # Detectar versión desde README (línea "**Edición:** ... · vX.Y")
-VERSION=$(grep -oE 'v[0-9]+\.[0-9]+(\.[0-9]+)?' "$LIBRO_DIR/README.md" | head -1)
+VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "$LIBRO_DIR/CHANGELOG.md" | cut -d" " -f2)
 if [ -z "$VERSION" ]; then
   echo "ERROR: no se pudo detectar la versión desde README.md" >&2
   exit 1
