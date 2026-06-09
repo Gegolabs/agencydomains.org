@@ -8,13 +8,13 @@ Publicado en **https://agencydomains.org** vía GitHub Pages.
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` | Landing / hub (EN, default) |
-| `AgencyDomains-v0.4-agents-en.{md,txt}` | Manifiesto canónico para agentes — **inglés** (MD + alias `.txt`) |
-| `agencydomains/` | El libro **AgencyDomains** (web multipágina + `AgencyDomains-v0.4-en.pdf` + `figuras/`) — **inglés**, default |
-| `es/` | Landing ES + manifiesto agentes ES (`AgencyDomains-v0.4-agents-es.{md,txt}`) + el libro en **español** (`es/agencydomains/`, PDF `-es`) |
-| `src/agencydomains/` | **Fuente canónica** del libro (Markdown) — aquí llegan los *pull requests* |
-| `llms.txt`, `es/llms.txt` | Índices legibles por modelos (convención `llms.txt`) — EN y ES |
-| `aura/`, `postchat/` | Los otros dos libros de la trilogía (próximamente) |
+| `src/agencydomains/` | **Fuente canónica** del libro AgencyDomains (Markdown ES + EN, figuras, builds) — aquí llegan los *pull requests* |
+| `src/_fonts/` | Tipografías del PDF (STIX Two · Source Code Pro), vendorizadas bajo SIL OFL |
+| `site/` | Shell estático del sitio: landings EN/ES, `llms.txt`, assets, y las landings de `aura/` y `postchat/` (próximamente) |
+| `.github/workflows/publish.yml` | El **publicador**: un tag `agencydomains-vX.Y` construye todo (web ES/EN, PDFs, manifiestos para agentes) y despliega a Pages |
+
+Lo publicado (el libro navegable, los PDFs, los manifiestos `AgencyDomains-vX.Y-agents-{en,es}.{md,txt}`)
+**no vive en el repo**: lo construye y despliega el workflow en cada tag.
 
 ## Contribuir
 

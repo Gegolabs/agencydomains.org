@@ -1,0 +1,99 @@
+# Publicador por tag — construye el libro completo y despliega el sitio a GitHub Pages.
+#
+#   git tag agencydomains-v0.5 && git push --tags   → publica TODO automáticamente
+#
+# También se puede disparar a mano (workflow_dispatch) para republicar el estado
+# actual de main sin crear tag (p. ej. tras editar el shell en site/).
+#
+# El deploy es por artefacto (Pages en modo "GitHub Actions"): lo publicado nunca
+# se committea — el repo contiene solo fuente (src/) y shell estático (site/).
+name: publish
+
+on:
+  push:
+    tags: ['agencydomains-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detectar versión (CHANGELOG) y validar tag
+        run: |
+          VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            TAG_V="${GITHUB_REF_NAME#agencydomains-}"
+            if [ "$TAG_V" != "$VERSION" ]; then
+              echo "::error::El tag dice $TAG_V pero el CHANGELOG dice $VERSION. Actualiza el CHANGELOG (## $TAG_V) o corrige el tag."
+              exit 1
+            fi
+          fi
+
+      - name: Guardia — el shell enlaza la versión que se publica
+        run: |
+          for f in site/llms.txt site/es/llms.txt site/index.html site/es/index.html; do
+            if ! grep -q "AgencyDomains-${VERSION}-" "$f"; then
+              echo "::error::$f no enlaza ningún archivo AgencyDomains-${VERSION}-*. Actualiza los links del shell a la versión nueva."
+              exit 1
+            fi
+          done
+
+      - name: Toolchain (pandoc + XeLaTeX)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q pandoc texlive-xetex texlive-latex-extra fontconfig
+
+      - name: Fuentes vendorizadas (src/_fonts)
+        run: |
+          mkdir -p ~/.local/share/fonts
+          cp src/_fonts/*/*.otf ~/.local/share/fonts/
+          fc-cache -f
+          fc-list | grep -E "STIX Two|Source Code Pro" || (echo "::error::fuentes no registradas" && exit 1)
+
+      - name: Construir — ES (PDF + manifiesto) · EN (PDF + web) · ES web
+        run: |
+          bash src/agencydomains/_build/build-pdf.sh
+          bash src/agencydomains/_build/build-en.sh
+          bash src/agencydomains/_build/build-web.sh
+
+      - name: Ensamblar sitio (shell + builds en sus rutas URL)
+        run: |
+          DIST=src/agencydomains/_dist
+          mkdir -p _site
+          cp -R site/. _site/
+          touch _site/.nojekyll
+          # libro EN → /agencydomains/ · libro ES → /es/agencydomains/
+          cp -R "$DIST/web-en" _site/agencydomains
+          cp -R "$DIST/web-es" _site/es/agencydomains
+          # manifiestos para agentes → raíz de cada idioma
+          mv _site/agencydomains/AgencyDomains-${VERSION}-agents-en.md  _site/
+          mv _site/agencydomains/AgencyDomains-${VERSION}-agents-en.txt _site/
+          mv _site/es/agencydomains/AgencyDomains-${VERSION}-agents-es.md  _site/es/
+          mv _site/es/agencydomains/AgencyDomains-${VERSION}-agents-es.txt _site/es/
+          echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

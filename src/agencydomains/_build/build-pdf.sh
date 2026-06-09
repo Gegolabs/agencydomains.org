@@ -10,7 +10,7 @@
 #          ../_dist/AgencyDomains-vX.Y-agentes.{md,pdf}  (manifiesto para agentes)
 #
 # Requisitos: pandoc, xelatex (MacTeX o equivalente),
-#             fuentes STIX Two Text · STIX Two Math · Menlo.
+#             fuentes STIX Two Text · STIX Two Math · Source Code Pro (vendorizadas en src/_fonts/).
 
 set -euo pipefail
 
@@ -56,7 +56,7 @@ pandoc "$TMPSRC" \
   -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" \
   -V mathfont="STIX Two Math" \
-  -V monofont="Menlo" \
+  -V monofont="Source Code Pro" \
   -V monofontoptions:Scale=0.85 \
   -V fontsize=11pt \
   -V lang=es \
@@ -86,7 +86,7 @@ if [ -f "$PARA_AGENTES_SRC" ]; then
       -V geometry:margin=2.5cm \
       -V mainfont="STIX Two Text" \
       -V mathfont="STIX Two Math" \
-      -V monofont="Menlo" \
+      -V monofont="Source Code Pro" \
       -V monofontoptions:Scale=0.85 \
       -V fontsize=10pt \
       -V lang=es \

@@ -7,7 +7,7 @@
 # Uso:    ./build-en.sh [DIR_SALIDA_WEB]
 # Nota:   borrador de revisión. Incluye el front matter traducido (no usa frontmatter.tex,
 #         que está en español). Las figuras se embeben aún en español (texto primero).
-# Requisitos: pandoc, xelatex, python3 + fuentes STIX Two Text · STIX Two Math · Menlo.
+# Requisitos: pandoc, xelatex, python3 + fuentes STIX Two Text · STIX Two Math · Source Code Pro (vendorizadas en src/_fonts/).
 set -euo pipefail
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -46,7 +46,7 @@ if pandoc "$MD" -o "$PDF" \
     --toc --toc-depth=2 \
     -V documentclass=book -V classoption=twoside -V geometry:margin=2.5cm \
     -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \
-    -V monofont="Menlo" -V monofontoptions:Scale=0.85 \
+    -V monofont="Source Code Pro" -V monofontoptions:Scale=0.85 \
     -V fontsize=11pt -V lang=en --highlight-style=tango; then
   echo "  ✓ $PDF"
 else
@@ -59,5 +59,5 @@ echo "→ libro-web (--lang en)…"
 python3 "$SCRIPT_DIR/web-build.py" \
   --md "$MD" --figuras "$LIBRO_DIR/figuras" \
   --agents "$LIBRO_DIR/para-agents.md" ${PDF:+--pdf "$PDF"} \
-  --lang en --base /agencydomains --out "$OUT"
+  --lang en --base /agencydomains --out "$OUT" --version "$VERSION"
 echo "✓ edición inglesa: MD + ${PDF:+PDF + }web en $OUT"

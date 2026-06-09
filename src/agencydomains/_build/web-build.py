@@ -26,9 +26,9 @@ def strip_tags(s): return re.sub(r'<[^>]+>', '', s).strip()
 # Strings de UI por idioma (el resto del HTML es agnóstico).
 STRINGS = {
     'es': {'cover': 'Portada', 'prev': '← Anterior', 'next': 'Siguiente →',
-           'nav_aria': 'Índice del libro', 'book': 'El libro', 'agents_md': 'AgencyDomains-v0.4-agents-es.md'},
+           'nav_aria': 'Índice del libro', 'book': 'El libro'},
     'en': {'cover': 'Cover', 'prev': '← Previous', 'next': 'Next →',
-           'nav_aria': 'Book contents', 'book': 'The book', 'agents_md': 'AgencyDomains-v0.4-agents-en.md'},
+           'nav_aria': 'Book contents', 'book': 'The book'},
 }
 
 def main():
@@ -37,6 +37,7 @@ def main():
     ap.add_argument('--out', required=True); ap.add_argument('--pdf'); ap.add_argument('--agents')
     ap.add_argument('--base', default='/agencydomains')   # ruta absoluta de servido
     ap.add_argument('--lang', default='es', choices=('es', 'en'))
+    ap.add_argument('--version', required=True)           # vX.Y — nombra los distribuibles
     a = ap.parse_args()
     UI = STRINGS[a.lang]
 
@@ -103,10 +104,10 @@ def main():
     figdst = os.path.join(a.out, 'figuras'); shutil.rmtree(figdst, ignore_errors=True)
     shutil.copytree(a.figuras, figdst)
     if a.agents:
-        shutil.copy(a.agents, os.path.join(a.out, UI['agents_md']))
-        shutil.copy(a.agents, os.path.join(a.out, f'AgencyDomains-v0.4-agents-{a.lang}.txt'))
+        shutil.copy(a.agents, os.path.join(a.out, f'AgencyDomains-{a.version}-agents-{a.lang}.md'))
+        shutil.copy(a.agents, os.path.join(a.out, f'AgencyDomains-{a.version}-agents-{a.lang}.txt'))
     if a.pdf and os.path.exists(a.pdf):
-        shutil.copy(a.pdf, os.path.join(a.out, f'AgencyDomains-v0.4-{a.lang}.pdf'))
+        shutil.copy(a.pdf, os.path.join(a.out, f'AgencyDomains-{a.version}-{a.lang}.pdf'))
     print(f"  ✓ {len(pages)} páginas → {a.out}")
     print("    " + " · ".join((p['slug'] or 'index') for p in pages))
 
