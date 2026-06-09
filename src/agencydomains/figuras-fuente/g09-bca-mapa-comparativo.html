@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>G39 · Mapa comparativo de propuestas arquitectónicas</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .mapa-canvas {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .plot {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px 28px 64px 64px;
+  }
+
+  .plot-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .plot-subtitle {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+    font-style: italic;
+  }
+
+  .plot-area {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 80px);
+    border-left: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .grid-v, .grid-h {
+    position: absolute;
+    border: 0;
+    border-color: var(--rule);
+    border-style: dashed;
+  }
+  .grid-v { top: 0; bottom: 0; border-left-width: 1px; }
+  .grid-h { left: 0; right: 0; border-top-width: 1px; }
+
+  /* Eje Y (rigor) */
+  .y-axis-label {
+    position: absolute;
+    left: -52px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .y-pole {
+    position: absolute;
+    left: -36px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    white-space: nowrap;
+  }
+  .y-pole.top    { top: 60px; }
+  .y-pole.bottom { bottom: 0; }
+
+  .y-quote {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: center;
+    width: 80%;
+  }
+  .y-quote.top { top: -2px; }
+  .y-quote.bottom { bottom: -2px; }
+
+  /* Eje X (grosor) */
+  .x-tick {
+    position: absolute;
+    bottom: -22px;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.1;
+  }
+  .x-tick .x-tick-num { font-size: 14px; display: block; }
+  .x-tick .x-tick-name { font-size: 10px; color: var(--ink-soft); font-weight: 400; display: block; margin-top: 2px; }
+
+  .x-axis-title {
+    position: absolute;
+    bottom: -54px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+
+  /* Burbujas */
+  .bubble {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1.5px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.1;
+    font-family: var(--sans);
+  }
+  .bubble .b-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .bubble .b-sub {
+    font-size: 10.5px;
+    opacity: 0.85;
+    margin-top: 1px;
+  }
+  .bubble-author {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* Familias de color para burbujas */
+  .bb-purist-min   { background: var(--capa-2-bg); border-color: var(--capa-2); color: #1a3454; }
+  .bb-purist-mid   { background: var(--trust-bg);  border-color: var(--trust);  color: #3e2855; }
+  .bb-purist-thick { background: var(--capa-1-bg); border-color: var(--capa-1); color: #6b3a1f; }
+  .bb-bca          { background: var(--capa-3-bg); border-color: var(--capa-3); color: #1f3a1f; border-width: 2.5px; box-shadow: 0 2px 12px rgba(107,143,107,0.25); }
+  .bb-pragmatic    { background: var(--rule-soft); border-color: var(--ink-soft); color: var(--ink); }
+  .bb-pragmatic-thick { background: #f7d6c4; border-color: var(--p-gob); color: #6b3a1f; }
+  .bb-neutral      { background: var(--rule-soft); border-color: var(--rule); color: var(--ink-soft); border-style: dashed; }
+
+  /* Caja explicativa lateral */
+  .lectura {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .lectura h2 {
+    font-family: var(--serif);
+    font-size: 17px;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .lectura .row {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .lectura .swatch {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid;
+    margin-top: 3px;
+  }
+  .lectura .swatch.bca { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .lectura .swatch.purist { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .lectura .swatch.pragmatic { background: var(--rule-soft); border-color: var(--ink-soft); }
+  .lectura strong { color: var(--ink); font-weight: 600; }
+  .lectura em { color: var(--ink-soft); font-style: italic; }
+  .lectura .footnote {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Capítulo 3 · Bounded Concerns Architecture</div>
+      <h1 class="figure-title">Mapa comparativo · grosor del dominio × rigor teórico</h1>
+    </div>
+    <div class="figure-eyebrow">Figura G9</div>
+  </header>
+
+  <div class="figure-body">
+    <div class="mapa-canvas">
+
+      <div class="plot">
+        <h2 class="plot-title">Posiciones de las propuestas arquitectónicas</h2>
+        <p class="plot-subtitle">Eje X · grosor del dominio (medible) · Eje Y · rigor vs flexibilidad (cualitativo)</p>
+
+        <div class="plot-area">
+
+          <div class="y-axis-label">Rigor teórico</div>
+          <div class="y-pole top">Purista · dogmático</div>
+          <div class="y-pole bottom">Pragmático · flexible</div>
+
+          <div class="y-quote top">"si no separas estrictamente, no estás haciendo X de verdad"</div>
+          <div class="y-quote bottom">"en la práctica la línea se ensucia · productividad antes que pureza"</div>
+
+          <!-- Grilla -->
+          <div class="grid-v" style="left: 12.5%;"></div>
+          <div class="grid-v" style="left: 32.5%;"></div>
+          <div class="grid-v" style="left: 52.5%;"></div>
+          <div class="grid-v" style="left: 72.5%;"></div>
+          <div class="grid-v" style="left: 92.5%;"></div>
+          <div class="grid-h" style="top: 50%;"></div>
+
+          <!-- Eje X · ticks -->
+          <div class="x-tick" style="left: 12.5%;"><span class="x-tick-num">0</span><span class="x-tick-name">DAO puro<br/><em>no es dominio</em></span></div>
+          <div class="x-tick" style="left: 32.5%;"><span class="x-tick-num">1</span><span class="x-tick-name">Dominio estricto<br/>+invariantes</span></div>
+          <div class="x-tick" style="left: 52.5%;"><span class="x-tick-num">2</span><span class="x-tick-name">Multi-entidad<br/>+coordinación</span></div>
+          <div class="x-tick" style="left: 72.5%;"><span class="x-tick-num">3</span><span class="x-tick-name">+políticas<br/>reglas comerciales</span></div>
+          <div class="x-tick" style="left: 92.5%;"><span class="x-tick-num">4</span><span class="x-tick-name">+workflows<br/>orquestación</span></div>
+
+          <div class="x-axis-title">Grosor del dominio · qué tanto acumula el componente que maneja datos autoritativos</div>
+
+          <!-- Burbujas (Y: 0% = arriba/purista, 100% = abajo/pragmático) -->
+
+          <!-- Cuadrante superior izquierdo : puristas con núcleo mínimo -->
+          <div class="bubble bb-purist-min" style="left: 32.5%; top: 14%; width: 80px; height: 80px;">
+            <div class="b-name">CQRS</div><div class="b-sub">estricto</div>
+          </div>
+          <div class="bubble-author" style="left: 32.5%; top: calc(14% + 48px);">Greg Young</div>
+
+          <div class="bubble bb-purist-min" style="left: 32.5%; top: 32%; width: 76px; height: 76px;">
+            <div class="b-name">Data on the</div><div class="b-name">Inside</div>
+          </div>
+          <div class="bubble-author" style="left: 32.5%; top: calc(32% + 47px);">Pat Helland</div>
+
+          <!-- Superior medio : puristas con marcos -->
+          <div class="bubble bb-purist-mid" style="left: 52.5%; top: 18%; width: 76px; height: 76px;">
+            <div class="b-name">Clean</div><div class="b-sub">arch.</div>
+          </div>
+          <div class="bubble-author" style="left: 52.5%; top: calc(18% + 47px);">R. C. Martin</div>
+
+          <div class="bubble bb-purist-mid" style="left: 52.5%; top: 38%; width: 80px; height: 80px;">
+            <div class="b-name">Hexagonal</div><div class="b-sub">arch.</div>
+          </div>
+          <div class="bubble-author" style="left: 52.5%; top: calc(38% + 49px);">Cockburn</div>
+
+          <!-- Superior derecho : DDD canónico -->
+          <div class="bubble bb-purist-thick" style="left: 72.5%; top: 42%; width: 88px; height: 88px;">
+            <div class="b-name">DDD</div><div class="b-sub">canónico</div>
+          </div>
+          <div class="bubble-author" style="left: 72.5%; top: calc(42% + 53px);">Evans · Vernon</div>
+
+          <!-- BCA : posición intermedia destacada -->
+          <div class="bubble bb-bca" style="left: 32.5%; top: 56%; width: 100px; height: 100px;">
+            <div class="b-name">Bounded</div><div class="b-name">Concerns</div><div class="b-sub">arch.</div>
+          </div>
+          <div class="bubble-author" style="left: 32.5%; top: calc(56% + 60px);"><strong>Posición de este capítulo</strong></div>
+
+          <!-- Inferior medio : Service Layer -->
+          <div class="bubble bb-purist-mid" style="left: 52.5%; top: 70%; width: 76px; height: 76px;">
+            <div class="b-name">Service</div><div class="b-sub">Layer</div>
+          </div>
+          <div class="bubble-author" style="left: 52.5%; top: calc(70% + 47px);">Fowler PoEAA</div>
+
+          <!-- Inferior derecho : Active Record -->
+          <div class="bubble bb-pragmatic-thick" style="left: 72.5%; top: 78%; width: 72px; height: 72px;">
+            <div class="b-name">Active</div><div class="b-name">Record</div>
+          </div>
+          <div class="bubble-author" style="left: 72.5%; top: calc(78% + 45px);">Fowler / Rails</div>
+
+          <!-- DAO puro : neutro abajo izquierda -->
+          <div class="bubble bb-neutral" style="left: 12.5%; top: 76%; width: 64px; height: 64px;">
+            <div class="b-name">DAO</div><div class="b-sub">puro</div>
+          </div>
+          <div class="bubble-author" style="left: 12.5%; top: calc(76% + 41px);"><em>sin doctrina</em></div>
+
+          <!-- 3-layer clásico : abajo derecha -->
+          <div class="bubble bb-pragmatic-thick" style="left: 92.5%; top: 80%; width: 72px; height: 72px;">
+            <div class="b-name">3-layer</div><div class="b-sub">clásico</div>
+          </div>
+          <div class="bubble-author" style="left: 92.5%; top: calc(80% + 45px);">tradicional</div>
+
+        </div>
+      </div>
+
+      <aside class="lectura">
+        <h2>Cómo se lee el mapa</h2>
+
+        <div><strong>Eje X (medible).</strong> Cinco niveles de qué tanta lógica acumula el componente que maneja datos autoritativos. Criterios verificables.</div>
+
+        <div><strong>Eje Y (cualitativo).</strong> Qué tan dogmática es la propuesta sobre exigir su separación, vs cuánto gris admite. Inferencia interpretativa formalizada en la sección siguiente.</div>
+
+        <hr class="fine">
+
+        <div class="row">
+          <div class="swatch purist"></div>
+          <div><strong>Puristas (arriba).</strong> CQRS, Helland, Clean — <em>"si no separas estrictamente, no estás haciendo X de verdad"</em>.</div>
+        </div>
+
+        <div class="row">
+          <div class="swatch pragmatic"></div>
+          <div><strong>Pragmáticos (abajo).</strong> Service Layer, Active Record, 3-layer — Fowler mismo dice <em>"la línea se ensucia en la práctica"</em>.</div>
+        </div>
+
+        <div class="row">
+          <div class="swatch bca"></div>
+          <div><strong>BCA</strong> ocupa zona intermedia: adopta la formalidad de Moore y Fowler en la frontera del dominio, pero acepta sistemas legados COTS y agentes en incorporación.</div>
+        </div>
+
+        <div class="footnote">El eje Y refleja lo que el propio Fowler reconoce como "el gris": entre teoría perfecta y práctica que se ensucia. DAO puro queda en pragmatismo neutro porque no es una doctrina arquitectónica — es solo un mecanismo.</div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Cita raíz · BCA es elección, no la única posición razonable</span>
+    <span>Arquitectura Agentiva · v1.3</span>
+  </footer>
+</div>
+</body>
+</html>

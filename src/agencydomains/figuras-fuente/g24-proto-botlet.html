@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G45</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 26px;
+    width: 98%;
+    height: 100%;
+    align-content: start;
+  }
+
+  .intro { text-align: center; }
+  .intro h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 4px 0; color: var(--capa-3); }
+  .intro .sub { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  /* Estructura central: catálogo (2 clases) → configura → instancia */
+  .flow {
+    display: grid;
+    grid-template-columns: 1fr auto 360px;
+    gap: 30px;
+    align-items: stretch;
+  }
+
+  /* Catálogo de proto-Botlets */
+  .catalogo {
+    border: 1.5px solid var(--capa-3);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 90%);
+    padding: 18px 20px 20px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .catalogo-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px;
+  }
+  .catalogo-head .t { font-family: var(--serif); font-size: 19px; font-weight: 700; color: #354936; }
+  .catalogo-head .badge {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--capa-3); font-weight: 600;
+  }
+
+  .clases { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
+  .clase {
+    background: var(--paper);
+    border: 1px solid var(--capa-3);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .clase-name {
+    font-family: var(--serif); font-size: 17px; font-weight: 700; color: #354936;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .clase-name .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--capa-3); flex-shrink: 0; }
+  .clase.platf .clase-name .dot { background: #354936; }
+  .clase-tag {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  .clase-desc { font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
+  .clase-desc b { color: var(--ink); font-weight: 600; }
+  .ejemplos { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+  .ejemplos .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .chip {
+    font-family: var(--mono); font-size: 12px;
+    background: var(--capa-3-bg); color: #354936;
+    border: 1px solid var(--capa-3); border-radius: 4px;
+    padding: 4px 8px; display: inline-block;
+  }
+
+  /* Flecha configura */
+  .configura {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; min-width: 150px;
+  }
+  .configura .arrow { font-family: var(--mono); font-size: 40px; color: var(--capa-3); line-height: 1; }
+  .configura .verb {
+    font-family: var(--serif); font-size: 15px; font-weight: 700; color: #354936; text-align: center;
+  }
+  .configura .verb b { text-transform: uppercase; letter-spacing: 0.05em; }
+  .configura .time {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft); background: var(--rule-soft);
+    border-radius: 4px; padding: 4px 9px; text-align: center;
+  }
+
+  /* Instancia Botlet */
+  .instancia {
+    border: 1.5px solid var(--capa-3);
+    border-radius: 12px;
+    background: var(--capa-3);
+    color: var(--paper);
+    padding: 18px 22px 20px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .instancia .ihead { font-family: var(--serif); font-size: 19px; font-weight: 700; }
+  .instancia .isub { font-size: 11.5px; opacity: 0.9; line-height: 1.5; }
+  .instancia .icard {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 6px; padding: 11px 13px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .instancia .icard .ik { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.85; }
+  .instancia .icard .iv { font-family: var(--mono); font-size: 13px; }
+  .instancia .ifoot { font-size: 11px; opacity: 0.9; line-height: 1.5; margin-top: auto; font-style: italic; }
+
+  /* Frase clave */
+  .clave {
+    text-align: center;
+    font-family: var(--serif); font-size: 19px; font-weight: 700;
+    color: #354936;
+    background: var(--capa-3-bg);
+    border: 1.5px solid var(--capa-3);
+    border-radius: 8px;
+    padding: 14px 22px;
+  }
+  .clave b { color: var(--capa-4); }
+
+  /* Nota G1 */
+  .nota {
+    font-size: 12px; color: var(--ink-soft); text-align: center; line-height: 1.5;
+  }
+  .nota .mono { color: var(--ink); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §2 · Botlets</div>
+    <h1 class="figure-title">proto-Botlet — la pieza pre-forjada del catálogo</h1></div>
+    <div class="figure-eyebrow">Figura G45 · proto-Botlet</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="intro">
+        <h2>El catálogo contiene el código; el caso recibe la instancia</h2>
+        <div class="sub">Botlets y proto-Botlets viven en Capa 3 — autonomía persistente</div>
+      </div>
+
+      <div class="flow">
+
+        <div class="catalogo">
+          <div class="catalogo-head">
+            <span class="t">Catálogo de proto-Botlets</span>
+            <span class="badge">pieza pre-forjada</span>
+          </div>
+          <div class="clases">
+            <div class="clase templ">
+              <div class="clase-name"><span class="dot"></span>Templado</div>
+              <div class="clase-tag">una función · código específico</div>
+              <div class="clase-desc">El código resuelve <b>su</b> función. La configuración es <b>parametrización acotada</b>: ajusta valores, no comportamiento.</div>
+              <div class="ejemplos">
+                <span class="lbl">Ejemplos</span>
+                <span class="chip">cobro-cuenta</span>
+                <span class="chip">comanda-impresora-esc-pos</span>
+              </div>
+            </div>
+            <div class="clase platf">
+              <div class="clase-name"><span class="dot"></span>Platafórmico</div>
+              <div class="clase-tag">N funciones · código genérico</div>
+              <div class="clase-desc">El código es <b>genérico</b>. La especialización es <b>composicional vía DSL</b>: una misma pieza cubre muchas funciones.</div>
+              <div class="ejemplos">
+                <span class="lbl">Ejemplos</span>
+                <span class="chip">mira</span>
+                <span class="chip">operación informativa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="configura">
+          <div class="arrow">→</div>
+          <div class="verb">el agente <b>configura</b></div>
+          <div class="time">tiempo de Ingeniería</div>
+        </div>
+
+        <div class="instancia">
+          <div class="ihead">Botlet</div>
+          <div class="isub">Instancia específica al caso — el proto-Botlet configurado, listo para operar.</div>
+          <div class="icard">
+            <div class="ik">desde proto-Botlet</div>
+            <div class="iv">cobro-cuenta</div>
+          </div>
+          <div class="icard">
+            <div class="ik">configuración del caso</div>
+            <div class="iv">moneda · redondeo · cuenta-destino</div>
+          </div>
+          <div class="ifoot">Mismo código del catálogo; comportamiento fijado al contexto.</div>
+        </div>
+
+      </div>
+
+      <div class="clave">El proto-Botlet contiene el código; <b>el Botlet es la instancia configurada.</b></div>
+
+      <div class="nota">En <span class="mono">G1</span> todo el código vive en el proto-Botlet; el agente solo configura.</div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"La pieza se forja una vez en el catálogo; se instancia muchas veces en el terreno."</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

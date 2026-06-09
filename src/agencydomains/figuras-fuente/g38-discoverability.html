@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G33</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; width: 100%; height: 100%; }
+  .lado { padding: 26px; border-radius: 12px; display: flex; flex-direction: column; gap: 18px; }
+  .lado.web { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .lado.ag  { background: var(--capa-4-bg); border: 2px solid var(--capa-4); }
+  .lado h2 { font-family: var(--serif); font-size: 22px; margin: 0; }
+  .lado .epoca { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+
+  .flow {
+    background: var(--paper); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px;
+    min-height: 280px;
+  }
+  .step {
+    display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 13px;
+    align-items: start;
+  }
+  .step .n {
+    background: var(--ink); color: var(--paper); width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .step .body strong { font-family: var(--serif); display: block; }
+  .step .body span { color: var(--ink-soft); font-size: 12px; }
+
+  .strategy { background: var(--paper); padding: 14px; border-radius: 6px; border-left: 4px solid; line-height: 1.5; font-size: 12px; }
+  .lado.web .strategy { border-color: var(--capa-2); }
+  .lado.ag  .strategy { border-color: var(--capa-4); }
+  .strategy h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 14px; }
+  .strategy .tag { display: inline-block; background: var(--bg); padding: 3px 10px; border-radius: 12px; font-size: 11px; margin: 2px; }
+
+  .property { font-size: 12px; padding: 10px 14px; background: var(--ink); color: var(--paper); border-radius: 4px; line-height: 1.5; }
+  .property strong { font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · discoverability agentiva</div>
+    <h1 class="figure-title">Donde se descubre el valor — del índice al modelo entrenado</h1></div>
+    <div class="figure-eyebrow">Figura G33</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="lado web">
+        <div>
+          <span class="epoca">Era pre-agentiva</span>
+          <h2>Descubrimiento web · SEO</h2>
+        </div>
+        <div class="flow">
+          <div class="step"><span class="n">1</span><div class="body"><strong>Humano necesita capacidad</strong><span>"necesito una herramienta para X"</span></div></div>
+          <div class="step"><span class="n">2</span><div class="body"><strong>Abre Google · App Store</strong><span>la capa de descubrimiento es un índice</span></div></div>
+          <div class="step"><span class="n">3</span><div class="body"><strong>Ranking algorítmico</strong><span>SEO · ASO · publicidad</span></div></div>
+          <div class="step"><span class="n">4</span><div class="body"><strong>Click → producto</strong><span>el actor es encontrado o no</span></div></div>
+        </div>
+        <div class="strategy">
+          <h4>Estrategia · SEO</h4>
+          <span class="tag">contenido en página</span><span class="tag">backlinks</span>
+          <span class="tag">ASO</span><span class="tag">ads</span>
+          <span class="tag">marketing tradicional</span>
+        </div>
+        <div class="property">
+          <strong>Reversible:</strong> dejar de pagar = perder ranking en semanas.<br>
+          <strong>Capa concentrada:</strong> Google + un puñado de buscadores.
+        </div>
+      </div>
+
+      <div class="lado ag">
+        <div>
+          <span class="epoca">Era agentiva</span>
+          <h2>Descubrimiento agentivo · MEO</h2>
+        </div>
+        <div class="flow">
+          <div class="step"><span class="n">1</span><div class="body"><strong>Humano necesita capacidad</strong><span>"¿qué herramienta me sirve para X?"</span></div></div>
+          <div class="step"><span class="n">2</span><div class="body"><strong>Pregunta a su asistente</strong><span>la capa de descubrimiento es la cognición</span></div></div>
+          <div class="step"><span class="n">3</span><div class="body"><strong>Modelo entrenado</strong><span>recupera de su corpus aprendido</span></div></div>
+          <div class="step"><span class="n">4</span><div class="body"><strong>Recomendación · invocación vía MCP</strong><span>el actor es citado o ejecutado nativamente</span></div></div>
+        </div>
+        <div class="strategy">
+          <h4>Estrategia · MEO (Model Engine Optimization)</h4>
+          <span class="tag">repos open source con READMEs ricos</span>
+          <span class="tag">documentación citable</span>
+          <span class="tag">papers</span>
+          <span class="tag">integración nativa con MCP</span>
+          <span class="tag">menciones de alta autoridad</span>
+        </div>
+        <div class="property">
+          <strong>Persistente:</strong> una vez en el corpus, la referencia escala con el uso.<br>
+          <strong>Asimétrica:</strong> ganador-toma-todo · el primero en la categoría se vuelve default.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"La capa de descubrimiento se desplazó del índice de búsqueda al modelo de cognición"</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

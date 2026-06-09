@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>G38 · BCA — tres capas con la séptima separación Procedural / Agentic</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .bca-stack {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .bca-layer {
+    border-radius: 10px;
+    padding: 14px 18px;
+    border: 1.5px solid;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 22px;
+    align-items: stretch;
+  }
+
+  .layer-label {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+
+  .layer-label .layer-num {
+    font-size: 11px;
+    font-family: var(--sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.8;
+    margin-bottom: 4px;
+  }
+
+  .layer-cells {
+    display: grid;
+    gap: 10px;
+  }
+
+  .cell {
+    background: var(--paper);
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .cell-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .cell-desc {
+    font-size: 12px;
+    line-height: 1.35;
+    opacity: 0.85;
+  }
+
+  /* Capa 1 — Presentation : terracota (capa-1) */
+  .layer-1 { background: var(--capa-1-bg); border-color: var(--capa-1); }
+  .layer-1 .layer-label { color: #6b3a1f; }
+  .layer-1 .layer-cells { grid-template-columns: 1fr 1fr; }
+  .layer-1 .cell { border-color: var(--capa-1); color: #6b3a1f; }
+
+  /* Capa 2 — Business Logic : azul (capa-2) */
+  .layer-2 { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .layer-2 .layer-label { color: #243d63; }
+  .layer-2 .layer-cells { grid-template-columns: 1fr 1fr; }
+  .layer-2 .cell { border-color: var(--capa-2); color: #243d63; }
+  .layer-2 .cell.agentic { background: #f0e8db; border-style: solid; border-width: 1.5px; }
+  .layer-2 .cell.agentic .cell-name::after {
+    content: " ★";
+    color: var(--p-tra);
+    font-size: 13px;
+  }
+
+  /* Capa 3 — Domain : verde sage (capa-3) */
+  .layer-3 { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .layer-3 .layer-label { color: #354936; }
+  .layer-3 .layer-cells {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    row-gap: 8px;
+  }
+  .layer-3 .domain-block {
+    border-radius: 7px;
+    padding: 10px 12px 12px;
+    border: 1.5px solid;
+    background: rgba(255,255,255,0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .layer-3 .domain-block .block-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+  .layer-3 .domain-block .block-cells {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .layer-3 .domain-block .cell {
+    padding: 7px 10px;
+    gap: 1px;
+  }
+  .layer-3 .domain-block .cell .cell-name {
+    font-size: 14px;
+  }
+  .layer-3 .domain-block .cell .cell-desc {
+    font-size: 11px;
+    opacity: 0.78;
+  }
+  /* Sub-banda async: tinte crema */
+  .cell.async { background: #fbf6ec; }
+
+  /* SOR — verde sage (capa-3) */
+  .domain-block.sor { border-color: var(--capa-3); }
+  .domain-block.sor .block-title { color: #354936; }
+  .domain-block.sor .cell { border-color: var(--capa-3); color: #354936; }
+
+  /* External — burdeos (capa-4) */
+  .domain-block.external { border-color: var(--capa-4); }
+  .domain-block.external .block-title { color: #4a1a1a; }
+  .domain-block.external .cell { border-color: var(--capa-4); color: #4a1a1a; }
+
+  /* Banda lateral para indicar Logic / Persistence transversal */
+  .layer-3 .layer-cells {
+    position: relative;
+  }
+  .band-tag {
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .legend {
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .legend .marker {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend .marker-dot {
+    width: 12px; height: 12px;
+    background: #fbf6ec;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .legend .marker-dot.sync {
+    background: var(--paper);
+  }
+  .legend .marker-star { color: var(--p-tra); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Capítulo 3 · Bounded Concerns Architecture</div>
+      <h1 class="figure-title">BCA — tres capas y la séptima separación</h1>
+    </div>
+    <div class="figure-eyebrow">Figura G8</div>
+  </header>
+
+  <div class="figure-body">
+    <div class="bca-stack">
+
+      <div class="bca-layer layer-1">
+        <div class="layer-label"><div><div class="layer-num">Capa 1</div>Presentation</div></div>
+        <div class="layer-cells">
+          <div class="cell">
+            <div class="cell-name">UI</div>
+            <div class="cell-desc">controllers · vistas · edge handlers — frontera con humanos</div>
+          </div>
+          <div class="cell">
+            <div class="cell-name">API</div>
+            <div class="cell-desc">endpoints · contratos · routing · versionado — frontera con sistemas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bca-layer layer-2">
+        <div class="layer-label"><div><div class="layer-num">Capa 2</div>Business Logic</div></div>
+        <div class="layer-cells">
+          <div class="cell">
+            <div class="cell-name">Procedural</div>
+            <div class="cell-desc">comportamiento programado explícitamente · workflows · sagas · BPM/BRMS</div>
+          </div>
+          <div class="cell agentic">
+            <div class="cell-name">Agentic</div>
+            <div class="cell-desc">comportamiento derivado contextualmente desde un modelo · LLM · ML · expertos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bca-layer layer-3">
+        <div class="layer-label"><div><div class="layer-num">Capa 3</div>Domain</div></div>
+        <div class="layer-cells">
+
+          <div class="domain-block sor">
+            <h4 class="block-title">SOR · Logic</h4>
+            <div class="block-cells">
+              <div class="cell"><div class="cell-name">Logic</div><div class="cell-desc">invariantes</div></div>
+              <div class="cell async"><div class="cell-name">Events</div><div class="cell-desc">emisor de hechos</div></div>
+            </div>
+          </div>
+
+          <div class="domain-block external">
+            <h4 class="block-title">External · Logic</h4>
+            <div class="block-cells">
+              <div class="cell"><div class="cell-name">Gateway</div><div class="cell-desc">anti-corruption layer</div></div>
+              <div class="cell async"><div class="cell-name">Events</div><div class="cell-desc">webhooks / streams</div></div>
+            </div>
+          </div>
+
+          <div class="domain-block sor">
+            <h4 class="block-title">SOR · Persistence</h4>
+            <div class="block-cells">
+              <div class="cell"><div class="cell-name">Repository</div><div class="cell-desc">state mutable</div></div>
+              <div class="cell async"><div class="cell-name">Streams</div><div class="cell-desc">event log apendable</div></div>
+            </div>
+          </div>
+
+          <div class="domain-block external">
+            <h4 class="block-title">External · Persistence</h4>
+            <div class="block-cells">
+              <div class="cell"><div class="cell-name">Proxies</div><div class="cell-desc">mirror local</div></div>
+              <div class="cell async"><div class="cell-name">Hooks</div><div class="cell-desc">eventos recibidos</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="legend">
+        <span class="marker"><span class="marker-dot sync"></span>celda síncrona</span>
+        <span class="marker"><span class="marker-dot"></span>celda asíncrona</span>
+        <span class="marker"><span class="marker-star">★</span> séptima separación canónica · Procedural vs Agentic</span>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Cita raíz · "Mantén el dominio delgado" — la respuesta arquitectónica a la era Agentic</span>
+    <span>Arquitectura Agentiva · v1.3</span>
+  </footer>
+</div>
+</body>
+</html>

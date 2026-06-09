@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G22</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto 1fr; gap: 32px; width: 100%; height: 100%; }
+  .header-bar {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center;
+    padding: 14px 24px; background: var(--bg); border-radius: 6px;
+  }
+  .header-bar .h-title { font-family: var(--serif); font-size: 18px; font-weight: 700; text-align: center; }
+  .header-bar .arrow-h { font-size: 26px; color: var(--ink-soft); text-align: center; }
+  .header-bar .h-cog { color: var(--capa-1); }
+  .header-bar .h-ag  { color: var(--capa-3); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .col { padding: 20px; border-radius: 12px; display: flex; flex-direction: column; gap: 14px; border-top: 5px solid; }
+  .col.c1 { background: var(--capa-1-bg); border-top-color: #c97050; }
+  .col.c2 { background: var(--capa-2-bg); border-top-color: #4a6fa5; }
+  .col.c3 { background: var(--capa-3-bg); border-top-color: #6b8f6b; }
+
+  .col h3 { font-family: var(--serif); font-size: 18px; margin: 0; }
+  .col .speed { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .pareo { background: var(--paper); border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .pareo .neuro { font-size: 13px; }
+  .pareo .neuro strong { font-family: var(--serif); display: block; font-size: 14px; }
+  .pareo .neuro em { color: var(--ink-soft); font-size: 11px; display: block; margin-top: 2px; }
+  .pareo .div { height: 1px; background: var(--rule); }
+  .pareo .ag { font-size: 13px; }
+  .pareo .ag strong { font-family: var(--serif); display: block; font-size: 14px; }
+  .pareo .ag em { color: var(--ink-soft); font-size: 11px; display: block; margin-top: 2px; }
+
+  .pregunta {
+    background: var(--ink); color: var(--paper); padding: 8px 12px; border-radius: 4px;
+    font-style: italic; font-size: 12px; text-align: center;
+  }
+
+  .salida {
+    margin-top: auto; padding: 8px 12px; background: var(--paper); border-radius: 4px;
+    font-size: 11px; line-height: 1.4; color: var(--ink-soft); border-left: 3px solid var(--ink);
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · §2.9 · Pattern Recognition</div>
+    <h1 class="figure-title">La inspiración neurobiológica · cerebro humano ⇄ sistema agentivo</h1></div>
+    <div class="figure-eyebrow">Figura G22</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="header-bar">
+        <div class="h-title h-cog">CEREBRO HUMANO<br><span style="font-size: 11px; color: var(--ink-soft); font-weight: 400;">Squire & Wixted, 2011</span></div>
+        <div class="arrow-h">⇄</div>
+        <div class="h-title h-ag">SISTEMA AGENTIVO<br><span style="font-size: 11px; color: var(--ink-soft); font-weight: 400;">Pattern Recognition · Cap. 4 §2</span></div>
+      </div>
+
+      <div class="cols">
+
+        <div class="col c1">
+          <div>
+            <span class="speed">Nivel 1 · milisegundos</span>
+            <h3>Familiaridad rápida</h3>
+          </div>
+          <div class="pregunta">¿he visto esto antes?</div>
+          <div class="pareo">
+            <div class="neuro">
+              <strong>Corteza perirrinal</strong>
+              <em>familiaridad sin recollection consciente</em>
+            </div>
+            <div class="div"></div>
+            <div class="ag">
+              <strong>Detección de patrón</strong>
+              <em>traza de actividad reciente vs. invocaciones pasadas</em>
+            </div>
+          </div>
+          <div class="salida">
+            Si la respuesta es <em>sí</em>, activa el siguiente nivel.
+          </div>
+        </div>
+
+        <div class="col c2">
+          <div>
+            <span class="speed">Nivel 2 · segundos</span>
+            <h3>Recollection</h3>
+          </div>
+          <div class="pregunta">¿qué hice exactamente la última vez?</div>
+          <div class="pareo">
+            <div class="neuro">
+              <strong>Hipocampo</strong>
+              <em>recuperación detallada de eventos pasados</em>
+            </div>
+            <div class="div"></div>
+            <div class="ag">
+              <strong>Recuperación de traza</strong>
+              <em>parámetros, resultados, duraciones de invocaciones similares</em>
+            </div>
+          </div>
+          <div class="salida">
+            La cognición usa esta información para evaluar si la generación vale la pena.
+          </div>
+        </div>
+
+        <div class="col c3">
+          <div>
+            <span class="speed">Nivel 3 · razonamiento</span>
+            <h3>Decisión consciente</h3>
+          </div>
+          <div class="pregunta">¿debo automatizar esto?</div>
+          <div class="pareo">
+            <div class="neuro">
+              <strong>Corteza prefrontal</strong>
+              <em>evaluación deliberada y ejecutiva</em>
+            </div>
+            <div class="div"></div>
+            <div class="ag">
+              <strong>Evaluación + generación</strong>
+              <em>frecuencia · estabilidad · costo · riesgo de regeneración</em>
+            </div>
+          </div>
+          <div class="salida">
+            Si la decisión es sí, dispara la <strong>generación del Botlet</strong>.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Lo costoso se minimiza · lo barato se maximiza · la atención consciente se reserva</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

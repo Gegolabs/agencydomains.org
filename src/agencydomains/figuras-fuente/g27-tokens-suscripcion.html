@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G23</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: 1fr auto; gap: 28px; width: 100%; height: 100%; }
+  .modos { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .modo { padding: 28px; border-radius: 12px; display: flex; flex-direction: column; gap: 18px; }
+  .modo.t { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .modo.s { background: var(--capa-3-bg); border: 2px solid var(--capa-3); }
+  .modo h2 { margin: 0; font-family: var(--serif); font-size: 26px; }
+  .modo .frase { font-size: 13px; color: var(--ink-soft); font-style: italic; margin: -8px 0 0; }
+
+  .flujo {
+    background: var(--paper); border-radius: 8px; padding: 22px; min-height: 180px;
+    display: flex; align-items: center; justify-content: space-around; gap: 12px;
+  }
+  .nodo { background: var(--paper); border: 2px solid; border-radius: 8px; padding: 12px 16px; text-align: center; min-width: 100px; }
+  .nodo.t { border-color: var(--capa-2); }
+  .nodo.s { border-color: var(--capa-3); }
+  .nodo .nm { font-family: var(--serif); font-weight: 700; font-size: 13px; }
+  .nodo .sub { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+  .arrow-h { font-size: 20px; color: var(--ink); }
+
+  .props { display: grid; gap: 6px; font-size: 12px; }
+  .props .p { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
+  .props .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); align-self: center; }
+  .props .v { background: var(--paper); padding: 6px 10px; border-radius: 4px; }
+
+  .uso {
+    background: var(--paper); padding: 12px 14px; border-radius: 4px; font-size: 12px;
+    line-height: 1.5; border-left: 3px solid;
+  }
+  .modo.t .uso { border-color: var(--capa-2); }
+  .modo.s .uso { border-color: var(--capa-3); }
+  .uso strong { font-family: var(--serif); display: block; margin-bottom: 4px; }
+
+  .botlet-bar {
+    background: var(--ink); color: var(--paper); padding: 14px 24px; border-radius: 6px;
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center;
+  }
+  .botlet-bar h4 { margin: 0; font-family: var(--serif); font-size: 16px; font-style: italic; white-space: nowrap; }
+  .botlet-bar p { margin: 0; font-size: 12px; line-height: 1.45; opacity: 0.92; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · §1.7 / §2.10</div>
+    <h1 class="figure-title">Dos modos de acceso a la cognición · Tokens vs. Suscripción</h1></div>
+    <div class="figure-eyebrow">Figura G23</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="modos">
+
+        <div class="modo t">
+          <div>
+            <h2>Tokens · centralizado</h2>
+            <p class="frase">facturación al AgencyDomain · operación en background</p>
+          </div>
+          <div class="flujo">
+            <div class="nodo t"><div class="nm">AgencyDomain</div><div class="sub">centraliza credenciales</div></div>
+            <span class="arrow-h">→</span>
+            <div class="nodo t"><div class="nm">Cognición</div><div class="sub">Claude · GPT · …</div></div>
+            <span class="arrow-h">$</span>
+            <div class="nodo t" style="background: var(--bg);"><div class="nm">Factura</div><div class="sub">al AD / org</div></div>
+          </div>
+          <div class="props">
+            <div class="p"><span class="k">consumo</span><span class="v">centralizado, predecible</span></div>
+            <div class="p"><span class="k">cuota</span><span class="v">presupuesto de la organización</span></div>
+            <div class="p"><span class="k">presencia humana</span><span class="v">no requerida</span></div>
+          </div>
+          <div class="uso">
+            <strong>Aplica cuando…</strong>
+            agentes operan en background sin intervención del usuario · la organización quiere control central de costos · múltiples agentes comparten proveedor.
+          </div>
+        </div>
+
+        <div class="modo s">
+          <div>
+            <h2>Suscripción · distribuido</h2>
+            <p class="frase">la cognición vive bajo el plan del usuario</p>
+          </div>
+          <div class="flujo">
+            <div class="nodo s"><div class="nm">Asistente</div><div class="sub">del usuario</div></div>
+            <span class="arrow-h">→</span>
+            <div class="nodo s"><div class="nm">Cognición</div><div class="sub">vía plan del usuario</div></div>
+            <span class="arrow-h">$</span>
+            <div class="nodo s" style="background: var(--bg);"><div class="nm">Factura</div><div class="sub">al usuario · plan fijo</div></div>
+          </div>
+          <div class="props">
+            <div class="p"><span class="k">consumo</span><span class="v">cero al sistema · cubierto por plan</span></div>
+            <div class="p"><span class="k">cuota</span><span class="v">límite del plan del usuario</span></div>
+            <div class="p"><span class="k">presencia humana</span><span class="v">requerida — el usuario invoca</span></div>
+          </div>
+          <div class="uso">
+            <strong>Aplica cuando…</strong>
+            el usuario ya tiene Claude Pro / ChatGPT Plus / Copilot · el sistema expone tools y datos sin centralizar la cognición · privilegia minimizar costos de inferencia.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="botlet-bar">
+        <h4>Los Botlets como palanca económica</h4>
+        <p>Bajo Suscripción fija, el costo marginal de la cognición es cero <em>hasta el límite del plan</em>. Sin Botlets, la autonomía continua agota el plan en horas. <strong>Con Botlets, la autonomía sostenida bajo Suscripción fija se vuelve económicamente viable.</strong></p>
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Los dos modos coexisten en sistemas maduros · la spec exige declaración explícita</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G15</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .compare { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; height: 100%; align-items: stretch; }
+  .lado { padding: 32px 36px; display: flex; flex-direction: column; gap: 22px; }
+  .lado.humano { background: var(--capa-1-bg); }
+  .lado.agente { background: var(--capa-2-bg); }
+  .lado h2 { font-family: var(--serif); font-size: 28px; margin: 0 0 4px; }
+  .lado .sub { font-size: 14px; color: var(--ink-soft); font-style: italic; margin: 0; }
+
+  .figura-conceptual {
+    margin: 8px 0; padding: 24px; background: var(--paper); border-radius: 12px;
+    text-align: center; border: 1px solid var(--rule);
+  }
+  .figura-conceptual .icon { font-size: 64px; line-height: 1; margin-bottom: 8px; }
+  .figura-conceptual .label { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .figura-conceptual .descr { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+
+  .props { display: grid; gap: 10px; }
+  .prop { display: grid; grid-template-columns: 110px 1fr; gap: 12px; font-size: 13px; }
+  .prop .k { color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; align-self: center; }
+  .prop .v { background: var(--paper); padding: 8px 12px; border-radius: 4px; border: 1px solid var(--rule); }
+
+  .ejemplos { font-size: 12px; color: var(--ink-soft); margin-top: auto; padding-top: 12px; border-top: 1px solid var(--rule); }
+
+  .divisor {
+    background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  }
+  .divisor .vs {
+    color: var(--paper); font-family: var(--serif); font-size: 22px; transform: rotate(-90deg); font-style: italic;
+    white-space: nowrap;
+  }
+  .divisor .neq {
+    color: var(--paper); font-size: 38px; font-weight: 300;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · Premisa fundacional ε</div>
+    <h1 class="figure-title">Space ≠ Domain — la diferencia ontológica</h1></div>
+    <div class="figure-eyebrow">Figura G15 · imagen-firma</div>
+  </header>
+  <div class="figure-body">
+    <div class="compare" style="width: 100%; height: 100%;">
+
+      <div class="lado humano">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-1);">El humano</div>
+          <h2>tiene Space</h2>
+          <p class="sub">corporeidad — escritorio físico digitalizado</p>
+        </div>
+
+        <div class="figura-conceptual">
+          <div class="icon">🏛</div>
+          <div class="label">WorkSpace</div>
+          <div class="descr">Google Workspace · Microsoft 365 · Notion</div>
+        </div>
+
+        <div class="props">
+          <div class="prop"><span class="k">origen</span><span class="v"><em>spatium</em> — extensión física</span></div>
+          <div class="prop"><span class="k">supone</span><span class="v">cuerpo, coordenadas, paredes, presencia</span></div>
+          <div class="prop"><span class="k">contiene</span><span class="v">aplicaciones que el humano abre</span></div>
+          <div class="prop"><span class="k">interfaz</span><span class="v">GUI — el humano operando software</span></div>
+        </div>
+
+        <div class="ejemplos">
+          <strong>Ejemplos cotidianos:</strong> "mi escritorio", "mi oficina", "mi espacio de trabajo".
+          La metáfora carga corporeidad de origen — y por eso no le sirve al agente.
+        </div>
+      </div>
+
+      <div class="divisor">
+        <div class="neq">≠</div>
+        <div class="vs">son cosas distintas</div>
+        <div class="neq">≠</div>
+      </div>
+
+      <div class="lado agente">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-2);">El agente</div>
+          <h2>tiene Domain</h2>
+          <p class="sub">jurisdicción — territorio computacional sin cuerpo</p>
+        </div>
+
+        <div class="figura-conceptual">
+          <div class="icon">⬢</div>
+          <div class="label">AgencyDomain</div>
+          <div class="descr">Agentia · Soveria · cualquier implementación conforme</div>
+        </div>
+
+        <div class="props">
+          <div class="prop"><span class="k">origen</span><span class="v"><em>dominium</em> — pertenencia y soberanía</span></div>
+          <div class="prop"><span class="k">supone</span><span class="v">identidad, ámbito, regla, agencia</span></div>
+          <div class="prop"><span class="k">contiene</span><span class="v">agentes, Botlets, Capabilities, Trust Layer</span></div>
+          <div class="prop"><span class="k">interfaz</span><span class="v">URI canónica — el agente ejerciendo agencia</span></div>
+        </div>
+
+        <div class="ejemplos">
+          <strong>Linaje:</strong> JavaSpaces (JSR-000148, 1999) formalizó espacios para procesos sin cuerpo.
+          AgencyDomains (2026) formaliza ámbitos para agentes con agencia.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Premisa fundacional ε — Cap. 4 §1</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G20</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 480px 1fr; gap: 64px; align-items: center; width: 100%; }
+  .donut { position: relative; width: 480px; height: 480px; }
+  .donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .donut .center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .center .ratio { font-family: var(--serif); font-size: 72px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+  .center .ratio .sep { color: var(--rule); font-weight: 300; margin: 0 8px; }
+  .center .ratio .a { color: var(--capa-3); }
+  .center .ratio .b { color: var(--capa-2); }
+  .center .ratio .c { color: var(--capa-4); }
+  .center .label { font-size: 14px; color: var(--ink-soft); margin-top: 12px; max-width: 260px; }
+
+  .legend { display: flex; flex-direction: column; gap: 22px; }
+  .row {
+    display: grid; grid-template-columns: 90px 1fr; gap: 18px; align-items: start;
+    border-left: 6px solid; padding: 14px 18px; background: var(--paper); border-radius: 0 6px 6px 0;
+  }
+  .row .pct { font-family: var(--serif); font-size: 36px; font-weight: 700; line-height: 1; }
+  .row .body h3 { margin: 0 0 4px; font-family: var(--serif); font-size: 20px; }
+  .row .body p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--ink-soft); }
+  .row.r1 { border-color: var(--capa-3); background: var(--capa-3-bg); }
+  .row.r1 .pct { color: var(--capa-3); }
+  .row.r2 { border-color: var(--capa-2); background: var(--capa-2-bg); }
+  .row.r2 .pct { color: var(--capa-2); }
+  .row.r3 { border-color: var(--capa-4); background: var(--capa-4-bg); }
+  .row.r3 .pct { color: var(--capa-4); }
+
+  .fallback {
+    margin-top: 8px; padding: 14px 18px; background: var(--ink); color: var(--paper);
+    border-radius: 6px; font-size: 13px; line-height: 1.5;
+  }
+  .fallback strong { font-family: var(--serif); font-size: 15px; display: block; margin-bottom: 4px; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · §2 · Botlets</div>
+    <h1 class="figure-title">El ciclo 95 / 4 / 1 — memoria muscular del agente</h1></div>
+    <div class="figure-eyebrow">Figura G20 · imagen-firma</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="donut">
+        <svg viewBox="0 0 100 100">
+          <!-- 95% capa-3 verde -->
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#6b8f6b" stroke-width="20"
+                  stroke-dasharray="238.76 251.33" stroke-dashoffset="0"/>
+          <!-- 4% capa-2 azul -->
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#4a6fa5" stroke-width="20"
+                  stroke-dasharray="10.05 251.33" stroke-dashoffset="-238.76"/>
+          <!-- 1% capa-4 burdeos -->
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#8b3a3a" stroke-width="20"
+                  stroke-dasharray="2.51 251.33" stroke-dashoffset="-248.81"/>
+        </svg>
+        <div class="center">
+          <div class="ratio">
+            <span class="a">95</span><span class="sep">/</span><span class="b">4</span><span class="sep">/</span><span class="c">1</span>
+          </div>
+          <div class="label">distribución típica del ciclo de vida operativo de un Botlet en producción</div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="row r1">
+          <div class="pct">95%</div>
+          <div class="body">
+            <h3>Ejecución normal</h3>
+            <p>El Botlet corre como código tradicional. <strong>Sin invocar cognición.</strong> Ahí se sostiene la economía del sistema agentivo — uno o dos órdenes de magnitud bajo costo de inferencia.</p>
+          </div>
+        </div>
+        <div class="row r2">
+          <div class="pct">4%</div>
+          <div class="body">
+            <h3>Cambio detectado en el ambiente</h3>
+            <p>El Botlet falla o devuelve resultado anómalo. La cognición se activa, evalúa el cambio, decide si regenerar, ejecutar manualmente o escalar al humano.</p>
+          </div>
+        </div>
+        <div class="row r3">
+          <div class="pct">1%</div>
+          <div class="body">
+            <h3>Regeneración del Botlet</h3>
+            <p>La cognición genera nueva versión adaptada. Reemplaza la anterior. El ciclo vuelve a empezar — con código actualizado al ambiente nuevo.</p>
+          </div>
+        </div>
+        <div class="fallback">
+          <strong>Garantía de fallback (innegociable)</strong>
+          Si un Botlet falla catastróficamente, la cognición ejecuta la tarea manualmente. <em>El proceso nunca se detiene.</em>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"La cognición piensa una vez. El Botlet ejecuta diez mil veces."</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

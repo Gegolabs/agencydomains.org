@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G44</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto 1fr; gap: 20px; width: 100%; height: 100%; }
+  .horizon-axis {
+    position: relative; height: 60px; padding: 0 24px;
+  }
+  .horizon-axis .axis-line {
+    position: absolute; left: 24px; right: 24px; top: 50%; height: 4px;
+    background: linear-gradient(90deg, var(--capa-3) 0%, var(--p-val) 50%, var(--capa-4) 100%);
+    border-radius: 2px;
+  }
+  .horizon-axis .tick {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    background: var(--paper); border: 2px solid var(--ink); padding: 4px 12px;
+    font-size: 11px; border-radius: 12px; white-space: nowrap;
+  }
+
+  .fronteras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .frontera {
+    padding: 22px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px;
+    border-top: 6px solid;
+  }
+  .f1 { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .f2 { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .f3 { background: var(--capa-4-bg); border-color: var(--capa-4); }
+  .f4 { background: var(--trust-bg);  border-color: var(--trust); }
+
+  .num { font-family: var(--serif); font-size: 56px; font-weight: 700; line-height: 0.9; opacity: 0.4; margin-bottom: -16px; }
+  .titulo { font-family: var(--serif); font-size: 18px; font-weight: 700; margin: 0; }
+  .frase { font-size: 12px; color: var(--ink-soft); font-style: italic; margin: -2px 0 0; }
+
+  .que { background: var(--paper); border-radius: 4px; padding: 10px 12px; font-size: 11px; line-height: 1.45; }
+  .que strong { font-family: var(--serif); display: block; font-size: 12px; margin-bottom: 4px; }
+
+  .horizon-tag {
+    margin-top: auto; padding: 6px 10px; background: var(--ink); color: var(--paper);
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+    border-radius: 3px; text-align: center;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Epílogo · La frontera de evolución</div>
+    <h1 class="figure-title">Las cuatro fronteras vivas · trabajos abiertos del campo</h1></div>
+    <div class="figure-eyebrow">Figura G44</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="horizon-axis">
+        <div class="axis-line"></div>
+        <div class="tick" style="left: 12%;">corto plazo · 2026-2027</div>
+        <div class="tick" style="left: 50%;">medio plazo · 2028-2030</div>
+        <div class="tick" style="left: 88%;">largo plazo · 2030+</div>
+      </div>
+
+      <div class="fronteras">
+
+        <div class="frontera f1">
+          <span class="num">01</span>
+          <h3 class="titulo">Cognición no-LLM</h3>
+          <p class="frase">simbólica · multimodal · híbrida</p>
+          <div class="que">
+            <strong>El trabajo abierto</strong>
+            Diseñar un agente que enrute entre cognición LLM y cognición simbólica según la naturaleza del problema, sin que el desarrollador deba elegir adelantadamente.
+          </div>
+          <div class="que">
+            <strong>Por qué importa</strong>
+            La arquitectura debe sobrevivir el cambio si la concentración LLM se diluye.
+          </div>
+          <div class="horizon-tag">Medio-largo plazo</div>
+        </div>
+
+        <div class="frontera f2">
+          <span class="num">02</span>
+          <h3 class="titulo">Federación entre AgencyDomains</h3>
+          <p class="frase">A2A externa · economía abierta de agentes</p>
+          <div class="que">
+            <strong>El trabajo abierto</strong>
+            Protocolo de descubrimiento abierto + identidad criptográfica (DIDs, X.509) + modelo de confianza explícito + resolución semántica entre glosarios.
+          </div>
+          <div class="que">
+            <strong>Por qué importa</strong>
+            Sin federación, los AgencyDomains son islas. Con federación, son red — análogo a la web abierta de los noventa.
+          </div>
+          <div class="horizon-tag">Corto-medio plazo</div>
+        </div>
+
+        <div class="frontera f3">
+          <span class="num">03</span>
+          <h3 class="titulo">Mundo de carbono</h3>
+          <p class="frase">eslabón 11 · IoT · industrial · biológico</p>
+          <div class="que">
+            <strong>El trabajo abierto</strong>
+            Estándares de tools para mundo industrial (MCP industrial) + Trust Infrastructure especializada por vertical (IEC 61508, HIPAA, FDA) + cognición multimodal con datos físicos.
+          </div>
+          <div class="que">
+            <strong>Por qué importa</strong>
+            Donde vive la mayor parte del valor económico real. Próxima generación del campo.
+          </div>
+          <div class="horizon-tag">Medio-largo plazo</div>
+        </div>
+
+        <div class="frontera f4">
+          <span class="num">04</span>
+          <h3 class="titulo">Soberanía y ciudadanía agentiva</h3>
+          <p class="frase">AgentNation · Domain conseguido vs. asignado</p>
+          <div class="que">
+            <strong>El trabajo abierto</strong>
+            Modelo de identidad pública sostenida + modelo de admisión y consecución (ciudadanía vs. residencia) + economía agentiva (contratos, transacciones, disputas entre agentes).
+          </div>
+          <div class="que">
+            <strong>Por qué importa</strong>
+            Distinción ontológica: marketplace lista productos · AgentNation reconoce ciudadanos.
+          </div>
+          <div class="horizon-tag">Largo plazo · 5-10 años</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"Lo que sigue no es un cierre sino el reconocimiento de que esta especificación es punto de partida"</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

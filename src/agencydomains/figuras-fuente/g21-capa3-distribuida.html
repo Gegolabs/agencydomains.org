@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G19</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 24px;
+    width: 96%;
+    height: 100%;
+    align-content: start;
+  }
+
+  .agencydomain-frame {
+    border: 2.5px dashed var(--trust);
+    border-radius: 14px;
+    padding: 28px 30px 24px 30px;
+    background: linear-gradient(180deg, var(--trust-bg) 0%, var(--paper) 18%);
+    position: relative;
+  }
+  .ad-label {
+    position: absolute;
+    top: -14px; left: 28px;
+    background: var(--paper);
+    color: #3e2855;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 14px;
+    border: 1.5px solid var(--trust);
+  }
+  .ad-meta {
+    text-align: right;
+    font-size: 11px; color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+
+  /* Botler central */
+  .central-row {
+    display: flex; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .botler-central {
+    width: 60%;
+    border: 1.5px solid var(--capa-3);
+    border-radius: 10px;
+    background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 80%);
+    padding: 16px 22px;
+    text-align: left;
+  }
+  .botler-tag {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+  }
+  .botler-icon {
+    width: 36px; height: 36px;
+    background: var(--capa-3); color: var(--paper);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-weight: 700; font-size: 18px;
+  }
+  .botler-name {
+    font-family: var(--serif); font-size: 19px; font-weight: 700;
+  }
+  .botler-loc {
+    font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .botler-desc {
+    font-size: 12px; line-height: 1.5;
+  }
+  .botler-desc .pill {
+    display: inline-block; background: var(--paper); border: 1px solid var(--rule);
+    padding: 2px 9px; border-radius: 12px; margin: 2px 3px 2px 0; font-size: 11px;
+  }
+
+  /* Conector A2A interna */
+  .a2a-connector {
+    display: flex; flex-direction: column; align-items: center;
+    margin: -8px 0;
+  }
+  .a2a-line {
+    width: 2px; height: 28px; background: var(--ink-soft);
+  }
+  .a2a-label {
+    font-size: 11px; color: var(--ink-soft); font-style: italic;
+    margin: 4px 0;
+  }
+  .a2a-fan {
+    width: 80%; height: 30px;
+    border-top: 2px solid var(--ink-soft);
+    border-left: 2px solid var(--ink-soft);
+    border-right: 2px solid var(--ink-soft);
+    border-radius: 0;
+    position: relative;
+  }
+  .a2a-fan::before {
+    content: ""; position: absolute; left: 50%; top: -28px;
+    width: 2px; height: 28px; background: var(--ink-soft);
+    transform: translateX(-50%);
+  }
+
+  /* Botlers edge — fila horizontal */
+  .edges-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .botler-edge {
+    border: 1.5px solid var(--capa-3);
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: var(--paper);
+  }
+  .botler-edge .botler-tag { margin-bottom: 6px; }
+  .botler-edge .botler-icon { width: 30px; height: 30px; font-size: 15px; }
+  .botler-edge .botler-name { font-size: 15px; }
+  .botler-edge .botler-loc { font-size: 10px; }
+  .botler-edge .edge-comp {
+    font-size: 10.5px; line-height: 1.4; color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  .botler-edge .edge-comp strong { color: var(--ink); }
+
+  /* Notas explicativas */
+  .notes {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-top: 4px;
+  }
+  .note {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--rule-soft);
+    font-size: 12px; line-height: 1.5;
+  }
+  .note strong { font-family: var(--serif); }
+
+  .distinction {
+    display: flex; gap: 12px; align-items: stretch;
+  }
+  .distinction .vs-card {
+    flex: 1; padding: 10px 14px; border-radius: 6px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    font-size: 11px;
+  }
+  .distinction .vs-card strong { font-family: var(--serif); display: block; margin-bottom: 4px; }
+  .distinction .vs-card.this { background: var(--capa-3-bg); border-color: var(--capa-3); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 §1 · AgencyDomains</div>
+    <h1 class="figure-title">Capa 3 distribuida — Botler central + N Botlers edge</h1></div>
+    <div class="figure-eyebrow">Figura G19</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="agencydomain-frame">
+        <div class="ad-label">UN MISMO AgencyDomain · identidad única · log único · gobierno único</div>
+        <div class="ad-meta">Trust Infrastructure transversal · Régimen Trust uniforme entre central y edge</div>
+
+        <div class="central-row">
+          <div class="botler-central">
+            <div class="botler-tag">
+              <div class="botler-icon">B</div>
+              <div>
+                <div class="botler-name">Botler central</div>
+                <div class="botler-loc">cloud</div>
+              </div>
+            </div>
+            <div class="botler-desc">
+              <span class="pill">orquestación</span><span class="pill">planificación</span>
+              <span class="pill">reportería</span><span class="pill">decisiones globales</span>
+              <span class="pill">BD consolidada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="a2a-connector">
+          <div class="a2a-label">coordinación intra-AgencyDomain · vía el protocolo <code>A2A</code></div>
+          <div class="a2a-fan"></div>
+        </div>
+
+        <div class="edges-row">
+          <div class="botler-edge">
+            <div class="botler-tag">
+              <div class="botler-icon">b</div>
+              <div>
+                <div class="botler-name">Botler edge</div>
+                <div class="botler-loc">sitio 1</div>
+              </div>
+            </div>
+            <div class="edge-comp"><strong>BD local</strong> + cola hacia central · Botlets transaccionales · Capabilities edge</div>
+          </div>
+
+          <div class="botler-edge">
+            <div class="botler-tag">
+              <div class="botler-icon">b</div>
+              <div>
+                <div class="botler-name">Botler edge</div>
+                <div class="botler-loc">sitio 2</div>
+              </div>
+            </div>
+            <div class="edge-comp"><strong>BD local</strong> + cola hacia central · Botlets transaccionales · Capabilities edge</div>
+          </div>
+
+          <div class="botler-edge">
+            <div class="botler-tag">
+              <div class="botler-icon">b</div>
+              <div>
+                <div class="botler-name">Botler edge</div>
+                <div class="botler-loc">sitio 3</div>
+              </div>
+            </div>
+            <div class="edge-comp"><strong>BD local</strong> + cola hacia central · Botlets transaccionales · Capabilities edge</div>
+          </div>
+
+          <div class="botler-edge">
+            <div class="botler-tag">
+              <div class="botler-icon">b</div>
+              <div>
+                <div class="botler-name">Botler edge</div>
+                <div class="botler-loc">sitio N</div>
+              </div>
+            </div>
+            <div class="edge-comp"><strong>BD local</strong> + cola hacia central · Botlets transaccionales · Capabilities edge</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="note"><strong>Modo offline emerge como propiedad estructural.</strong> Cuando los Botlets edge son senior, el sitio físico opera contra BD local + Capabilities edge-resident sin red. La cola hacia central acumula; al volver la red, drena.</div>
+        <div class="note"><strong>No es federación.</strong> Los Botlers cooperan dentro del mismo AgencyDomain con identidad única, log único y régimen Trust uniforme. La coordinación intra-AgencyDomain opera entre Botlers vía el protocolo <code>A2A</code>; la federación —relación <code>A2A</code> entre AgencyDomains— opera entre AgencyDomains distintos.</div>
+      </div>
+
+      <div class="distinction">
+        <div class="vs-card"><strong>Cluster</strong>Instancias del MISMO AgencyDomain compartiendo carga · intercambiables</div>
+        <div class="vs-card this"><strong>Capa 3 distribuida</strong>UN AgencyDomain con Capa 3 dividida en central + edge · cada edge es responsable de un sitio</div>
+        <div class="vs-card"><strong>Federación</strong>Comunicación entre AgencyDomains DISTINTOS · relación <code>A2A</code> entre AgencyDomains</div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Patrón canónico para presencia física múltiple — gastronomía · retail · logística · salud · banca · industria</span><span>AgencyDomains · v0.2</span></footer>
+</div></body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G34</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto 1fr auto; gap: 18px; width: 100%; height: 100%; }
+  .quad { display: grid; grid-template-columns: 60px 1fr 1fr; grid-template-rows: 60px 1fr 1fr; gap: 6px; }
+  .axis-y { grid-row: 2 / 4; grid-column: 1; writing-mode: vertical-rl; transform: rotate(180deg); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+  .axis-x { grid-row: 1; grid-column: 2 / 4; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .cell {
+    padding: 18px; border-radius: 8px; display: flex; flex-direction: column; gap: 8px;
+    border: 2px solid;
+  }
+  .cell h3 { margin: 0; font-family: var(--serif); font-size: 18px; }
+  .cell .tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .cell .desc { font-size: 12px; line-height: 1.45; }
+  .cell .actores { font-size: 11px; padding: 8px; background: rgba(255,255,255,0.6); border-radius: 4px; line-height: 1.4; margin-top: auto; }
+  .cell .actores strong { font-family: var(--serif); display: block; margin-bottom: 2px; font-size: 11px; }
+
+  .q1 { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .q2 { background: var(--capa-1-bg); border-color: var(--capa-1); }
+  .q3 { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .q4 { background: var(--capa-4-bg); border-color: var(--capa-4); }
+
+  .madurez { display: flex; gap: 4px; }
+  .dot-mad { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-mad.on { background: var(--ink); }
+  .dot-mad.off { background: var(--rule); }
+
+  .info-bar { background: var(--ink); color: var(--paper); padding: 14px 24px; border-radius: 6px; font-size: 13px; line-height: 1.5; font-style: italic; text-align: center; }
+  .info-bar strong { font-style: normal; font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §3 · Mundo de carbono</div>
+    <h1 class="figure-title">Eslabón 11 · cuatro sub-categorías por madurez × regulación</h1></div>
+    <div class="figure-eyebrow">Figura G34</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="quad">
+        <div></div>
+        <div class="axis-x">Regulación →</div>
+        <div></div>
+
+        <div class="axis-y">← Madurez del mercado →</div>
+
+        <div class="cell q1">
+          <span class="tag">Alta madurez · Baja regulación</span>
+          <h3>Sistemas empresariales tradicionales</h3>
+          <div class="madurez">
+            <span class="dot-mad on"></span><span class="dot-mad on"></span><span class="dot-mad on"></span><span class="dot-mad off"></span>
+          </div>
+          <div class="desc">ERPs · CRMs · DBMS · sistemas de RRHH y financieros legacy. Digitales pero institucionales.</div>
+          <div class="actores"><strong>Actores</strong>Salesforce · SAP · Oracle · Workato · Zapier (mayormente agentic, no autónomo)</div>
+        </div>
+
+        <div class="cell q2">
+          <span class="tag">Media madurez · Media regulación</span>
+          <h3>Mundo móvil · transporte y logística</h3>
+          <div class="madurez">
+            <span class="dot-mad on"></span><span class="dot-mad on"></span><span class="dot-mad off"></span><span class="dot-mad off"></span>
+          </div>
+          <div class="desc">Vehículos conectados, flotas, drones, agricultura de precisión. Conectividad intermitente, coordinación geográfica.</div>
+          <div class="actores"><strong>Actores</strong>Amazon Logistics · Tesla · Deere · proveedores de fleet management</div>
+        </div>
+
+        <div class="cell q3">
+          <span class="tag">Baja-media madurez · Alta regulación</span>
+          <h3>Mundo industrial · manufactura y energía</h3>
+          <div class="madurez">
+            <span class="dot-mad on"></span><span class="dot-mad off"></span><span class="dot-mad off"></span><span class="dot-mad off"></span>
+          </div>
+          <div class="desc">SCADA · MES · PLCs · sensores · robots de línea · turbinas · redes eléctricas. Procesos físicos irreversibles.</div>
+          <div class="actores"><strong>Actores</strong>Siemens (Mindsphere) · GE (Predix) · PTC (ThingWorx) · Aveva</div>
+        </div>
+
+        <div class="cell q4">
+          <span class="tag">Baja madurez · Muy alta regulación</span>
+          <h3>Mundo biológico</h3>
+          <div class="madurez">
+            <span class="dot-mad on"></span><span class="dot-mad off"></span><span class="dot-mad off"></span><span class="dot-mad off"></span>
+          </div>
+          <div class="desc">Datos genómicos · monitoreo médico continuo · registros médicos · farmacovigilancia. Consecuencia humana directa.</div>
+          <div class="actores"><strong>Actores</strong>Tempus · Flatiron · Veeva — actores especializados por sub-vertical (HIPAA · FDA)</div>
+        </div>
+
+      </div>
+
+      <div class="info-bar">
+        En el mundo de carbono, el filtro para entrar al mercado <strong>no es el agente más capaz — es el agente con Trust Infrastructure certificable</strong>. La conformidad es prerrequisito; la capacidad es diferenciador secundario.
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Donde vive la mayor parte del valor económico — frontera próxima década</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

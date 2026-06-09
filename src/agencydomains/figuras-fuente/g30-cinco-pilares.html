@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G25</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 480px 1fr; gap: 56px; align-items: center; width: 100%; }
+
+  .penta { position: relative; width: 480px; height: 480px; }
+  .penta svg { width: 100%; height: 100%; }
+  .pillar-label {
+    position: absolute; transform: translate(-50%, -50%);
+    background: var(--paper); border: 2px solid; border-radius: 50px; padding: 8px 16px;
+    font-family: var(--serif); font-weight: 700; font-size: 14px; text-align: center;
+  }
+  .p-gob { border-color: var(--p-gob); color: var(--p-gob); }
+  .p-aud { border-color: var(--p-aud); color: var(--p-aud); }
+  .p-val { border-color: var(--p-val); color: var(--p-val); }
+  .p-res { border-color: var(--p-res); color: var(--p-res); }
+  .p-tra { border-color: var(--p-tra); color: var(--p-tra); }
+
+  .center-trust {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: var(--trust); color: var(--paper); border-radius: 50%;
+    width: 130px; height: 130px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 14px; font-weight: 700; text-align: center;
+    padding: 12px; line-height: 1.2;
+  }
+
+  .pilares-list { display: flex; flex-direction: column; gap: 12px; }
+  .pilar-row {
+    display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center;
+    padding: 14px 18px; border-radius: 6px; background: var(--paper);
+    border-left: 5px solid;
+  }
+  .pilar-row.gob { border-color: var(--p-gob); }
+  .pilar-row.aud { border-color: var(--p-aud); }
+  .pilar-row.val { border-color: var(--p-val); }
+  .pilar-row.res { border-color: var(--p-res); }
+  .pilar-row.tra { border-color: var(--p-tra); }
+  .pilar-row .nombre { font-family: var(--serif); font-weight: 700; font-size: 16px; }
+  .pilar-row .preg { font-style: italic; font-size: 13px; color: var(--ink); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · §4 · Trust Infrastructure</div>
+    <h1 class="figure-title">Los cinco pilares · y la pregunta que cada uno responde</h1></div>
+    <div class="figure-eyebrow">Figura G25</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="penta">
+        <svg viewBox="0 0 100 100">
+          <!-- pentagon outline connecting the 5 vertices -->
+          <polygon points="50,10 90,40 75,85 25,85 10,40"
+                   fill="none" stroke="#d4cfc4" stroke-width="0.6" stroke-dasharray="2,2"/>
+          <!-- lines from center to each vertex -->
+          <line x1="50" y1="50" x2="50" y2="10" stroke="#d4cfc4" stroke-width="0.4"/>
+          <line x1="50" y1="50" x2="90" y2="40" stroke="#d4cfc4" stroke-width="0.4"/>
+          <line x1="50" y1="50" x2="75" y2="85" stroke="#d4cfc4" stroke-width="0.4"/>
+          <line x1="50" y1="50" x2="25" y2="85" stroke="#d4cfc4" stroke-width="0.4"/>
+          <line x1="50" y1="50" x2="10" y2="40" stroke="#d4cfc4" stroke-width="0.4"/>
+        </svg>
+
+        <div class="pillar-label p-gob" style="left: 50%; top: 10%;">Gobernanza</div>
+        <div class="pillar-label p-aud" style="left: 90%; top: 40%;">Auditoría</div>
+        <div class="pillar-label p-val" style="left: 75%; top: 85%;">Validación</div>
+        <div class="pillar-label p-res" style="left: 25%; top: 85%;">Resiliencia</div>
+        <div class="pillar-label p-tra" style="left: 10%; top: 40%;">Transparencia</div>
+
+        <div class="center-trust">Trust<br>Infrastructure</div>
+      </div>
+
+      <div class="pilares-list">
+        <div class="pilar-row gob">
+          <span class="nombre">1 · Gobernanza</span>
+          <span class="preg">¿quién decide qué puede hacer el agente, bajo qué condiciones?</span>
+        </div>
+        <div class="pilar-row aud">
+          <span class="nombre">2 · Auditoría</span>
+          <span class="preg">¿qué hizo el agente, cuándo, por qué, sobre qué datos?</span>
+        </div>
+        <div class="pilar-row val">
+          <span class="nombre">3 · Validación</span>
+          <span class="preg">¿es correcto lo que el agente está a punto de hacer (o decir)?</span>
+        </div>
+        <div class="pilar-row res">
+          <span class="nombre">4 · Resiliencia</span>
+          <span class="preg">¿qué pasa cuando algo sale mal — el sistema sigue o se detiene?</span>
+        </div>
+        <div class="pilar-row tra">
+          <span class="nombre">5 · Transparencia</span>
+          <span class="preg">¿cómo lo entiende un humano si necesita intervenir?</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"La gobernanza no es lo que se agrega después de que el agente funciona — es lo que separa pilotos de producción"</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

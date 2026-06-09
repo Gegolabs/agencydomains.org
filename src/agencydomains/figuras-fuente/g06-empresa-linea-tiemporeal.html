@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G6</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 28px; width: 100%; height: 100%; }
+  .timeline { position: relative; padding: 50px 0 30px; }
+  .axis {
+    height: 4px; background: linear-gradient(90deg, var(--capa-2) 0%, var(--capa-2) 48%, var(--ink) 48%, var(--ink) 52%, var(--capa-3) 52%, var(--capa-3) 100%);
+    border-radius: 2px;
+  }
+  .salto {
+    position: absolute; left: 50%; top: 30px; transform: translateX(-50%);
+    background: var(--ink); color: var(--paper); padding: 8px 16px;
+    font-family: var(--serif); font-size: 14px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .salto::after {
+    content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent;
+    border-top: 8px solid var(--ink);
+  }
+
+  .lados { display: grid; grid-template-columns: 1fr 1fr; gap: 0; flex: 1; }
+  .lado { padding: 26px 36px; }
+  .lado.l { background: var(--capa-2-bg); border-right: 2px solid var(--ink); }
+  .lado.r { background: var(--capa-3-bg); }
+  .lado h3 { font-family: var(--serif); font-size: 24px; margin: 0 0 4px; }
+  .lado .frase { font-style: italic; color: var(--ink-soft); margin: 0 0 16px; font-size: 14px; }
+  .lado .props { display: flex; flex-direction: column; gap: 8px; }
+  .lado .prop {
+    background: var(--paper); padding: 10px 14px; border-radius: 4px;
+    font-size: 13px; line-height: 1.4;
+  }
+  .lado .prop strong { font-family: var(--serif); display: block; font-size: 13px; margin-bottom: 2px; }
+
+  .nota {
+    background: var(--ink); color: var(--paper); padding: 14px 24px;
+    font-style: italic; text-align: center; border-radius: 6px; font-size: 14px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 2 · §4</div>
+    <h1 class="figure-title">Empresa en línea → empresa en tiempo real · el Salto Cuántico</h1></div>
+    <div class="figure-eyebrow">Figura G6</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="timeline">
+        <div class="salto">El Salto Cuántico</div>
+        <div class="axis"></div>
+      </div>
+
+      <div class="lados">
+        <div class="lado l">
+          <h3>Empresa en línea</h3>
+          <p class="frase">datos al día — pero el humano cierra el lazo</p>
+          <div class="props">
+            <div class="prop"><strong>Datos</strong>actualizados, dashboards al segundo</div>
+            <div class="prop"><strong>Decisiones</strong>las toma un humano que mira el reporte</div>
+            <div class="prop"><strong>Capacidad analítica</strong>limitada por menú pre-construido</div>
+            <div class="prop"><strong>Respuesta a una pregunta nueva</strong>4 a 12 semanas (proyecto BI)</div>
+            <div class="prop"><strong>Cuello de botella</strong>la atención humana</div>
+            <div class="prop"><strong>Habilidad valiosa</strong>operar dashboards</div>
+          </div>
+        </div>
+
+        <div class="lado r">
+          <h3>Empresa en tiempo real</h3>
+          <p class="frase">detecta · interpreta · decide · actúa — continuamente</p>
+          <div class="props">
+            <div class="prop"><strong>Datos</strong>capa semántica accionable por agentes</div>
+            <div class="prop"><strong>Decisiones</strong>las toma el agente; humano gobierna</div>
+            <div class="prop"><strong>Capacidad analítica</strong>elástica — cualquier pregunta sobre datos disponibles</div>
+            <div class="prop"><strong>Respuesta a una pregunta nueva</strong>5 a 60 segundos (conversación)</div>
+            <div class="prop"><strong>Cuello de botella</strong>cualquiera, menos la atención humana</div>
+            <div class="prop"><strong>Habilidad valiosa</strong>dirigir agentes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nota">
+        No es la versión más rápida del modelo anterior — es <strong>otra cosa</strong>. La diferencia no es de velocidad, es de modelo operativo.
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>La organización transita gradualmente — no hay big bang</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

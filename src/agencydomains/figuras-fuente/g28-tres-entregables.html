@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G48</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto auto; gap: 30px; width: 100%; height: 100%; align-content: center; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: stretch; }
+
+  .card { border-radius: 12px; border: 2px solid; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; min-height: 560px; }
+  .card.cap { border-color: var(--capa-2); background: var(--capa-2-bg); }
+  .card.con { border-color: var(--capa-4); background: var(--capa-4-bg); }
+  .card.pla { border-color: var(--capa-1); background: var(--capa-1-bg); }
+
+  .card-head { display: flex; flex-direction: column; gap: 5px; }
+  .card-layer { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; }
+  .card.cap .card-layer { color: var(--capa-2); }
+  .card.con .card-layer { color: var(--capa-4); }
+  .card.pla .card-layer { color: var(--capa-1); }
+  .card-name { font-family: var(--serif); font-size: 28px; font-weight: 700; line-height: 1; }
+  .card.cap .card-name { color: #243d63; }
+  .card.con .card-name { color: #4a1a1a; }
+  .card.pla .card-name { color: #6b3a1f; }
+
+  .card-def { font-size: 13.5px; line-height: 1.5; }
+  .card.cap .card-def { color: #243d63; }
+  .card.con .card-def { color: #4a1a1a; }
+  .card.pla .card-def { color: #6b3a1f; }
+  .card-def strong { font-weight: 700; }
+
+  /* Esquema de pasos */
+  .esquema { background: var(--paper); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .esquema .esq-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); font-weight: 700; }
+  .steps { display: flex; flex-wrap: wrap; gap: 6px; }
+  .step { font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 4px; border: 1px solid; white-space: nowrap; }
+  .card.cap .step { border-color: var(--capa-2); color: #243d63; background: var(--capa-2-bg); }
+  .card.con .step { border-color: var(--capa-4); color: #4a1a1a; background: var(--capa-4-bg); }
+  .card.pla .step { border-color: var(--capa-1); color: #6b3a1f; background: var(--capa-1-bg); }
+
+  /* sub-unidad feature dentro de Capability */
+  .feature {
+    border: 1.5px dashed var(--capa-2); border-radius: 8px; padding: 11px 14px; background: rgba(255,255,255,0.6);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .feature .f-tag { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--capa-2); font-weight: 700; }
+  .feature .f-name { font-family: var(--mono); font-size: 13px; color: #243d63; }
+  .feature .f-desc { font-size: 11.5px; line-height: 1.4; color: #243d63; opacity: 0.85; }
+
+  /* nota burdeos */
+  .nota {
+    font-size: 11.5px; line-height: 1.45; padding: 9px 12px; border-radius: 4px; border-left: 3px solid var(--capa-4);
+    background: var(--paper); color: #4a1a1a; margin-top: auto;
+  }
+  .nota code { font-family: var(--mono); font-size: 11px; }
+
+  .spacer { margin-top: auto; }
+
+  /* Pie */
+  .pie {
+    background: var(--ink); color: var(--paper); border-radius: 8px; padding: 16px 26px;
+    font-family: var(--serif); font-size: 15px; text-align: center; line-height: 1.5;
+  }
+  .pie code { font-family: var(--mono); font-size: 14px; color: #9fb6dc; background: rgba(255,255,255,0.08); padding: 1px 7px; border-radius: 3px; }
+  .pie strong { font-weight: 700; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §3 · Capabilities</div>
+    <h1 class="figure-title">Tres entregables por capa — Capability · Conector · Plantilla</h1></div>
+    <div class="figure-eyebrow">Figura G48 · Tres entregables por capa</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="cards">
+
+        <div class="card cap">
+          <div class="card-head">
+            <span class="card-layer">Capa 2 · Cognición</span>
+            <span class="card-name">Capability</span>
+          </div>
+          <div class="card-def">
+            Saber-hacer <strong>cognitivo</strong>: interpretativo, decisional. El núcleo que piensa.
+          </div>
+          <div class="feature">
+            <span class="f-tag">sub-unidad</span>
+            <span class="f-name">feature</span>
+            <span class="f-desc">Operación interna de la Capability — una pieza de su saber-hacer.</span>
+          </div>
+          <div class="esquema spacer">
+            <span class="esq-label">Esquema · Wingtraining</span>
+            <div class="steps">
+              <span class="step">workshop SME</span>
+              <span class="step">creación</span>
+              <span class="step">personalización</span>
+              <span class="step">ALFA</span>
+              <span class="step">BETA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card con">
+          <div class="card-head">
+            <span class="card-layer">Capa 4 · Acceso</span>
+            <span class="card-name">Conector</span>
+          </div>
+          <div class="card-def">
+            Saber <strong>acceder</strong> a sistemas fuente. Mecánico, <strong>no cognitivo</strong>: tiende el puente al mundo.
+          </div>
+          <div class="esquema">
+            <span class="esq-label">Esquema · Integración</span>
+            <div class="steps">
+              <span class="step">relevar</span>
+              <span class="step">configurar</span>
+              <span class="step">probar</span>
+              <span class="step">certificar</span>
+            </div>
+          </div>
+          <div class="nota">
+            Reemplaza la noción de <code>"API convertida en Capability"</code>.
+          </div>
+        </div>
+
+        <div class="card pla">
+          <div class="card-head">
+            <span class="card-layer">Capa 1 · Interacción</span>
+            <span class="card-name">Plantilla</span>
+          </div>
+          <div class="card-def">
+            Confección de un <strong>instrumento canónico</strong> (reporte / dashboard) en un formato o regla específico.
+          </div>
+          <div class="esquema spacer">
+            <span class="esq-label">Esquema · Confección</span>
+            <div class="steps">
+              <span class="step">relevar expectativa</span>
+              <span class="step">confeccionar</span>
+              <span class="step">validar</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pie">
+        <code>Capability</code> se reserva al saber-hacer <strong>cognitivo</strong> de <strong>Capa 2</strong>.
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"Acceder no es pensar; confeccionar no es pensar. Capability nombra solo a lo cognitivo."</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

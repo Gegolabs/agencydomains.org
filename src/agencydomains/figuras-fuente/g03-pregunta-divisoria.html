@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G3</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; }
+  .nodo {
+    background: var(--paper); border: 2px solid var(--ink);
+    border-radius: 12px; padding: 22px 32px;
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    text-align: center; min-width: 360px;
+  }
+  .nodo.pregunta { background: var(--ink); color: var(--paper); border-color: var(--ink); font-style: italic; }
+  .ramas { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; width: 90%; }
+  .rama { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .respuesta { font-family: var(--serif); font-size: 28px; font-weight: 700; padding: 10px 28px; border-radius: 50px; }
+  .si  { background: var(--capa-2-bg); color: var(--capa-2); border: 2px solid var(--capa-2); }
+  .no  { background: var(--capa-4-bg); color: var(--capa-4); border: 2px solid var(--capa-4); }
+  .consecuencia { background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 20px; width: 100%; font-size: 14px; line-height: 1.55; }
+  .consecuencia h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 17px; }
+  .consecuencia ul { margin: 0; padding-left: 18px; }
+  .consecuencia li { margin-bottom: 4px; color: var(--ink-soft); }
+  .arrow { width: 2px; height: 32px; background: var(--ink); position: relative; }
+  .arrow::after { content: ''; position: absolute; bottom: -1px; left: -5px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--ink); }
+  .si-rama .consecuencia { border-left: 4px solid var(--capa-2); }
+  .no-rama .consecuencia { border-left: 4px solid var(--capa-4); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 1 · La Línea Nadella</div>
+    <h1 class="figure-title">La pregunta divisoria — flujo de consecuencias</h1></div>
+    <div class="figure-eyebrow">Figura G3</div>
+  </header>
+  <div class="figure-body">
+    <div class="flow">
+      <div class="nodo pregunta">¿el humano abre aplicaciones para hacer su trabajo?</div>
+      <div class="ramas">
+        <div class="rama si-rama">
+          <div class="respuesta si">SÍ</div>
+          <div class="arrow"></div>
+          <div class="consecuencia">
+            <h3>Mundo Agéntico — copilotos embebidos</h3>
+            <ul>
+              <li>La aplicación es sustrato; la IA es ornamento</li>
+              <li>Habilidad valiosa: <em>operar aplicaciones</em></li>
+              <li>Stack: GUIs persistentes + copiloto por aplicación</li>
+              <li>Inversión: extender lo existente</li>
+              <li>Gobernanza: permisos clásicos, IAM tradicional</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rama no-rama">
+          <div class="respuesta no">NO</div>
+          <div class="arrow"></div>
+          <div class="consecuencia">
+            <h3>Mundo Agentivo — agentes como interfaz</h3>
+            <ul>
+              <li>Las aplicaciones son backend invisible</li>
+              <li>Habilidad valiosa: <em>dirigir agentes</em></li>
+              <li>Stack: 4 capas + Trust Infrastructure transversal</li>
+              <li>Inversión: arquitectura agentiva nativa</li>
+              <li>Gobernanza: autonomía gobernada, CRUDLEX, append-only log</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Cada decisión de stack a 3-5 años es respuesta implícita a esta pregunta</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

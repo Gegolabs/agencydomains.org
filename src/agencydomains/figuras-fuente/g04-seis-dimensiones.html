@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G4</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 480px 1fr; gap: 64px; align-items: center; width: 100%; }
+  .hex { position: relative; width: 480px; height: 480px; }
+  .hex svg { width: 100%; height: 100%; }
+  .hex-label { position: absolute; transform: translate(-50%, -50%); font-family: var(--serif); font-weight: 600; font-size: 13px; text-align: center; color: var(--ink); background: var(--paper); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--rule); }
+
+  .cmp { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 12px; font-size: 12px; }
+  .cmp .h { font-weight: 700; padding: 10px 12px; background: var(--bg); border-radius: 4px; }
+  .cmp .dim { font-family: var(--serif); font-weight: 600; padding: 10px 12px; }
+  .cmp .a { background: var(--capa-2-bg); padding: 10px 12px; border-radius: 4px; }
+  .cmp .b { background: var(--capa-4-bg); padding: 10px 12px; border-radius: 4px; }
+
+  .warning {
+    background: var(--ink); color: var(--paper); padding: 14px; border-radius: 6px;
+    font-size: 13px; line-height: 1.5; margin-top: 16px; font-style: italic;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 2 · El Mundo Agentivo</div>
+    <h1 class="figure-title">Las seis dimensiones del cruce</h1></div>
+    <div class="figure-eyebrow">Figura G4</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="hex">
+        <svg viewBox="0 0 100 100">
+          <!-- Hexágono antes del cruce (azul, más pequeño) -->
+          <polygon points="50,18 78,33 78,67 50,82 22,67 22,33"
+                   fill="rgba(74,111,165,0.18)" stroke="#4a6fa5" stroke-width="0.6" stroke-dasharray="2,1"/>
+          <!-- Hexágono después del cruce (burdeos, más grande) -->
+          <polygon points="50,8 86,28 86,72 50,92 14,72 14,28"
+                   fill="rgba(139,58,58,0.10)" stroke="#8b3a3a" stroke-width="0.8"/>
+          <!-- Centro -->
+          <circle cx="50" cy="50" r="2" fill="#1a1a1a"/>
+        </svg>
+
+        <div class="hex-label" style="left: 50%; top: 4%;">Interfaz</div>
+        <div class="hex-label" style="left: 92%; top: 25%;">Datos</div>
+        <div class="hex-label" style="left: 92%; top: 75%;">Roles humanos</div>
+        <div class="hex-label" style="left: 50%; top: 96%;">Economía info.</div>
+        <div class="hex-label" style="left: 8%; top: 75%;">Gobernanza</div>
+        <div class="hex-label" style="left: 8%; top: 25%;">Modelo operativo</div>
+
+        <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); background: var(--paper); padding: 4px 10px; font-size: 11px; border-radius: 4px; border: 1px solid var(--rule); color: var(--ink-soft);">cruce</div>
+      </div>
+
+      <div>
+        <div class="cmp">
+          <div class="h">Dimensión</div>
+          <div class="h" style="background: var(--capa-2-bg);">Antes del cruce</div>
+          <div class="h" style="background: var(--capa-4-bg);">Después del cruce</div>
+
+          <div class="dim">Interfaz</div>
+          <div class="a">aplicaciones (GUIs, menús)</div>
+          <div class="b">conversación con agentes</div>
+
+          <div class="dim">Datos</div>
+          <div class="a">DW · calidad = limpieza</div>
+          <div class="b">capa semántica · calidad = accionabilidad</div>
+
+          <div class="dim">Roles humanos</div>
+          <div class="a">consumidores de información</div>
+          <div class="b">diseñadores y supervisores de agentes</div>
+
+          <div class="dim">Economía de la info.</div>
+          <div class="a">cada pregunta = proyecto (semanas)</div>
+          <div class="b">cada pregunta = conversación (segundos)</div>
+
+          <div class="dim">Gobernanza</div>
+          <div class="a">¿quién puede ver qué?</div>
+          <div class="b">¿qué puede hacer un agente?</div>
+
+          <div class="dim">Modelo operativo</div>
+          <div class="a">centros de competencia</div>
+          <div class="b">fábricas de agentes</div>
+        </div>
+
+        <div class="warning">
+          Avanzar en una sola dimensión sin las demás produce <strong>pilotos exitosos pero no transformación real</strong>. El cruce es sistémico o no es.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Las 6 dimensiones cambian simultáneamente — no aisladamente</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G49</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 28px;
+    width: 96%;
+    align-content: center;
+  }
+
+  /* Tabla de 3 columnas: Capa | Tipo | Nombre propio */
+  .tabla { display: grid; gap: 14px; }
+  .thead, .trow {
+    display: grid;
+    grid-template-columns: 240px 1fr 340px;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .thead .th {
+    font-family: var(--sans); font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft);
+    padding: 0 20px;
+  }
+
+  .cell {
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex; flex-direction: column; gap: 6px;
+    background: var(--paper);
+  }
+
+  /* Columna capa */
+  .c-capa {
+    border: 1.5px solid; border-left-width: 6px;
+    justify-content: center;
+  }
+  .c-capa .capa-tag {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    font-weight: 700; opacity: 0.8;
+  }
+  .c-capa .capa-q { font-family: var(--serif); font-size: 19px; font-weight: 700; }
+
+  .r-plat .c-capa { border-color: var(--trust);  background: var(--trust-bg);  color: #3e2855; }
+  .r-run  .c-capa { border-color: var(--capa-3); background: var(--capa-3-bg); color: #354936; }
+  .r-comp .c-capa { border-color: var(--capa-3); background: var(--capa-3-bg); color: #354936; }
+
+  /* Columna tipo */
+  .c-tipo {
+    border: 1.5px solid var(--rule);
+    background: var(--rule-soft);
+    justify-content: center;
+  }
+  .c-tipo .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); font-weight: 700; }
+  .c-tipo .val { font-size: 14px; line-height: 1.45; color: var(--ink); }
+  .c-tipo .val .primitiva { font-family: var(--mono); font-weight: 700; color: var(--capa-3); }
+  .c-tipo .val em { font-style: italic; color: var(--ink-soft); }
+
+  /* Columna nombre propio */
+  .c-nom {
+    border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper);
+    align-items: flex-start; justify-content: center;
+  }
+  .c-nom.empty { background: var(--paper); border: 1.5px dashed var(--rule); color: var(--ink-soft); }
+  .c-nom .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; font-weight: 700; }
+  .c-nom .name { font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+  .c-nom .gloss { font-size: 12px; opacity: 0.8; line-height: 1.4; }
+  .c-nom.empty .name { color: var(--ink-soft); font-style: italic; }
+
+  /* Mensaje clave */
+  .key {
+    display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+    background: var(--paper); border: 1.5px solid var(--rule); border-radius: 10px;
+    padding: 20px 26px;
+  }
+  .key .msg { font-family: var(--serif); font-size: 17px; line-height: 1.5; }
+  .key .msg .tipo  { font-family: var(--mono); font-weight: 700; color: var(--capa-3); }
+  .key .msg .prop  { font-family: var(--mono); font-weight: 700; color: var(--trust); }
+  .key .bins { display: flex; gap: 16px; }
+  .bin {
+    border-radius: 8px; padding: 12px 16px; min-width: 168px;
+    border: 1.5px solid;
+  }
+  .bin .bin-h { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 6px; }
+  .bin .bin-i { font-family: var(--mono); font-size: 12px; line-height: 1.7; }
+  .bin.tipos { border-color: var(--capa-3); background: var(--capa-3-bg); color: #354936; }
+  .bin.props { border-color: var(--trust); background: var(--trust-bg); color: #3e2855; }
+
+  .nota {
+    font-size: 12px; color: var(--ink-soft); text-align: center; font-style: italic;
+  }
+  .nota .mono { font-family: var(--mono); font-style: normal; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 9 · Vergis</div>
+    <h1 class="figure-title">Vergis · Botler · Mira — tipo vs nombre propio</h1></div>
+    <div class="figure-eyebrow">Figura G49 · esquema</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="tabla">
+        <div class="thead">
+          <div class="th">¿Qué capa / rol?</div>
+          <div class="th">Tipo — categoría / primitiva canónica</div>
+          <div class="th">Nombre propio</div>
+        </div>
+
+        <div class="trow r-plat">
+          <div class="cell c-capa">
+            <span class="capa-tag">Plataforma</span>
+            <span class="capa-q">Meta-Cognitive Platform</span>
+          </div>
+          <div class="cell c-tipo">
+            <span class="lbl">Categoría</span>
+            <span class="val">Implementación de referencia de <em>AgencyDomains</em>.</span>
+          </div>
+          <div class="cell c-nom">
+            <span class="lbl">Instancia</span>
+            <span class="name">Vergis</span>
+            <span class="gloss">nombre propio de la plataforma</span>
+          </div>
+        </div>
+
+        <div class="trow r-run">
+          <div class="cell c-capa">
+            <span class="capa-tag">Capa 3 · Autonomía</span>
+            <span class="capa-q">Runtime de Capa 3</span>
+          </div>
+          <div class="cell c-tipo">
+            <span class="lbl">Primitiva canónica</span>
+            <span class="val"><span class="primitiva">Botler</span> — el tipo del runtime. Hay muchos Botlers.</span>
+          </div>
+          <div class="cell c-nom empty">
+            <span class="lbl">Instancia</span>
+            <span class="name">— genérico</span>
+            <span class="gloss">"el Botler"; sin nombre propio</span>
+          </div>
+        </div>
+
+        <div class="trow r-comp">
+          <div class="cell c-capa">
+            <span class="capa-tag">Catálogo</span>
+            <span class="capa-q">Componente platafórmico</span>
+          </div>
+          <div class="cell c-tipo">
+            <span class="lbl">Categoría</span>
+            <span class="val">proto-<span class="primitiva">Botlet</span> platafórmico · operación informativa.</span>
+          </div>
+          <div class="cell c-nom">
+            <span class="lbl">Instancia</span>
+            <span class="name">Mira</span>
+            <span class="gloss">nombre propio del componente</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="key">
+        <div class="msg">
+          <span class="tipo">Botler</span> es un <strong>tipo</strong> — como AgencyDomain, Botlet, Capability, Faceta.
+          <span class="prop">Vergis</span> y <span class="prop">Mira</span> son <strong>nombres propios</strong> de instancias.
+        </div>
+        <div class="bins">
+          <div class="bin tipos">
+            <div class="bin-h">Cajón de tipos</div>
+            <div class="bin-i">AgencyDomain<br>Botlet · Capability<br>Faceta · Botler</div>
+          </div>
+          <div class="bin props">
+            <div class="bin-h">Cajón de nombres propios</div>
+            <div class="bin-i">Vergis · Mira<br>soveria · agentia<br>ultrapro</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nota">
+        <span class="mono">Meta-Cognitive Platform</span> — no abreviar a <span class="mono">MCP</span> (tomado por Model Context Protocol).
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Botler es la primitiva; Vergis y Mira son instancias con nombre propio.</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

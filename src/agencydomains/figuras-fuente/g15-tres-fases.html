@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G14</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; width: 100%; height: 100%; }
+  .fase { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; border-top: 6px solid; }
+  .fase.f1 { background: var(--capa-1-bg); border-top-color: var(--capa-1); }
+  .fase.f2 { background: var(--capa-2-bg); border-top-color: var(--capa-2); }
+  .fase.f3 { background: var(--trust-bg);  border-top-color: var(--trust); }
+  .fase-num { font-family: var(--serif); font-size: 64px; font-weight: 700; line-height: 0.9; opacity: 0.4; }
+  .fase-titulo { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+  .fase-frase { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: -4px; }
+
+  .diagrama { background: var(--paper); padding: 20px; border-radius: 8px; min-height: 220px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .agente { background: var(--paper); border: 2px solid; border-radius: 6px; padding: 8px 12px; font-size: 11px; text-align: center; min-width: 80px; }
+  .a1 { border-color: var(--capa-1); }
+  .a2 { border-color: var(--capa-2); }
+  .a3 { border-color: var(--trust); }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; padding: 3px 10px; font-size: 11px; }
+
+  .estado-mercado {
+    margin-top: auto; padding: 10px; background: var(--paper);
+    border-radius: 4px; font-size: 11px; line-height: 1.4;
+    border-left: 3px solid var(--ink);
+  }
+  .estado-mercado strong { font-family: var(--serif); }
+
+  /* Diagramas internos por fase */
+  .diag-f1 { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: center; }
+  .diag-f2 { display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%; }
+  .diag-f2 .grupo { display: flex; gap: 8px; justify-content: center; }
+  .conex { width: 2px; height: 20px; background: var(--capa-2); }
+  .diag-f3 .core {
+    background: var(--trust); color: var(--paper); border: none; padding: 14px;
+    border-radius: 50%; min-width: 100px; min-height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-weight: 700; text-align: center; font-size: 12px;
+  }
+  .diag-f3 .ramas { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 12px; }
+  .rama-cap { font-size: 10px; padding: 2px 8px; background: var(--paper); border: 1px dashed var(--trust); border-radius: 12px; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 3 · §6</div>
+    <h1 class="figure-title">Las tres fases evolutivas de los agentes</h1></div>
+    <div class="figure-eyebrow">Figura G14</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="fase f1">
+        <div class="fase-num">01</div>
+        <div class="fase-titulo">Agentes especializados</div>
+        <div class="fase-frase">un agente por dominio</div>
+
+        <div class="diagrama">
+          <div class="diag-f1">
+            <div class="agente a1">Finanzas</div>
+            <div class="agente a1">Soporte</div>
+            <div class="agente a1">Operaciones</div>
+            <div class="agente a1">Ventas</div>
+          </div>
+        </div>
+
+        <div class="badges">
+          <span class="badge">alcance estrecho</span>
+          <span class="badge">riesgo contenido</span>
+          <span class="badge">caso de uso claro</span>
+        </div>
+
+        <div class="estado-mercado">
+          <strong>Estado del mercado:</strong> mayoría de los agentes en producción a inicios de 2026. Es la fase más fácil de gobernar — y la más adoptada hoy.
+        </div>
+      </div>
+
+      <div class="fase f2">
+        <div class="fase-num">02</div>
+        <div class="fase-titulo">Agentes orquestadores</div>
+        <div class="fase-frase">un agente coordina especialistas</div>
+
+        <div class="diagrama">
+          <div class="diag-f2">
+            <div class="agente a2" style="background: var(--capa-2); color: var(--paper);">Orquestador</div>
+            <div class="conex"></div>
+            <div class="grupo">
+              <div class="agente a2">Finanzas</div>
+              <div class="agente a2">Operaciones</div>
+              <div class="agente a2">Soporte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="badges">
+          <span class="badge">delegación dinámica</span>
+          <span class="badge">tareas cross-dominio</span>
+          <span class="badge">coordinación intra-AgencyDomain intensiva</span>
+        </div>
+
+        <div class="estado-mercado">
+          <strong>Estado del mercado:</strong> en transición — actores líderes la exploran. Exige Capa 3 robusta para colaboración entre especialistas.
+        </div>
+      </div>
+
+      <div class="fase f3">
+        <div class="fase-num">03</div>
+        <div class="fase-titulo">Agentes multiespecialistas</div>
+        <div class="fase-frase">expertise profundo multi-dominio en un solo agente</div>
+
+        <div class="diagrama">
+          <div class="diag-f3" style="text-align: center;">
+            <div class="core">Agente único<br>multi-Capability</div>
+            <div class="ramas">
+              <div class="rama-cap">Finance</div>
+              <div class="rama-cap">Legal</div>
+              <div class="rama-cap">Operations</div>
+              <div class="rama-cap">Sales</div>
+              <div class="rama-cap">HR</div>
+              <div class="rama-cap">+ verticales</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="badges">
+          <span class="badge">árbol amplio + profundo</span>
+          <span class="badge">cognición sofisticada</span>
+          <span class="badge">requiere madurez</span>
+        </div>
+
+        <div class="estado-mercado">
+          <strong>Estado del mercado:</strong> futuro — la industria todavía no ha alcanzado madurez de Capabilities y Pattern Recognition que esta fase exige.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>La arquitectura es la misma en las tres fases — sólo cambia la profundidad del árbol de Capabilities</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

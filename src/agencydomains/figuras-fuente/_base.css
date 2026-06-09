@@ -1,0 +1,171 @@
+/* ===================================================================
+   Sistema visual — Arquitectura Agentiva
+   v1.0 · Mayo 2026
+   ===================================================================
+   Familias canónicas de color:
+     - Capas (4 colores secuenciales que forman el stack agentivo)
+     - Pilares de Trust Infrastructure (5 acentos)
+     - Eslabones (gradiente de 11 pasos)
+   ================================================================ */
+
+:root {
+  /* Neutrales */
+  --bg:        #faf7f2;   /* cream — fondo de página de libro */
+  --paper:    #ffffff;
+  --ink:       #1a1a1a;
+  --ink-soft:  #4a4a4a;
+  --rule:      #d4cfc4;
+  --rule-soft: #ebe6dd;
+
+  /* Capas — gradiente cálido a frío descendente */
+  --capa-1:    #d4845a;   /* Interacción — terracota cálida (humano) */
+  --capa-2:    #4a6fa5;   /* Cognición — azul medio (cerebral)        */
+  --capa-3:    #6b8f6b;   /* Autonomía — verde sage (vida persistente)*/
+  --capa-4:    #8b3a3a;   /* Acceso — burdeos (acción sobre el mundo) */
+  --trust:     #6e4f8a;   /* Trust Infrastructure — púrpura transversal */
+
+  /* Tintes claros derivados */
+  --capa-1-bg: #f5e3d6;
+  --capa-2-bg: #d9e2ee;
+  --capa-3-bg: #dbe4d8;
+  --capa-4-bg: #ebd0d0;
+  --trust-bg:  #e2d8ec;
+
+  /* Pilares (5 acentos discriminables) */
+  --p-gob:    #c97050;   /* Gobernanza */
+  --p-aud:    #5a8b9c;   /* Auditoría */
+  --p-val:    #b88845;   /* Validación */
+  --p-res:    #7a9b76;   /* Resiliencia */
+  --p-tra:    #8a6caa;   /* Transparencia */
+
+  /* Tipografía */
+  --serif: "Iowan Old Style", "Palatino", "Georgia", serif;
+  --sans:  "Helvetica Neue", "Inter", "Arial", sans-serif;
+  --mono:  "SF Mono", "Menlo", "Consolas", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.figure {
+  width: 1600px;
+  height: 1000px;
+  background: var(--paper);
+  padding: 56px 72px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Marco (header + footer) oculto por defecto: las figuras se renderizan
+   "naked" para insertarse en el libro, donde la caption la pone el libro
+   mismo. Para conservar el marco — útil en artefactos presentadores —
+   añadir clase .framed a .figure. */
+.figure-header,
+.figure-footer { display: none; }
+
+.figure.framed .figure-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 14px;
+  margin-bottom: 32px;
+}
+
+.figure-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.figure-eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.figure.framed .figure-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 72px;
+  right: 72px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 12px;
+}
+
+.figure-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cajas de capas — usadas en varios diagramas */
+.capa-box {
+  border-radius: 8px;
+  padding: 18px 24px;
+  font-family: var(--sans);
+  border: 1.5px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.capa-box .capa-num {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.capa-box .capa-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.capa-box .capa-desc {
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.capa-1-box { background: var(--capa-1-bg); border-color: var(--capa-1); color: #6b3a1f; }
+.capa-2-box { background: var(--capa-2-bg); border-color: var(--capa-2); color: #243d63; }
+.capa-3-box { background: var(--capa-3-bg); border-color: var(--capa-3); color: #354936; }
+.capa-4-box { background: var(--capa-4-bg); border-color: var(--capa-4); color: #4a1a1a; }
+.trust-box  { background: var(--trust-bg);  border-color: var(--trust);  color: #3e2855; }
+
+/* Tipografía utilitaria */
+.serif { font-family: var(--serif); }
+.sans  { font-family: var(--sans); }
+.mono  { font-family: var(--mono); }
+.small { font-size: 12px; }
+.smallcaps { text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; }
+
+.muted { color: var(--ink-soft); }
+.emph  { font-style: italic; color: var(--ink); }
+
+hr.fine { border: 0; border-top: 1px solid var(--rule); margin: 16px 0; }

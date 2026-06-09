@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G29</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 360px; gap: 36px; width: 100%; height: 100%; }
+  .plot {
+    position: relative; background:
+      linear-gradient(0deg, var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 25%,
+      linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px) 0 0 / 9.09% 100%,
+      var(--paper);
+    border: 2px solid var(--ink); border-radius: 4px; padding: 0;
+  }
+  .plot .axes { position: absolute; inset: 0; }
+
+  .y-label { position: absolute; left: -54px; top: 50%; transform: rotate(-90deg) translateX(50%); transform-origin: right center; font-family: var(--sans); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .x-label { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); font-family: var(--sans); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .y-ticks { position: absolute; left: 8px; top: 0; height: 100%; display: flex; flex-direction: column-reverse; justify-content: space-between; padding: 8px 0; font-size: 11px; color: var(--ink-soft); }
+  .y-ticks span { padding-left: 4px; }
+
+  .x-ticks { position: absolute; left: 0; bottom: 4px; width: 100%; display: flex; justify-content: space-between; padding: 0 8px; font-size: 9px; color: var(--ink-soft); }
+  .x-ticks span { width: 9.09%; text-align: center; }
+
+  /* Cada actor: posición (x = eslabones cubiertos / 11, y = profundidad media / 4) */
+  .actor {
+    position: absolute; transform: translate(-50%, 50%);
+    background: var(--paper); border: 2px solid; padding: 4px 10px; border-radius: 50px;
+    font-size: 11px; font-family: var(--sans); white-space: nowrap;
+  }
+
+  /* Arquetipos */
+  .a-plataforma   { border-color: var(--capa-2); color: var(--capa-2); }
+  .a-vertical     { border-color: var(--capa-3); color: var(--capa-3); }
+  .a-infrastruct  { border-color: var(--trust);   color: var(--trust); }
+  .a-sustrato     { border-color: var(--capa-4); color: var(--capa-4); }
+
+  .legend {
+    display: flex; flex-direction: column; gap: 16px;
+    background: var(--bg); padding: 24px; border-radius: 8px;
+  }
+  .legend h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 18px; }
+  .legend-item { display: grid; grid-template-columns: 14px 1fr; gap: 10px; align-items: start; }
+  .legend-item .dot { width: 14px; height: 14px; border-radius: 50%; border: 3px solid; margin-top: 4px; }
+  .legend-item .body strong { font-size: 13px; display: block; }
+  .legend-item .body span { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
+  .legend-item.a-plataforma .dot  { border-color: var(--capa-2); }
+  .legend-item.a-vertical .dot    { border-color: var(--capa-3); }
+  .legend-item.a-infrastruct .dot { border-color: var(--trust); }
+  .legend-item.a-sustrato .dot    { border-color: var(--capa-4); }
+
+  .ventana {
+    position: absolute; left: 50%; top: 60%; width: 35%; height: 25%;
+    background: rgba(110, 79, 138, 0.12); border: 2px dashed var(--trust);
+    border-radius: 8px; pointer-events: none;
+  }
+  .ventana-label {
+    position: absolute; top: -22px; left: 8px;
+    background: var(--trust); color: var(--paper); font-size: 11px;
+    padding: 3px 10px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · Cadena de valor de IA</div>
+    <h1 class="figure-title">Espacio bidimensional · cobertura × profundidad</h1></div>
+    <div class="figure-eyebrow">Figura G29 · imagen-firma</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="plot">
+        <span class="y-label">Profundidad</span>
+        <div class="y-ticks">
+          <span>1 · Wrapper</span><span>2 · Plataforma</span><span>3 · Core</span><span>4 · Infraestructura</span>
+        </div>
+        <div class="x-ticks">
+          <span>1·Datos</span><span>2·Modelo</span><span>3·Acceso</span><span>4·Agentes</span><span>5·Xperts</span>
+          <span>6·Runtime</span><span>7·Firewall</span><span>8·Observ.</span><span>9·Herram.</span><span>10·Integr.</span><span>11·Entorno</span>
+        </div>
+        <span class="x-label">Cobertura · 11 eslabones</span>
+
+        <!-- Ventana temporal -->
+        <div class="ventana">
+          <div class="ventana-label">Ventana abierta · gateway empresarial</div>
+        </div>
+
+        <!-- Actores -->
+        <!-- Plataforma integral -->
+        <div class="actor a-plataforma" style="left: 32%; top: 30%;">OpenAI</div>
+        <div class="actor a-plataforma" style="left: 27%; top: 33%;">Anthropic</div>
+        <div class="actor a-plataforma" style="left: 30%; top: 38%;">Google</div>
+        <div class="actor a-plataforma" style="left: 18%; top: 28%;">Meta · Llama</div>
+
+        <!-- Especialistas verticales -->
+        <div class="actor a-vertical" style="left: 45%; top: 35%;">Cursor</div>
+        <div class="actor a-vertical" style="left: 47%; top: 42%;">Harvey</div>
+        <div class="actor a-vertical" style="left: 42%; top: 48%;">Jasper</div>
+        <div class="actor a-vertical" style="left: 49%; top: 55%;">Fin · Devin</div>
+        <div class="actor a-vertical" style="left: 44%; top: 62%;">umeeta</div>
+
+        <!-- Infraestructura de dominio -->
+        <div class="actor a-infrastruct" style="left: 78%; top: 38%;">ultraPRO</div>
+        <div class="actor a-infrastruct" style="left: 60%; top: 60%;">Lakera·Guardrails</div>
+        <div class="actor a-infrastruct" style="left: 73%; top: 55%;">Langfuse</div>
+        <div class="actor a-infrastruct" style="left: 86%; top: 65%;">Zapier·Make</div>
+
+        <!-- Proveedor de sustrato -->
+        <div class="actor a-sustrato" style="left: 18%; top: 12%;">NVIDIA</div>
+        <div class="actor a-sustrato" style="left: 14%; top: 8%;">AWS · GCP · Azure</div>
+      </div>
+
+      <aside class="legend">
+        <h3>Cuatro arquetipos</h3>
+
+        <div class="legend-item a-plataforma">
+          <span class="dot"></span>
+          <div class="body"><strong>Plataforma integral</strong>
+          <span>Cobertura amplia, Core en eslabón nativo, Plataforma en adyacentes</span></div>
+        </div>
+
+        <div class="legend-item a-vertical">
+          <span class="dot"></span>
+          <div class="body"><strong>Especialista vertical</strong>
+          <span>Cobertura focal, profundidad Core en su dominio</span></div>
+        </div>
+
+        <div class="legend-item a-infrastruct">
+          <span class="dot"></span>
+          <div class="body"><strong>Infraestructura de dominio</strong>
+          <span>Cobertura zonal en eslabones contiguos, Core transversal</span></div>
+        </div>
+
+        <div class="legend-item a-sustrato">
+          <span class="dot"></span>
+          <div class="body"><strong>Proveedor de sustrato</strong>
+          <span>Cobertura mínima, profundidad Infraestructura</span></div>
+        </div>
+
+        <div style="font-size: 12px; color: var(--ink-soft); margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--rule);">
+          La <strong>ventana temporal</strong> (eslabones 6-10 a profundidad Core) es donde la categoría del gateway empresarial se está abriendo, antes de que los gigantes lleguen.
+        </div>
+      </aside>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Mapa estratégico · estado del campo a mayo 2026</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

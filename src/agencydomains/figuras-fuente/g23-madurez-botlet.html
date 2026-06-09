@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G21</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 24px;
+    width: 96%;
+    height: 100%;
+    align-content: start;
+  }
+
+  .intro {
+    text-align: center;
+  }
+  .intro h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 4px 0; }
+  .intro .sub { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  /* Trayectoria — tres fases en grid horizontal */
+  .trayectoria {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .fase {
+    border-radius: 12px;
+    padding: 22px 22px 20px;
+    display: flex; flex-direction: column; gap: 12px;
+    border: 1.5px solid;
+  }
+  .fase.junior { background: linear-gradient(180deg, var(--capa-1-bg), var(--paper) 80%); border-color: var(--capa-1); }
+  .fase.aprendizaje { background: linear-gradient(180deg, var(--capa-2-bg), var(--paper) 80%); border-color: var(--capa-2); }
+  .fase.senior { background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 80%); border-color: var(--capa-3); }
+
+  .fase-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px;
+  }
+  .fase-name { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+  .fase-ratio {
+    font-family: var(--mono); font-size: 18px; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .fase.junior .fase-ratio { color: var(--capa-1); }
+  .fase.aprendizaje .fase-ratio { color: var(--capa-2); }
+  .fase.senior .fase-ratio { color: var(--capa-3); }
+
+  .fase-rate-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft); margin-top: -4px;
+  }
+
+  .fase-desc {
+    font-size: 12.5px; line-height: 1.5;
+  }
+  .fase-traits {
+    display: flex; flex-direction: column; gap: 4px;
+    font-size: 11.5px;
+  }
+  .fase-traits .trait {
+    padding: 4px 10px;
+    background: var(--paper); border-radius: 4px; border: 1px solid var(--rule-soft);
+  }
+
+  .fase-mode {
+    font-size: 11px; padding: 6px 10px;
+    background: var(--ink); color: var(--paper);
+    border-radius: 4px; text-align: center;
+  }
+
+  .fase-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 36px; color: var(--ink-soft);
+  }
+
+  /* Motor de la madurez */
+  .motor {
+    background: var(--trust-bg);
+    border: 1.5px dashed var(--trust);
+    border-radius: 8px;
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 18px;
+    color: #3e2855;
+  }
+  .motor-icon {
+    width: 44px; height: 44px;
+    background: var(--trust); color: var(--paper);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 22px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .motor-content { flex: 1; }
+  .motor-title { font-family: var(--serif); font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .motor-desc { font-size: 12px; line-height: 1.5; }
+
+  /* Implicaciones */
+  .impl {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-top: 4px;
+  }
+  .impl-card {
+    padding: 12px 16px;
+    background: var(--rule-soft); border-radius: 6px;
+    font-size: 11.5px; line-height: 1.5;
+  }
+  .impl-card strong { font-family: var(--serif); display: block; margin-bottom: 4px; font-size: 12.5px; color: var(--ink); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 §2 · Botlets</div>
+    <h1 class="figure-title">Madurez del Botlet — junior · en aprendizaje · senior</h1></div>
+    <div class="figure-eyebrow">Figura G21</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="intro">
+        <h2>Trayectoria de proporción del ciclo</h2>
+        <div class="sub">El ciclo 95/4/1 es el estado estacionario senior — no la proporción de cualquier Botlet en cualquier momento</div>
+      </div>
+
+      <div class="trayectoria">
+        <div class="fase junior">
+          <div class="fase-head">
+            <span class="fase-name">Junior</span>
+          </div>
+          <div>
+            <div class="fase-ratio">60 / 35 / 5</div>
+            <div class="fase-rate-label">ejecución · cambio · regeneración</div>
+          </div>
+          <div class="fase-desc">Recién generado. Conoce el ambiente solo en la versión observada al crearlo. Las variantes todavía no han pasado por él.</div>
+          <div class="fase-traits">
+            <div class="trait">Depende fuertemente de cognición</div>
+            <div class="trait">Sin red de seguridad explícita = no operable</div>
+            <div class="trait">Sin operación offline</div>
+          </div>
+          <div class="fase-mode">Cognición disponible · MUST</div>
+        </div>
+
+        <div class="fase-arrow">→</div>
+
+        <div class="fase aprendizaje">
+          <div class="fase-head">
+            <span class="fase-name">En aprendizaje</span>
+          </div>
+          <div>
+            <div class="fase-ratio">85 / 12 / 3</div>
+            <div class="fase-rate-label">ejecución · cambio · regeneración</div>
+          </div>
+          <div class="fase-desc">Ya pasó por las primeras invocaciones reales. Fue regenerado varias veces para incorporar variantes del ambiente.</div>
+          <div class="fase-traits">
+            <div class="trait">Opera con red intermitente</div>
+            <div class="trait">Asume responsabilidades operativas</div>
+            <div class="trait">Observación humana cercana</div>
+          </div>
+          <div class="fase-mode">Cognición regularmente disponible</div>
+        </div>
+
+        <div class="fase-arrow">→</div>
+
+        <div class="fase senior">
+          <div class="fase-head">
+            <span class="fase-name">Senior</span>
+          </div>
+          <div>
+            <div class="fase-ratio">99+ / &lt;1 / ~0</div>
+            <div class="fase-rate-label">ejecución · cambio · regeneración</div>
+          </div>
+          <div class="fase-desc">Ambiente conocido. Sus únicos modos de fallo son <strong>exógenos</strong> (energía, hardware, red catastrófica). No aprendizaje pendiente.</div>
+          <div class="fase-traits">
+            <div class="trait">Operable offline confiablemente</div>
+            <div class="trait">Sostiene sitios físicos sin red</div>
+            <div class="trait">Base estructural de Capa 3 distribuida</div>
+          </div>
+          <div class="fase-mode">Cognición opcional · operación autónoma</div>
+        </div>
+      </div>
+
+      <div class="motor">
+        <div class="motor-icon">↻</div>
+        <div class="motor-content">
+          <div class="motor-title">La garantía de fallback agéntico es lo que produce la madurez</div>
+          <div class="motor-desc">Cada fallo del Botlet por cambio de ambiente activa la cognición; cada activación regenera el Botlet incorporando la variante. Sin fallback agéntico, el Botlet quedaría atrapado en su versión inicial — <strong>no maduraría</strong>.</div>
+        </div>
+      </div>
+
+      <div class="impl">
+        <div class="impl-card">
+          <strong>Offline confiable es propiedad de senior</strong>
+          Pretender que un Botlet recién deployado opere offline viola la spec — todavía es junior, depende de cognición.
+        </div>
+        <div class="impl-card">
+          <strong>Continuidad operacional ≠ fallback</strong>
+          Continuidad opera sobre Botlets senior caídos por causa exógena. Fallback opera sobre cualquier fase con cognición disponible.
+        </div>
+        <div class="impl-card">
+          <strong>La madurez es trazable</strong>
+          El append-only log registra invocaciones, fallos y regeneraciones. La trayectoria junior → senior es auditable, no suposición.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Madurez emerge del uso — el Botlet aprende mientras opera, no se gradúa por decreto</span><span>AgencyDomains · v0.2</span></footer>
+</div></body></html>

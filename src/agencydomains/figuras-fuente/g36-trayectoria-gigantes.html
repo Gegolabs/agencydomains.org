@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G31</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 24px; width: 100%; height: 100%; }
+  .scene { position: relative; flex: 1; padding: 16px; background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; }
+  .esl-bar {
+    display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; margin-bottom: 28px;
+  }
+  .esl-bar .e {
+    padding: 10px 6px; text-align: center; border-top: 4px solid; border-radius: 0 0 4px 4px;
+    background: var(--bg);
+  }
+  .esl-bar .e .n { font-family: var(--serif); font-weight: 700; font-size: 14px; }
+  .esl-bar .e .nm { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+
+  .e1, .e2, .e3, .e4 { border-color: var(--capa-2); }
+  .e5 { border-color: var(--capa-1); }
+  .e6, .e7, .e8, .e9, .e10 { border-color: var(--trust); }
+  .e11 { border-color: var(--capa-4); }
+
+  .gigantes {
+    display: grid; gap: 12px; padding: 14px;
+  }
+  .g-row {
+    display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center;
+  }
+  .g-row .nm {
+    font-family: var(--serif); font-weight: 700; font-size: 14px; padding: 8px 12px;
+    background: var(--paper); border-radius: 4px; border-left: 4px solid var(--ink);
+  }
+  .g-row .traj {
+    display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; align-items: center; position: relative;
+  }
+  .g-row .pt {
+    height: 22px; border-radius: 3px; display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600;
+  }
+  .pt.ok { background: var(--capa-2); color: var(--paper); }
+  .pt.dest { background: var(--capa-3); color: var(--paper); }
+  .pt.inerte { background: var(--rule-soft); color: var(--ink-soft); }
+  .pt.gap { background: rgba(110, 79, 138, 0.18); border: 1.5px dashed var(--trust); color: var(--trust); font-style: italic; }
+
+  .ventana-marker {
+    background: var(--trust); color: var(--paper); padding: 8px 14px; border-radius: 6px;
+    font-size: 13px; text-align: center; font-style: italic; line-height: 1.4;
+  }
+  .ventana-marker strong { font-style: normal; font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §1.6</div>
+    <h1 class="figure-title">La trayectoria de los gigantes — y la ventana abierta</h1></div>
+    <div class="figure-eyebrow">Figura G31</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="scene">
+        <div class="esl-bar">
+          <div class="e e1"><div class="n">1</div><div class="nm">Datos</div></div>
+          <div class="e e2"><div class="n">2</div><div class="nm">Modelo</div></div>
+          <div class="e e3"><div class="n">3</div><div class="nm">Acceso</div></div>
+          <div class="e e4"><div class="n">4</div><div class="nm">Agentes</div></div>
+          <div class="e e5"><div class="n">5</div><div class="nm">Especial.</div></div>
+          <div class="e e6"><div class="n">6</div><div class="nm">Runtime</div></div>
+          <div class="e e7"><div class="n">7</div><div class="nm">Firewall</div></div>
+          <div class="e e8"><div class="n">8</div><div class="nm">Observ.</div></div>
+          <div class="e e9"><div class="n">9</div><div class="nm">Herram.</div></div>
+          <div class="e e10"><div class="n">10</div><div class="nm">Integr.</div></div>
+          <div class="e e11"><div class="n">11</div><div class="nm">Entorno</div></div>
+        </div>
+
+        <div class="gigantes">
+
+          <div class="g-row">
+            <div class="nm">OpenAI</div>
+            <div class="traj">
+              <div class="pt inerte"></div>
+              <div class="pt ok">Core</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt dest">→ avanza</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt inerte"></div>
+            </div>
+          </div>
+
+          <div class="g-row">
+            <div class="nm">Anthropic</div>
+            <div class="traj">
+              <div class="pt inerte"></div>
+              <div class="pt ok">Core</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt inerte"></div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt ok">MCP</div>
+              <div class="pt gap">gap</div>
+              <div class="pt inerte"></div>
+            </div>
+          </div>
+
+          <div class="g-row">
+            <div class="nm">Google</div>
+            <div class="traj">
+              <div class="pt inerte"></div>
+              <div class="pt ok">Core</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt ok">Plat.</div>
+              <div class="pt inerte"></div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt inerte"></div>
+            </div>
+          </div>
+
+          <div class="g-row">
+            <div class="nm">Meta</div>
+            <div class="traj">
+              <div class="pt inerte"></div>
+              <div class="pt ok">Core OS</div>
+              <div class="pt inerte"></div>
+              <div class="pt inerte"></div>
+              <div class="pt inerte"></div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt gap">gap</div>
+              <div class="pt inerte"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="ventana-marker">
+        <strong>Ventana abierta · eslabones 6–10</strong> — los gigantes no llegan aún. Integrar profundamente con los sistemas reales de la empresa exige trabajo cliente-por-cliente que no escala con su lógica de plataforma. <strong>Espacio para infraestructura de dominio antes de que la cierren — típicamente vía adquisición.</strong>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Cap. 5 §1 · lecturas estratégicas del mapa</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

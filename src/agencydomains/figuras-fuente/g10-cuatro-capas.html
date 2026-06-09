@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G10</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 22px;
+    width: 96%;
+    align-items: stretch;
+  }
+
+  /* Capa 1 / Capa 4 — full width */
+  .capa-full {
+    border: 1.5px solid;
+    border-radius: 10px;
+    padding: 18px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .capa-full.c1 { border-color: var(--capa-1); background: linear-gradient(180deg, var(--capa-1-bg), var(--paper) 80%); }
+  .capa-full.c4 { border-color: var(--capa-4); background: linear-gradient(180deg, var(--capa-4-bg), var(--paper) 80%); }
+  .capa-header { display: flex; align-items: center; gap: 14px; }
+  .capa-tag {
+    font-family: var(--serif); font-size: 24px; font-weight: 700;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; color: var(--paper); flex-shrink: 0;
+  }
+  .capa-tag.t1 { background: var(--capa-1); }
+  .capa-tag.t2 { background: var(--capa-2); }
+  .capa-tag.t3 { background: var(--capa-3); }
+  .capa-tag.t4 { background: var(--capa-4); }
+  .capa-name { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+  .capa-frase { font-size: 12px; color: var(--ink-soft); font-style: italic; }
+  .capa-comp { font-size: 12px; line-height: 1.5; margin-top: 4px; }
+  .capa-comp .pill {
+    display: inline-block; background: var(--paper); border: 1px solid var(--rule);
+    padding: 2px 9px; border-radius: 12px; margin: 2px 3px 2px 0; font-size: 11px;
+  }
+
+  /* Vías paralelas — Capas 2 y 3 lado a lado */
+  .vias {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .via {
+    border: 1.5px solid;
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .via.c2 { border-color: var(--capa-2); background: linear-gradient(180deg, var(--capa-2-bg), var(--paper) 80%); }
+  .via.c3 { border-color: var(--capa-3); background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 80%); }
+  .regimen {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft); margin-top: 6px;
+  }
+
+  /* Conector 2 ↔ 3 */
+  .conector {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8px 4px; min-width: 110px;
+  }
+  .arrow-pair {
+    display: flex; flex-direction: column; gap: 2px; align-items: center;
+    font-family: var(--mono); font-size: 26px; color: var(--ink-soft); line-height: 0.9;
+  }
+  .conector .label {
+    font-size: 10px; color: var(--ink-soft); text-align: center;
+    margin-top: 6px; line-height: 1.3;
+  }
+
+  /* Flechas verticales que entran/salen del bloque de vías */
+  .flujo {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: center; justify-items: center;
+    height: 32px;
+  }
+  .flujo .arr {
+    font-family: var(--mono); font-size: 22px; color: var(--ink-soft); line-height: 1;
+  }
+
+  /* Trust Infrastructure — bar */
+  .trust-bar {
+    margin-top: 4px; padding: 12px 20px;
+    background: var(--trust-bg); border: 1.5px dashed var(--trust);
+    border-radius: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    color: #3e2855;
+  }
+  .trust-bar .tt { font-family: var(--serif); font-weight: 700; font-size: 15px; }
+  .trust-bar .pillars { font-size: 12px; }
+
+  .agent-first {
+    margin-top: 0; text-align: center; font-family: var(--serif); font-style: italic;
+    font-size: 14px; padding: 8px 16px;
+    background: var(--ink); color: var(--paper); border-radius: 6px;
+    width: fit-content; align-self: center; justify-self: center;
+  }
+
+  .topo-note {
+    text-align: center; font-size: 11px; color: var(--ink-soft);
+    font-style: italic; margin-top: 2px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 4 · Arquitectura Agentiva</div>
+    <h1 class="figure-title">Las cuatro capas en topología paralela</h1></div>
+    <div class="figure-eyebrow">Figura G10 · imagen-firma</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <!-- Capa 1 -->
+      <div class="capa-full c1">
+        <div class="capa-header">
+          <div class="capa-tag t1">1</div>
+          <div>
+            <div class="capa-name">Interacción</div>
+            <div class="capa-frase">donde el humano se comunica con el sistema</div>
+          </div>
+        </div>
+        <div class="capa-comp">
+          <span class="pill">conversacional puro</span><span class="pill">GUI on-the-fly</span>
+          <span class="pill">GUI persistente · Botlet de fachada</span><span class="pill">voz</span>
+          <span class="pill">canales</span><span class="pill">API directa</span><span class="pill">señalética</span>
+        </div>
+      </div>
+
+      <!-- Flujo hacia abajo -->
+      <div class="flujo">
+        <span class="arr">▼</span><span></span><span class="arr">▼</span>
+      </div>
+
+      <!-- Vías paralelas: Capas 2 y 3 -->
+      <div class="vias">
+        <div class="via c2">
+          <div class="capa-header">
+            <div class="capa-tag t2">2</div>
+            <div>
+              <div class="capa-name">Cognición</div>
+              <div class="capa-frase">donde el sistema piensa</div>
+            </div>
+          </div>
+          <div class="capa-comp">
+            <span class="pill">multi-LLM</span><span class="pill">Capabilities</span>
+            <span class="pill">Pattern Recognition</span><span class="pill">generación de Botlets</span>
+            <span class="pill">Asistente reactivo</span>
+          </div>
+          <div class="regimen">vía Cognición — lenta · costosa · decisiva</div>
+        </div>
+
+        <div class="conector">
+          <div class="arrow-pair">⇄<br>↻</div>
+          <div class="label">2 ↔ 3<br>delega · escala<br>fallback · observa</div>
+        </div>
+
+        <div class="via c3">
+          <div class="capa-header">
+            <div class="capa-tag t3">3</div>
+            <div>
+              <div class="capa-name">Autonomía</div>
+              <div class="capa-frase">donde el sistema vive con persistencia</div>
+            </div>
+          </div>
+          <div class="capa-comp">
+            <span class="pill">Botlets en ejecución</span><span class="pill">Botler · central + edge</span>
+            <span class="pill">tareas asíncronas</span><span class="pill">monitoreo</span>
+            <span class="pill">coordinación intra-AgencyDomain (vía <code>A2A</code>)</span><span class="pill">garantía de fallback</span>
+          </div>
+          <div class="regimen">vía Autonomía — rápida · barata · repetitiva</div>
+        </div>
+      </div>
+
+      <!-- Flujo hacia abajo -->
+      <div class="flujo">
+        <span class="arr">▼</span><span></span><span class="arr">▼</span>
+      </div>
+
+      <!-- Capa 4 -->
+      <div class="capa-full c4">
+        <div class="capa-header">
+          <div class="capa-tag t4">4</div>
+          <div>
+            <div class="capa-name">Acceso</div>
+            <div class="capa-frase">donde el sistema actúa sobre el mundo real</div>
+          </div>
+        </div>
+        <div class="capa-comp">
+          <span class="pill">tools (MCP)</span><span class="pill"><code>A2A</code> entre AgencyDomains</span>
+          <span class="pill">CRUDLEX</span><span class="pill">aprobación humana</span>
+          <span class="pill">append-only log</span>
+          <span class="pill">Capabilities · cloud · edge · híbridas</span>
+        </div>
+      </div>
+
+      <div class="trust-bar">
+        <span class="tt">Trust Infrastructure — transversal a las cuatro capas</span>
+        <span class="pillars">Gobernanza · Auditoría · Validación · Resiliencia · Transparencia</span>
+      </div>
+
+      <div class="topo-note">Capas 2 y 3 son vías paralelas entre Capa 1 y Capa 4 — no etapas en serie. La operación atraviesa el AgencyDomain por la vía Cognición o por la vía Autonomía.</div>
+
+      <div class="agent-first">Agent First — la experiencia del agente prima sobre la del humano</div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Topología paralela — Capas 2 y 3 son caminos alternos, no etapas secuenciales</span><span>AgencyDomains · v0.2</span></footer>
+</div></body></html>

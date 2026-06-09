@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G50</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 34px;
+    width: 98%;
+    align-content: center;
+  }
+
+  /* Dos AgencyDomains lado a lado, conectados por A2A */
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .ad {
+    border: 2px solid var(--ink); border-radius: 14px;
+    padding: 20px 24px 24px;
+    background: var(--paper);
+    display: flex; flex-direction: column; gap: 14px;
+    position: relative;
+  }
+  .ad .ad-head {
+    display: flex; align-items: baseline; gap: 10px;
+    border-bottom: 1px solid var(--rule-soft); padding-bottom: 10px;
+  }
+  .ad .ad-kind { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); font-weight: 700; }
+  .ad .ad-name { font-family: var(--serif); font-size: 20px; font-weight: 700; }
+  .ad.faded { opacity: 0.62; }
+
+  /* Cadena interna: Cognición -> MCP -> Botler -> Botlets */
+  .chain { display: flex; flex-direction: column; gap: 0; }
+
+  .node {
+    border-radius: 10px; border: 1.5px solid;
+    padding: 14px 18px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .node .n-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; opacity: 0.85; }
+  .node .n-name { font-family: var(--serif); font-size: 19px; font-weight: 700; }
+  .node .n-mcp { font-family: var(--mono); font-size: 11px; opacity: 0.9; margin-top: 2px; }
+
+  .n-cog { background: var(--capa-2-bg); border-color: var(--capa-2); color: #243d63; }
+  .n-bot { background: var(--capa-3-bg); border-color: var(--capa-3); color: #354936; }
+
+  /* Flecha vertical interna con etiqueta MCP */
+  .v-arrow {
+    align-self: center;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 6px 0;
+  }
+  .v-arrow .line { width: 2px; height: 16px; background: var(--capa-2); }
+  .v-arrow .tag {
+    font-family: var(--mono); font-size: 12px; font-weight: 700;
+    background: var(--capa-2); color: var(--paper);
+    padding: 4px 12px; border-radius: 4px;
+    text-transform: none; letter-spacing: 0.02em;
+  }
+  .v-arrow .head { color: var(--capa-2); font-size: 14px; line-height: 0.6; }
+  .v-arrow .sub { font-size: 10px; color: var(--ink-soft); margin-top: 3px; }
+
+  /* Botlets bajo el Botler */
+  .botlets { display: flex; gap: 8px; margin-top: 10px; padding-left: 8px; }
+  .botlets .bl {
+    font-family: var(--mono); font-size: 11px;
+    background: var(--paper); border: 1.5px solid var(--capa-3);
+    border-radius: 6px; padding: 6px 10px; color: #354936;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .botlets .bl::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--capa-3); }
+
+  /* Conector A2A entre los dos AD */
+  .a2a {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px; position: relative;
+  }
+  .a2a .h-line { width: 100%; height: 2px; background: var(--capa-4); position: relative; }
+  .a2a .h-line::before, .a2a .h-line::after {
+    content: ""; position: absolute; top: -4px; width: 0; height: 0;
+    border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+  .a2a .h-line::before { left: -1px; border-right: 7px solid var(--capa-4); }
+  .a2a .h-line::after  { right: -1px; border-left: 7px solid var(--capa-4); }
+  .a2a .tag {
+    font-family: var(--mono); font-size: 13px; font-weight: 700;
+    background: var(--capa-4); color: var(--paper);
+    padding: 5px 14px; border-radius: 4px;
+  }
+  .a2a .sub { font-size: 10px; color: var(--ink-soft); text-align: center; max-width: 140px; line-height: 1.4; }
+
+  /* Mensaje clave + nota */
+  .footer-band { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .band {
+    border-radius: 10px; padding: 18px 22px; border: 1.5px solid; border-left-width: 6px;
+    font-size: 14px; line-height: 1.5;
+  }
+  .band .bt { font-family: var(--serif); font-weight: 700; font-size: 15px; display: block; margin-bottom: 6px; }
+  .band .m { font-family: var(--mono); font-weight: 700; }
+  .band.mcp { border-color: var(--capa-2); background: var(--capa-2-bg); color: #243d63; }
+  .band.mcp .m { color: var(--capa-2); }
+  .band.a2a-b { border-color: var(--capa-4); background: var(--capa-4-bg); color: #4a1a1a; }
+  .band.a2a-b .m { color: var(--capa-4); }
+
+  .nota {
+    grid-column: 1 / -1;
+    font-size: 12px; color: var(--ink-soft); text-align: center; font-style: italic;
+    margin-top: -4px;
+  }
+  .nota .mono { font-family: var(--mono); font-style: normal; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §1 · AgencyDomains</div>
+    <h1 class="figure-title">Cognición → Botler vía MCP — interno, no A2A</h1></div>
+    <div class="figure-eyebrow">Figura G50 · esquema</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="pair">
+
+        <div class="ad">
+          <div class="ad-head">
+            <span class="ad-kind">AgencyDomain</span>
+            <span class="ad-name">agent-cartera</span>
+          </div>
+          <div class="chain">
+            <div class="node n-cog">
+              <span class="n-role">Capa 2 · Cognición</span>
+              <span class="n-name">Cognición</span>
+              <span class="n-mcp">rol: cliente MCP</span>
+            </div>
+            <div class="v-arrow">
+              <span class="line"></span>
+              <span class="tag">MCP</span>
+              <span class="head">▼</span>
+              <span class="sub">interfaz interna Capa 2 → Capa 3</span>
+            </div>
+            <div class="node n-bot">
+              <span class="n-role">Capa 3 · Autonomía</span>
+              <span class="n-name">Botler</span>
+              <span class="n-mcp">rol: servidor MCP</span>
+            </div>
+          </div>
+          <div class="botlets">
+            <div class="bl">botlet-aging</div>
+            <div class="bl">botlet-reporte</div>
+            <div class="bl">botlet-cobro</div>
+          </div>
+        </div>
+
+        <div class="a2a">
+          <span class="tag">A2A</span>
+          <span class="h-line"></span>
+          <span class="sub">relación entre AgencyDomains (agentes distintos)</span>
+        </div>
+
+        <div class="ad faded">
+          <div class="ad-head">
+            <span class="ad-kind">AgencyDomain</span>
+            <span class="ad-name">agent-tesorería</span>
+          </div>
+          <div class="chain">
+            <div class="node n-cog">
+              <span class="n-role">Capa 2 · Cognición</span>
+              <span class="n-name">Cognición</span>
+              <span class="n-mcp">rol: cliente MCP</span>
+            </div>
+            <div class="v-arrow">
+              <span class="line"></span>
+              <span class="tag">MCP</span>
+              <span class="head">▼</span>
+              <span class="sub">interfaz interna Capa 2 → Capa 3</span>
+            </div>
+            <div class="node n-bot">
+              <span class="n-role">Capa 3 · Autonomía</span>
+              <span class="n-name">Botler</span>
+              <span class="n-mcp">rol: servidor MCP</span>
+            </div>
+          </div>
+          <div class="botlets">
+            <div class="bl">botlet-flujo</div>
+            <div class="bl">botlet-conciliación</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-band">
+        <div class="band mcp">
+          <span class="bt">Interno · <span class="m">MCP</span></span>
+          <span class="m">MCP</span> transporta la interfaz <strong>interna</strong> Capa 2 → Capa 3: la Cognición comanda su <em>memoria muscular</em> (el Botler y sus Botlets).
+        </div>
+        <div class="band a2a-b">
+          <span class="bt">Entre agentes · <span class="m">A2A</span></span>
+          <span class="m">A2A</span> es la relación <strong>entre AgencyDomains</strong> — agentes distintos. No describe nada que ocurra dentro de un mismo dominio.
+        </div>
+        <div class="nota">
+          La coordinación entre Botlers del mismo AgencyDomain va "vía el protocolo <span class="mono">A2A</span>", no es "<span class="mono">A2A</span> interna".
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>MCP es la interfaz interna Cognición→Botler; A2A es la relación entre AgencyDomains.</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

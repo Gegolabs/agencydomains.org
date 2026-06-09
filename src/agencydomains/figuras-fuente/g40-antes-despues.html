@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G35</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 26px; width: 100%; height: 100%; justify-content: center; }
+  .row { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: stretch; }
+  .row .lab { padding: 18px; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; }
+  .row.before .lab { background: var(--capa-2-bg); }
+  .row.after  .lab { background: var(--capa-3-bg); }
+  .lab h3 { margin: 0; font-family: var(--serif); font-size: 22px; }
+  .lab .frase { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  .timeline {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 20px;
+    display: flex; flex-direction: column; gap: 14px; position: relative;
+  }
+  .seq { display: flex; gap: 6px; align-items: stretch; height: 60px; }
+  .step {
+    flex: 1; border-radius: 4px; padding: 8px 12px; display: flex; flex-direction: column; justify-content: center;
+    color: var(--paper); font-size: 11px; line-height: 1.3;
+  }
+  .step .nm { font-family: var(--serif); font-weight: 700; font-size: 13px; }
+  .step .dur { font-size: 10px; opacity: 0.85; margin-top: 2px; }
+
+  .row.before .step { background: var(--capa-2); }
+  .row.after  .step { background: var(--capa-3); }
+
+  .total {
+    text-align: right; font-family: var(--serif); font-size: 22px; font-weight: 700;
+  }
+  .row.before .total { color: var(--capa-2); }
+  .row.after  .total { color: var(--capa-3); }
+  .total span { font-size: 14px; color: var(--ink-soft); font-weight: 400; font-style: italic; }
+
+  .conclu {
+    text-align: center; padding: 16px; background: var(--ink); color: var(--paper);
+    border-radius: 6px; font-family: var(--serif); font-size: 16px; font-style: italic;
+  }
+  .conclu strong { font-style: normal; font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 6 · Conocimiento en tiempo real</div>
+    <h1 class="figure-title">El colapso del costo de una pregunta — semanas a segundos</h1></div>
+    <div class="figure-eyebrow">Figura G35</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="row before">
+        <div class="lab">
+          <h3>Antes · BI tradicional</h3>
+          <span class="frase">cada pregunta = un proyecto</span>
+        </div>
+        <div class="timeline">
+          <div class="seq">
+            <div class="step" style="flex: 2;"><span class="nm">Coordinación</span><span class="dur">3-5 días</span></div>
+            <div class="step" style="flex: 3;"><span class="nm">Levantamiento</span><span class="dur">5-10 días</span></div>
+            <div class="step" style="flex: 8;"><span class="nm">Desarrollo del reporte</span><span class="dur">3-8 semanas</span></div>
+            <div class="step" style="flex: 2;"><span class="nm">Validación</span><span class="dur">3-5 días</span></div>
+          </div>
+          <div class="total">4 a 12 semanas <span>· y solo responde la pregunta original</span></div>
+        </div>
+      </div>
+
+      <div class="row after">
+        <div class="lab">
+          <h3>Después · BI conversacional</h3>
+          <span class="frase">cada pregunta = una conversación</span>
+        </div>
+        <div class="timeline">
+          <div class="seq">
+            <div class="step" style="flex: 100;"><span class="nm">Pregunta → agente → capa semántica → respuesta</span><span class="dur">5 a 60 segundos · iterable</span></div>
+          </div>
+          <div class="total">5 a 60 segundos <span>· y permite refinamiento conversacional ilimitado</span></div>
+        </div>
+      </div>
+
+      <div class="conclu">
+        Cuando preguntar es gratis, las preguntas <strong>no formuladas</strong> contenían los insights más valiosos.<br>
+        El cambio no es de velocidad — es de <strong>libertad cognitiva del ejecutivo</strong>.
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Tres órdenes de magnitud · no es mejora, es transformación</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>G1 · La Línea Nadella</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .nadella-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .lado {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .lado-titulo {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .lado-subtitulo {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0;
+    font-style: italic;
+  }
+  .actores { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .actor {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--rule);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .actor strong { font-family: var(--serif); font-size: 15px; }
+  .actor .razon { display: block; color: var(--ink-soft); margin-top: 2px; font-size: 12px; }
+
+  .lado-ag    { background: var(--capa-2-bg); }
+  .lado-agtv  { background: var(--capa-4-bg); }
+  .lado-ag .actor   { border-left-color: var(--capa-2); }
+  .lado-agtv .actor { border-left-color: var(--capa-4); }
+
+  .linea {
+    width: 4px;
+    background: var(--ink);
+    position: relative;
+    z-index: 2;
+  }
+  .linea::before, .linea::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px; height: 12px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .linea::before { top: -8px; }
+  .linea::after  { bottom: -8px; }
+
+  .linea-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 18px;
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    border-radius: 2px;
+  }
+
+  .pregunta {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    padding: 18px 0 26px;
+  }
+
+  .ambig {
+    background: var(--rule-soft);
+    border: 1px dashed var(--ink-soft);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: auto;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Capítulo 1 · La Línea Nadella</div>
+      <h1 class="figure-title">La Línea que divide a la industria de IA</h1>
+    </div>
+    <div class="figure-eyebrow">Figura G2</div>
+  </header>
+
+  <div class="figure-body">
+    <div class="nadella-canvas">
+
+      <div class="pregunta">
+        ¿el humano abre aplicaciones para hacer su trabajo?
+      </div>
+
+      <div class="lado lado-ag">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-2);">SÍ → Mundo Agéntico</div>
+          <h2 class="lado-titulo">Las aplicaciones persisten</h2>
+          <p class="lado-subtitulo">IA como copiloto embebido — evolución incremental</p>
+        </div>
+        <div class="actores">
+          <div class="actor">
+            <strong>Google · Sundar Pichai</strong>
+            <span class="razon">monetiza GUIs (Search, Workspace) — pierde si colapsan</span>
+          </div>
+          <div class="actor">
+            <strong>Meta · Mark Zuckerberg</strong>
+            <span class="razon">Llama vive dentro de aplicaciones de terceros</span>
+          </div>
+          <div class="actor">
+            <strong>OpenAI · Sam Altman <em>(parcial)</em></strong>
+            <span class="razon">tokens cobrados por invocación de aplicaciones</span>
+          </div>
+        </div>
+        <div class="ambig">
+          <strong>Apuesta económica:</strong> el modelo de negocio actual sobrevive
+        </div>
+      </div>
+
+      <div class="linea">
+        <div class="linea-label">LA LÍNEA NADELLA</div>
+      </div>
+
+      <div class="lado lado-agtv">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-4);">NO → Mundo Agentivo</div>
+          <h2 class="lado-titulo">Las aplicaciones colapsan</h2>
+          <p class="lado-subtitulo">El agente <em>es</em> la interfaz — transformación fundamental</p>
+        </div>
+        <div class="actores">
+          <div class="actor">
+            <strong>Microsoft · Satya Nadella</strong>
+            <span class="razon">parque instalado se convierte en sustrato — origen del término</span>
+          </div>
+          <div class="actor">
+            <strong>Anthropic · Dario y Daniela Amodei</strong>
+            <span class="razon">MCP + Claude diseñado para uso autónomo prolongado</span>
+          </div>
+          <div class="actor">
+            <strong>xAI · Elon Musk</strong>
+            <span class="razon">sin suite ofimática que defender — Grok como operador</span>
+          </div>
+        </div>
+        <div class="ambig">
+          <strong>Apuesta económica:</strong> el modelo de negocio se reinventa
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Cita raíz · Satya Nadella, BG2 podcast, dic. 2024</span>
+    <span>Arquitectura Agentiva · v1.2</span>
+  </footer>
+</div>
+</body>
+</html>

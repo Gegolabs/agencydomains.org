@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>G32</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: 1fr auto; gap: 24px; width: 100%; height: 100%; }
+  .gw {
+    background: var(--paper); border: 3px solid var(--ink); border-radius: 12px;
+    padding: 26px 32px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .top-row {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: stretch;
+  }
+  .panel { padding: 18px; border-radius: 8px; }
+  .panel.left  { background: var(--capa-3-bg); border: 2px solid var(--capa-3); }
+  .panel.right { background: var(--p-gob);    color: var(--paper); }
+  .panel h3 { font-family: var(--serif); margin: 0 0 8px; font-size: 18px; }
+  .panel .esls { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+  .panel .e { background: rgba(255,255,255,0.7); padding: 6px 10px; border-radius: 4px; }
+  .panel.right .e { background: rgba(255,255,255,0.18); }
+
+  .vs { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .vs .arr-h { font-size: 24px; color: var(--ink); }
+  .vs .lbl { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .down-arrow { text-align: center; font-size: 28px; color: var(--ink-soft); }
+
+  .layer { padding: 14px 18px; border-radius: 6px; background: var(--bg); border-left: 5px solid; }
+  .layer h4 { margin: 0 0 4px; font-family: var(--serif); font-size: 16px; }
+  .layer .desc { font-size: 12px; color: var(--ink-soft); }
+  .layer.l-route { border-color: var(--capa-2); }
+  .layer.l-op    { border-color: var(--capa-4); }
+
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px;
+  }
+  .compare .lado { background: var(--paper); padding: 12px 14px; border-radius: 6px; line-height: 1.5; border-top: 3px solid; }
+  .compare .lado.no  { border-color: var(--rule); }
+  .compare .lado.yes { border-color: var(--capa-3); }
+  .compare strong { font-family: var(--serif); display: block; margin-bottom: 2px; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Capítulo 5 · §1.7</div>
+    <h1 class="figure-title">El gateway empresarial de IA · conectar y controlar</h1></div>
+    <div class="figure-eyebrow">Figura G32</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="gw">
+        <div class="top-row">
+          <div class="panel left">
+            <h3>Conecta</h3>
+            <div class="esls">
+              <div class="e">9 · Herramientas — MCP, vector DBs, RAG</div>
+              <div class="e">10 · Integraciones — sistemas empresariales</div>
+            </div>
+          </div>
+
+          <div class="vs">
+            <span class="arr-h">⇄</span>
+            <span class="lbl">simultáneamente</span>
+            <span class="arr-h">⇄</span>
+          </div>
+
+          <div class="panel right">
+            <h3>Controla</h3>
+            <div class="esls">
+              <div class="e">7 · Firewall — security layer</div>
+              <div class="e">8 · Observabilidad — operability</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="down-arrow">↓</div>
+
+        <div class="layer l-route">
+          <h4>Enruta · eslabón 3 (Acceso)</h4>
+          <div class="desc">Routing inteligente · caché semántico · facturación · cuotas · gestión de proveedores</div>
+        </div>
+
+        <div class="layer l-op">
+          <h4>Opera · eslabón 6 (Runtime)</h4>
+          <div class="desc">Ciclo de vida de agentes · estado persistente · scheduling · A2A · garantía de fallback</div>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="lado no">
+          <strong>Conectar sin controlar</strong>
+          Es Zapier — capacidad de integración sin gobernanza. Funciona en piloto, falla en producción enterprise.
+        </div>
+        <div class="lado yes">
+          <strong>Conectar y controlar bajo una sola arquitectura</strong>
+          Categoría reciente, poco poblada. Quien la ocupa primero captura el espacio antes de que los gigantes lleguen.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Materialización de la Capa 4 (Acceso) sobre los eslabones de mercado</span><span>Arquitectura Agentiva · v1.2</span></footer>
+</div></body></html>
