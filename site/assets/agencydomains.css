@@ -58,6 +58,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:560;line-height:1.12;letter-s
 .canon b{font-family:var(--display);font-weight:560;font-size:1.12rem;color:var(--ink)}
 .canon .vol{color:var(--faint);font-weight:400}
 .canon i{display:block;font-style:italic;color:var(--ink-soft);font-size:.92rem;margin-top:.05rem}
+.canon .who{display:block;font-size:.8rem;color:var(--faint);margin-top:.18rem}
 .canon .v{font-family:var(--mono);font-size:.66rem;color:var(--accent);letter-spacing:.08em;vertical-align:.2em;margin-left:.2rem}
 .canon li.soon{opacity:.58}
 .links{margin-top:.45rem;font-family:var(--mono);font-size:.74rem;line-height:1.7;color:var(--faint)}
