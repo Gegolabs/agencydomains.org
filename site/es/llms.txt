@@ -11,6 +11,10 @@
 - [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
 - [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.4-es.pdf)
+- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v0.2-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v0.2.
+- [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v0.2-agents-es.txt)
+- [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
+- [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v0.2-es.pdf)
 
 ## Implementación de referencia
 
@@ -19,4 +23,3 @@
 ## Próximamente
 
 - Postchat · Mundo Agentivo (el destino)
-- Aura · Camino Agentivo (la ruta)

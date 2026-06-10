@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>A5</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; width: 100%; height: 100%; gap: 14px; }
+
+  .escalera { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; align-items: end; flex: 1; position: relative; }
+  .col { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 0 5px; }
+
+  .nivel { border-radius: 8px 8px 0 0; border: 1.5px solid; border-bottom: none; padding: 12px 10px; text-align: center; display: flex; flex-direction: column; gap: 4px; }
+  .nivel .num { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; opacity: 0.6; }
+  .nivel .nom { font-family: var(--serif); font-size: 19px; font-weight: 600; line-height: 1.1; }
+  .nivel .en { font-size: 11px; font-style: italic; opacity: 0.65; }
+  .nivel .quien { font-size: 11.5px; line-height: 1.35; margin-top: 4px; border-top: 1px solid rgba(0,0,0,0.12); padding-top: 6px; }
+
+  .m1 { height: 30%; } .m2 { height: 41%; } .m3 { height: 52%; } .m4 { height: 63%; }
+  .m5 { height: 74%; } .m6 { height: 85%; } .m7 { height: 96%; }
+
+  .c1 { background: #e9e5de; border-color: #8d877c; color: #3d3a34; }
+  .c2 { background: var(--capa-2-bg); border-color: var(--capa-2); color: #243d63; }
+  .c3 { background: var(--capa-3-bg); border-color: var(--capa-3); color: #354936; }
+  .c4 { background: var(--capa-1-bg); border-color: var(--capa-1); color: #6b3a1f; }
+  .c5 { background: var(--capa-4-bg); border-color: var(--capa-4); color: #4a1a1a; }
+  .c6 { background: var(--trust-bg);  border-color: var(--trust);  color: #3e2855; }
+  .c7 { background: #ddd3e8; border-color: #4a3168; color: #2c1d42; }
+
+  .transicion { font-size: 10.5px; line-height: 1.3; text-align: center; color: var(--ink-soft); padding: 0 2px 8px; }
+  .transicion b { display: block; font-size: 11px; color: var(--ink); }
+  .transicion .fl { color: var(--ink-soft); font-size: 13px; }
+
+  .base { border-top: 3px solid var(--ink); padding-top: 10px; display: grid; grid-template-columns: 3fr 1fr 1fr 1fr 1fr; gap: 8px; align-items: center; }
+  .base .rotulo { font-size: 11px; text-transform: uppercase; letter-spacing: 0.13em; font-weight: 600; color: var(--ink-soft); }
+  .dt { border-radius: 5px; border: 1.5px solid var(--capa-2); background: var(--capa-2-bg); color: #243d63; text-align: center; font-size: 11.5px; padding: 6px 4px; }
+  .dt b { display: block; font-family: var(--serif); font-size: 12.5px; }
+</style>
+</head><body>
+<div class="figure">
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="escalera">
+        <div class="col">
+          <div class="transicion"><b>Trust Infrastructure</b>de riesgo a gobernanza <span class="fl">↗</span></div>
+          <div class="nivel c1 m1"><div class="num">Nivel 1</div><div class="nom">Invisible</div><div class="en">Shadow AI</div><div class="quien">humanos — la IA es riesgo oculto</div></div>
+        </div>
+        <div class="col">
+          <div class="transicion"><b>Wingworking</b>de asistencia a delegación <span class="fl">↗</span></div>
+          <div class="nivel c2 m2"><div class="num">Nivel 2</div><div class="nom">Confiable</div><div class="en">Trusted</div><div class="quien">humanos con copiloto gobernado</div></div>
+        </div>
+        <div class="col">
+          <div class="transicion"><b>Agentic Infrastructure</b>+ DT Descriptivo <span class="fl">↗</span></div>
+          <div class="nivel c3 m3"><div class="num">Nivel 3</div><div class="nom">Colaborador</div><div class="en">Collaborator</div><div class="quien">humanos delegan tareas completas</div></div>
+        </div>
+        <div class="col">
+          <div class="transicion"><b>Marketplace de Agentes</b>+ DT Predictivo <span class="fl">↗</span></div>
+          <div class="nivel c4 m4"><div class="num">Nivel 4</div><div class="nom">Analista</div><div class="en">Analyst</div><div class="quien">agentes 24/7 — humano en excepciones</div></div>
+        </div>
+        <div class="col">
+          <div class="transicion"><b>Organización Autónoma</b>+ DT Organizacional <span class="fl">↗</span></div>
+          <div class="nivel c5 m5"><div class="num">Nivel 5</div><div class="nom">Especialista</div><div class="en">Specialist</div><div class="quien">agentes con predicción propietaria (moat)</div></div>
+        </div>
+        <div class="col">
+          <div class="transicion"><b>Social Agentic</b>+ DT del Ecosistema <span class="fl">↗</span></div>
+          <div class="nivel c6 m6"><div class="num">Nivel 6</div><div class="nom">Gerente</div><div class="en">Manager</div><div class="quien">agentes gestionan equipos y presupuestos</div></div>
+        </div>
+        <div class="col">
+          <div class="nivel c7 m7"><div class="num">Nivel 7</div><div class="nom">Autoridad</div><div class="en">Authority</div><div class="quien">agentes en el liderazgo estratégico</div></div>
+        </div>
+      </div>
+
+      <div class="base">
+        <div class="rotulo">Evolución transversal de Digital Twins →</div>
+        <div class="dt"><b>Descriptivo</b>nivel 4</div>
+        <div class="dt"><b>Predictivo</b>nivel 5</div>
+        <div class="dt"><b>Organizacional</b>nivel 6</div>
+        <div class="dt"><b>Ecosistema</b>nivel 7</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body></html>

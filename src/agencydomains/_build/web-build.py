@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Genera el libro-web multipágina (una página por capítulo) desde el Markdown único.
+r"""Genera el libro-web multipágina (una página por capítulo) desde el Markdown único.
 Barra lateral persistente con sub-índice del capítulo activo + navegación prev/next.
+Las partes LaTeX (```{=latex}\part{X}```) se vuelven páginas-divisor con clase propia.
 Salida: <out>/index.html (portada) y <out>/<slug>/index.html por capítulo."""
 import argparse, os, re, shutil, subprocess, sys, unicodedata
 
@@ -36,17 +37,29 @@ def main():
     ap.add_argument('--md', required=True); ap.add_argument('--figuras', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--pdf'); ap.add_argument('--agents')
     ap.add_argument('--base', default='/agencydomains')   # ruta absoluta de servido
+    ap.add_argument('--name', default='AgencyDomains')    # nombre del libro (títulos y distribuibles)
     ap.add_argument('--lang', default='es', choices=('es', 'en'))
     ap.add_argument('--version', required=True)           # vX.Y — nombra los distribuibles
     a = ap.parse_args()
     UI = STRINGS[a.lang]
 
     md = open(a.md, encoding='utf-8').read()
+    # Partes LaTeX → páginas-divisor (heading sintético con marcador).
+    # Un bloque {=latex} que contenga \part{X} se reemplaza completo (p. ej.
+    # \appendix + \part{Anexos}); los demás bloques latex quedan intactos.
+    def _latex_block(m):
+        pm = re.search(r'\\part\{([^}]+)\}', m.group(1))
+        return f'# {pm.group(1)} <!--part-->' if pm else m.group(0)
+    md = re.sub(r'(?ms)^```\{=latex\}\n(.*?)\n```[ \t]*$', _latex_block, md)
     chunks = [c for c in re.split(r'(?m)(?=^# )', md) if c.strip()]
     pages = []
     for c in chunks:
+        first = c.splitlines()[0]
+        part = '<!--part-->' in first
+        if part:
+            c = c.replace(' <!--part-->', '', 1)
         title = strip_tags(c.splitlines()[0].lstrip('# ').strip())
-        pages.append({'title': title, 'md': c})
+        pages.append({'title': title, 'md': c, 'part': part})
     # portada = primer chunk (AgencyDomains); resto = capítulos
     pages[0]['slug'] = ''; pages[0]['cover'] = True; pages[0]['label'] = UI['cover']
     for p in pages[1:]:
@@ -71,7 +84,8 @@ def main():
             if j == i and q['sub']:
                 items = ''.join(f'<li><a href="#{sid}">{txt}</a></li>' for sid, txt in q['sub'])
                 sub = f'<ul class="subtoc">{items}</ul>'
-            nav.append(f'<li><a class="{active.strip()}" href="{url(q)}">{q["label"]}</a>{sub}</li>')
+            licls = ' class="part"' if q.get('part') else ''
+            nav.append(f'<li{licls}><a class="{active.strip()}" href="{url(q)}">{q["label"]}</a>{sub}</li>')
         nav_html = ''.join(nav)
         # prev / next
         pn = []
@@ -82,16 +96,17 @@ def main():
             nx = pages[i+1]
             pn.append(f'<a class="nx" href="{url(nx)}"><span class="dir">{UI["next"]}</span>{nx["label"]}</a>')
         prevnext = ''.join(pn) if pn else ''
-        co, cc = ('<section class="book-cover">', '</section>') if p['cover'] else ('', '')
+        co, cc = ('<section class="book-cover">', '</section>') if p['cover'] else \
+                 (('<section class="book-part">', '</section>') if p.get('part') else ('', ''))
         crumb = UI['cover'] if p['cover'] else p['title']
         html = (f'<!DOCTYPE html>\n<html lang="{a.lang}">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-            f'<title>{p["title"]} · AgencyDomains</title>\n{FONTS}\n'
+            f'<title>{p["title"]} · {a.name}</title>\n{FONTS}\n'
             f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
             f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
             f'<div class="book-shell">\n'
-            f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · v0.4</p>'
+            f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · {a.version}</p>'
             f'<ol>{nav_html}</ol></nav>\n'
             f'<main class="book-main"><article class="book">{co}\n{p["body"]}\n{cc}'
             f'<nav class="prevnext">{prevnext}</nav></article></main>\n'
@@ -104,10 +119,10 @@ def main():
     figdst = os.path.join(a.out, 'figuras'); shutil.rmtree(figdst, ignore_errors=True)
     shutil.copytree(a.figuras, figdst)
     if a.agents:
-        shutil.copy(a.agents, os.path.join(a.out, f'AgencyDomains-{a.version}-agents-{a.lang}.md'))
-        shutil.copy(a.agents, os.path.join(a.out, f'AgencyDomains-{a.version}-agents-{a.lang}.txt'))
+        shutil.copy(a.agents, os.path.join(a.out, f'{a.name}-{a.version}-agents-{a.lang}.md'))
+        shutil.copy(a.agents, os.path.join(a.out, f'{a.name}-{a.version}-agents-{a.lang}.txt'))
     if a.pdf and os.path.exists(a.pdf):
-        shutil.copy(a.pdf, os.path.join(a.out, f'AgencyDomains-{a.version}-{a.lang}.pdf'))
+        shutil.copy(a.pdf, os.path.join(a.out, f'{a.name}-{a.version}-{a.lang}.pdf'))
     print(f"  ✓ {len(pages)} páginas → {a.out}")
     print("    " + " · ".join((p['slug'] or 'index') for p in pages))
 

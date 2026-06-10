@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>A1</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 40px; width: 100%; }
+
+  .cabecera { text-align: center; }
+  .cabecera h2 { font-family: var(--serif); font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .cabecera p { margin: 0; color: var(--ink-soft); font-style: italic; font-size: 16px; }
+
+  .partes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .parte { border-radius: 10px; padding: 24px 26px; border: 1.5px solid; display: flex; flex-direction: column; gap: 14px; }
+  .parte.saber      { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .parte.hacer      { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .parte.portafolio { background: var(--capa-1-bg); border-color: var(--capa-1); }
+
+  .parte .rotulo { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--ink-soft); }
+  .parte h3 { font-family: var(--serif); font-size: 26px; margin: 0; }
+  .parte .eje { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: -8px; }
+
+  .pieza { background: var(--paper); border-radius: 6px; padding: 16px 18px; }
+  .pieza .tipo { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 3px; }
+  .pieza .nombre { font-family: var(--serif); font-size: 19px; font-weight: 600; margin-bottom: 3px; }
+  .pieza .que { font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+
+  .flujo { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .paso { text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--ink); position: relative; }
+  .paso:not(:last-child)::after {
+    content: '→'; position: absolute; right: -22px; top: 0; font-style: normal; color: var(--ink-soft);
+  }
+</style>
+</head><body>
+<div class="figure">
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="cabecera">
+        <h2>AURA · El Camino Agentivo</h2>
+        <p>dos ejes de madurez, dos instrumentos de terreno, un marco de decisión</p>
+      </div>
+
+      <div class="partes">
+        <div class="parte saber">
+          <div class="rotulo">Parte I</div>
+          <h3>El Saber</h3>
+          <div class="eje">eje de la inteligencia organizacional</div>
+          <div class="pieza">
+            <div class="tipo">Modelo diagnóstico</div>
+            <div class="nombre">IRIS</div>
+            <div class="que">10 etapas — de la información fragmentada al ecosistema que se auto-gestiona</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Instrumento de gobernanza</div>
+            <div class="nombre">Data Canon</div>
+            <div class="que">quién manda sobre el dato cuando los agentes lo consumen — gobernanza recentralizada bajo canon</div>
+          </div>
+        </div>
+
+        <div class="parte hacer">
+          <div class="rotulo">Parte II</div>
+          <h3>El Hacer</h3>
+          <div class="eje">eje de la automatización organizacional</div>
+          <div class="pieza">
+            <div class="tipo">Modelo diagnóstico</div>
+            <div class="nombre">MOTOR</div>
+            <div class="que">7 niveles — del shadow AI sin gobernanza al agente como autoridad estratégica</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Instrumento de levantamiento</div>
+            <div class="nombre">Wingmap</div>
+            <div class="que">los procesos reales reconstruidos desde sus rastros digitales, sin entrevistas</div>
+          </div>
+        </div>
+
+        <div class="parte portafolio">
+          <div class="rotulo">Parte III</div>
+          <h3>El Portafolio</h3>
+          <div class="eje">del diagnóstico a la ejecución priorizada</div>
+          <div class="pieza">
+            <div class="tipo">Marco de decisión</div>
+            <div class="nombre">Casos de Uso</div>
+            <div class="que">CU y Soluciones de Valor · tres dimensiones de clasificación · priorización Citizen / City / DUAL</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Disciplina</div>
+            <div class="nombre">ROI honesto</div>
+            <div class="que">retornos referenciales declarados; valor social en sus propios términos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo">
+        <div class="paso">¿dónde estoy?</div>
+        <div class="paso">¿sobre qué terreno?</div>
+        <div class="paso">¿qué hago primero?</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,6 +1,7 @@
-# Publicador por tag — construye el libro completo y despliega el sitio a GitHub Pages.
+# Publicador por tag — construye los libros y despliega el sitio a GitHub Pages.
 #
 #   git tag agencydomains-v0.5 && git push --tags   → publica TODO automáticamente
+#   git tag aura-v0.3 && git push --tags            → ídem (el sitio es un solo artefacto)
 #
 # También se puede disparar a mano (workflow_dispatch) para republicar el estado
 # actual de main sin crear tag (p. ej. tras editar el shell en site/).
@@ -11,7 +12,7 @@ name: publish
 
 on:
   push:
-    tags: ['agencydomains-v*']
+    tags: ['agencydomains-v*', 'aura-v*']
   workflow_dispatch:
 
 permissions:
@@ -29,25 +30,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Detectar versión (CHANGELOG) y validar tag
+      - name: Detectar versiones (CHANGELOG de cada libro) y validar tag
         run: |
-          VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          AGD_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
+          AURA_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/aura/CHANGELOG.md | cut -d" " -f2)
+          echo "AGD_VERSION=$AGD_VERSION" >> "$GITHUB_ENV"
+          echo "AURA_VERSION=$AURA_VERSION" >> "$GITHUB_ENV"
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
-            TAG_V="${GITHUB_REF_NAME#agencydomains-}"
-            if [ "$TAG_V" != "$VERSION" ]; then
-              echo "::error::El tag dice $TAG_V pero el CHANGELOG dice $VERSION. Actualiza el CHANGELOG (## $TAG_V) o corrige el tag."
+            case "$GITHUB_REF_NAME" in
+              agencydomains-*) TAG_V="${GITHUB_REF_NAME#agencydomains-}"; BOOK_V="$AGD_VERSION";;
+              aura-*)          TAG_V="${GITHUB_REF_NAME#aura-}";          BOOK_V="$AURA_VERSION";;
+              *) echo "::error::Tag desconocido: $GITHUB_REF_NAME"; exit 1;;
+            esac
+            if [ "$TAG_V" != "$BOOK_V" ]; then
+              echo "::error::El tag dice $TAG_V pero el CHANGELOG del libro dice $BOOK_V. Actualiza el CHANGELOG (## $TAG_V) o corrige el tag."
               exit 1
             fi
           fi
 
-      - name: Guardia — el shell enlaza la versión que se publica
+      - name: Guardia — el shell enlaza las versiones que se publican
         run: |
           for f in site/llms.txt site/es/llms.txt site/index.html site/es/index.html; do
-            if ! grep -q "AgencyDomains-${VERSION}-" "$f"; then
-              echo "::error::$f no enlaza ningún archivo AgencyDomains-${VERSION}-*. Actualiza los links del shell a la versión nueva."
-              exit 1
-            fi
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-"; do
+              if ! grep -q "$pref" "$f"; then
+                echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
+                exit 1
+              fi
+            done
           done
 
       - name: Toolchain (pandoc + XeLaTeX)
@@ -62,26 +71,40 @@ jobs:
           fc-cache -f
           fc-list | grep -E "STIX Two|Source Code Pro" || (echo "::error::fuentes no registradas" && exit 1)
 
-      - name: Construir — ES (PDF + manifiesto) · EN (PDF + web) · ES web
+      - name: Construir AgencyDomains — ES (PDF + manifiesto) · EN (PDF + web) · ES web
         run: |
           bash src/agencydomains/_build/build-pdf.sh
           bash src/agencydomains/_build/build-en.sh
           bash src/agencydomains/_build/build-web.sh
 
+      - name: Construir AURA — ES (PDF) · EN (PDF + web) · ES web
+        run: |
+          bash src/aura/_build/build-pdf.sh
+          bash src/aura/_build/build-en.sh
+          bash src/aura/_build/build-web.sh
+
       - name: Ensamblar sitio (shell + builds en sus rutas URL)
         run: |
           DIST=src/agencydomains/_dist
+          ADIST=src/aura/_dist
           mkdir -p _site
           cp -R site/. _site/
           touch _site/.nojekyll
-          # libro EN → /agencydomains/ · libro ES → /es/agencydomains/
+          # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains
           cp -R "$DIST/web-es" _site/es/agencydomains
+          # AURA: EN → /aura/ · ES → /es/aura/
+          cp -R "$ADIST/web-en" _site/aura
+          cp -R "$ADIST/web-es" _site/es/aura
           # manifiestos para agentes → raíz de cada idioma
-          mv _site/agencydomains/AgencyDomains-${VERSION}-agents-en.md  _site/
-          mv _site/agencydomains/AgencyDomains-${VERSION}-agents-en.txt _site/
-          mv _site/es/agencydomains/AgencyDomains-${VERSION}-agents-es.md  _site/es/
-          mv _site/es/agencydomains/AgencyDomains-${VERSION}-agents-es.txt _site/es/
+          mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
+          mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/
+          mv _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-agents-es.md  _site/es/
+          mv _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-agents-es.txt _site/es/
+          mv _site/aura/AURA-${AURA_VERSION}-agents-en.md  _site/
+          mv _site/aura/AURA-${AURA_VERSION}-agents-en.txt _site/
+          mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.md  _site/es/
+          mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.txt _site/es/
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
       - uses: actions/upload-pages-artifact@v3

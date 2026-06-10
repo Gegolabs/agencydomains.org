@@ -5,7 +5,7 @@
 > (Interaction, Cognition, Autonomy, Access); canonical primitives — Botlet, Capability,
 > Trust Infrastructure, Facet. Edited by GegoLabs. Pre-1.0.
 
-## The book
+## The book — AgencyDomains · Agentive Architecture (Book III)
 
 - [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.4-agents-en.md): the book distilled for an agent to reason within the framework. v0.4.
 - [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v0.4-agents-en.txt)
@@ -17,7 +17,14 @@
 
 - [Vergis (code, AGPL-3.0)](https://github.com/gegolabs/vergis): the AgencyDomain made operational — Botler + Mira.
 
+## The book — AURA · The Agentive Path (Book II)
+
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v0.2-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v0.2.
+- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v0.2-agents-en.txt)
+- [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable. (Figures are still in Spanish; their English versions are forthcoming.)
+- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.2-en.pdf)
+- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.2-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.2-agents-es.md)
+
 ## Coming soon
 
 - Postchat · The Agentive World (the destination)
-- Aura · The Agentive Path (the route)

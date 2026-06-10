@@ -164,3 +164,9 @@ sup a{font-family:var(--mono);font-size:.7em;text-decoration:none}
 .langtoggle a{color:var(--faint)} .langtoggle a:hover{color:var(--accent);text-decoration:none}
 .langtoggle a.on{color:var(--ink);font-weight:500}
 .langtoggle .sep{color:var(--rule)}
+
+/* Partes del libro (divisores en la nav y página-divisor) */
+.book-nav > ol > li.part{margin-top:.9rem}
+.book-nav > ol > li.part > a{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.book-part h1{margin-top:18vh;text-align:center}

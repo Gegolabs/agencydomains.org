@@ -1,0 +1,18 @@
+# Manifest del libro AURA — orden de concatenación.
+# Rutas relativas a la raíz del libro.
+# Las 5 specs componentes se incluyen POR REFERENCIA desde specs/ — nunca se copian.
+# Sintaxis: ruta[|titulo=Rol en el libro]  (el título del rol reemplaza el primer H1 al ensamblar)
+contenido/00-frontmatter.md
+contenido/prologo.md
+contenido/prefacio.md
+contenido/introduccion.md
+contenido/intro-parte-saber.md
+specs/1-iris.md
+specs/3-data-canon.md
+contenido/intro-parte-hacer.md
+specs/2-motor.md
+specs/4-wingmap.md
+contenido/intro-parte-portafolio.md
+specs/5-casos-de-uso.md
+contenido/epilogo.md
+contenido/anexo-inventario-casos-uso.md

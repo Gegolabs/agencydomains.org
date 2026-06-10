@@ -1,0 +1,11 @@
+# Epílogo · El Diagnóstico Completo
+
+Recorrido el camino, las piezas encajan en una sola figura.
+
+Una organización que quiere transitar hacia el mundo agentivo necesita responder tres preguntas, y este libro le dio un instrumento para cada una. **¿Dónde estoy?** — la posición IRIS en el eje del saber y la posición MOTOR en el eje del hacer, dos coordenadas que juntas forman el par diagnóstico de AURA. **¿Sobre qué terreno?** — el dato gobernado bajo un canon que los agentes puedan consumir con confianza, y los procesos reales levantados desde sus rastros, no desde su documentación. **¿Qué hago primero?** — el portafolio clasificado y priorizado, con la estrategia elegida por contexto y los casos DUAL al frente.
+
+La figura completa tiene una propiedad que conviene hacer explícita: **ninguna pieza funciona sola.** Un diagnóstico sin portafolio es un informe que se archiva. Un portafolio sin diagnóstico es una lista de deseos. Casos de uso avanzados sobre datos sin gobernanza son pilotos que no escalan — la industria está llena de ellos, y las proyecciones de cancelación de proyectos agentivos que cita la Introducción tienen ahí buena parte de su explicación. AURA es la insistencia en que la transformación se gestiona como un sistema: visión, medición, terreno y ejecución, avanzando juntos.
+
+Queda la pregunta del horizonte: ¿hacia dónde converge el camino? La respuesta vive en los otros dos libros de esta serie. *AgencyDomains* describe la arquitectura formal del destino — las primitivas, las capas, la *Trust Infrastructure* que una organización madura en ambos ejes terminará operando. *Postchat* describe ese mundo desde adentro — cómo se ve el trabajo cuando la transición quedó atrás. Este libro termina donde esos dos empiezan: en la frontera donde la organización que aprendió a saber y a hacer descubre que ya no está automatizando su pasado, sino habitando otra cosa.
+
+El camino agentivo no es una migración tecnológica. Es el proceso por el cual una organización aprende, palmo a palmo y con gobernanza, a confiarle la ejecución a sistemas que saben — mientras las personas suben a donde siempre debieron estar: definiendo qué vale la pena saber, y qué vale la pena hacer.
