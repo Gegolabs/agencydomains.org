@@ -26,5 +26,5 @@ pandoc "$TMPSRC" -o "$PDF" \
   -V documentclass=book -V classoption=twoside -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \
   -V monofont="Source Code Pro" -V monofontoptions:Scale=0.85 \
-  -V fontsize=11pt -V lang=es --syntax-highlighting=tango
+  -V fontsize=11pt -V lang=es --highlight-style=tango
 echo "✓ $PDF"
