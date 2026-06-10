@@ -101,7 +101,7 @@ def main():
         crumb = UI['cover'] if p['cover'] else p['title']
         html = (f'<!DOCTYPE html>\n<html lang="{a.lang}">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-            f'<title>{p["title"]} · {a.name}</title>\n{FONTS}\n'
+            f'<title>{p["title"] if p["title"] == a.name else p["title"] + " · " + a.name}</title>\n{FONTS}\n'
             f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
             f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
