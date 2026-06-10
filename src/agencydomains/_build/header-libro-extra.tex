@@ -18,6 +18,9 @@
   \renewcommand{\footrulewidth}{0pt}%
 }
 
+% Páginas en blanco automáticas — leyenda según el idioma del documento
+% (\languagename: babel/polyglossia; español → ES, cualquier otro → EN)
+\usepackage{etoolbox}
 % Páginas en blanco automáticas (forzadas por book class para que cada
 % capítulo inicie en recto): leyenda centrada en gris discreto que aclara
 % al lector que la página no es un error de impresión.
@@ -28,7 +31,10 @@
     \ifodd\c@page\else
       \thispagestyle{empty}%
       \vspace*{\fill}%
-      \begin{center}\textcolor{gray!60}{\small\itshape Esta página se dejó intencionalmente en blanco.}\end{center}%
+      \begin{center}\textcolor{gray!60}{\small\itshape
+        \ifdefstring{\languagename}{spanish}%
+          {Esta página se dejó intencionalmente en blanco.}%
+          {This page intentionally left blank.}}\end{center}%
       \vspace*{\fill}%
       \newpage
     \fi
