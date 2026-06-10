@@ -90,6 +90,8 @@ jobs:
           mkdir -p _site
           cp -R site/. _site/
           touch _site/.nojekyll
+          # los libros reemplazan cualquier placeholder del shell en su ruta
+          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains
           cp -R "$DIST/web-es" _site/es/agencydomains
