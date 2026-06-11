@@ -27,10 +27,29 @@ def strip_tags(s): return re.sub(r'<[^>]+>', '', s).strip()
 # Strings de UI por idioma (el resto del HTML es agnóstico).
 STRINGS = {
     'es': {'cover': 'Portada', 'prev': '← Anterior', 'next': 'Siguiente →',
-           'nav_aria': 'Índice del libro', 'book': 'El libro'},
+           'nav_aria': 'Índice del libro', 'book': 'El libro',
+           'zoom': 'Ampliar la figura', 'close': 'Cerrar (Esc)'},
     'en': {'cover': 'Cover', 'prev': '← Previous', 'next': 'Next →',
-           'nav_aria': 'Book contents', 'book': 'The book'},
+           'nav_aria': 'Book contents', 'book': 'The book',
+           'zoom': 'Enlarge figure', 'close': 'Close (Esc)'},
 }
+
+# Lightbox: las figuras se renderizan reducidas al ancho de la columna; un clic
+# las abre a tamaño real sobre un velo oscuro (clic en cualquier lugar o Esc cierra).
+def lightbox(ui):
+    return (
+        f'<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="{ui["zoom"]}">'
+        f'<button class="lightbox-close" type="button" aria-label="{ui["close"]}">&times;</button>'
+        f'<img alt=""></div>\n'
+        '<script>(function(){'
+        'var lb=document.getElementById("lightbox"),im=lb.querySelector("img");'
+        'function open(s,a){im.src=s;im.alt=a||"";lb.hidden=false;document.body.classList.add("lb-open");}'
+        'function close(){lb.hidden=true;im.removeAttribute("src");document.body.classList.remove("lb-open");}'
+        'document.querySelectorAll("article.book img").forEach(function(g){'
+        'g.addEventListener("click",function(){open(g.currentSrc||g.src,g.alt);});});'
+        'lb.addEventListener("click",close);'
+        'document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!lb.hidden)close();});'
+        '})();</script>\n')
 
 def main():
     ap = argparse.ArgumentParser()
@@ -110,7 +129,7 @@ def main():
             f'<ol>{nav_html}</ol></nav>\n'
             f'<main class="book-main"><article class="book">{co}\n{p["body"]}\n{cc}'
             f'<nav class="prevnext">{prevnext}</nav></article></main>\n'
-            f'</div>\n</body>\n</html>\n')
+            f'</div>\n{lightbox(UI)}</body>\n</html>\n')
         dest = os.path.join(a.out, 'index.html') if p['cover'] else os.path.join(a.out, p['slug'], 'index.html')
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         open(dest, 'w', encoding='utf-8').write(html)
