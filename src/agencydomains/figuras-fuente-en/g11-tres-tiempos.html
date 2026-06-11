@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G11</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 24px;
+    width: 96%;
+    align-content: start;
+  }
+
+  .intro { text-align: center; padding: 8px 0; }
+  .intro h2 { font-family: var(--serif); font-size: 24px; margin: 0 0 4px 0; }
+  .intro .sub { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  .tiempos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .tiempo {
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex; flex-direction: column; gap: 12px;
+    border: 1.5px solid;
+    border-top-width: 6px;
+  }
+  .tiempo.preparacion { background: linear-gradient(180deg, var(--capa-2-bg), var(--paper) 80%); border-color: var(--capa-2); }
+  .tiempo.atencion { background: linear-gradient(180deg, var(--capa-1-bg), var(--paper) 80%); border-color: var(--capa-1); }
+  .tiempo.ingenieria { background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 80%); border-color: var(--capa-3); }
+
+  .tiempo-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .tiempo-name { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+  .tiempo-rol { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+
+  .tiempo-frase { font-size: 13px; line-height: 1.5; font-style: italic; padding: 8px 12px; background: var(--paper); border-radius: 6px; border-left: 3px solid; }
+  .tiempo.preparacion .tiempo-frase { border-color: var(--capa-2); }
+  .tiempo.atencion .tiempo-frase { border-color: var(--capa-1); }
+  .tiempo.ingenieria .tiempo-frase { border-color: var(--capa-3); }
+
+  .tiempo-meta {
+    display: flex; flex-direction: column; gap: 5px;
+    font-size: 12px; line-height: 1.4;
+  }
+  .tiempo-meta .row { display: flex; gap: 8px; }
+  .tiempo-meta .label { font-weight: 700; min-width: 75px; color: var(--ink-soft); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tiempo-meta .value { flex: 1; }
+
+  .principio {
+    background: var(--ink); color: var(--paper);
+    padding: 14px 22px; border-radius: 8px;
+    font-family: var(--serif); font-style: italic; text-align: center;
+    font-size: 14px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · Agentive Architecture</div>
+    <h1 class="figure-title">The agent's three times</h1></div>
+    <div class="figure-eyebrow">Figure G11</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="intro">
+        <h2>When the agent operates</h2>
+        <div class="sub">The parallel topology describes WHERE each operation lives. The three times describe WHEN the agent operates.</div>
+      </div>
+
+      <div class="tiempos">
+        <div class="tiempo preparacion">
+          <div class="tiempo-head">
+            <span class="tiempo-name">Preparation</span>
+            <span class="tiempo-rol">mise en place</span>
+          </div>
+          <div class="tiempo-frase">The agent stays capable outside the service window.</div>
+          <div class="tiempo-meta">
+            <div class="row"><span class="label">Regime</span><span class="value">Batch · off-peak</span></div>
+            <div class="row"><span class="label">Path</span><span class="value">Cognition over consolidated data</span></div>
+            <div class="row"><span class="label">Metrics</span><span class="value">Catalog quality · Botlet precision · Capability coverage</span></div>
+            <div class="row"><span class="label">Refines</span><span class="value">Catalog · Botlets · Capabilities · Pattern Recognition</span></div>
+          </div>
+        </div>
+
+        <div class="tiempo atencion">
+          <div class="tiempo-head">
+            <span class="tiempo-name">Attention</span>
+            <span class="tiempo-rol">critical path</span>
+          </div>
+          <div class="tiempo-frase">The agent interacts with users or events in real time.</div>
+          <div class="tiempo-meta">
+            <div class="row"><span class="label">Regime</span><span class="value">Real time · priority</span></div>
+            <div class="row"><span class="label">Path</span><span class="value">Cognition + Autonomy per pattern</span></div>
+            <div class="row"><span class="label">Metrics</span><span class="value">Satisfaction · latency · resolution rate without escalation</span></div>
+            <div class="row"><span class="label">Layer 1</span><span class="value">Active · live conversation · Facets in use</span></div>
+          </div>
+        </div>
+
+        <div class="tiempo ingenieria">
+          <div class="tiempo-head">
+            <span class="tiempo-name">Engineering</span>
+            <span class="tiempo-rol">bridge</span>
+          </div>
+          <div class="tiempo-frase">The agent turns latent capacity into executable capacity for a concrete case.</div>
+          <div class="tiempo-meta">
+            <div class="row"><span class="label">Regime</span><span class="value">Medium term (minutes to hours)</span></div>
+            <div class="row"><span class="label">Path</span><span class="value">Cognition decides · Autonomy persists</span></div>
+            <div class="row"><span class="label">Metrics</span><span class="value">Coverage · first-deploy success rate · average iterations</span></div>
+            <div class="row"><span class="label">Composes</span><span class="value">Capabilities → seed Botlet configured for context</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="principio">
+        The agent does not attend at every moment — but it can attend at any moment because it dedicates time to preparing.
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Three canonical times · simultaneous · differentiated in regime, urgency, and cognitive economics</span><span>AgencyDomains · v0.3</span></footer>
+</div></body></html>

@@ -17,7 +17,7 @@ Applied to business communication, the principle illuminates the three stages of
 Email had the right direction and no governance. Chat added immediacy at the price of inverting the direction: it made you the hunter of your own information. Postchat takes the best of each and removes the worst: communication arrives — but it arrives governed. And silence changes its nature: it stops meaning "maybe I'm missing something" and comes to mean, with the system's guarantee, *there is nothing for you*. It is the difference between anxiety and operational peace, and it is the difference no incremental improvement of the channel can produce.
 
 <!-- FIG:f01-tres-estadios -->
-![The three stages of enterprise communication (figure in Spanish; English version forthcoming)](figuras/f01-tres-estadios.png)
+![The three stages of enterprise communication](figuras/f01-tres-estadios.png)
 
 ## The seven variables
 
@@ -47,7 +47,7 @@ The inversion makes it possible to formulate the dichotomy that orders this book
 These are not degrees of the same thing: they are opposite directions. One species generates interruptions; the other consumes them. And the choice between them is not technological but a matter of design: with the same AI models you can build a copilot that helps you scroll faster — or an agent that makes scrolling not exist.
 
 <!-- FIG:f02-fabricas-absorbedores -->
-![Two species of communication infrastructure (figure in Spanish; English version forthcoming)](figuras/f02-fabricas-absorbedores.png)
+![Two species of communication infrastructure](figuras/f02-fabricas-absorbedores.png)
 
 > **The essentials**
 >

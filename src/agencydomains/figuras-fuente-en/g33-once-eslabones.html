@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G28</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 28px; width: 100%; }
+  .esl-row { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; align-items: stretch; }
+  .esl {
+    background: var(--paper); border-top: 4px solid; padding: 14px 8px;
+    border-radius: 4px; text-align: center; display: flex; flex-direction: column; gap: 4px;
+    min-height: 130px;
+  }
+  .esl .num { font-family: var(--serif); font-weight: 700; font-size: 22px; line-height: 1; }
+  .esl .nm { font-family: var(--serif); font-size: 13px; font-weight: 600; }
+  .esl .en { font-size: 9px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+  .esl .ej { font-size: 10px; color: var(--ink-soft); margin-top: auto; line-height: 1.3; }
+
+  .esl.e1  { border-color: #6b8f6b; }
+  .esl.e2  { border-color: #4a6fa5; }
+  .esl.e3  { border-color: #4a6fa5; }
+  .esl.e4  { border-color: #d4845a; }
+  .esl.e5  { border-color: #d4845a; }
+  .esl.e6  { border-color: #6e4f8a; }
+  .esl.e7  { border-color: #6e4f8a; }
+  .esl.e8  { border-color: #6e4f8a; }
+  .esl.e9  { border-color: #6e4f8a; }
+  .esl.e10 { border-color: #6e4f8a; }
+  .esl.e11 { border-color: #8b3a3a; }
+
+  .grupos { display: grid; grid-template-columns: 2fr 2fr 5fr 2fr; gap: 6px; font-size: 11px; }
+  .grupo {
+    padding: 6px 12px; border-radius: 4px; text-align: center;
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+  }
+  .grupo.g-data { background: var(--capa-3); color: var(--paper); }
+  .grupo.g-base { background: var(--capa-2); color: var(--paper); }
+  .grupo.g-control { background: var(--trust); color: var(--paper); }
+  .grupo.g-edge { background: var(--capa-4); color: var(--paper); }
+
+  .leyenda { display: flex; gap: 24px; padding: 14px; background: var(--bg); border-radius: 6px; font-size: 12px; }
+
+  .nota {
+    text-align: center; font-style: italic; font-size: 14px; font-family: var(--serif);
+    padding: 12px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 5 · §1.2</div>
+    <h1 class="figure-title">The eleven links of the AI value chain</h1></div>
+    <div class="figure-eyebrow">Figure G28</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="grupos">
+        <div class="grupo g-data">Data</div>
+        <div class="grupo g-base">Foundation models</div>
+        <div class="grupo g-control">Capabilities, control, and operation</div>
+        <div class="grupo g-edge">Edge</div>
+      </div>
+
+      <div class="esl-row">
+        <div class="esl e1">
+          <div class="num">1</div>
+          <div class="nm">Data</div>
+          <div class="en">Data Layer</div>
+          <div class="ej">Scale AI · Labelbox · Hugging Face</div>
+        </div>
+        <div class="esl e2">
+          <div class="num">2</div>
+          <div class="nm">Model</div>
+          <div class="en">Foundation Model</div>
+          <div class="ej">OpenAI · Anthropic · Google · Meta · DeepSeek</div>
+        </div>
+        <div class="esl e3">
+          <div class="num">3</div>
+          <div class="nm">Access</div>
+          <div class="en">Access Layer</div>
+          <div class="ej">APIs · Bedrock · Vertex AI · Portkey</div>
+        </div>
+        <div class="esl e4">
+          <div class="num">4</div>
+          <div class="nm">Agents</div>
+          <div class="en">AI Agents</div>
+          <div class="ej">ChatGPT · Claude · Operator</div>
+        </div>
+        <div class="esl e5">
+          <div class="num">5</div>
+          <div class="nm">Specializations</div>
+          <div class="en">Domain Experts</div>
+          <div class="ej">Cursor · Harvey · Jasper · Fin · umeeta</div>
+        </div>
+        <div class="esl e6">
+          <div class="num">6</div>
+          <div class="nm">Runtime</div>
+          <div class="en">Agent Runtime</div>
+          <div class="ej">Layer 3 · state · scheduling</div>
+        </div>
+        <div class="esl e7">
+          <div class="num">7</div>
+          <div class="nm">Firewall</div>
+          <div class="en">Security Layer</div>
+          <div class="ej">Lakera · Lasso · Guardrails</div>
+        </div>
+        <div class="esl e8">
+          <div class="num">8</div>
+          <div class="nm">Observability</div>
+          <div class="en">Observability</div>
+          <div class="ej">Langfuse · LangSmith · Helicone · Arize</div>
+        </div>
+        <div class="esl e9">
+          <div class="num">9</div>
+          <div class="nm">Tools</div>
+          <div class="en">Tools</div>
+          <div class="ej">MCP · vector DBs · Pinecone · Weaviate</div>
+        </div>
+        <div class="esl e10">
+          <div class="num">10</div>
+          <div class="nm">Integrations</div>
+          <div class="en">Integration Layer</div>
+          <div class="ej">Zapier · Make · n8n · Workato</div>
+        </div>
+        <div class="esl e11">
+          <div class="num">11</div>
+          <div class="nm">Environment</div>
+          <div class="en">Environment</div>
+          <div class="ej">ERPs · CRMs · IoT · carbon world</div>
+        </div>
+      </div>
+
+      <div class="leyenda">
+        <span style="color: var(--capa-3); font-weight: 700;">●</span> Data as raw material
+        <span style="color: var(--capa-2); font-weight: 700;">●</span> Models and their monetization
+        <span style="color: var(--trust); font-weight: 700;">●</span> Operational capability, control, and tools
+        <span style="color: var(--capa-4); font-weight: 700;">●</span> The world where the agent acts
+      </div>
+
+      <div class="nota">
+        Skipping a link is not elegance · it is architectural debt paid in production
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Each link corresponds to an operational design decision in any productive AI system</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G37</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+  .matriz {
+    display: grid;
+    grid-template-columns: 200px repeat(4, 1fr);
+    gap: 4px;
+    font-size: 12px;
+  }
+  .cell { padding: 14px 12px; border-radius: 4px; text-align: center; }
+  .cell.h { background: var(--ink); color: var(--paper); font-family: var(--sans); font-weight: 700; padding: 16px; text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; }
+  .cell.h-row { background: var(--bg); font-family: var(--serif); font-weight: 700; text-align: left; padding-left: 16px; font-size: 14px; }
+  .cell.role { background: var(--bg); padding: 14px; }
+  .cell.role .nm { font-family: var(--mono); font-weight: 700; color: var(--ink); font-size: 12px; }
+  .cell.role .role-tag { display: block; font-size: 10px; color: var(--ink-soft); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .sourcerow .role { background: var(--capa-2-bg); }
+  .etlrow .role { background: var(--capa-3-bg); }
+  .presrow .role { background: var(--capa-1-bg); }
+  .governrow .role { background: var(--rule-soft); }
+  .agentrow .role { background: var(--trust-bg); border: 1px dashed var(--trust); }
+
+  .gap-note {
+    margin-top: 12px; padding: 16px 22px; background: var(--ink); color: var(--paper);
+    border-radius: 6px; font-size: 13px; line-height: 1.5; font-style: italic;
+  }
+  .gap-note strong { font-style: normal; font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 6 · §1.5</div>
+    <h1 class="figure-title">Functional equivalence across the hyperscalers</h1></div>
+    <div class="figure-eyebrow">Figure G37</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="matriz">
+        <div class="cell h">Kimball function</div>
+        <div class="cell h">Microsoft Azure</div>
+        <div class="cell h">AWS</div>
+        <div class="cell h">Google Cloud</div>
+        <div class="cell h">Databricks</div>
+
+        <div class="sourcerow" style="display: contents;">
+          <div class="cell h-row">Source</div>
+          <div class="cell role"><span class="nm">connectors</span><span class="role-tag">Azure Data Factory</span></div>
+          <div class="cell role"><span class="nm">Glue · Kinesis</span><span class="role-tag">ingestion</span></div>
+          <div class="cell role"><span class="nm">Dataflow · Pub/Sub</span><span class="role-tag">ingestion</span></div>
+          <div class="cell role"><span class="nm">Bronze</span><span class="role-tag">Medallion: raw</span></div>
+        </div>
+
+        <div class="etlrow" style="display: contents;">
+          <div class="cell h-row">ETL · Warehouse</div>
+          <div class="cell role"><span class="nm">Synapse Analytics</span><span class="role-tag">DW + ETL</span></div>
+          <div class="cell role"><span class="nm">Redshift</span><span class="role-tag">DW</span></div>
+          <div class="cell role"><span class="nm">BigQuery</span><span class="role-tag">serverless DW</span></div>
+          <div class="cell role"><span class="nm">Silver</span><span class="role-tag">Medallion: clean</span></div>
+        </div>
+
+        <div class="presrow" style="display: contents;">
+          <div class="cell h-row">Presentation · BI Apps</div>
+          <div class="cell role"><span class="nm">Power BI</span><span class="role-tag">dashboards</span></div>
+          <div class="cell role"><span class="nm">QuickSight</span><span class="role-tag">dashboards</span></div>
+          <div class="cell role"><span class="nm">Looker · Looker Studio</span><span class="role-tag">dashboards + LookML</span></div>
+          <div class="cell role"><span class="nm">Gold + Dashboards</span><span class="role-tag">presentation</span></div>
+        </div>
+
+        <div class="governrow" style="display: contents;">
+          <div class="cell h-row">Governance · Metadata</div>
+          <div class="cell role"><span class="nm">Purview</span><span class="role-tag">catalog + lineage</span></div>
+          <div class="cell role"><span class="nm">DataZone · Lake Formation</span><span class="role-tag">catalog + permissions</span></div>
+          <div class="cell role"><span class="nm">Dataplex</span><span class="role-tag">catalog + lineage</span></div>
+          <div class="cell role"><span class="nm">Unity Catalog</span><span class="role-tag">catalog + permissions</span></div>
+        </div>
+
+        <div class="agentrow" style="display: contents;">
+          <div class="cell h-row">Agentive layer</div>
+          <div class="cell role"><span class="nm">partial</span><span class="role-tag">Fabric under construction</span></div>
+          <div class="cell role"><span class="nm">partial</span><span class="role-tag">Bedrock ad hoc connectors</span></div>
+          <div class="cell role"><span class="nm">partial</span><span class="role-tag">Vertex AI integrations</span></div>
+          <div class="cell role"><span class="nm">partial</span><span class="role-tag">emerging Agentic BI</span></div>
+        </div>
+      </div>
+
+      <div class="gap-note">
+        <strong>The functional equivalence is direct down to the governance row.</strong> But none of the hyperscalers yet has the complete agentive layer: explicit semantic layer + Trust Score + AI Certification + observability of agentive queries integrated under a coherent architecture. <strong>That gap is the strategic opportunity.</strong>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>The actor that delivers complete Varnished Kimball captures the space</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

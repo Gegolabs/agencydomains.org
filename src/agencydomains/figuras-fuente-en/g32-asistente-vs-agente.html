@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G27</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: 1fr auto; gap: 24px; width: 100%; height: 100%; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .col { padding: 22px; border-radius: 12px; display: flex; flex-direction: column; gap: 14px; }
+  .col.asis { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .col.auto { background: var(--capa-3-bg); border: 2px solid var(--capa-3); }
+  .col h2 { margin: 0; font-family: var(--serif); font-size: 24px; }
+  .col .sub { font-style: italic; color: var(--ink-soft); margin: -6px 0 0; font-size: 13px; }
+  .col .where { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+
+  .flow-box { background: var(--paper); border-radius: 6px; padding: 14px; min-height: 130px; }
+  .flow-box h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .flow { display: flex; flex-direction: column; gap: 6px; }
+  .step { background: var(--bg); border-left: 3px solid; padding: 6px 12px; font-size: 12px; border-radius: 0 4px 4px 0; }
+  .col.asis .step { border-color: var(--capa-2); }
+  .col.auto .step { border-color: var(--capa-3); }
+
+  .props { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 12px; }
+  .props .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); align-self: center; }
+  .props .v { background: var(--paper); padding: 5px 10px; border-radius: 3px; }
+
+  .evolucion {
+    background: var(--ink); color: var(--paper); padding: 18px 24px; border-radius: 8px;
+  }
+  .evolucion h3 { margin: 0 0 12px; font-family: var(--serif); font-size: 16px; }
+  .barras { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; font-size: 12px; }
+  .barras .lab { color: var(--paper); }
+  .bar {
+    height: 22px; display: flex; border-radius: 3px; overflow: hidden;
+  }
+  .bar .a { background: var(--capa-2); display: flex; align-items: center; justify-content: center; color: var(--paper); font-size: 11px; font-weight: 600; }
+  .bar .b { background: var(--capa-3); display: flex; align-items: center; justify-content: center; color: var(--paper); font-size: 11px; font-weight: 600; }
+  .bar-leg { display: flex; gap: 16px; font-size: 11px; margin-top: 8px; }
+  .bar-leg span { display: flex; align-items: center; gap: 6px; }
+  .bar-leg .sw { width: 12px; height: 12px; border-radius: 2px; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · §5</div>
+    <h1 class="figure-title">Assistant vs. Autonomous Agent · distinct roles, not a hierarchy</h1></div>
+    <div class="figure-eyebrow">Figure G27</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="compare">
+
+        <div class="col asis">
+          <div>
+            <span class="where">Lives in Layer 2 · Cognition</span>
+            <h2>Assistant — reactive</h2>
+            <p class="sub">"the Assistant waits"</p>
+          </div>
+
+          <div class="flow-box">
+            <h4>Flow</h4>
+            <div class="flow">
+              <div class="step">Human formulates a request</div>
+              <div class="step">Cognition applies Capabilities + tools</div>
+              <div class="step">Composes a response</div>
+              <div class="step">Returns it to the human</div>
+              <div class="step" style="opacity: 0.5;">— no state between sessions —</div>
+            </div>
+          </div>
+
+          <div class="props">
+            <span class="k">trigger</span><span class="v">human invokes it</span>
+            <span class="k">persistence</span><span class="v">no — ends with the session</span>
+            <span class="k">billing</span><span class="v">typical · user's subscription</span>
+            <span class="k">governance</span><span class="v">light — human validates each response</span>
+            <span class="k">example</span><span class="v">Claude · ChatGPT · conversational Copilot</span>
+          </div>
+        </div>
+
+        <div class="col auto">
+          <div>
+            <span class="where">Lives in Layer 3 · Autonomy</span>
+            <h2>Autonomous Agent — proactive</h2>
+            <p class="sub">"the Agent pursues"</p>
+          </div>
+
+          <div class="flow-box">
+            <h4>Flow</h4>
+            <div class="flow">
+              <div class="step">Lives in continuous background</div>
+              <div class="step">Detects stimuli from the environment</div>
+              <div class="step">Applies Botlets · invokes cognition only on change</div>
+              <div class="step">Executes action · records it in the log</div>
+              <div class="step">Escalates to the human if a threshold is exceeded</div>
+            </div>
+          </div>
+
+          <div class="props">
+            <span class="k">trigger</span><span class="v">environment events</span>
+            <span class="k">persistence</span><span class="v">yes — state survives disconnections</span>
+            <span class="k">billing</span><span class="v">typical · tokens centralized to the AD</span>
+            <span class="k">governance</span><span class="v">all 5 pillars, with discipline</span>
+            <span class="k">example</span><span class="v">SLA monitoring · nightly reconciliation · financial surveillance</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="evolucion">
+        <h3>The proportion evolves with the organization's maturity</h3>
+        <div style="display: grid; grid-template-rows: repeat(4, auto); gap: 10px;">
+
+          <div class="barras">
+            <span class="lab">Early stages</span>
+            <div class="bar"><span class="a" style="flex: 90;">Assistant · 90%</span><span class="b" style="flex: 10;">10</span></div>
+          </div>
+
+          <div class="barras">
+            <span class="lab">Adoption stage</span>
+            <div class="bar"><span class="a" style="flex: 70;">Assistant · 70%</span><span class="b" style="flex: 30;">A.A. · 30%</span></div>
+          </div>
+
+          <div class="barras">
+            <span class="lab">Maturity stage</span>
+            <div class="bar"><span class="a" style="flex: 50;">Assistant · 50%</span><span class="b" style="flex: 50;">Autonomous Agent · 50%</span></div>
+          </div>
+
+          <div class="barras">
+            <span class="lab">Advanced stages</span>
+            <div class="bar"><span class="a" style="flex: 30;">Asst. · 30%</span><span class="b" style="flex: 70;">Autonomous Agent · 70%</span></div>
+          </div>
+
+        </div>
+        <div class="bar-leg">
+          <span><span class="sw" style="background: var(--capa-2);"></span> work in Assistant</span>
+          <span><span class="sw" style="background: var(--capa-3);"></span> work in Autonomous Agent</span>
+          <span style="font-style: italic; opacity: 0.85;">→ this is the transition from online enterprise to real-time enterprise</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"Selling an Autonomous Agent with the governance of an Assistant is selling a risk disguised as a product"</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

@@ -16,6 +16,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 ## How to use this document
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
+- **Series**: AgencyDomains is Book III of the Agentive World trilogy — *Postchat* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
 - **A mirror of v0.4** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.

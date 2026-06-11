@@ -19,6 +19,7 @@ printf '\\renewcommand{\\cajateasertitulo}{What you just saw}\n' > "$TMPHDR"
 # el resto vive en la portada. Luego el libro desde el Prologue.
 { awk '/^## The Trilogy/{f=1} /^# Prologue/{f=0} f' "$MD" | sed '1s/^## /# /'
   sed -n '/^# Prologue/,$p' "$MD"; } > "$TMPSRC"
+sed -i '' 's|](figuras/|](figuras-en/|g' "$TMPSRC" 2>/dev/null || sed -i 's|](figuras/|](figuras-en/|g' "$TMPSRC"
 # Teasers de escena → caja cajateaser (ver build-pdf.sh para el detalle).
 perl -0777 -i -pe 's{^> \*\*What you just saw:\*\*\n>\n> ([^\n]*)\n>\n> \*(The commentary for this scene: [^\n]*?)\.?\*\n}{::: {.cajateaser comentario="$2"}\n$1\n:::\n}gm' "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
@@ -39,7 +40,7 @@ WEBBUILD="$LIBRO_DIR/../agencydomains/_build/web-build.py"
 OUT="${1:-_dist/web-en}"
 echo "→ libro-web (--lang en)…"
 python3 "$WEBBUILD" \
-  --md "$MD" --figuras "$LIBRO_DIR/figuras" \
+  --md "$MD" --figuras "$LIBRO_DIR/figuras-en" \
   --agents "$LIBRO_DIR/para-agents.md" --pdf "$PDF" \
   --name Postchat --lang en --base /postchat --out "$OUT" --version "$VERSION"
 echo "✓ edición inglesa Postchat: MD + PDF + web en $OUT"

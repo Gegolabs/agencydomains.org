@@ -7,7 +7,7 @@
 **Edition:** Development draft · June 2026 · v0.4
 **License:** GNU Free Documentation License v1.3 *(proposed)*
 
-> **A note on the version.** This is a **pre-1.0 development draft**: references and figures may be reorganized between iterations up to version **1.0**, which will be the first stable public release. In this English edition the figures are still rendered in Spanish; their English versions are forthcoming. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
+> **A note on the version.** This is a **pre-1.0 development draft**: references and figures may be reorganized between iterations up to version **1.0**, which will be the first stable public release. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
 
 ## About this book
 
@@ -55,6 +55,44 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 ## How to cite
 
 > Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.4. GegoLabs, 2026.
+
+## The Trilogy
+
+This book is volume **III** of the **Agentive World Trilogy**. The three volumes
+answer, in order, the three questions of the transition — and each one reads
+complete on its own:
+
+**I · Postchat — The Agentive World**
+Where are we going? — **the destination.** For those who want to see the world
+on the other side of the transition: how people work, decide, and compete once
+applications have already collapsed.
+
+**II · AURA — The Agentive Path**
+Which way? — **the route.** For those who have to make the crossing: leaders
+and advisors of the transformation. Its four specifications are standalone
+instruments for the agentive era — each one can be used separately, without
+the rest of the book:
+
+| Spec | What is it? | Used alone, what does it give you? |
+|:---------|:----------------------------|:----------------------------|
+| **IRIS** | A maturity model of organizational intelligence | Measures how advanced your organization is at Business Intelligence |
+| **MOTOR** | A maturity model of organizational automation | Measures how advanced your organization is at process automation |
+| **Data Canon** | The evolution of Data Mesh | Defines how to govern data and do BI |
+| **Wingmap** | The evolution of BPM / process mining | Reconstructs processes and information flows without interviews |
+
+**III · AgencyDomains — Agentive Architecture** *(this book)*
+How do we get there? — **the vehicle.** For architects, CTOs, and builders of
+agentive platforms: the formal specification of the Agentive World.
+
+**Vergis — Agentive Technology** *(not a book: it's code)*
+What do I start with today? — **the keys.** For anyone who wants to start
+making all of this real: the reference implementation of the architecture,
+open source, at <https://github.com/gegolabs/vergis>.
+
+Start with **Postchat** if you need to convince yourself — or someone else —
+that the transition is for real; with **AURA** if you have to lead it; with
+**AgencyDomains** if you have to build it; with **Vergis** if you want to see
+it running. The full trilogy lives at <https://agencydomains.org>.
 
 ## License
 

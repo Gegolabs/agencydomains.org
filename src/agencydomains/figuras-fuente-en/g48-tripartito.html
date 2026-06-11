@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G43</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; width: 100%; height: 100%; align-items: stretch; }
+  .plano {
+    display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 12px;
+    border-top: 6px solid;
+  }
+  .plano.cloud   { background: var(--capa-2-bg); border-top-color: var(--capa-2); }
+  .plano.cliente { background: var(--trust-bg);  border-top-color: var(--trust); }
+  .plano.local   { background: var(--capa-1-bg); border-top-color: var(--capa-1); }
+
+  .plano-header { display: flex; align-items: baseline; justify-content: space-between; }
+  .plano-titulo { font-family: var(--serif); font-size: 28px; font-weight: 700; margin: 0; }
+  .plano-rol { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); }
+
+  .quien { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: -8px; }
+
+  .responsabilidades { display: flex; flex-direction: column; gap: 10px; }
+  .resp {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 12px 14px; font-size: 13px; line-height: 1.45;
+  }
+  .resp strong { display: block; font-size: 13px; font-family: var(--serif); margin-bottom: 2px; }
+
+  .principio {
+    margin-top: auto; font-size: 12px; color: var(--ink-soft); padding: 12px; background: var(--paper);
+    border-radius: 6px; border-left: 4px solid;
+  }
+  .plano.cloud   .principio { border-color: var(--capa-2); }
+  .plano.cliente .principio { border-color: var(--trust); }
+  .plano.local   .principio { border-color: var(--capa-1); }
+
+  .arrows { position: absolute; left: 0; right: 0; top: 50%; pointer-events: none; }
+
+  .frase {
+    grid-column: 1 / -1;
+    text-align: center; padding: 16px;
+    font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink);
+    border-top: 1px solid var(--rule); margin-top: 16px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 7 · Trust Infrastructure operationalized</div>
+    <h1 class="figure-title">Tripartite pattern · Cloud + Client + Local</h1></div>
+    <div class="figure-eyebrow">Figure G43 · signature image</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="plano cloud">
+        <div class="plano-header">
+          <h2 class="plano-titulo">Cloud</h2>
+          <span class="plano-rol">Control plane</span>
+        </div>
+        <p class="quien">operated by the agentive platform's provider</p>
+        <div class="responsabilidades">
+          <div class="resp"><strong>Licenses</strong>Quota, plan, and billing management</div>
+          <div class="resp"><strong>Provider registry</strong>Catalog of available providers</div>
+          <div class="resp"><strong>Upstream integration</strong>Connection to cognition providers</div>
+          <div class="resp"><strong>Aggregated telemetry</strong>Cross-tenant metrics with privacy preserved</div>
+        </div>
+        <div class="principio">
+          The ecosystem stays where the provider can operate it
+        </div>
+      </div>
+
+      <div class="plano cliente">
+        <div class="plano-header">
+          <h2 class="plano-titulo">Client</h2>
+          <span class="plano-rol">Governance plane</span>
+        </div>
+        <p class="quien">deployed inside the client company's internal network</p>
+        <div class="responsabilidades">
+          <div class="resp"><strong>Corporate policies</strong>Definition and enforcement (CRUDLEX, thresholds)</div>
+          <div class="resp"><strong>Identity provider</strong>Integration with the corporate IdP (OAuth2 / SAML)</div>
+          <div class="resp"><strong>Central audit</strong>Immutable chained append-only log</div>
+          <div class="resp"><strong>Internal connections</strong>Access to the client's operational systems</div>
+        </div>
+        <div class="principio">
+          Policy is defined where the company controls
+        </div>
+      </div>
+
+      <div class="plano local">
+        <div class="plano-header">
+          <h2 class="plano-titulo">Local</h2>
+          <span class="plano-rol">Execution plane</span>
+        </div>
+        <p class="quien">on each user's device</p>
+        <div class="responsabilidades">
+          <div class="resp"><strong>MCP client</strong>Claude Code · Cursor · Windsurf · any conformant client</div>
+          <div class="resp"><strong>Local providers</strong>Connection to the user's device resources</div>
+          <div class="resp"><strong>Local credentials</strong>Encrypted on the user's device</div>
+          <div class="resp"><strong>Tool execution</strong>Effective materialization of the action</div>
+        </div>
+        <div class="principio">
+          The AI operates where the user works
+        </div>
+      </div>
+
+      <div class="frase">
+        The three planes cooperate, but none replaces the others — the separation is the fundamental property.
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Canonical deployment pattern of enterprise Trust Infrastructure</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

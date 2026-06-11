@@ -26,7 +26,7 @@ No agent is born representing. The capability progresses along a spectrum of fou
 The order is non-negotiable: nobody delegates their signature to an agent that hasn't demonstrated, over months of mediation, that it understands how its user thinks.
 
 <!-- FIG:f04-espectro-representacion -->
-![The maturity spectrum of representation (figure in Spanish; English version forthcoming)](figuras/f04-espectro-representacion.png)
+![The maturity spectrum of representation](figuras/f04-espectro-representacion.png)
 
 One example suffices to pin down the third stage. A manager is in the field, with no signal — exactly where he should be. A director needs to know whether his maintenance program can tolerate a forty-eight-hour shift. She consults the manager's agent, which answers with the verified slack, the two conditions its user would set — and a limit: one of those conditions involves a personal commitment the manager made, and the agent flags it as non-delegable, offering to leave the change pre-approved for ratification. That sentence — *this is not mine to decide* — is the mark of the mature representative: it knows, above all, what is not its place.
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>F1 · The three stages of enterprise communication</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .estadios { display: grid; grid-template-columns: 1fr 64px 1fr 64px 1.15fr; align-items: stretch; width: 100%; }
+  .estadio {
+    border: 1.5px solid var(--rule); border-radius: 10px; padding: 28px 26px;
+    display: flex; flex-direction: column; gap: 14px; background: var(--paper);
+  }
+  .estadio h2 { font-family: var(--serif); font-size: 30px; margin: 0; }
+  .era { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); }
+  .flujo { font-size: 15px; line-height: 1.45; }
+  .flujo strong { font-family: var(--serif); }
+  .controla {
+    margin-top: auto; border-top: 1px solid var(--rule-soft); padding-top: 12px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .controla b { color: var(--ink); }
+  .e-email { border-left: 5px solid var(--rule); }
+  .e-chat  { border-left: 5px solid var(--capa-4); background: var(--capa-4-bg); }
+  .e-post  { border-left: 5px solid var(--capa-3); background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .flecha { display: flex; align-items: center; justify-content: center; font-size: 30px; color: var(--ink-soft); }
+  .dir { font-size: 13px; font-style: italic; color: var(--ink-soft); }
+  .punch {
+    margin-top: 40px; text-align: center; font-family: var(--serif);
+    font-size: 21px; font-style: italic; color: var(--ink);
+  }
+  .punch b { font-style: normal; }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Chapter 2 · Communication Comes to You</div>
+      <h1 class="figure-title">The three stages of enterprise communication</h1>
+    </div>
+    <div class="figure-eyebrow">Figure F1</div>
+  </header>
+
+  <div class="figure-body" style="flex-direction: column; justify-content: center;">
+    <div class="estadios">
+      <div class="estadio e-email">
+        <div class="era">Stage 1 · ~30 years</div>
+        <h2>Email</h2>
+        <div class="dir">communication comes to you</div>
+        <div class="flujo">No filter, no priority, no action. The right direction — <strong>with no governance whatsoever</strong>.</div>
+        <div class="controla">Who is in control? <b>Nobody</b> — chaos in the inbox</div>
+      </div>
+      <div class="flecha">→</div>
+      <div class="estadio e-chat">
+        <div class="era">Stage 2 · ~20 years</div>
+        <h2>Chat</h2>
+        <div class="dir">you go to the communication</div>
+        <div class="flujo">Permanent pull, channel by channel. Immediacy at the price of inverting the direction: <strong>it made you the hunter of your own information</strong>.</div>
+        <div class="controla">Who is in control? <b>The channel</b> — it controls your attention</div>
+      </div>
+      <div class="flecha">→</div>
+      <div class="estadio e-post">
+        <div class="era">Stage 3 · the one ahead</div>
+        <h2>Postchat</h2>
+        <div class="dir">communication comes to you — governed</div>
+        <div class="flujo">Filtered, prioritized, actionable, at just the right moment. <strong>The governed absence of the channel.</strong></div>
+        <div class="controla">Who is in control? <b>The agent</b> the flow · <b>you</b> the decisions</div>
+      </div>
+    </div>
+    <div class="punch">Silence changes its nature: it stops meaning <b>"maybe I'm missing something"</b><br>and comes to mean, with a system guarantee, <b>"there is nothing for you"</b>.</div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Postchat · The Agentive World</span>
+    <span>Figure F1</span>
+  </footer>
+</div>
+</body>
+</html>

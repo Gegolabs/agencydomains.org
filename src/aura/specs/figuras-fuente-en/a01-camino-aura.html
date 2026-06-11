@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>A1</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 40px; width: 100%; }
+
+  .cabecera { text-align: center; }
+  .cabecera h2 { font-family: var(--serif); font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .cabecera p { margin: 0; color: var(--ink-soft); font-style: italic; font-size: 16px; }
+
+  .partes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .parte { border-radius: 10px; padding: 24px 26px; border: 1.5px solid; display: flex; flex-direction: column; gap: 14px; }
+  .parte.saber      { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .parte.hacer      { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .parte.portafolio { background: var(--capa-1-bg); border-color: var(--capa-1); }
+
+  .parte .rotulo { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--ink-soft); }
+  .parte h3 { font-family: var(--serif); font-size: 26px; margin: 0; }
+  .parte .eje { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: -8px; }
+
+  .pieza { background: var(--paper); border-radius: 6px; padding: 16px 18px; }
+  .pieza .tipo { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 3px; }
+  .pieza .nombre { font-family: var(--serif); font-size: 19px; font-weight: 600; margin-bottom: 3px; }
+  .pieza .que { font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+
+  .flujo { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  .paso { text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--ink); position: relative; }
+  .paso:not(:last-child)::after {
+    content: '→'; position: absolute; right: -22px; top: 0; font-style: normal; color: var(--ink-soft);
+  }
+</style>
+</head><body>
+<div class="figure">
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="cabecera">
+        <h2>AURA · The Agentive Path</h2>
+        <p>two maturity axes, two field instruments, one decision framework</p>
+      </div>
+
+      <div class="partes">
+        <div class="parte saber">
+          <div class="rotulo">Part I</div>
+          <h3>Knowing</h3>
+          <div class="eje">the organizational intelligence axis</div>
+          <div class="pieza">
+            <div class="tipo">Diagnostic model</div>
+            <div class="nombre">IRIS</div>
+            <div class="que">10 stages — from fragmented information to the self-managed ecosystem</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Governance instrument</div>
+            <div class="nombre">Data Canon</div>
+            <div class="que">who rules the data when agents consume it — governance recentralized under a canon</div>
+          </div>
+        </div>
+
+        <div class="parte hacer">
+          <div class="rotulo">Part II</div>
+          <h3>Doing</h3>
+          <div class="eje">the organizational automation axis</div>
+          <div class="pieza">
+            <div class="tipo">Diagnostic model</div>
+            <div class="nombre">MOTOR</div>
+            <div class="que">7 levels — from ungoverned shadow AI to the agent as strategic authority</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Discovery instrument</div>
+            <div class="nombre">Wingmap</div>
+            <div class="que">the real processes reconstructed from their digital traces, with no interviews</div>
+          </div>
+        </div>
+
+        <div class="parte portafolio">
+          <div class="rotulo">Part III</div>
+          <h3>The Portfolio</h3>
+          <div class="eje">from diagnosis to prioritized execution</div>
+          <div class="pieza">
+            <div class="tipo">Decision framework</div>
+            <div class="nombre">Use Cases</div>
+            <div class="que">UCs and Value Solutions · three classification dimensions · Citizen / City / DUAL prioritization</div>
+          </div>
+          <div class="pieza">
+            <div class="tipo">Discipline</div>
+            <div class="nombre">Honest ROI</div>
+            <div class="que">returns declared referential; social value on its own terms</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flujo">
+        <div class="paso">where am I?</div>
+        <div class="paso">on what ground?</div>
+        <div class="paso">what do I do first?</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body></html>

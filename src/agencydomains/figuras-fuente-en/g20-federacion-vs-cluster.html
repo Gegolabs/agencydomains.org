@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G18</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; width: 100%; height: 100%; }
+  .lado { padding: 32px; border-radius: 12px; display: flex; flex-direction: column; gap: 16px; }
+  .lado.cluster { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .lado.feder   { background: var(--capa-4-bg); border: 2px solid var(--capa-4); }
+  .lado h2 { margin: 0; font-family: var(--serif); font-size: 28px; }
+  .lado .frase { font-style: italic; color: var(--ink-soft); margin: -8px 0 0; font-size: 14px; }
+
+  .diagram { background: var(--paper); border-radius: 8px; padding: 24px; min-height: 280px; display: flex; align-items: center; justify-content: center; position: relative; }
+
+  /* Cluster: 3 instancias del mismo AD */
+  .cluster-d {
+    display: flex; gap: 14px; align-items: center; justify-content: center;
+  }
+  .cluster-d .inst {
+    background: var(--capa-2-bg); border: 2px solid var(--capa-2); border-radius: 8px;
+    padding: 16px; text-align: center; font-family: var(--mono); font-size: 11px; min-width: 110px;
+    position: relative;
+  }
+  .cluster-d .inst .id { font-family: var(--serif); font-weight: 700; font-size: 14px; }
+  .cluster-d .inst .same { font-size: 9px; color: var(--ink-soft); margin-top: 4px; }
+  .cluster-d .lb {
+    background: var(--ink); color: var(--paper); padding: 6px 10px; border-radius: 4px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+    width: fit-content; align-self: center;
+  }
+
+  /* Federación: AD distintos colaborando */
+  .feder-d {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; width: 100%;
+  }
+  .feder-d .ad {
+    background: var(--paper); border: 2px solid var(--capa-4); border-radius: 8px; padding: 14px;
+    text-align: center; position: relative;
+  }
+  .feder-d .ad .nm { font-family: var(--serif); font-weight: 700; font-size: 14px; }
+  .feder-d .ad .org { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+  .feder-d .ad .agts { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
+  .feder-d .ad .ag { background: var(--capa-4-bg); border-left: 2px solid var(--capa-4); padding: 4px 8px; font-size: 10px; font-family: var(--mono); }
+
+  .props { display: grid; gap: 8px; }
+  .prop { background: var(--paper); padding: 10px 14px; border-radius: 4px; display: grid; grid-template-columns: 100px 1fr; gap: 10px; font-size: 12px; }
+  .prop .k { font-weight: 700; color: var(--ink-soft); text-transform: uppercase; font-size: 10px; letter-spacing: 0.06em; align-self: center; }
+
+  .badge-tipo {
+    display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+  }
+  .b-op { background: var(--capa-2); color: var(--paper); }
+  .b-arq { background: var(--capa-4); color: var(--paper); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · §1.8</div>
+    <h1 class="figure-title">Federation vs. Cluster — a critical distinction</h1></div>
+    <div class="figure-eyebrow">Figure G18</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="lado cluster">
+        <div>
+          <span class="badge-tipo b-op">Operational</span>
+          <h2>Cluster</h2>
+          <p class="frase">multiple instances of the <em>same</em> AgencyDomain</p>
+        </div>
+        <div class="diagram">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%;">
+            <div class="lb">Load balancer</div>
+            <div class="cluster-d">
+              <div class="inst"><div class="id">firm-A</div><div class="same">instance 1 · same identity</div></div>
+              <div class="inst"><div class="id">firm-A</div><div class="same">instance 2 · same identity</div></div>
+              <div class="inst"><div class="id">firm-A</div><div class="same">instance 3 · same identity</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="props">
+          <div class="prop"><span class="k">purpose</span>load sharing · availability</div>
+          <div class="prop"><span class="k">identity</span>a single one, replicated</div>
+          <div class="prop"><span class="k">governance</span>a single one (same owner)</div>
+          <div class="prop"><span class="k">example</span>3 instances of firm A's AD across different zones</div>
+        </div>
+      </div>
+
+      <div class="lado feder">
+        <div>
+          <span class="badge-tipo b-arq">Architectural</span>
+          <h2>Federation</h2>
+          <p class="frase">multiple <em>distinct</em> AgencyDomains collaborating</p>
+        </div>
+        <div class="diagram">
+          <div class="feder-d">
+            <div class="ad">
+              <div class="nm">firm-A</div>
+              <div class="org">independent org.</div>
+              <div class="agts">
+                <div class="ag">agent-finance</div>
+                <div class="ag">agent-ops</div>
+              </div>
+            </div>
+            <div class="ad">
+              <div class="nm">firm-B</div>
+              <div class="org">independent org.</div>
+              <div class="agts">
+                <div class="ag">agent-legal</div>
+                <div class="ag">agent-tax</div>
+              </div>
+            </div>
+            <div class="ad">
+              <div class="nm">soveria</div>
+              <div class="org">public network</div>
+              <div class="agts">
+                <div class="ag">agent-citizen</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="props">
+          <div class="prop"><span class="k">purpose</span>cross-organization cooperation</div>
+          <div class="prop"><span class="k">identity</span>distinct — each its own</div>
+          <div class="prop"><span class="k">governance</span>distinct · explicit trust</div>
+          <div class="prop"><span class="k">requires</span>discovery, cross-authentication, semantic resolution</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Cluster is operational · Federation is architectural — do not conflate</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

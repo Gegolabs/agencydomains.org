@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G33</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; width: 100%; height: 100%; }
+  .lado { padding: 26px; border-radius: 12px; display: flex; flex-direction: column; gap: 18px; }
+  .lado.web { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .lado.ag  { background: var(--capa-4-bg); border: 2px solid var(--capa-4); }
+  .lado h2 { font-family: var(--serif); font-size: 22px; margin: 0; }
+  .lado .epoca { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+
+  .flow {
+    background: var(--paper); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px;
+    min-height: 280px;
+  }
+  .step {
+    display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 13px;
+    align-items: start;
+  }
+  .step .n {
+    background: var(--ink); color: var(--paper); width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .step .body strong { font-family: var(--serif); display: block; }
+  .step .body span { color: var(--ink-soft); font-size: 12px; }
+
+  .strategy { background: var(--paper); padding: 14px; border-radius: 6px; border-left: 4px solid; line-height: 1.5; font-size: 12px; }
+  .lado.web .strategy { border-color: var(--capa-2); }
+  .lado.ag  .strategy { border-color: var(--capa-4); }
+  .strategy h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 14px; }
+  .strategy .tag { display: inline-block; background: var(--bg); padding: 3px 10px; border-radius: 12px; font-size: 11px; margin: 2px; }
+
+  .property { font-size: 12px; padding: 10px 14px; background: var(--ink); color: var(--paper); border-radius: 4px; line-height: 1.5; }
+  .property strong { font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 5 · agentive discoverability</div>
+    <h1 class="figure-title">Where value gets discovered — from the index to the trained model</h1></div>
+    <div class="figure-eyebrow">Figure G33</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="lado web">
+        <div>
+          <span class="epoca">Pre-agentive era</span>
+          <h2>Web discovery · SEO</h2>
+        </div>
+        <div class="flow">
+          <div class="step"><span class="n">1</span><div class="body"><strong>Human needs a capability</strong><span>"I need a tool for X"</span></div></div>
+          <div class="step"><span class="n">2</span><div class="body"><strong>Opens Google · App Store</strong><span>the discovery layer is an index</span></div></div>
+          <div class="step"><span class="n">3</span><div class="body"><strong>Algorithmic ranking</strong><span>SEO · ASO · advertising</span></div></div>
+          <div class="step"><span class="n">4</span><div class="body"><strong>Click → product</strong><span>the actor is found or not</span></div></div>
+        </div>
+        <div class="strategy">
+          <h4>Strategy · SEO</h4>
+          <span class="tag">on-page content</span><span class="tag">backlinks</span>
+          <span class="tag">ASO</span><span class="tag">ads</span>
+          <span class="tag">traditional marketing</span>
+        </div>
+        <div class="property">
+          <strong>Reversible:</strong> stop paying = lose ranking within weeks.<br>
+          <strong>Concentrated layer:</strong> Google + a handful of search engines.
+        </div>
+      </div>
+
+      <div class="lado ag">
+        <div>
+          <span class="epoca">Agentive era</span>
+          <h2>Agentive discovery · MEO</h2>
+        </div>
+        <div class="flow">
+          <div class="step"><span class="n">1</span><div class="body"><strong>Human needs a capability</strong><span>"which tool would work for X?"</span></div></div>
+          <div class="step"><span class="n">2</span><div class="body"><strong>Asks their assistant</strong><span>the discovery layer is the cognition</span></div></div>
+          <div class="step"><span class="n">3</span><div class="body"><strong>Trained model</strong><span>retrieves from its learned corpus</span></div></div>
+          <div class="step"><span class="n">4</span><div class="body"><strong>Recommendation · invocation via MCP</strong><span>the actor is cited or executed natively</span></div></div>
+        </div>
+        <div class="strategy">
+          <h4>Strategy · MEO (Model Engine Optimization)</h4>
+          <span class="tag">open source repos with rich READMEs</span>
+          <span class="tag">citable documentation</span>
+          <span class="tag">papers</span>
+          <span class="tag">native MCP integration</span>
+          <span class="tag">high-authority mentions</span>
+        </div>
+        <div class="property">
+          <strong>Persistent:</strong> once in the corpus, the reference scales with usage.<br>
+          <strong>Asymmetric:</strong> winner-take-all · the first in the category becomes the default.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"The discovery layer shifted from the search index to the cognition model"</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G41</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 22px; width: 100%; }
+
+  .chain { display: flex; gap: 0; align-items: stretch; padding: 14px; background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; }
+  .block {
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 6px;
+    padding: 10px 12px; font-size: 11px; min-width: 200px; flex: 1;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .block .blk-h { font-family: var(--mono); font-size: 10px; color: var(--ink-soft); padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  .block .row { display: grid; grid-template-columns: 60px 1fr; gap: 4px; font-size: 10px; }
+  .block .row .k { color: var(--ink-soft); }
+  .block .row .v { font-family: var(--mono); color: var(--ink); }
+  .block .row .v.hash { color: var(--p-aud); }
+  .block .row .v.prev { color: var(--capa-4); }
+  .block .row .v.dec { font-family: var(--sans); }
+
+  .chain-arr { display: flex; align-items: center; padding: 0 6px; font-size: 22px; color: var(--p-aud); }
+
+  .props { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .prop {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px;
+    font-size: 11px; line-height: 1.45; border-top: 4px solid;
+  }
+  .prop strong { font-family: var(--serif); display: block; font-size: 13px; margin-bottom: 4px; }
+  .prop.p1 { border-color: var(--p-gob); }
+  .prop.p2 { border-color: var(--p-aud); }
+  .prop.p3 { border-color: var(--p-val); }
+  .prop.p4 { border-color: var(--p-res); }
+
+  .alteracion {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .alt-card {
+    padding: 14px 18px; border-radius: 6px; font-size: 12px; line-height: 1.5;
+  }
+  .alt-card.bad { background: var(--capa-4-bg); border-left: 4px solid var(--capa-4); }
+  .alt-card.good { background: var(--capa-3-bg); border-left: 4px solid var(--capa-3); }
+  .alt-card strong { font-family: var(--serif); display: block; margin-bottom: 4px; }
+
+  .leyenda { font-size: 11px; color: var(--ink-soft); text-align: center; font-style: italic; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 7 · §1.4 · append-only log</div>
+    <h1 class="figure-title">Cryptographic log chain · immutability by construction</h1></div>
+    <div class="figure-eyebrow">Figure G41</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="chain">
+        <div class="block">
+          <div class="blk-h">log_id: lr-001</div>
+          <div class="row"><span class="k">timestamp</span><span class="v">14:23:40</span></div>
+          <div class="row"><span class="k">agent</span><span class="v">finance-001</span></div>
+          <div class="row"><span class="k">tool</span><span class="v">ledger.read</span></div>
+          <div class="row"><span class="k">decision</span><span class="v dec">allow</span></div>
+          <div class="row"><span class="k">prev_hash</span><span class="v prev">0x000…</span></div>
+          <div class="row"><span class="k">this_hash</span><span class="v hash">0x7f3a…</span></div>
+        </div>
+
+        <div class="chain-arr">▶</div>
+
+        <div class="block">
+          <div class="blk-h">log_id: lr-002</div>
+          <div class="row"><span class="k">timestamp</span><span class="v">14:23:42</span></div>
+          <div class="row"><span class="k">agent</span><span class="v">finance-001</span></div>
+          <div class="row"><span class="k">tool</span><span class="v">ledger.write</span></div>
+          <div class="row"><span class="k">decision</span><span class="v dec">approval req</span></div>
+          <div class="row"><span class="k">prev_hash</span><span class="v prev">0x7f3a…</span></div>
+          <div class="row"><span class="k">this_hash</span><span class="v hash">0xb19c…</span></div>
+        </div>
+
+        <div class="chain-arr">▶</div>
+
+        <div class="block">
+          <div class="blk-h">log_id: lr-003</div>
+          <div class="row"><span class="k">timestamp</span><span class="v">14:23:42</span></div>
+          <div class="row"><span class="k">approver</span><span class="v">controller</span></div>
+          <div class="row"><span class="k">action</span><span class="v">approved</span></div>
+          <div class="row"><span class="k">decision</span><span class="v dec">grant</span></div>
+          <div class="row"><span class="k">prev_hash</span><span class="v prev">0xb19c…</span></div>
+          <div class="row"><span class="k">this_hash</span><span class="v hash">0xa402…</span></div>
+        </div>
+
+        <div class="chain-arr">▶</div>
+
+        <div class="block">
+          <div class="blk-h">log_id: lr-004</div>
+          <div class="row"><span class="k">timestamp</span><span class="v">14:23:45</span></div>
+          <div class="row"><span class="k">agent</span><span class="v">finance-001</span></div>
+          <div class="row"><span class="k">tool</span><span class="v">ledger.write</span></div>
+          <div class="row"><span class="k">outcome</span><span class="v dec">success</span></div>
+          <div class="row"><span class="k">prev_hash</span><span class="v prev">0xa402…</span></div>
+          <div class="row"><span class="k">this_hash</span><span class="v hash">0xc8f1…</span></div>
+        </div>
+
+        <div class="chain-arr">▶</div>
+      </div>
+
+      <div class="leyenda">
+        Each block contains the hash of the previous one. A retroactive alteration breaks the chain across every subsequent hash — and is detected immediately.
+      </div>
+
+      <div class="props">
+        <div class="prop p1">
+          <strong>Immutability</strong>
+          Records are never edited or deleted — only appended.
+        </div>
+        <div class="prop p2">
+          <strong>Cryptographic chaining</strong>
+          Hash of the previous record in each new record. Verifiable chain.
+        </div>
+        <div class="prop p3">
+          <strong>Hash of parameters, not content</strong>
+          The log stores no sensitive data — their hashes. Raw data in a separate store.
+        </div>
+        <div class="prop p4">
+          <strong>Retention per domain</strong>
+          Financial ~7 years · health ~10 · whatever regulation demands.
+        </div>
+      </div>
+
+      <div class="alteracion">
+        <div class="alt-card bad">
+          <strong>✗ Application log (does not suffice)</strong>
+          Sometimes editable · no chaining · retention days/weeks · audience: developers.
+        </div>
+        <div class="alt-card good">
+          <strong>✓ Trust Infrastructure append-only log</strong>
+          Immutable · chained · retention in years · audience: auditors and regulators.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>A serious organization keeps both — and does not confuse them</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

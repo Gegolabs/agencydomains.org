@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G39</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+
+  .matriz {
+    display: grid;
+    grid-template-columns: 240px repeat(6, 1fr);
+    gap: 4px;
+    font-size: 12px;
+  }
+  .cell { padding: 16px 14px; text-align: center; border-radius: 4px; }
+  .cell.h { background: var(--ink); color: var(--paper); font-family: var(--serif); font-weight: 700; padding: 14px; }
+  .cell.h .op { font-size: 18px; }
+  .cell.h .nm { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.85; margin-top: 2px; }
+
+  .cell.h-row {
+    background: var(--bg); text-align: left; padding: 14px 16px;
+    font-family: var(--serif); font-weight: 700;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .cell.h-row .nv { font-size: 14px; }
+  .cell.h-row .uso { font-size: 11px; color: var(--ink-soft); font-weight: 400; font-family: var(--sans); }
+
+  .yes { background: var(--capa-3); color: var(--paper); font-weight: 700; }
+  .no  { background: var(--rule-soft); color: var(--ink-soft); }
+  .ltd { background: var(--capa-1-bg); color: var(--capa-1); font-weight: 600; border: 1px solid var(--capa-1); }
+
+  .descs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .desc-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; font-size: 11px; line-height: 1.45; border-left: 4px solid; }
+  .desc-card strong { font-family: var(--serif); display: block; font-size: 13px; margin-bottom: 4px; }
+  .desc-card.cr   { border-color: var(--capa-3); }
+  .desc-card.lim  { border-color: var(--capa-1); }
+  .desc-card.warn { border-color: var(--capa-4); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 7 · §1.3 · CRUDLEX</div>
+    <h1 class="figure-title">Preconfigured levels × the six operations</h1></div>
+    <div class="figure-eyebrow">Figure G39</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="matriz">
+        <div class="cell h" style="text-align: left; padding-left: 16px;">Preconfigured level</div>
+        <div class="cell h"><div class="op">C</div><div class="nm">Create</div></div>
+        <div class="cell h"><div class="op">R</div><div class="nm">Read</div></div>
+        <div class="cell h"><div class="op">U</div><div class="nm">Update</div></div>
+        <div class="cell h"><div class="op">D</div><div class="nm">Delete</div></div>
+        <div class="cell h"><div class="op">L</div><div class="nm">List</div></div>
+        <div class="cell h"><div class="op">E</div><div class="nm">Execute</div></div>
+
+        <div class="cell h-row"><span class="nv">FULL</span><span class="uso">complete authority</span></div>
+        <div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+        <div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+
+        <div class="cell h-row"><span class="nv">READ-WRITE</span><span class="uso">normal operation without destruction</span></div>
+        <div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+
+        <div class="cell h-row"><span class="nv">READONLY</span><span class="uso">pure querying</span></div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell no">—</div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell no">—</div>
+
+        <div class="cell h-row"><span class="nv">SAFE</span><span class="uso">limited executive action</span></div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell no">—</div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell ltd">limited</div>
+
+        <div class="cell h-row"><span class="nv">NO-SEND</span><span class="uso">editing without external actions</span></div>
+        <div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell no">—</div>
+
+        <div class="cell h-row"><span class="nv">NO-DELETE</span><span class="uso">normal operation without destruction</span></div>
+        <div class="cell yes">✓</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+        <div class="cell no">—</div><div class="cell yes">✓</div><div class="cell yes">✓</div>
+      </div>
+
+      <div class="descs">
+        <div class="desc-card cr">
+          <strong>Read vs. List</strong>
+          A critical distinction. Read queries one item by ID; List enumerates many by filter. An agent with Read but without List is safe against mass exfiltration.
+        </div>
+        <div class="desc-card lim">
+          <strong>Update vs. Execute</strong>
+          Update modifies a resource; Execute fires a process with side effects (sending email, a transfer, an external workflow). Distinct risk profiles.
+        </div>
+        <div class="desc-card warn">
+          <strong>Effective CRUDLEX = intersection</strong>
+          (user × agent × context). If the user has Read but not Write, the agent acting on their behalf cannot write either. No dimension escalates privileges.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>FULL and READONLY are extremes · the intermediate levels cover the typical cases</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G16</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 320px; gap: 36px; width: 100%; height: 100%; }
+  .domain-box {
+    border: 3px solid var(--ink); border-radius: 12px; background: var(--paper);
+    padding: 24px; display: flex; flex-direction: column; gap: 16px; position: relative;
+  }
+  .domain-tag {
+    position: absolute; top: -16px; left: 24px; background: var(--ink); color: var(--paper);
+    padding: 4px 14px; border-radius: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  .row1 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .agents-box {
+    background: var(--capa-3-bg); border: 1.5px solid var(--capa-3); border-radius: 6px;
+    padding: 12px;
+  }
+  .agents-box h4 { margin: 0 0 8px; font-family: var(--serif); font-size: 14px; }
+  .agents-list { display: grid; gap: 6px; }
+  .agent-item {
+    background: var(--paper); border-left: 3px solid var(--capa-3); padding: 6px 10px;
+    font-size: 11px; border-radius: 0 4px 4px 0;
+  }
+  .agent-item strong { font-family: var(--mono); }
+  .agent-item .props { color: var(--ink-soft); margin-top: 2px; font-size: 10px; }
+
+  .registry-box {
+    border: 1.5px solid; border-radius: 6px; padding: 12px;
+  }
+  .reg-cap { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .reg-tools { background: var(--capa-4-bg); border-color: var(--capa-4); }
+  .registry-box h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 14px; }
+  .reg-items { display: flex; flex-wrap: wrap; gap: 4px; font-size: 10px; }
+  .reg-items .it { background: var(--paper); padding: 3px 8px; border-radius: 12px; }
+
+  .trust-strip {
+    background: var(--trust-bg); border: 1.5px dashed var(--trust); border-radius: 6px; padding: 10px 14px;
+    display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center;
+  }
+  .trust-strip h4 { margin: 0; font-family: var(--serif); font-size: 14px; color: #3e2855; }
+  .trust-strip .pillars { font-size: 11px; color: #3e2855; }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .id-box, .cog-box {
+    border: 1.5px solid var(--rule); background: var(--paper); border-radius: 6px; padding: 12px;
+  }
+  .id-box h4, .cog-box h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 13px; }
+  .id-box code, .cog-box code { font-size: 10px; display: block; background: var(--bg); padding: 4px 8px; border-radius: 3px; margin: 3px 0; }
+
+  /* Comunicación */
+  .comm-side {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .comm-side h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 17px; }
+  .comm-card {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 12px;
+    font-size: 12px; line-height: 1.45;
+  }
+  .comm-card strong { display: block; font-family: var(--serif); font-size: 13px; margin-bottom: 4px; }
+  .comm-int { border-left: 3px solid var(--capa-3); }
+  .comm-ext { border-left: 3px solid var(--capa-4); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · §1</div>
+    <h1 class="figure-title">Anatomy of the AgencyDomain</h1></div>
+    <div class="figure-eyebrow">Figure G16</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="domain-box">
+        <span class="domain-tag">AgencyDomain · computational scope</span>
+
+        <div class="row2" style="margin-top: 8px;">
+          <div class="id-box">
+            <h4>Identity</h4>
+            <code>did:agentdomain:firma-cliente.org</code>
+            <code>credentials · root policies</code>
+          </div>
+          <div class="cog-box">
+            <h4>Cognition Bindings</h4>
+            <code>provider: anthropic://claude-...</code>
+            <code>mode: tokens | subscription</code>
+          </div>
+        </div>
+
+        <div class="row1">
+          <div class="agents-box">
+            <h4>Agents</h4>
+            <div class="agents-list">
+              <div class="agent-item"><strong>agent-finance-001</strong>
+                <div class="props">Capabilities · Botlets · State</div>
+              </div>
+              <div class="agent-item"><strong>agent-support-001</strong>
+                <div class="props">Capabilities · Botlets · State</div>
+              </div>
+              <div class="agent-item"><strong>agent-ops-001</strong>
+                <div class="props">Capabilities · Botlets · State</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="registry-box reg-cap">
+              <h4>Capabilities Registry</h4>
+              <div class="reg-items">
+                <span class="it">Finance/GL</span><span class="it">Finance/Tax</span>
+                <span class="it">Sales/CS</span><span class="it">Telecom</span>
+                <span class="it">Ops/SCM</span>
+              </div>
+            </div>
+            <div class="registry-box reg-tools">
+              <h4>Tools Registry</h4>
+              <div class="reg-items">
+                <span class="it">ledger.read</span><span class="it">crm.write</span>
+                <span class="it">email.send</span><span class="it">bank.query</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-strip">
+          <h4>Trust Layer</h4>
+          <span class="pillars">policies · append-only log · CRUDLEX · audit · validation</span>
+          <span style="font-size: 10px; color: #3e2855; font-style: italic;">cross-cutting across everything</span>
+        </div>
+      </div>
+
+      <aside class="comm-side">
+        <div>
+          <h3>Agent communication</h3>
+        </div>
+        <div class="comm-card comm-int">
+          <strong>Intra-AgencyDomain coordination</strong>
+          Between Botlers of the <em>same</em> AgencyDomain, via the <code>A2A</code> protocol. Canonical URI + verifiable schema + traceability. <span style="color: var(--capa-3);">Mature.</span>
+        </div>
+        <div class="comm-card comm-ext">
+          <strong><code>A2A</code> between AgencyDomains</strong>
+          Between <em>distinct</em> AgencyDomains. Requires discovery, cross-authentication, semantic resolution. <span style="color: var(--capa-4);">Open work.</span>
+        </div>
+
+        <div style="background: var(--bg); padding: 14px; border-radius: 6px; font-size: 12px; color: var(--ink-soft); border-left: 3px solid var(--ink);">
+          <strong style="color: var(--ink); font-family: var(--serif);">Addressability</strong><br>
+          <code style="font-size: 10px;">{domain}/agents/{agent}</code><br>
+          <code style="font-size: 10px;">{domain}/agents/{a}/botlets/{b}</code><br>
+          <code style="font-size: 10px;">{domain}/tools/{tool}</code>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Conceptual analog of JSR-000148 (JavaSpaces) · 1999</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

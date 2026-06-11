@@ -15,7 +15,7 @@ The book's argument now fits into its complete framework. The transition to the 
 The sequence is not arbitrary. The first liberation installs the agent as the work interface; the second gives it the complete communications context; the third capitalizes that context as the capacity for representation. That is why the order is not skipped — and why the organization that postpones one liberation postpones the ones that follow.
 
 <!-- FIG:f05-tres-liberaciones -->
-![The three liberations, consolidated (figure in Spanish; English version forthcoming)](figuras/f05-tres-liberaciones.png)
+![The three liberations, consolidated](figuras/f05-tres-liberaciones.png)
 
 The aggregate consequence (chapter 6) is the change in the organization's nature: from the pyramid-network that consumed people as transmission infrastructure, to the **intelligent organization** — carbon authority, silicon transport, people at the edge.
 

@@ -15,7 +15,9 @@ PDF="_dist/AURA-${VERSION}.pdf"
 HEADER="$LIBRO_DIR/../agencydomains/_build/header-libro-extra.tex"
 TMPSRC="$(mktemp -t aura-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
-sed -n '/^# Prólogo/,$p' "$MD" > "$TMPSRC"
+# Del frontmatter solo sobrevive «La trilogía» (página propia); el resto vive en la portada.
+{ awk '/^## La trilogía/{f=1} /^# Prólogo/{f=0} f' "$MD" | sed '1s/^## /# /'
+  sed -n '/^# Prólogo/,$p' "$MD"; } > "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
   --pdf-engine=xelatex -H "$HEADER" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \

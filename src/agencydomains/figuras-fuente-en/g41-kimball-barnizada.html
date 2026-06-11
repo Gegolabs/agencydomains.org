@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G36</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; width: 100%; height: 100%; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .col h2 { font-family: var(--serif); font-size: 22px; margin: 0; }
+
+  .stack-clas, .stack-bar {
+    background: var(--paper); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 8px;
+    border: 1px solid var(--rule);
+  }
+  .layer-k {
+    padding: 12px 16px; border-radius: 4px; border-left: 5px solid;
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center;
+  }
+  .layer-k .nm { font-family: var(--serif); font-weight: 700; font-size: 14px; }
+  .layer-k .desc { font-size: 12px; color: var(--ink-soft); }
+  .l-source { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .l-etl { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .l-pres { background: var(--capa-1-bg); border-color: var(--capa-1); }
+  .l-bi { background: var(--rule-soft); border-color: var(--ink-soft); }
+  .l-agent { background: var(--trust-bg); border-color: var(--trust); }
+  .l-human { background: var(--capa-1-bg); border-color: var(--capa-1); }
+
+  .arrow-d { text-align: center; font-size: 14px; color: var(--ink-soft); }
+
+  .meta-bar {
+    margin-top: 8px; padding: 14px; background: var(--ink); color: var(--paper); border-radius: 4px;
+    text-align: center; font-size: 12px;
+  }
+  .meta-bar strong { font-family: var(--serif); display: block; margin-bottom: 4px; font-size: 13px; }
+
+  .new-tag {
+    background: var(--trust); color: var(--paper); padding: 2px 8px; border-radius: 12px;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 8px;
+  }
+
+  .change-note {
+    margin-top: auto; padding: 14px; background: var(--paper); border-radius: 6px; font-size: 12px;
+    line-height: 1.5; border-left: 4px solid var(--trust);
+  }
+  .change-note strong { font-family: var(--serif); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 6 · §1.4</div>
+    <h1 class="figure-title">Classic Kimball vs. Varnished Kimball</h1></div>
+    <div class="figure-eyebrow">Figure G36</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="col">
+        <h2>Classic Kimball · 1996</h2>
+        <div class="stack-clas">
+          <div class="layer-k l-source">
+            <span class="nm">Source</span>
+            <span class="desc">ERPs · CRMs · transactional systems</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-etl">
+            <span class="nm">ETL</span>
+            <span class="desc">extract · transform · load</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-pres">
+            <span class="nm">Presentation</span>
+            <span class="desc">data marts · facts + dimensions</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-bi">
+            <span class="nm">BI Apps</span>
+            <span class="desc">dashboards · reports · for humans</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-human">
+            <span class="nm">Human</span>
+            <span class="desc">consumes via dashboard</span>
+          </div>
+          <div class="meta-bar">
+            <strong>Metadata</strong>
+            governance · quality · lineage (cross-cutting)
+          </div>
+        </div>
+        <div class="change-note">
+          <strong>Good for:</strong> humans querying data via dashboards. <strong>Not good for:</strong> agents querying to reason autonomously.
+        </div>
+      </div>
+
+      <div class="col">
+        <h2>Varnished Kimball · 2026</h2>
+        <div class="stack-bar">
+          <div class="layer-k l-source">
+            <span class="nm">Source</span>
+            <span class="desc">ERPs · CRMs · transactional systems</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-etl">
+            <span class="nm">ETL</span>
+            <span class="desc">extract · transform · load</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-pres">
+            <span class="nm">Presentation</span>
+            <span class="desc">data marts · facts + dimensions</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-bi">
+            <span class="nm">BI Apps</span>
+            <span class="desc">dashboards · reports</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-agent">
+            <span class="nm">AGENT <span class="new-tag">NEW</span></span>
+            <span class="desc">semantic queries · autonomous reasoning</span>
+          </div>
+          <div class="arrow-d">↓</div>
+          <div class="layer-k l-human">
+            <span class="nm">Human</span>
+            <span class="desc">converses with the agent</span>
+          </div>
+          <div class="meta-bar" style="background: var(--trust);">
+            <strong>Metadata + Semantic Layer + Trust Score + AI Certification <span class="new-tag" style="background: var(--paper); color: var(--trust);">NEW</span></strong>
+            strategic asset (cross-cutting)
+          </div>
+        </div>
+        <div class="change-note">
+          <strong>The data model goes from</strong> report container <strong>to</strong> strategic asset over which agents reason. Without a semantic layer, agents hallucinate on >80% of queries.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Agentive value is not proven by replacing what already works — but by capitalizing on it</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

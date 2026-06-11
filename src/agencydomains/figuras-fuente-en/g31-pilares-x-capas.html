@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G26</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+
+  .matriz-grid {
+    display: grid;
+    grid-template-columns: 200px repeat(4, 1fr);
+    gap: 4px;
+    width: 100%;
+  }
+  .cell { padding: 18px 14px; border-radius: 6px; text-align: center; font-size: 13px; }
+  .cell.h { font-family: var(--sans); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 14px; }
+  .cell.h-row { text-align: left; padding-left: 18px; font-family: var(--serif); font-weight: 700; }
+  .cell.h-row span { font-size: 11px; font-weight: 400; color: var(--ink-soft); display: block; font-family: var(--sans); text-transform: none; letter-spacing: 0; }
+
+  .cell.h-c1 { background: var(--capa-1); color: var(--paper); }
+  .cell.h-c2 { background: var(--capa-2); color: var(--paper); }
+  .cell.h-c3 { background: var(--capa-3); color: var(--paper); }
+  .cell.h-c4 { background: var(--capa-4); color: var(--paper); }
+
+  .cell.empty { background: var(--rule-soft); }
+  .cell.partial {
+    background: var(--paper); border: 1px solid; font-weight: 600;
+  }
+  .cell.principal {
+    color: var(--paper); font-weight: 700;
+  }
+
+  .gob-bg { background: var(--p-gob); border-color: var(--p-gob); color: var(--p-gob); }
+  .gob-pri { background: var(--p-gob); color: var(--paper); }
+  .aud-bg { background: var(--p-aud); border-color: var(--p-aud); color: var(--p-aud); }
+  .aud-pri { background: var(--p-aud); color: var(--paper); }
+  .val-bg { background: var(--p-val); border-color: var(--p-val); color: var(--p-val); }
+  .val-pri { background: var(--p-val); color: var(--paper); }
+  .res-bg { background: var(--p-res); border-color: var(--p-res); color: var(--p-res); }
+  .res-pri { background: var(--p-res); color: var(--paper); }
+  .tra-pri { background: var(--p-tra); color: var(--paper); }
+
+  .row-gob .cell.h-row { color: var(--p-gob); border-left: 4px solid var(--p-gob); }
+  .row-aud .cell.h-row { color: var(--p-aud); border-left: 4px solid var(--p-aud); }
+  .row-val .cell.h-row { color: var(--p-val); border-left: 4px solid var(--p-val); }
+  .row-res .cell.h-row { color: var(--p-res); border-left: 4px solid var(--p-res); }
+  .row-tra .cell.h-row { color: var(--p-tra); border-left: 4px solid var(--p-tra); }
+
+  .leyenda {
+    display: flex; gap: 24px; align-items: center; padding: 14px;
+    background: var(--bg); border-radius: 6px; font-size: 12px;
+  }
+  .leyenda .swatch { width: 24px; height: 24px; border-radius: 4px; display: inline-block; }
+
+  .lecturas { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .lectura { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 14px; font-size: 12px; line-height: 1.5; border-left: 4px solid; }
+  .lectura.l1 { border-color: var(--capa-4); }
+  .lectura.l2 { border-color: var(--capa-3); }
+  .lectura.l3 { border-color: var(--p-tra); }
+  .lectura strong { font-family: var(--serif); display: block; margin-bottom: 4px; font-size: 13px; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · §4</div>
+    <h1 class="figure-title">Cross-cutting map · which pillar operates in which layer</h1></div>
+    <div class="figure-eyebrow">Figure G26</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="matriz-grid">
+        <div class="cell h" style="background: var(--bg);">Pillar / Layer</div>
+        <div class="cell h h-c1">Layer 1<br>Interaction</div>
+        <div class="cell h h-c2">Layer 2<br>Cognition</div>
+        <div class="cell h h-c3">Layer 3<br>Autonomy</div>
+        <div class="cell h h-c4">Layer 4<br>Access</div>
+
+        <div class="row-gob" style="display: contents;">
+          <div class="cell h-row">Governance<span>policies, CRUDLEX, approval</span></div>
+          <div class="cell empty">—</div>
+          <div class="cell empty">—</div>
+          <div class="cell empty">—</div>
+          <div class="cell principal gob-pri">PRIMARY</div>
+        </div>
+
+        <div class="row-aud" style="display: contents;">
+          <div class="cell h-row">Audit<span>append-only log, lineage</span></div>
+          <div class="cell empty">—</div>
+          <div class="cell empty">—</div>
+          <div class="cell empty">—</div>
+          <div class="cell principal aud-pri">PRIMARY</div>
+        </div>
+
+        <div class="row-val" style="display: contents;">
+          <div class="cell h-row">Validation<span>hallucination, prompt injection, DLP</span></div>
+          <div class="cell empty">—</div>
+          <div class="cell partial val-bg">partial</div>
+          <div class="cell empty">—</div>
+          <div class="cell principal val-pri">PRIMARY</div>
+        </div>
+
+        <div class="row-res" style="display: contents;">
+          <div class="cell h-row">Resilience<span>fallback, sandboxing, circuit breakers</span></div>
+          <div class="cell empty">—</div>
+          <div class="cell empty">—</div>
+          <div class="cell principal res-pri">PRIMARY</div>
+          <div class="cell empty">—</div>
+        </div>
+
+        <div class="row-tra" style="display: contents;">
+          <div class="cell h-row">Transparency<span>observability, traces, alerts</span></div>
+          <div class="cell tra-pri">cross-cutting</div>
+          <div class="cell tra-pri">cross-cutting</div>
+          <div class="cell tra-pri">cross-cutting</div>
+          <div class="cell tra-pri">cross-cutting</div>
+        </div>
+      </div>
+
+      <div class="leyenda">
+        <span><span class="swatch" style="background: var(--rule-soft);"></span> absent</span>
+        <span><span class="swatch" style="background: var(--paper); border: 1.5px solid var(--p-val);"></span> partial</span>
+        <span><span class="swatch" style="background: var(--p-gob);"></span> primary — pillar operates centrally in the layer</span>
+        <span><span class="swatch" style="background: var(--p-tra);"></span> cross-cutting — operates in all layers</span>
+      </div>
+
+      <div class="lecturas">
+        <div class="lectura l1">
+          <strong>1 · Layer 4 carries the heaviest load</strong>
+          Governance, Audit, and final Validation operate primarily in Layer 4 — where cognition becomes real action.
+        </div>
+        <div class="lectura l2">
+          <strong>2 · Resilience lives in Layer 3</strong>
+          Operational continuity rests on persistent autonomy — Botler, Botlets with fallback.
+        </div>
+        <div class="lectura l3">
+          <strong>3 · Transparency is a cross-cutting property</strong>
+          It spans all four layers. It demands explicit instrumentation design in each one, not added at the end.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Ch. 4 §4 · Cross-cutting Trust Infrastructure</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

@@ -12,8 +12,7 @@
 > hour by hour) and **the commentary** (the full development of each idea). The
 > merge, the compression of Part 1, and the new scenes respond to the external
 > review of v0.1. The protagonist and her organization are fictional
-> composites. The guest prologue remains pending. In this English edition the
-> figures are still rendered in Spanish; their English versions are forthcoming.
+> composites. The guest prologue remains pending.
 
 **How to cite:**
 Obach-Renner, César. *Postchat: The Agentive World*. Development draft v0.2. GegoLabs, 2026.

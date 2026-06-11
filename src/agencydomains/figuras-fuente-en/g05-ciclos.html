@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G5</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; width: 100%; height: 100%; }
+  .ciclo { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; }
+  .ciclo.clasico  { background: var(--capa-2-bg); }
+  .ciclo.agentivo { background: var(--capa-3-bg); }
+  .ciclo h2 { margin: 0; font-family: var(--serif); font-size: 22px; }
+  .ciclo .frase { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: -8px; }
+
+  .lineal { display: flex; flex-direction: column; gap: 8px; }
+  .step { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 14px; font-size: 13px; display: flex; gap: 10px; align-items: center; }
+  .step .n { background: var(--capa-2); color: var(--paper); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .step.humano { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+  .step.humano .n { background: var(--paper); color: var(--ink); }
+
+  .arrow-down { width: 2px; height: 12px; background: var(--ink-soft); margin: 0 auto; }
+
+  .cont {
+    position: relative; width: 280px; height: 280px; margin: 0 auto;
+  }
+  .cont svg { width: 100%; height: 100%; }
+  .cont-step {
+    position: absolute; transform: translate(-50%, -50%);
+    background: var(--paper); border: 1.5px solid var(--capa-3); border-radius: 50%;
+    width: 70px; height: 70px; font-size: 11px; text-align: center;
+    display: flex; align-items: center; justify-content: center; padding: 4px;
+    font-weight: 600;
+  }
+  .humano-above {
+    text-align: center; padding: 14px; background: var(--ink); color: var(--paper);
+    border-radius: 6px; font-family: var(--serif); font-size: 14px; font-style: italic;
+  }
+
+  .conclu {
+    grid-column: 1 / -1;
+    text-align: center; padding: 16px;
+    background: var(--paper); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+    margin-top: 8px;
+    font-family: var(--serif); font-size: 15px;
+  }
+  .conclu strong { font-style: italic; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 2 · §4</div>
+    <h1 class="figure-title">From the classic cycle to the continuous intelligence cycle</h1></div>
+    <div class="figure-eyebrow">Figure G5</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="ciclo clasico">
+        <h2>Classic cycle — linear and closed</h2>
+        <p class="frase">"people go to the data"</p>
+        <div class="lineal">
+          <div class="step"><span class="n">1</span>Descriptive — what happened</div>
+          <div class="arrow-down"></div>
+          <div class="step"><span class="n">2</span>Diagnostic — why it happened</div>
+          <div class="arrow-down"></div>
+          <div class="step"><span class="n">3</span>Predictive — what will happen</div>
+          <div class="arrow-down"></div>
+          <div class="step"><span class="n">4</span>Prescriptive — what to do</div>
+          <div class="arrow-down"></div>
+          <div class="step humano"><span class="n">5</span>Human evaluates and decides ← open loop</div>
+        </div>
+        <div style="font-size: 12px; color: var(--ink-soft); padding: 10px; background: var(--paper); border-radius: 4px;">
+          The cycle's speed is tied to the human's speed. If they sleep, the cycle does not advance.
+        </div>
+      </div>
+
+      <div class="ciclo agentivo">
+        <h2>Agentive cycle — continuous and closed</h2>
+        <p class="frase">"intelligence goes to the people and acts on their behalf"</p>
+
+        <div class="cont">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#6b8f6b" stroke-width="1" stroke-dasharray="3,2"/>
+            <!-- arrows around the circle -->
+            <path d="M 50 12 A 38 38 0 0 1 82.9 31" fill="none" stroke="#6b8f6b" stroke-width="1.5" marker-end="url(#arr)"/>
+            <path d="M 82.9 69 A 38 38 0 0 1 50 88" fill="none" stroke="#6b8f6b" stroke-width="1.5" marker-end="url(#arr)"/>
+            <path d="M 17.1 69 A 38 38 0 0 1 17.1 31" fill="none" stroke="#6b8f6b" stroke-width="1.5" marker-end="url(#arr)"/>
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b8f6b"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="cont-step" style="left: 50%; top: 12%;">monitor</div>
+          <div class="cont-step" style="left: 88%; top: 50%;">interpret</div>
+          <div class="cont-step" style="left: 50%; top: 88%;">decide + execute</div>
+          <div class="cont-step" style="left: 12%; top: 50%;">learn</div>
+        </div>
+
+        <div class="humano-above">Human <strong>above the loop</strong> — sets thresholds, governs, handles exceptions</div>
+
+        <div style="font-size: 12px; color: var(--ink-soft); padding: 10px; background: var(--paper); border-radius: 4px;">
+          The system closes the loop. The organization stops <em>doing analytics</em> to <em>be</em> an intelligent system.
+        </div>
+      </div>
+
+      <div class="conclu">
+        <strong>Online enterprise</strong> (human closes the loop) → <strong>Real-time enterprise</strong> (agent closes the loop, human governs)
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>The Quantum Leap — the frontier is not one of speed, it is one of operating model</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

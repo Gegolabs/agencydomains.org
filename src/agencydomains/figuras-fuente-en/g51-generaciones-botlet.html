@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G46</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 22px;
+    width: 98%;
+    height: 100%;
+    align-content: start;
+  }
+
+  .intro { text-align: center; }
+  .intro h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 4px 0; color: var(--capa-3); }
+  .intro .sub { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  /* Parte 1 — las tres generaciones */
+  .gens { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: stretch; }
+  .gen {
+    border: 1.5px solid var(--capa-3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+    background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 92%);
+  }
+  .gen .ghead { display: flex; align-items: baseline; gap: 9px; }
+  .gen .gtag {
+    font-family: var(--mono); font-size: 17px; font-weight: 700; color: var(--paper);
+    background: var(--capa-3); border-radius: 5px; padding: 2px 9px;
+  }
+  .gen .gname { font-family: var(--serif); font-size: 16px; font-weight: 700; color: #354936; }
+  .gen .gdesc { font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
+  .gen .gdesc b { color: var(--ink); font-weight: 600; }
+  /* intensidad creciente del verde por generación */
+  .gen.g1 { border-color: #8aa78a; }
+  .gen.g1 .gtag { background: #8aa78a; }
+  .gen.g3 { border-color: #3f5c3f; }
+  .gen.g3 .gtag { background: #3f5c3f; }
+  .gen-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 30px; color: var(--capa-3);
+  }
+  .gens-note {
+    grid-column: 1 / -1; text-align: center; font-size: 12px; color: var(--ink-soft);
+    font-style: italic; margin-top: 2px;
+  }
+
+  /* Parte 2 — reconciliación de dos ejes */
+  .ejes-wrap {
+    border: 1.5px dashed var(--capa-3);
+    border-radius: 12px;
+    background: var(--paper);
+    padding: 18px 24px 16px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .ejes-title {
+    grid-column: 1 / -1;
+    font-family: var(--serif); font-size: 16px; font-weight: 700; color: #354936;
+    text-align: center; margin-bottom: -4px;
+  }
+
+  /* Diagrama de cruz / dos ejes */
+  .cross { position: relative; height: 300px; padding-left: 30px; }
+  .cross svg { width: 100%; height: 100%; overflow: visible; }
+  .axlabel { font-family: var(--sans); font-size: 13px; fill: var(--ink); }
+  .axlabel.soft { fill: var(--ink-soft); font-size: 11px; }
+  .axtitle { font-family: var(--serif); font-weight: 700; }
+
+  /* Panel mensaje central */
+  .central {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .central .msg {
+    background: var(--capa-3); color: var(--paper);
+    border-radius: 8px; padding: 14px 16px;
+    font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.45;
+  }
+  .central .msg b { color: #f5e3d6; }
+  .central .terminal {
+    font-size: 11.5px; line-height: 1.5; color: var(--ink-soft);
+    border-left: 4px solid var(--capa-3); padding: 4px 0 4px 12px;
+  }
+  .central .terminal b { color: var(--ink); font-weight: 600; }
+
+  /* Cierre */
+  .cierre {
+    text-align: center;
+    font-family: var(--serif); font-size: 18px; font-weight: 700; color: #354936;
+    background: var(--capa-3-bg); border: 1.5px solid var(--capa-3);
+    border-radius: 8px; padding: 13px 22px;
+  }
+  .cierre b { color: var(--capa-4); }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter · Evolution frontier</div>
+    <h1 class="figure-title">Botlet generations — authorship capacity vs operational maturity</h1></div>
+    <div class="figure-eyebrow">Figure G46 · generations</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="intro">
+        <h2>More generation does not mean more live regeneration</h2>
+        <div class="sub">G3 capacity is better spent producing G1 reuse</div>
+      </div>
+
+      <!-- Parte 1: tres generaciones -->
+      <div class="gens">
+        <div class="gen g1">
+          <div class="ghead"><span class="gtag">G1</span><span class="gname">Configures</span></div>
+          <div class="gdesc">The agent <b>configures</b> pre-forged proto-Botlets. All the code already lives in the catalog.</div>
+        </div>
+        <div class="gen-arrow">→</div>
+        <div class="gen g2">
+          <div class="ghead"><span class="gtag">G2</span><span class="gname">Co-writes</span></div>
+          <div class="gdesc">The agent <b>co-writes</b> proto-Botlets: it extends and adapts code alongside the existing catalog.</div>
+        </div>
+        <div class="gen-arrow">→</div>
+        <div class="gen g3">
+          <div class="ghead"><span class="gtag">G3</span><span class="gname">Generates</span></div>
+          <div class="gdesc">The agent <b>generates the complete code</b> (asymptotic, frontier of the state of the art).</div>
+        </div>
+        <div class="gens-note">The architecture is the same; what changes is the scope of Engineering.</div>
+      </div>
+
+      <!-- Parte 2: reconciliación de dos ejes -->
+      <div class="ejes-wrap">
+        <div class="ejes-title">Two distinct axes — not the same arrow</div>
+
+        <div class="cross">
+          <svg viewBox="0 0 560 300">
+            <defs>
+              <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L7,3 L0,6 Z" fill="#4a6fa5"/>
+              </marker>
+              <marker id="av" markerWidth="10" markerHeight="10" refX="3" refY="7" orient="auto">
+                <path d="M0,7 L3,0 L6,7 Z" fill="#6b8f6b"/>
+              </marker>
+            </defs>
+
+            <!-- vertical axis (distinto): madurez operativa -->
+            <line x1="90" y1="250" x2="90" y2="40" stroke="#6b8f6b" stroke-width="2.5" marker-end="url(#av)"/>
+            <text class="axlabel axtitle" fill="#6b8f6b" transform="translate(40 145) rotate(-90)" text-anchor="middle">operational maturity</text>
+            <text class="axlabel soft" fill="#6b8f6b" transform="translate(56 145) rotate(-90)" text-anchor="middle">toward pre-forged reuse · 95/4/1 cycle</text>
+
+            <!-- horizontal axis: capacidad de autoría -->
+            <line x1="90" y1="250" x2="540" y2="250" stroke="#4a6fa5" stroke-width="2.5" marker-end="url(#ah)"/>
+            <text class="axlabel axtitle" x="315" y="288" text-anchor="middle" fill="#4a6fa5">authorship capacity</text>
+            <text class="axlabel soft" x="315" y="303" text-anchor="middle">advances with the state of the art</text>
+            <text class="axlabel" x="110" y="272" text-anchor="middle" font-family="var(--mono)" font-weight="700" fill="#4a6fa5">G1</text>
+            <text class="axlabel" x="315" y="272" text-anchor="middle" font-family="var(--mono)" font-weight="700" fill="#4a6fa5">G2</text>
+            <text class="axlabel" x="520" y="272" text-anchor="middle" font-family="var(--mono)" font-weight="700" fill="#4a6fa5">G3</text>
+
+            <!-- destino marker: catálogo G1 más rico (arriba-izquierda) -->
+            <circle cx="90" cy="75" r="9" fill="#6b8f6b"/>
+            <text class="axlabel" x="108" y="73" font-weight="700" fill="#354936">richer G1 catalog</text>
+            <text class="axlabel soft" x="108" y="90">the destiny: reuse, not live regeneration</text>
+
+            <!-- counter arrow: la capacidad G3 se invierte en producir G1 -->
+            <path d="M 510 160 Q 320 130 200 130" fill="none" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="5 4"/>
+            <polygon points="198,131 213,124 213,138" fill="#8b3a3a"/>
+            <text class="axlabel" x="360" y="118" text-anchor="middle" fill="#8b3a3a" font-size="12">G3 capacity is invested in producing G1</text>
+          </svg>
+        </div>
+
+        <div class="central">
+          <div class="msg">G3 capacity is better spent producing G1 reuse — the destiny is a <b>richer G1 catalog</b>, not live regeneration.</div>
+          <div class="terminal">For <b>platform</b> proto-Botlets, G1 is <b>terminal by design</b>: the generic code already covers N functions; configuring is enough.</div>
+        </div>
+      </div>
+
+      <div class="cierre">More generation <b>≠</b> more regeneration — the state of the art serves reuse; it does not replace it.</div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"The Botlet's destiny is not to regenerate live, but to consolidate into the catalog."</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

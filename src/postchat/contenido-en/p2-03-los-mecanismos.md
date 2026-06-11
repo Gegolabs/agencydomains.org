@@ -5,7 +5,7 @@
 The inversion of the previous chapter is not an aspiration: it is a system. This chapter inventories its seven mechanisms — six of operation and one deliberate exception — and the management principle that governs them.
 
 <!-- FIG:f03-siete-mecanismos -->
-![Six operating mechanisms and one deliberate exception (figure in Spanish; English version forthcoming)](figuras/f03-siete-mecanismos.png)
+![Six operating mechanisms and one deliberate exception](figuras/f03-siete-mecanismos.png)
 
 ## 1. Intelligent routing
 

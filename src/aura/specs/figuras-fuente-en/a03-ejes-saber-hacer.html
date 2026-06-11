@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>A3</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+  .plot { position: relative; width: 1050px; height: 800px; }
+
+  .cuadrantes {
+    position: absolute; inset: 70px 40px 90px 110px;
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px;
+  }
+  .q { border-radius: 10px; padding: 26px 30px; border: 1.5px solid var(--rule); background: #fdfcf9; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+  .q h4 { font-family: var(--serif); font-size: 23px; margin: 0; }
+  .q p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+  .q.destino { background: var(--capa-3-bg); border-color: var(--capa-3); border-width: 2px; }
+  .q.destino h4 { color: #2c4030; }
+  .q.destino .tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--capa-3); }
+  .q.riesgo { background: var(--capa-4-bg); border-color: var(--capa-4); }
+  .q.riesgo h4 { color: #4a1a1a; }
+
+  .eje-y, .eje-x { position: absolute; background: var(--ink); }
+  .eje-y { left: 86px; top: 50px; bottom: 70px; width: 3px; }
+  .eje-x { left: 86px; bottom: 70px; right: 20px; height: 3px; }
+  .eje-y::before { content: ''; position: absolute; top: -14px; left: -5px; border: 7px solid transparent; border-bottom: 14px solid var(--ink); }
+  .eje-x::after  { content: ''; position: absolute; right: -14px; top: -5px; border: 7px solid transparent; border-left: 14px solid var(--ink); }
+
+  .lab-y { position: absolute; left: -120px; top: 50%; transform: rotate(-90deg) translateX(40%); transform-origin: center; width: 420px; text-align: center; }
+  .lab-x { position: absolute; bottom: 4px; left: 110px; right: 40px; text-align: center; }
+  .lab-y .m, .lab-x .m { font-family: var(--serif); font-size: 21px; font-weight: 600; }
+  .lab-y .s, .lab-x .s { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+</style>
+</head><body>
+<div class="figure">
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="plot">
+
+        <div class="lab-y"><span class="m">IRIS · KNOWING axis</span><br><span class="s">organizational intelligence</span></div>
+        <div class="lab-x"><span class="m">MOTOR · DOING axis</span> &nbsp;<span class="s">organizational automation</span></div>
+        <div class="eje-y"></div>
+        <div class="eje-x"></div>
+
+        <div class="cuadrantes">
+          <div class="q">
+            <h4>Knows everything, does it manually</h4>
+            <p>Impeccable dashboards, bottlenecked decisions: intelligence arrives, execution waits.</p>
+          </div>
+          <div class="q destino">
+            <div class="tag">The destination</div>
+            <h4>Knows everything and executes on its own</h4>
+            <p>Mature intelligence and automation: the real-time enterprise, governed by people.</p>
+          </div>
+          <div class="q">
+            <h4>Doesn't know, doesn't do</h4>
+            <p>The starting point: fragmented data, manual processes.</p>
+          </div>
+          <div class="q riesgo">
+            <h4>Doesn't know, but automates blindly</h4>
+            <p>Autonomous execution on data nobody governs: speed without direction.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

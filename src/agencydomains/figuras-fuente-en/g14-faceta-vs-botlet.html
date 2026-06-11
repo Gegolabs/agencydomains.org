@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G13</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 22px;
+    width: 96%;
+    align-content: start;
+  }
+
+  .intro { text-align: center; padding: 8px 0; }
+  .intro h2 { font-family: var(--serif); font-size: 24px; margin: 0 0 4px 0; }
+  .intro .sub { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+  .quote {
+    background: var(--ink); color: var(--paper);
+    padding: 12px 24px; border-radius: 8px;
+    font-family: var(--serif); font-style: italic; text-align: center;
+    font-size: 14px;
+  }
+
+  .vs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .card {
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1.5px solid;
+    border-top-width: 6px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .card.faceta { background: linear-gradient(180deg, var(--capa-1-bg), var(--paper) 80%); border-color: var(--capa-1); }
+  .card.botlet { background: linear-gradient(180deg, var(--capa-3-bg), var(--paper) 80%); border-color: var(--capa-3); }
+
+  .card-head {
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid var(--rule-soft);
+    padding-bottom: 12px;
+  }
+  .card-icon {
+    width: 50px; height: 50px;
+    color: var(--paper);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-weight: 700; font-size: 24px;
+  }
+  .card.faceta .card-icon { background: var(--capa-1); }
+  .card.botlet .card-icon { background: var(--capa-3); }
+
+  .card-name { font-family: var(--serif); font-size: 24px; font-weight: 700; }
+  .card-rol { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-soft); margin-top: 2px; }
+
+  .essence {
+    font-style: italic; padding: 10px 14px;
+    background: var(--paper);
+    border-radius: 6px; border-left: 3px solid;
+    font-size: 13px; line-height: 1.5;
+  }
+  .card.faceta .essence { border-color: var(--capa-1); }
+  .card.botlet .essence { border-color: var(--capa-3); }
+
+  .properties {
+    display: grid; grid-template-columns: auto 1fr; gap: 6px 12px;
+    font-size: 11.5px; line-height: 1.4;
+  }
+  .properties .key { font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; font-size: 10px; align-self: center; }
+  .properties .value {}
+
+  .vs-divider {
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-style: italic; font-size: 18px;
+    color: var(--ink-soft); writing-mode: vertical-rl; text-orientation: mixed;
+    padding: 0 4px;
+  }
+
+  .heuristicas {
+    background: var(--rule-soft); border-radius: 8px;
+    padding: 14px 22px;
+  }
+  .heuristicas h3 {
+    font-family: var(--serif); font-size: 14px; margin: 0 0 8px 0;
+  }
+  .heur-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px;
+    font-size: 11.5px; line-height: 1.4;
+  }
+  .heur-list div::before { content: "→ "; color: var(--capa-1); font-weight: 700; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · Layer 1 + Chapter 5 · §6 — Facets</div>
+    <h1 class="figure-title">Facet vs Botlet · two primitives, two layers, two natures</h1></div>
+    <div class="figure-eyebrow">Figure G13</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="intro">
+        <h2>The sixth canonical primitive</h2>
+        <div class="sub">The Botlet automates · The Facet interacts</div>
+      </div>
+
+      <div class="quote">
+        The Botlet is the agent's muscle memory. The Facet is an instrument the agent picks up while thinking.
+      </div>
+
+      <div class="vs">
+        <div class="card faceta">
+          <div class="card-head">
+            <div class="card-icon">F</div>
+            <div>
+              <div class="card-name">Facet</div>
+              <div class="card-rol">atomic primitive of Layer 1</div>
+            </div>
+          </div>
+          <div class="essence">
+            Atomic reusable component: drawing board, catalog-picker, calendar, map, slider, drag-and-drop. One of the many faces interaction can take.
+          </div>
+          <div class="properties">
+            <div class="key">Layer</div><div class="value">Layer 1 · Interaction</div>
+            <div class="key">Nature</div><div class="value">Interaction instrument</div>
+            <div class="key">When</div><div class="value">During active conversation</div>
+            <div class="key">Activation</div><div class="value">Cognition invokes it explicitly</div>
+            <div class="key">Fallback</div><div class="value">NO · agent returns to conversation</div>
+            <div class="key">Cycle</div><div class="value">No regeneration</div>
+            <div class="key">Persistence</div><div class="value">Ephemeral (lives as long as the task)</div>
+            <div class="key">Maturity</div><div class="value">Not applicable</div>
+          </div>
+        </div>
+
+        <div class="vs-divider">vs</div>
+
+        <div class="card botlet">
+          <div class="card-head">
+            <div class="card-icon">B</div>
+            <div>
+              <div class="card-name">Botlet</div>
+              <div class="card-rol">primitive of Layer 3 (Autonomy)</div>
+            </div>
+          </div>
+          <div class="essence">
+            Self-evolving automation unit: non-LLM code generated by the agent to execute repetitive tasks. Muscle memory.
+          </div>
+          <div class="properties">
+            <div class="key">Layer</div><div class="value">Layer 3 · Autonomy</div>
+            <div class="key">Nature</div><div class="value">The agent's muscle memory</div>
+            <div class="key">When</div><div class="value">In background, no cognition present</div>
+            <div class="key">Activation</div><div class="value">Pattern Recognition or external call</div>
+            <div class="key">Fallback</div><div class="value">YES · cognition executes manually</div>
+            <div class="key">Cycle</div><div class="value">95/4/1 with regeneration</div>
+            <div class="key">Persistence</div><div class="value">Persistent across sessions</div>
+            <div class="key">Maturity</div><div class="value">Junior · learning · senior</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heuristicas">
+        <h3>When does the agent offer a Facet? · canonical invocation heuristics</h3>
+        <div class="heur-list">
+          <div>Low-dimensionality information → conversation</div>
+          <div>High-dimensionality information → Facet</div>
+          <div>Hard to verbalize (color · position · shape) → Facet</div>
+          <div>The user already has it in visual form → Facet</div>
+          <div>Comparison across multiple options → Facet</div>
+          <div>Open-ended creative work → canvas Facet</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>The agent decides · estimates verbalization time vs instrument-use time · if the latter wins, it offers the Facet</span><span>AgencyDomains · v0.3</span></footer>
+</div></body></html>

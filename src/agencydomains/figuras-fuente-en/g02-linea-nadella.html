@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>G1 · The Nadella Line</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .nadella-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .lado {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .lado-titulo {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .lado-subtitulo {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0;
+    font-style: italic;
+  }
+  .actores { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .actor {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--rule);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .actor strong { font-family: var(--serif); font-size: 15px; }
+  .actor .razon { display: block; color: var(--ink-soft); margin-top: 2px; font-size: 12px; }
+
+  .lado-ag    { background: var(--capa-2-bg); }
+  .lado-agtv  { background: var(--capa-4-bg); }
+  .lado-ag .actor   { border-left-color: var(--capa-2); }
+  .lado-agtv .actor { border-left-color: var(--capa-4); }
+
+  .linea {
+    width: 4px;
+    background: var(--ink);
+    position: relative;
+    z-index: 2;
+  }
+  .linea::before, .linea::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px; height: 12px;
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .linea::before { top: -8px; }
+  .linea::after  { bottom: -8px; }
+
+  .linea-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 18px;
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    border-radius: 2px;
+  }
+
+  .pregunta {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    padding: 18px 0 26px;
+  }
+
+  .ambig {
+    background: var(--rule-soft);
+    border: 1px dashed var(--ink-soft);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: auto;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Chapter 1 · The Nadella Line</div>
+      <h1 class="figure-title">The Line that divides the AI industry</h1>
+    </div>
+    <div class="figure-eyebrow">Figure G2</div>
+  </header>
+
+  <div class="figure-body">
+    <div class="nadella-canvas">
+
+      <div class="pregunta">
+        does the human open applications to do their work?
+      </div>
+
+      <div class="lado lado-ag">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-2);">YES → Agentic World</div>
+          <h2 class="lado-titulo">Applications persist</h2>
+          <p class="lado-subtitulo">AI as embedded copilot — incremental evolution</p>
+        </div>
+        <div class="actores">
+          <div class="actor">
+            <strong>Google · Sundar Pichai</strong>
+            <span class="razon">monetizes GUIs (Search, Workspace) — loses if they collapse</span>
+          </div>
+          <div class="actor">
+            <strong>Meta · Mark Zuckerberg</strong>
+            <span class="razon">Llama lives inside third-party applications</span>
+          </div>
+          <div class="actor">
+            <strong>OpenAI · Sam Altman <em>(partial)</em></strong>
+            <span class="razon">tokens billed per application invocation</span>
+          </div>
+        </div>
+        <div class="ambig">
+          <strong>Economic bet:</strong> the current business model survives
+        </div>
+      </div>
+
+      <div class="linea">
+        <div class="linea-label">THE NADELLA LINE</div>
+      </div>
+
+      <div class="lado lado-agtv">
+        <div>
+          <div class="figure-eyebrow" style="color: var(--capa-4);">NO → Agentive World</div>
+          <h2 class="lado-titulo">Applications collapse</h2>
+          <p class="lado-subtitulo">The agent <em>is</em> the interface — fundamental transformation</p>
+        </div>
+        <div class="actores">
+          <div class="actor">
+            <strong>Microsoft · Satya Nadella</strong>
+            <span class="razon">installed base becomes substrate — origin of the term</span>
+          </div>
+          <div class="actor">
+            <strong>Anthropic · Dario and Daniela Amodei</strong>
+            <span class="razon">MCP + Claude designed for prolonged autonomous use</span>
+          </div>
+          <div class="actor">
+            <strong>xAI · Elon Musk</strong>
+            <span class="razon">no office suite to defend — Grok as operator</span>
+          </div>
+        </div>
+        <div class="ambig">
+          <strong>Economic bet:</strong> the business model reinvents itself
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Root quote · Satya Nadella, BG2 podcast, Dec. 2024</span>
+    <span>Agentive Architecture · v1.2</span>
+  </footer>
+</div>
+</body>
+</html>

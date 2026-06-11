@@ -37,7 +37,9 @@ FRONTMATTER="$SCRIPT_DIR/frontmatter.tex"
 # del primer "# Prólogo", que es el primer contenido editorial real.
 TMPSRC="$(mktemp -t libro-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
-sed -n '/^# Prólogo/,$p' "$INPUT" > "$TMPSRC"
+# Del frontmatter solo sobrevive «La trilogía» (página propia); el resto vive en la portada.
+{ awk '/^## La trilogía/{f=1} /^## Licencia/{f=0} f' "$INPUT" | sed '1s/^## /# /'
+  sed -n '/^# Prólogo/,$p' "$INPUT"; } > "$TMPSRC"
 
 cd "$LIBRO_DIR"
 

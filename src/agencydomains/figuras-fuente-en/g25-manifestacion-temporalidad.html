@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G47</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto auto auto; gap: 30px; width: 100%; height: 100%; align-content: center; }
+
+  /* Banda superior: definición de manifestación */
+  .manif {
+    border: 2px solid var(--capa-3); background: var(--capa-3-bg); border-radius: 12px;
+    padding: 20px 26px; display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center;
+  }
+  .manif .lhs { display: flex; flex-direction: column; gap: 6px; }
+  .manif .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--capa-3); }
+  .manif .term { font-family: var(--serif); font-size: 30px; font-weight: 700; color: #354936; line-height: 1.05; }
+  .manif .rhs { font-size: 14.5px; line-height: 1.55; color: #354936; }
+  .manif .rhs strong { font-weight: 700; }
+  .pot-act { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--capa-3); }
+  .pot-act .chip { background: var(--paper); border: 1.5px solid var(--capa-3); border-radius: 50px; padding: 3px 12px; }
+  .pot-act .arrow { font-size: 15px; }
+
+  /* Banda central: las dos temporalidades */
+  .temps { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+  .temp {
+    border-radius: 12px; padding: 24px 28px; display: flex; flex-direction: column; gap: 16px;
+    border: 2px solid; min-height: 340px;
+  }
+  .temp.disc { border-color: var(--capa-3); background: var(--paper); }
+  .temp.cont { border-color: var(--capa-3); background: var(--capa-3-bg); }
+  .temp-head { display: flex; align-items: baseline; gap: 12px; }
+  .temp-head .name { font-family: var(--serif); font-size: 24px; font-weight: 700; color: #354936; }
+  .temp-head .tag { font-family: var(--mono); font-size: 12px; color: var(--capa-3); background: var(--paper); border: 1px solid var(--capa-3); border-radius: 4px; padding: 2px 8px; }
+  .temp .gloss { font-size: 13.5px; line-height: 1.5; color: #3a4a3a; }
+
+  /* Mini timeline */
+  .tl { position: relative; height: 110px; margin-top: 8px; }
+  .tl svg { width: 100%; height: 100%; display: block; }
+  .tl .cap { position: absolute; bottom: -2px; left: 0; font-size: 10.5px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .temp .vinc { font-size: 12px; line-height: 1.45; color: #354936; background: var(--paper); border-left: 3px solid var(--capa-3); padding: 9px 12px; border-radius: 4px; margin-top: auto; }
+  .temp.cont .vinc { background: rgba(255,255,255,0.75); }
+  .temp .vinc code { font-family: var(--mono); font-size: 11.5px; background: var(--capa-3-bg); padding: 1px 5px; border-radius: 3px; }
+
+  /* Banda inferior: mensaje clave */
+  .clave {
+    background: var(--ink); color: var(--paper); border-radius: 8px; padding: 18px 26px;
+    display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center;
+  }
+  .clave .msg { font-family: var(--serif); font-size: 15px; font-style: italic; line-height: 1.5; }
+  .clave .msg strong { font-style: normal; font-weight: 700; }
+  .clave .nb { font-size: 12px; line-height: 1.5; color: #cfc8d6; max-width: 360px; border-left: 2px solid var(--capa-3); padding-left: 16px; }
+  .clave .nb code { font-family: var(--mono); color: #b7d0b7; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 5 · §2 · Botlets</div>
+    <h1 class="figure-title">Manifestation and temporality — what a Botlet does and under what regime</h1></div>
+    <div class="figure-eyebrow">Figure G47 · Botlet manifestation and temporality</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="manif">
+        <div class="lhs">
+          <span class="kicker">Manifestation</span>
+          <span class="term">What the Botlet does in the world</span>
+        </div>
+        <div class="rhs">
+          Actualization of the Botlet's <strong>latent disposition</strong> — perceptible or not.
+          It is not "appearance": a Botlet that fires a periodic ingestion <strong>manifests</strong>
+          even if it leaves no visible artifact.
+          <div class="pot-act">
+            <span class="chip">potency</span><span class="arrow">→</span><span class="chip">act</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="temps">
+
+        <div class="temp disc">
+          <div class="temp-head">
+            <span class="name">Discrete temporality</span>
+            <span class="tag">pulses</span>
+          </div>
+          <div class="gloss">Wakes on <em>schedule · trigger · event</em>, acts, rests. Intermittent life.</div>
+          <div class="tl">
+            <svg viewBox="0 0 520 86" preserveAspectRatio="none">
+              <line x1="8" y1="62" x2="512" y2="62" stroke="#d4cfc4" stroke-width="2"/>
+              <!-- pulsos discretos -->
+              <g stroke="#6b8f6b" stroke-width="4" fill="none" stroke-linecap="round">
+                <path d="M8 62 L78 62 L78 22 L118 22 L118 62 L188 62"/>
+                <path d="M188 62 L258 62 L258 22 L298 22 L298 62 L368 62"/>
+                <path d="M368 62 L438 62 L438 22 L478 22 L478 62 L512 62"/>
+              </g>
+              <g fill="#6b8f6b">
+                <circle cx="98" cy="22" r="4"/><circle cx="278" cy="22" r="4"/><circle cx="458" cy="22" r="4"/>
+              </g>
+            </svg>
+            <span class="cap">wakes · acts · rests</span>
+          </div>
+          <div class="vinc">
+            A <strong>report</strong> (snapshot) is discrete manifestation: it is produced and remains.
+          </div>
+        </div>
+
+        <div class="temp cont">
+          <div class="temp-head">
+            <span class="name">Continuous temporality</span>
+            <span class="tag">sustained</span>
+          </div>
+          <div class="gloss"><em>Persistent</em> life: the manifestation does not rest, it stays active over time.</div>
+          <div class="tl">
+            <svg viewBox="0 0 520 86" preserveAspectRatio="none">
+              <line x1="8" y1="62" x2="512" y2="62" stroke="#d4cfc4" stroke-width="2"/>
+              <!-- línea continua sostenida -->
+              <path d="M8 32 L512 32" stroke="#6b8f6b" stroke-width="5" stroke-linecap="round"/>
+              <rect x="8" y="38" width="504" height="18" fill="#6b8f6b" opacity="0.16"/>
+            </svg>
+            <span class="cap">persistent life · no rest</span>
+          </div>
+          <div class="vinc">
+            <code>temporality: continuous</code> &nbsp;⟺&nbsp; persistent <strong>Layer 3</strong> life — the Botler sustains it.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="clave">
+        <div class="msg">
+          A <strong>report</strong> (snapshot, discrete) and a <strong>live dashboard</strong> (continuous)
+          are the <strong>same manifestation</strong> under different temporality.
+        </div>
+        <div class="nb">
+          Real time is chosen via <code>temporality: continuous</code> — not via a delivery channel.
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>"Manifestation is what the Botlet does; temporality, the regime under which it does it."</span><span>AgencyDomains · v0.4</span></footer>
+</div></body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G1</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: auto 1fr auto; gap: 22px; width: 100%; height: 100%; }
+
+  .top {
+    text-align: center; padding: 16px;
+  }
+  .top h2 { font-family: var(--serif); font-size: 36px; margin: 0; letter-spacing: -0.01em; }
+  .top .sub-marca { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--ink-soft); margin-top: 4px; }
+  .top .sub { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+
+  .pilares {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: stretch;
+  }
+  .pilar {
+    padding: 22px; border-radius: 12px; display: flex; flex-direction: column; gap: 12px;
+    border-top: 6px solid;
+  }
+  .pilar.p1 { background: var(--capa-2-bg); border-color: var(--capa-2); }
+  .pilar.p2 { background: var(--capa-1-bg); border-color: var(--capa-1); }
+  .pilar.p3 { background: var(--capa-3-bg); border-color: var(--capa-3); }
+  .pilar.p4 { background: var(--capa-4-bg); border-color: var(--capa-4); }
+
+  .pilar-num { font-family: var(--serif); font-size: 56px; font-weight: 700; line-height: 0.9; opacity: 0.4; margin-bottom: -16px; }
+  .pilar-titulo { font-family: var(--serif); font-size: 20px; font-weight: 700; margin: 0; }
+  .pilar-cap { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+  .pilar-frase { font-size: 13px; line-height: 1.5; }
+
+  .contenidos { font-size: 11px; line-height: 1.4; }
+  .contenidos div { padding: 4px 8px; background: var(--paper); border-radius: 3px; margin-bottom: 4px; }
+  .contenidos div strong { font-family: var(--serif); }
+
+  .bottom-strip {
+    background: var(--ink); color: var(--paper); padding: 18px 24px; border-radius: 8px;
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center;
+  }
+  .bottom-strip h3 { margin: 0; font-family: var(--serif); font-size: 17px; }
+  .bottom-strip p { margin: 0; font-size: 12px; line-height: 1.5; opacity: 0.92; }
+  .principio-tag {
+    display: inline-block; background: var(--paper); color: var(--ink); padding: 4px 12px;
+    border-radius: 4px; font-family: var(--serif); font-style: italic; font-size: 13px;
+  }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Index plate of the book</div>
+    <h1 class="figure-title">AgencyDomains at a glance</h1></div>
+    <div class="figure-eyebrow">Figure G1</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+
+      <div class="top">
+        <h2>AgencyDomains</h2>
+        <div class="sub-marca">architecture of the Agentive World</div>
+        <p class="sub">four pillars · paradigm · architecture · primitives · market</p>
+      </div>
+
+      <div class="pilares">
+
+        <div class="pilar p1">
+          <span class="pilar-num">01</span>
+          <span class="pilar-cap">Chapters 1 and 2</span>
+          <h3 class="pilar-titulo">Paradigm</h3>
+          <p class="pilar-frase">The Agentive World and the dividing question that separates the two futures of software.</p>
+          <div class="contenidos">
+            <div><strong>1·</strong> The Nadella Line</div>
+            <div><strong>2·</strong> The Agentive World · 6 dimensions of the crossing</div>
+          </div>
+        </div>
+
+        <div class="pilar p2">
+          <span class="pilar-num">02</span>
+          <span class="pilar-cap">Chapters 3 and 4</span>
+          <h3 class="pilar-titulo">Architecture</h3>
+          <p class="pilar-frase">Pre-agentive BCA + four layers in parallel topology + Trust Infrastructure + Agent First.</p>
+          <div class="contenidos">
+            <div><strong>3·</strong> Bounded Concerns Architecture</div>
+            <div><strong>Layer 1·</strong> Interaction · 3 GUI regimes</div>
+            <div><strong>Layer 2·</strong> Cognition — parallel path</div>
+            <div><strong>Layer 3·</strong> Autonomy — parallel path</div>
+            <div><strong>Layer 4·</strong> Access</div>
+          </div>
+        </div>
+
+        <div class="pilar p3">
+          <span class="pilar-num">03</span>
+          <span class="pilar-cap">Chapter 5</span>
+          <h3 class="pilar-titulo">Primitives</h3>
+          <p class="pilar-frase">Seven canonical formal constructs — the field's constructive vocabulary.</p>
+          <div class="contenidos">
+            <div><strong>·</strong> AgencyDomains · distributed Layer 3</div>
+            <div><strong>·</strong> Botlets · proto-Botlet · 95/4/1 cycle</div>
+            <div><strong>·</strong> Capabilities · locality · certification</div>
+            <div><strong>·</strong> Trust Infrastructure · 5 pillars</div>
+            <div><strong>·</strong> Assistant vs. Autonomous Agent</div>
+            <div><strong>·</strong> Facets · interaction primitive</div>
+          </div>
+        </div>
+
+        <div class="pilar p4">
+          <span class="pilar-num">04</span>
+          <span class="pilar-cap">Chapters 6 to 8</span>
+          <h3 class="pilar-titulo">Market</h3>
+          <p class="pilar-frase">11×4 value chain · archetypes · gateway · canonical application · operation.</p>
+          <div class="contenidos">
+            <div><strong>·</strong> 11 links × 4 depths</div>
+            <div><strong>·</strong> 4 strategic archetypes</div>
+            <div><strong>·</strong> Real-time knowledge</div>
+            <div><strong>·</strong> Varnished Kimball</div>
+            <div><strong>·</strong> CRUDLEX · operational continuity</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bottom-strip">
+        <span class="principio-tag">Foundational premise</span>
+        <p>Where the human has <strong>Space</strong> (WorkSpace · corporeality), the agent has <strong>Domain</strong> (AgencyDomain · jurisdiction). Space ≠ Domain — the difference is ontological. The AgencyDomain is the minimal unit of deployment of the Agentive World.</p>
+      </div>
+
+    </div>
+  </div>
+  <footer class="figure-footer"><span>Orientation plate · referenceable at the start of every chapter</span><span>AgencyDomains · v0.2</span></footer>
+</div></body></html>

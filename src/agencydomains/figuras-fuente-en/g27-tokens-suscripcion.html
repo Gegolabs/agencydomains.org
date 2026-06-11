@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>G23</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .canvas { display: grid; grid-template-rows: 1fr auto; gap: 28px; width: 100%; height: 100%; }
+  .modos { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .modo { padding: 28px; border-radius: 12px; display: flex; flex-direction: column; gap: 18px; }
+  .modo.t { background: var(--capa-2-bg); border: 2px solid var(--capa-2); }
+  .modo.s { background: var(--capa-3-bg); border: 2px solid var(--capa-3); }
+  .modo h2 { margin: 0; font-family: var(--serif); font-size: 26px; }
+  .modo .frase { font-size: 13px; color: var(--ink-soft); font-style: italic; margin: -8px 0 0; }
+
+  .flujo {
+    background: var(--paper); border-radius: 8px; padding: 22px; min-height: 180px;
+    display: flex; align-items: center; justify-content: space-around; gap: 12px;
+  }
+  .nodo { background: var(--paper); border: 2px solid; border-radius: 8px; padding: 12px 16px; text-align: center; min-width: 100px; }
+  .nodo.t { border-color: var(--capa-2); }
+  .nodo.s { border-color: var(--capa-3); }
+  .nodo .nm { font-family: var(--serif); font-weight: 700; font-size: 13px; }
+  .nodo .sub { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+  .arrow-h { font-size: 20px; color: var(--ink); }
+
+  .props { display: grid; gap: 6px; font-size: 12px; }
+  .props .p { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
+  .props .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); align-self: center; }
+  .props .v { background: var(--paper); padding: 6px 10px; border-radius: 4px; }
+
+  .uso {
+    background: var(--paper); padding: 12px 14px; border-radius: 4px; font-size: 12px;
+    line-height: 1.5; border-left: 3px solid;
+  }
+  .modo.t .uso { border-color: var(--capa-2); }
+  .modo.s .uso { border-color: var(--capa-3); }
+  .uso strong { font-family: var(--serif); display: block; margin-bottom: 4px; }
+
+  .botlet-bar {
+    background: var(--ink); color: var(--paper); padding: 14px 24px; border-radius: 6px;
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center;
+  }
+  .botlet-bar h4 { margin: 0; font-family: var(--serif); font-size: 16px; font-style: italic; white-space: nowrap; }
+  .botlet-bar p { margin: 0; font-size: 12px; line-height: 1.45; opacity: 0.92; }
+</style>
+</head><body>
+<div class="figure">
+  <header class="figure-header">
+    <div><div class="figure-eyebrow">Chapter 4 · §1.7 / §2.10</div>
+    <h1 class="figure-title">Two modes of access to cognition · Tokens vs. Subscription</h1></div>
+    <div class="figure-eyebrow">Figure G23</div>
+  </header>
+  <div class="figure-body">
+    <div class="canvas">
+      <div class="modos">
+
+        <div class="modo t">
+          <div>
+            <h2>Tokens · centralized</h2>
+            <p class="frase">billed to the AgencyDomain · background operation</p>
+          </div>
+          <div class="flujo">
+            <div class="nodo t"><div class="nm">AgencyDomain</div><div class="sub">centralizes credentials</div></div>
+            <span class="arrow-h">→</span>
+            <div class="nodo t"><div class="nm">Cognition</div><div class="sub">Claude · GPT · …</div></div>
+            <span class="arrow-h">$</span>
+            <div class="nodo t" style="background: var(--bg);"><div class="nm">Invoice</div><div class="sub">to the AD / org</div></div>
+          </div>
+          <div class="props">
+            <div class="p"><span class="k">consumption</span><span class="v">centralized, predictable</span></div>
+            <div class="p"><span class="k">quota</span><span class="v">organization's budget</span></div>
+            <div class="p"><span class="k">human presence</span><span class="v">not required</span></div>
+          </div>
+          <div class="uso">
+            <strong>Applies when…</strong>
+            agents operate in the background without user intervention · the organization wants central cost control · multiple agents share a provider.
+          </div>
+        </div>
+
+        <div class="modo s">
+          <div>
+            <h2>Subscription · distributed</h2>
+            <p class="frase">cognition lives under the user's plan</p>
+          </div>
+          <div class="flujo">
+            <div class="nodo s"><div class="nm">Assistant</div><div class="sub">the user's</div></div>
+            <span class="arrow-h">→</span>
+            <div class="nodo s"><div class="nm">Cognition</div><div class="sub">via the user's plan</div></div>
+            <span class="arrow-h">$</span>
+            <div class="nodo s" style="background: var(--bg);"><div class="nm">Invoice</div><div class="sub">to the user · flat plan</div></div>
+          </div>
+          <div class="props">
+            <div class="p"><span class="k">consumption</span><span class="v">zero to the system · covered by the plan</span></div>
+            <div class="p"><span class="k">quota</span><span class="v">the user's plan limit</span></div>
+            <div class="p"><span class="k">human presence</span><span class="v">required — the user invokes</span></div>
+          </div>
+          <div class="uso">
+            <strong>Applies when…</strong>
+            the user already has Claude Pro / ChatGPT Plus / Copilot · the system exposes tools and data without centralizing cognition · minimizing inference costs is the priority.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="botlet-bar">
+        <h4>Botlets as the economic lever</h4>
+        <p>Under a flat Subscription, the marginal cost of cognition is zero <em>up to the plan limit</em>. Without Botlets, continuous autonomy exhausts the plan in hours. <strong>With Botlets, sustained autonomy under a flat Subscription becomes economically viable.</strong></p>
+      </div>
+    </div>
+  </div>
+  <footer class="figure-footer"><span>The two modes coexist in mature systems · the spec requires explicit declaration</span><span>Agentive Architecture · v1.2</span></footer>
+</div></body></html>

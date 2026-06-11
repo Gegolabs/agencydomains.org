@@ -6,7 +6,7 @@
 #
 # Uso:    ./build-en.sh [DIR_SALIDA_WEB]
 # Nota:   borrador de revisión. Incluye el front matter traducido (no usa frontmatter.tex,
-#         que está en español). Las figuras se embeben aún en español (texto primero).
+#         que está en español). Las figuras EN viven en figuras-en/ (fuente figuras-fuente-en/).
 # Requisitos: pandoc, xelatex, python3 + fuentes STIX Two Text · STIX Two Math · Source Code Pro (vendorizadas en src/_fonts/).
 set -euo pipefail
 
@@ -37,7 +37,10 @@ PDF="$DIST/AgencyDomains-${VERSION}-en.pdf"
 HEADER="$SCRIPT_DIR/header-libro-extra.tex"
 cd "$LIBRO_DIR"
 echo "→ PDF (xelatex)…"
-if pandoc "$MD" -o "$PDF" \
+TMPPDF="$(mktemp -t agd-en-pdf-XXXXXX).md"
+trap 'rm -f "$TMPPDF"' EXIT
+sed 's|](figuras/|](figuras-en/|g' "$MD" > "$TMPPDF"
+if pandoc "$TMPPDF" -o "$PDF" \
     --pdf-engine=xelatex -H "$HEADER" \
     --metadata title="AgencyDomains" \
     --metadata subtitle="Architecture of the Agentive World" \
@@ -57,7 +60,7 @@ fi
 # Libro-web inglés
 echo "→ libro-web (--lang en)…"
 python3 "$SCRIPT_DIR/web-build.py" \
-  --md "$MD" --figuras "$LIBRO_DIR/figuras" \
+  --md "$MD" --figuras "$LIBRO_DIR/figuras-en" \
   --agents "$LIBRO_DIR/para-agents.md" ${PDF:+--pdf "$PDF"} \
   --lang en --base /agencydomains --out "$OUT" --version "$VERSION"
 echo "✓ edición inglesa: MD + ${PDF:+PDF + }web en $OUT"
