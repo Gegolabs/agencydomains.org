@@ -5,6 +5,23 @@
 > (Interaction, Cognition, Autonomy, Access); canonical primitives — Botlet, Capability,
 > Trust Infrastructure, Facet. Edited by GegoLabs. Pre-1.0.
 
+## The trilogy
+
+Three volumes answer, in order, the three questions of the transition — each reads complete on its own:
+
+- **I · Postchat — The Agentive World**: where are we going? — the destination.
+- **II · AURA — The Agentive Path**: which way? — the route. Its four specs (IRIS · MOTOR · Data Canon · Wingmap) are standalone instruments.
+- **III · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
+- **Vergis — Agentive Technology** *(not a book: code)*: what do I start with today? — the keys.
+
+## The book — Postchat · The Agentive World (Book I)
+
+- [Postchat — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/Postchat-v0.2-agents-en.md): the destination distilled for an agent to reason within the framework — the attention budget, the seven mechanisms, the agentive mode, the representation spectrum. v0.2.
+- [Postchat — same manifesto as plain text (.txt, alias)](https://agencydomains.org/Postchat-v0.2-agents-en.txt)
+- [Postchat — web edition (English)](https://agencydomains.org/postchat/): the full book, navigable — the film (Elena's Tuesday, hour by hour) plus the commentary. (Figures are still in Spanish; their English versions are forthcoming.)
+- [Postchat — PDF (English)](https://agencydomains.org/postchat/Postchat-v0.2-en.pdf)
+- [Postchat — Spanish edition (web)](https://agencydomains.org/es/postchat/) · [PDF](https://agencydomains.org/es/postchat/Postchat-v0.2-es.pdf) · [agents manifest](https://agencydomains.org/es/Postchat-v0.2-agents-es.md)
+
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
 - [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.4-agents-en.md): the book distilled for an agent to reason within the framework. v0.4.
@@ -25,6 +42,3 @@
 - [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.2-en.pdf)
 - [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.2-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.2-agents-es.md)
 
-## Coming soon
-
-- Postchat · The Agentive World (the destination)

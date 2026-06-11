@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>F3 · Los siete mecanismos</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .mecanismos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+  .mec {
+    background: var(--capa-2-bg); border: 1.5px solid var(--capa-2); border-radius: 8px;
+    padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .mec .num { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--capa-2); font-weight: 600; }
+  .mec h3 { font-family: var(--serif); font-size: 20px; margin: 0; }
+  .mec p { font-size: 13px; line-height: 1.45; margin: 0; color: var(--ink-soft); }
+  .mec.agora {
+    grid-column: 3; grid-row: 1 / span 2; background: var(--paper);
+    border: 1.5px dashed var(--ink-soft); justify-content: center; gap: 12px;
+  }
+  .mec.agora .num { color: var(--ink-soft); }
+  .mec.agora h3 { font-size: 24px; }
+  .mec.agora p { font-size: 14px; color: var(--ink); }
+  .regla { font-size: 12.5px; font-style: italic; color: var(--ink-soft); border-top: 1px solid var(--rule-soft); padding-top: 10px; }
+  .principio {
+    margin-top: 28px; width: 100%; background: var(--ink); color: var(--paper);
+    border-radius: 8px; padding: 18px 28px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .principio .izq { font-family: var(--serif); font-size: 19px; }
+  .principio .der { font-size: 14px; font-style: italic; opacity: .85; text-align: right; }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Capítulo 3 · Los siete mecanismos</div>
+      <h1 class="figure-title">Seis mecanismos de operación y una excepción deliberada</h1>
+    </div>
+    <div class="figure-eyebrow">Figura F3</div>
+  </header>
+
+  <div class="figure-body" style="flex-direction: column; justify-content: center;">
+    <div class="mecanismos">
+      <div class="mec"><div class="num">1 · Routing inteligente</div><h3>Enruta, no publica</h3><p>Quién necesita saberlo, con qué detalle, con qué urgencia. El silencio selectivo es la mitad del valor.</p></div>
+      <div class="mec"><div class="num">2 · Formato adaptativo</div><h3>Reformula por receptor</h3><p>Impacto para el ejecutivo, plazos para el gerente, instrucción para el técnico.</p></div>
+      <div class="mec agora">
+        <div class="num">7 · El ágora</div>
+        <h3>La excepción deliberada</h3>
+        <p>El comedor, el pasillo, el espacio abierto: conversación directa, sin mediación, sin propósito declarado. Lo humano de la conversación vive aquí.</p>
+        <div class="regla">El agente no lo escucha salvo invocación explícita.</div>
+        <div class="regla">El ágora no alimenta al agente salvo que un humano se lo pida.</div>
+        <div class="regla">En el chat corporativo <b>todo</b> es ágora; en Postchat el ágora es un lugar, no un flujo.</div>
+      </div>
+      <div class="mec"><div class="num">3 · Briefing proactivo</div><h3>Interrupciones agrupadas</h3><p>Requiere tu acción · te conviene saberlo · se resolvió sin ti — y el ruido, absorbido en silencio.</p></div>
+      <div class="mec"><div class="num">4 · Decisión orquestada</div><h3>El proceso reemplaza la sala</h3><p>Encuadre → consulta individual → síntesis → segunda ronda → paquete final. El anclaje desaparece.</p></div>
+      <div class="mec"><div class="num">5 · Memoria colectiva</div><h3>Grafo, no historial</h3><p>Decisiones, compromisos, antecedentes — con contexto y fuentes, no veinte resultados de búsqueda.</p></div>
+      <div class="mec"><div class="num">6 · Ciclo cerrado</div><h3>Nada queda sin respuesta</h3><p>El sistema persigue el cierre; las personas dejan de gastarse en la persecución.</p></div>
+    </div>
+    <div class="principio">
+      <div class="izq">El principio que los gobierna: <b>el presupuesto de atención</b></div>
+      <div class="der">la métrica: horas de trabajo ininterrumpido<br>protegidas por persona por día</div>
+    </div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>Postchat · Mundo Agentivo</span>
+    <span>Figura F3</span>
+  </footer>
+</div>
+</body>
+</html>

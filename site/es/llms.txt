@@ -5,8 +5,21 @@
 > Cognición, Autonomía, Acceso), y primitivas canónicas: Botlet, Capability,
 > Trust Infrastructure, Faceta. Editado por GegoLabs. Pre-1.0.
 
+## La trilogía
+
+Tres volúmenes responden, en orden, las tres preguntas del tránsito — cada uno se lee completo por sí solo:
+
+- **I · Postchat — Mundo Agentivo**: ¿hacia dónde vamos? — el destino.
+- **II · AURA — Camino Agentivo**: ¿por dónde? — la ruta. Sus cuatro specs (IRIS · MOTOR · Data Canon · Wingmap) son instrumentos autónomos.
+- **III · AgencyDomains — Arquitectura Agentiva**: ¿cómo llegamos? — el vehículo.
+- **Vergis — Tecnología Agentiva** *(no es un libro: es código)*: ¿con qué arranco hoy? — las llaves.
+
 ## Libros
 
+- [Postchat — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/Postchat-v0.2-agents-es.md): el destino destilado para que un agente razone dentro del marco — el presupuesto de atención, los siete mecanismos, el modo agentivo, el espectro de representación. v0.2.
+- [Postchat — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/Postchat-v0.2-agents-es.txt)
+- [Postchat — versión web (humanos)](https://agencydomains.org/es/postchat/): el libro completo, navegable — la película (el martes de Elena) más el comentario.
+- [Postchat — PDF (humanos)](https://agencydomains.org/es/postchat/Postchat-v0.2-es.pdf)
 - [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.md): el libro destilado para que un agente razone dentro del framework. v0.4.
 - [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
@@ -20,6 +33,3 @@
 
 - [Vergis (código, AGPL-3.0)](https://github.com/gegolabs/vergis): el AgencyDomain hecho operativo — Botler + Mira.
 
-## Próximamente
-
-- Postchat · Mundo Agentivo (el destino)

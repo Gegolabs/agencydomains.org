@@ -1,0 +1,42 @@
+% Tablas con aire: filas más altas para que el contenido no quede apretado.
+\renewcommand{\arraystretch}{1.45}
+
+% Caja del teaser de escena: marco fino con el título montado sobre el borde
+% superior. El build (build-pdf.sh) convierte el blockquote del teaser en
+% \begin{cajateaser}...\end{cajateaser}; en las demás salidas (web, MD) el
+% teaser sigue siendo un blockquote estándar.
+\usepackage[most]{tcolorbox}
+% Título de la caja por idioma; los build-*.sh lo redefinen para otras ediciones.
+\providecommand{\cajateasertitulo}{Lo que acabas de ver}
+% Argumento #1: el remate («El comentario de esta escena: …»), montado sobre
+% el borde inferior derecho — espejo del título del borde superior.
+\newtcolorbox{cajateaser}[1]{
+  enhanced,
+  colback=white, colframe=black!55, boxrule=0.5pt, arc=1.5pt,
+  left=10pt, right=10pt, top=11pt, bottom=11pt,
+  before skip=1.6em, after skip=1.9em,
+  attach boxed title to top left={xshift=7mm, yshift=-\tcboxedtitleheight/2},
+  boxed title style={colback=white, frame hidden, boxrule=0pt,
+                     left=4pt, right=4pt, top=1pt, bottom=1pt},
+  coltitle=black, fonttitle=\scshape\small,
+  title={\cajateasertitulo},
+  overlay={\node[fill=white, inner xsep=4pt, inner ysep=1pt, anchor=east,
+                 font=\small\itshape]
+           at ([xshift=-7mm]frame.south east) {#1};}
+}
+
+% Portadilla de parte con la introducción en la MISMA página (sin huérfanas).
+\newcounter{libroparte}
+\newcommand{\partecon}[1]{%
+  \clearpage
+  \refstepcounter{libroparte}%
+  \phantomsection
+  \addcontentsline{toc}{part}{Parte \arabic{libroparte}\hspace{1em}#1}%
+  \thispagestyle{plain}%
+  \vspace*{4.5em}%
+  {\centering
+   {\Large\scshape Parte \arabic{libroparte}\par}%
+   \vspace{1.1em}%
+   {\Huge\bfseries #1\par}}%
+  \vspace{3.2em}\noindent\ignorespaces
+}

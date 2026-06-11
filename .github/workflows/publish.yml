@@ -12,7 +12,7 @@ name: publish
 
 on:
   push:
-    tags: ['agencydomains-v*', 'aura-v*']
+    tags: ['agencydomains-v*', 'aura-v*', 'postchat-v*']
   workflow_dispatch:
 
 permissions:
@@ -34,12 +34,15 @@ jobs:
         run: |
           AGD_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
           AURA_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/aura/CHANGELOG.md | cut -d" " -f2)
+          POSTCHAT_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/postchat/CHANGELOG.md | cut -d" " -f2)
           echo "AGD_VERSION=$AGD_VERSION" >> "$GITHUB_ENV"
           echo "AURA_VERSION=$AURA_VERSION" >> "$GITHUB_ENV"
+          echo "POSTCHAT_VERSION=$POSTCHAT_VERSION" >> "$GITHUB_ENV"
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
             case "$GITHUB_REF_NAME" in
               agencydomains-*) TAG_V="${GITHUB_REF_NAME#agencydomains-}"; BOOK_V="$AGD_VERSION";;
               aura-*)          TAG_V="${GITHUB_REF_NAME#aura-}";          BOOK_V="$AURA_VERSION";;
+              postchat-*)      TAG_V="${GITHUB_REF_NAME#postchat-}";      BOOK_V="$POSTCHAT_VERSION";;
               *) echo "::error::Tag desconocido: $GITHUB_REF_NAME"; exit 1;;
             esac
             if [ "$TAG_V" != "$BOOK_V" ]; then
@@ -51,7 +54,7 @@ jobs:
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
           for f in site/llms.txt site/es/llms.txt site/index.html site/es/index.html; do
-            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-"; do
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "Postchat-${POSTCHAT_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
                 exit 1
@@ -83,21 +86,31 @@ jobs:
           bash src/aura/_build/build-en.sh
           bash src/aura/_build/build-web.sh
 
+      - name: Construir Postchat — ES (PDF) · EN (PDF + web) · ES web
+        run: |
+          bash src/postchat/_build/build-pdf.sh
+          bash src/postchat/_build/build-en.sh
+          bash src/postchat/_build/build-web.sh
+
       - name: Ensamblar sitio (shell + builds en sus rutas URL)
         run: |
           DIST=src/agencydomains/_dist
           ADIST=src/aura/_dist
+          PDIST=src/postchat/_dist
           mkdir -p _site
           cp -R site/. _site/
           touch _site/.nojekyll
           # los libros reemplazan cualquier placeholder del shell en su ruta
-          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura
+          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/postchat _site/es/postchat
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains
           cp -R "$DIST/web-es" _site/es/agencydomains
           # AURA: EN → /aura/ · ES → /es/aura/
           cp -R "$ADIST/web-en" _site/aura
           cp -R "$ADIST/web-es" _site/es/aura
+          # Postchat: EN → /postchat/ · ES → /es/postchat/
+          cp -R "$PDIST/web-en" _site/postchat
+          cp -R "$PDIST/web-es" _site/es/postchat
           # manifiestos para agentes → raíz de cada idioma
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/
@@ -107,6 +120,10 @@ jobs:
           mv _site/aura/AURA-${AURA_VERSION}-agents-en.txt _site/
           mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.md  _site/es/
           mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.txt _site/es/
+          mv _site/postchat/Postchat-${POSTCHAT_VERSION}-agents-en.md  _site/
+          mv _site/postchat/Postchat-${POSTCHAT_VERSION}-agents-en.txt _site/
+          mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.md  _site/es/
+          mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.txt _site/es/
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
       - uses: actions/upload-pages-artifact@v3
