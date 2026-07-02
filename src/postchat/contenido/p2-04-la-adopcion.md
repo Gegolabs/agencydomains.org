@@ -6,13 +6,13 @@ Un paradigma superior que no se puede adoptar es una curiosidad académica. Este
 
 ## No vendas quitando
 
-La primera ley de esta transición pertenece a la psicología del cambio: **la gente no compra beneficios abstractos cuando siente que le quitan algo concreto**. El anuncio "vamos a eliminar el chat" no produce una discusión sobre productividad; produce una reacción visceral cuyo contenido es la palabra *eliminar*. La objeción no será conceptual — será "¿y cómo le mando ahora un mensaje a mi colega?", y habrá perdido usted la sala antes de mostrar la primera lámina.
+La primera ley de esta transición pertenece a la psicología del cambio: **la gente no compra beneficios abstractos cuando siente que le quitan algo concreto**. El anuncio "vamos a eliminar el chat" no produce una discusión sobre productividad; produce una reacción visceral cuyo contenido es la palabra *eliminar*. La objeción no será conceptual — será "¿y cómo le mando ahora un mensaje a mi colega?", y habrás perdido la sala antes de mostrar la primera lámina.
 
 La formulación correcta no quita: **vuelve innecesario**. No se le quita a nadie su herramienta — se le quitan, una a una, las razones para usarla. La distinción parece retórica y es estructural: la primera formulación promete una pérdida y exige fe; la segunda ofrece una alternativa y deja que la realidad argumente.
 
 ## El modo, no el reemplazo
 
-La implicación de diseño es la decisión de producto más importante de todo el paradigma: Postchat no se despliega como reemplazo sino como **modo de operación opcional y reversible**, que convive con las herramientas tradicionales. La plataforma conserva el chat, el correo, los documentos; ofrece además un modo en que todo pasa por el agente. A ese interruptor lo llamamos **modo agentivo** — y el nombre es exacto: la pregunta que divide los dos mundos (*¿todavía abres aplicaciones para hacer tu trabajo?*) se responde aquí persona por persona. Activar el modo agentivo es cruzar la Línea Nadella individualmente, con un gesto — y poder volver con el mismo gesto, un martes a las diez, si no te convence. Elena lo apagó por unos zapatos; eso también es el diseño funcionando.
+La implicación de diseño es la decisión de producto más importante de todo el paradigma: Postchat no se despliega como reemplazo sino como **modo de operación opcional y reversible**, que convive con las herramientas tradicionales. La plataforma conserva el chat, el correo, los documentos; ofrece además un modo en que todo pasa por el agente. A ese interruptor lo llamamos **modo agentivo** — y el nombre es exacto: la pregunta que divide los dos mundos (*¿todavía abres aplicaciones para hacer tu trabajo?*) se responde aquí persona por persona. Activar el modo agentivo es cruzar la Línea Nadella del capítulo 1 — pero individualmente, con un gesto, y pudiendo volver con el mismo gesto, un martes a las diez, si no te convence.
 
 La analogía exacta es humilde: el modo oscuro. Nadie fue obligado a usarlo; existió, alguien lo probó, y no volvió. La física de la adopción que esa humildad habilita es la diferencia entre dos mundos:
 
@@ -45,7 +45,7 @@ Un capítulo de adopción honesto inventaría también lo que puede salir mal:
 |---|---|
 | **Confianza** — "¿y si el agente me oculta algo importante?" | Transparencia radical: el briefing declara cuántos ítems procesó y cuántos clasificó como ruido; "muéstrame todo" está siempre disponible; cada entrega es auditable |
 | **Error de priorización** — el agente clasifica mal y algo crítico espera | El umbral de urgencia se calibra conservador al inicio; el costo de un falso-urgente (una interrupción) es menor que el de un falso-rutina, y el sistema aprende de cada corrección |
-| **Dependencia** — si el agente cae, la comunicación cae | El modo clásico nunca se desinstala: es la redundancia permanente, no un fallback de emergencia |
+| **Dependencia** — si el agente cae, la comunicación cae | El modo clásico nunca se desinstala: es la redundancia permanente, no un respaldo de emergencia |
 | **Percepción de vigilancia** | El acotamiento es de gobernanza, no técnico: el ágora no se escucha, los ámbitos no se cruzan sin autorización, y el "off the record" existe |
 | **Brecha generacional** | El escalón 1 no exige cambio alguno; la analogía de entrada es el asistente humano ("alguien que lee todo y cada mañana te dice qué necesita tu decisión") — inteligible para cualquier generación |
 

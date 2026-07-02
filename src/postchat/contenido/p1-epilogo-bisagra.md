@@ -12,7 +12,7 @@ El martes de Elena parecía una sucesión de horas, y era una escalera. Tres vec
 
 Y entre medio viste las dos condiciones que lo hacen tolerable: el lápiz de Elena y sus dieciocho minutos de zapatos — porque es un modo, no un mandato, y porque hay un perímetro de cada quien que el agente no toca.
 
-Herramientas, canales, disponibilidad. Flujo, atención, tiempo. Y el Nocturno mostró la consecuencia agregada de las tres: cuando le quitas a una organización toda su intermediación mecánica, lo que queda — estructura sin transporte, autoridad sin relé — es una organización inteligente, con las personas en el borde, que es donde siempre debieron estar.
+Herramientas, canales, disponibilidad. Flujo, atención, tiempo. Y el Nocturno mostró la consecuencia agregada de las tres: cuando le quitas a una organización toda su intermediación mecánica, lo que queda — estructura sin transporte, autoridad sin relé: líneas que mandan, ya no repiten — es una organización inteligente, con las personas en el borde, que es donde siempre debieron estar.
 
 ## Fin de la película — y la invitación
 
@@ -24,6 +24,6 @@ No lo necesitas para entender. Lo querrás si vas a construir, comprar, dirigir 
 
 El paradigma anterior también fue, en su momento, la mejor respuesta disponible. Dos mil años de capas, treinta de bandejas, veinte de canales: cada época coordinó el trabajo con su mejor tecnología, y la nuestra fue la última en usar personas como infraestructura.
 
-Es un martes. La información viene a ti. Las personas están en el borde.
+Es un martes. La comunicación viene a ti. Las personas están en el borde.
 
 Bienvenido al Mundo Agentivo.

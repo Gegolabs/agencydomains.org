@@ -20,6 +20,6 @@ Mientras tanto, a las 15:30, en un rincón de la pantalla que Elena ni siquiera 
 
 > **Lo que acabas de ver:**
 >
-> Un agente respondió *por* su usuario — con sus criterios, sus condiciones y sus límites — y protegió la palabra que no le tocaba dar. No es un "gemelo digital" construido aparte: es el mismo agente de siempre, maduro, con una segunda interfaz expuesta. La escalera tiene cuatro peldaños — asistente, mediador, representante en consulta, representante con delegación — y no se salta: la representación se cultiva con meses de mediación. Quien delega responde, como siempre; lo que cambia es que estar en un solo lugar a la vez dejó de costar caro.
+> Un agente respondió *por* su usuario — con sus criterios, sus condiciones y sus límites — y protegió la palabra que no le tocaba dar. No es un "gemelo digital" construido aparte: es el mismo agente de siempre, maduro, con una segunda interfaz expuesta. Esa madurez recorre un espectro de estadios que no se salta — cuáles son, y qué exige cada uno, lo cuenta el comentario. Quien delega responde, como siempre; lo que cambia es que estar en un solo lugar a la vez dejó de costar caro.
 >
 > *El comentario de esta escena: capítulo 5.*

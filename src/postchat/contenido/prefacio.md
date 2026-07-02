@@ -10,6 +10,8 @@ Hay una casilla, sin embargo, que sigue vacía: **el agente en la oficina de tod
 
 Este libro existe para llenar esa casilla. No con una película — con su equivalente en prosa. Y con el comentario del director incluido.
 
+Una palabra sobre el título, para que no trabaje en tu contra: **Postchat** nombra el estadio que viene después del chat corporativo — cuando la comunicación deja de ser un lugar adonde ir. La película lo muestra sin nombrarlo; el comentario lo nombra con calma.
+
 ## ¿Cómo leer este libro?
 
 El libro tiene **dos partes, y conviene decirlo sin rodeos desde ya**.

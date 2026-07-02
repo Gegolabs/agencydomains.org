@@ -16,6 +16,6 @@ La pantalla queda en un campo de texto vacío. Elena recoge su taza y se va.
 
 > **Lo que acabas de ver:**
 >
-> Una contabilidad subversiva. La oficina del canal se mide con métricas de red social — mensajes, tiempos de respuesta, *engagement* —; la de Elena se mide con una sola cifra de resultado: **horas de trabajo ininterrumpido protegidas por día**. Desaparecieron los badges, el scroll, el marcar-todo-como-leído y el FOMO; apareció el silencio como garantía, la trazabilidad sin arqueología — y el final del día, que existe de nuevo porque el sistema se queda de guardia.
+> Una contabilidad subversiva. La oficina del canal se mide con métricas de red social — mensajes, tiempos de respuesta, *engagement* —; la de Elena se mide con una sola cifra de resultado: **horas de trabajo ininterrumpido protegidas por día**. Desaparecieron los contadores en rojo, el scroll, el marcar-todo-como-leído y el miedo a estar perdiéndose algo (el FOMO); apareció el silencio como garantía, la trazabilidad sin arqueología — y el final del día, que existe de nuevo porque el sistema se queda de guardia.
 >
 > *El comentario de esta escena: capítulo 3 y la Conclusión.*

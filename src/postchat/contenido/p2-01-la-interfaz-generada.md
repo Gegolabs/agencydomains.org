@@ -2,11 +2,19 @@
 
 *En la película: la superficie del comparativo de rutas, que apareció para una decisión y murió con ella; el briefing que nadie diagramó; el análisis que Elena declinó para hacerlo a lápiz. Nadie abrió una aplicación en todo el martes — y ninguna pantalla fue menos rica por eso.*
 
+## La pregunta que divide dos mundos
+
+Antes de desarmar nada, conviene tener enunciada la pregunta que separa el mundo de la película del mundo donde trabajas hoy:
+
+> **¿Todavía abres aplicaciones para hacer tu trabajo?**
+
+La llamamos la **Línea Nadella** — por Satya Nadella, el primer gran ejecutivo de la industria en apostar públicamente a que la respuesta va a ser *no*: que las aplicaciones de negocio colapsarán en una capa que los agentes operan. A un lado de la línea, la inteligencia artificial te ayuda a usar tus herramientas — copilotos dentro de las aplicaciones de siempre. Al otro lado, el agente *es* la interfaz: tú expresas intenciones, y las aplicaciones dejan de ser el lugar donde el trabajo ocurre. Todo el martes de Elena transcurre al otro lado de la línea; este libro entero es el retrato de ese lado. Quién apuesta a cada orilla, y la arquitectura que vuelve operable la respuesta *no*, es materia de *AgencyDomains*.
+
 ## La intención reemplaza a la operación
 
 La primera liberación es la más visible y la más documentada, de modo que este capítulo la establece con brevedad: en el mundo agentivo, las personas no operan aplicaciones. No abren un procesador de texto para producir una carta, ni una hoja de cálculo para producir un análisis, ni una herramienta de BI para responder una pregunta de negocio. Expresan la intención a su agente — "responde que sí y confirma la fecha", "muéstrame el avance del reporte", "¿cómo van las ventas del trimestre contra el anterior?" — y el agente produce el artefacto o la respuesta.
 
-El trabajo deja de incluir la operación de software como peaje. Lo que esa capa devuelve es **flujo**: la continuidad del pensamiento que el paradigma anterior trituraba a golpe de abrir, buscar, alternar, copiar y pegar entre ventanas. La pregunta de productividad cambia de "¿domina usted la herramienta?" a "¿sabe usted qué quiere?".
+El trabajo deja de incluir la operación de software como peaje. Lo que esa capa devuelve es **flujo**: la continuidad del pensamiento que el paradigma anterior trituraba a golpe de abrir, buscar, alternar, copiar y pegar entre ventanas. La pregunta de productividad cambia de "¿dominas la herramienta?" a "¿sabes qué quieres?".
 
 ## Generada, no compilada
 
@@ -27,10 +35,11 @@ El mundo agentivo es, por tanto, *más* visual que el de las aplicaciones, no me
 
 ## Lo que este libro no repite
 
-La formalización de esta capa — las primitivas de la interfaz generada, su arquitectura de cuatro capas, la infraestructura de confianza que la gobierna — es la materia de *AgencyDomains*, el libro de arquitectura de esta trilogía, y no la duplicaremos. Para el argumento que sigue basta retener dos cosas: que la generación de artefactos e interfaces bajo demanda es el comportamiento normal del mundo que describiremos, y que la misma capacidad que genera una tabla puede generar algo más consecuente — el mensaje correcto, para la persona correcta, en el formato de esa persona. Esa extensión, de la interfaz a la comunicación, es la segunda liberación y el corazón de este libro.
+La formalización de esta capa — las primitivas de la interfaz generada, su arquitectura de cuatro capas (Interacción, Cognición, Autonomía, Acceso: donde el humano se expresa, donde el sistema piensa, donde el agente vive, donde el sistema actúa), la infraestructura de confianza que la gobierna — es la materia de *AgencyDomains*, el libro de arquitectura de esta trilogía, y no la duplicaremos. Para el argumento que sigue basta retener dos cosas: que la generación de artefactos e interfaces bajo demanda es el comportamiento normal del mundo que describiremos, y que la misma capacidad que genera una tabla puede generar algo más consecuente — el mensaje correcto, para la persona correcta, en el formato de esa persona. Esa extensión, de la interfaz a la comunicación, es la segunda liberación y el corazón de este libro.
 
 > **Lo esencial**
 >
+> - La **Línea Nadella** — *¿todavía abres aplicaciones para hacer tu trabajo?* — divide los dos mundos; la película entera transcurre del lado del no.
 > - En el mundo agentivo no se operan aplicaciones: se expresan intenciones y el agente produce el artefacto.
 > - La interfaz no desaparece — deja de estar compilada: se genera por interacción, con la forma óptima, y se descarta.
 > - La primera liberación protege el flujo; su formalización completa vive en *AgencyDomains*.

@@ -2,6 +2,39 @@
 
 Historial de versiones del libro *Postchat · Mundo Agentivo*.
 
+## v0.3 — Julio 2026
+
+**La pasada editorial.** Revisión integral de la trilogía (inventario en la
+cocina del proyecto) + proof-reading de Juan Grimalt sobre la v0.2:
+
+- **La Línea Nadella se presenta en el libro**: sección nueva «La pregunta que
+  divide dos mundos» al abrir el cap. 1 del comentario; el cap. 4 remite a ella.
+- **Las siete variables, saneadas**: el sistema asume seis, el usuario conserva
+  la decisión y aporta la intención y la profundización (adelanto de las 9:30,
+  cap. 2 y Lo esencial alineados).
+- **Adelantos recortados a su función** (antes «teasers», renombrados): ágora,
+  representación y organización inteligente ya no entregan la conclusión del
+  capítulo que anuncian; el de las 7:00 glosa los M&Ms en vez de apilarlos.
+- **El ágora digital se presenta antes de usarse** (escena del mediodía) y el
+  cap. 3 reconcilia explícitamente la invocación con la regla de no-alimentación.
+- **Glosario nuevo** (19 términos) al final del libro; declara la convención
+  Mundo Agentivo / mundo agentivo.
+- **Glosas de audiencia**: Principio de Hollywood («no nos llames…»), M&Ms,
+  FOMO, sesgo de anclaje, McCallum, las cuatro capas (cap. 1), «autoridad sin
+  relé: líneas que mandan, ya no repiten» (epílogo).
+- **Voz unificada al tuteo** en la Parte 2 (incluida la agenda ejecutiva);
+  anglicismos innecesarios reemplazados (badges, fallback, dataset).
+- **Escena de las 7:00**: la noche del plan de mantenimiento es ahora elección
+  de Elena, no síntoma («nadie se lo pidió»).
+- **Remisión de seguridad** en cap. 5 (marco de delegación → *AgencyDomains*);
+  duplicados podados (párrafo bookend, reformulación por receptor, tercera
+  narración de la escena de Andrés, zapatos en cap. 4).
+- **Micro-sección «La trilogía»**: ancla el tránsito, glosa Data Mesh y BPM, y
+  registra las **cinco** especificaciones de AURA (entra Casos de Uso).
+- **El prólogo placeholder sale del build** hasta que llegue el texto del
+  prologuista.
+- Pista del título en el prefacio: Postchat se anticipa en una línea.
+
 ## v0.2 — Junio 2026
 
 **La fusión.** Las dos variantes de la v0.1 se integran en un solo libro de dos

@@ -4,7 +4,7 @@
 
 ## El Principio de Hollywood
 
-La ingeniería de software conoce desde hace décadas un principio de diseño llamado el Principio de Hollywood: *don't call us, we'll call you*. Describe la inversión de control — en lugar de que cada componente persiga lo que necesita, el sistema entrega a cada componente lo que le corresponde, cuando le corresponde.
+La ingeniería de software conoce desde hace décadas un principio de diseño llamado el Principio de Hollywood: *don't call us, we'll call you* — no nos llames; nosotros te llamaremos, la frase con que los estudios despedían a los aspirantes. Describe la inversión de control — en lugar de que cada componente persiga lo que necesita, el sistema entrega a cada componente lo que le corresponde, cuando le corresponde.
 
 Aplicado a la comunicación empresarial, el principio ilumina los tres estadios de su historia:
 
@@ -33,9 +33,9 @@ La profundidad de la inversión se mide inventariando las variables que la comun
 | **Seguimiento** | El usuario persigue respuestas y acuses | El agente cierra los ciclos: nada queda sin responder |
 | **Decisión** | El usuario convoca, modera y sintetiza | El agente facilita el proceso; la persona decide |
 
-De las siete, el usuario de Postchat retiene exactamente tres: la **intención** (qué quiere comunicar, con sus matices), la **profundización** (en qué quiere entrar después del briefing) y la **decisión**. Las otras cuatro las asume el sistema por completo. La diferencia con la oficina actual no es de grado: es la diferencia entre conducir con palanca, embrague y mapa en las rodillas — y decirle al vehículo adónde se quiere ir.
+De las siete, el sistema asume seis por completo. El usuario conserva exactamente una — la **decisión** — y aporta las dos cosas que no aparecen en la tabla porque nunca fueron delegables: la **intención** (qué quiere comunicar, con sus matices) y la **profundización** (en qué quiere entrar después del briefing). La diferencia con la oficina actual no es de grado: es la diferencia entre conducir con palanca, embrague y mapa en las rodillas — y decirle al vehículo adónde se quiere ir.
 
-Merece subrayado la variable más sutil: el formato. El agente no reenvía el mismo texto a varios destinos — **reformula según el receptor**. Del mismo hecho operativo, el director recibe el impacto en la meta y si se requiere acción; el planificador, volúmenes y fechas accionables; el técnico, el equipo y la ventana. El costo de comunicar bien — adaptar el mensaje a cada audiencia — que siempre hizo inviable hacerlo a mano, lo paga la máquina.
+La más sutil de las siete es el formato — la reformulación por receptor que viste a las 9:30. El capítulo siguiente la desarrolla como mecanismo.
 
 ## Fábricas y absorbedores
 
@@ -52,6 +52,6 @@ No son grados de una misma cosa: son direcciones opuestas. Una especie genera in
 > **Lo esencial**
 >
 > - Postchat invierte la dirección del flujo: la comunicación viene a ti, gobernada; el silencio se vuelve garantía, no amenaza.
-> - De las siete variables de la comunicación, el usuario retiene tres: intención, profundización y decisión.
+> - De las siete variables de la comunicación, el sistema asume seis; el usuario conserva la decisión — y aporta la intención.
 > - La reformulación por receptor — imposible a mano — es el estándar: cada quien recibe su versión del hecho.
 > - Hay dos especies de infraestructura: fábricas de interrupciones y absorbedores. El canal es lo primero; Postchat, lo segundo.

@@ -20,6 +20,6 @@ A las 9:47, una nota discreta: "Distribución confirma: reprograman sin impacto.
 
 > **Lo que acabas de ver:**
 >
-> La inversión completa del flujo: *la comunicación viene a ti* — el Principio de Hollywood. De las siete variables que la oficina obliga a gestionar a mano (destino, formato, momento, prioridad, memoria, seguimiento, decisión), Elena retuvo dos: la intención y la decisión. El agente no reenvió su mensaje — lo **reformuló** para cada receptor según su rol. Y la superficie del comparativo que apareció y murió con la decisión no pertenece a ninguna aplicación: en este mundo la interfaz se genera, no se compila.
+> La inversión completa del flujo: *la comunicación viene a ti* — el Principio de Hollywood: *no nos llames; nosotros te llamaremos*. De las siete variables que la oficina obliga a gestionar a mano (destino, formato, momento, prioridad, memoria, seguimiento, decisión), el agente asumió seis; Elena conservó una — la decisión — y puso lo único que no está en la lista porque no es delegable: la intención. El agente no reenvió su mensaje — lo **reformuló** para cada receptor según su rol. Y la superficie del comparativo que apareció y murió con la decisión no pertenece a ninguna aplicación: en este mundo la interfaz se genera, no se compila.
 >
 > *El comentario de esta escena: capítulos 1 y 2.*

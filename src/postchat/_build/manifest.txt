@@ -1,7 +1,7 @@
-# Manifest del libro Postchat v0.2 (fusión) — orden de concatenación.
-# Parte 1 «La película» (escenas con teasers) + Parte 2 «El comentario».
+# Manifest del libro Postchat v0.3 — orden de concatenación.
+# Parte 1 «La película» (escenas con adelantos) + Parte 2 «El comentario» + glosario.
+# El prólogo se reincorpora cuando llegue el texto del prologuista.
 contenido/00-frontmatter.md
-contenido/prologo.md
 contenido/prefacio.md
 contenido/parte-pelicula.md
 contenido/p1-0700-el-briefing.md
@@ -22,4 +22,5 @@ contenido/p2-04-la-adopcion.md
 contenido/p2-05-la-representacion.md
 contenido/p2-06-la-organizacion-inteligente.md
 contenido/p2-conclusion.md
+contenido/glosario.md
 contenido/referencias.md

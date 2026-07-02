@@ -1,7 +1,7 @@
 ---
 título: Postchat — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.2 · Junio 2026
-fuente_canónica: libro-postchat-v0.2 (libro humano)
+edición: Borrador de desarrollo · v0.3 · Julio 2026
+fuente_canónica: libro-postchat-v0.3 (libro humano)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que deben razonar sobre comunicación organizacional mediada, gestión de la atención y representación en el Mundo Agentivo
 estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
@@ -9,7 +9,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 # Postchat — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.2 (borrador de desarrollo)** del libro *Postchat: Mundo Agentivo*. Este documento condensa la tesis (la pregunta fundante), el modelo de costos (el presupuesto de atención y el **&**), las **tres liberaciones**, los **siete mecanismos**, el modelo de adopción (**modo agentivo**), el espectro de representación y la tesis organizacional (la **organización inteligente**). La versión humana contiene además *la película* — un martes narrado hora por hora que muestra todo esto en operación — y los argumentos completos del comentario; eso queda fuera de aquí.
+> Extracto estructurado de la edición **v0.3 (borrador de desarrollo)** del libro *Postchat: Mundo Agentivo*. Este documento condensa la tesis (la pregunta fundante), el modelo de costos (el presupuesto de atención y el **&**), las **tres liberaciones**, los **siete mecanismos**, el modelo de adopción (**modo agentivo**), el espectro de representación y la tesis organizacional (la **organización inteligente**). La versión humana contiene además *la película* — un martes narrado hora por hora que muestra todo esto en operación — y los argumentos completos del comentario; eso queda fuera de aquí.
 
 > Postchat describe **el destino**: cómo se trabaja cuando la comunicación organizacional está mediada por agentes. No es una herramienta ni un producto — es el tercer estadio de la comunicación de empresa. La arquitectura que lo hace operable vive en *AgencyDomains*; el camino para llegar, en *AURA*.
 
@@ -82,7 +82,7 @@ Las personas expresan **intenciones**; el agente produce el artefacto o la respu
 
 ## 4 · Liberación 2 — la comunicación viene a ti
 
-**Principio de Hollywood** aplicado a la comunicación (*don't call us, we'll call you*): inversión de control. De las **siete variables** de la comunicación de oficina (destino, formato, momento, prioridad, memoria, seguimiento, decisión), el usuario retiene **tres**: la **intención**, la **profundización** y la **decisión**. Las demás las asume el sistema.
+**Principio de Hollywood** aplicado a la comunicación (*don't call us, we'll call you*): inversión de control. De las **siete variables** de la comunicación de oficina (destino, formato, momento, prioridad, memoria, seguimiento, decisión), el sistema asume **seis**; el usuario conserva la **decisión** — y aporta lo que nunca fue delegable: la **intención** y la **profundización**.
 
 La variable más sutil es el **formato**: el agente no reenvía — **reformula según el receptor** (el director recibe impacto y acción requerida; el planificador, volúmenes y fechas; el técnico, equipo y ventana). El costo de comunicar bien, que siempre hizo inviable hacerlo a mano, lo paga la máquina.
 

@@ -26,7 +26,7 @@ Elena mira el comparativo de rutas. Toca la columna del puerto sur, lee los dos 
 
 — Hecho. Distribución ya lo sabe.
 
-Son las 7:06. Elena toma su café y se vuelve hacia el plan de mantenimiento que defenderá mañana — el documento en el que estuvo pensando toda la noche.
+Son las 7:06. Elena toma su café y se vuelve hacia el plan de mantenimiento que defenderá mañana — el documento al que anoche siguió dándole vueltas por gusto, mucho después de que el sistema cerrara la jornada. Nadie se lo pidió.
 
 — ¿Te preparo el análisis de holguras? — ofrece el agente.
 
@@ -38,6 +38,6 @@ Trabaja. Nada suena. Nada parpadea. Nadie la interrumpe durante tres horas.
 
 > **Lo que acabas de ver:**
 >
-> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único urgente ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms, la infraestructura que volvió permanentes las interrupciones de jefes y reuniones. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles, silencio por defecto, reglas de biblioteca impuestas por arquitectura.
+> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único que exigía respuesta ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms. Los M&Ms son *managers* y *meetings* — jefes que interrumpen y reuniones que fragmentan —; el & es la infraestructura que los volvió permanentes. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles y silencio por defecto, impuestos por arquitectura.
 >
 > *El comentario de esta escena: la Introducción y el capítulo 3.*

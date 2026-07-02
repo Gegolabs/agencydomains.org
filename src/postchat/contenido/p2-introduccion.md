@@ -44,7 +44,7 @@ La respuesta que desarrollaremos: para nada que no sea la inercia del paradigma 
 
 ## El mapa del comentario
 
-La película te mostró **tres liberaciones** — el Epílogo las nombró: la de las **herramientas** protege el flujo; la de los **canales**, la atención; la de la **disponibilidad**, el tiempo. El comentario las recorre en el mismo orden, ahora por dentro.
+La película te mostró **tres liberaciones** — el Epílogo las nombró — y el comentario las recorre en el mismo orden, ahora por dentro.
 
 El capítulo 1 desarma la primera (trabajar sin operar aplicaciones — breve, porque su formalización vive en *AgencyDomains*). Los capítulos 2 a 4 desarrollan la segunda, que es el corazón del asunto: la inversión del flujo que viste a las 9:30, los siete mecanismos que la implementan, y cómo se adopta sin quitarle nada a nadie — incluido el interruptor que Elena apagó por unos zapatos. El capítulo 5 trata la tercera: el agente que dio la cara por Andrés a las 15:00. El capítulo 6 sube a donde subió el Nocturno — qué le ocurre a la jerarquía cuando el enrutamiento deja de necesitar humanos. Y la conclusión junta el marco y propone qué hacer el lunes.
 

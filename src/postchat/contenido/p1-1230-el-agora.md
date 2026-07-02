@@ -8,7 +8,9 @@ Nadie consulta nada. Nadie aprueba nada. Ningún agente escucha.
 
 De vuelta en el ascensor, una ingeniera joven le comenta a Elena, de pasada, que el simulador nuevo de la planta sur "se siente raro" con los datos de presión. No es un reporte; es una sobremesa. Pero a Elena le sigue rondando.
 
-Ya en su piso, le dice a su pantalla:
+El comedor no es el único patio de la compañía: existe también un ágora digital — el espacio abierto donde la gente comenta sin estructura ni propósito, y donde el agente no escucha salvo que alguien se lo pida.
+
+Ya en su piso, Elena se lo pide:
 
 — Del ágora digital de esta semana, ¿hay algo sobre el simulador de la planta sur?
 
@@ -18,6 +20,6 @@ Ya en su piso, le dice a su pantalla:
 
 > **Lo que acabas de ver:**
 >
-> La excepción deliberada: el **ágora** — el único espacio donde las interrupciones son voluntarias, donde el agente no escucha salvo que un humano lo invoque, y donde vive lo que sí es humano de la conversación. La comparación exacta con tu oficina: en el chat corporativo, *todo* es ágora — el chiste y la urgencia por el mismo tubo. Y la respuesta a la pregunta que llevas acumulando: esto no deshumaniza — el agente absorbió interacciones transaccionales (personas usadas como cable); las conversaciones con contenido humano quedaron en paz, y con más tiempo para existir.
+> La excepción deliberada: el **ágora** — el único espacio donde las interrupciones son voluntarias, donde el agente no escucha salvo que un humano lo invoque, y donde vive lo que sí es humano de la conversación. Cómo se compara este patio con tu oficina de hoy — y por qué esto no deshumaniza el trabajo, sino lo contrario — es materia del comentario.
 >
 > *El comentario de esta escena: capítulo 3.*
