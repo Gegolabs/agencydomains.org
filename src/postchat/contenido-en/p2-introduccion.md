@@ -44,7 +44,7 @@ The answer we will develop: for nothing but the inertia of the previous paradigm
 
 ## The map of the commentary
 
-The film showed you **three liberations** — the Epilogue named them: the liberation from **tools** protects flow; from **channels**, attention; from **availability**, time. The commentary walks through them in the same order, now from the inside.
+The film showed you **three liberations** — the Epilogue named them — and the commentary walks through them in the same order, now from the inside.
 
 Chapter 1 takes apart the first (working without operating applications — brief, because its formalization lives in *AgencyDomains*). Chapters 2 through 4 develop the second, which is the heart of the matter: the inversion of the flow you saw at 9:30, the seven mechanisms that implement it, and how it gets adopted without taking anything from anyone — including the switch Elena flipped off for a pair of shoes. Chapter 5 covers the third: the agent that stood in for Andrés at 15:00. Chapter 6 climbs to where the Nocturne climbed — what happens to the hierarchy when routing stops needing humans. And the conclusion brings the framework together and proposes what to do on Monday.
 

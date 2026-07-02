@@ -1,7 +1,7 @@
 ---
 title: Postchat — Canonical manifesto for agents
-edition: Development draft · v0.2 · June 2026
-canonical_source: libro-postchat-v0.2 (human book, Spanish)
+edition: Development draft · v0.3 · July 2026
+canonical_source: libro-postchat-v0.3 (human book, Spanish)
 license: GFDL v1.3 (proposed)
 audience: agents that must reason about mediated organizational communication, attention management, and representation in the Agentive World
 status: pre-1.0 — no commitment to reference stability until v1.0
@@ -9,7 +9,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 # Postchat — Canonical manifesto for agents
 
-> Structured extract of the **v0.2 (development draft)** edition of the book *Postchat: The Agentive World*. This document condenses the thesis (the founding question), the cost model (the attention budget and the **&**), the **three liberations**, the **seven mechanisms**, the adoption model (the **agentive mode**), the representation spectrum, and the organizational thesis (the **intelligent organization**). The human edition additionally contains *the film* — a Tuesday narrated hour by hour that shows all of this in operation — and the full arguments of the commentary; all of that stays out of here.
+> Structured extract of the **v0.3 (development draft)** edition of the book *Postchat: The Agentive World*. This document condenses the thesis (the founding question), the cost model (the attention budget and the **&**), the **three liberations**, the **seven mechanisms**, the adoption model (the **agentive mode**), the representation spectrum, and the organizational thesis (the **intelligent organization**). The human edition additionally contains *the film* — a Tuesday narrated hour by hour that shows all of this in operation — and the full arguments of the commentary; all of that stays out of here.
 
 > Postchat describes **the destination**: how work happens when organizational communication is mediated by agents. It is not a tool or a product — it is the third stage of enterprise communication. The architecture that makes it operable lives in *AgencyDomains*; the path to get there, in *AURA*.
 
@@ -82,7 +82,7 @@ People express **intentions**; the agent produces the artifact or the answer. Th
 
 ## 4 · Liberation 2 — communication comes to you
 
-The **Hollywood Principle** applied to communication (*don't call us, we'll call you*): inversion of control. Of the **seven variables** of office communication (destination, format, timing, priority, memory, follow-up, decision), the user retains **three**: the **intention**, the **deep dive**, and the **decision**. The system assumes the rest.
+The **Hollywood Principle** applied to communication (*don't call us, we'll call you*): inversion of control. Of the **seven variables** of office communication (destination, format, timing, priority, memory, follow-up, decision), the system assumes **six**; the user keeps the **decision** — and supplies what was never delegable: the **intention** and the **deep dive**.
 
 The subtlest variable is **format**: the agent does not forward — **it reformulates for the receiver** (the director gets impact and required action; the planner, volumes and dates; the technician, crew and window). The cost of communicating well, which always made doing it by hand unviable, is paid by the machine.
 

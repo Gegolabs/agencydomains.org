@@ -1,6 +1,6 @@
 # Conclusion. The Framework — and What to Do on Monday
 
-*The film ended with Elena picking up her mug and an empty text field. The commentary ends here, with the complete framework and an agenda. Between those two endings is everything this book came to say.*
+*The film ended with Elena picking up her mug and an empty text field. The commentary ends here, with the complete framework and an agenda. Between those two endings is everything this book came to say. And the Monday in the title is literal: the day before your first Tuesday.*
 
 ## The three liberations, consolidated
 
@@ -33,6 +33,6 @@ For the leadership team that takes this destination seriously, the agenda has an
 
 And a dividend no metric fully captures: **the end of the day exists again**. The channel's workday never ended — the thread was still alive at eleven at night and disconnecting was a transgression you announced with guilt. In this world the workday ends because the system stays on watch. That five o'clock close, with what's pending in the hands of someone who doesn't tire, is perhaps the most underrated liberation of the three.
 
-The channel paradigm was also, in its day, the best answer available. Two thousand years of layers, thirty of inboxes, twenty of channels: every era coordinated work with its best technology, and ours was the last to use people as infrastructure.
+The channel paradigm was not a mistake: it was the best answer of its era. But eras are measured by the technology with which they coordinate work — and the era that used people as infrastructure has just ended.
 
 Communication comes to you. People are at the edge. The rest is transition — and the transition has a map.

@@ -4,7 +4,7 @@
 
 ## The Hollywood Principle
 
-Software engineering has known for decades a design principle called the Hollywood Principle: *don't call us, we'll call you*. It describes the inversion of control — instead of each component chasing what it needs, the system delivers to each component what belongs to it, when it belongs to it.
+Software engineering has known for decades a design principle called the Hollywood Principle: *don't call us, we'll call you* — the phrase with which the studios dismissed the hopefuls. It describes the inversion of control — instead of each component chasing what it needs, the system delivers to each component what belongs to it, when it belongs to it.
 
 Applied to business communication, the principle illuminates the three stages of its history:
 
@@ -33,9 +33,9 @@ The depth of the inversion is measured by taking inventory of the variables that
 | **Follow-up** | The user chases replies and acknowledgments | The agent closes the loops: nothing goes unanswered |
 | **Decision** | The user convenes, moderates, and synthesizes | The agent facilitates the process; the person decides |
 
-Of the seven, the Postchat user retains exactly three: the **intention** (what they want to communicate, with its nuances), the **deep-dive** (what they want to go into after the briefing), and the **decision**. The other four the system assumes entirely. The difference from today's office is not one of degree: it is the difference between driving with a stick shift, a clutch, and a map on your knees — and telling the vehicle where you want to go.
+Of the seven, the system assumes six entirely. The user keeps exactly one — the **decision** — and supplies the two things that don't appear in the table because they were never delegable: the **intention** (what they want to communicate, with its nuances) and the **deep-dive** (what they want to go into after the briefing). The difference from today's office is not one of degree: it is the difference between driving with a stick shift, a clutch, and a map on your knees — and telling the vehicle where you want to go.
 
-The subtlest variable deserves underlining: format. The agent does not forward the same text to several destinations — it **reformulates for each recipient**. From the same operational fact, the director receives the impact on the target and whether action is required; the planner, actionable volumes and dates; the technician, the equipment and the window. The cost of communicating well — tailoring the message to each audience — which always made doing it by hand unviable, is paid by the machine.
+The subtlest of the seven is format — the per-recipient reformulation you saw at 9:30. The next chapter develops it as a mechanism.
 
 ## Factories and absorbers
 
@@ -52,6 +52,6 @@ These are not degrees of the same thing: they are opposite directions. One speci
 > **The essentials**
 >
 > - Postchat inverts the direction of the flow: communication comes to you, governed; silence becomes a guarantee, not a threat.
-> - Of the seven variables of communication, the user retains three: intention, deep-dive, and decision.
+> - Of the seven variables of communication, the system assumes six; the user keeps the decision — and supplies the intention.
 > - Reformulation per recipient — impossible by hand — is the standard: everyone receives their version of the fact.
 > - There are two species of infrastructure: interruption factories and absorbers. The channel is the first; Postchat, the second.

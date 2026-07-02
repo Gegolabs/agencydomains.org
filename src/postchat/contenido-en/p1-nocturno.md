@@ -6,10 +6,10 @@ And yet the company is awake. Right now, a planner's agent is rescheduling the w
 
 No one is available. Everything is in motion.
 
-Now pull back for real — not from the building: from the century. Look at the organization as McCallum would have drawn it: the tree, the layers, the reporting lines. The drawing still exists. There is a chief operating officer named Elena, managers who answer to her, crews who answer to the managers. But something changed in the substance of the lines: they no longer carry information. The lines of the org chart remain only for what they were always meant to be — authority, responsibility, judgment — because transport moved elsewhere.
+Now pull back for real — not from the building: from the century. Look at the organization as McCallum — the man who drew the first org chart — would have drawn it: the tree, the layers, the reporting lines. The drawing still exists. There is a chief operating officer named Elena, managers who answer to her, crews who answer to the managers. But something changed in the substance of the lines: they no longer carry information. The lines of the org chart remain only for what they were always meant to be — authority, responsibility, judgment — because transport moved elsewhere.
 
 > **What you just saw:**
 >
-> For two thousand years, hierarchy was an information-routing protocol built on a biological limitation — and the org chart was born as a flow diagram, not a ladder of power. "Flat" organizations failed by removing the nodes without replacing the protocol; Elena's did the opposite: it removed no layer of authority and replaced the protocol entirely. It is not flat — it is **intelligent**: transmission layers of silicon, leadership and judgment intact, and people at the edge, which is where the action is. Jack Dorsey arrived at the same thesis the same day, by the other road.
+> For two thousand years, hierarchy was an information-routing protocol built on a biological limitation — and the org chart was born as a flow diagram, not a ladder of power. What happens to that protocol when transport stops needing people — and why the result is not a flat organization — is the story that closes the commentary. Jack Dorsey arrived at the same thesis by the other road.
 >
 > *The commentary for this scene: chapter 6.*

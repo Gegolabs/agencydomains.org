@@ -10,6 +10,8 @@ Why? Because it isn't dramatic. There's no villain, no conflict, no romance. It'
 
 This book exists to fill that box. Not with a film — with its equivalent in prose. And with the director's commentary included.
 
+A word about the title, so it doesn't work against you: **Postchat** names the stage that comes after corporate chat — when communication stops being a place you go to. The film shows it without naming it; the commentary names it calmly.
+
 ## How to Read This Book?
 
 The book has **two parts, and it's worth saying so plainly from the start**.

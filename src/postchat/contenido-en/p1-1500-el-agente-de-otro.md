@@ -20,6 +20,6 @@ Meanwhile, at 15:30, in a corner of the screen Elena doesn't even look at: "Your
 
 > **What you just saw:**
 >
-> An agent answered *for* its user — with his criteria, his conditions, and his limits — and protected the word that wasn't its to give. It is not a "digital twin" built on the side: it is the same agent as always, mature, with a second interface exposed. The ladder has four rungs — assistant, mediator, representative in consultation, representative with delegation — and there is no skipping: representation is cultivated through months of mediation. Whoever delegates remains accountable, as always; what changed is that being in only one place at a time stopped costing dearly.
+> An agent answered *for* its user — with his criteria, his conditions, and his limits — and protected the word that wasn't its to give. It is not a "digital twin" built on the side: it is the same agent as always, mature, with a second interface exposed. That maturity runs along a spectrum of stages that cannot be skipped — which ones, and what each demands, the commentary tells. Whoever delegates remains accountable, as always; what changed is that being in only one place at a time stopped costing dearly.
 >
 > *The commentary for this scene: chapter 5.*

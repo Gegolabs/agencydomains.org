@@ -12,7 +12,7 @@ The correct formulation doesn't take away: **it renders unnecessary**. You don't
 
 ## The mode, not the replacement
 
-The design implication is the most important product decision in the entire paradigm: Postchat is not deployed as a replacement but as an **optional, reversible mode of operation** that coexists with the traditional tools. The platform keeps chat, email, documents; it offers, in addition, a mode in which everything goes through the agent. We call that switch **agentive mode** — and the name is exact: the question that divides the two worlds (*do you still open applications to do your work?*) gets answered here person by person. Turning on agentive mode is crossing the Nadella Line individually, with a gesture — and being able to come back with the same gesture, on a Tuesday at ten, if it doesn't win you over. Elena turned it off for a pair of shoes; that, too, is the design working.
+The design implication is the most important product decision in the entire paradigm: Postchat is not deployed as a replacement but as an **optional, reversible mode of operation** that coexists with the traditional tools. The platform keeps chat, email, documents; it offers, in addition, a mode in which everything goes through the agent. We call that switch **agentive mode** — and the name is exact: the question that divides the two worlds (*do you still open applications to do your work?*) gets answered here person by person. Turning on agentive mode is crossing the Nadella Line from chapter 1 — but individually, with a gesture, and with the freedom to come back with the same gesture, on a Tuesday at ten, if it doesn't win you over.
 
 The exact analogy is a humble one: dark mode. No one was forced to use it; it existed, someone tried it, and never went back. The adoption physics that humility enables is the difference between two worlds:
 
@@ -45,7 +45,7 @@ An honest adoption chapter also inventories what can go wrong:
 |---|---|
 | **Trust** — "what if the agent hides something important from me?" | Radical transparency: the briefing states how many items it processed and how many it classified as noise; "show me everything" is always available; every delivery is auditable |
 | **Prioritization error** — the agent misclassifies and something critical waits | The urgency threshold is calibrated conservatively at first; the cost of a false-urgent (one interruption) is lower than that of a false-routine, and the system learns from every correction |
-| **Dependency** — if the agent goes down, communication goes down | Classic mode never gets uninstalled: it is the permanent redundancy, not an emergency fallback |
+| **Dependency** — if the agent goes down, communication goes down | Classic mode never gets uninstalled: it is the permanent redundancy, not an emergency backup |
 | **Perception of surveillance** | The boundary is one of governance, not technology: the agora is not listened to, contexts don't cross without authorization, and "off the record" exists |
 | **Generational gap** | Step 1 demands no change at all; the entry analogy is the human assistant ("someone who reads everything and tells you each morning what needs your decision") — intelligible to any generation |
 

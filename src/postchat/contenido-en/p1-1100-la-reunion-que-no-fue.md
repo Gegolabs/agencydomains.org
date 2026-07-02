@@ -20,6 +20,6 @@ Elena returns to her desk and doesn't think about the matter again. She didn't c
 
 > **What you just saw:**
 >
-> Nearly every meeting exists to share information or to make a decision — and both functions found a better mechanism: the context chases each participant, everyone weighs in when they can think, and no one sees the others' positions before giving their own (anchoring bias disappears from the process). The meeting didn't get shorter: it disappeared. This is the third stage of enterprise communication — email, chat, **Postchat** — and it leaves loaded the question that founds this world: if the agent understands the intention, distributes the versions, and confirms receipt, what did we need people writing in channels for?
+> Nearly every meeting exists to share information or to make a decision — and both functions found a better mechanism: the context chases each participant, everyone weighs in when they can think, and no one sees the others' positions before giving their own — **anchoring bias** disappears: the first opinion spoken stops dragging the rest. The meeting didn't get shorter: it disappeared. This is the third stage of enterprise communication — email, chat, **Postchat** — and it leaves loaded the question that founds this world: if the agent understands the intention, distributes the versions, and confirms receipt, what did we need people writing in channels for?
 >
 > *The commentary for this scene: chapters 2 and 3.*

@@ -8,7 +8,9 @@ No one consults anything. No one approves anything. No agent is listening.
 
 Back in the elevator, a young engineer mentions to Elena, in passing, that the new simulator at the south plant "feels off" with the pressure data. It's not a report; it's after-lunch talk. But it keeps circling in Elena's head.
 
-Back on her floor, she says to her screen:
+The cafeteria is not the company's only courtyard: there is also a digital agora — the open space where people comment without structure or purpose, and where the agent doesn't listen unless someone asks it to.
+
+Back on her floor, Elena asks it:
 
 — From this week's digital agora, is there anything about the south plant simulator?
 
@@ -18,6 +20,6 @@ Back on her floor, she says to her screen:
 
 > **What you just saw:**
 >
-> The deliberate exception: the **agora** — the only space where interruptions are voluntary, where the agent doesn't listen unless a human invokes it, and where what is genuinely human about conversation lives. The exact comparison with your office: in corporate chat, *everything* is agora — the joke and the emergency through the same pipe. And the answer to the question you've been accumulating: this doesn't dehumanize — the agent absorbed the transactional interactions (people used as wire); the conversations with human content were left in peace, and with more time to exist.
+> The deliberate exception: the **agora** — the only space where interruptions are voluntary, where the agent doesn't listen unless a human invokes it, and where what is genuinely human about conversation lives. How this courtyard compares with your office today — and why this doesn't dehumanize the work, but the opposite — is a matter for the commentary.
 >
 > *The commentary for this scene: chapter 3.*

@@ -26,7 +26,7 @@ Elena looks at the route comparison. She taps the south port column, reads the t
 
 — Done. Distribution already knows.
 
-It's 7:06. Elena picks up her coffee and turns to the maintenance plan she will defend tomorrow — the document she has been thinking about all night.
+It's 7:06. Elena picks up her coffee and turns to the maintenance plan she will defend tomorrow — the document she kept turning over in her head last night, for the pleasure of it, long after the system had closed the day. Nobody asked her to.
 
 — Shall I prepare the slack analysis? — the agent offers.
 
@@ -38,6 +38,6 @@ She works. Nothing rings. Nothing blinks. No one interrupts her for three hours.
 
 > **What you just saw:**
 >
-> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one urgent item didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms, the infrastructure that made interruptions from bosses and meetings permanent. The briefing is the antidote: interruptions batched into predictable moments, silence by default, library rules enforced by architecture.
+> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one item that demanded a response didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms. The M&Ms are *managers* and *meetings* — bosses who interrupt and meetings that fragment —; the & is the infrastructure that made them permanent. The briefing is the antidote: interruptions batched into predictable moments and silence by default, enforced by architecture.
 >
 > *The commentary for this scene: the Introduction and chapter 3.*

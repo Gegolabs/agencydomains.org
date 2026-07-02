@@ -16,6 +16,6 @@ The screen settles into an empty text field. Elena picks up her mug and leaves.
 
 > **What you just saw:**
 >
-> A subversive accounting. The channel office is measured with social-media metrics — messages, response times, *engagement* —; Elena's is measured with a single outcome figure: **hours of uninterrupted work protected per day**. Gone are the badges, the scroll, the mark-all-as-read, and the FOMO; in their place came silence as a guarantee, traceability without archaeology — and the end of the day, which exists again because the system stays on watch.
+> A subversive accounting. The channel office is measured with social-media metrics — messages, response times, *engagement* —; Elena's is measured with a single outcome figure: **hours of uninterrupted work protected per day**. Gone are the red counters, the scroll, the mark-all-as-read, and the fear of missing out (the FOMO); in their place came silence as a guarantee, traceability without archaeology — and the end of the day, which exists again because the system stays on watch.
 >
 > *The commentary for this scene: chapter 3 and the Conclusion.*

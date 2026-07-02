@@ -12,7 +12,7 @@ Elena's Tuesday looked like a succession of hours, and it was a ladder. Three ti
 
 And in between you saw the two conditions that make it tolerable: Elena's pencil and her eighteen minutes of shoes — because it is a mode, not a mandate, and because each person has a perimeter the agent does not touch.
 
-Tools, channels, availability. Flow, attention, time. And the Nocturne showed the aggregate consequence of all three: when you strip an organization of all its mechanical intermediation, what remains — structure without transport, authority without relays — is an intelligent organization, with people at the edge, which is where they always belonged.
+Tools, channels, availability. Flow, attention, time. And the Nocturne showed the aggregate consequence of all three: when you strip an organization of all its mechanical intermediation, what remains — structure without transport, authority without relays: lines that command, and no longer repeat — is an intelligent organization, with people at the edge, which is where they always belonged.
 
 ## End of the film — and the invitation
 
@@ -24,6 +24,6 @@ You don't need it to understand. You will want it if you intend to build, buy, l
 
 The previous paradigm, too, was in its day the best available answer. Two thousand years of layers, thirty of inboxes, twenty of channels: every era coordinated work with its best technology, and ours was the last to use people as infrastructure.
 
-It's a Tuesday. Information comes to you. People are at the edge.
+It's a Tuesday. Communication comes to you. People are at the edge.
 
 Welcome to the Agentive World.
