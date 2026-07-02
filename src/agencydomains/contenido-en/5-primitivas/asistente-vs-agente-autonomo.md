@@ -35,7 +35,7 @@ The third reason is that **they are governed differently**. The Assistant operat
 
 > *Selling an Autonomous Agent with the governance of an Assistant is selling a risk dressed up as a product.*
 
-This is the structural reason why products that promise "autonomous agents" but Assistant governance fail in enterprise production. The organization buys expecting autonomy; it receives products that need constant human supervision. The resulting frustration is what feeds the more than forty percent of agentive projects Gartner forecasts will be canceled (the data, in Chapter 2).
+This is the structural reason why products that promise "autonomous agents" but Assistant governance fail in enterprise production. The organization buys expecting autonomy; it receives products that need constant human supervision. The resulting frustration is what feeds the wave of cancellations Chapter 2 documents.
 
 
 ### Operational anatomy

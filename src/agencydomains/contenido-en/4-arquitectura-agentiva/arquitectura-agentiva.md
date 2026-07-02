@@ -39,7 +39,7 @@ The parallel topology has five practical consequences worth retaining. The **fir
 
 The **second** is that cognitive economics becomes evident. The organization does not pay for "the AgencyDomain" — it pays for the mix of paths its operation triggers. Decisions about which patterns to consolidate into Botlets are explicit economic decisions, not an implementation detail.
 
-The **third** is that **Trust Infrastructure is exercised on both paths**, not only on the one that passes through Cognition. The linear model could suggest that cognition filters everything that reaches Layer 4. The parallel model makes clear that Path 3 also passes through Trust — the policies are applied before invoking Layer 4 regardless of which path the invocation comes from. A Botlet that invokes DTE-SII passes through the same Trust validations as the cognition that would do it.
+The **third** is that **Trust Infrastructure is exercised on both paths**, not only on the one that passes through Cognition. The linear model could suggest that cognition filters everything that reaches Layer 4. The parallel model makes clear that Path 3 also passes through Trust — the policies are applied before invoking Layer 4 regardless of which path the invocation comes from. A Botlet that invokes DTE-SII — the electronic invoicing of Chile's tax regulator — passes through the same Trust validations as the cognition that would do it.
 
 The **fourth** is that the parallel topology distinguishes two types of Botlets that the linear model confused. **Operational-facade Botlets** are invocable from Layer 1 — a button on a POS, a command line, an endpoint — with a stable contract and human identity propagated toward Layer 4. **Cognition internal-tool Botlets** are invocable only from Layer 2 — cognition composes them into plans that it itself executes. Both live in Layer 3, but their invocation surface is distinct and so are their governance properties.
 
@@ -141,55 +141,16 @@ The key distinction: **shell and view are surface (Layer 1); operation is execut
 
 **Emergent catalog.** This decomposition is a **prerequisite for reasoning about the catalog of reusable pieces**: operations accumulate in the catalog over time and form the most durable architectural asset; reusable views are extracted and catalogued; shells remain specific but their construction is accelerated because they assemble existing pieces. Without the explicit decomposition, everything is treated as an "application feature" and reuse is not exploited.
 
-**Multi-view Information Product · drill-through.** An **Information Product (`PI`)** — the manifestation that an informational operation Botlet leaves on being consumed — is not necessarily a single piece. It can be composed of **N named pieces**: each **view** is one more piece of the same `PI`, selectable from a picker, with a default view (the first). The `PI` remains **authz-blind** — neither the views nor the edges that connect them declare authorization; that policy lives in the policy store, not in the composition.
-
-The connection between views is the **drill-through**: a **navigation edge with context**. A table declares *"on clicking a row, go to the destination view passing that row's key"*; the destination view renders **filtered by that key**. The critical property is **data-anchored / no-bypass**: the context that travels with the edge **narrows within what the viewer can already see** — the destination view applies its own row policy (`RLS`) over the source, and the context enters as an additional filter, never as an override of the policy (**MUST**). The drill **narrows, never widens** — intersection with what is authorized, never union. If the viewer does not reach the origin row, they do not reach the edge; if they reach it, the destination is still governed by its own policy.
-
-A receivables / balance-aging report illustrates the pattern: named views (Customers, Suppliers, Related parties, Detail) over the same `PI`, a hierarchical Company→Partner table, and a Partner→Detail drill-through edge that opens that partner's documents — filtered by the partner's key and narrowed to what the viewer already had the right to see. The multi-view composition is orthogonal to the operation Botlet's family: what changes is how many pieces compose the manifestation, not its nature. The canonical description of the `PI` as a manifestation of the information family lives in Chapter 7.
-
-<!-- FIG:g13-pi-multivista-drillthrough -->
-![Multi-view PI and drill-through — navigation with context, data-anchored](figuras/g13-pi-multivista-drillthrough.png)
+**Multi-view Information Product · drill-through.** An **Information Product (`PI`)** — the manifestation that an informational operation Botlet leaves on being consumed — is not necessarily a single piece: it can be composed of N named **views** connected by **drill-through**, the navigation-with-context that narrows — never widens — what the viewer can already see. The normed description of the `PI` — the multi-view composition, the data-anchored / no-bypass property, and its canonical example — lives in Chapter 5 §2, alongside the manifestation that begets it.
 
 ### Facet · atomic primitive of Layer 1
 
 <!-- FIG:g14-faceta-vs-botlet -->
 ![Facet vs Botlet · two primitives, two layers, two natures](figuras/g14-faceta-vs-botlet.png)
 
-So far Layer 1 has been described in terms of generation regimes (pure conversational, on-the-fly, persistent as a Botlet) and composition (shell, view, operation). What is missing is to name the **atomic unit** with which these surfaces are built — the piece the view puts on the screen, the component cognition invokes during a conversation, the instrument the agent picks up when it decides that information is obtained better visually than verbally.
+So far Layer 1 has been described in terms of generation regimes (pure conversational, on-the-fly, persistent as a Botlet) and composition (shell, view, operation). What is missing is to name the **atomic unit** with which these surfaces are built: the **Facet** — an atomic reusable component of Layer 1: a catalog-picker, a calendar, a clickable map, a slider, a freehand drawing board. It is an **instrument**, not a process: the agent picks it up while thinking — in live conversation or inside a view Botlet — and drops it when it is done.
 
-That unit is the **Facet**.
-
-**Canonical definition.** A **Facet** is an atomic reusable component of Layer 1 — a freehand drawing board, a catalog-picker, a color matrix, a calendar, a clickable map, a slider, a drag-and-drop ordering. One of the many faces that interaction with the user can take at a given moment. It is an **instrument**, not a process. It lives and operates in Layer 1.
-
-**The Facet is not a Botlet.** This is the most important distinction of the section. The two primitives are easily confused because both are "a canonical software piece with its own identity", but their nature is radically distinct:
-
-| Axis | **Facet** | **Botlet** |
-|---|---|---|
-| Layer | Layer 1 (Interaction) | Layer 3 (Autonomy) |
-| Nature | Interaction instrument | The agent's muscle memory |
-| Activation | Cognition invokes it during live conversation | Executes without cognition present |
-| Fallback guarantee | NO — if it fails, the agent returns to textual conversation | YES — cognition executes manually |
-| Cycle | Has no regeneration cycle | `95/4/1` cycle with regeneration |
-| Persistence | Ephemeral by default (lives as long as the task lasts) | Persistent between sessions |
-| Phase state | Not applicable | Junior · learning · senior |
-
-The **Botlet is muscle memory**: the agent consolidated repetitive know-how into traditional code that executes without thinking. The **Facet is an instrument**: the agent picks it up while thinking, uses it to obtain information from the user, drops it when it is done. The Botlet automates; the Facet interacts.
-
-**Two canonical uses** of the Facet:
-
-1. **The agent invokes it directly in conversation** — it composes an ephemeral surface with one or several Facets, the user interacts, the information returns, the conversation continues. The ephemeral surface **is not a Botlet** and does not persist. This realizes the *GUI generated on-the-fly* regime described earlier.
-
-2. **Stable surfaces are composed of Facets** — presentation Botlets (shells and views) assemble Facets plus orchestration logic. The "order detail" view internally uses the "product matrix" Facet, the "calendar" Facet, the "picker" Facet. The view Botlet defines the orchestration; the Facets are the instruments the Botlet puts on the screen.
-
-**Associated agentive behavior.** The agent, during a conversation, **decides** to offer a Facet when it estimates that the information is obtained faster visually than verbally. It estimates the verbalization time versus the instrument-usage time; if the latter wins, it offers the Facet. Canonical heuristics:
-
-- **Low-dimensional**, well-structured information → conversation.
-- **High-dimensional** information or information hard to verbalize → Facet.
-- Information the user already has in **spatial or visual** form → Facet.
-
-The agent makes this calculation in real time. It is a cognitive decision of the agent, not a pre-programmed product feature. A productive Layer 1 without this active agentive behavior stays at chat; with it, it opens the full interactive range.
-
-**Why does the primitive matter?** Naming the Facet turns "on-the-fly GUI" — which without it remains a capability without structure — into something reasonable: it makes clear what the **minimal unit** of Layer 1 is, how it relates to presentation Botlets (composition), and why offering an ad-hoc GUI is agentive (a cognitive act, not a feature). The complete description of the Facet as a canonical primitive lives in Chapter 5 §6.
+**The Facet is not a Botlet**: it has no fallback guarantee, no `95/4/1` cycle, no maturity phases — if it fails, the agent returns to conversation. Offering a Facet is, moreover, a cognitive act of the agent, not a pre-programmed feature: cognition estimates whether the information is obtained faster visually than verbally, and decides. The full canonical distinction, the two uses, and the heuristics of that decision live in Chapter 5 §6, where the Facet is formalized as a primitive.
 
 > *If the human opens applications to do their work, we are not in the Layer 1 of the Agentive World.*
 
@@ -205,15 +166,13 @@ The canonical components of Layer 2 are five. The first is **multi-LLM**: cognit
 
 The second component is **Capabilities** — units of modular, composable know-how, organized in a hierarchical tree. Cognition selects and applies Capabilities according to the task. Capabilities are codified professional know-how — accounting know-how for a financial agent, regulatory know-how for a legal agent, operative know-how for a support agent. We develop them in detail in Chapter 5. For now it suffices to retain that Layer 2 does not operate with monolithic knowledge — it operates by selecting modules of specialized know-how and combining them according to the case.
 
-The third component is **Pattern Recognition** — detection of repetitive patterns in the agent's activity. The capacity is inspired by neurobiological architecture: perirhinal cortex for rapid familiarity, hippocampus for detailed recollection, prefrontal cortex for conscious decision. The same functional pattern described by Squire and Wixted in their work on the human memory system. When the agent recognizes a repetitive pattern in the activity — the same task executing with variable frequency but stable structure —, it triggers the generation of a Botlet that automates that task without requiring additional cognition each time. Pattern Recognition is the entry to the Botlet cycle, which we develop in Chapter 5.
+The third component is **Pattern Recognition** — detection of repetitive patterns in the agent's activity. The capacity is inspired by the neurobiological architecture of human memory; Chapter 5 §2 develops the parallel (Squire and Wixted) alongside the Botlet cycle. When the agent recognizes a repetitive pattern in the activity — the same task executing with variable frequency but stable structure —, it triggers the generation of a Botlet that automates that task without requiring additional cognition each time. Pattern Recognition is the entry to the Botlet cycle, which we develop in Chapter 5.
 
 The fourth component is **Botlet generation** itself. Cognition decides when to delegate repetitive tasks to Layer 3 — where Botlets execute without invoking cognition. This decision is not trivial: a cognition that delegates too much loses flexibility when the environment changes; a cognition that delegates too little saturates its resources on tasks that traditional code executes better. The calibration of when to generate a Botlet is an emergent property of mature cognition.
 
 The fifth component is the **reactive Assistant** — the agent operating in response-to-request mode. It waits for input from the human, responds, moves to the next turn. This mode is pure Layer 2 — cognition without autonomy, unlike the proactive mode that lives in Layer 3. The Assistant vs Autonomous Agent distinction is developed by Chapter 5 §5.
 
-The specification further recognizes **two modes of access to cognition** that it is worth naming with precision. The first mode is **Tokens**: the system centralizes credentials, billing, and policies for accessing cognition. It provides cognitive access to all its active components. This mode applies when agents must operate in the background without user intervention, when the organization wants central control over consumption and costs, or when multiple agents share the same cognition provider. The second mode is **Subscription**: the assistant the user interacts with — Claude, ChatGPT, Copilot, Gemini — accesses the cognitive resource directly under the user's own subscription. The agentive system does not consume tokens from the resource. This mode applies when the user already has an active subscription to the provider, when the system exposes tools and data to the user's assistant without centralizing cognition, or when the operating economics favor minimizing inference costs.
-
-The two modes coexist. The same agentive system can operate user Assistants in Subscription mode and Autonomous Agents in the background in Tokens mode, simultaneously. The specification requires that the system explicitly declare which mode applies to which component. Confusing the modes in implementation is a recurring source of economic errors: an Autonomous Agent accidentally operating in Subscription mode can exhaust the user's quota in hours; an Assistant accidentally operating in Tokens mode can bill the system for operations that should go against the user's subscription.
+The specification further recognizes **two modes of access to cognition**: **Tokens** — the system centralizes credentials, billing, and policies; the natural mode for background Autonomous Agents — and **Subscription** — the user's assistant (Claude, ChatGPT, Copilot, Gemini) accesses under the user's own subscription, consuming no tokens from the system. The two coexist in the same system, the spec requires declaring which mode applies to which component, and confusing them is the most recurrent source of economic errors in an agentive deployment. The full formalization of both modes lives in Chapter 5 §1.
 
 Under fixed Subscription plans, **Botlets are the architectural mechanism for extending autonomy without saturating the plan**: an agent that executes its daily work via Botlets, reserving cognition for when the environment changes, can operate in continuous background without exhausting the quota. This makes the Botlet an economic lever, not just a technical optimization. Chapter 5 §2 develops this economics of the subscription.
 
@@ -259,17 +218,16 @@ Layer 4 is where most agentive projects fail, according to the field data of Cha
 
 ## Trust Infrastructure — the cross-cutting axis
 
-Trust Infrastructure is not an additional layer. It is **cross-cutting to all four**. Without Trust Infrastructure, agent pilots die on the way to enterprise production — and "die" is not a metaphor; it is what produces the forty percent of cancelled projects Gartner forecasts. Trust Infrastructure is the difference between experimenting and operating.
+Trust Infrastructure is not an additional layer. It is **cross-cutting to all four**. Without Trust Infrastructure, agent pilots die on the way to enterprise production — and "die" is not a metaphor; it is what produces the wave of cancellations Chapter 2 documents. Trust Infrastructure is the difference between experimenting and operating.
 
 Five pillars constitute Trust Infrastructure. **Governance** defines configurable policies, CRUDLEX permissions, human approval for critical operations, AI registry. It is exercised principally in Layer 4, cross-cuttingly in the rest. **Audit** maintains an immutable append-only log, a trace of every action, lineage of decisions, identity tagging per action. It is exercised in Layer 4 and cross-cuttingly. **Validation** detects hallucinations, validates responses, prevents prompt injection, executes DLP and tokenization. It is exercised in Layer 2 and Layer 4. **Resilience** guarantees fallback, handles errors, sandboxes Botlets. It is exercised in Layer 3 and cross-cuttingly. **Transparency** delivers complete observability, metrics, end-to-end traces, proactive alerts, governance dashboards. It is cross-cutting to all four layers.
 
 The detailed description of each pillar — its canonical mechanisms, its required properties, its operationalization into concrete policies — lives in Chapter 5 §4 and in Chapter 8 (which operationalizes the five pillars into policies, the complete CRUDLEX model, the format of the append-only log, human-approval protocols). In this chapter it suffices to retain the fundamental architectural property: Trust Infrastructure is not added after the agent works — it is designed from the start, in the architecture itself.
 
-The urgency of Trust Infrastructure is no longer only architectural — it is regulatory. Singapore IMDA published in January 2026 the first state framework of governance for agentive AI — the Model AI Governance Framework for Generative AI (MGF) —, which establishes that although agents act autonomously, *"human accountability continues to apply"*. The European Union does likewise with the EU AI Act, NIST with its AI Risk Management Framework, ISO/IEC with 42001. The question is no longer whether regulators will require trust infrastructure — it is whether the organization can demonstrate it auditably when asked.
+The urgency of Trust Infrastructure is no longer only architectural — it is regulatory: the state and international frameworks that demand it are developed in Chapter 5 §4. The question is no longer whether regulators will require trust infrastructure — it is whether the organization can demonstrate it auditably when asked.
 
 The state of the field with respect to governance is documented with figures in Chapter 2: most of the organizations that operate agents today are not prepared to defend what their agents do. What matters here is the architectural consequence of that diagnosis: if governance is not designed from the start, it is not built afterward.
 
-> *Governance is not what is added after the agent works. It is what separates pilots from production.*
 
 ## The governing principle — Agent First
 
@@ -311,19 +269,11 @@ Where the human has a **Space** —corporeality inherited from the physical desk
 
 ### The AgencyDomain as a formal construct
 
-The architecture materializes in a formal construct: the **AgencyDomain** — a computational scope where autonomous agents dwell. A conceptual analog to JavaSpaces — the JSR-000148 specification of Sun Microsystems that in 1999 standardized distributed spaces for Java systems without tying the implementation to a particular provider —, AgencyDomains does the equivalent for agentive environments. It defines how they ought to be built — layers, cycles, primitives, interfaces — without prescribing a specific implementation. The difference in name from its predecessor is not a rupture but a precision: a Java *Space* was a computational space for bodiless processes; an Agency *Domain* is a scope of jurisdiction for agents with agency.
+The architecture materializes in a formal construct: the **AgencyDomain** — a computational scope where autonomous agents dwell. It defines how agentive environments ought to be built — layers, cycles, primitives, interfaces — without prescribing a specific implementation; its historical parallel (JavaSpaces, the JSR-000148 spec of 1999) and the full derivation of the Space ≠ Domain premise live in Chapter 5 §1.
 
 The formal specification of AgencyDomains lives in its dedicated document, which is the first section of Chapter 5. In this chapter it suffices to retain that the Agentive Architecture, seen as a concrete technical construct, is instantiated in AgencyDomains. When we speak of "the agentive system", we refer to an instance of an AgencyDomain that materializes the four layers, exercises Trust Infrastructure, and respects the Agent First principle.
 
 The specification covers aspects such as the identity and addressing model of agents and Botlets, the agent's lifecycle within the scope, intra-AgencyDomain coordination and `A2A` between AgencyDomains (both via the `A2A` protocol), federation between AgencyDomains (how two distinct scopes collaborate), and the tenancy and isolation model. All these details are developed by Chapter 5 §1.
-
-## The Assistant vs Autonomous Agent distinction
-
-A critical distinction crosses Layers 2 and 3 and determines how any agentive system is designed, operated, and charged for: the distinction between **Assistant** and **Autonomous Agent**.
-
-The Assistant lives in Layer 2 (Cognition). It is reactive: it responds when asked, waits for input from the human, does not maintain Botlets of its own, has no persistent life between sessions. The Autonomous Agent lives in Layer 3 (Autonomy). It is proactive: it acts on its own initiative, pursues objectives without continuous human input, maintains and regenerates its Botlets, lives with persistent life in the background.
-
-The operationalization of the distinction — when each role is appropriate, what anti-patterns to avoid when confusing them, how they are charged and governed differently — is developed by Chapter 5 §5. In this chapter it suffices to have introduced the distinction so the reader can correctly interpret the references to one mode or the other throughout the rest of the architecture.
 
 ## Reference implementations
 
@@ -343,7 +293,7 @@ The three vectors define the platform's innovation frontier. All three are susta
 
 The four layers are the architectural answer to the paradigm. But the layers do not stand on their own — they need reusable pieces to populate them so an implementer can build against them with discipline. Chapter 5 delivers those pieces — seven canonical technical primitives that constitute the constructive vocabulary of a conformant agentive system: **AgencyDomain** as computational space, **Botlet** as the agent's muscle memory, **proto-Botlet** as its pre-forged piece, **Capability** as the tree of cognitive know-how, **Trust Infrastructure** as the trust infrastructure, the **Assistant vs Autonomous Agent** distinction as the operative axis, and the **Facet** as the atomic unit of Layer 1. Whoever completes the two chapters holds the set of formal constructs with which the agentive category can be reasoned about and built.
 
-A note on the numbering of the primitives: throughout the book the Facet is labeled the *sixth canonical primitive* and the proto-Botlet the *seventh canonical primitive*. Those ordinals indicate the **order in which each primitive was incorporated into the canon** —the Facet was formalized in v0.3, the proto-Botlet in v0.4— and not their position in the enumeration above, where the proto-Botlet appears alongside the Botlet as its pre-forged piece.
+A note on the numbering of the primitives: throughout the book the Facet is labeled the *sixth canonical primitive* and the proto-Botlet the *seventh canonical primitive*. Those ordinals indicate the **order in which each primitive was incorporated into the canon**, not their position in the enumeration above, where the proto-Botlet appears alongside the Botlet as its pre-forged piece.
 
 ## Visual summary
 
@@ -354,6 +304,6 @@ The four layers in parallel topology, with their principal components, the cross
 | **1 · Interaction** | where the human communicates with the system | textual conversational · voice conversational · channels · direct API · generated GUI (on-the-fly · persistent as facade Botlet) · signage |
 | **2 · Cognition** (slow · costly · decisive path) | where the system thinks | multi-LLM · Capabilities · Pattern Recognition · Botlet generation · reactive Assistant |
 | **3 · Autonomy** (fast · cheap · repetitive path) | where the system lives with persistence | Botlets in execution · central + edge Botler · asynchronous tasks · monitoring · fallback guarantee |
-| **4 · Access** | where the system acts upon the real world | tools (MCP) · Connectors · A2A between AgencyDomains · CRUDLEX · human approval · append-only log · cloud/edge/hybrid Capabilities |
+| **4 · Access** | where the system acts upon the real world | tools (MCP) · Connectors (cloud · edge · hybrid) · A2A between AgencyDomains · CRUDLEX · human approval · append-only log |
 
 **Trust Infrastructure** is cross-cutting to the four layers (Governance · Audit · Validation · Resilience · Transparency). Layers 2 and 3 are **parallel paths** between Layer 1 and Layer 4 — not stages in series —, and the governing principle is **Agent First**.

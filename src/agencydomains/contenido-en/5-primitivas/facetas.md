@@ -53,7 +53,7 @@ A piece of information already materialized — a self-contained snapshot the ag
 
 The distinction is drawn between two interactivities:
 
-- **Free exploration** launches new and arbitrary queries against the source (ad-hoc drill or pivot), operates over an open space, loses reproducibility, exceeds `G1`, and lives outside the information proto-Botlet — in another Botlet or in cognition itself. A piece of information **MUST NOT** absorb it.
+- **Free exploration** launches new and arbitrary queries against the source (ad-hoc drill or pivot), operates over an open space, loses reproducibility, exceeds `G1` (the Botlet generations, Chapter 5 §2), and lives outside the information proto-Botlet — in another Botlet or in cognition itself. A piece of information **MUST NOT** absorb it.
 - **Declared bounded interaction** operates over the already-materialized snapshot, within a declared space (dimensions and values bounded in advance), preserves reproducibility, is `G1` —configuration, not code— and lives in the piece itself, realized via a Facet.
 
 | What distinguishes them? | Free exploration | Declared bounded interaction |

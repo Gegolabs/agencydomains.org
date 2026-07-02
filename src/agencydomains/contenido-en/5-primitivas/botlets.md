@@ -64,7 +64,7 @@ A **senior** Botlet is a Botlet that has already incorporated the environment's 
 
 A fundamental property of the senior Botlet changes relative to the earlier phases: **its failures in the senior state are not environment changes; they are exogenous causes**. When a senior Botlet fails, the typical cause is something that would halt any stable system: a power outage, downed hardware, catastrophically lost network, a downed external resource (a tool provider, a regulated system). These failures are not pending learning — they are the same thing any operating system encounters occasionally and resolves with redundancy, restart, or human intervention.
 
-Operationally, a senior Botlet can operate **offline reliably**. The reason is structural: if its only failure modes are exogenous, the presence or absence of cognition does not significantly change the probability of failure — cognition has no way to rescue from a power outage. The senior Botlet, against a local DB and edge-resident Capabilities, sustains the physical site's operation even when cognition is unreachable. This property is the structural basis of offline mode in systems with a distributed Layer 3 (Chapter 5 §1).
+Operationally, a senior Botlet can operate **offline reliably**. The reason is structural: if its only failure modes are exogenous, the presence or absence of cognition does not significantly change the probability of failure — cognition has no way to rescue from a power outage. The senior Botlet, against a local DB and edge-resident Connectors, sustains the physical site's operation even when cognition is unreachable. This property is the structural basis of offline mode in systems with a distributed Layer 3 (Chapter 5 §1).
 
 #### Implications of the trajectory
 
@@ -78,7 +78,7 @@ The distinction among the three phases has three implications worth keeping in m
 
 ### Seed Botlets vs emergent Botlets — the origin of the Botlet
 
-The previous section described how Pattern Recognition triggers the generation of a Botlet when it detects an unanticipated repetitive pattern. That is the **emergent** modality of generation. It is the modality the neurobiological model inspires and the one the `95/4/1` cycle describes in its purest form. But **it is not the only modality**, and for real productive systems it is not even the most frequent.
+The cycle described so far assumes that **Pattern Recognition** — the auxiliary primitive developed further below — triggers the generation of a Botlet upon detecting an unanticipated repetitive pattern. That is the **emergent** modality of generation. It is the modality the neurobiological model inspires and the one the `95/4/1` cycle describes in its purest form. But **it is not the only modality**, and for real productive systems it is not even the most frequent.
 
 In a productive system, the MVP's critical Botlets **do not emerge**: cognition implements them because the design team planned them as part of the product spec. The team knows, before the system sees its first transaction, that it is going to need a POS Botlet, an order-ticket Botlet, a charge Botlet, a shift-close Botlet. Cognition executes the implementation of those Botlets; but the **decision to exist** was made by the design, not by Pattern Recognition.
 
@@ -120,7 +120,42 @@ The spec recognizes **two classes** of proto-Botlet, according to the nature of 
 
 A **tempered** proto-Botlet resolves a function and resolves it in full; configuring it is adjusting parameters within a foreseen range. A **platform** proto-Botlet is an engine: its code is generic and the specific function emerges from a rich configuration — compositional, not a flat list of parameters — so that a single platform proto-Botlet covers N functions of its domain. **Mira**, in the reference implementation's catalog, is a platform proto-Botlet for informational operation.
 
-The degree to which the agent configures a pre-forged piece, co-writes its code, or generates it entirely defines the **Botlet generations** (G1/G2/G3). In G1, the totality of a Botlet's code lives in its proto-Botlet and the agent only configures; at the asymptotic extreme, the agent generates the code with no proto-Botlet in between. The generations model, its trajectory, and its fine edges are developed in the Epilogue · Evolution Frontier; here it suffices to keep in mind that the proto-Botlet is the pre-forged unit that G1 configures, and that different implementations maintain catalogs of proto-Botlets — public in AgencyDomains.org, private in proprietary codices.
+Different implementations maintain catalogs of proto-Botlets — public in AgencyDomains.org, private in proprietary codices. And the degree to which the agent configures the pre-forged piece, co-writes its code, or generates it entirely defines the **Botlet generations** — the next section fixes them.
+
+### The Botlet generations — `G1`, `G2`, `G3`
+
+<!-- FIG:g51-generaciones-botlet -->
+![Botlet generations — authoring capacity vs operational maturity](figuras/g51-generaciones-botlet.png)
+
+The generations are the evolutionary model of how a Botlet's code is born as the state of the art of cognition advances:
+
+- **`G1`** — the agent, in its Engineering time, configures pre-forged proto-Botlets from the catalog. If none serves, it specifies a new one to be forged in the next Preparation.
+- **`G2`** — the agent co-writes proto-Botlets with human or model assistance. Part of the work that in `G1` happened in Preparation migrates to Engineering.
+- **`G3`** — the agent generates the Botlet's complete code in its Engineering time, pre-forging nothing. The asymptotic scenario.
+
+The architecture is the same across all three generations; what changes is the **scope of the Engineering** the agent performs. An implementation can operate in `G1` today and migrate incrementally toward `G3` as the state of the art allows, with no re-architecture.
+
+**A higher generation is not a destination.** The previous sentence — migrating toward `G3` — induces, read alone, a false conclusion: that `G3` is the destination and `G1` a primitive way station. The error comes from projecting **two distinct axes onto a single arrow**:
+
+| Which axis? | What does it measure? | Direction of "progress"? |
+|---|---|---|
+| **Authoring capacity** | How much the agent can forge: configure (`G1`) → co-write (`G2`) → generate whole (`G3`) | Toward `G3`, as the state of the art of cognition advances |
+| **Operational maturity** | For a recurring operation, how much is reused pre-forged vs regenerated each time (the `95/4/1` cycle) | Toward reuse (`G1`), as the Botlet matures junior → senior |
+
+They are not the same arrow. An agent with `G3` capacity that regenerates every artifact from scratch on every execution is not advanced: it has the muscle and chooses to re-learn the move every time. The reconciliation is direct: `G3` capacity is best spent **producing `G1` reuse**. The generations describe what the agent *can* author; the `95/4/1` cycle describes what a mature agent *reuses*. The destiny of `G3` capacity is a richer `G1` catalog, not the live regeneration of everything.
+
+There is a corollary for **platform** proto-Botlets. For one of them, `G1` is **terminal by design**, not a way station: its identity is generic code plus configuration. A platform proto-Botlet "in `G3`" — where the agent regenerates the engine for each piece — is not a more advanced version; it dissolves the proto-Botlet and collapses back into the agentic mode the architecture exists to transcend.
+
+**`G1` is not poor configuration.** What defines `G1` is that the agent does not write the body of the proto-Botlet — but the configuration it fills in can be as rich as a compositional `DSL` with evaluable formal expressions. The `G1`/`G3` distinction is about **authorship of the proto-Botlet's body**, not about the expressiveness of the configuration. A platform proto-Botlet with a rich `DSL` is pure `G1`.
+
+That leaves one borderline case: configuration that admits evaluable formal expressions — `SQL`, chart specifications, filter expressions. The **`G1`/`G2` edge** resolves it:
+
+- A formal evaluable expression that is a **parameter of a well-defined Capability** (`SQL` → `execute-sql`, a chart specification → `render-chart`, a filter expression → `filter-stream`) is configuration → **`G1`**.
+- An expression that **extends or overrides the proto-Botlet's internal logic** — callbacks, lambdas the proto-Botlet evaluates internally, fragments concatenated to its body — is code written by the agent → **`G2`**.
+
+The test is a single one: *"does the code belong to the invoked Capability or to the proto-Botlet itself?"*. If a catalog Capability evaluates it, `G1`; if the proto-Botlet evaluates it in its internal logic, `G2`.
+
+The reference implementation, Vergis, operates today in `G1`: its catalog exposes proto-Botlets — Mira among them — that the agent specializes by configuring, not regenerating (Chapter 9). The deeper sense of the generations — why the advanced agent generates *less*, not more — is the essay that closes the book.
 
 ### Fallback guarantee — the non-negotiable property
 
@@ -161,7 +196,16 @@ Manifestation is the **abstract genus**; each Botlet family specializes it, and 
 - the **action** family → an effect on the world, with no artifact,
 - the **decision** family → named by its own practice.
 
-The `PI` **is not a primitive of the canon**: it is the manifestation of *one* family. The canon stops at `manifestation`; the Information Product lives in the information-management practice, one level more concrete, where its governance load is added without contaminating the canonical vocabulary.
+The `PI` **is not a primitive of the canon**: it is the manifestation of *one* family. The canon stops at `manifestation`; the Information Product is a **normed term of this spec** — not a primitive, but vocabulary with rules — and its governance load is added here without contaminating the canonical level. This is its reference description:
+
+**Multi-view Information Product · drill-through.** A `PI` is not necessarily a single piece. It can be composed of **N named pieces**: each **view** is one more piece of the same `PI`, selectable from a picker, with a default view (the first). The `PI` is **authz-blind** — neither the views nor the edges that connect them declare authorization; that policy lives in the policy store, not in the composition.
+
+The connection between views is the **drill-through**: a **navigation edge with context**. A table declares *"on clicking a row, go to the destination view passing that row's key"*; the destination view renders **filtered by that key**. The critical property is **data-anchored / no-bypass**: the context that travels with the edge **narrows within what the viewer can already see** — the destination view applies its own row policy (`RLS`, *row-level security*) over the source, and the context enters as an additional filter, never as an override of the policy (**MUST**). The drill **narrows, never widens** — intersection with what is authorized, never union. If the viewer does not reach the origin row, they do not reach the edge; if they reach it, the destination is still governed by its own policy.
+
+A receivables / balance-aging report illustrates the pattern: named views (Customers, Suppliers, Related parties, Detail) over the same `PI`, a hierarchical Company→Partner table, and a Partner→Detail drill-through edge that opens that partner's documents — filtered by the partner's key and narrowed to what the viewer already had the right to see. The multi-view composition is orthogonal to the operation Botlet's family: what changes is how many pieces compose the manifestation, not its nature.
+
+<!-- FIG:g13-pi-multivista-drillthrough -->
+![Multi-view PI and drill-through — navigation with context, data-anchored](figuras/g13-pi-multivista-drillthrough.png)
 
 **Temporality** is the regime of the manifestation. It is a declared attribute of the Botlet, with two values:
 

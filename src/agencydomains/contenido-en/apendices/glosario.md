@@ -69,7 +69,7 @@ Governance mechanism by which an agent operation halts and requests authorizatio
 
 Pattern of positioning in the coverage × depth space of the AI value chain. Four canonical archetypes:
 
-- **Comprehensive platform** — broad coverage, medium depth.
+- **Comprehensive platform** — broad coverage; Core depth in its native link and Platform depth in the adjacent ones.
 - **Vertical specialist** — focal coverage, Core depth.
 - **Domain infrastructure** — zonal coverage, Core depth across several links.
 - **Substrate provider** — minimal coverage, Infrastructure depth.
@@ -200,7 +200,7 @@ Structural relation `documented use cases → required Botlets → required prot
 
 ### AI value chain
 
-Two-dimensional model for classifying any actor in the AI industry: **eleven sequential links** (coverage) × **four depths** (how it participates in each link). Canonical version v1.3.
+Two-dimensional model for classifying any actor in the AI industry: **eleven sequential links** (coverage) × **four depths** (how it participates in each link).
 
 *See: Chapter 6 §1.*
 
@@ -240,45 +240,45 @@ Layer of the Agentive Architecture. Real execution power over systems, data, and
 
 It is NOT a plugin. It is NOT a prompt. It is NOT a tool. It is **knowledge**.
 
-Every conformant Capability explicitly declares its **locality** (cloud-resident · edge-resident · hybrid) and its **offline availability** (online-only · offline-capable). Capabilities subject to regulation additionally declare their regulatory regime and are immutable between audits.
+Locality and offline availability are declared on the **Connector** that accompanies the Capability — access is what resides and needs a network, never knowledge (Ch 5 §3). Regulated components additionally declare their regulatory regime; the certified Connector is immutable between audits.
 
 *See: Chapter 5 §3.*
 
-### Cloud-resident Capability
+### Cloud-resident Connector
 
-Capability whose components live in a remote service. Canonical examples: DTE-SII (no local client), Transbank Onepay, a weather API. Typically online-only — without network there is no possible invocation. Distinct from edge-resident and hybrid.
-
-*See: Chapter 5 §3, section "Locality and availability."*
-
-### Edge-resident Capability
-
-Capability whose components live at the physical site, associated with hardware or local systems. Canonical examples: ESC/POS-Printer, Cash-Drawer, Local-Pinpad, Temperature-Sensor. Typically offline-capable — they operate against the site's hardware without needing network.
+Connector whose components live in a remote service. Canonical examples: DTE-SII (no local client), Transbank Onepay, a weather API. Typically online-only — without network there is no possible invocation. Distinct from edge-resident and hybrid.
 
 *See: Chapter 5 §3, section "Locality and availability."*
 
-### Hybrid Capability
+### Edge-resident Connector
 
-Capability with a local component and a cloud component. The local part operates offline; the cloud part synchronizes when there is network. Typically offline-capable with queuing. Canonical examples: DTE-Client (signs locally, queues, sends to the SII when the network returns), Pinpad-Deferred-Processing-Client.
-
-*See: Chapter 5 §3, section "Locality and availability."*
-
-### Offline-capable Capability
-
-Capability that executes without network. If its external contract eventually requires cloud communication, it **queues** and emits outward when the network returns. Typical: edge-resident and hybrid.
+Connector whose components live at the physical site, associated with hardware or local systems. Canonical examples: ESC/POS-Printer, Cash-Drawer, Local-Pinpad, Temperature-Sensor. Typically offline-capable — they operate against the site's hardware without needing network.
 
 *See: Chapter 5 §3, section "Locality and availability."*
 
-### Online-only Capability
+### Hybrid Connector
 
-Capability that requires network to execute. Without network, the invocation fails. Typical: cloud-resident without a local component.
+Connector with a local component and a cloud component. The local part operates offline; the cloud part synchronizes when there is network. Typically offline-capable with queuing. Canonical examples: DTE-Client (signs locally, queues, sends to the SII when the network returns), Pinpad-Deferred-Processing-Client.
+
+*See: Chapter 5 §3, section "Locality and availability."*
+
+### Offline-capable Connector
+
+Connector that executes without network. If its external contract eventually requires cloud communication, it **queues** and emits outward when the network returns. Typical: edge-resident and hybrid.
+
+*See: Chapter 5 §3, section "Locality and availability."*
+
+### Online-only Connector
+
+Connector that requires network to execute. Without network, the invocation fails. Typical: cloud-resident without a local component.
 
 *See: Chapter 5 §3, section "Locality and availability."*
 
 ### Regulated Capability
 
-Capability that executes operations subject to regulatory certification — DTE issuance under SII rules, card charging under PCI-DSS, pharmaceutical dispensing, health registry, financial communication. The spec requires that **the regulatory certification reside in the Capability, not in the Botlet** that invokes it: the Botlet orchestrates and formats; the Capability executes the regulated operation and returns the receipt. Regulated Capabilities are immutable between audits; they change only under regulatory process.
+Capability that carries the **normative knowledge** of a regulated domain — what the norm demands, how it is interpreted, what to do upon a regulator's rejection. It accompanies a **certified Connector**, which is where the regulatory certification resides: the Botlet orchestrates and formats; the certified Connector executes the regulated operation (DTE issuance under SII rules, card charging under PCI-DSS, pharmaceutical dispensing) and returns the receipt; the regulated Capability supplies the judgment with which cognition governs the pair. Certified Connectors are immutable between audits; they change only under regulatory process.
 
-*See: Chapter 5 §3, section "The regulatory certification resides in the Capability."*
+*See: Chapter 5 §3, section "Regulatory certification resides in the certified component."*
 
 ### Common catalog / network effects
 
@@ -344,7 +344,7 @@ Commercial concept overlaid on the technical model of AgencyDomains. An Account 
 
 ### DLP — Data Loss Prevention
 
-Automated detection of personal data (PII) in places where it should not appear. A control layer in Layer 4 (Firewall). A component of the Validation pillar of Trust Infrastructure.
+Automated detection of personal data (PII) in places where it should not appear. A control exercised in the architecture's Layer 4 — Access; through the market lens, it is a typical capability of the AI Firewall link. A component of the Validation pillar of Trust Infrastructure.
 
 *See: Chapter 5 §4.*
 
@@ -588,11 +588,17 @@ Detection of repetitive patterns in the agent's activity. Inspired by neurobiolo
 
 *See: Chapter 4, section "Layer 2 — Cognition," Chapter 5 §2.*
 
+### RLS — Row-Level Security
+
+The policy that decides which rows of a source each identity may see. In an Information Product's drill-through, the destination view applies its own `RLS` over the source and the navigation context enters as an additional filter — never as an override (the data-anchored / no-bypass property).
+
+*See: Chapter 5 §2, description of the Information Product.*
+
 ### Template
 
 Client-specific tailoring over a canonical instrument (report / dashboard) in a format or rule of the client's own (for example, a regulatory template of a standardized instrument). **Layer 1 · Interaction**, alongside Facet / surface Botlet / view Botlet. Tailoring scheme: survey the expectation · tailor over the canonical instrument · validate. It is not a Capability (cognitive knowledge) nor a Connector (access).
 
-*See: Chapter 4 §1; entries **Capability**, **Facet**.*
+*See: Chapter 5 §3, section "Capability, Connector, and Template"; entries **Capability**, **Facet**.*
 
 ### Capability portability
 
@@ -739,7 +745,7 @@ Canonical model of the relation between the four layers of the Agentive Architec
 
 End-to-end traceability of an agent operation. It contains identity, capability invoked, tool executed, parameters, result, timestamp, context. A component of the Audit pillar of Trust Infrastructure.
 
-*See: Chapter 6 §2.*
+*See: Chapter 5 §4 (Audit pillar); tracing as a product capability, in Chapter 6 §2.*
 
 ### The agent's three times
 

@@ -55,6 +55,8 @@ Each term has its layer, its nature, and its own development scheme:
 | **Connector** (companion, if it requires access to source systems) | Layer 4 · Access | Knowing how to access systems; not cognitive knowledge | Integration scheme (survey · configure · test · certify) |
 | **Template** (companion, if the delivery must conform to a presentation expectation) | Layer 1 · Interaction | Making of a canonical instrument in a client format or rule | Making scheme (survey the expectation · make over the canonical instrument · validate) |
 
+**Wingtraining**, cited in the table, is the canonical development scheme for a Capability in five steps: **workshop with the SME** (*subject-matter expert* — the human expert whose knowledge is transferred to the agent), **creation**, **customization**, **ALPHA** (validation with the SME), and **BETA** (validation in real operation). Its development belongs to the delivery practice, not to this canon; the classification test below uses it as a criterion because it is the operational proof that a scope is a transfer of knowledge — and not an integration or a format.
+
 #### What is the conceptual structure of an agentive delivery project?
 
 An agentive delivery project is structured as a **protagonist Capability** (Layer 2) typically accompanied by one or more **Connectors** (Layer 4) and one or more **Templates** (Layer 1). In addition, the Capability itself produces, with no extra effort, its **information instruments** — canonical reports and dashboards —, which remain implicit in the delivery: they require no development scheme of their own because they emerge from the Capability and its interaction layer. The Template appears only when one of those instruments must conform to a specific client form.
@@ -181,33 +183,33 @@ The emergent economy has clear precedents. The software industry has had similar
 
 The normative specification of the **Capabilities Marketplace protocol** — package format, versioning model, signature system, charging model — is **open work** in version 1.0 of this book. Contemporary implementations may adopt ad-hoc packages; consolidation as an industry standard is pending. When consensus arrives, a future version of the book will incorporate it as normative spec.
 
-### Locality and availability — operational classification of Capabilities
+### Locality and availability — operational classification of Connectors
 
-The canonical description above treats Capabilities as access to know-how applicable in any context. The operational reality of systems with multiple physical presence — restaurants with locations, bank branches, retail stores, industrial plants — requires an additional classification that the spec formalizes explicitly: **locality** and **offline availability**. Without that classification, decisions about which Capabilities can be invoked from an edge Botlet in offline mode are made in the dark.
+The canonical description above treats know-how as applicable in any context. The operational reality of systems with multiple physical presence — restaurants with locations, bank branches, retail stores, industrial plants — requires an additional classification that the spec formalizes explicitly: **locality** and **offline availability**. The classification belongs to the **Connectors** — the Layer 4 face of the pair that accompanies the Capability —, because what resides somewhere and needs (or doesn't need) a network is the *access*, never the knowledge: the Capability that decides when and how to invoke has no locality. It is documented in this chapter because the Capability–Connector pair is delivered and reasoned about together. Without this classification, decisions about what can be invoked from an edge Botlet in offline mode are made in the dark.
 
 The classification operates over **two orthogonal axes**:
 
 #### Locality axis
 
-Where the Capability's components physically reside:
+Where the Connector's components physically reside:
 
-- **Cloud-resident** — the Capability lives in a remote service. Canonical examples: Capability `DTE-SII` (Chile's SII service for issuing electronic receipts and invoices), `Transbank-Onepay` (bank gateway), `Stripe-Connect` (payment processing). The agent invokes them over the network; without network there is no Capability.
+- **Cloud-resident** — the Connector lives in a remote service. Canonical examples: Connector `DTE-SII` (Chile's SII service for issuing electronic receipts and invoices), `Transbank-Onepay` (bank gateway), `Stripe-Connect` (payment processing). The agent invokes them over the network; without network there is no access.
 
-- **Edge-resident** — the Capability lives at the physical site, associated with local hardware or systems. Canonical examples: Capability `ESC/POS-Printer` (thermal printer for tickets and receipts with the ESC/POS protocol connected by USB or serial), `Cash-Drawer` (the cash drawer of the till), `Local-Pinpad` (card pinpad connected to the POS), `Sensor-Temperatura` (cold-room sensor connected by GPIO). The agent invokes them against the site's hardware; they need no network to operate.
+- **Edge-resident** — the Connector lives at the physical site, associated with local hardware or systems. Canonical examples: Connector `ESC/POS-Printer` (thermal printer for tickets and receipts with the ESC/POS protocol connected by USB or serial), `Cash-Drawer` (the cash drawer of the till), `Local-Pinpad` (card pinpad connected to the POS), `Sensor-Temperatura` (cold-room sensor connected by GPIO). The agent invokes them against the site's hardware; they need no network to operate.
 
-- **Hybrid** — the Capability has a local component and a cloud component. Canonical examples: Capability `Client-DTE` (signs the document locally, queues it if there is no network, sends it to the SII when the network returns), `Client-Pinpad-Deferred-Processing` (authorizes locally with PIN and batch, sends to the acquirer when the network returns). The local part operates offline; the cloud part synchronizes when there is network.
+- **Hybrid** — the Connector has a local component and a cloud component. Canonical examples: Connector `Client-DTE` (signs the document locally, queues it if there is no network, sends it to the SII when the network returns), `Client-Pinpad-Deferred-Processing` (authorizes locally with PIN and batch, sends to the acquirer when the network returns). The local part operates offline; the cloud part synchronizes when there is network.
 
 #### Offline availability axis
 
-Whether the Capability can execute without network:
+Whether the Connector can execute without network:
 
-- **Online-only** — requires network to execute. Without network, the invocation fails. Cloud-resident Capabilities are typically online-only in the strict sense, although some have variants with a local client that turn them hybrid.
+- **Online-only** — requires network to execute. Without network, the invocation fails. Cloud-resident Connectors are typically online-only in the strict sense, although some have variants with a local client that turn them hybrid.
 
-- **Offline-capable** — executes without network. If its external contract eventually requires cloud communication (a voucher that must reach the SII, a transaction that must consolidate at headquarters), it **queues** and emits outward when the network returns. Edge-resident Capabilities are typically offline-capable; hybrid Capabilities are too, by design.
+- **Offline-capable** — executes without network. If its external contract eventually requires cloud communication (a voucher that must reach the SII, a transaction that must consolidate at headquarters), it **queues** and emits outward when the network returns. Edge-resident Connectors are typically offline-capable; hybrid Connectors are too, by design.
 
 #### Canonical classification matrix
 
-Each conformant Capability explicitly declares its position in the matrix:
+Each conformant Connector explicitly declares its position in the matrix:
 
 |   | Online-only | Offline-capable |
 |---|---|---|
@@ -217,15 +219,15 @@ Each conformant Capability explicitly declares its position in the matrix:
 
 #### Connection with distributed Layer 3
 
-The classification is structurally necessary when Layer 3 is distributed (Chapter 5 §1). An edge Botler must **know** which Capabilities it can invoke offline. If it does not know, its edge Botlets will attempt to invoke cloud-resident Capabilities without network and will fail catastrophically — without network, not even the agentic fallback applies, because cognition lives in the cloud.
+The classification is structurally necessary when Layer 3 is distributed (Chapter 5 §1). An edge Botler must **know** which Connectors it can invoke offline. If it does not know, its edge Botlets will attempt to invoke cloud-resident Connectors without network and will fail catastrophically — without network, not even the agentic fallback applies, because cognition lives in the cloud.
 
-The operational rule the classification enables is direct: **a senior edge Botlet, at a physical site without network, operates by invoking exclusively edge-resident Capabilities and the local part of hybrid Capabilities**. The cloud-resident ones and the cloud part of the hybrids remain temporarily inaccessible; the deferred effects (sending to the SII, consolidation with headquarters) are queued; when the network returns, the queues drain.
+The operational rule the classification enables is direct: **a senior edge Botlet, at a physical site without network, operates by invoking exclusively edge-resident Connectors and the local part of hybrid Connectors**. The cloud-resident ones and the cloud part of the hybrids remain temporarily inaccessible; the deferred effects (sending to the SII, consolidation with headquarters) are queued; when the network returns, the queues drain.
 
 #### Required properties
 
 | Property | Level | Description |
 |---|---|---|
-| Explicit declaration of locality | **MUST** | Cloud-resident, edge-resident, or hybrid. |
+| Explicit declaration of the Connector's locality | **MUST** | Cloud-resident, edge-resident, or hybrid. |
 | Explicit declaration of offline availability | **MUST** | Online-only or offline-capable. |
 | Specification of offline behavior for offline-capable | **MUST** | What it does when there is no network, what it queues, how it drains. |
 | Deterministic resolution of which component runs in hybrids | **MUST** | Under what conditions the local component runs; under which it invokes the cloud. |
@@ -249,53 +251,54 @@ It is worth not confusing two portabilities that operate at different levels:
 
 The relation is asymmetric and explicit: an **AgencyDomain hosts and runs** Capabilities; a **Capability runs on** a host AgencyDomain. The Capability is a first-order inhabitant of the AgencyDomain's Layer 2 — the know-how that gives cognition to its agents —, not a support resource. This is the reason the canonical definition of AgencyDomain names Capabilities among what the AgencyDomain hosts and runs, on a par with autonomous agents and Botlets.
 
-### Regulatory certification resides in the Capability, not in the Botlet
+### Regulatory certification resides in the certified component, not in the Botlet
 
-A structural property that appears with force in productive agentive systems in regulated industries — gastronomy, health, finance, retail with DTE, pharmacy, telecommunications — and which the spec needs to formalize explicitly: **the regulatory certification of operations resides in the invoked Capability, not in the Botlet that invokes it**. The separation is necessary because the generated nature of the Botlet makes it impossible to certify a priori, and certifying it a posteriori contradicts its regenerable nature.
+A structural property that appears with force in productive agentive systems in regulated industries — gastronomy, health, finance, retail with DTE, pharmacy, telecommunications — and which the spec needs to formalize explicitly: **the regulatory certification of operations resides in the certified component the Botlet invokes — the certified Connector, with the regulated Capability that carries its normative knowledge —, never in the Botlet that orchestrates**. The separation is necessary because the generated nature of the Botlet makes it impossible to certify a priori, and certifying it a posteriori contradicts its regenerable nature.
 
 #### The problem
 
-The book defines that cognition generates the Botlet's code (Chapter 5 §2). But some operations a Botlet executes are **regulated**: issuance of DTE under SII norm, card payment under PCI-DSS, pharmaceutical dispensing under sanitary registration, financial communication under SBIF / SVS / equivalent norm. For these operations, **the regulation requires certification of the component that executes the operation**. A system that issues an electronic receipt without SII certification is not legal; a system that charges a card without PCI certification cannot operate.
+The book defines that cognition generates the Botlet's code (Chapter 5 §2). But some operations a Botlet executes are **regulated**: issuance of DTE under SII norm, card payment under PCI-DSS, pharmaceutical dispensing under sanitary registration, financial communication under the corresponding regulator's norm. For these operations, **the regulation requires certification of the component that executes the operation**. A system that issues an electronic receipt without SII certification is not legal; a system that charges a card without PCI certification cannot operate.
 
 If certification resided in the Botlet, each Botlet that executes a regulated operation would have to be certified individually. But a Botlet is **code generated by cognition** that regenerates when the environment changes. Each regeneration would produce a technically distinct Botlet that would require re-certification. Regulatory certification over Botlets turns the `95/4/1` cycle into an operational impossibility: each 1% change would require a regulatory process.
 
 #### The canonical solution
 
-The spec resolves the tension by separating responsibilities with discipline:
+The spec resolves the tension by separating responsibilities with discipline, and the division respects the chapter's layer doctrine:
 
-- **The Botlet orchestrates**. It knows the process flow, validates operational pre-conditions (are there products?, is the table open?, does the customer have their tax ID registered?), captures the event, formats the request according to the Capability's contract.
-- **The certified Capability executes the regulated operation**. It receives the request from the Botlet, executes the regulated operation under all applicable norms, returns the voucher. The `DTE-SII` Capability receives the sale's detail, signs with the tax certificate, transmits to the SII, receives the folio and electronic stamp, returns the voucher to the Botlet.
+- **The Botlet orchestrates.** It knows the process flow, validates operational pre-conditions (are there products?, is the table open?, does the customer have their tax ID registered?), captures the event, formats the request according to the certified component's contract.
+- **The certified Connector executes the regulated operation.** It receives the request from the Botlet, executes under all applicable norms, returns the voucher. The `DTE-SII` Connector receives the sale's detail, signs with the tax certificate, transmits to the SII, receives the folio and electronic stamp, returns the voucher to the Botlet. It is certifiable precisely because it is stable access, not generated knowledge.
+- **The regulated Capability carries the normative knowledge.** What the norm demands, how it is interpreted, when a receipt applies and when an invoice, what to do upon a regulator's rejection — the cognitive knowledge with which cognition decides and validates. It lives in Layer 2, is developed with an SME of the regulatory domain, and accompanies the Connector as its pair.
 
 The separation has three structural consequences:
 
-**First, certification is of the certifiable component.** The `DTE-SII` Capability can be formally certified — its code is stable, its contract with the SII is explicit, its behavior is auditable. Certification is one-time work; it holds for all the Botlets that invoke it.
+**First, certification is of the certifiable component.** The `DTE-SII` Connector can be formally certified — its code is stable, its contract with the SII is explicit, its behavior is auditable. Certification is one-time work; it holds for all the Botlets that invoke it.
 
-**Second, generated Botlets coexist naturally with regulatory compliance.** A `Charge-Table-9` Botlet that regenerates when the kitchen changes its menu does not break the tax certification — it keeps invoking the same certified `DTE-SII` Capability. The Botlet's regeneration affects orchestration logic, not the regulated operation.
+**Second, generated Botlets coexist naturally with regulatory compliance.** A `Charge-Table-9` Botlet that regenerates when the kitchen changes its menu does not break the tax certification — it keeps invoking the same certified `DTE-SII` Connector. The Botlet's regeneration affects orchestration logic, not the regulated operation.
 
-**Third, the audit boundary becomes sharp.** When the regulator audits, the AgencyDomain exposes: the Botlet (business logic, mutable, regenerable) and the Capability (regulated operation, certified, auditable). The regulatory inspection concentrates on the Capability — where the certification resides —, while the business logic is governed with the Trust mechanisms of Chapter 5 §4 without contradicting the regulation.
+**Third, the audit boundary becomes sharp.** When the regulator audits, the AgencyDomain exposes: the Botlet (business logic, mutable, regenerable) and the certified component (regulated operation, frozen, auditable). The regulatory inspection concentrates on the certified Connector — where the certification resides —, while the business logic is governed with the Trust mechanisms of Chapter 5 §4 without contradicting the regulation.
 
 #### Canonical pattern
 
 The pattern applies to any regulated industry:
 
-| Industry | Botlet (orchestrates) | Certified Capability (executes the regulated operation) |
+| Industry | Botlet (orchestrates) | Certified component (executes the regulated operation) |
 |---|---|---|
-| **Gastronomy** | `Charge-Table` | `DTE-SII` (electronic receipt or invoice) |
-| **Banking** | `Process-Payment` | `Gateway-PCI-DSS` (tokenization + authorization) |
-| **Pharmacy** | `Dispense-Prescription` | `Sanitary-Registry` (validation and registration of dispensing) |
-| **Telecom** | `Activate-Service` | `Subtel-Registry` (regulatory registration of activation) |
-| **Health** | `Issue-Prescription` | `MINSAL-E-Prescription` (certified medical signature) |
+| **Gastronomy** | `Charge-Table` | Connector `DTE-SII` (electronic receipt or invoice) |
+| **Banking** | `Process-Payment` | Connector `Gateway-PCI-DSS` (tokenization + authorization) |
+| **Pharmacy** | `Dispense-Prescription` | Connector `Sanitary-Registry` (validation and registration of dispensing) |
+| **Telecom** | `Activate-Service` | Connector `Subtel-Registry` (regulatory registration of activation) |
+| **Health** | `Issue-Prescription` | Connector `MINSAL-E-Prescription` (certified medical signature) |
 
-The pattern is uniform: the Botlet contains the mutable business logic; the Capability contains the certified regulated operation. The boundary between the two is the boundary between what the organization can freely regenerate and what it must keep frozen under certification.
+The pattern is uniform: the Botlet contains the mutable business logic; the certified component contains the frozen regulated operation; the regulated Capability supplies the normative knowledge with which cognition governs the whole. The boundary between them is the boundary between what the organization can freely regenerate and what it must keep under certification.
 
 #### Required properties
 
 | Property | Level | Description |
 |---|---|---|
-| Regulated Capabilities declare their regulatory regime | **MUST** | Which norm it complies with, before which regulator, with what certification number. |
-| Regulated Capabilities are immutable between audits | **MUST** | The certified Capability's code does not regenerate; it changes only under a regulatory process. |
-| Botlets may invoke regulated Capabilities without restriction | **MUST** | The Capability's contract is stable; the Botlet invokes it like any other. |
-| Auditability of the boundary | **MUST** | The log clearly distinguishes Botlet operations (business logic) from regulated-Capability operations (certified operation). |
+| Regulated components declare their regulatory regime | **MUST** | Which norm it complies with, before which regulator, with what certification number. |
+| Certified Connectors are immutable between audits | **MUST** | The certified Connector's code does not regenerate; it changes only under a regulatory process. |
+| Botlets may invoke certified components without restriction | **MUST** | The component's contract is stable; the Botlet invokes it like any other. |
+| Auditability of the boundary | **MUST** | The log clearly distinguishes Botlet operations (business logic) from certified-component operations (regulated operation). |
 
 ### Capabilities and Botlets — the relation
 
@@ -320,11 +323,11 @@ An implementation of Capabilities conformant to this specification must satisfy 
 | Selection by cognition, not direct execution | **MUST** |
 | Verticals as a dedicated root | **SHOULD** |
 | Open marketplace | **MAY** (when the normative spec exists) |
-| Explicit declaration of locality (cloud / edge / hybrid) | **MUST** |
+| Explicit declaration of the companion Connector's locality (cloud / edge / hybrid) | **MUST** |
 | Explicit declaration of offline availability | **MUST** |
 | Portability across conformant AgencyDomains | **MUST** |
-| Regulated Capabilities: declaration of the regulatory regime | **MUST** |
-| Regulated Capabilities: immutability between audits | **MUST** |
+| Regulated components (normative Capability + certified Connector): regime declared | **MUST** |
+| Certified Connectors: immutability between audits | **MUST** |
 
 ### Evolution frontier
 

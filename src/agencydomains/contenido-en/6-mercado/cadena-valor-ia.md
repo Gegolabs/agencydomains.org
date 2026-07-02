@@ -133,9 +133,9 @@ By way of example, the following table classifies representative product familie
 | Scale AI / Labelbox | 3 | | | | | | | | | |
 | Hugging Face | 3 | 2 | | | | | | | | |
 | **Comprehensive platforms** | | | | | | | | | | |
-| OpenAI (ChatGPT, GPT API) | | 3 | 3 | 3 | 2 | 3 | | | 3 | |
-| Anthropic (Claude, MCP) | | 3 | 3 | 3 | | | | | 3 | |
-| Google (Gemini) | | 3 | 3 | 3 | | | | | 3 | |
+| OpenAI (ChatGPT, GPT API) | | 3 | 2 | 2 | 2 | 3 | | | 3 | |
+| Anthropic (Claude, MCP) | | 3 | 3 | 2 | | | | | 3 | |
+| Google (Gemini) | | 3 | 2 | 2 | | | | | 3 | |
 | Meta (Llama) | | 3 | | | | | | | | |
 | Perplexity | | | 2 | 3 | 3 | | | | | |
 | DeepSeek / Qwen / Ernie | | 3 | 3 | 3 | | | | | | |

@@ -2,7 +2,7 @@
 
 Chapter 5 described Trust Infrastructure as a set of five pillars — Governance, Auditing, Validation, Resilience, Transparency — that cuts across the four layers of the Agentive Architecture. The description was conceptual: it named the pillars, their canonical mechanisms, the properties they demand. This chapter closes the loop: it translates those concepts into concrete constructs that an implementer can take and build.
 
-The distinction between concept and operationalization is critical to the success of an agentive system in production. A pillar is **conceptual**: *"the organization must be able to govern what the agent does"*. An operationalization is **constructive**: *"the organization configures policies in YAML format that apply the CRUDLEX model, evaluated on every tool invocation, with a declarative catalog and explicit inheritance"*. The distance between the two is exactly what separates a project that moves from pilot to production from one that stalls in the forty percent that Gartner forecasts cancelled before the end of 2027.
+The distinction between concept and operationalization is critical to the success of an agentive system in production. A pillar is **conceptual**: *"the organization must be able to govern what the agent does"*. An operationalization is **constructive**: *"the organization configures policies in YAML format that apply the CRUDLEX model, evaluated on every tool invocation, with a declarative catalog and explicit inheritance"*. The distance between the two is exactly what separates a project that moves from pilot to production from one that swells the wave of cancellations Gartner forecasts (Chapter 2).
 
 > *The pillars answer what trust is needed. The operationalizations answer how it is built.*
 
@@ -296,7 +296,7 @@ Three operational rules demand discipline in implementation. The first: **tokeni
 
 ## Minimum viable catalog
 
-An organization operating agents in production must have, as a **minimum viable** baseline, the following components operationalized. Below this minimum, operating agents leaves the organization exposed. Above it, there is progressive refinement according to the domain's maturity and regulatory demands.
+An organization operating agents in production must have, as a **minimum viable** baseline, the following components operationalized. Below this minimum, operating agents leaves the organization exposed. Above it, there is progressive refinement according to the domain's maturity and regulatory demands. Note that this catalog **deliberately hardens** some of the spec's SHOULDs (Chapter 5 §4) into an operational floor — hallucination detection among them: what the spec leaves optional for minimal implementations, enterprise operation demands.
 
 | Component | Minimum viable |
 |---|---|
@@ -316,7 +316,7 @@ What is critical about this catalog is not the list itself — it is that it is 
 <!-- FIG:g48-tripartito -->
 ![Tripartite pattern · Cloud + Client + Local](figuras/g48-tripartito.png)
 
-Operationalizing Trust Infrastructure in an enterprise organization is not a purely technical exercise — it is an exercise in the separation of responsibilities among three planes that operate in physically distinct places. The canonical pattern the industry has consolidated to solve this problem is the **tripartite deployment**: three coordinated components that live in three places with three differentiated functional roles.
+Operationalizing Trust Infrastructure in an enterprise organization is not a purely technical exercise — it is an exercise in the separation of responsibilities among three planes that operate in physically distinct places. The pattern this operationalization adopts as canonical to solve this problem is the **tripartite deployment**: three coordinated components that live in three places with three differentiated functional roles.
 
 The first component is the **Cloud** — the plane operated by the provider of the agentive infrastructure. Its role is **control plane**: license management, registry of available providers, integration with upstream cognition providers, aggregated telemetry with privacy preserved. It is where the provider keeps the platform alive and resolves the problems that require cross-client visibility — incidents that affect multiple tenants, updates to the canonical policy catalog, aggregated health monitoring of the system. The end client does not operate this component; it consumes it.
 
@@ -366,7 +366,7 @@ An operation in production does not always operate in normal mode. The spec form
 |---|---|---|
 | **Normal** | All components active: cognition, central, edge, corporate network. | Full parallel topology. The operation chooses the Cognition Path or the Autonomy Path according to the pattern. |
 | **Cognition down** | Layer 2 unreachable; central and edge active. | **The Autonomy Path** sustains it. Senior Botlets execute; junior and learning Botlets degrade to their last functional version. The cognition rescues failures when it returns. |
-| **Edge offline** | Edge Botler with no connection to the central; cognition unreachable; physical site isolated. | **Senior Botlets against the local DB + edge-resident Capabilities**. The event queue toward the central accumulates; when the network returns, it drains and reconciles. |
+| **Edge offline** | Edge Botler with no connection to the central; cognition unreachable; physical site isolated. | **Senior Botlets against the local DB + edge-resident Connectors**. The event queue toward the central accumulates; when the network returns, it drains and reconciles. |
 | **Total operational continuity** | Cognition + edge down due to an exogenous cause (power outage, destroyed hardware, catastrophically lost network). | **The site's manual protocol**. The physical record is the temporary source of truth; retroactive entry into the system is the reconciliation. |
 
 The transition between modes is **automatic up to `Edge offline`** — the system detects the failure and degrades on its own. The transition to **Total operational continuity** is **governed by the site's protocol** — a human activates it explicitly when they recognize that no computational component is operating. This difference matters: the first three modes are the architecture's responsibility; the fourth is the client's responsibility, executed by its operators.

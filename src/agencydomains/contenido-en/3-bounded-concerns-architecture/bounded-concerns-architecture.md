@@ -189,6 +189,8 @@ So far we have described the cartography of the pre-agentive state. The operativ
 
 The answer is not uniform across cells. The crossing affects each one differently, at different moments, with different consequences. What follows is the cell-by-cell mapping — the piece that turns BCA into an instrument of migration, not a mere description of the past.
 
+*(A reading note: the destination column uses the vocabulary Chapters 4 and 5 define — Botlet, Capability, Connector, Trust Infrastructure. On a first read, the trajectory column is enough — what is preserved, what transforms, what disappears —; the destination column earns its full meaning when you come back here after Chapter 5.)*
+
 | BCA cell | Trajectory on crossing the Nadella Line | Destination in the Agentive World |
 |---|---|---|
 | **UI** (Layer 1) | Empties progressively. The application as the primary interface of cognitive work collapses, as we described in Chapter 2. | Replaced by **Layer 1 — Interaction** of the Agentive World (conversational modalities, GUI on-the-fly, passive signage, corporate channels). The traditional UI survives only in specialized tools with a complex surface. |

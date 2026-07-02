@@ -41,7 +41,7 @@ Three labels of **distinct nature** intervene in the reference implementation. C
 
 The type / proper-name distinction:
 
-- **Botler** is a **type** — a primitive of the canon, alongside AgencyDomain, Botlet, Capability, and Facet. Any conformant Layer 3 runtime *is a* Botler. It is not a proper name; the Botler that Vergis packages is "the Botler" generic, with no instance name.
+- **Botler** is a **type** — a canonical construct of the Botlet spec (not one of the seven primitives, but normed vocabulary of the canon). Any conformant Layer 3 runtime *is a* Botler. It is not a proper name; the Botler that Vergis packages is "the Botler" generic, with no instance name.
 - **Vergis** and **Mira** are **proper names** of specific instances — they live in the same drawer as Soveria, Agentia, or ultraPRO. Vergis names *this* platform; Mira names *this* catalog proto-Botlet.
 
 By category, Vergis is a **Meta-Cognitive Platform**: it does not perform object-level cognition — that is Layer 2 — but rather **administers the economics of cognition**. It decides when the agent runs on pre-forged muscle (G1) and when it invokes fresh cognition (fallback), manages the `95/4/1` cycle, junior→senior maturation, and the crystallization of experience into reusable structure. That is metacognition in the precise sense: monitoring and control of cognitive processes.
@@ -135,7 +135,7 @@ A reference implementation that meets all the `MUST`s is the living proof that t
 
 Three areas of the reference implementation are in active evolution, in correspondence with the frontiers of the spec itself.
 
-The **operational generation** is the first. Vergis operates today in **G1**: the agent configures pre-forged proto-Botlets from the catalog. The incremental migration toward G2 and the asymptotic horizon G3 do not demand re-architecture; they demand that the state of the art of cognition advance. The reference will evolve its Engineering scope without rewriting its structure. The definition of the G1/G2/G3 generations lives in the Epilogue (and is anchored in Chapter 5 §2); here Vergis is only situated within them.
+The **operational generation** is the first. Vergis operates today in **G1**: the agent configures pre-forged proto-Botlets from the catalog. The incremental migration toward G2 and the asymptotic horizon G3 do not demand re-architecture; they demand that the state of the art of cognition advance. The reference will evolve its Engineering scope without rewriting its structure. The definition of the G1/G2/G3 generations lives in Chapter 5 §2 (and its underlying essay, in the Epilogue); here Vergis is only situated within them.
 
 The **federation of catalogs** is the second. The membership modes are described; the concrete protocol by which sovereign catalogs discover, version, and reconcile proto-Botlets among themselves is open work, in correspondence with the federation frontier between AgencyDomains.
 

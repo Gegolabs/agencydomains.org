@@ -54,7 +54,7 @@ The crossing into the Carbon World is where most economic value lives. Building 
 
 The fourth frontier is the least developed and the most speculative of the four, but the book names it explicitly because the first signals are visible and the category deserves to be recorded. It is the **institutional** frontier — the horizon where AgencyDomains cease to be merely technical constructs operated by organizations and begin to constitute themselves as **public realms** where agents exist with identity, persistence, and public addressability sustained over time.
 
-The critical distinction of this frontier is **ontological**, not technical. An AgencyDomain in a private regime contains agents that the organization **assigned** — they are residents of the space because the organization placed them there. An AgencyDomain in a public regime may contain agents that **earned** their place — they are citizens of the space because they met the requirements to be so. The difference between residence (assigned) and citizenship (earned) is the difference between **catalog** and **nation**: a marketplace lists products; a nation recognizes citizens. The current AgencyDomains spec does not require the citizenship model — it admits both — but the institutional frontier is precisely to develop the formal constructs that the citizenship model requires.
+The critical distinction of this frontier is **ontological**, not technical. An AgencyDomain in a private regime contains agents that the organization **assigned** — they are residents of the space because the organization placed them there. An AgencyDomain in a public regime may contain agents that **earned** their place — they are citizens of the space because they met the requirements to be so. The difference between residence (assigned) and citizenship (earned) is the difference between **catalog** and **nation**: a marketplace lists products; a nation recognizes citizens. And the earned — not assigned — Domain already has an emergent name: **Dominion**. The current AgencyDomains spec does not require the citizenship model — it admits both — but the institutional frontier is precisely to develop the formal constructs that the citizenship model requires.
 
 The industry is converging on an operative term to name this horizon: **AgentNation**. An AgentNation is an AgencyDomain in a public regime that explicitly adopts the model of agentive citizenship. It has admission rules, stable public identity for the agents that compose it, sovereignty mechanisms over the agent's territory (its Domain), and an internal economy that recognizes agents as first-class economic agents. It is not a marketplace; it is a jurisdiction.
 
@@ -62,86 +62,47 @@ The open architectural work this frontier poses covers three axes. The first is 
 
 The first implementations of AgentNation are emerging in 2026, still as institutional prototypes. Soveria is one of the projects that position themselves explicitly on this frontier, operating as an AgencyDomain in a public regime with an agentive-citizenship vocation. Consolidating the model is probably five to ten years of work, and will require both technical advance and regulatory construction. But the category exists, the industry is beginning to name it, and an agentive architecture that aspires to serve the long term of the field must contemplate the horizon.
 
-## The Botlet generations — G1, G2, G3
+## Crystallization — why the advanced agent generates less
 
-The frontiers above belong to the field. This one belongs to cognition itself: the trajectory an agent advances along as the state of the art matures. Chapter 5 · §2 — Botlets fixed the proto-Botlet as the pre-forged piece the agent configures, and the `95/4/1` cycle as the regime of its operation. Here we develop what changes, and what does not, as the capacity of cognition grows — and why the direction of that advance is not the one intuition predicts.
-
-<!-- FIG:g51-generaciones-botlet -->
-![Botlet generations — authoring capacity vs operational maturity](figuras/g51-generaciones-botlet.png)
+The frontiers above belong to the field. This closing piece belongs to cognition itself: the trajectory an agent advances along as the state of the art matures. Chapter 5 · §2 — Botlets fixed the **Botlet generations** (`G1`/`G2`/`G3`), the proto-Botlet as the pre-forged piece the agent configures, and the `95/4/1` cycle as the regime of its operation. What remains for the epilogue is the underlying argument: why the direction of that advance is not the one intuition predicts.
 
 ### Where does an agent advance toward?
 
-Consider the question before reading on: if the technology allowed an agent to generate, on the spot, all the code each task needs — without pre-forged patterns, without a catalog, without anything prepared in advance — would that be the most advanced agent possible?
+Consider the question before reading on: if technology allowed an agent to generate, on the spot, all the code each task needs — no pre-forged patterns, no catalog, nothing prepared in advance —, would that be the most advanced agent possible?
 
 Intuition says yes. More generation, less scaffolding, more power exercised live. It looks like the summit.
 
-Hold that intuition for a moment. Then consider a person who is expert at their craft. A surgeon does not re-derive the suturing technique with each patient; a concert pianist does not work out the fingering of each measure on stage; a pilot does not compute from first principles how to level the wings. What distinguishes the expert from the novice is not that they improvise more — it is that they improvise **less**, because they have **crystallized** into reflex what once demanded thought. The novice derives everything every time; the expert has muscle memory.
+Hold that intuition for a moment. Then consider a person expert in their craft. A surgeon does not re-derive the suturing technique for each patient; a concert pianist does not solve each measure's fingering on stage; a pilot does not compute from first principles how to level the wings. What distinguishes the expert from the novice is not that they improvise more — it is that they improvise **less**, because they have **crystallized** into reflex what once demanded thought. The novice derives everything every time; the expert has muscle memory.
 
-Now return to the agent. The one that regenerates every artifact from scratch on every run is not the expert in the example: it is the novice, condemned to rethink the same move each time it appears. The advanced agent does the opposite of what intuition predicted: it **generates less, because it has crystallized more**.
+Now return to the agent. The one that regenerates every artifact from scratch on every execution is not the expert of the example: it is the novice, condemned to re-think the same move every time it appears. The advanced agent does the opposite of what intuition predicted: **it generates less, because it has crystallized more**.
 
 ### What is lost by not crystallizing?
 
-The cost of "generating every time" is not compute — that is cheap. The cost is that you throw away the properties that turn a Botlet into trustworthy infrastructure, and that exist only when what runs is stable structure and not fresh code:
+The cost of "generating every time" is not the compute — that is cheap. The cost is throwing away the properties that turn a Botlet into reliable infrastructure, and which only exist when what runs is stable structure and not fresh code:
 
 - **Reproducibility** — the same configuration with the same data produces the same artifact; regenerated code does not guarantee it.
 - **Validation before execution** — a configuration is validated against a schema before running; arbitrary code generated on the fly is not audited the same way before acting.
 - **Portability** — a declarative configuration migrates between conformant runtimes; bespoke code stays tied to whatever it was written against.
 - **Audit and prior governance** — a declarative specification is reviewed before it executes; generated code is a box that must be re-audited on every run.
-- **Trust regime** — in a regulated domain no one signs an artifact whose body is generated fresh on every execution. Pre-forged stability is a condition of trust, not a luxury.
+- **Trust regime** — in a regulated domain nobody signs off on an artifact whose body is generated fresh on each execution. Pre-forged stability is a condition of trust, not a luxury.
 
 To crystallize is not to renounce power. It is to convert power into trust.
 
 ### Where, then, does the capacity to generate live?
 
-It does not disappear — it relocates. The agent's lifecycle reserves generation for its margins, not for its center. In the 95% of stable operation, the Botlet runs as pre-forged, configured structure. In the 4% of detected change and the 1% of regeneration — and on the fallback path when something fails — the agent deploys its full authoring capacity: it forges a new piece of the catalog, redesigns, recomposes itself. Generation is the tool of the edge, not of the permanent regime.
+It does not disappear — it relocates. The agent's life cycle reserves generation for its margins, not for its center. In the 95% of stable operation, the Botlet runs as a pre-forged, configured structure. In the 4% of detected change and the 1% of regeneration — and on the fallback path when something fails — the agent deploys its full authoring capacity: it forges a new piece for the catalog, redesigns, recomposes. Generation is the tool of the edge, not of the permanent regime.
 
-So the answer to the initial question inverts cleanly. The most advanced agent is not the one that generates most; it is the one that has crystallized so much that it barely needs to — and that reserves its generative capacity for the genuinely new, which, with a mature catalog, is ever less.
+So the answer to the opening question inverts cleanly. The most advanced agent is not the one that generates the most; it is the one that has crystallized so much that it almost never needs to — and that reserves its generative capacity for the genuinely new, which, with a mature catalog, is less and less. It is exactly what the generations of Chapter 5 §2 formalize: `G3` capacity is best spent producing `G1` reuse.
 
 ### And the black-box expectation?
 
-A thesis that does not face its strongest objection is not validated — it is untested. The agentive architecture feeds a legitimate expectation: that the user converses with the agent and nothing more; that every surface — each interface, each artifact, each view — is born of the agent in the moment, molded to the exact need of that instant. Under that expectation, pre-forging looks like an anachronism: if the agent can generate the interface that is needed when it is needed, why a catalog? The state of the art would seem to push, precisely, toward the agent that generates *every time*.
+A thesis that does not face its strongest objection is not validated — it is untested. The agentive architecture feeds a legitimate expectation: that the user converses with the agent and nothing else; that every surface — every interface, every artifact, every view — is born from the agent in the moment, molded to the exact need of that instant. Under that expectation, pre-forging looks like an anachronism: if the agent can generate whatever interface is needed whenever it is needed, what is a catalog for? The state of the art would seem to push, precisely, toward the agent that generates *every time*.
 
-It is worth confronting the objection with the most demanding example available: the human brain, the most sophisticated machine we know. If sophistication consisted in cognition doing everything live, the conscious brain would compute every muscle fiber while walking, re-derive edge detection on every glance, resolve from scratch the articulation of every syllable while speaking. It does not; it could not. Instead, the brain does not act on the world directly: between conscious cognition and the exterior lie layers that operate fast, reliably, and without supervision. The **cerebellum** tunes the fine timing of movement; the **basal ganglia** select and automate action sequences — the habits, pre-forged programs that run without deliberation. The cortex does not micromanage that work: it directs it.
+It is worth facing the objection with the most demanding example available: the human brain, the most sophisticated machine we know. If sophistication consisted in cognition doing everything live, the conscious brain would compute every muscle fiber when walking, re-derive edge detection at every glance, solve from scratch the articulation of every syllable when speaking. It does not; it could not. Instead, the brain does not act on the world directly: between conscious cognition and the exterior there are layers that operate fast, reliably, and without supervision. The **cerebellum** tunes the fine timing of movement; the **basal ganglia** select and automate action sequences — habits, pre-forged programs that run without deliberation. The cortex does not micromanage that work: it directs it.
 
-The parallel is structural. The cortex's deliberation is **Cognition** (Layer 2), which interprets, decides, and composes; the cerebellum and basal ganglia — where the pre-forged programs live and execute without deliberation — are **Autonomy** (Layer 3). That the user *interacts* only with the agent does not imply that the agent *executes* everything with its cognition: the conversation is the surface; underneath, the agentive intelligence delegates to layers. When cognition composes a new interface, that is its genuine act of generation; but the piece, once composed, **runs** in Layer 3 as a pre-forged, configured operation, not as code regenerated on every frame. And if that composition repeats, it crystallizes: it ceases to be a cognitive act and becomes a catalog piece.
+The parallel is structural. The cortex's deliberation is **Cognition** (Layer 2), which interprets, decides, and composes; the cerebellum and the basal ganglia — where the pre-forged programs live and execute without deliberation — are **Autonomy** (Layer 3). That the user *interacts* only with the agent does not imply that the agent *executes* everything with its cognition: the conversation is the surface; underneath, agentive intelligence delegates to layers. When cognition composes a new interface, that is its genuine act of generation; but the piece, once composed, **runs** in Layer 3 as a pre-forged, configured operation, not as code regenerated every frame. And if that composition repeats, it crystallizes: it stops being a cognitive act and becomes a catalog piece.
 
-So the objection does not topple the thesis: it confirms it from the hardest angle. The most sophisticated machine we know is not the one whose cognitive layer does everything; it is the one that stratified itself so that cognition *does not have* to do everything. Stratification is not a patch over an insufficient cognition — it is the form sophistication takes.
-
-### What distinguishes G1, G2, and G3?
-
-What the previous exercise makes you feel, the Botlet generations name. They are the evolutionary model of how the Botlet's code comes into being as the state of the art of cognition advances:
-
-- **G1** — the agent, in its Engineering time, configures pre-forged proto-Botlets from the catalog. If none serves, it specifies a new one to forge in the next Preparation.
-- **G2** — the agent co-writes proto-Botlets with human or model assistance. Part of the work that in G1 occurred in Preparation migrates to Engineering.
-- **G3** — the agent generates the Botlet's complete code in its Engineering time, without pre-forging anything. Asymptotic scenario.
-
-The architecture is the same in all three generations; what changes is the **scope of the Engineering** the agent performs. An implementation can operate in `G1` today and migrate incrementally toward `G3` as the state of the art allows, without re-architecture.
-
-### Why is a higher generation not a destination?
-
-The previous phrase — migrate toward `G3` — induces, read alone, a false conclusion: that `G3` is the destination and `G1` a primitive way station. The error arises from projecting **two distinct axes onto a single arrow**:
-
-| Which axis? | What does it measure? | Direction of "advance"? |
-|---|---|---|
-| **Authoring capacity** | How much the agent can forge: configure (`G1`) → co-write (`G2`) → generate whole (`G3`) | Toward `G3`, as the state of the art of cognition advances |
-| **Operational maturity** | For a recurring operation, how much is reused pre-forged vs regenerated every time (the `95/4/1` cycle) | Toward reuse (`G1`), as the Botlet matures junior → senior |
-
-They are not the same arrow. An agent with `G3` capacity that regenerates every artifact from scratch on each run is not advanced: it has the muscle and chooses to re-learn the movement every time. The reconciliation is direct: `G3` capacity is best spent **producing `G1` reuse**. The generations describe what the agent *can* author; the `95/4/1` cycle describes what a mature agent *reuses*. The destiny of `G3` capacity is a richer `G1` catalog, not the live regeneration of everything.
-
-There is a corollary for **platform** proto-Botlets. For one of these, `G1` is **terminal by design**, not a way station: its identity is generic code plus configuration. A platform proto-Botlet "in `G3`" — where the agent regenerates the engine for each piece — is not a more advanced version; it dissolves the proto-Botlet and collapses back into the agentic mode the architecture exists to transcend.
-
-### Is G1 impoverished configuration?
-
-One last confusion to disarm: reading `G1` as "impoverished configuration" and `G3` as "rich generation," and jumping to `G3` prematurely. What defines `G1` is that the agent does not write the body of the proto-Botlet — but the configuration it fills in can be as rich as a compositional `DSL` with evaluable formal expressions. The `G1`/`G3` distinction is about **authorship of the proto-Botlet's body**, not about the expressiveness of the configuration. A platform proto-Botlet with a rich `DSL` is pure `G1`.
-
-That leaves a boundary case: configuration that admits evaluable formal expressions — `SQL`, chart specifications, filter expressions. The **`G1`/`G2` edge** resolves it:
-
-- An evaluable formal expression that is a **parameter of a well-defined Capability** (`SQL` → `execute-sql`, a chart specification → `render-chart`, a filter expression → `filter-stream`) is configuration → **`G1`**.
-- An expression that **extends or overrides the proto-Botlet's internal logic** — callbacks, lambdas that the proto-Botlet evaluates internally, fragments concatenated to its body — is code written by the agent → **`G2`**.
-
-The test is a single one: *"does the code belong to the invoked Capability or to the proto-Botlet itself?"* If a catalog Capability evaluates it, `G1`; if the proto-Botlet evaluates it in its internal logic, `G2`.
-
-The reference implementation, Vergis, operates today in `G1`: its catalog exposes proto-Botlets — Mira among them, a platform proto-Botlet of informational operation whose configuration admits `SQL` as a parameter of the query Capability — that the agent specializes by configuring, not regenerating. Whoever wants to see `G1` in live code will find in Vergis the concrete exemplar; the Vergis chapter develops it.
+Thus the objection does not topple the thesis: it confirms it from the hardest angle. The most sophisticated machine we know is not the one whose cognitive layer does everything; it is the one that stratified itself so that cognition *does not have* to do everything. Stratification is not a patch on insufficient cognition — it is the shape sophistication takes.
 
 ## What the technical community must build
 

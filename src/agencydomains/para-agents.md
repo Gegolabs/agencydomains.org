@@ -1,7 +1,7 @@
 ---
 title: AgencyDomains — Canonical manifesto for agents
-edition: Development draft · v0.4 · June 2026
-canonical_source: libro-agency_domains-v0.4 (human book, Spanish)
+edition: Development draft · v0.5 · July 2026
+canonical_source: libro-agency_domains-v0.5 (human book, Spanish)
 license: GFDL v1.3 (proposed)
 audience: agents that must reason within the framework
 status: pre-1.0 — no commitment to reference stability until v1.0
@@ -9,7 +9,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v0.4 (development draft)** edition of the book *AgencyDomains: architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v0.5 (development draft)** edition of the book *AgencyDomains: architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 
@@ -17,7 +17,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
 - **Series**: AgencyDomains is Book III of the Agentive World trilogy — *Postchat* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
-- **A mirror of v0.4** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
+- **A mirror of v0.5** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
 - **pre-1.0 status**: the book is under active development, not yet publicly released. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first release).
@@ -287,7 +287,7 @@ The parallel topology describes **where** each operation lives. The three times 
                 │  LAYER 4 · ACCESS                                        │
                 │  Tools (MCP) · A2A between AgencyDomains · CRUDLEX       │
                 │  Human approval · Append-only log · Routing              │
-                │  Semantic cache · Connectors · Capabilities             │
+                │  Semantic cache · Connectors                            │
                 │  (cloud · edge · hybrid)                                │
                 └──────────────────────────────────────────────────────────┘
 
@@ -567,7 +567,7 @@ A single AgencyDomain with Layer 3 distributed geographically: a **central Botle
          (single identity · single log · single governance)
 ```
 
-**Offline mode as an emergent property**: when the edge Botlets are **senior**, the physical site operates against the local DB + edge-resident Capabilities without network. The event queue toward central accumulates transactions; when the network returns, it drains.
+**Offline mode as an emergent property**: when the edge Botlets are **senior**, the physical site operates against the local DB + edge-resident Connectors without network. The event queue toward central accumulates transactions; when the network returns, it drains.
 
 **Required properties**:
 - Single identity of the AgencyDomain (MUST)
@@ -718,9 +718,9 @@ Required structural property: every conformant Botlet **MUST** be traceable alon
 
 **Conformance (MUST/SHOULD/MAY)**: hierarchical tree structure (MUST) · any node is a valid Capability (MUST) · composability (MUST) · anatomy with vocabulary + procedural + declarative + heuristics (MUST) · explicit versioning (MUST) · **declared maturity state `Draft`/`Current`/`Deprecated` (MUST)** · selection by the cognition, not direct execution (MUST) · declaration of locality and offline availability (MUST) · portability across conformant AgencyDomains (MUST) · **verticals as a dedicated root (SHOULD)** · open marketplace (MAY).
 
-#### Locality and availability — operational classification
+#### Locality and availability — operational classification of Connectors
 
-Every conformant Capability MUST declare its position on two orthogonal axes:
+The classification is predicated on the **Connector** (access is what resides and needs a network; knowledge has no locality). Every conformant Connector MUST declare its position on two orthogonal axes:
 
 **Locality axis**:
 - **Cloud-resident** — lives in a remote service (DTE-SII, Transbank, weather API).
@@ -739,25 +739,25 @@ Every conformant Capability MUST declare its position on two orthogonal axes:
 | **Edge-resident** | (unusual combination) | ESC/POS-Printer · Cash-Drawer · Sensor |
 | **Hybrid** | (unusual combination) | Client-DTE · Client-Pinpad |
 
-Operational rule with distributed Layer 3: **a senior edge Botlet, without network, operates by invoking exclusively edge-resident Capabilities and the local part of hybrid ones**.
+Operational rule with distributed Layer 3: **a senior edge Botlet, without network, operates by invoking exclusively edge-resident Connectors and the local part of hybrid ones**.
 
 **Required properties (locality/availability)**:
-- Explicit declaration of locality — cloud-resident / edge-resident / hybrid (MUST).
+- Explicit declaration of the Connector's locality — cloud-resident / edge-resident / hybrid (MUST).
 - Explicit declaration of offline availability — online-only / offline-capable (MUST).
 - Specification of offline behavior for offline-capable — what it does without network, what it queues, how it drains (MUST).
 - Deterministic resolution of which component runs in hybrids — under what conditions the local runs; under which it invokes the cloud (MUST).
 
-#### Regulatory certification resides in the Capability, not the Botlet
+#### Regulatory certification resides in the certified component, not the Botlet
 
-For regulated operations (DTE-SII, PCI-DSS, sanitary registry, etc.), **regulatory certification resides in the invoked Capability, not in the Botlet** that invokes it. The separation is justified because the Botlet is **generated, regenerable code**; certifying it a priori is impossible and certifying it between regenerations contradicts its nature.
+For regulated operations (DTE-SII, PCI-DSS, sanitary registry, etc.), **regulatory certification resides in the certified component the Botlet invokes — the certified Connector, accompanied by the regulated Capability that carries the normative knowledge —, not in the Botlet**. The separation is justified because the Botlet is **generated, regenerable code**; certifying it a priori is impossible and certifying it between regenerations contradicts its nature.
 
-**Canonical pattern**: the **Botlet orchestrates** (knows the flow, validates pre-conditions, captures the event, formats the request) and the **certified Capability executes the regulated operation** (receives the request, executes under norm, returns the receipt). Uniform by industry: `Charge-Table`→`DTE`, `Process-Payment`→`PCI-DSS-Gateway`, `Dispense-Prescription`→`Sanitary-Registry`, etc.
+**Canonical pattern**: the **Botlet orchestrates** (knows the flow, validates pre-conditions, captures the event, formats the request) and the **certified Connector executes the regulated operation** (receives the request, executes under norm, returns the receipt); the **regulated Capability** supplies the normative knowledge with which cognition governs the pair. Uniform by industry: `Charge-Table`→`DTE`, `Process-Payment`→`PCI-DSS-Gateway`, `Dispense-Prescription`→`Sanitary-Registry`, etc.
 
 **Required properties (regulated)**:
-- Regulated Capabilities declare their regulatory regime — which norm, before which regulator, with what certification number (MUST).
-- Regulated Capabilities immutable between audits; they change only under a regulatory process (MUST).
-- Botlets may invoke regulated Capabilities without restriction — the contract is stable; it is invoked like any other (MUST).
-- Auditability of the boundary — the log distinguishes Botlet operations (business logic) from regulated-Capability operations (certified operation) (MUST).
+- Regulated components declare their regulatory regime — which norm, before which regulator, with what certification number (MUST).
+- Certified Connectors immutable between audits; they change only under a regulatory process (MUST).
+- Botlets may invoke certified components without restriction — the contract is stable; they are invoked like any other (MUST).
+- Auditability of the boundary — the log distinguishes Botlet operations (business logic) from certified-component operations (regulated operation) (MUST).
 
 ### Assistant vs Autonomous Agent
 
@@ -1014,7 +1014,7 @@ Four canonical modes according to the failure scenario. The organization must be
 |---|---|---|
 | **Normal** | All components active | Full parallel topology |
 | **Cognition down** | Layer 2 unreachable, edge OK | **Autonomy Path** sustains; cognition will rescue on return |
-| **Edge offline** | Edge Botler without connection to central; isolated site | **Senior Botlets** against local DB + edge-resident Capabilities |
+| **Edge offline** | Edge Botler without connection to central; isolated site | **Senior Botlets** against local DB + edge-resident Connectors |
 | **Total operational continuity** | Cognition + edge down by exogenous cause | **Site's manual protocol** |
 
 **Automatic transition up to `Edge offline`** — the architecture degrades on its own. **Transition to `Total operational continuity` is governed by the site's protocol** — a human activates it explicitly. Key difference: the first three modes are the architecture's responsibility; the fourth is the client's responsibility.
@@ -1122,12 +1122,12 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 ### C
 
 - **Capability** — **cognitive** know-how, modular and composable, reserved to **Layer 2 · Cognition**. NOT a plugin, NOT a prompt, NOT a tool. **It is knowledge.** Exposes **features**; is **portable** (runs on any conformant AgencyDomain).
-- **Capability, cloud-resident** — lives in a remote service. Typically online-only.
-- **Capability, edge-resident** — lives at the physical site, associated with hardware. Typically offline-capable.
-- **Capability, hybrid** — local component + cloud component. Offline-capable with queuing.
+- **Connector, cloud-resident** — lives in a remote service. Typically online-only.
+- **Connector, edge-resident** — lives at the physical site, associated with hardware. Typically offline-capable.
+- **Connector, hybrid** — local component + cloud component. Offline-capable with queuing.
 - **Capability, offline-capable** — executes without network. Queues if it emits outward.
 - **Capability, online-only** — requires network.
-- **Capability, regulated** — operation subject to certification (DTE-SII, PCI-DSS, etc.). Immutable between audits. The certification resides in the Capability, not in the Botlet.
+- **Capability, regulated** — carries the normative knowledge of a regulated domain; its **certified Connector** executes the regulated operation and holds the certification (immutable between audits). Certification never resides in the Botlet.
 - **Capability portability** — a conformant Capability runs on any conformant AgencyDomain; it makes it real property of the client. Distinct from AgencyDomain portability.
 - **Carbon World** — link 11 extended to the physical world.
 - **Cluster** — instances of the same AgencyDomain sharing load.
@@ -1295,7 +1295,7 @@ The architecture is **product-agnostic**. It admits multiple cooperating impleme
 | Layer 3 runtime | **Botler** (canonical primitive, generic) | — (no proper name) |
 | Catalog component | platform proto-Botlet for informational operation | **Mira** |
 
-- **Botler** is a **type** (a canon primitive, like AgencyDomain, Botlet, Capability, Facet). Any conformant Layer 3 runtime *is a* Botler.
+- **Botler** is a **type** (a normed construct of the Botlet spec — not one of the seven primitives). Any conformant Layer 3 runtime *is a* Botler.
 - **Vergis** and **Mira** are **proper names** of instances (same drawer as soveria, agentia, ultrapro).
 - Vergis's category: **Meta-Cognitive Platform** — it administers the **economics of cognition** (G1 pre-forged muscle vs fresh-cognition fallback, `95/4/1` cycle, junior→senior maturation, crystallization). **NOT abbreviated to "MCP"** — that acronym names the Model Context Protocol. The descriptor is used spelled out.
 
