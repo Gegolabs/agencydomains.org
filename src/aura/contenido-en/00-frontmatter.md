@@ -4,23 +4,27 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · June 2026 · v0.2
+**Edition:** Development draft · July 2026 · v0.3
 **License:** GNU Free Documentation License v1.3 *(proposed)*
 
-> **Note on this version.** This draft (v0.2) integrates the six specifications
-> that make up the AURA corpus — the vision, the two maturity models (IRIS and MOTOR),
-> the two instruments (Data Canon and Wingmap) and the use-case framework — under a
-> single narrative thread, one voice and a shared system of figures. The invited
-> prologue is still pending; editorial deepening continues in later iterations.
+> **Note on this version.** This edition (v0.3) incorporates the trilogy's full
+> editorial review: the agentive/agentic system is unified across the whole book
+> (Wingmap speaks agentive), the assembly duplications between the Introduction
+> and the specs are resolved with cross-references, the continuous-intelligence
+> cycle has a single canonical formulation, and the residues of the specs'
+> standalone life are confined to their standalone versions. The invited
+> prologue is still pending.
 
 **How to cite:**
-Obach-Renner, César. *AURA: The Agentive Path*. Development draft v0.2. GegoLabs, 2026.
+Obach-Renner, César. *AURA: The Agentive Path*. Development draft v0.3. GegoLabs, 2026.
 
 ## The Trilogy
 
-This book is volume **II** of the **Agentive World Trilogy**. The three volumes
-answer, in order, the three questions of the transition — and each one reads
-complete on its own:
+This book is volume **II** of the **Agentive World Trilogy**. The transition
+that occupies the trilogy is a single one: from the world where people open
+applications to work, to the world where AI agents are the interface of work.
+The three volumes answer, in order, the three questions of that transition —
+and each one reads complete on its own:
 
 **I · Postchat — The Agentive World**
 Where are we going? — **the destination.** For those who want to see the world
@@ -29,7 +33,7 @@ applications have already collapsed.
 
 **II · AURA — The Agentive Path** *(this book)*
 Which way? — **the route.** For those who have to make the crossing: leaders
-and advisors of the transformation. Its four specifications are standalone
+and advisors of the transformation. Its five specifications are standalone
 instruments for the agentive era — each one can be used separately, without
 the rest of the book:
 
@@ -37,8 +41,9 @@ the rest of the book:
 |:---------|:----------------------------|:----------------------------|
 | **IRIS** | A maturity model of organizational intelligence | Measures how advanced your organization is at Business Intelligence |
 | **MOTOR** | A maturity model of organizational automation | Measures how advanced your organization is at process automation |
-| **Data Canon** | The evolution of Data Mesh | Defines how to govern data and do BI |
-| **Wingmap** | The evolution of BPM / process mining | Reconstructs processes and information flows without interviews |
+| **Data Canon** | The evolution of the decentralized data-management model (Data Mesh) | Defines how to govern data and do BI |
+| **Wingmap** | The evolution of business process management (BPM / process mining) | Reconstructs processes and information flows without interviews |
+| **Use Cases** | A portfolio of 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
 
 **III · AgencyDomains — Agentive Architecture**
 How do we get there? — **the vehicle.** For architects, CTOs, and builders of

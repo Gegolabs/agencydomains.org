@@ -1,7 +1,7 @@
 ---
 title: AURA — Canonical manifesto for agents
-edition: Development draft · v0.2 · June 2026
-canonical_source: libro-aura-v0.2 (human book, Spanish)
+edition: Development draft · v0.3 · July 2026
+canonical_source: libro-aura-v0.3 (human book, Spanish)
 license: GFDL v1.3 (proposed)
 audience: agents that must diagnose organizational maturity and reason within the AURA framework
 status: pre-1.0 — no commitment to reference stability until v1.0
@@ -9,14 +9,14 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 # AURA — Canonical manifesto for agents
 
-> Structured extract of the **v0.2 (development draft)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
+> Structured extract of the **v0.3 (development draft)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
 
 > AURA is **diagnostic, not prescriptive**. This manifest makes it possible to *locate* an organization on its maturity trajectories and reason about its next step; it does not recommend products, investments, or timelines — that belongs to the consulting these models inform.
 
 ## How to use this document
 
 - **This is canonical context**, not an executive summary. Every definition, stage, level, and diagnostic question matters for reasoning within the framework.
-- **Mirror of v0.2** — the current version of the book in development. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v0.2); this manifest mirrors it in English.
+- **Mirror of v0.3** — the current version of the book in development. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v0.3); this manifest mirrors it in English.
 - **Binding vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms. In particular: **agentive** ≠ **agentic** (see §2) — the distinction is one of thesis, not of style.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: AURA diagnoses; its few imperatives are structural (sequentiality of levels, blocking pre-conditions, ROI honesty).
 - **Pre-1.0 status**: the book is in active development, with no public release yet. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first publication).
@@ -268,9 +268,9 @@ Proprietary data turns out to be the bulk of the value, not the margin · gaps w
 
 ---
 
-## 7 · Wingmap — agentic discovery (instrument of DOING)
+## 7 · Wingmap — agentive discovery (instrument of DOING)
 
-**Definition.** A technique for agentic discovery of operational intelligence: an AI agent with **read** access to corporate digital channels (email, messaging, repositories, calendars, transactional systems) reconstructs, **with no interviews or workshops**, **two living, connected maps**: the process map (how the work is executed) and the information-flow graph (which data originates where, who transforms it, where it travels). It operates first in passive mode (observation) and, under conditions, in active mode (**Wingworking**: the user operates via the agent).
+**Definition.** A technique for agentive discovery of operational intelligence: an AI agent with **read** access to corporate digital channels (email, messaging, repositories, calendars, transactional systems) reconstructs, **with no interviews or workshops**, **two living, connected maps**: the process map (how the work is executed) and the information-flow graph (which data originates where, who transforms it, where it travels). It operates first in passive mode (observation) and, under conditions, in active mode (**Wingworking**: the user operates via the agent).
 
 **Hypothesis (three chained components):** (1) actionable organizational intelligence is not obtained by asking — executors cannot articulate in the abstract what they execute in the concrete (tacit knowledge, saturated BAU, politically situated description); (2) it can be reconstructed by observing the digital traces the organization already generates; (3) the reconstruction must be **dual** — process *and* information flow.
 
@@ -305,7 +305,7 @@ Proprietary data turns out to be the bulk of the value, not the margin · gaps w
 - **vs classic process mining**: extends it to the unstructured channels where the real process lives; adds the second graph (information flow) that ERP logs cannot capture.
 - **vs traditional consulting**: replaces artisanal discovery (speed, cost, coverage, continuity — an order of magnitude); it does not replace strategic interpretation or the negotiation of change.
 - **vs individual copilots**: a copilot operates one user's session; Wingmap operates the aggregated cross-role flow.
-- **vs AI-builders**: they are agentic for building, pre-agentic for running; Wingmap is agentic for discovery and produces the substrate that runtime agents need.
+- **vs AI-builders**: they are agentive for building, pre-agentive for running; Wingmap is agentive for discovery and produces the substrate that runtime agents need.
 
 ---
 
@@ -358,7 +358,7 @@ It was born in local government but is generic (banking: customer/compliance; he
 
 - **Agency problem** — (Jensen & Meckling, 1976) structural conflict: whoever manages someone else's resources tends to present their management in the way that favors them most. The governance critique of Data Mesh derives from here.
 - **Agent Marketplace** — ecosystem where agent capabilities are acquired or traded between organizations. Signal of the MOTOR 4→5 transition.
-- **Agentic** — world of complementary agents; interfaces persist. Incremental evolution. (In Wingmap, "agentic" is also used in a technological sense: the era of agent technology, as opposed to *pre-agentic*.)
+- **Agentic** — world of complementary agents; interfaces persist. Incremental evolution. It is the only sense of "agentic" in the book; the positive technological sense is always said *agentive* (Wingmap: agentive discovery, the agentive era, pre-agentive).
 - **Agentic Infrastructure** — protocols and services that allow multiple agents to communicate, coordinate, and execute autonomously. Signal of the MOTOR 3→4 transition.
 - **Agentive** — world where agents replace the interfaces; fundamental transformation. The book's central thesis lives on this horizon.
 - **Agentive era** — state of the art in which AI systems autonomously execute schema mapping, entity resolution, transformation, and pipeline maintenance at a scale impracticable for human teams.
@@ -395,7 +395,7 @@ It was born in local government but is generic (banking: customer/compliance; he
 - **Use Case (UC)** — atomic block of the portfolio: a specific, bounded, reusable capability.
 - **Value Pyramid (the (Data) Value Pyramid)** — DATA → INFORMATION → KNOWLEDGE → ACTION.
 - **Value Solution (VS)** — strategic configuration: integrated UCs that solve a complete business problem before a decision-maker.
-- **Wingmap** — agentic discovery technique: two living, connected maps (process + information flow) reconstructed from digital traces, with no interviews.
+- **Wingmap** — agentive discovery technique: two living, connected maps (process + information flow) reconstructed from digital traces, with no interviews.
 - **Wingworking** — human-AI collaboration methodology (César Obach): the human as pilot (strategic decisions, validation), the agent as wingman (delegated tactical execution). Signal of the MOTOR 2→3 transition and the active mode of Wingmap.
 
 ---

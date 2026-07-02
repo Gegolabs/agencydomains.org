@@ -1,14 +1,14 @@
 # Wingmap
 
-*An agentic-discovery technique for reconstructing, without interviews, an organization's processes and information flows*
+*An agentive-discovery technique for reconstructing, without interviews, an organization's processes and information flows*
 
 ---
 
 ## Abstract
 
-Modern organizations operate faster than they can articulate themselves. Twenty years of Business Process Management proved, against its own promise, that formally documenting processes in order to automate them is an undertaking that most dynamic industries cannot sustain: the process-modification cycle outpaces the documentation-adjustment cycle, and the organization ends up preferring not to control its processes rather than pay the toll. The agentic era opens a structural way out of that asymmetry — not by building the documentation faster, but by ceasing to ask for it.
+Modern organizations operate faster than they can articulate themselves. Twenty years of Business Process Management proved, against its own promise, that formally documenting processes in order to automate them is an undertaking that most dynamic industries cannot sustain: the process-modification cycle outpaces the documentation-adjustment cycle, and the organization ends up preferring not to control its processes rather than pay the toll. The agentive era opens a structural way out of that asymmetry — not by building the documentation faster, but by ceasing to ask for it.
 
-This chapter formalizes **Wingmap**, an agentic-discovery technique that reconstructs, from the digital traces the organization already generates, **two living, connected maps**: the map of the process each area executes and the map of the information flowing through those processes. The technique operates in two complementary modes — passive observational and active Wingworking — and produces a cognitive substrate of organizational intelligence that is at once an immediate analytical deliverable and a precondition for operational agents at runtime. The chapter articulates the conceptual framework, the six guiding principles, the operational components, the five phases of application, the zones of non-applicability, and the distinctions from adjacent categories (classical process mining, individual copilots, AI-builders, traditional consulting). The technique is independent of any specific implementation, but it belongs to a horizon in which the next layer of enterprise software ceases to be built and comes to be instantiated by agents with access to a persistent, validated model of how the organization operates.
+This chapter formalizes **Wingmap**, an agentive-discovery technique that reconstructs, from the digital traces the organization already generates, **two living, connected maps**: the map of the process each area executes and the map of the information flowing through those processes. The technique operates in two complementary modes — passive observational and active Wingworking — and produces a cognitive substrate of organizational intelligence that is at once an immediate analytical deliverable and a precondition for operational agents at runtime. The chapter articulates the conceptual framework, the six guiding principles, the operational components, the five phases of application, the zones of non-applicability, and the distinctions from adjacent categories (classical process mining, individual copilots, AI-builders, traditional consulting). The technique is independent of any specific implementation, but it belongs to a horizon in which the next layer of enterprise software ceases to be built and comes to be instantiated by agents with access to a persistent, validated model of how the organization operates.
 
 ---
 
@@ -20,11 +20,11 @@ Every organization operating beyond a certain threshold of complexity faces an u
 
 This asymmetry is not accidental. It is a structural consequence of how process-documentation systems were built over the last two decades. The promise of Business Process Management was precisely to close that gap: if processes lived on a single platform, modeled in standard notation, executed by an engine that knew the rules, the change cycle would be trivial — modify the model, redeploy, done. Reality turned out otherwise. Every modification of the model demanded an IT project to adapt the screens humans used when executing the modified process. The presentation layer never updated automatically with the model layer, and so the effective change cycle kept being measured in projects, not in configurations. Dynamic industries — telcos, digital banking, fintech — discovered that the marginal cost of changing a process under BPM was prohibitive, and they responded rationally: they stopped modeling their processes formally, or modeled only the most stable ones. Static industries — discrete manufacturing, traditional retail — could use BPM and SAP precisely because they had renounced being dynamic. The category's universal promise was fulfilled in the wrong half.
 
-### The agentic opportunity
+### The agentive opportunity
 
-The agentic era reopens the problem on a new plane. The new capability is not the general intelligence of the models nor their reasoning throughput — it is the displacement of the interface layer from *persistent artifact that must be designed, programmed, maintained* toward *situational event that the agent instantiates on the spot*. If the interface ceases to be pre-created, the change cycle that killed BPM collapses. What used to be a months-long project becomes a conversation.
+The agentive era reopens the problem on a new plane. The new capability is not the general intelligence of the models nor their reasoning throughput — it is the displacement of the interface layer from *persistent artifact that must be designed, programmed, maintained* toward *situational event that the agent instantiates on the spot*. If the interface ceases to be pre-created, the change cycle that killed BPM collapses. What used to be a months-long project becomes a conversation.
 
-That structural opportunity admits two readings. The first, which today occupies most of the market's attention, is that the agentic era allows enterprise software to be built much faster — AI in the builder, deterministic software at runtime. That reading is legitimate and produces commercially viable products. The second reading, less visible but deeper, is that the agentic era finally allows the dependence on pre-created enterprise software to dissolve: if agents can instantiate interfaces and orchestrate processes at runtime, what the organization needs is not faster software but a **persistent, validated model of how it operates**, on which the agents then operate. The investment shifts away from the construction layer and into the organizational-intelligence layer.
+That structural opportunity admits two readings. The first, which today occupies most of the market's attention, is that the agentive era allows enterprise software to be built much faster — AI in the builder, deterministic software at runtime. That reading is legitimate and produces commercially viable products. The second reading, less visible but deeper, is that the agentive era finally allows the dependence on pre-created enterprise software to dissolve: if agents can instantiate interfaces and orchestrate processes at runtime, what the organization needs is not faster software but a **persistent, validated model of how it operates**, on which the agents then operate. The investment shifts away from the construction layer and into the organizational-intelligence layer.
 
 Wingmap belongs to that second reading.
 
@@ -38,17 +38,17 @@ Wingmap is the technique that materializes that hypothesis: a reproducible pract
 
 ## Conceptual framework
 
-### The pre-agentic / agentic distinction
+### The pre-agentive / agentive distinction
 
 <!-- libro
-*(This chapter uses "agentic" in its technological sense — the era of agent technology — distinct from the adjective "agentive," which this book's Introduction reserves for the transformation of how work happens.)*
+*(The terminology is the book's: the Introduction reserves "agentic" for the incremental evolution — copilots inside the same old applications. The pre-created software topology this chapter calls pre-agentive is the technical counterpart of that world; the runtime-instantiated topology is the technical counterpart of the agentive world.)*
 /libro -->
 
-It is worth fixing terminology. **Pre-agentic** designates the set of process- and information-management technologies that dominated between 1995 and 2025: classical BPM, monolithic ERPs, document-workflow suites, orchestration platforms, RPA, traditional low-code. What distinguishes this set is not its age or its technical capability — several categories remain competitive — but its fundamental topology: the software is built before it operates, it operates with pre-created interfaces, and the process change cycle requires a software change cycle. The logic is that of the *persistent artifact*.
+It is worth fixing terminology. **Pre-agentive** designates the set of process- and information-management technologies that dominated between 1995 and 2025: classical BPM, monolithic ERPs, document-workflow suites, orchestration platforms, RPA, traditional low-code. What distinguishes this set is not its age or its technical capability — several categories remain competitive — but its fundamental topology: the software is built before it operates, it operates with pre-created interfaces, and the process change cycle requires a software change cycle. The logic is that of the *persistent artifact*.
 
-**Agentic** designates a different topology in which the software is built, in substantive part, *during* operation. Interfaces are instantiated on the spot, according to context. The software's executive capability emerges from the conversation between the agent and the human, not from pre-designed screens. The process change cycle no longer requires a software change cycle — it requires updating the underlying model and nothing more, because the interface regenerates on the fly. The logic is that of the *situational event*.
+**Agentive** designates a different topology in which the software is built, in substantive part, *during* operation. Interfaces are instantiated on the spot, according to context. The software's executive capability emerges from the conversation between the agent and the human, not from pre-designed screens. The process change cycle no longer requires a software change cycle — it requires updating the underlying model and nothing more, because the interface regenerates on the fly. The logic is that of the *situational event*.
 
-The distinction is not absolute — real products mix both topologies in varying proportions — but it is discriminative for classifying what each one does with the agentic era. A product that uses AI in the builder and delivers software with a pre-created interface is agentic to build, pre-agentic to run. A product that uses AI in both modeling and execution is agentic end to end. Wingmap belongs to an intermediate category with a fully agentic vocation: agentic to discover (it builds the model of the organization by observation) and agentic to run (its output is designed to be consumed by operational agents at runtime, not by pre-created software).
+The distinction is not absolute — real products mix both topologies in varying proportions — but it is discriminative for classifying what each one does with the agentive era. A product that uses AI in the builder and delivers software with a pre-created interface is agentive to build, pre-agentive to run. A product that uses AI in both modeling and execution is agentive end to end. Wingmap belongs to an intermediate category with a fully agentive vocation: agentive to discover (it builds the model of the organization by observation) and agentive to run (its output is designed to be consumed by operational agents at runtime, not by pre-created software).
 
 
 ### The human bottleneck of discovery
@@ -69,16 +69,16 @@ This taxonomy matters for Wingmap for two reasons. First, systematic artifacts a
 
 ### The organizational-intelligence layer
 
-It is also worth situating Wingmap within a map of functional layers of agentic enterprise software. There are at least four distinguishable layers:
+It is also worth situating Wingmap within a map of functional layers of agentive enterprise software. (The term "organizational intelligence" is used here in a sense complementary to the KNOWING axis: not the *capacity* IRIS measures, but the **software layer** that materializes it — the place in the stack where the model of how the organization operates lives.) There are at least four distinguishable layers:
 
 | Layer | Function | Characteristic output |
 |------|---------|----------------------|
 | Individual assistance | Accelerate the human in their task | Summaries, drafts, contextual suggestions |
 | **Organizational intelligence** | **Model how the organization operates; keep the model alive** | **Process map, information-flow graph, business semantics** |
 | Software construction | Produce code that automates specific tasks | Custom internal software, deterministic bots |
-| Agentic runtime | Agents that execute processes in production | Adaptive human-agent interaction, with instantiated interfaces |
+| Agentive runtime | Agents that execute processes in production | Adaptive human-agent interaction, with instantiated interfaces |
 
-Wingmap sits explicitly in the second layer — organizational intelligence — and produces the input the third and fourth layers require to operate with knowledge of the organization. The individual-assistance layer (Microsoft Copilot, ChatGPT, Claude) operates on the individual user's knowledge; the software-construction layer (products like Pit; AI-assisted coding like Cursor or Devin) operates on the declarative description the organization or the builder gives it; the agentic-runtime layer (Salesforce Agentforce, Microsoft Copilot Studio, emerging operational-agent platforms) assumes the organization knows the process when building the agent. Wingmap is the missing piece: the one that delivers the organizational model as a separable, governable, versionable artifact.
+Wingmap sits explicitly in the second layer — organizational intelligence — and produces the input the third and fourth layers require to operate with knowledge of the organization. The individual-assistance layer (Microsoft Copilot, ChatGPT, Claude) operates on the individual user's knowledge; the software-construction layer (products like Pit; AI-assisted coding like Cursor or Devin) operates on the declarative description the organization or the builder gives it; the agentive-runtime layer (Salesforce Agentforce, Microsoft Copilot Studio, emerging operational-agent platforms) assumes the organization knows the process when building the agent. Wingmap is the missing piece: the one that delivers the organizational model as a separable, governable, versionable artifact.
 
 
 ---
@@ -87,7 +87,7 @@ Wingmap sits explicitly in the second layer — organizational intelligence — 
 
 ### Definition
 
-**Wingmap** is a technique for the agentic discovery of an organization's operational intelligence. Through an AI agent with read access to the organization's corporate digital channels — email, messaging, file repositories, calendars, transactional systems — the technique reconstructs, without mediating interviews or workshops, **two living, connected maps**: the process map (how the work is executed in each area, in what sequence, with which actors) and the information-flow graph (which data originates where, who transforms it with what calculation, in which artifact it lives, toward which consumer it travels, which informational dependencies accumulate across areas, countries, or business lines).
+**Wingmap** is a technique for the agentive discovery of an organization's operational intelligence. Through an AI agent with read access to the organization's corporate digital channels — email, messaging, file repositories, calendars, transactional systems — the technique reconstructs, without mediating interviews or workshops, **two living, connected maps**: the process map (how the work is executed in each area, in what sequence, with which actors) and the information-flow graph (which data originates where, who transforms it with what calculation, in which artifact it lives, toward which consumer it travels, which informational dependencies accumulate across areas, countries, or business lines).
 
 The two artifacts are connected by common traceability to documentary evidence — every element of the map cites the raw documents from which it was inferred — and they are kept up to date by continuous observation, not by periodic re-discovery. Human validation occurs in distinct roles: process ambassadors for the first map, operational data owners for the second. The technique operates first in passive mode (observation transparent to the user) and, when conditions allow, in active mode (Wingworking — the user operates via the agent, the agent learns and, eventually, automates recurring patterns with deterministic bots).
 
@@ -139,7 +139,7 @@ The interface has two modalities — one for the process ambassador, another for
 
 The fourth component is optional and selective. In domains where an ambassador user agrees to change their workflow — operating the applications through the agent instead of directly — the agent learns, session by session, the user's operating patterns in high resolution: what they query in what order, what transformations they execute, what corrections they apply. When a pattern becomes stable, the agent can generate a deterministic bot that automates the pattern without requiring an LLM at runtime.
 
-The active mode extends Wingmap's output from *organizational model* to *organizational model + library of deterministic bots*. Bot generation is governed with DevOps discipline — versioning, testing, rollback — because the bots are code in production. The etymology of the name Wingworking comes from the original practice of César Obach from which the technique derives: working with an agent as a wingman, where the operation is performed alongside the agent, neither in its substitution nor at its command.
+The active mode extends Wingmap's output from *organizational model* to *organizational model + library of deterministic bots*. Bot generation is governed with DevOps discipline — versioning, testing, rollback — because the bots are code in production. The name comes from Wingworking — the practice of working with an agent as a wingman that MOTOR presented as the signal of Level 3 —: the operation is performed alongside the agent, neither in its substitution nor at its command.
 
 
 ### The governance layer
@@ -178,7 +178,7 @@ During the observation phase, the agent accumulates enriched events in structure
 
 ### Phase 2 — Inference and dual-graph construction
 
-The third phase consolidates the preliminary versions of the dual graph into reviewable versions. This demands work on the implementer's side (prompt calibration, schema refinement, tuning of process mining algorithms over the enriched log) that is not automatic: the quality of the output depends on sustained technical iteration.
+This phase consolidates the preliminary versions of the dual graph into reviewable versions. This demands work on the implementer's side (prompt calibration, schema refinement, tuning of process mining algorithms over the enriched log) that is not automatic: the quality of the output depends on sustained technical iteration.
 
 The phase's exit criterion is the delivery to the organization of three to five candidate process maps and five to ten candidate cross-role information flows, all with traceable evidence and all with confidence estimated per element. The delivery does not claim final correctness — it aims to offer concrete material on which the following phase executes validation.
 
@@ -231,18 +231,18 @@ Wingmap is structurally different: it operates on the sum of many users' tasks a
 
 ### Distinction from software AI-builders
 
-The emerging category of *AI product team as a service* — products like Pit, publicly launched in May 2026 — uses AI to accelerate the construction of custom internal software that replaces the back office's patchwork of Excel + email + rigid SaaS. The distinction from Wingmap is one of layer: Pit and its peers are **agentic to build, pre-agentic to run** — they use AI in the builder, they deliver deterministic software that operates with pre-created interfaces. Wingmap is **agentic to discover, agentic to run** — it produces the cognitive substrate that later enables operational agents at runtime with instantiated interfaces.
+The emerging category of *AI product team as a service* — products like Pit, publicly launched in May 2026 — uses AI to accelerate the construction of custom internal software that replaces the back office's patchwork of Excel + email + rigid SaaS. The distinction from Wingmap is one of layer: Pit and its peers are **agentive to build, pre-agentive to run** — they use AI in the builder, they deliver deterministic software that operates with pre-created interfaces. Wingmap is **agentive to discover, agentive to run** — it produces the cognitive substrate that later enables operational agents at runtime with instantiated interfaces.
 
 The two categories are complementary, not competitive. A mature organization uses them in order: first Wingmap to understand how it operates and what data circulates; then an AI-builder (or an internal team) to build tailored software in the processes where construction adds value; then operational agents that execute at runtime with knowledge of the model. The organizational-intelligence layer is qualified input for the construction and runtime layers.
 
 
-### The technique as substrate for the agentic transition
+### The technique as substrate for the agentive transition
 
-Wingmap is not fully understood as an isolated discovery technique — it is understood as a **foundational brick of the transition from the pre-agentic era to the full agentic era**. This reading widens the scope of the argument beyond the individual organization.
+Wingmap is not fully understood as an isolated discovery technique — it is understood as a **foundational brick of the transition from the pre-agentive era to the full agentive era**. This reading widens the scope of the argument beyond the individual organization.
 
-The full pre-agentic era (1995–2025) built enterprise software as a persistent artifact: pre-created screens, fixed logic, maintenance as a cycle parallel to operation. The full agentic era (~2030 onward, by reasonable projection) will build enterprise software as a situational event: agents that instantiate interfaces on the fly, execute processes at runtime with contextual interpretation, reconfigure themselves through conversation. The transition unfolds over a horizon of five to ten years, with both topologies overlapping throughout that period.
+The full pre-agentive era (1995–2025) built enterprise software as a persistent artifact: pre-created screens, fixed logic, maintenance as a cycle parallel to operation. The full agentive era (~2030 onward, by reasonable projection) will build enterprise software as a situational event: agents that instantiate interfaces on the fly, execute processes at runtime with contextual interpretation, reconfigure themselves through conversation. The transition unfolds over a horizon of five to ten years, with both topologies overlapping throughout that period.
 
-The operative question for an organization in transition is: what asset to build today that serves both the pre-agentic operation it already has and the agentic operation to come? The enterprise software built today will become obsolete when operational agents replace pre-created interfaces. BPM platforms will remain useful as orchestration engines but will lose their presentation layer. The safest investment, under this framing, is the **persistent, validated organizational model** — the dual graph Wingmap produces. That model does not become obsolete with the transition; on the contrary, it becomes more valuable, because it is the input that operational agents will need in order to execute with knowledge of the organization.
+The operative question for an organization in transition is: what asset to build today that serves both the pre-agentive operation it already has and the agentive operation to come? The enterprise software built today will become obsolete when operational agents replace pre-created interfaces. BPM platforms will remain useful as orchestration engines but will lose their presentation layer. The safest investment, under this framing, is the **persistent, validated organizational model** — the dual graph Wingmap produces. That model does not become obsolete with the transition; on the contrary, it becomes more valuable, because it is the input that operational agents will need in order to execute with knowledge of the organization.
 
 Wingmap, read this way, is not one more discovery technique among many — it is the technique that produces the substrate of the next decade of enterprise software. That is its universal thesis.
 
@@ -292,11 +292,11 @@ The trend is one of compounding improvement — the models advance year after ye
 
 ## Conclusion
 
-Wingmap is a technique for the agentic discovery of an organization's operational intelligence. Its contribution consists in formalizing a reproducible practice that reconstructs, without interviews, two connected planes of the organizational model — process and information flow — from the digital traces the organization already generates. The six guiding principles (observation first, dual plane, common traceability, distributed validation, passive mode before active, substrate and not requirements) order the design and application decisions. The phases (preconditions, observation, inference, dual validation, maintenance, and — optionally — active mode) order the practice over time. The four distinctions (from classical process mining, traditional consulting, individual copilots, AI-builders) situate the technique on the map of adjacent categories.
+Wingmap is a technique for the agentive discovery of an organization's operational intelligence. Its contribution consists in formalizing a reproducible practice that reconstructs, without interviews, two connected planes of the organizational model — process and information flow — from the digital traces the organization already generates. The six guiding principles (observation first, dual plane, common traceability, distributed validation, passive mode before active, substrate and not requirements) order the design and application decisions. The phases (preconditions, observation, inference, dual validation, maintenance, and — optionally — active mode) order the practice over time. The four distinctions (from classical process mining, traditional consulting, individual copilots, AI-builders) situate the technique on the map of adjacent categories.
 
-The technique replaces none of the adjacent disciplines — it complements them structurally. And in doing so, it produces an asset the full agentic era is going to need as critical input: a persistent, validated model of how the organization operates, on which the operational agents of the 2030 horizon will be able to execute with situational knowledge.
+The technique replaces none of the adjacent disciplines — it complements them structurally. And in doing so, it produces an asset the full agentive era is going to need as critical input: a persistent, validated model of how the organization operates, on which the operational agents of the 2030 horizon will be able to execute with situational knowledge.
 
-The first witness case of Wingmap is underway at the time of writing this chapter: a multinational agroindustrial holding with dozens of companies operating in several countries. The lessons from that deployment will feed future versions of this chapter. The predictions the chapter makes about coverage rates, inference quality, operating costs, and human dependency are reasoned hypotheses that the witness case will confirm or refute with operational evidence.
+The first witness case of Wingmap is underway at the time of writing this chapter: a multinational agroindustrial holding with dozens of companies operating in several countries. The lessons from that deployment will feed the next editions of this book. The predictions the chapter makes about coverage rates, inference quality, operating costs, and human dependency are reasoned hypotheses that the witness case will confirm or refute with operational evidence.
 
 The invitation this chapter extends to other practitioners is not to use the specific Wingmap product — that is a separate commercial decision — but to apply the Wingmap **technique** in their own contexts, with their own tools, in their own organizations. The principles are implementation-independent. The practice is reproducible. The substrate it produces is valuable in itself, no matter who builds it or with what technical stack.
 
@@ -306,7 +306,7 @@ Whoever applies Wingmap in an organization does not document processes — they 
 
 ## Future work
 
-Five directions remain open for subsequent versions of this chapter.
+Five directions remain open.
 
 **Empirical calibration of the application rates.** The quantitative claims — coverage by sector, validation rates, graph latency — rest on limited data and reasoned projection, not on a robust empirical base. Three to five complete deployments with comparable metrics will allow moving from projection to statistics.
 
@@ -314,7 +314,7 @@ Five directions remain open for subsequent versions of this chapter.
 
 **Generalization to non-Microsoft stacks.** This chapter assumes an implementation over Microsoft 365 as the initial spine. Application to Google Workspace, Slack-first, or heterogeneous stacks is feasible but requires additional components (specific connectors, different governance models) that deserve dedicated treatment.
 
-**Integration with agentic orchestration engines.** The substrate Wingmap produces is designed to be consumed by operational agents. The formal specification of the APIs and exchange formats connecting the Wingmap graph with platforms such as Salesforce Agentforce, Microsoft Copilot Studio, or open frameworks (LangGraph, CrewAI) is pending architectural work.
+**Integration with agentive orchestration engines.** The substrate Wingmap produces is designed to be consumed by operational agents. The formal specification of the APIs and exchange formats connecting the Wingmap graph with platforms such as Salesforce Agentforce, Microsoft Copilot Studio, or open frameworks (LangGraph, CrewAI) is pending architectural work.
 
 **Ethical grounding of organizational observation.** The technique observes human activity in corporate channels. The ethical framework of that observation — beyond minimal regulatory compliance — deserves dedicated treatment: how transparency is reconciled with protection, how the model's value is distributed between the organization and the observed actors, how the drift toward workplace surveillance is avoided. These questions are normative, not technical, and require dialogue with academia, unions, and labor authorities.
 

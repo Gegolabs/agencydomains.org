@@ -1,9 +1,9 @@
-# Manifest de la edición inglesa del libro AURA — orden de concatenación.
+# Manifest de la edición inglesa del libro AURA v0.3 — orden de concatenación.
+# El prólogo se reincorpora cuando llegue el texto del prologuista.
 # Rutas relativas a la raíz del libro.
 # Las 5 specs componentes se incluyen POR REFERENCIA desde specs-en/ — nunca se copian.
 # Sintaxis: ruta[|titulo=Rol en el libro]  (el título del rol reemplaza el primer H1 al ensamblar)
 contenido-en/00-frontmatter.md
-contenido-en/prologo.md
 contenido-en/prefacio.md
 contenido-en/introduccion.md
 contenido-en/intro-parte-saber.md

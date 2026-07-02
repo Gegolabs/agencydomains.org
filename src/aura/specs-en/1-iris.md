@@ -30,9 +30,14 @@ The trajectory of this transformation is articulated through the **Value Pyramid
 
 ### Why "organizational intelligence" and not "information management"?
 
+<!-- standalone -->
 Well-established information-management maturity models exist in the industry. They measure critical aspects — data quality, governance, architecture, integration — but they concentrate on the first two layers of the Value Pyramid: DATA and INFORMATION. This model spans all four layers, from fragmented data to orchestrated autonomous action. That is no longer information management — it is an organization's capacity to transform data into actionable intelligence.
 
 That is why we speak of **organizational intelligence**: it is not about how well you manage your data, but about how capable your organization is of generating knowledge and acting on it continuously and autonomously. Information management is the necessary foundation — but not the destination.
+<!-- /standalone -->
+<!-- libro
+The term that names the axis was established in the Introduction: organizational intelligence is what gets measured when the scope covers all four layers of the Value Pyramid — not just managing data, but generating knowledge and acting on it continuously and autonomously. IRIS operationalizes that capacity, stage by stage.
+/libro -->
 
 ### Online Enterprise vs. Real-Time Enterprise
 
@@ -53,11 +58,17 @@ Stages 5–10 build the **real-time enterprise**: from democratic access without
 
 ### The convergence
 
-This model measures an organization's trajectory from fragmented data to full organizational intelligence, where three concepts converge:
+<!-- standalone -->
+This model measures an organization's trajectory from fragmented data to full organizational intelligence, where four concepts converge:
 
 **Organizational Intelligence** is the capacity being measured — the *what*.
-**Real-Time Enterprise** is the organizational outcome of that mature capacity — the *what for*.
+**Organizational Automation** is the capacity to execute — the *who* (measured by MOTOR, the sibling model).
+**Real-Time Enterprise** is the organizational outcome of both mature capacities — the *what for*.
 **Agentive AI** is the enabling mechanism that makes the transformation possible — the *how*.
+<!-- /standalone -->
+<!-- libro
+The convergence of the four concepts — organizational intelligence, organizational automation, the real-time enterprise, and agentive AI — was traced in the Introduction; IRIS measures the first.
+/libro -->
 
 <!-- standalone -->
 > The complete vision, including the industry context data and the 30+ public sources that support it, can be found in the companion document: *Visión de AURA — Arquitectura Unificada de Referencia Agentiva* (ultraBASE, February 2026).
@@ -68,7 +79,7 @@ This model measures an organization's trajectory from fragmented data to full or
 
 ### IRIS and MOTOR: AURA's diagnostic pair
 
-IRIS is one of two complementary models within **AURA** (Agentive Unified Reference Architecture). Together with **MOTOR** (the Organizational Automation Maturity Model), they form the complete diagnostic of organizational transformation:
+IRIS is one of two complementary models within **AURA**. Together with **MOTOR** (the Organizational Automation Maturity Model), they form the complete diagnostic of organizational transformation:
 
 ![AURA's diagnostic pair — IRIS measures KNOWING; MOTOR measures DOING](figuras/a03-ejes-saber-hacer.png)
 
@@ -209,7 +220,7 @@ Stage 5 is the first state of the **real-time enterprise**: all the information 
 
 Value concentrates in the **KNOWLEDGE** layer of the Value Pyramid — understanding, patterns, real-time analysis.
 
-**Leap 4→5 · Level frontier (Structured → Dynamic) — the Quantum Leap:** This is the most transformative leap in the model. It represents the transition from a paradigm where information only exists if someone pre-built it, to a paradigm where it is generated in real time out of need. It is the point where the cost of an analytical question collapses from weeks to seconds. This is the frontier between **the foundations** (online enterprise) and the **real-time enterprise** — where agentive AI enables a qualitative change in the relationship between the organization and its information.
+**Leap 4→5 · Level frontier (Structured → Dynamic) — the Quantum Leap:** This is the leap that changes the paradigm. It represents the transition from a paradigm where information only exists if someone pre-built it, to a paradigm where it is generated in real time out of need. It is the point where the cost of an analytical question collapses from weeks to seconds. This is the frontier between **the foundations** (online enterprise) and the **real-time enterprise** — where agentive AI enables a qualitative change in the relationship between the organization and its information.
 
 **Observable characteristics:**
 
@@ -280,7 +291,7 @@ Value concentrates in the **ACTION** layer of the Value Pyramid — information 
 
 The flow of information becomes bidirectional and operational. Agents do not just alert — they execute predefined actions when the conditions are met. An agent can adjust an operating parameter, reclassify a case, or trigger a process, all within explicitly governed rules. The human defines the thresholds, the rules, and the escalation protocols; the agent operates within those limits.
 
-The difference from the previous stage is that the Perceive→Interpret→Decide→Act cycle is completed without human intervention in the cases that fall within the governed parameters. The human supervises patterns, exceptions, and results — not every transaction.
+The difference from the previous stage is that the Perceive→Interpret→Decide→Act→Learn cycle is completed without human intervention in the cases that fall within the governed parameters. The human supervises patterns, exceptions, and results — not every transaction.
 
 **Leap 7→8:** The organization moves from information that alerts to information that acts.
 
@@ -418,4 +429,3 @@ The transformation described in *Visión de AURA — Arquitectura Unificada de R
 The Introduction of this book provides the conceptual framework that both models operationalize.
 /libro --> The fundamental concepts — the Value Pyramid, the Quantum Leap, the Three Axes of Change, the Continuous-Intelligence Cycle, and the distinction between online enterprise and real-time enterprise — are the shared foundation.
 
-> For the definition of the concept of Agentive AI, see: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).

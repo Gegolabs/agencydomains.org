@@ -21,6 +21,7 @@ The model describes 7 maturity levels that range from unmanaged AI use (Shadow A
 
 ### MOTOR and IRIS: AURA's diagnostic pair
 
+<!-- standalone -->
 MOTOR is one of two complementary models within **AURA** (Agentive Unified Reference Architecture). Together with **IRIS** (Organizational Intelligence Maturity Model), they form the complete diagnosis of organizational transformation:
 
 ![AURA's diagnostic pair — IRIS measures KNOWING; MOTOR measures DOING](figuras/a03-ejes-saber-hacer.png)
@@ -28,12 +29,21 @@ MOTOR is one of two complementary models within **AURA** (Agentive Unified Refer
 **IRIS** measures how well information flows — from fragmented data to a self-managed intelligence ecosystem. **MOTOR** measures how automated processes are — from ad-hoc AI use to orchestrated autonomous execution.
 
 They are orthogonal: an organization can be high on one and low on the other. Full organizational maturity requires advancing along both axes.
+<!-- /standalone -->
+<!-- libro
+The diagnostic pair was presented at the opening of Part I: IRIS measures KNOWING, MOTOR measures DOING, they are orthogonal, and full maturity demands advancing along both. Here the second axis goes to work.
+/libro -->
 
 ### Diagnostic nature
 
 MOTOR is a **diagnostic** model. Its purpose is to assess what level an organization is at and what that level means. It does not prescribe what to implement, how much to invest, or on what timeline — that belongs to the specialized consulting built on top of the diagnosis.
 
+<!-- standalone -->
 This design decision is intentional: the state of the art in AI evolves at unprecedented speed. A model that prescribes specific technologies becomes obsolete in months. A model that diagnoses maturity states remains valid because it measures organizational capabilities, not tools.
+<!-- /standalone -->
+<!-- libro
+The design rationale is the same one that sustains IRIS: what gets diagnosed are organizational capabilities, not tools — which is why the model doesn't age with the state of the art.
+/libro -->
 
 The specific prescription — implementation enablers, investments, timelines, ROI, vendors, and roadmaps — is developed in the companion document *MOTOR in Practice* (ultraBASE, February 2026).
 
@@ -155,7 +165,7 @@ The qualitative leap: humans stop using AI as an assistant and begin delegating 
 
 ### Wingworking
 
-Wingworking is the human-AI collaboration methodology developed by César Obach in which the human acts as the "pilot" — making strategic decisions, defining objectives, and validating results — and the AI agent operates as the "wingman" — proposing execution plans, executing complete tasks, and reporting results. The name evokes the dynamic between a pilot and their wingman in aviation: mutual trust, clear roles, structured communication.
+Wingworking is the human-AI collaboration methodology — developed by the author in ultraBASE's practice — in which the human acts as the "pilot" — making strategic decisions, defining objectives, and validating results — and the AI agent operates as the "wingman" — proposing execution plans, executing complete tasks, and reporting results. The name evokes the dynamic between a pilot and their wingman in aviation: mutual trust, clear roles, structured communication.
 
 ```
   Wingworking Pattern:
@@ -652,15 +662,15 @@ These estimates are referential and based on observation of the market at the ti
 
 **Sweet Spot.** The maturity level that maximizes the balance among return, risk, and investment. In MOTOR, the Sweet Spot is at Level 4 (Analyst): it is the point where the organization captures most of the economic value of operational autonomy without taking on the cost and complexity of Levels 5-7. By 2030, Level 4 will be the market's new competitive baseline.
 
-**Trust Infrastructure.** The set of technologies (tokenization, anti-prompt injection, audit trails, automated compliance) that make it possible to use AI in a governed, auditable way. Diagnostic signal of the 1→2 transition.
+**Trust Infrastructure.** The set of technologies (tokenization, anti-prompt injection, audit trails, automated compliance) that make it possible to use AI in a governed, auditable way. Diagnostic signal of the 1→2 transition. It is the same primitive that *AgencyDomains* specifies formally in its canon; here it is used as a maturity threshold, not as a spec.
 
-**Wingworking.** A human-AI collaboration methodology in which the human acts as the "pilot" (strategic decisions, validation) and the AI as the "wingman" (delegated tactical execution). Concept developed by César Obach. Diagnostic signal of the 2→3 transition and defining characteristic of Level 3.
+**Wingworking.** A human-AI collaboration methodology in which the human acts as the "pilot" (strategic decisions, validation) and the AI as the "wingman" (delegated tactical execution). An original ultraBASE practice. Diagnostic signal of the 2→3 transition and defining characteristic of Level 3.
 
 ---
 
 ## Cross-Reference
 
-MOTOR is the measurement instrument of the DOING axis — organizational automation through AI. Together with **IRIS** (Organizational Intelligence Maturity Model), it forms the diagnostic pair of **AURA** (Agentive Unified Reference Architecture) — ultraBASE's agentive enterprise architecture.
+MOTOR is the measurement instrument of the DOING axis — organizational automation through AI. Together with **IRIS** (Organizational Intelligence Maturity Model), it forms the diagnostic pair of **AURA** — ultraBASE's agentive enterprise architecture.
 
 The specific prescription of enablers, investments, timelines, ROI, and roadmaps is developed in the companion document: *MOTOR in Practice — Implementation Guide* (ultraBASE, February 2026).
 
@@ -671,4 +681,3 @@ The foundational vision of the architecture can be found in: *Visión de AURA �
 The foundational vision of the architecture is the Introduction of this book.
 /libro -->
 
-> For the definition of the concept of Agentive AI, see: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).

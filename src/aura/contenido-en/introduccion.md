@@ -17,7 +17,7 @@ The industry's most disruptive voices are betting on the agentive world. Satya N
 
 **Why "agentive" and not "agentic"?** Because they are not the same thing. The industry has adopted "agentic AI" to describe agents that assist — copilots, assistants, smarter tools. But this book points to something qualitatively different: a world where agents do not complement the way we work but transform it. Using "agentic" would limit the scope to incremental evolution. Using "agentive" points to fundamental transformation — which is the central thesis of this book.
 
-**The transformation this book traverses is set on the agentive horizon.** To navigate that transformation, ultraBASE has developed **AURA** (Agentive Unified Reference Architecture) — an agentive enterprise architecture that organizes the transformation along two complementary maturity axes:
+**The transformation this book traverses is set on the agentive horizon.** To navigate that transformation, ultraBASE has developed **AURA** — an agentive enterprise architecture that organizes the transformation along two complementary maturity axes:
 
 **IRIS** (Organizational Intelligence Maturity Model) measures the **KNOWING** axis — an organization's trajectory from fragmented data to a self-managing intelligence ecosystem. From the online enterprise — which accesses up-to-date information but depends on humans to act — to the real-time enterprise — where intelligent systems detect, interpret, decide, and act autonomously.
 
@@ -25,7 +25,7 @@ The industry's most disruptive voices are betting on the agentive world. Satya N
 
 Both models are **diagnostic**: they assess what level an organization is at and what that level means. They do not prescribe what to implement — that is the province of specialized consulting. They are orthogonal: an organization can be high on one and low on the other. Full organizational maturity requires advancing along both axes. AURA integrates both axes into a reference architecture that makes it possible to diagnose the complete state of the transformation.
 
-> For the complete definition of the Agentive AI concept, see: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).
+> The world on the other side of this transition is portrayed in *Postchat*, and its formal architecture specified in *AgencyDomains* — volumes I and III of this trilogy.
 
 ## The Industry's Stagnation
 
@@ -50,7 +50,7 @@ This book spans all four layers, from fragmented data to orchestrated autonomous
 ## The Leap
 
 ### The new economics of information: from weeks to seconds
-The most immediate and tangible change enabled by agentive AI is the **elimination of the marginal cost of an analytical question**. In the traditional model, every new business question entails a project: coordination, requirements gathering, development, validation. The cost — in time, in person-hours, in opportunity cost — leads organizations to *ration* their questions. Only what someone had the foresight to pre-build into a dashboard or report ever gets analyzed.
+The most immediate and tangible change enabled by agentive AI is the **elimination of the marginal cost of an analytical question**. We call that collapse — from weeks to seconds — **the Quantum Leap**, and it will be a reference throughout the book. In the traditional model, every new business question entails a project: coordination, requirements gathering, development, validation. The cost — in time, in person-hours, in opportunity cost — leads organizations to *ration* their questions. Only what someone had the foresight to pre-build into a dashboard or report ever gets analyzed.
 
 When that cost collapses from weeks to seconds, the very nature of the relationship between an organization and its information changes:
 
@@ -60,18 +60,16 @@ When that cost collapses from weeks to seconds, the very nature of the relations
 
 This transformation in the economics of information is an **enabling condition** for everything else in this book: the continuous-intelligence cycle cannot exist if every iteration takes weeks. Autonomy governance makes no sense if agents do not operate in real time. The transformation of roles does not happen if access to knowledge still depends on human intermediaries.
 
-### The Quantum Leap
+### The inversion of the flow
 For 30 years, the information management paradigm was **"people go to the data"**: you build a warehouse, mount dashboards, train users, and hope someone looks at the right report at the right moment and makes the right decision. The entire model rests on *human attention* as the bottleneck.
 
 As [Tellius](https://www.tellius.com/resources/blog/agentic-analytics-explained-from-questions-to-autonomous-action) describes it: *"Dashboards still tell you what happened, but rarely why — and never what to do next."* [Superwise](https://superwise.ai/blog/ai-agents-beyond-dashboards/) puts it bluntly: the industry is moving "beyond dashboards" because *"BI was built for a slower business environment — that assumption no longer holds true."*
 
-Agentive AI inverts that flow: **"intelligence goes to the people — and acts on their behalf."** A system of agents monitors, interprets, decides, and executes within the limits the organization has defined, and escalates to a human only when warranted. This inversion marks the frontier between two fundamentally different kinds of organization: the **online enterprise** — which accesses up-to-date information in real time but depends on humans to interpret and act — and the **real-time enterprise** — which detects, interprets, decides, and acts continuously and autonomously.
+Agentive AI inverts that flow: **"intelligence goes to the people — and acts on their behalf."** A system of agents monitors, interprets, decides, and executes within the limits the organization has defined, and escalates to a human only when warranted. This inversion marks the frontier between two fundamentally different kinds of organization: the **online enterprise** — which accesses up-to-date information in real time but depends on humans to interpret and act — and the **real-time enterprise** — which detects, interprets, decides, and acts continuously and autonomously (the continuous-intelligence cycle formalized below: Perceive → Interpret → Decide → Act → Learn).
 
 [Tableau](https://www.tableau.com/agentic-analytics) articulates this as the move from traditional BI to "agentic analytics," where AI doesn't just visualize data but activates it. [Cube](https://cube.dev/blog/why-agentic-analytics-is-the-new-modern-analytics) declares it openly: *"The modern data stack is beginning to show its age."* [BCG](https://www.bcg.com/publications/2025/agentic-ai-industrial-goods-driving-change) takes it to the operational plane, describing how agentive AI orchestrates actions across the entire value chain, "closing the loop between insight and execution."
 
 > Agentive AI is not an incremental improvement to the analytics stack — it is a change of operating model. Measuring maturity in this context requires assessing not only the technology, but the organization's capacity to operate in a fundamentally different paradigm.
-
-Gartner backs the scale of this transformation: it projects that [40% of enterprise applications will include AI agents by the end of 2026](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) (vs. less than 5% in 2025), and that at least 15% of day-to-day operational decisions will be made autonomously by agents by 2028.
 
 ### Paradigm shifts
 | Before | After |
@@ -175,7 +173,7 @@ A [CIO.com](https://www.cio.com/article/4060162/the-new-org-chart-unlocking-valu
 
 [ThoughtSpot](https://www.thoughtspot.com/blog/introducing-the-agentic-semantic-layer) coined the concept of the "Agentic Semantic Layer" — dynamic, context-aware, and designed to work hand in hand with agents. [Salesforce](https://architect.salesforce.com/fundamentals/agentic-enterprise-it-architecture) proposes an Enterprise Knowledge Graph (EKG) as the central layer of its agentive enterprise architecture. [Databricks](https://www.databricks.com/blog/delivering-agentic-bi-how-unify-infrastructure-data-and-semantics) speaks of unifying infrastructure, data, and semantics to enable "Agentic BI."
 
-[Informatica](https://www.informatica.com/resources/articles/enterprise-ai-agent-engineering.html) warns that giving an agent access to data is not enough: *"Because agents act without human approval loops, the data they use must be fully trusted, verified, and monitored."* It proposes data-quality SLAs: less than 5 minutes of freshness for transactional agents, less than 1 hour for analytical agents.
+[Informatica](https://www.informatica.com/resources/articles/enterprise-ai-agent-engineering.html) warns that giving an agent access to data is not enough: *"Because agents act without human approval loops, the data they use must be fully trusted, verified, and monitored."* It proposes data-quality SLAs: less than 5 minutes of freshness for transactional agents, less than 1 hour for analytical agents — a direction Data Canon (Part I) will push further: a single quality level, the strictest, for the entire canon.
 
 [eWeek](https://www.eweek.com/artificial-intelligence/how-will-agentic-ai-change-enterprise-data-management/) introduces the concept of "agent-ready data" and projects that by 2026, enterprise data management will be radically different — with autonomous agents cleaning, validating, and enriching data within governed limits.
 
@@ -218,7 +216,7 @@ The scale of the problem is significant: according to [MindStudio](https://www.m
 ## AURA: The Map of the Path
 
 ### Online enterprise vs. real-time enterprise
-The preceding sections laid out the distinction; it is time to fix it as the axis of the trajectory: the **online enterprise** *accesses* — up-to-date data, current dashboards — but depends on a human to look, interpret, and decide; the **real-time enterprise** *reacts* — it detects, interprets, decides, and acts continuously and autonomously.
+The preceding sections laid out the distinction; it is time to fix it as the axis of the trajectory: the **online enterprise** *accesses* — up-to-date data, current dashboards — but depends on a human to look, interpret, and decide; the **real-time enterprise** *reacts*: it runs the full continuous-intelligence cycle, waiting for no one.
 
 IRIS maps this trajectory: stages 1–4 build the **foundations** — the infrastructure of the online enterprise; stages 5–10 build the **real-time enterprise**. **The Quantum Leap** — the collapse of the cost of the analytical question — is the frontier between the two trajectories.
 
@@ -251,7 +249,7 @@ The reality is a **hybrid model** in which existing infrastructure (data warehou
 
 What changes is the proportion. In the early stages, 90% is static infrastructure and the agent is an occasional assistant. In the advanced stages, the agent orchestrates most analytical operations and the static infrastructure becomes one more data source — robust and governed, but consumed by agents, not by humans.
 
-This evolutionary coexistence is a fundamental principle of AURA and has a direct implication for IRIS: **each level does not invalidate the previous one — it subsumes it.** An organization at IRIS Level IV (stages 7–8) did not eliminate its data warehouse — it integrated it into a semantic fabric that agents consume autonomously. The online enterprise does not disappear when the real-time enterprise emerges — it becomes its foundation.
+This evolutionary coexistence is a fundamental principle of AURA and has a direct implication for IRIS: **each level does not invalidate the previous one — it subsumes it.** An organization at IRIS stages 7–8 did not eliminate its data warehouse — it integrated it into a semantic layer — a *fabric* — that agents consume autonomously. The online enterprise does not disappear when the real-time enterprise emerges — it becomes its foundation.
 
 ### Dimensions of AURA
 | Dimension | Transformation trajectory |
