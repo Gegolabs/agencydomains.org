@@ -1,14 +1,14 @@
 # Wingmap
 
-*Una técnica de levantamiento agéntico para reconstruir, sin entrevistas, los procesos y flujos de información de una organización*
+*Una técnica de levantamiento agentivo para reconstruir, sin entrevistas, los procesos y flujos de información de una organización*
 
 ---
 
 ## Resumen
 
-Las organizaciones modernas operan más rápido de lo que pueden articularse a sí mismas. Veinte años de Business Process Management probaron, contra su propia promesa, que documentar formalmente los procesos para automatizarlos es una empresa que la mayoría de las industrias dinámicas no puede sostener: el ciclo de modificación del proceso supera al ciclo de ajuste de la documentación, y la organización termina prefiriendo no controlar sus procesos antes que pagar el peaje. La era agéntica abre una salida estructural a esa asimetría — no construyendo más rápido la documentación, sino dejando de pedirla.
+Las organizaciones modernas operan más rápido de lo que pueden articularse a sí mismas. Veinte años de Business Process Management probaron, contra su propia promesa, que documentar formalmente los procesos para automatizarlos es una empresa que la mayoría de las industrias dinámicas no puede sostener: el ciclo de modificación del proceso supera al ciclo de ajuste de la documentación, y la organización termina prefiriendo no controlar sus procesos antes que pagar el peaje. La era agentiva abre una salida estructural a esa asimetría — no construyendo más rápido la documentación, sino dejando de pedirla.
 
-Este capítulo formaliza **Wingmap**, una técnica de levantamiento agéntico que reconstruye, desde los rastros digitales que la organización ya genera, **dos mapas vivos y conectados**: el del proceso que ejecuta cada área y el del flujo de información que viaja a través de esos procesos. La técnica opera en dos modos complementarios — pasivo observacional y activo Wingworking — y produce un sustrato cognitivo de inteligencia organizacional que es a la vez entregable analítico inmediato y precondición para agentes operacionales en runtime. El capítulo articula el marco conceptual, los seis principios rectores, los componentes operativos, las cinco fases de aplicación, las zonas de no aplicabilidad y las distinciones frente a categorías adyacentes (process mining clásico, copilotos individuales, AI-builders, consultoría tradicional). La técnica es independiente de implementación específica, pero se inscribe en un horizonte donde la próxima capa de software empresarial deja de ser construida y pasa a ser instanciada por agentes con acceso a un modelo persistente y validado de cómo opera la organización.
+Este capítulo formaliza **Wingmap**, una técnica de levantamiento agentivo que reconstruye, desde los rastros digitales que la organización ya genera, **dos mapas vivos y conectados**: el del proceso que ejecuta cada área y el del flujo de información que viaja a través de esos procesos. La técnica opera en dos modos complementarios — pasivo observacional y activo Wingworking — y produce un sustrato cognitivo de inteligencia organizacional que es a la vez entregable analítico inmediato y precondición para agentes operacionales en runtime. El capítulo articula el marco conceptual, los seis principios rectores, los componentes operativos, las cinco fases de aplicación, las zonas de no aplicabilidad y las distinciones frente a categorías adyacentes (process mining clásico, copilotos individuales, AI-builders, consultoría tradicional). La técnica es independiente de implementación específica, pero se inscribe en un horizonte donde la próxima capa de software empresarial deja de ser construida y pasa a ser instanciada por agentes con acceso a un modelo persistente y validado de cómo opera la organización.
 
 ---
 
@@ -20,11 +20,11 @@ Toda organización que opera más allá de cierto umbral de complejidad enfrenta
 
 Esta asimetría no es accidental. Es consecuencia estructural de cómo se construyeron los sistemas de documentación de procesos en las últimas dos décadas. La promesa del Business Process Management era precisamente cerrar esa brecha: si los procesos vivían en una plataforma única, modelados con notación estándar, ejecutados por un motor que conocía las reglas, el ciclo de cambio sería trivial — modificar el modelo, redesplegar, listo. La realidad fue otra. Cada modificación del modelo exigía un proyecto de TI para adaptar las pantallas que los humanos usaban al ejecutar el proceso modificado. La capa de presentación nunca se actualizó automáticamente con la capa de modelo, y por tanto el ciclo de cambio efectivo siguió midiéndose en proyectos, no en configuraciones. Las industrias dinámicas — telcos, banca digital, fintech — descubrieron que el costo marginal de cambiar un proceso bajo BPM era prohibitivo, y respondieron racionalmente: dejaron de modelar formalmente sus procesos, o modelaron sólo los más estables. Las industrias estáticas — manufactura discreta, retail tradicional — pudieron usar BPM y SAP precisamente porque renunciaron a ser dinámicas. La promesa universal de la categoría se cumplió en su parte equivocada.
 
-### La oportunidad agéntica
+### La oportunidad agentiva
 
-La era agéntica reabre el problema en un plano nuevo. La capacidad nueva no es la inteligencia general de los modelos ni su throughput de razonamiento — es el desplazamiento de la capa de interfaz desde *artefacto persistente que hay que diseñar, programar, mantener* hacia *evento situacional que el agente instancia al momento*. Si la interfaz deja de ser pre-creada, el ciclo de cambio que mató al BPM colapsa. Lo que antes era un proyecto de meses pasa a ser una conversación.
+La era agentiva reabre el problema en un plano nuevo. La capacidad nueva no es la inteligencia general de los modelos ni su throughput de razonamiento — es el desplazamiento de la capa de interfaz desde *artefacto persistente que hay que diseñar, programar, mantener* hacia *evento situacional que el agente instancia al momento*. Si la interfaz deja de ser pre-creada, el ciclo de cambio que mató al BPM colapsa. Lo que antes era un proyecto de meses pasa a ser una conversación.
 
-Esa oportunidad estructural admite dos lecturas. La primera, que ocupa hoy la mayor parte de la atención del mercado, es que la era agéntica permite construir software empresarial mucho más rápido — IA en el constructor, software determinístico en runtime. Esa lectura es legítima y produce productos comercialmente viables. La segunda lectura, menos visible pero más profunda, es que la era agéntica permite finalmente disolver la dependencia del software empresarial precreado: si los agentes pueden instanciar interfaces y orquestar procesos en runtime, lo que la organización necesita no es software más rápido sino un **modelo persistente y validado de cómo opera**, sobre el cual los agentes después operen. La inversión deja de estar en la capa de construcción y pasa a la capa de inteligencia organizacional.
+Esa oportunidad estructural admite dos lecturas. La primera, que ocupa hoy la mayor parte de la atención del mercado, es que la era agentiva permite construir software empresarial mucho más rápido — IA en el constructor, software determinístico en runtime. Esa lectura es legítima y produce productos comercialmente viables. La segunda lectura, menos visible pero más profunda, es que la era agentiva permite finalmente disolver la dependencia del software empresarial precreado: si los agentes pueden instanciar interfaces y orquestar procesos en runtime, lo que la organización necesita no es software más rápido sino un **modelo persistente y validado de cómo opera**, sobre el cual los agentes después operen. La inversión deja de estar en la capa de construcción y pasa a la capa de inteligencia organizacional.
 
 Wingmap se inscribe en esa segunda lectura.
 
@@ -38,17 +38,17 @@ Wingmap es la técnica que materializa esa hipótesis: una práctica reproducibl
 
 ## Marco conceptual
 
-### La distinción pre-agéntico / agéntico
+### La distinción pre-agentivo / agentivo
 
 <!-- libro
-*(Este capítulo usa "agéntico" en su sentido tecnológico — la era de la tecnología de agentes — distinto del adjetivo "agentivo" que la Introducción de este libro reserva para la transformación del modo de trabajo.)*
+*(La terminología es la del libro: la Introducción reserva "agéntico" para la evolución incremental — copilotos dentro de las aplicaciones de siempre. La topología de software pre-creado que este capítulo llama pre-agentiva es la contraparte técnica de ese mundo; la topología instanciada en runtime es la contraparte técnica del mundo agentivo.)*
 /libro -->
 
-Conviene fijar terminología. **Pre-agéntico** designa el conjunto de tecnologías de gestión de procesos y de información que dominaron entre 1995 y 2025: BPM clásico, ERPs monolíticos, suites de workflow documental, plataformas de orquestación, RPA, low-code tradicional. Lo que distingue a este conjunto no es su antigüedad ni su capacidad técnica — varias categorías siguen siendo competitivas — sino su topología fundamental: el software se construye antes de operar, opera con interfaces precreadas, y el ciclo de cambio del proceso requiere ciclo de cambio del software. La lógica es de *artefacto persistente*.
+Conviene fijar terminología. **Pre-agentivo** designa el conjunto de tecnologías de gestión de procesos y de información que dominaron entre 1995 y 2025: BPM clásico, ERPs monolíticos, suites de workflow documental, plataformas de orquestación, RPA, low-code tradicional. Lo que distingue a este conjunto no es su antigüedad ni su capacidad técnica — varias categorías siguen siendo competitivas — sino su topología fundamental: el software se construye antes de operar, opera con interfaces precreadas, y el ciclo de cambio del proceso requiere ciclo de cambio del software. La lógica es de *artefacto persistente*.
 
 **Agéntico** designa una topología distinta donde el software se construye, en parte sustantiva, *durante* la operación. Las interfaces se instancian al momento, según contexto. La capacidad ejecutiva del software emerge de la conversación entre el agente y el humano, no de pantallas pre-diseñadas. El ciclo de cambio del proceso ya no requiere ciclo de cambio del software — requiere actualización del modelo subyacente y nada más, porque la interfaz se regenera al vuelo. La lógica es de *evento situacional*.
 
-La distinción no es absoluta — los productos reales mezclan ambas topologías en proporciones variables — pero sí es discriminativa para clasificar qué hace cada uno con la era agéntica. Un producto que usa IA en el constructor y entrega software con interfaz precreada es agéntico para construir, pre-agéntico para correr. Un producto que usa IA tanto en el modelado como en la ejecución es agéntico de punta a punta. Wingmap pertenece a una categoría intermedia con vocación agéntica plena: agéntico para levantar (construye el modelo de la organización por observación) y agéntico para correr (su output está diseñado para ser consumido por agentes operacionales en runtime, no por software pre-creado).
+La distinción no es absoluta — los productos reales mezclan ambas topologías en proporciones variables — pero sí es discriminativa para clasificar qué hace cada uno con la era agentiva. Un producto que usa IA en el constructor y entrega software con interfaz precreada es agentivo para construir, pre-agentivo para correr. Un producto que usa IA tanto en el modelado como en la ejecución es agentivo de punta a punta. Wingmap pertenece a una categoría intermedia con vocación agentiva plena: agentivo para levantar (construye el modelo de la organización por observación) y agentivo para correr (su output está diseñado para ser consumido por agentes operacionales en runtime, no por software pre-creado).
 
 
 ### El cuello de botella humano del levantamiento
@@ -69,16 +69,16 @@ Esta taxonomía importa para Wingmap por dos razones. Primero, los artefactos si
 
 ### La capa de inteligencia organizacional
 
-Conviene también ubicar a Wingmap dentro de un mapa de capas funcionales del software empresarial agéntico. Hay al menos cuatro capas distinguibles:
+Conviene también ubicar a Wingmap dentro de un mapa de capas funcionales del software empresarial agentivo. (El término "inteligencia organizacional" se usa aquí en un sentido complementario al del eje SABER: no la *capacidad* que IRIS mide, sino la **capa de software** que la materializa — el lugar del stack donde vive el modelo de cómo opera la organización.) Hay al menos cuatro capas distinguibles:
 
 | Capa | Función | Output característico |
 |------|---------|----------------------|
 | Asistencia individual | Acelerar al humano en su tarea | Resúmenes, borradores, sugerencias contextuales |
 | **Inteligencia organizacional** | **Modelar cómo opera la organización; mantener el modelo vivo** | **Mapa de procesos, grafo de flujo de información, semántica del negocio** |
 | Construcción de software | Producir código que automatiza tareas específicas | Software interno custom, bots determinísticos |
-| Runtime agéntico | Agentes que ejecutan procesos en producción | Interacción adaptativa entre humano y agente, con interfaces instanciadas |
+| Runtime agentivo | Agentes que ejecutan procesos en producción | Interacción adaptativa entre humano y agente, con interfaces instanciadas |
 
-Wingmap se sitúa explícitamente en la segunda capa — inteligencia organizacional — y produce el insumo que las capas tercera y cuarta requieren para operar con conocimiento de la organización. La capa de asistencia individual (Microsoft Copilot, ChatGPT, Claude) opera sobre el conocimiento del usuario individual; la capa de construcción de software (productos como Pit; AI-assisted coding como Cursor o Devin) opera sobre la descripción declarativa que la organización o el constructor le dan; la capa de runtime agéntico (Salesforce Agentforce, Microsoft Copilot Studio, plataformas emergentes de agentes operacionales) asume que la organización conoce el proceso al construir el agente. Wingmap es la pieza ausente: la que entrega el modelo organizacional como artefacto separable, gobernable y versionable.
+Wingmap se sitúa explícitamente en la segunda capa — inteligencia organizacional — y produce el insumo que las capas tercera y cuarta requieren para operar con conocimiento de la organización. La capa de asistencia individual (Microsoft Copilot, ChatGPT, Claude) opera sobre el conocimiento del usuario individual; la capa de construcción de software (productos como Pit; AI-assisted coding como Cursor o Devin) opera sobre la descripción declarativa que la organización o el constructor le dan; la capa de runtime agentivo (Salesforce Agentforce, Microsoft Copilot Studio, plataformas emergentes de agentes operacionales) asume que la organización conoce el proceso al construir el agente. Wingmap es la pieza ausente: la que entrega el modelo organizacional como artefacto separable, gobernable y versionable.
 
 
 ---
@@ -87,7 +87,7 @@ Wingmap se sitúa explícitamente en la segunda capa — inteligencia organizaci
 
 ### Definición
 
-**Wingmap** es una técnica de levantamiento agéntico de la inteligencia operacional de una organización. Mediante un agente de IA con acceso de lectura a los canales digitales corporativos de la organización — correo, mensajería, repositorios de archivos, calendarios, sistemas transaccionales — la técnica reconstruye, sin intermediar entrevistas ni talleres, **dos mapas vivos y conectados**: el mapa del proceso (cómo se ejecuta el trabajo en cada área, en qué secuencia, con qué actores) y el grafo del flujo de información (qué dato se origina dónde, quién lo transforma con qué cálculo, en qué artefacto vive, hacia qué consumidor viaja, qué dependencias informacionales se acumulan entre áreas, países o líneas de negocio).
+**Wingmap** es una técnica de levantamiento agentivo de la inteligencia operacional de una organización. Mediante un agente de IA con acceso de lectura a los canales digitales corporativos de la organización — correo, mensajería, repositorios de archivos, calendarios, sistemas transaccionales — la técnica reconstruye, sin intermediar entrevistas ni talleres, **dos mapas vivos y conectados**: el mapa del proceso (cómo se ejecuta el trabajo en cada área, en qué secuencia, con qué actores) y el grafo del flujo de información (qué dato se origina dónde, quién lo transforma con qué cálculo, en qué artefacto vive, hacia qué consumidor viaja, qué dependencias informacionales se acumulan entre áreas, países o líneas de negocio).
 
 Los dos artefactos están conectados por trazabilidad común a evidencia documental — cada elemento del mapa cita los documentos crudos de los que se infirió — y se mantienen actualizados por observación continua, no por re-levantamiento periódico. La validación humana ocurre en roles distintos: embajadores del proceso para el primer mapa, dueños operativos del dato para el segundo. La técnica opera primero en modo pasivo (observación transparente para el usuario) y, cuando hay condiciones, en modo activo (Wingworking — el usuario opera vía el agente, el agente aprende y, eventualmente, automatiza patrones recurrentes con bots determinísticos).
 
@@ -139,7 +139,7 @@ La interfaz tiene dos modalidades — una para el embajador del proceso, otra pa
 
 El cuarto componente es opcional y selectivo. En dominios donde un usuario embajador acepta cambiar su workflow — operar las aplicaciones a través del agente en vez de directamente — el agente aprende, sesión por sesión, los patrones operativos del usuario en alta resolución: qué consulta en qué orden, qué transformaciones ejecuta, qué correcciones aplica. Cuando un patrón se vuelve estable, el agente puede generar un bot determinístico que automatiza el patrón sin requerir LLM en runtime.
 
-El modo activo extiende el output de Wingmap de *modelo organizacional* a *modelo organizacional + biblioteca de bots determinísticos*. La generación de bots se gobierna con disciplina de DevOps — versionado, testing, rollback — porque los bots son código en producción. La etimología del nombre Wingworking proviene de la práctica original de César Obach del cual la técnica deriva: trabajar con un agente como compañero de ala (*wingman*), donde la operación se realiza junto al agente, no en su sustitución ni en su comando.
+El modo activo extiende el output de Wingmap de *modelo organizacional* a *modelo organizacional + biblioteca de bots determinísticos*. La generación de bots se gobierna con disciplina de DevOps — versionado, testing, rollback — porque los bots son código en producción. El nombre viene de Wingworking — la práctica de trabajar con un agente como compañero de ala (*wingman*) que MOTOR presentó como señal del Nivel 3 —: la operación se realiza junto al agente, no en su sustitución ni en su comando.
 
 
 ### La capa de gobernanza
@@ -178,7 +178,7 @@ Durante la fase de observación, el agente acumula eventos enriquecidos en el al
 
 ### Fase 2 — Inferencia y construcción del doble grafo
 
-La tercera fase consolida las versiones preliminares del doble grafo en versiones revisables. Esto exige trabajo del lado del implementador (calibración de prompts, refinamiento de schemas, ajuste de algoritmos de process mining sobre el log enriquecido) que no es automático: la calidad del output depende de iteración técnica sostenida.
+Esta fase consolida las versiones preliminares del doble grafo en versiones revisables. Esto exige trabajo del lado del implementador (calibración de prompts, refinamiento de schemas, ajuste de algoritmos de process mining sobre el log enriquecido) que no es automático: la calidad del output depende de iteración técnica sostenida.
 
 El criterio de salida de la fase es la entrega a la organización de tres a cinco mapas de proceso candidatos y cinco a diez flujos de información cross-rol candidatos, todos con evidencia trazable y todos con confianza estimada por elemento. La entrega no pretende corrección final — pretende ofrecer material concreto sobre el cual la fase siguiente ejecuta validación.
 
@@ -231,18 +231,18 @@ Wingmap es estructuralmente distinto: opera sobre la suma de tareas de muchos us
 
 ### Distinción frente a AI-builders de software
 
-La categoría emergente de *AI product team as a service* — productos como Pit, salido públicamente en mayo de 2026 — usa IA para acelerar la construcción de software interno custom que reemplaza el patchwork de Excel + correo + SaaS rígido del back office. La distinción con Wingmap es de capa: Pit y similares son **agéntico para construir, pre-agéntico para correr** — usan IA en el constructor, entregan software determinístico que opera con interfaces precreadas. Wingmap es **agéntico para levantar, agéntico para correr** — produce el sustrato cognitivo que después permite agentes operacionales en runtime con interfaces instanciadas.
+La categoría emergente de *AI product team as a service* — productos como Pit, salido públicamente en mayo de 2026 — usa IA para acelerar la construcción de software interno custom que reemplaza el patchwork de Excel + correo + SaaS rígido del back office. La distinción con Wingmap es de capa: Pit y similares son **agentivo para construir, pre-agentivo para correr** — usan IA en el constructor, entregan software determinístico que opera con interfaces precreadas. Wingmap es **agentivo para levantar, agentivo para correr** — produce el sustrato cognitivo que después permite agentes operacionales en runtime con interfaces instanciadas.
 
 Las dos categorías son complementarias, no competitivas. Una organización madura las usa en orden: primero Wingmap para entender cómo opera y qué datos circulan; después un AI-builder (o un equipo interno) para construir software a medida en los procesos donde la construcción agrega valor; después agentes operacionales que ejecutan en runtime con conocimiento del modelo. La capa de inteligencia organizacional es input cualificado para las capas de construcción y de runtime.
 
 
-### La técnica como sustrato para la transición agéntica
+### La técnica como sustrato para la transición agentiva
 
-Wingmap no se entiende plenamente como técnica de levantamiento aislada — se entiende como **ladrillo fundacional de la transición de la era pre-agéntica a la era agéntica plena**. Esta lectura amplía el alcance del argumento más allá de la organización individual.
+Wingmap no se entiende plenamente como técnica de levantamiento aislada — se entiende como **ladrillo fundacional de la transición de la era pre-agentiva a la era agentiva plena**. Esta lectura amplía el alcance del argumento más allá de la organización individual.
 
-La era pre-agéntica plena (1995–2025) construyó software empresarial como artefacto persistente: pantallas pre-creadas, lógica fija, mantenimiento como ciclo paralelo a la operación. La era agéntica plena (~2030 en adelante, en proyección razonable) construirá software empresarial como evento situacional: agentes que instancian interfaces al vuelo, ejecutan procesos en runtime con interpretación contextual, se reconfiguran con la conversación. La transición ocurre en un horizonte de cinco a diez años, con superposición de ambas topologías durante todo ese período.
+La era pre-agentiva plena (1995–2025) construyó software empresarial como artefacto persistente: pantallas pre-creadas, lógica fija, mantenimiento como ciclo paralelo a la operación. La era agentiva plena (~2030 en adelante, en proyección razonable) construirá software empresarial como evento situacional: agentes que instancian interfaces al vuelo, ejecutan procesos en runtime con interpretación contextual, se reconfiguran con la conversación. La transición ocurre en un horizonte de cinco a diez años, con superposición de ambas topologías durante todo ese período.
 
-La pregunta operativa para una organización en transición es: ¿qué activo construir hoy que sirva tanto a la operación pre-agéntica que ya tiene como a la operación agéntica que vendrá? El software empresarial que se construye hoy quedará obsoleto cuando los agentes operacionales sustituyan las interfaces precreadas. Las plataformas BPM seguirán siendo útiles como motores de orquestación pero perderán su capa de presentación. La inversión más segura, bajo este encuadre, es la del **modelo organizacional persistente y validado** — el doble grafo que Wingmap produce. Ese modelo no se vuelve obsoleto con la transición; al contrario, se vuelve más valioso, porque es el insumo que los agentes operacionales necesitarán para ejecutar con conocimiento de la organización.
+La pregunta operativa para una organización en transición es: ¿qué activo construir hoy que sirva tanto a la operación pre-agentiva que ya tiene como a la operación agentiva que vendrá? El software empresarial que se construye hoy quedará obsoleto cuando los agentes operacionales sustituyan las interfaces precreadas. Las plataformas BPM seguirán siendo útiles como motores de orquestación pero perderán su capa de presentación. La inversión más segura, bajo este encuadre, es la del **modelo organizacional persistente y validado** — el doble grafo que Wingmap produce. Ese modelo no se vuelve obsoleto con la transición; al contrario, se vuelve más valioso, porque es el insumo que los agentes operacionales necesitarán para ejecutar con conocimiento de la organización.
 
 Wingmap, leído así, no es una técnica de levantamiento más entre muchas — es la técnica que produce el sustrato de la próxima década del software empresarial. Esa es su tesis universal.
 
@@ -292,11 +292,11 @@ La tendencia es de mejora compuesta — los modelos avanzan año a año — pero
 
 ## Conclusión
 
-Wingmap es una técnica de levantamiento agéntico de la inteligencia operacional de una organización. Su contribución consiste en formalizar una práctica reproducible que reconstruye, sin entrevistas, dos planos conectados del modelo organizacional — proceso y flujo de información — desde los rastros digitales que la organización ya genera. Los seis principios rectores (observación primero, doble plano, trazabilidad común, validación distribuida, modo pasivo antes que activo, sustrato y no requerimiento) ordenan las decisiones de diseño y aplicación. Las fases (pre-condiciones, observación, inferencia, validación dual, mantenimiento y — opcional — modo activo) ordenan la práctica en el tiempo. Las cuatro distinciones (frente a process mining clásico, consultoría tradicional, copilotos individuales, AI-builders) sitúan la técnica en el mapa de categorías adyacentes.
+Wingmap es una técnica de levantamiento agentivo de la inteligencia operacional de una organización. Su contribución consiste en formalizar una práctica reproducible que reconstruye, sin entrevistas, dos planos conectados del modelo organizacional — proceso y flujo de información — desde los rastros digitales que la organización ya genera. Los seis principios rectores (observación primero, doble plano, trazabilidad común, validación distribuida, modo pasivo antes que activo, sustrato y no requerimiento) ordenan las decisiones de diseño y aplicación. Las fases (pre-condiciones, observación, inferencia, validación dual, mantenimiento y — opcional — modo activo) ordenan la práctica en el tiempo. Las cuatro distinciones (frente a process mining clásico, consultoría tradicional, copilotos individuales, AI-builders) sitúan la técnica en el mapa de categorías adyacentes.
 
-La técnica no reemplaza ninguna de las disciplinas adyacentes — las complementa estructuralmente. Y al hacerlo, produce un activo que la era agéntica plena va a necesitar como insumo crítico: un modelo persistente y validado de cómo opera la organización, sobre el cual los agentes operacionales del horizonte 2030 podrán ejecutar con conocimiento situacional.
+La técnica no reemplaza ninguna de las disciplinas adyacentes — las complementa estructuralmente. Y al hacerlo, produce un activo que la era agentiva plena va a necesitar como insumo crítico: un modelo persistente y validado de cómo opera la organización, sobre el cual los agentes operacionales del horizonte 2030 podrán ejecutar con conocimiento situacional.
 
-El primer caso testigo de Wingmap está en curso en el momento de escribir este capítulo: un holding agroindustrial multinacional con decenas de empresas operando en varios países. Las lecciones de ese despliegue alimentarán versiones futuras de este capítulo. Las predicciones que el capítulo hace sobre tasas de cobertura, calidad de inferencia, costos operativos y dependencia humana son hipótesis razonadas que el caso testigo confirmará o refutará con evidencia operacional.
+El primer caso testigo de Wingmap está en curso en el momento de escribir este capítulo: un holding agroindustrial multinacional con decenas de empresas operando en varios países. Las lecciones de ese despliegue alimentarán las próximas ediciones de este libro. Las predicciones que el capítulo hace sobre tasas de cobertura, calidad de inferencia, costos operativos y dependencia humana son hipótesis razonadas que el caso testigo confirmará o refutará con evidencia operacional.
 
 La invitación que este capítulo extiende a otros practitioners no es a usar el producto Wingmap específico — eso es decisión comercial separada — sino a aplicar la **técnica** Wingmap en sus propios contextos, con sus propias herramientas, en sus propias organizaciones. Los principios son independientes de la implementación. La práctica es reproducible. El sustrato que produce es valioso por sí mismo, sin importar quién lo construye ni con qué stack técnico.
 
@@ -306,7 +306,7 @@ Quien aplica Wingmap en una organización no documenta procesos — produce inte
 
 ## Trabajo futuro
 
-Cinco direcciones quedan abiertas para versiones siguientes de este capítulo.
+Cinco direcciones quedan abiertas.
 
 **Calibración empírica de las tasas de aplicación.** Las afirmaciones cuantitativas — cobertura por sector, tasas de validación, latencia del grafo — están sostenidas por datos limitados y por proyección razonada, no por base empírica robusta. Tres a cinco despliegues completos con métricas comparables permitirán pasar de proyección a estadística.
 
@@ -314,7 +314,7 @@ Cinco direcciones quedan abiertas para versiones siguientes de este capítulo.
 
 **Generalización a stacks no-Microsoft.** Este capítulo asume implementación sobre Microsoft 365 como spine inicial. La aplicación a Google Workspace, Slack-first, o stacks heterogéneos es factible pero requiere componentes adicionales (conectores específicos, modelos de gobernanza distintos) que merecen tratamiento dedicado.
 
-**Integración con motores de orquestación agéntica.** El sustrato que Wingmap produce está diseñado para ser consumido por agentes operacionales. La especificación formal de las APIs y los formatos de intercambio que conectan el grafo de Wingmap con plataformas como Salesforce Agentforce, Microsoft Copilot Studio o frameworks abiertos (LangGraph, CrewAI) es trabajo arquitectónico pendiente.
+**Integración con motores de orquestación agentiva.** El sustrato que Wingmap produce está diseñado para ser consumido por agentes operacionales. La especificación formal de las APIs y los formatos de intercambio que conectan el grafo de Wingmap con plataformas como Salesforce Agentforce, Microsoft Copilot Studio o frameworks abiertos (LangGraph, CrewAI) es trabajo arquitectónico pendiente.
 
 **Fundamento ético de la observación organizacional.** La técnica observa actividad humana en canales corporativos. El marco ético de esa observación — más allá del compliance regulatorio mínimo — merece tratamiento dedicado: cómo se concilia transparencia con protección, cómo se distribuye el valor del modelo entre la organización y los actores observados, cómo se evita la deriva hacia vigilancia del trabajo. Estas preguntas son normativas, no técnicas, y requieren diálogo con academia, sindicatos y autoridades laborales.
 
@@ -336,7 +336,7 @@ Este capítulo deriva de un cluster de investigación interno (16 documentos de 
 
 ### Referencias de mercado citadas
 
-- Cobertura de prensa del lanzamiento público de Pit (techcrunch.com, sifted.eu, tech.eu, mayo 2026),.
+- Cobertura de prensa del lanzamiento público de Pit (techcrunch.com, sifted.eu, tech.eu, mayo 2026).
 - Cobertura pública de Microsoft Copilot, Microsoft Process Mining, Salesforce Agentforce, Glean, Celonis (al 8 de mayo de 2026).
 
 ---

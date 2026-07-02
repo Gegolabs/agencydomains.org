@@ -17,7 +17,7 @@ Las voces más disruptivas de la industria apuestan por el mundo agentivo. Satya
 
 **¿Por qué "agentiva" y no "agéntica"?** Porque no son lo mismo. La industria ha adoptado "agentic AI" para describir agentes que asisten — copilotos, asistentes, herramientas más inteligentes. Pero este libro apunta a algo cualitativamente diferente: un mundo donde los agentes no complementan la forma de trabajar sino que la transforman. Usar "agéntica" limitaría el alcance a la evolución incremental. Usar "agentiva" apunta a la transformación fundamental — que es la tesis central de este libro.
 
-**La transformación que este libro recorre se sitúa en el horizonte agentivo.** Para navegar esa transformación, ultraBASE ha desarrollado **AURA** (Arquitectura Unificada de Referencia Agentiva) — una arquitectura empresarial agentiva que organiza la transformación en dos ejes de madurez complementarios:
+**La transformación que este libro recorre se sitúa en el horizonte agentivo.** Para navegar esa transformación, ultraBASE ha desarrollado **AURA** — una arquitectura empresarial agentiva que organiza la transformación en dos ejes de madurez complementarios:
 
 **IRIS** (Modelo de Madurez de Inteligencia Organizacional) mide el eje **SABER** — la trayectoria de una organización desde datos fragmentados hasta un ecosistema de inteligencia auto-gestionado. Desde la empresa en línea — que accede a información actualizada pero depende de humanos para actuar — hasta la empresa en tiempo real — donde sistemas inteligentes detectan, interpretan, deciden y actúan autónomamente.
 
@@ -25,7 +25,7 @@ Las voces más disruptivas de la industria apuestan por el mundo agentivo. Satya
 
 Ambos modelos son **diagnósticos**: evalúan en qué nivel se encuentra una organización y qué significa ese nivel. No prescriben qué implementar — eso corresponde a la consultoría especializada. Son ortogonales: una organización puede estar alta en uno y baja en el otro. La madurez organizacional plena requiere avanzar en ambos ejes. AURA integra ambos ejes en una arquitectura de referencia que permite diagnosticar el estado completo de la transformación.
 
-> Para la definición completa del concepto de IA Agentiva, ver: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).
+> El mundo al otro lado de esta transición está retratado en *Postchat*, y su arquitectura formal especificada en *AgencyDomains* — los volúmenes I y III de esta trilogía.
 
 ## El Estancamiento de la Industria
 
@@ -50,7 +50,7 @@ Este libro abarca las cuatro capas, desde datos fragmentados hasta acción autó
 ## El Salto
 
 ### La nueva economía de la información: de semanas a segundos
-El cambio más inmediato y tangible que habilita la IA agentiva es la **eliminación del costo marginal de una pregunta analítica**. En el modelo tradicional, cada nueva pregunta de negocio implica un proyecto: coordinación, levantamiento, desarrollo, validación. El costo — en tiempo, en horas-hombre, en costo de oportunidad — hace que las organizaciones *racionen* sus preguntas. Solo se analiza lo que alguien tuvo la previsión de pre-construir en un dashboard o reporte.
+El cambio más inmediato y tangible que habilita la IA agentiva es la **eliminación del costo marginal de una pregunta analítica**. A ese colapso — de semanas a segundos — lo llamamos **el Salto Cuántico**, y será referencia a lo largo del libro. En el modelo tradicional, cada nueva pregunta de negocio implica un proyecto: coordinación, levantamiento, desarrollo, validación. El costo — en tiempo, en horas-hombre, en costo de oportunidad — hace que las organizaciones *racionen* sus preguntas. Solo se analiza lo que alguien tuvo la previsión de pre-construir en un dashboard o reporte.
 
 Cuando ese costo colapsa de semanas a segundos, cambia la naturaleza misma de la relación entre la organización y su información:
 
@@ -60,18 +60,16 @@ Cuando ese costo colapsa de semanas a segundos, cambia la naturaleza misma de la
 
 Esta transformación en la economía de la información es una **condición habilitante** de todo lo demás en este libro: el ciclo de inteligencia continua no puede existir si cada iteración toma semanas. La gobernanza de autonomía no tiene sentido si los agentes no operan en tiempo real. La transformación de roles no ocurre si el acceso al conocimiento sigue dependiendo de intermediarios humanos.
 
-### El Salto Cuántico
+### La inversión del flujo
 Durante 30 años, el paradigma de gestión de información fue **"personas van hacia los datos"**: construyes un warehouse, montas dashboards, entrenas usuarios, y esperas que alguien mire el reporte correcto en el momento correcto y tome la decisión correcta. Todo el modelo descansa sobre la *atención humana* como cuello de botella.
 
 Como lo describe [Tellius](https://www.tellius.com/resources/blog/agentic-analytics-explained-from-questions-to-autonomous-action): *"Dashboards still tell you what happened, but rarely why — and never what to do next."* [Superwise](https://superwise.ai/blog/ai-agents-beyond-dashboards/) lo plantea de forma directa: la industria se está moviendo "beyond dashboards" porque *"BI was built for a slower business environment — that assumption no longer holds true."*
 
-La IA agentiva invierte ese flujo: **"la inteligencia va hacia las personas — y actúa en su nombre."** Un sistema de agentes monitorea, interpreta, decide y ejecuta dentro de los límites que la organización ha definido, y escala al humano solo cuando corresponde. Esta inversión marca la frontera entre dos tipos de organización fundamentalmente distintos: la **empresa en línea** — que accede a información actualizada en tiempo real pero depende de humanos para interpretar y actuar — y la **empresa en tiempo real** — que detecta, interpreta, decide y actúa de forma continua y autónoma.
+La IA agentiva invierte ese flujo: **"la inteligencia va hacia las personas — y actúa en su nombre."** Un sistema de agentes monitorea, interpreta, decide y ejecuta dentro de los límites que la organización ha definido, y escala al humano solo cuando corresponde. Esta inversión marca la frontera entre dos tipos de organización fundamentalmente distintos: la **empresa en línea** — que accede a información actualizada en tiempo real pero depende de humanos para interpretar y actuar — y la **empresa en tiempo real** — que detecta, interpreta, decide y actúa de forma continua y autónoma (el ciclo de inteligencia continua que se formaliza más abajo: Percibir → Interpretar → Decidir → Actuar → Aprender).
 
 [Tableau](https://www.tableau.com/agentic-analytics) lo articula como el paso de BI tradicional a "agentic analytics", donde la IA no solo visualiza datos sino que los activa. [Cube](https://cube.dev/blog/why-agentic-analytics-is-the-new-modern-analytics) lo declara abiertamente: *"The modern data stack is beginning to show its age."* [BCG](https://www.bcg.com/publications/2025/agentic-ai-industrial-goods-driving-change) lo lleva al plano operativo, describiendo cómo la IA agentiva orquesta acciones en toda la cadena de valor, "closing the loop between insight and execution."
 
 > La IA agentiva no es una mejora incremental al stack de analytics — es un cambio de modelo operativo. Medir madurez en este contexto requiere evaluar no solo la tecnología, sino la capacidad de la organización de operar en un paradigma fundamentalmente distinto.
-
-Gartner respalda la escala de esta transformación: proyecta que el [40% de las aplicaciones empresariales incluirán agentes IA para fines de 2026](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) (vs. menos del 5% en 2025), y que al menos el 15% de las decisiones operativas diarias serán tomadas autónomamente por agentes para 2028.
 
 ### Cambios de paradigma
 | Antes | Después |
@@ -175,7 +173,7 @@ Un artículo de [CIO.com](https://www.cio.com/article/4060162/the-new-org-chart-
 
 [ThoughtSpot](https://www.thoughtspot.com/blog/introducing-the-agentic-semantic-layer) acuñó el concepto de "Agentic Semantic Layer" — dinámico, context-aware, y diseñado para trabajar de la mano con agentes. [Salesforce](https://architect.salesforce.com/fundamentals/agentic-enterprise-it-architecture) propone un Enterprise Knowledge Graph (EKG) como capa central de su arquitectura de empresa agentiva. [Databricks](https://www.databricks.com/blog/delivering-agentic-bi-how-unify-infrastructure-data-and-semantics) habla de unificar infraestructura, datos y semántica para habilitar "Agentic BI."
 
-[Informatica](https://www.informatica.com/resources/articles/enterprise-ai-agent-engineering.html) advierte que darle acceso a datos a un agente no es suficiente: *"Because agents act without human approval loops, the data they use must be fully trusted, verified, and monitored."* Propone SLAs de calidad de datos: menos de 5 minutos de frescura para agentes transaccionales, menos de 1 hora para agentes analíticos.
+[Informatica](https://www.informatica.com/resources/articles/enterprise-ai-agent-engineering.html) advierte que darle acceso a datos a un agente no es suficiente: *"Because agents act without human approval loops, the data they use must be fully trusted, verified, and monitored."* Propone SLAs de calidad de datos: menos de 5 minutos de frescura para agentes transaccionales, menos de 1 hora para agentes analíticos — una dirección que Data Canon (Parte I) llevará más lejos: un solo nivel de calidad, el más estricto, para todo el canon.
 
 [eWeek](https://www.eweek.com/artificial-intelligence/how-will-agentic-ai-change-enterprise-data-management/) introduce el concepto de "agent-ready data" y proyecta que para 2026, la gestión de datos empresarial será radicalmente distinta — con agentes autónomos limpiando, validando y enriqueciendo datos dentro de límites gobernados.
 
@@ -218,7 +216,7 @@ La escala del problema es significativa: según [MindStudio](https://www.mindstu
 ## AURA: El Mapa del Camino
 
 ### Empresa en línea vs. empresa en tiempo real
-Las secciones anteriores dejaron planteada la distinción; conviene ahora fijarla como el eje de la trayectoria: la **empresa en línea** *accede* — datos actualizados, dashboards al día — pero depende de que un humano mire, interprete y decida; la **empresa en tiempo real** *reacciona* — detecta, interpreta, decide y actúa de forma continua y autónoma.
+Las secciones anteriores dejaron planteada la distinción; conviene ahora fijarla como el eje de la trayectoria: la **empresa en línea** *accede* — datos actualizados, dashboards al día — pero depende de que un humano mire, interprete y decida; la **empresa en tiempo real** *reacciona*: opera el ciclo de inteligencia continua completo, sin esperar a nadie.
 
 IRIS mapea esta trayectoria: las etapas 1–4 construyen los **fundamentos** — la infraestructura de la empresa en línea; las etapas 5–10 construyen la **empresa en tiempo real**. **El Salto Cuántico** — el colapso del costo de la pregunta analítica — es la frontera entre ambas trayectorias.
 

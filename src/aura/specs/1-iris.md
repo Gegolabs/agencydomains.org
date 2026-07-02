@@ -30,9 +30,14 @@ La trayectoria de esta transformación se articula a través de la **Pirámide d
 
 ### ¿Por qué "inteligencia organizacional" y no "gestión de información"?
 
+<!-- standalone -->
 Existen modelos de madurez de gestión de información bien establecidos en la industria. Miden aspectos críticos — calidad de datos, gobernanza, arquitectura, integración — pero se concentran en las dos primeras capas de la Pirámide del Valor: DATOS e INFORMACIÓN. Este modelo abarca las cuatro capas, desde datos fragmentados hasta acción autónoma orquestada. Eso ya no es gestión de información — es la capacidad de una organización de transformar datos en inteligencia accionable.
 
 Por eso hablamos de **inteligencia organizacional**: no se trata de qué tan bien gestionas tus datos, sino de qué tan capaz es tu organización de generar conocimiento y actuar sobre él de forma continua y autónoma. La gestión de información es el cimiento necesario — pero no el destino.
+<!-- /standalone -->
+<!-- libro
+El término que da nombre al eje quedó establecido en la Introducción: inteligencia organizacional es lo que se mide cuando el alcance cubre las cuatro capas de la Pirámide del Valor — no solo gestionar datos, sino generar conocimiento y actuar sobre él de forma continua y autónoma. IRIS operacionaliza esa capacidad, etapa por etapa.
+/libro -->
 
 ### Empresa en Línea vs. Empresa en Tiempo Real
 
@@ -53,11 +58,17 @@ Las etapas 5–10 construyen la **empresa en tiempo real**: desde acceso democr�
 
 ### La convergencia
 
-Este modelo mide la trayectoria de una organización desde datos fragmentados hasta inteligencia organizacional plena, donde tres conceptos convergen:
+<!-- standalone -->
+Este modelo mide la trayectoria de una organización desde datos fragmentados hasta inteligencia organizacional plena, donde cuatro conceptos convergen:
 
 **Inteligencia Organizacional** es la capacidad que se mide — el *qué*.
-**Empresa en Tiempo Real** es el resultado organizacional de esa capacidad madura — el *para qué*.
+**Automatización Organizacional** es la capacidad de ejecutar — el *quién* (la mide MOTOR, el modelo hermano).
+**Empresa en Tiempo Real** es el resultado organizacional de ambas capacidades maduras — el *para qué*.
 **IA Agentiva** es el mecanismo habilitador que hace posible la transformación — el *cómo*.
+<!-- /standalone -->
+<!-- libro
+La convergencia de los cuatro conceptos — inteligencia organizacional, automatización organizacional, empresa en tiempo real e IA agentiva — quedó trazada en la Introducción; IRIS mide el primero.
+/libro -->
 
 <!-- standalone -->
 > La visión completa, incluyendo los datos de contexto de la industria y las 30+ fuentes públicas que la respaldan, se encuentra en el documento complementario: *Visión de AURA — Arquitectura Unificada de Referencia Agentiva* (ultraBASE, Febrero 2026).
@@ -68,7 +79,7 @@ Este modelo mide la trayectoria de una organización desde datos fragmentados ha
 
 ### IRIS y MOTOR: el par diagnóstico de AURA
 
-IRIS es uno de dos modelos complementarios dentro de **AURA** (Arquitectura Unificada de Referencia Agentiva). Junto con **MOTOR** (Modelo de Madurez de Automatización Organizacional), conforman el diagnóstico completo de la transformación organizacional:
+IRIS es uno de dos modelos complementarios dentro de **AURA**. Junto con **MOTOR** (Modelo de Madurez de Automatización Organizacional), conforman el diagnóstico completo de la transformación organizacional:
 
 ![El par diagnóstico de AURA — IRIS mide el SABER; MOTOR mide el HACER](figuras/a03-ejes-saber-hacer.png)
 
@@ -209,7 +220,7 @@ La Etapa 5 es el primer estado de la **empresa en tiempo real**: toda la informa
 
 El valor se concentra en la capa de **CONOCIMIENTO** de la Pirámide del Valor — comprensión, patrones, análisis en tiempo real.
 
-**Salto 4→5 · Frontera de nivel (Estructurada → Dinámica) — El Salto Cuántico:** Este es el salto más transformador del modelo. Representa la transición de un paradigma donde la información solo existe si alguien la pre-construyó a un paradigma donde se genera en tiempo real a partir de la necesidad. Es el punto donde el costo de una pregunta analítica colapsa de semanas a segundos. Esta es la frontera entre los **fundamentos** (empresa en línea) y la **empresa en tiempo real** — donde la IA agentiva habilita un cambio cualitativo en la relación entre la organización y su información.
+**Salto 4→5 · Frontera de nivel (Estructurada → Dinámica) — El Salto Cuántico:** Este es el salto que cambia el paradigma. Representa la transición de un paradigma donde la información solo existe si alguien la pre-construyó a un paradigma donde se genera en tiempo real a partir de la necesidad. Es el punto donde el costo de una pregunta analítica colapsa de semanas a segundos. Esta es la frontera entre los **fundamentos** (empresa en línea) y la **empresa en tiempo real** — donde la IA agentiva habilita un cambio cualitativo en la relación entre la organización y su información.
 
 **Características observables:**
 
@@ -280,7 +291,7 @@ El valor se concentra en la capa de **ACCIÓN** de la Pirámide del Valor — la
 
 El flujo de información se vuelve bidireccional y operativo. Los agentes no solo alertan — ejecutan acciones predefinidas cuando las condiciones se cumplen. Un agente puede ajustar un parámetro operativo, reclasificar un caso, o disparar un proceso, todo dentro de reglas explícitamente gobernadas. El humano define los umbrales, las reglas y los protocolos de escalamiento; el agente opera dentro de esos límites.
 
-La diferencia con la etapa anterior es que el ciclo Percibir→Interpretar→Decidir→Actuar se completa sin intervención humana en los casos que caen dentro de los parámetros gobernados. El humano supervisa patrones, excepciones y resultados — no cada transacción.
+La diferencia con la etapa anterior es que el ciclo Percibir→Interpretar→Decidir→Actuar→Aprender se completa sin intervención humana en los casos que caen dentro de los parámetros gobernados. El humano supervisa patrones, excepciones y resultados — no cada transacción.
 
 **Salto 7→8:** La organización pasa de información que alerta a información que actúa.
 
@@ -417,6 +428,4 @@ La transformación descrita en la *Visión de AURA — Arquitectura Unificada de
 <!-- libro
 La Introducción de este libro provee el marco conceptual que ambos modelos operacionalizan.
 /libro --> Los conceptos fundamentales — la Pirámide del Valor, El Salto Cuántico, los Tres Ejes de Cambio, el Ciclo de Inteligencia Continua, y la distinción entre empresa en línea y empresa en tiempo real — son el cimiento compartido.
-
-> Para la definición del concepto de IA Agentiva, ver: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).
 

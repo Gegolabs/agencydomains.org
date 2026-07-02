@@ -21,6 +21,7 @@ El modelo describe 7 niveles de madurez que van desde el uso no gestionado de IA
 
 ### MOTOR e IRIS: el par diagnóstico de AURA
 
+<!-- standalone -->
 MOTOR es uno de dos modelos complementarios dentro de **AURA** (Arquitectura Unificada de Referencia Agentiva). Junto con **IRIS** (Modelo de Madurez de Inteligencia Organizacional), conforman el diagnóstico completo de la transformación organizacional:
 
 ![El par diagnóstico de AURA — IRIS mide el SABER; MOTOR mide el HACER](figuras/a03-ejes-saber-hacer.png)
@@ -28,12 +29,21 @@ MOTOR es uno de dos modelos complementarios dentro de **AURA** (Arquitectura Uni
 **IRIS** mide qué tan bien fluye la información — desde datos fragmentados hasta un ecosistema de inteligencia auto-gestionado. **MOTOR** mide qué tan automatizados están los procesos — desde uso ad-hoc de IA hasta ejecución autónoma orquestada.
 
 Son ortogonales: una organización puede estar alta en uno y baja en el otro. La madurez organizacional plena requiere avanzar en ambos ejes.
+<!-- /standalone -->
+<!-- libro
+El par diagnóstico quedó presentado al abrir la Parte I: IRIS mide el SABER, MOTOR mide el HACER, son ortogonales, y la madurez plena exige avanzar en ambos. Aquí opera el segundo eje.
+/libro -->
 
 ### Naturaleza diagnóstica
 
 MOTOR es un modelo **diagnóstico**. Su propósito es evaluar en qué nivel se encuentra una organización y qué significa ese nivel. No prescribe qué implementar, cuánto invertir ni en qué plazo — eso corresponde a la consultoría especializada que se construye sobre el diagnóstico.
 
+<!-- standalone -->
 Esta decisión de diseño es intencional: el estado del arte en IA evoluciona a velocidad sin precedente. Un modelo que prescriba tecnologías específicas queda obsoleto en meses. Un modelo que diagnostique estados de madurez permanece válido porque mide capacidades organizacionales, no herramientas.
+<!-- /standalone -->
+<!-- libro
+La razón de diseño es la misma que sostiene a IRIS: se diagnostican capacidades organizacionales, no herramientas — y por eso el modelo no envejece con el estado del arte.
+/libro -->
 
 La prescripción específica — enablers de implementación, inversiones, timelines, ROI, proveedores y roadmaps — se desarrolla en el documento complementario *MOTOR in Practice* (ultraBASE, Febrero 2026).
 
@@ -155,7 +165,7 @@ El salto cualitativo: los humanos dejan de usar IA como asistente y comienzan a 
 
 ### Wingworking
 
-Wingworking es la metodología de colaboración humano-IA desarrollada por César Obach donde el humano actúa como "piloto" — toma decisiones estratégicas, define objetivos y valida resultados — y el agente de IA opera como "wingman" — propone planes de ejecución, ejecuta tareas completas y reporta resultados. El nombre evoca la dinámica de un piloto y su wingman en aviación: confianza mutua, roles claros, comunicación estructurada.
+Wingworking es la metodología de colaboración humano-IA — desarrollada por el autor en la práctica de ultraBASE — donde el humano actúa como "piloto" — toma decisiones estratégicas, define objetivos y valida resultados — y el agente de IA opera como "wingman" — propone planes de ejecución, ejecuta tareas completas y reporta resultados. El nombre evoca la dinámica de un piloto y su wingman en aviación: confianza mutua, roles claros, comunicación estructurada.
 
 ```
   Wingworking Pattern:
@@ -483,7 +493,7 @@ Los Digital Twins emergen como indicador transversal de madurez que evoluciona p
   1–3      No existe                         N/A
   4        Descriptivo                       Infraestructura/operaciones
   5        Predictivo/Prescriptivo           Dominio técnico especializado
-  6        Organizacional       Toda la organización
+  6        Organizacional                    Toda la organización
   7        Estratégico del Ecosistema        Org + competencia + mercado
 ```
 
@@ -652,15 +662,15 @@ Estas estimaciones son referenciales y basadas en la observación del mercado al
 
 **Sweet Spot.** Nivel de madurez donde se maximiza el balance entre retorno, riesgo e inversión. En MOTOR, el Sweet Spot está en Nivel 4 (Analyst): es el punto donde la organización captura la mayor parte del valor económico de la autonomía operacional sin asumir el costo y la complejidad de Niveles 5-7. Para 2030, el Nivel 4 será el nuevo baseline competitivo del mercado.
 
-**Trust Infrastructure.** Conjunto de tecnologías (tokenización, anti-prompt injection, audit trails, compliance automático) que permiten usar IA de forma gobernada y auditable. Señal diagnóstica de la transición 1→2.
+**Trust Infrastructure.** Conjunto de tecnologías (tokenización, anti-prompt injection, audit trails, compliance automático) que permiten usar IA de forma gobernada y auditable. Señal diagnóstica de la transición 1→2. Es la misma primitiva que *AgencyDomains* especifica formalmente en su canon; aquí se usa como umbral de madurez, no como spec.
 
-**Wingworking.** Metodología de colaboración humano-IA donde el humano actúa como "piloto" (decisiones estratégicas, validación) y la IA como "wingman" (ejecución táctica delegada). Concepto desarrollado por César Obach. Señal diagnóstica de la transición 2→3 y característica definitoria del Nivel 3.
+**Wingworking.** Metodología de colaboración humano-IA donde el humano actúa como "piloto" (decisiones estratégicas, validación) y la IA como "wingman" (ejecución táctica delegada). Práctica original de ultraBASE. Señal diagnóstica de la transición 2→3 y característica definitoria del Nivel 3.
 
 ---
 
 ## Referencia Cruzada
 
-MOTOR es el instrumento de medición del eje HACER — la automatización organizacional mediante IA. Junto con **IRIS** (Modelo de Madurez de Inteligencia Organizacional), conforma el par diagnóstico de **AURA** (Arquitectura Unificada de Referencia Agentiva) — la arquitectura empresarial agentiva de ultraBASE.
+MOTOR es el instrumento de medición del eje HACER — la automatización organizacional mediante IA. Junto con **IRIS** (Modelo de Madurez de Inteligencia Organizacional), conforma el par diagnóstico de **AURA** — la arquitectura empresarial agentiva de ultraBASE.
 
 La prescripción específica de enablers, inversiones, timelines, ROI y roadmaps se desarrolla en el documento complementario: *MOTOR in Practice — Guía de Implementación* (ultraBASE, Febrero 2026).
 
@@ -670,6 +680,4 @@ La visión fundacional de la arquitectura se encuentra en: *Visión de AURA — 
 <!-- libro
 La visión fundacional de la arquitectura es la Introducción de este libro.
 /libro -->
-
-> Para la definición del concepto de IA Agentiva, ver: *El Futuro Agentivo* (César Obach, ultraBASE, 2025).
 

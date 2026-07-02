@@ -1,7 +1,7 @@
 ---
 título: AURA — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.2 · Junio 2026
-fuente_canónica: libro-aura-v0.2 (libro humano)
+edición: Borrador de desarrollo · v0.3 · Julio 2026
+fuente_canónica: libro-aura-v0.3 (libro humano)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que deben diagnosticar madurez organizacional y razonar dentro del marco AURA
 estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
@@ -9,14 +9,14 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 # AURA — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.2 (borrador de desarrollo)** del libro *AURA: el Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v0.3 (borrador de desarrollo)** del libro *AURA: el Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
 
 > AURA es **diagnóstica, no prescriptiva**. Este manifiesto permite *ubicar* a una organización en sus trayectorias de madurez y razonar sobre su siguiente paso; no recomienda productos, inversiones ni plazos — eso pertenece a la consultoría que estos modelos informan.
 
 ## Cómo usar este documento
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición, etapa, nivel y pregunta diagnóstica importa para razonar dentro del marco.
-- **Espejo de v0.2** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
+- **Espejo de v0.3** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos. En particular: **agentivo** ≠ **agéntico** (ver §2) — la distinción es de tesis, no de estilo.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: AURA diagnostica; sus pocos imperativos son estructurales (secuencialidad de niveles, pre-condiciones bloqueantes, honestidad del ROI).
 - **Estado pre-1.0**: el libro está en desarrollo activo, sin publicación pública aún. Términos, estructuras y numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera publicación).
@@ -268,9 +268,9 @@ El dato propietario resulta el grueso del valor, no el margen · las brechas con
 
 ---
 
-## 7 · Wingmap — el levantamiento agéntico (instrumento del HACER)
+## 7 · Wingmap — el levantamiento agentivo (instrumento del HACER)
 
-**Definición.** Técnica de levantamiento agéntico de la inteligencia operacional: un agente de IA con acceso de **lectura** a los canales digitales corporativos (correo, mensajería, repositorios, calendarios, sistemas transaccionales) reconstruye, **sin entrevistas ni talleres**, **dos mapas vivos y conectados**: el mapa del proceso (cómo se ejecuta el trabajo) y el grafo del flujo de información (qué dato se origina dónde, quién lo transforma, hacia dónde viaja). Opera primero en modo pasivo (observación) y, con condiciones, en modo activo (**Wingworking**: el usuario opera vía el agente).
+**Definición.** Técnica de levantamiento agentivo de la inteligencia operacional: un agente de IA con acceso de **lectura** a los canales digitales corporativos (correo, mensajería, repositorios, calendarios, sistemas transaccionales) reconstruye, **sin entrevistas ni talleres**, **dos mapas vivos y conectados**: el mapa del proceso (cómo se ejecuta el trabajo) y el grafo del flujo de información (qué dato se origina dónde, quién lo transforma, hacia dónde viaja). Opera primero en modo pasivo (observación) y, con condiciones, en modo activo (**Wingworking**: el usuario opera vía el agente).
 
 **Hipótesis (tres componentes encadenados):** (1) la inteligencia organizacional accionable no se obtiene preguntando — los ejecutores no pueden articular en abstracto lo que ejecutan en concreto (conocimiento tácito, BAU saturado, descripción políticamente situada); (2) sí se puede reconstruir observando los rastros digitales que la organización ya genera; (3) la reconstrucción debe ser **dual** — proceso *y* flujo de información.
 
@@ -305,7 +305,7 @@ El dato propietario resulta el grueso del valor, no el margen · las brechas con
 - **vs process mining clásico**: lo extiende a los canales no estructurados donde el proceso real vive; añade el segundo grafo (flujo de información) que los logs de ERP no pueden capturar.
 - **vs consultoría tradicional**: reemplaza el levantamiento artesanal (velocidad, costo, cobertura, continuidad — un orden de magnitud); no reemplaza la interpretación estratégica ni la negociación del cambio.
 - **vs copilotos individuales**: el copiloto opera la sesión de un usuario; Wingmap opera el flujo agregado cross-rol.
-- **vs AI-builders**: ellos son agénticos para construir, pre-agénticos para correr; Wingmap es agéntico para levantar y produce el sustrato que los agentes de runtime necesitan.
+- **vs AI-builders**: ellos son agentivos para construir, pre-agentivos para correr; Wingmap es agentivo para levantar y produce el sustrato que los agentes de runtime necesitan.
 
 ---
 
@@ -356,7 +356,7 @@ Nació en gobierno local pero es genérico (banca: cliente/compliance; salud: pa
 
 ## 9 · Glosario canónico (alfabético)
 
-- **Agéntico** — mundo de agentes complementarios; interfaces persisten. Evolución incremental. (En Wingmap, "agéntico" se usa además en sentido tecnológico: la era de la tecnología de agentes, por oposición a *pre-agéntico*.)
+- **Agéntico** — mundo de agentes complementarios; interfaces persisten. Evolución incremental. Es el único sentido de "agéntico" en el libro; el sentido tecnológico-positivo se dice siempre *agentivo* (Wingmap: levantamiento agentivo, era agentiva, pre-agentivo).
 - **Agentivo** — mundo donde los agentes reemplazan las interfaces; transformación fundamental. La tesis central del libro vive en este horizonte.
 - **Agentic Infrastructure** — protocolos y servicios que permiten a múltiples agentes comunicarse, coordinarse y ejecutar autónomamente. Señal de la transición MOTOR 3→4.
 - **AURA** — Arquitectura Unificada de Referencia Agentiva: dos ejes diagnósticos (IRIS · MOTOR) + instrumentos (Data Canon · Wingmap) + marco de decisión (Casos de Uso).
@@ -395,7 +395,7 @@ Nació en gobierno local pero es genérico (banca: cliente/compliance; salud: pa
 - **Solución de Valor (SV)** — configuración estratégica: CU integrados que resuelven un problema de negocio completo ante un decisor.
 - **Sweet Spot** — nivel donde se maximiza el balance retorno/riesgo/inversión. En MOTOR: Nivel 4. En el portafolio: el nivel actual + 1.
 - **Trust Infrastructure** — tecnologías de confianza (tokenización, anti-prompt injection, audit trails, compliance automático) que permiten usar IA gobernada y auditable. Señal de la transición MOTOR 1→2. (Término compartido con *AgencyDomains*, donde es el eje transversal de la arquitectura.)
-- **Wingmap** — técnica de levantamiento agéntico: dos mapas vivos y conectados (proceso + flujo de información) reconstruidos desde rastros digitales, sin entrevistas.
+- **Wingmap** — técnica de levantamiento agentivo: dos mapas vivos y conectados (proceso + flujo de información) reconstruidos desde rastros digitales, sin entrevistas.
 - **Wingworking** — metodología de colaboración humano-IA (César Obach): el humano como piloto (decisiones estratégicas, validación), el agente como wingman (ejecución táctica delegada). Señal de la transición MOTOR 2→3 y modo activo de Wingmap.
 
 ---

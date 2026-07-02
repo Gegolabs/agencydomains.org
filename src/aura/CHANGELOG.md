@@ -2,6 +2,39 @@
 
 Historial de versiones del libro *AURA · El Camino Agentivo*.
 
+## v0.3 — Julio 2026
+
+**La pasada editorial.** Revisión integral de la trilogía (inventario en la
+cocina del proyecto):
+
+- **Sistema agentivo/agéntico unificado.** "Agéntico" queda reservado al mundo
+  incremental (copilotos dentro de aplicaciones); Wingmap pasa a "levantamiento
+  **agentivo**" y a "era agentiva" en todas sus formas, con nota de terminología
+  alineada a la Introducción. Data Canon ya era conforme.
+- **Duplicaciones de ensamblaje resueltas con guards.** "Inteligencia
+  organizacional", "La convergencia" (ahora 4 conceptos también en IRIS
+  standalone), el "par diagnóstico" con su figura y la "naturaleza diagnóstica"
+  viven completos solo en las specs autónomas; el libro los remite a la
+  Introducción con una línea.
+- **Ciclo de inteligencia continua canónico**: Percibir → Interpretar → Decidir
+  → Actuar → **Aprender**, idéntico en Introducción e IRIS (Etapa 8); la fórmula
+  "detecta, interpreta, decide y actúa" deja de ser muletilla.
+- **El Salto Cuántico se acuña bajo su definición** (La nueva economía de la
+  información); la sección que describía la inversión del flujo se renombra.
+- **Data Canon estrena puente de libro** (enlace desde IRIS y el eje SABER) y
+  glosas de audiencia (agency-crítico, MDM, SLO, data marts); la cita de SLAs de
+  Informatica en la Introducción ahora anticipa la política de un solo nivel.
+- **Trust Infrastructure con puente de trilogía** en el glosario de MOTOR (misma
+  primitiva que especifica *AgencyDomains*; aquí, umbral de madurez).
+- **Residuos standalone limpiados**: tercera persona del autor (Wingworking),
+  "versiones futuras de este capítulo", "La tercera fase" bajo Fase 2, typos;
+  *El Futuro Agentivo* deja de citarse (la definición vive en la Introducción y
+  el mapa de la serie).
+- **Micro-sección «La trilogía»**: ancla el tránsito, glosa Data Mesh y BPM, y
+  registra las **cinco** especificaciones (entra Casos de Uso).
+- **El prólogo placeholder sale del build** hasta que llegue el texto del
+  prologuista.
+
 ## v0.2 — Junio 2026
 
 Homogeneización de voz, figuras propias y **primera publicación** en

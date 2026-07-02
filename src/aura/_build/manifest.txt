@@ -1,9 +1,9 @@
-# Manifest del libro AURA — orden de concatenación.
+# Manifest del libro AURA v0.3 — orden de concatenación.
+# El prólogo se reincorpora cuando llegue el texto del prologuista.
 # Rutas relativas a la raíz del libro.
 # Las 5 specs componentes se incluyen POR REFERENCIA desde specs/ — nunca se copian.
 # Sintaxis: ruta[|titulo=Rol en el libro]  (el título del rol reemplaza el primer H1 al ensamblar)
 contenido/00-frontmatter.md
-contenido/prologo.md
 contenido/prefacio.md
 contenido/introduccion.md
 contenido/intro-parte-saber.md
