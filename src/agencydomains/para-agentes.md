@@ -1,7 +1,7 @@
 ---
 título: AgencyDomains — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.4 · Junio 2026
-fuente_canónica: libro-agency_domains-v0.4 (libro humano)
+edición: Borrador de desarrollo · v0.5 · Julio 2026
+fuente_canónica: libro-agency_domains-v0.5 (libro humano)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que deben razonar dentro del framework
 estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
@@ -9,7 +9,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 # AgencyDomains — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.4 (borrador de desarrollo)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v0.5 (borrador de desarrollo)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
 
 > Este canon contiene la **estructura y el vocabulario** del Mundo Agentivo: definiciones, primitivas, propiedades exigidas, separaciones canónicas. **No contiene métodos para implementar ni catálogos operacionales** — esos viven en cuerpos complementarios. La implementación de referencia pública es **AgencyDomains.org**, materializada en **Vergis**, diseñada para que cualquier desarrollador o estudiante pueda descargarla, leerla, ejecutarla y aprender cómo el canon se traduce en sistemas vivos. Otros implementadores (productos comerciales, códices propietarios) ofrecen sus propios cuerpos complementarios sobre la misma estructura canónica.
 
@@ -17,7 +17,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición y propiedad importa para razonar dentro del framework.
 - **Serie**: AgencyDomains es el Libro III de la trilogía del Mundo Agentivo — *Postchat* (el destino; manifiesto propio) · *AURA* (el camino; manifiesto propio) · **AgencyDomains** (la arquitectura). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
-- **Espejo de v0.4** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
+- **Espejo de v0.5** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos.
 - **Convenciones MUST/SHOULD**: la spec usa esos verbos en sentido RFC 2119.
 - **Estado pre-1.0**: el libro está en desarrollo activo, sin publicación pública aún. Los términos, las estructuras y la numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera publicación).
@@ -287,8 +287,8 @@ La topología paralela describe **dónde** vive cada operación. Los tres tiempo
                 │  CAPA 4 · ACCESO                                         │
                 │  Tools (MCP) · A2A entre AgencyDomains · CRUDLEX         │
                 │  Aprobación humana · Append-only log · Routing           │
-                │  Caché semántico · Conectores · Capabilities             │
-                │  (cloud · edge · híbridas)                               │
+                │  Caché semántico · Conectores                            │
+                │  (cloud · edge · híbridos)                               │
                 └──────────────────────────────────────────────────────────┘
 
    ═══════════════════════════════════════════════════════════════════════
@@ -567,7 +567,7 @@ Un mismo AgencyDomain con la Capa 3 distribuida geográficamente: un **Botler ce
          (identidad única · log único · gobierno único)
 ```
 
-**Modo offline como propiedad emergente**: cuando los Botlets edge son **senior**, el sitio físico opera contra la BD local + Capabilities edge-resident sin red. La cola de eventos hacia central acumula transacciones; cuando la red vuelve, drena.
+**Modo offline como propiedad emergente**: cuando los Botlets edge son **senior**, el sitio físico opera contra la BD local + Conectores edge-resident sin red. La cola de eventos hacia central acumula transacciones; cuando la red vuelve, drena.
 
 **Propiedades exigidas**:
 - Identidad única del AgencyDomain (MUST)
@@ -716,16 +716,16 @@ Propiedad estructural exigida: todo Botlet conforme **MUST** poder trazarse en e
 
 **Anatomía canónica — nueve componentes**: (1) **identidad** (nombre + posición en el árbol) · (2) **vocabulario** · (3) **conocimiento procedimental** · (4) **conocimiento declarativo** · (5) **heurísticas** · (6) **tools asociadas** (Capa 4) · (7) **Capabilities padres** (herencia) · (8) **estado de madurez** (`Borrador` / `Vigente` / `Deprecado`) · (9) **versión**. Los componentes 2–5 (vocabulario · procedimental · declarativo · heurísticas) son el cuerpo del saber-hacer que distingue una Capability de un prompt elaborado.
 
-**Conformidad (MUST/SHOULD/MAY)**: estructura jerárquica en árbol (MUST) · cualquier nodo es Capability válida (MUST) · composabilidad (MUST) · anatomía con vocabulario + procedimental + declarativo + heurísticas (MUST) · versionado explícito (MUST) · **estado de madurez declarado `Borrador`/`Vigente`/`Deprecado` (MUST)** · selección por la cognición, no ejecución directa (MUST) · declaración de localidad y de disponibilidad offline (MUST) · portabilidad entre AgencyDomains conformes (MUST) · **verticales como raíz dedicada (SHOULD)** · marketplace abierto (MAY).
+**Conformidad (MUST/SHOULD/MAY)**: estructura jerárquica en árbol (MUST) · cualquier nodo es Capability válida (MUST) · composabilidad (MUST) · anatomía con vocabulario + procedimental + declarativo + heurísticas (MUST) · versionado explícito (MUST) · **estado de madurez declarado `Borrador`/`Vigente`/`Deprecado` (MUST)** · selección por la cognición, no ejecución directa (MUST) · declaración de localidad y disponibilidad offline del Conector acompañante (MUST) · portabilidad entre AgencyDomains conformes (MUST) · **verticales como raíz dedicada (SHOULD)** · marketplace abierto (MAY).
 
-#### Localidad y disponibilidad — clasificación operativa
+#### Localidad y disponibilidad — clasificación operativa de Conectores
 
-Toda Capability conforme MUST declarar su posición en dos ejes ortogonales:
+La clasificación se predica del **Conector** (el acceso es lo que reside y necesita red; el saber no tiene localidad). Todo Conector conforme MUST declarar su posición en dos ejes ortogonales:
 
 **Eje localidad**:
 - **Cloud-resident** — vive en servicio remoto (DTE-SII, Transbank, API meteorológica).
-- **Edge-resident** — vive en el sitio físico, asociada a hardware (ESC/POS-Printer, Cash-Drawer, Pinpad-Local).
-- **Híbrida** — componente local + componente cloud (Cliente-DTE, Cliente-Pinpad-Procesamiento-Diferido).
+- **Edge-resident** — vive en el sitio físico, asociado a hardware (ESC/POS-Printer, Cash-Drawer, Pinpad-Local).
+- **Híbrido** — componente local + componente cloud (Cliente-DTE, Cliente-Pinpad-Procesamiento-Diferido).
 
 **Eje disponibilidad offline**:
 - **Online-only** — requiere red para ejecutar.
@@ -737,27 +737,27 @@ Toda Capability conforme MUST declarar su posición en dos ejes ortogonales:
 |---|---|---|
 | **Cloud-resident** | DTE-SII (sin cliente local) · Transbank Onepay | (típicamente migra a híbrida) |
 | **Edge-resident** | (combinación inusual) | ESC/POS-Printer · Cash-Drawer · Sensor |
-| **Híbrida** | (combinación inusual) | Cliente-DTE · Cliente-Pinpad |
+| **Híbrido** | (combinación inusual) | Cliente-DTE · Cliente-Pinpad |
 
-Regla operativa con Capa 3 distribuida: **un Botlet edge senior, sin red, opera invocando exclusivamente Capabilities edge-resident y la parte local de híbridas**.
+Regla operativa con Capa 3 distribuida: **un Botlet edge senior, sin red, opera invocando exclusivamente Conectores edge-resident y la parte local de híbridos**.
 
 **Propiedades exigidas (localidad/disponibilidad)**:
-- Declaración explícita de localidad — cloud-resident / edge-resident / híbrida (MUST).
+- Declaración explícita de localidad del Conector — cloud-resident / edge-resident / híbrido (MUST).
 - Declaración explícita de disponibilidad offline — online-only / offline-capable (MUST).
 - Especificación del comportamiento offline para offline-capable — qué hace sin red, qué encola, cómo drena (MUST).
-- Resolución determinista del componente que se ejecuta en híbridas — bajo qué condiciones corre el local; bajo cuáles invoca el cloud (MUST).
+- Resolución determinista del componente que se ejecuta en híbridos — bajo qué condiciones corre el local; bajo cuáles invoca el cloud (MUST).
 
-#### La certificación regulatoria reside en la Capability, no en el Botlet
+#### La certificación regulatoria reside en el componente certificado, no en el Botlet
 
-Para operaciones reguladas (DTE-SII, PCI-DSS, registro sanitario, etc.), **la certificación regulatoria reside en la Capability invocada, no en el Botlet** que la invoca. La separación se justifica porque el Botlet es **código generado y regenerable**; certificarlo a priori es imposible y certificarlo entre regeneraciones contradice su naturaleza.
+Para operaciones reguladas (DTE-SII, PCI-DSS, registro sanitario, etc.), **la certificación regulatoria reside en el componente certificado que el Botlet invoca — el Conector certificado, acompañado por la Capability regulada que porta el saber normativo —, no en el Botlet**. La separación se justifica porque el Botlet es **código generado y regenerable**; certificarlo a priori es imposible y certificarlo entre regeneraciones contradice su naturaleza.
 
-**Patrón canónico**: el **Botlet orquesta** (conoce el flujo, valida pre-condiciones, captura el evento, formatea la solicitud) y la **Capability certificada ejecuta la operación regulada** (recibe la solicitud, ejecuta bajo norma, devuelve el comprobante). Uniforme por industria: `Cobrar-Mesa`→`DTE`, `Procesar-Pago`→`Gateway-PCI-DSS`, `Dispensar-Receta`→`Registro-Sanitario`, etc.
+**Patrón canónico**: el **Botlet orquesta** (conoce el flujo, valida pre-condiciones, captura el evento, formatea la solicitud) y el **Conector certificado ejecuta la operación regulada** (recibe la solicitud, ejecuta bajo norma, devuelve el comprobante); la **Capability regulada** aporta el saber normativo con que la cognición gobierna el par. Uniforme por industria: `Cobrar-Mesa`→`DTE`, `Procesar-Pago`→`Gateway-PCI-DSS`, `Dispensar-Receta`→`Registro-Sanitario`, etc.
 
 **Propiedades exigidas (reguladas)**:
-- Las Capabilities reguladas declaran su régimen regulatorio — qué norma, ante qué regulador, con qué número de certificación (MUST).
-- Capabilities reguladas inmutables entre auditorías; cambian solo bajo proceso regulatorio (MUST).
-- Los Botlets pueden invocar Capabilities reguladas sin restricción — el contrato es estable; se invoca como cualquier otra (MUST).
-- Auditabilidad de la frontera — el log distingue operaciones del Botlet (lógica de negocio) de operaciones de la Capability regulada (operación certificada) (MUST).
+- Los componentes regulados declaran su régimen regulatorio — qué norma, ante qué regulador, con qué número de certificación (MUST).
+- Conectores certificados inmutables entre auditorías; cambian solo bajo proceso regulatorio (MUST).
+- Los Botlets pueden invocar componentes certificados sin restricción — el contrato es estable; se invocan como cualquier otro (MUST).
+- Auditabilidad de la frontera — el log distingue operaciones del Botlet (lógica de negocio) de operaciones del componente certificado (operación regulada) (MUST).
 
 ### Asistente vs Agente Autónomo
 
@@ -1014,7 +1014,7 @@ Cuatro modos canónicos según el escenario de falla. La organización debe pode
 |---|---|---|
 | **Normal** | Todos los componentes activos | Topología paralela completa |
 | **Cognición caída** | Capa 2 inalcanzable, edge OK | **Vía Autonomía** sostiene; cognición rescatará al volver |
-| **Edge offline** | Botler edge sin conexión a central; sitio aislado | **Botlets senior** contra BD local + Capabilities edge-resident |
+| **Edge offline** | Botler edge sin conexión a central; sitio aislado | **Botlets senior** contra BD local + Conectores edge-resident |
 | **Continuidad operacional total** | Cognición + edge caídos por causa exógena | **Protocolo manual del sitio** |
 
 **Transición automática hasta `Edge offline`** — la arquitectura degrada sola. **Transición a `Continuidad operacional total` es gobernada por el protocolo del sitio** — un humano la activa explícitamente. Diferencia clave: los primeros tres modos son responsabilidad de la arquitectura; el cuarto es responsabilidad del cliente.
@@ -1124,7 +1124,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Capa 4 — Acceso** — poder de ejecución con Trust Infrastructure.
 - **Capability** — saber-hacer **cognitivo** modular y composable, reservado a **Capa 2 · Cognición**. NO plugin, NO prompt, NO tool. **Es saber.** Expone **features**; es **portable** (corre en cualquier AgencyDomain conforme).
 - **Capability cloud-resident** — vive en servicio remoto. Típicamente online-only.
-- **Capability edge-resident** — vive en sitio físico, asociada a hardware. Típicamente offline-capable.
+- **Conector edge-resident** — vive en sitio físico, asociado a hardware. Típicamente offline-capable.
 - **Capability híbrida** — componente local + componente cloud. Offline-capable con encolamiento.
 - **Capability offline-capable** — ejecuta sin red. Encola si emite hacia afuera.
 - **Capability online-only** — requiere red.
@@ -1285,7 +1285,7 @@ La arquitectura es **agnóstica a productos**. Admite múltiples implementacione
 | Runtime de Capa 3 | **Botler** (primitiva canónica, genérico) | — (sin nombre propio) |
 | Componente del catálogo | proto-Botlet platafórmico de operación informativa | **Mira** |
 
-- **Botler** es un **tipo** (primitiva del canon, como AgencyDomain, Botlet, Capability, Faceta). Cualquier runtime de Capa 3 conforme *es un* Botler.
+- **Botler** es un **tipo** (constructo normado de la spec de Botlets — no una de las siete primitivas). Cualquier runtime de Capa 3 conforme *es un* Botler.
 - **Vergis** y **Mira** son **nombres propios** de instancias (mismo cajón que soveria, agentia, ultrapro).
 - Categoría de Vergis: **Meta-Cognitive Platform** — administra la **economía de la cognición** (G1 músculo pre-forjado vs fallback de cognición fresca, ciclo `95/4/1`, maduración junior→senior, cristalización). **NO se abrevia a "MCP"** — esa sigla nombra el Model Context Protocol. El descriptor se usa deletreado.
 

@@ -1,5 +1,5 @@
+# El prólogo se reincorpora cuando llegue el texto del prologuista.
 00-frontmatter.md
-0-prologo/prologo.md
 0-prologo/prefacio.md
 1-la-linea-nadella/la-linea-nadella.md
 2-mundo-agentivo/mundo-agentivo.md

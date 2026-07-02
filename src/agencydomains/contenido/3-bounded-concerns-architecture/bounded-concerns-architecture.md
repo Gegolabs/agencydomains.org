@@ -189,6 +189,8 @@ Hasta aquí hemos descrito la cartografía del estado pre-agentivo. La pregunta 
 
 La respuesta no es uniforme entre celdas. El cruce afecta a cada una de manera distinta, en momentos distintos, con consecuencias distintas. Lo que sigue es el mapping celda por celda — la pieza que convierte a BCA en instrumento de migración, no en mera descripción del pasado.
 
+*(Nota de lectura: la columna de destino usa el vocabulario que los Capítulos 4 y 5 definen — Botlet, Capability, Conector, Trust Infrastructure. En primera lectura basta la columna de trayectoria — qué se preserva, qué se transforma, qué desaparece —; la columna de destino cobra sentido pleno al volver aquí después del Capítulo 5.)*
+
 | Celda BCA | Trayectoria al cruzar la Línea Nadella | Destino en el Mundo Agentivo |
 |---|---|---|
 | **UI** (Capa 1) | Se vacía progresivamente. La aplicación como interfaz primaria del trabajo cognitivo colapsa, según describimos en el Capítulo 2. | Reemplazada por la **Capa 1 — Interacción** del Mundo Agentivo (modalidades conversacionales, GUI on-the-fly, señalética pasiva, canales corporativos). La UI tradicional sobrevive sólo en herramientas especializadas con superficie compleja. |

@@ -54,7 +54,7 @@ El cruce al mundo de carbono es donde la mayor parte del valor económico vive. 
 
 La cuarta frontera es la menos desarrollada y la más especulativa de las cuatro, pero el libro la nombra explícitamente porque las primeras señales son visibles y la categoría merece registro. Es la frontera **institucional** — el horizonte donde los AgencyDomains dejan de ser sólo construcciones técnicas operadas por organizaciones y empiezan a constituirse como **ámbitos públicos** donde los agentes existen con identidad, persistencia y direccionabilidad pública sostenidas en el tiempo.
 
-La distinción crítica de esta frontera es **ontológica**, no técnica. Un AgencyDomain en régimen privado contiene agentes que la organización **asignó** — son residentes del espacio porque la organización los puso ahí. Un AgencyDomain en régimen público puede contener agentes que **consiguieron** su lugar — son ciudadanos del espacio porque cumplieron requisitos para serlo. La diferencia entre residencia (asignada) y ciudadanía (conseguida) es la diferencia entre **catálogo** y **nación**: un marketplace lista productos; una nación reconoce ciudadanos. La spec actual de AgencyDomains no exige el modelo de ciudadanía — admite ambos —, pero la frontera institucional es precisamente desarrollar las construcciones formales que el modelo de ciudadanía requiere.
+La distinción crítica de esta frontera es **ontológica**, no técnica. Un AgencyDomain en régimen privado contiene agentes que la organización **asignó** — son residentes del espacio porque la organización los puso ahí. Un AgencyDomain en régimen público puede contener agentes que **consiguieron** su lugar — son ciudadanos del espacio porque cumplieron requisitos para serlo. La diferencia entre residencia (asignada) y ciudadanía (conseguida) es la diferencia entre **catálogo** y **nación**: un marketplace lista productos; una nación reconoce ciudadanos. Y el Domain conseguido — no asignado — tiene ya nombre emergente: **Dominion**. La spec actual de AgencyDomains no exige el modelo de ciudadanía — admite ambos —, pero la frontera institucional es precisamente desarrollar las construcciones formales que el modelo de ciudadanía requiere.
 
 La industria emerge con un término operativo para nombrar este horizonte: **AgentNation**. Una AgentNation es un AgencyDomain en régimen público que adopta explícitamente el modelo de ciudadanía agentiva. Tiene reglas de admisión, identidad pública estable de los agentes que la componen, mecanismos de soberanía sobre el territorio del agente (su Domain), y una economía interna que reconoce a los agentes como agentes económicos de primera clase. No es marketplace; es jurisdicción.
 
@@ -62,12 +62,9 @@ El trabajo arquitectónico abierto que esta frontera plantea cubre tres ejes. El
 
 Las primeras implementaciones de AgentNation están emergiendo en 2026, todavía como prototipos institucionales. Soveria es uno de los proyectos que se posicionan explícitamente en esta frontera, operando como AgencyDomain en régimen público con vocación de ciudadanía agentiva. La consolidación del modelo es probablemente trabajo de cinco a diez años, y requerirá tanto avance técnico como construcción regulatoria. Pero la categoría existe, la industria empieza a nombrarla, y una arquitectura agentiva que pretenda servir el largo plazo del campo debe contemplar el horizonte.
 
-## Las generaciones del Botlet — G1, G2, G3
+## La cristalización — por qué el agente avanzado genera menos
 
-Las fronteras anteriores son del campo. Esta es de la cognición misma: la trayectoria por la que avanza un agente conforme el estado del arte madura. El Capítulo 5 · §2 — Botlets fijó el proto-Botlet como la pieza pre-forjada que el agente configura, y el ciclo `95/4/1` como el régimen de su operación. Aquí se desarrolla qué cambia, y qué no, conforme la capacidad de la cognición crece — y por qué la dirección de ese avance no es la que la intuición predice.
-
-<!-- FIG:g51-generaciones-botlet -->
-![Generaciones del Botlet — capacidad de autoría vs madurez operativa](figuras/g51-generaciones-botlet.png)
+Las fronteras anteriores son del campo. Este cierre es de la cognición misma: la trayectoria por la que avanza un agente conforme el estado del arte madura. El Capítulo 5 · §2 — Botlets fijó las **generaciones del Botlet** (`G1`/`G2`/`G3`), el proto-Botlet como la pieza pre-forjada que el agente configura, y el ciclo `95/4/1` como el régimen de su operación. Lo que queda para el epílogo es el argumento de fondo: por qué la dirección de ese avance no es la que la intuición predice.
 
 ### ¿Hacia dónde avanza un agente?
 
@@ -95,7 +92,7 @@ Cristalizar no es renunciar a poder. Es convertir poder en confianza.
 
 No desaparece — se reubica. El ciclo de vida del agente reserva la generación para sus márgenes, no para su centro. En el 95% de operación estable, el Botlet corre como estructura pre-forjada y configurada. En el 4% de cambio detectado y el 1% de regeneración — y en el camino de respaldo cuando algo falla — el agente despliega toda su capacidad de autoría: forja una pieza nueva del catálogo, rediseña, se recompone. La generación es la herramienta del borde, no la del régimen permanente.
 
-De modo que la respuesta a la pregunta inicial se invierte limpiamente. El agente más avanzado no es el que más genera; es el que ha cristalizado tanto que casi no necesita hacerlo — y que reserva su capacidad de generación para lo genuinamente nuevo, lo cual, con un catálogo maduro, es cada vez menos.
+De modo que la respuesta a la pregunta inicial se invierte limpiamente. El agente más avanzado no es el que más genera; es el que ha cristalizado tanto que casi no necesita hacerlo — y que reserva su capacidad de generación para lo genuinamente nuevo, lo cual, con un catálogo maduro, es cada vez menos. Es exactamente lo que las generaciones del Capítulo 5 §2 formalizan: la capacidad `G3` se gasta mejor produciendo reutilización `G1`.
 
 ### ¿Y la expectativa de la caja negra?
 
@@ -106,42 +103,6 @@ Conviene enfrentar la objeción con el ejemplo más exigente disponible: el cere
 El paralelo es estructural. La deliberación de la corteza es la **Cognición** (Capa 2), que interpreta, decide y compone; el cerebelo y los ganglios basales — donde los programas pre-forjados viven y se ejecutan sin deliberación — son la **Autonomía** (Capa 3). Que el usuario *interactúe* solo con el agente no implica que el agente *ejecute* todo con su cognición: la conversación es la superficie; debajo, la inteligencia agentiva delega en capas. Cuando la cognición compone una interfaz nueva, ése es su acto genuino de generación; pero la pieza, una vez compuesta, **corre** en Capa 3 como operación pre-forjada y configurada, no como código regenerado en cada cuadro. Y si esa composición se repite, cristaliza: deja de ser acto cognitivo y pasa a ser pieza de catálogo.
 
 Así la objeción no derriba la tesis: la confirma desde el ángulo más duro. La máquina más sofisticada que conocemos no es aquella cuya capa cognitiva lo hace todo; es la que se estratificó para que la cognición *no tenga* que hacerlo todo. La estratificación no es un parche a una cognición insuficiente — es la forma que toma la sofisticación.
-
-### ¿Qué distingue a G1, G2 y G3?
-
-Lo que el ejercicio anterior hace sentir, las generaciones del Botlet lo nombran. Son el modelo evolutivo de cómo nace el código del Botlet conforme avanza el estado del arte de la cognición:
-
-- **G1** — el agente, en su tiempo de Ingeniería, configura proto-Botlets pre-forjados del catálogo. Si ninguno sirve, especifica uno nuevo para forjar en la próxima Preparación.
-- **G2** — el agente co-escribe proto-Botlets con asistencia humana o de modelo. Parte del trabajo que en G1 ocurría en Preparación migra a la Ingeniería.
-- **G3** — el agente genera el código completo del Botlet en su tiempo de Ingeniería, sin pre-forjar nada. Escenario asintótico.
-
-La arquitectura es la misma en las tres generaciones; lo que cambia es el **alcance de la Ingeniería** que el agente realiza. Una implementación puede operar en `G1` hoy y migrar incrementalmente hacia `G3` conforme el estado del arte lo permita, sin re-arquitectura.
-
-### ¿Por qué una generación más alta no es un destino?
-
-La frase anterior — migrar hacia `G3` — induce, leída sola, una conclusión falsa: que `G3` es el destino y `G1` una estación de paso primitiva. El error nace de proyectar **dos ejes distintos sobre una sola flecha**:
-
-| ¿Qué eje? | ¿Qué mide? | ¿Dirección de "avance"? |
-|---|---|---|
-| **Capacidad de autoría** | Cuánto puede forjar el agente: configurar (`G1`) → co-escribir (`G2`) → generar entero (`G3`) | Hacia `G3`, conforme avanza el estado del arte de la cognición |
-| **Madurez operativa** | Para una operación recurrente, cuánto se reutiliza pre-forjado vs se regenera cada vez (ciclo `95/4/1`) | Hacia la reutilización (`G1`), conforme el Botlet madura junior → senior |
-
-No son la misma flecha. Un agente con capacidad `G3` que regenera cada artefacto desde cero en cada ejecución no es avanzado: tiene el músculo y elige re-aprender el movimiento cada vez. La reconciliación es directa: la capacidad `G3` se gasta mejor **produciendo reutilización `G1`**. Las generaciones describen lo que el agente *puede* autorar; el ciclo `95/4/1` describe lo que un agente maduro *reutiliza*. El destino de la capacidad `G3` es un catálogo `G1` más rico, no la regeneración en vivo de todo.
-
-Hay un corolario para los proto-Botlets **platafórmicos**. Para uno de ellos, `G1` es **terminal por diseño**, no estación de paso: su identidad es código genérico más configuración. Un platafórmico "en `G3`" — donde el agente regenera el motor por cada pieza — no es una versión más avanzada; disuelve el proto-Botlet y colapsa de vuelta al modo agéntico que la arquitectura existe para trascender.
-
-### ¿G1 es configuración pobre?
-
-Una última confusión a desarmar: leer `G1` como "configuración pobre" y `G3` como "generación rica", y saltar a `G3` antes de tiempo. Lo que define `G1` es que el agente no escribe el cuerpo del proto-Botlet — pero la configuración que rellena puede ser tan rica como un `DSL` composicional con expresiones formales evaluables. La distinción `G1`/`G3` es sobre **autoría del cuerpo del proto-Botlet**, no sobre expresividad de la configuración. Un proto-Botlet platafórmico con un `DSL` rico es `G1` puro.
-
-Eso deja un caso frontera: configuración que admite expresiones formales evaluables — `SQL`, especificaciones de gráfico, expresiones de filtro. El **filo `G1`/`G2`** lo resuelve:
-
-- Una expresión formal evaluable que es **parámetro de una Capability bien definida** (`SQL` → `execute-sql`, una especificación de gráfico → `render-chart`, una expresión de filtro → `filter-stream`) es configuración → **`G1`**.
-- Una expresión que **extiende o sobreescribe la lógica interna del proto-Botlet** — callbacks, lambdas que el proto-Botlet evalúa internamente, fragmentos que se concatenan a su cuerpo — es código escrito por el agente → **`G2`**.
-
-El test es uno solo: *"¿el código pertenece a la Capability invocada o al proto-Botlet mismo?"*. Si lo evalúa una Capability del catálogo, `G1`; si lo evalúa el proto-Botlet en su lógica interna, `G2`.
-
-La implementación de referencia, Vergis, opera hoy en `G1`: su catálogo expone proto-Botlets — Mira entre ellos, un platafórmico de operación informativa cuya configuración admite `SQL` como parámetro de la Capability de consulta — que el agente especializa configurando, no regenerando. Quien quiera ver `G1` en código vivo encontrará en Vergis el ejemplar concreto; el capítulo de Vergis lo desarrolla.
 
 ## Lo que la comunidad técnica debe construir
 

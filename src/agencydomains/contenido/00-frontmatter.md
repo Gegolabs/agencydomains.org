@@ -4,7 +4,7 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · Junio 2026 · v0.4
+**Edición:** Borrador de desarrollo · Julio 2026 · v0.5
 **Licencia:** GNU Free Documentation License v1.3 *(propuesta)*
 
 > **Nota sobre la versión.** Este es un **borrador de desarrollo pre-1.0**: las referencias y las figuras pueden reorganizarse entre iteraciones hasta la versión **1.0**, que será la primera publicación pública estable. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
@@ -54,13 +54,15 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Borrador de desarrollo v0.4. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Borrador de desarrollo v0.5. GegoLabs, 2026.
 
 ## La trilogía
 
-Este libro es el volumen **III** de la **Trilogía del Mundo Agentivo**. Los tres
-volúmenes responden, en orden, las tres preguntas del tránsito — y cada uno se
-lee completo por sí solo:
+Este libro es el volumen **III** de la **Trilogía del Mundo Agentivo**. El
+tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas
+abren aplicaciones para trabajar, al mundo donde los agentes de IA son la
+interfaz del trabajo. Los tres volúmenes responden, en orden, las tres
+preguntas de ese tránsito — y cada uno se lee completo por sí solo:
 
 **I · Postchat — Mundo Agentivo**
 ¿Hacia dónde vamos? — **el destino.** Para quien quiere ver el mundo al otro
@@ -69,7 +71,7 @@ aplicaciones ya colapsaron.
 
 **II · AURA — Camino Agentivo**
 ¿Por dónde? — **la ruta.** Para quien tiene que hacer el cruce: líderes y
-asesores de la transformación. Sus cuatro especificaciones son instrumentos
+asesores de la transformación. Sus cinco especificaciones son instrumentos
 autónomos para la era agentiva — cada una se usa por separado, sin necesidad
 del resto del libro:
 
@@ -77,8 +79,9 @@ del resto del libro:
 |:---------|:----------------------------|:----------------------------|
 | **IRIS** | Un modelo de madurez de inteligencia organizacional | Mide cuán avanzada está tu organización en Inteligencia de Negocios |
 | **MOTOR** | Un modelo de madurez de automatización organizacional | Mide cuán avanzada está tu organización en automatización de procesos |
-| **Data Canon** | La evolución de Data Mesh | Define cómo gobernar datos y hacer BI |
-| **Wingmap** | La evolución del BPM / process mining | Reconstruye procesos y flujos de información sin entrevistas |
+| **Data Canon** | La evolución del modelo de gestión descentralizada de datos (Data Mesh) | Define cómo gobernar datos y hacer BI |
+| **Wingmap** | La evolución de la gestión de procesos (BPM / *process mining*) | Reconstruye procesos y flujos de información sin entrevistas |
+| **Casos de Uso** | Un portafolio de 100 casos de uso y 30 soluciones de valor | Prioriza por dónde empezar, según tu madurez |
 
 **III · AgencyDomains — Arquitectura Agentiva** *(este libro)*
 ¿Cómo llegamos? — **el vehículo.** Para arquitectos, CTOs y constructores de

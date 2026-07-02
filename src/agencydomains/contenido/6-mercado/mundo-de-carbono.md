@@ -68,7 +68,7 @@ La cadena de valor de IA actual cubre los eslabones 1-10 con creciente madurez e
 
 Esto crea una **oportunidad arquitectónica**: una infraestructura agentiva que se especifique como gateway hacia el mundo de carbono, ofreciendo tools normalizadas para conectarse a sistemas SCADA/MES/PLCs, patrones de edge computing pre-construidos, twins digitales como abstracción nativa, Trust Infrastructure ajustada a las regulaciones de cada sub-vertical, y modelos de aprobación humana multi-nivel.
 
-Esta infraestructura no es producto contemporáneo de ningún actor del mercado de IA digital. Su construcción exige conocimiento profundo del mundo de carbono — vocabulario industrial, regulaciones, prácticas operativas — combinado con la disciplina arquitectónica de la cadena de valor de IA. Los actores que lo logren primero capturan el espacio antes de que los gigantes lleguen.
+Esta infraestructura no es producto contemporáneo de ningún actor del mercado de IA digital. Su construcción exige conocimiento profundo del mundo de carbono — vocabulario industrial, regulaciones, prácticas operativas — combinado con la disciplina arquitectónica de la cadena de valor de IA. Los actores que lo logren primero se quedan con un territorio que los gigantes tardarán años en pisar.
 
 > *El gateway empresarial de IA conecta la cognición con sistemas digitales. El gateway empresarial extendido al mundo de carbono conecta la cognición con la materia.*
 

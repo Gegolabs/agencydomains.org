@@ -55,6 +55,8 @@ Cada término tiene su capa, su naturaleza y su esquema de desarrollo propio:
 | **Conector** (compañero, si requiere acceso a sistemas fuente) | Capa 4 · Acceso | Saber acceder a sistemas; no es saber cognitivo | Esquema de integración (relevar · configurar · probar · certificar) |
 | **Plantilla** (compañero, si la entrega debe conformar a una expectativa de presentación) | Capa 1 · Interacción | Confección de un instrumento canónico en un formato o regla del cliente | Esquema de confección (relevar expectativa · confeccionar sobre instrumento canónico · validar) |
 
+El **Wingtraining**, citado en la tabla, es el esquema canónico de desarrollo de una Capability en cinco pasos: **workshop con el SME** (*subject-matter expert* — el experto humano cuyo saber se transfiere al agente), **creación**, **personalización**, **ALFA** (validación con el SME) y **BETA** (validación en operación real). Su desarrollo pertenece a la práctica de entrega, no a este canon; el test de clasificación de más abajo lo usa como criterio porque es la prueba operativa de que un alcance es transferencia de saber — y no integración ni formato.
+
 #### ¿Cuál es la estructura conceptual de un proyecto agentivo de entrega?
 
 Un proyecto agentivo de entrega se estructura como una **Capability protagonista** (Capa 2) acompañada típicamente de uno o más **Conectores** (Capa 4) y una o más **Plantillas** (Capa 1). Además, la propia Capability produce sin esfuerzo adicional sus **instrumentos de información** — reportes y dashboards canónicos —, que quedan implícitos en la entrega: no requieren esquema de desarrollo propio porque emergen de la Capability y su capa de interacción. La Plantilla aparece solo cuando uno de esos instrumentos debe conformar a una forma específica del cliente.
@@ -181,54 +183,54 @@ La economía emergente tiene precedentes claros. La industria del software cuent
 
 La especificación normativa del **protocolo de Marketplace de Capabilities** — formato de paquete, modelo de versionado, sistema de firmas, modelo de cobro — es **trabajo abierto** en la versión 1.0 de este libro. Las implementaciones contemporáneas pueden adoptar paquetes ad-hoc; la consolidación como estándar de industria está pendiente. Cuando el consenso llegue, una versión futura del libro lo incorporará como spec normativa.
 
-### Localidad y disponibilidad — clasificación operativa de Capabilities
+### Localidad y disponibilidad — clasificación operativa de Conectores
 
-La descripción canónica anterior trata las Capabilities como acceso a saber-hacer aplicable en cualquier contexto. La realidad operativa de sistemas con presencia física múltiple — restaurantes con locales, sucursales bancarias, tiendas de retail, plantas industriales — exige una clasificación adicional que la spec formaliza explícitamente: **localidad** y **disponibilidad offline**. Sin esa clasificación, las decisiones de qué Capabilities pueden invocarse desde un Botlet edge en modo offline se hacen en la oscuridad.
+La descripción canónica anterior trata el saber-hacer como aplicable en cualquier contexto. La realidad operativa de sistemas con presencia física múltiple — restaurantes con locales, sucursales bancarias, tiendas de retail, plantas industriales — exige una clasificación adicional que la spec formaliza explícitamente: **localidad** y **disponibilidad offline**. La clasificación pertenece a los **Conectores** — la cara de Capa 4 del par que acompaña a la Capability —, porque lo que reside en un lugar y necesita (o no) red es el *acceso*, nunca el saber: la Capability que decide cuándo y cómo invocar no tiene localidad. Se documenta en este capítulo porque el par Capability–Conector se entrega y se razona junto. Sin esta clasificación, las decisiones de qué puede invocarse desde un Botlet edge en modo offline se hacen en la oscuridad.
 
 La clasificación opera sobre **dos ejes ortogonales**:
 
 #### Eje de localidad
 
-Dónde residen físicamente los componentes de la Capability:
+Dónde residen físicamente los componentes del Conector:
 
-- **Cloud-resident** — la Capability vive en un servicio remoto. Ejemplos canónicos: Capability `DTE-SII` (servicio del SII de Chile para emisión de boleta y factura electrónica), `Transbank-Onepay` (gateway bancario), `Stripe-Connect` (procesamiento de pagos). El agente las invoca por red; sin red no hay Capability.
+- **Cloud-resident** — el Conector vive en un servicio remoto. Ejemplos canónicos: Conector `DTE-SII` (servicio del SII de Chile para emisión de boleta y factura electrónica), `Transbank-Onepay` (gateway bancario), `Stripe-Connect` (procesamiento de pagos). El agente los invoca por red; sin red no hay acceso.
 
-- **Edge-resident** — la Capability vive en el sitio físico, asociada a hardware o sistemas locales. Ejemplos canónicos: Capability `ESC/POS-Printer` (impresora térmica de comandas y boletas con protocolo ESC/POS conectada por USB o serial), `Cash-Drawer` (gaveta de dinero del cajón), `Pinpad-Local` (pinpad de tarjetas conectado al POS), `Sensor-Temperatura` (sensor de cámara de frío conectado por GPIO). El agente las invoca contra el hardware del sitio; no necesitan red para operar.
+- **Edge-resident** — el Conector vive en el sitio físico, asociado a hardware o sistemas locales. Ejemplos canónicos: Conector `ESC/POS-Printer` (impresora térmica de comandas y boletas con protocolo ESC/POS conectada por USB o serial), `Cash-Drawer` (gaveta de dinero del cajón), `Pinpad-Local` (pinpad de tarjetas conectado al POS), `Sensor-Temperatura` (sensor de cámara de frío conectado por GPIO). El agente los invoca contra el hardware del sitio; no necesitan red para operar.
 
-- **Híbrida** — la Capability tiene un componente local y un componente cloud. Ejemplos canónicos: Capability `Cliente-DTE` (firma localmente el documento, lo encola si no hay red, lo envía al SII cuando vuelve la red), `Cliente-Pinpad-Procesamiento-Diferido` (autoriza localmente con clave PIN y batch, envía al adquirente cuando vuelve la red). La parte local opera offline; la parte cloud sincroniza cuando hay red.
+- **Híbrido** — el Conector tiene un componente local y un componente cloud. Ejemplos canónicos: Conector `Cliente-DTE` (firma localmente el documento, lo encola si no hay red, lo envía al SII cuando vuelve la red), `Cliente-Pinpad-Procesamiento-Diferido` (autoriza localmente con clave PIN y batch, envía al adquirente cuando vuelve la red). La parte local opera offline; la parte cloud sincroniza cuando hay red.
 
 #### Eje de disponibilidad offline
 
-Si la Capability puede ejecutarse sin red:
+Si el Conector puede ejecutarse sin red:
 
-- **Online-only** — requiere red para ejecutar. Sin red, la invocación falla. Capabilities cloud-resident son típicamente online-only en el sentido estricto, aunque algunas tienen variantes con cliente local que las convierten en híbridas.
+- **Online-only** — requiere red para ejecutar. Sin red, la invocación falla. Los Conectores cloud-resident son típicamente online-only en el sentido estricto, aunque algunos tienen variantes con cliente local que los convierten en híbridos.
 
-- **Offline-capable** — ejecuta sin red. Si su contrato externo exige eventualmente comunicación cloud (un comprobante que debe llegar al SII, una transacción que debe consolidarse en central), **encola** y emite hacia afuera cuando la red vuelve. Capabilities edge-resident son típicamente offline-capable; Capabilities híbridas también lo son por diseño.
+- **Offline-capable** — ejecuta sin red. Si su contrato externo exige eventualmente comunicación cloud (un comprobante que debe llegar al SII, una transacción que debe consolidarse en central), **encola** y emite hacia afuera cuando la red vuelve. Los Conectores edge-resident son típicamente offline-capable; los híbridos también lo son por diseño.
 
 #### Matriz canónica de clasificación
 
-Cada Capability conforme declara explícitamente su posición en la matriz:
+Cada Conector conforme declara explícitamente su posición en la matriz:
 
 |   | Online-only | Offline-capable |
 |---|---|---|
-| **Cloud-resident** | DTE-SII (sin cliente local) · Transbank Onepay · API meteorológica | (combinación inusual; típicamente migra a híbrida) |
+| **Cloud-resident** | DTE-SII (sin cliente local) · Transbank Onepay · API meteorológica | (combinación inusual; típicamente migra a híbrido) |
 | **Edge-resident** | (combinación inusual) | ESC/POS-Printer · Cash-Drawer · Sensor-Temperatura · Pinpad-Local |
-| **Híbrida** | (combinación inusual) | Cliente-DTE · Cliente-Pinpad-Procesamiento-Diferido · Sync-Inventario |
+| **Híbrido** | (combinación inusual) | Cliente-DTE · Cliente-Pinpad-Procesamiento-Diferido · Sync-Inventario |
 
 #### Conexión con Capa 3 distribuida
 
-La clasificación es necesaria estructuralmente cuando la Capa 3 está distribuida (Capítulo 5 §1). Un Botler edge debe **saber** qué Capabilities puede invocar offline. Si no lo sabe, sus Botlets edge intentarán invocar Capabilities cloud-resident sin red y fallarán catastróficamente — sin red, ni siquiera el fallback agéntico aplica, porque la cognición vive en cloud.
+La clasificación es necesaria estructuralmente cuando la Capa 3 está distribuida (Capítulo 5 §1). Un Botler edge debe **saber** qué Conectores puede invocar offline. Si no lo sabe, sus Botlets edge intentarán invocar Conectores cloud-resident sin red y fallarán catastróficamente — sin red, ni siquiera el fallback agéntico aplica, porque la cognición vive en cloud.
 
-La regla operativa que la clasificación habilita es directa: **un Botlet edge senior, en un sitio físico sin red, opera invocando exclusivamente Capabilities edge-resident y la parte local de Capabilities híbridas**. Las cloud-resident y la parte cloud de las híbridas quedan inaccesibles temporalmente; los efectos diferidos (envío a SII, consolidación con central) se encolan; cuando la red vuelve, las colas drenan.
+La regla operativa que la clasificación habilita es directa: **un Botlet edge senior, en un sitio físico sin red, opera invocando exclusivamente Conectores edge-resident y la parte local de Conectores híbridos**. Los cloud-resident y la parte cloud de los híbridos quedan inaccesibles temporalmente; los efectos diferidos (envío a SII, consolidación con central) se encolan; cuando la red vuelve, las colas drenan.
 
 #### Propiedades exigidas
 
 | Propiedad | Nivel | Descripción |
 |---|---|---|
-| Declaración explícita de localidad | **MUST** | Cloud-resident, edge-resident o híbrida. |
+| Declaración explícita de localidad del Conector | **MUST** | Cloud-resident, edge-resident o híbrido. |
 | Declaración explícita de disponibilidad offline | **MUST** | Online-only u offline-capable. |
 | Especificación del comportamiento offline para offline-capable | **MUST** | Qué hace cuando no hay red, qué encola, cómo drena. |
-| Resolución determinista del componente que se ejecuta en híbridas | **MUST** | Bajo qué condiciones corre el componente local; bajo cuáles invoca el cloud. |
+| Resolución determinista del componente que se ejecuta en híbridos | **MUST** | Bajo qué condiciones corre el componente local; bajo cuáles invoca el cloud. |
 
 ### Portabilidad de la Capability
 
@@ -249,53 +251,54 @@ Conviene no confundir dos portabilidades que operan en niveles distintos:
 
 La relación es asimétrica y explícita: un **AgencyDomain aloja y ejecuta** Capabilities; una **Capability corre en** un AgencyDomain anfitrión. La Capability es habitante de primer orden de la Capa 2 del AgencyDomain — el saber-hacer que da cognición a sus agentes —, no un recurso de soporte. Esta es la razón por la que la definición canónica de AgencyDomain nombra a las Capabilities entre lo que el AgencyDomain aloja y ejecuta, a la par de los agentes autónomos y los Botlets.
 
-### La certificación regulatoria reside en la Capability, no en el Botlet
+### La certificación regulatoria reside en el componente certificado, no en el Botlet
 
-Una propiedad estructural que aparece con fuerza en sistemas agentivos productivos en industrias reguladas — gastronomía, salud, finanzas, retail con DTE, farmacia, telecomunicaciones — y que la spec necesita formalizar explícitamente: **la certificación regulatoria de operaciones reside en la Capability invocada, no en el Botlet que la invoca**. La separación es necesaria porque la naturaleza generada del Botlet hace imposible certificarlo a priori, y certificarlo a posteriori contradice su naturaleza regenerable.
+Una propiedad estructural que aparece con fuerza en sistemas agentivos productivos en industrias reguladas — gastronomía, salud, finanzas, retail con DTE, farmacia, telecomunicaciones — y que la spec necesita formalizar explícitamente: **la certificación regulatoria de operaciones reside en el componente certificado que el Botlet invoca — el Conector certificado, con la Capability regulada que porta su saber normativo —, nunca en el Botlet que orquesta**. La separación es necesaria porque la naturaleza generada del Botlet hace imposible certificarlo a priori, y certificarlo a posteriori contradice su naturaleza regenerable.
 
 #### El problema
 
-El libro define que la cognición genera el código del Botlet (Capítulo 5 §2). Pero algunas operaciones que un Botlet ejecuta están **reguladas**: emisión de DTE bajo norma del SII, cobro con tarjeta bajo PCI-DSS, dispensación farmacéutica bajo registro sanitario, comunicación financiera bajo norma de la SBIF / SVS / equivalente. Para estas operaciones, **la regulación exige certificación del componente que ejecuta la operación**. Un sistema que emite boleta electrónica sin certificación SII no es legal; un sistema que cobra con tarjeta sin certificación PCI no puede operar.
+El libro define que la cognición genera el código del Botlet (Capítulo 5 §2). Pero algunas operaciones que un Botlet ejecuta están **reguladas**: emisión de DTE bajo norma del SII, cobro con tarjeta bajo PCI-DSS, dispensación farmacéutica bajo registro sanitario, comunicación financiera bajo norma del regulador correspondiente. Para estas operaciones, **la regulación exige certificación del componente que ejecuta la operación**. Un sistema que emite boleta electrónica sin certificación SII no es legal; un sistema que cobra con tarjeta sin certificación PCI no puede operar.
 
 Si la certificación residiera en el Botlet, cada Botlet que ejecuta una operación regulada tendría que ser certificado individualmente. Pero un Botlet es **código generado por la cognición** que se regenera cuando el ambiente cambia. Cada regeneración produciría un Botlet técnicamente distinto que requeriría re-certificación. La certificación regulatoria sobre Botlets convierte el ciclo `95/4/1` en imposibilidad operacional: cada cambio del 1% requeriría un proceso regulatorio.
 
 #### La solución canónica
 
-La spec resuelve la tensión separando responsabilidades con disciplina:
+La spec resuelve la tensión separando responsabilidades con disciplina, y el reparto respeta la doctrina de capas del capítulo:
 
-- **El Botlet orquesta**. Conoce el flujo del proceso, valida pre-condiciones operativas (¿hay productos?, ¿la mesa está abierta?, ¿el cliente tiene su RUT registrado?), captura el evento, formatea la solicitud según el contrato de la Capability.
-- **La Capability certificada ejecuta la operación regulada**. Recibe la solicitud del Botlet, ejecuta la operación regulada bajo todas las normas que aplican, devuelve el comprobante. La Capability `DTE-SII` recibe el detalle de la venta, firma con el certificado tributario, transmite al SII, recibe folio y timbre electrónico, devuelve el comprobante al Botlet.
+- **El Botlet orquesta.** Conoce el flujo del proceso, valida pre-condiciones operativas (¿hay productos?, ¿la mesa está abierta?, ¿el cliente tiene su RUT registrado?), captura el evento, formatea la solicitud según el contrato del componente certificado.
+- **El Conector certificado ejecuta la operación regulada.** Recibe la solicitud del Botlet, ejecuta bajo todas las normas que aplican, devuelve el comprobante. El Conector `DTE-SII` recibe el detalle de la venta, firma con el certificado tributario, transmite al SII, recibe folio y timbre electrónico, devuelve el comprobante al Botlet. Es certificable precisamente porque es acceso estable, no saber generado.
+- **La Capability regulada porta el saber normativo.** Qué exige la norma, cómo se interpreta, cuándo corresponde boleta y cuándo factura, qué hacer ante rechazo del regulador — el saber cognitivo con que la cognición decide y valida. Vive en Capa 2, se desarrolla con SME del dominio regulatorio, y acompaña al Conector como su par.
 
 La separación tiene tres consecuencias estructurales:
 
-**Primera, la certificación es del componente certificable.** La Capability `DTE-SII` puede certificarse formalmente — su código es estable, su contrato con el SII es explícito, su comportamiento es auditable. La certificación es trabajo único; vale para todos los Botlets que la invoquen.
+**Primera, la certificación es del componente certificable.** El Conector `DTE-SII` puede certificarse formalmente — su código es estable, su contrato con el SII es explícito, su comportamiento es auditable. La certificación es trabajo único; vale para todos los Botlets que lo invoquen.
 
-**Segunda, los Botlets generados conviven naturalmente con cumplimiento regulatorio.** Un Botlet `Cobrar-Mesa-9` que se regenera cuando la cocina cambia su menú no rompe la certificación tributaria — sigue invocando la misma Capability `DTE-SII` certificada. La regeneración del Botlet afecta lógica de orquestación, no la operación regulada.
+**Segunda, los Botlets generados conviven naturalmente con cumplimiento regulatorio.** Un Botlet `Cobrar-Mesa-9` que se regenera cuando la cocina cambia su menú no rompe la certificación tributaria — sigue invocando el mismo Conector `DTE-SII` certificado. La regeneración del Botlet afecta lógica de orquestación, no la operación regulada.
 
-**Tercera, la frontera de auditoría queda nítida.** Cuando el regulador audita, el AgencyDomain expone: el Botlet (lógica de negocio, mutable, regenerable) y la Capability (operación regulada, certificada, auditable). La inspección regulatoria se concentra en la Capability — donde la certificación reside —, mientras la lógica de negocio se gobierna con los mecanismos de Trust del Capítulo 5 §4 sin contradecirse con la regulación.
+**Tercera, la frontera de auditoría queda nítida.** Cuando el regulador audita, el AgencyDomain expone: el Botlet (lógica de negocio, mutable, regenerable) y el componente certificado (operación regulada, congelada, auditable). La inspección regulatoria se concentra en el Conector certificado — donde la certificación reside —, mientras la lógica de negocio se gobierna con los mecanismos de Trust del Capítulo 5 §4 sin contradecirse con la regulación.
 
 #### Patrón canónico
 
 El patrón se aplica a cualquier industria regulada:
 
-| Industria | Botlet (orquesta) | Capability certificada (ejecuta operación regulada) |
+| Industria | Botlet (orquesta) | Componente certificado (ejecuta la operación regulada) |
 |---|---|---|
-| **Gastronomía** | `Cobrar-Mesa` | `DTE-SII` (boleta o factura electrónica) |
-| **Banca** | `Procesar-Pago` | `Gateway-PCI-DSS` (tokenización + autorización) |
-| **Farmacia** | `Dispensar-Receta` | `Registro-Sanitario` (validación y registro de dispensación) |
-| **Telecom** | `Activar-Servicio` | `Registro-Subtel` (registro regulatorio de activación) |
-| **Salud** | `Emitir-Prescripción` | `MINSAL-Receta-Electrónica` (firma médica certificada) |
+| **Gastronomía** | `Cobrar-Mesa` | Conector `DTE-SII` (boleta o factura electrónica) |
+| **Banca** | `Procesar-Pago` | Conector `Gateway-PCI-DSS` (tokenización + autorización) |
+| **Farmacia** | `Dispensar-Receta` | Conector `Registro-Sanitario` (validación y registro de dispensación) |
+| **Telecom** | `Activar-Servicio` | Conector `Registro-Subtel` (registro regulatorio de activación) |
+| **Salud** | `Emitir-Prescripción` | Conector `MINSAL-Receta-Electrónica` (firma médica certificada) |
 
-El patrón es uniforme: el Botlet contiene la lógica de negocio mutable; la Capability contiene la operación regulada certificada. La frontera entre los dos es la frontera entre lo que la organización puede regenerar libremente y lo que debe mantener congelado bajo certificación.
+El patrón es uniforme: el Botlet contiene la lógica de negocio mutable; el componente certificado contiene la operación regulada congelada; la Capability regulada aporta el saber normativo con que la cognición gobierna el conjunto. La frontera entre ellos es la frontera entre lo que la organización puede regenerar libremente y lo que debe mantener bajo certificación.
 
 #### Propiedades exigidas
 
 | Propiedad | Nivel | Descripción |
 |---|---|---|
-| Capabilities reguladas declaran su régimen regulatorio | **MUST** | Qué norma cumple, ante qué regulador, con qué número de certificación. |
-| Capabilities reguladas son inmutables entre auditorías | **MUST** | El código de la Capability certificada no se regenera; cambia solo bajo proceso regulatorio. |
-| Botlets pueden invocar Capabilities reguladas sin restricción | **MUST** | El contrato de la Capability es estable; el Botlet la invoca como cualquier otra. |
-| Auditabilidad de la frontera | **MUST** | El log distingue claramente operaciones del Botlet (lógica de negocio) de operaciones de la Capability regulada (operación certificada). |
+| Componentes regulados declaran su régimen regulatorio | **MUST** | Qué norma cumple, ante qué regulador, con qué número de certificación. |
+| Componentes certificados son inmutables entre auditorías | **MUST** | El código del Conector certificado no se regenera; cambia solo bajo proceso regulatorio. |
+| Botlets pueden invocar componentes certificados sin restricción | **MUST** | El contrato del componente es estable; el Botlet lo invoca como cualquier otro. |
+| Auditabilidad de la frontera | **MUST** | El log distingue claramente operaciones del Botlet (lógica de negocio) de operaciones del componente certificado (operación regulada). |
 
 ### Capabilities y Botlets — la relación
 
@@ -320,11 +323,11 @@ Una implementación de Capabilities conforme a esta especificación debe satisfa
 | Selección por la cognición, no ejecución directa | **MUST** |
 | Verticales como raíz dedicada | **SHOULD** |
 | Marketplace abierto | **MAY** (cuando la spec normativa exista) |
-| Declaración explícita de localidad (cloud / edge / híbrida) | **MUST** |
+| Declaración explícita de localidad del Conector acompañante (cloud / edge / híbrido) | **MUST** |
 | Declaración explícita de disponibilidad offline | **MUST** |
 | Portabilidad entre AgencyDomains conformes | **MUST** |
-| Capabilities reguladas: declaración del régimen regulatorio | **MUST** |
-| Capabilities reguladas: inmutabilidad entre auditorías | **MUST** |
+| Componentes regulados (Capability normativa + Conector certificado): régimen declarado | **MUST** |
+| Conectores certificados: inmutabilidad entre auditorías | **MUST** |
 
 ### Frontera de evolución
 

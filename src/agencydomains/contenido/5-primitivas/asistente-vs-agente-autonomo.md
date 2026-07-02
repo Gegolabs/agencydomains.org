@@ -35,7 +35,7 @@ La tercera razón es que **se gobiernan distinto**. El Asistente opera bajo cont
 
 > *Vender un Agente Autónomo con la gobernanza de un Asistente es vender un riesgo enmascarado de producto.*
 
-Esta es la razón estructural por la cual los productos que prometen "agentes autónomos" pero gobernanza de Asistente fracasan en producción enterprise. La organización compra esperando autonomía; recibe productos que necesitan supervisión humana constante. La frustración resultante es lo que alimenta más del cuarenta por ciento de proyectos agentivos que Gartner pronostica cancelados (los datos, en el Capítulo 2).
+Esta es la razón estructural por la cual los productos que prometen "agentes autónomos" pero gobernanza de Asistente fracasan en producción enterprise. La organización compra esperando autonomía; recibe productos que necesitan supervisión humana constante. La frustración resultante es lo que alimenta la ola de cancelaciones que el Capítulo 2 documenta.
 
 
 ### Anatomía operativa

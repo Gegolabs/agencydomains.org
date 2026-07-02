@@ -64,7 +64,7 @@ Un Botlet **senior** es un Botlet que ya incorporó las variantes del ambiente. 
 
 Una propiedad fundamental del Botlet senior cambia respecto a las fases anteriores: **sus fallos en estado senior no son cambios de ambiente; son causas exógenas**. Cuando un Botlet senior falla, la causa típica es algo que detendría a cualquier sistema estable: corte de energía, hardware caído, red catastróficamente perdida, recurso externo (proveedor de tools, sistema regulado) caído. Estos fallos no son aprendizaje pendiente — son lo mismo que cualquier sistema operativo encuentra ocasionalmente y resuelve con redundancia, restart o intervención humana.
 
-Operativamente, un Botlet senior puede operar **offline confiablemente**. La razón es estructural: si sus únicos modos de fallo son exógenos, la presencia o ausencia de la cognición no cambia la probabilidad de fallo significativamente — la cognición no tiene cómo rescatar de un corte de energía. El Botlet senior, contra una BD local y Capabilities edge-resident, sostiene la operación del sitio físico aunque la cognición esté inalcanzable. Esta propiedad es la base estructural del modo offline en sistemas con Capa 3 distribuida (Capítulo 5 §1).
+Operativamente, un Botlet senior puede operar **offline confiablemente**. La razón es estructural: si sus únicos modos de fallo son exógenos, la presencia o ausencia de la cognición no cambia la probabilidad de fallo significativamente — la cognición no tiene cómo rescatar de un corte de energía. El Botlet senior, contra una BD local y Conectores edge-resident, sostiene la operación del sitio físico aunque la cognición esté inalcanzable. Esta propiedad es la base estructural del modo offline en sistemas con Capa 3 distribuida (Capítulo 5 §1).
 
 #### Implicaciones de la trayectoria
 
@@ -78,7 +78,7 @@ La distinción entre las tres fases tiene tres implicaciones que conviene retene
 
 ### Botlets seed vs Botlets emergentes — el origen del Botlet
 
-La sección anterior describió cómo Pattern Recognition activa la generación de un Botlet cuando detecta un patrón repetitivo no anticipado. Esa es la modalidad **emergente** de generación. Es la modalidad que el modelo neurobiológico inspira y que el ciclo `95/4/1` describe en su forma más pura. Pero **no es la única modalidad**, y para sistemas productivos reales no es ni siquiera la más frecuente.
+El ciclo hasta aquí descrito supone que **Pattern Recognition** — la primitiva auxiliar que se desarrolla más abajo — activa la generación de un Botlet al detectar un patrón repetitivo no anticipado. Esa es la modalidad **emergente** de generación. Es la modalidad que el modelo neurobiológico inspira y que el ciclo `95/4/1` describe en su forma más pura. Pero **no es la única modalidad**, y para sistemas productivos reales no es ni siquiera la más frecuente.
 
 En un sistema productivo, los Botlets críticos del MVP **no emergen**: los implementa la cognición porque el equipo de diseño los planificó como parte de la spec del producto. El equipo sabe, antes de que el sistema vea su primera transacción, que va a necesitar un Botlet de POS, un Botlet de comanda, un Botlet de cobro, un Botlet de cierre de turno. La cognición ejecuta la implementación de esos Botlets; pero la **decisión de existir** la tomó el diseño, no Pattern Recognition.
 
@@ -120,7 +120,42 @@ La spec reconoce **dos clases** de proto-Botlet, según la naturaleza de su cód
 
 Un proto-Botlet **templado** resuelve una función y la resuelve completa; configurarlo es ajustar parámetros dentro de un rango previsto. Un proto-Botlet **platafórmico** es un motor: su código es genérico y la función específica emerge de una configuración rica — composicional, no una lista plana de parámetros —, de modo que un solo proto-Botlet platafórmico cubre N funciones de su dominio. **Mira**, en el catálogo de la implementación de referencia, es un proto-Botlet platafórmico de operación informativa.
 
-El grado en que el agente configura una pieza pre-forjada, co-escribe su código o lo genera entero define las **generaciones del Botlet** (G1/G2/G3). En G1, la totalidad del código de un Botlet vive en su proto-Botlet y el agente solo configura; en el extremo asintótico, el agente genera el código sin proto-Botlet de por medio. El modelo de generaciones, su trayectoria y sus filos finos se desarrollan en el Epílogo · Frontera de evolución; aquí basta retener que el proto-Botlet es la unidad pre-forjada que G1 configura, y que distintas implementaciones mantienen catálogos de proto-Botlets — públicos en AgencyDomains.org, privados en códices propietarios.
+Distintas implementaciones mantienen catálogos de proto-Botlets — públicos en AgencyDomains.org, privados en códices propietarios. Y el grado en que el agente configura la pieza pre-forjada, co-escribe su código o lo genera entero define las **generaciones del Botlet** — la sección siguiente las fija.
+
+### Las generaciones del Botlet — `G1`, `G2`, `G3`
+
+<!-- FIG:g51-generaciones-botlet -->
+![Generaciones del Botlet — capacidad de autoría vs madurez operativa](figuras/g51-generaciones-botlet.png)
+
+Las generaciones son el modelo evolutivo de cómo nace el código del Botlet conforme avanza el estado del arte de la cognición:
+
+- **`G1`** — el agente, en su tiempo de Ingeniería, configura proto-Botlets pre-forjados del catálogo. Si ninguno sirve, especifica uno nuevo para forjar en la próxima Preparación.
+- **`G2`** — el agente co-escribe proto-Botlets con asistencia humana o de modelo. Parte del trabajo que en `G1` ocurría en Preparación migra a la Ingeniería.
+- **`G3`** — el agente genera el código completo del Botlet en su tiempo de Ingeniería, sin pre-forjar nada. Escenario asintótico.
+
+La arquitectura es la misma en las tres generaciones; lo que cambia es el **alcance de la Ingeniería** que el agente realiza. Una implementación puede operar en `G1` hoy y migrar incrementalmente hacia `G3` conforme el estado del arte lo permita, sin re-arquitectura.
+
+**Una generación más alta no es un destino.** La frase anterior — migrar hacia `G3` — induce, leída sola, una conclusión falsa: que `G3` es el destino y `G1` una estación de paso primitiva. El error nace de proyectar **dos ejes distintos sobre una sola flecha**:
+
+| ¿Qué eje? | ¿Qué mide? | ¿Dirección de "avance"? |
+|---|---|---|
+| **Capacidad de autoría** | Cuánto puede forjar el agente: configurar (`G1`) → co-escribir (`G2`) → generar entero (`G3`) | Hacia `G3`, conforme avanza el estado del arte de la cognición |
+| **Madurez operativa** | Para una operación recurrente, cuánto se reutiliza pre-forjado vs se regenera cada vez (ciclo `95/4/1`) | Hacia la reutilización (`G1`), conforme el Botlet madura junior → senior |
+
+No son la misma flecha. Un agente con capacidad `G3` que regenera cada artefacto desde cero en cada ejecución no es avanzado: tiene el músculo y elige re-aprender el movimiento cada vez. La reconciliación es directa: la capacidad `G3` se gasta mejor **produciendo reutilización `G1`**. Las generaciones describen lo que el agente *puede* autorar; el ciclo `95/4/1` describe lo que un agente maduro *reutiliza*. El destino de la capacidad `G3` es un catálogo `G1` más rico, no la regeneración en vivo de todo.
+
+Hay un corolario para los proto-Botlets **platafórmicos**. Para uno de ellos, `G1` es **terminal por diseño**, no estación de paso: su identidad es código genérico más configuración. Un platafórmico "en `G3`" — donde el agente regenera el motor por cada pieza — no es una versión más avanzada; disuelve el proto-Botlet y colapsa de vuelta al modo agéntico que la arquitectura existe para trascender.
+
+**`G1` no es configuración pobre.** Lo que define `G1` es que el agente no escribe el cuerpo del proto-Botlet — pero la configuración que rellena puede ser tan rica como un `DSL` composicional con expresiones formales evaluables. La distinción `G1`/`G3` es sobre **autoría del cuerpo del proto-Botlet**, no sobre expresividad de la configuración. Un proto-Botlet platafórmico con un `DSL` rico es `G1` puro.
+
+Eso deja un caso frontera: configuración que admite expresiones formales evaluables — `SQL`, especificaciones de gráfico, expresiones de filtro. El **filo `G1`/`G2`** lo resuelve:
+
+- Una expresión formal evaluable que es **parámetro de una Capability bien definida** (`SQL` → `execute-sql`, una especificación de gráfico → `render-chart`, una expresión de filtro → `filter-stream`) es configuración → **`G1`**.
+- Una expresión que **extiende o sobreescribe la lógica interna del proto-Botlet** — callbacks, lambdas que el proto-Botlet evalúa internamente, fragmentos que se concatenan a su cuerpo — es código escrito por el agente → **`G2`**.
+
+El test es uno solo: *"¿el código pertenece a la Capability invocada o al proto-Botlet mismo?"*. Si lo evalúa una Capability del catálogo, `G1`; si lo evalúa el proto-Botlet en su lógica interna, `G2`.
+
+La implementación de referencia, Vergis, opera hoy en `G1`: su catálogo expone proto-Botlets — Mira entre ellos — que el agente especializa configurando, no regenerando (Capítulo 9). El sentido profundo de las generaciones — por qué el agente avanzado genera *menos*, no más — es el ensayo con que cierra el libro.
 
 ### Garantía de fallback — la propiedad innegociable
 
@@ -161,7 +196,16 @@ La manifestación es el **género abstracto**; cada familia de Botlet la especia
 - familia de **actuación** → un efecto sobre el mundo, sin artefacto,
 - familia de **decisión** → la nombra su propia práctica.
 
-El `PI` **no es primitiva del canon**: es la manifestación de *una* familia. El canon se queda en `manifestación`; el Producto de Información vive en la práctica de gestión de la información, un nivel más concreto, donde se le añade su carga de gobernabilidad sin contaminar el vocabulario canónico.
+El `PI` **no es primitiva del canon**: es la manifestación de *una* familia. El canon se queda en `manifestación`; el Producto de Información es un **término normado de esta spec** — no primitiva, pero sí vocabulario con reglas —, y su carga de gobernabilidad se añade aquí sin contaminar el nivel canónico. Esta es su descripción de referencia:
+
+**Producto de Información multi-vista · drill-through.** Un `PI` no es necesariamente una pieza única. Puede componerse de **N piezas nombradas**: cada **vista** es una pieza más del mismo `PI`, elegible desde un selector, con una vista por defecto (la primera). El `PI` es **authz-blind** — ni las vistas ni las aristas que las conectan declaran autorización; esa política vive en el policy store, no en la composición.
+
+La conexión entre vistas es el **drill-through**: una **arista de navegación con contexto**. Una tabla declara *"al clickear una fila, ir a la vista destino pasando la clave de esa fila"*; la vista destino se renderiza **filtrada por esa clave**. La propiedad crítica es **data-anchored / no-bypass**: el contexto que viaja con la arista **acota dentro de lo que el viewer ya puede ver** — la vista destino aplica su propia política de filas (`RLS`, *row-level security*: la seguridad a nivel de fila) sobre la fuente, y el contexto entra como filtro adicional, nunca como override de la política (**MUST**). El drill **acota, nunca amplía** — intersección con lo autorizado, jamás unión. Si el viewer no alcanza la fila origen, no llega a la arista; si llega, el destino sigue gobernado por su propia política.
+
+Un reporte de cartera / aging de saldos ilustra el patrón: vistas nombradas (Clientes, Proveedores, Relacionados, Detalle) sobre el mismo `PI`, una tabla jerárquica Empresa→Socio, y una arista de drill-through Socio→Detalle que abre los documentos de ese socio — filtrados por la clave del socio y acotados a lo que el viewer ya tenía derecho a ver. La composición multi-vista es ortogonal a la familia del Botlet de operación: lo que cambia es cuántas piezas componen la manifestación, no su naturaleza.
+
+<!-- FIG:g13-pi-multivista-drillthrough -->
+![PI multi-vista y drill-through — navegación con contexto, data-anchored](figuras/g13-pi-multivista-drillthrough.png)
 
 La **temporalidad** es el régimen de la manifestación. Es atributo declarado del Botlet, con dos valores:
 

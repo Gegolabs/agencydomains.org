@@ -7,6 +7,46 @@ iteraciones. A partir de **v1.0** (primera publicación pública estable) aplica
 **append-only** para la numeración de figuras: cada figura nueva toma el siguiente número
 disponible al final, sin re-enumerar las existentes.
 
+## v0.5 — Julio 2026
+
+**La pasada editorial.** Revisión integral de la trilogía (inventario en la
+cocina del proyecto):
+
+- **Las generaciones del Botlet (G1/G2/G3) se formalizan en el Cap. 5 §2** —
+  donde el lector las necesita —; el Epílogo conserva el ensayo de fondo
+  («La cristalización») sin carga normativa. facetas.md y Vergis apuntan al
+  nuevo hogar.
+- **El Producto de Información tiene casa canónica**: término normado de la
+  spec de Botlets (Cap. 5 §2), con multi-vista, drill-through y sus MUST;
+  el Cap. 4 presenta y remite; el Cap. 7 corrige la remisión circular.
+- **Doctrina Capability restaurada**: la localidad (cloud/edge/híbrido) y la
+  certificación regulatoria se predican del **Conector** — ESC/POS-Printer,
+  Cash-Drawer, Pinpad y DTE-SII reclasificados; la Capability regulada porta
+  el saber normativo; glosario y resumen del Cap. 4 alineados.
+- **El Botler deja de llamarse primitiva** en el Cap. 9 (constructo normado
+  de la spec de Botlets; el canon sigue siendo de siete).
+- **Cap. 2 ↔ Cap. 7 desduplicados** (citas de industria, AtScale, consenso) y
+  **Cap. 4 adelgazado** a favor del Cap. 5 (Faceta, PI, Tokens/Suscripción,
+  JavaSpaces, neurobiología, reguladores, sección placeholder de
+  Asistente/Agente).
+- **Cifra de Gartner dosificada** (de ~8 apariciones a 3), tabla de actores del
+  Cap. 6 alineada con su texto (OpenAI/Anthropic/Google), «Plataforma
+  integral» corregida en el glosario, voseo eliminado, «agentive» traducido,
+  errata del contraste tipográfico del Cap. 1 reparada.
+- **Cap. 1 abre sin pared de marca** (la pregunta de Nadella primero); promesa
+  Cap. 1 → Cap. 2 calzada; el mapping del Cap. 3 lleva nota de lectura.
+- **Salto Cuántico reutilizado** (Cap. 7) y ciclo de inteligencia continua con
+  formulación canónica de la trilogía (Percibir → … → Aprender).
+- **Dominion adoptado** por el Epílogo (Frontera 4); Wingtraining y SME
+  definidos; entrada RLS en el glosario; punteros de glosario corregidos
+  (Plantilla, Trace, DLP); rastros de versionado interno eliminados.
+- **Patrón tripartito** atribuido a esta operacionalización (no a un consenso
+  de industria); productos de la casa encuadrados en su primera aparición.
+- **Micro-sección «La trilogía»**: ancla el tránsito, glosa Data Mesh y BPM, y
+  registra las **cinco** especificaciones de AURA.
+- **El prólogo placeholder sale del build** hasta que llegue el texto del
+  prologuista.
+
 ## v0.4 — Junio 2026
 
 Extensiones canónicas surgidas al construir la implementación de referencia

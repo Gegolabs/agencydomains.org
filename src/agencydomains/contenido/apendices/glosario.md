@@ -69,7 +69,7 @@ Mecanismo de Gobernanza por el cual una operación del agente se detiene y solic
 
 Patrón de posicionamiento en el espacio cobertura × profundidad de la cadena de valor de IA. Cuatro arquetipos canónicos:
 
-- **Plataforma integral** — cobertura amplia, profundidad media.
+- **Plataforma integral** — cobertura amplia; profundidad Core en su eslabón nativo y Plataforma en los adyacentes.
 - **Especialista vertical** — cobertura focal, profundidad Core.
 - **Infraestructura de dominio** — cobertura zonal, profundidad Core en varios eslabones.
 - **Proveedor de sustrato** — cobertura mínima, profundidad Infraestructura.
@@ -200,7 +200,7 @@ Relación estructural `casos de uso documentados → Botlets necesarios → prot
 
 ### Cadena de valor de IA
 
-Modelo bidimensional para clasificar a cualquier actor en la industria de IA: **once eslabones secuenciales** (cobertura) × **cuatro profundidades** (cómo participa en cada eslabón). Versión canónica v1.3.
+Modelo bidimensional para clasificar a cualquier actor en la industria de IA: **once eslabones secuenciales** (cobertura) × **cuatro profundidades** (cómo participa en cada eslabón).
 
 *Ver: Capítulo 6 §1.*
 
@@ -240,45 +240,45 @@ Saber-hacer **cognitivo**, interpretativo, decisional (sentido estricto: **Capa 
 
 NO es plugin. NO es prompt. NO es tool. Es **saber**.
 
-Toda Capability conforme declara explícitamente su **localidad** (cloud-resident · edge-resident · híbrida) y su **disponibilidad offline** (online-only · offline-capable). Capabilities sujetas a regulación declaran además su régimen regulatorio y son inmutables entre auditorías.
+La localidad y la disponibilidad offline se declaran sobre el **Conector** que acompaña a la Capability — el acceso es lo que reside y necesita red, nunca el saber (Cap 5 §3). Los componentes regulados declaran además su régimen regulatorio; el Conector certificado es inmutable entre auditorías.
 
 *Ver: Capítulo 5 §3.*
 
-### Capability cloud-resident
+### Conector cloud-resident
 
-Capability cuyos componentes viven en un servicio remoto. Ejemplos canónicos: DTE-SII (sin cliente local), Transbank Onepay, API meteorológica. Típicamente online-only — sin red no hay invocación posible. Distinto de edge-resident e híbrida.
-
-*Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
-
-### Capability edge-resident
-
-Capability cuyos componentes viven en el sitio físico, asociados a hardware o sistemas locales. Ejemplos canónicos: ESC/POS-Printer, Cash-Drawer, Pinpad-Local, Sensor-Temperatura. Típicamente offline-capable — operan contra el hardware del sitio sin necesitar red.
+Conector cuyos componentes viven en un servicio remoto. Ejemplos canónicos: DTE-SII (sin cliente local), Transbank Onepay, API meteorológica. Típicamente online-only — sin red no hay invocación posible. Distinto de edge-resident e híbrido.
 
 *Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
 
-### Capability híbrida
+### Conector edge-resident
 
-Capability con componente local y componente cloud. La parte local opera offline; la parte cloud sincroniza cuando hay red. Típicamente offline-capable con encolamiento. Ejemplos canónicos: Cliente-DTE (firma localmente, encola, envía al SII cuando vuelve la red), Cliente-Pinpad-Procesamiento-Diferido.
-
-*Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
-
-### Capability offline-capable
-
-Capability que ejecuta sin red. Si su contrato externo exige eventualmente comunicación cloud, **encola** y emite hacia afuera cuando la red vuelve. Típicas: edge-resident e híbridas.
+Conector cuyos componentes viven en el sitio físico, asociados a hardware o sistemas locales. Ejemplos canónicos: ESC/POS-Printer, Cash-Drawer, Pinpad-Local, Sensor-Temperatura. Típicamente offline-capable — operan contra el hardware del sitio sin necesitar red.
 
 *Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
 
-### Capability online-only
+### Conector híbrido
 
-Capability que requiere red para ejecutar. Sin red, la invocación falla. Típicas: cloud-resident sin componente local.
+Conector con componente local y componente cloud. La parte local opera offline; la parte cloud sincroniza cuando hay red. Típicamente offline-capable con encolamiento. Ejemplos canónicos: Cliente-DTE (firma localmente, encola, envía al SII cuando vuelve la red), Cliente-Pinpad-Procesamiento-Diferido.
+
+*Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
+
+### Conector offline-capable
+
+Conector que ejecuta sin red. Si su contrato externo exige eventualmente comunicación cloud, **encola** y emite hacia afuera cuando la red vuelve. Típicos: edge-resident e híbridos.
+
+*Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
+
+### Conector online-only
+
+Conector que requiere red para ejecutar. Sin red, la invocación falla. Típicos: cloud-resident sin componente local.
 
 *Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
 
 ### Capability regulada
 
-Capability que ejecuta operaciones sujetas a certificación regulatoria — emisión DTE bajo norma SII, cobro tarjeta bajo PCI-DSS, dispensación farmacéutica, registro sanitario, comunicación financiera. La spec exige que **la certificación regulatoria resida en la Capability, no en el Botlet** que la invoca: el Botlet orquesta y formatea; la Capability ejecuta la operación regulada y devuelve el comprobante. Las Capabilities reguladas son inmutables entre auditorías; cambian solo bajo proceso regulatorio.
+Capability que porta el **saber normativo** de un dominio regulado — qué exige la norma, cómo se interpreta, qué hacer ante rechazo del regulador. Acompaña a un **Conector certificado**, que es donde reside la certificación regulatoria: el Botlet orquesta y formatea; el Conector certificado ejecuta la operación regulada (emisión DTE bajo norma SII, cobro con tarjeta bajo PCI-DSS, dispensación farmacéutica) y devuelve el comprobante; la Capability regulada aporta el criterio con que la cognición gobierna el conjunto. Los Conectores certificados son inmutables entre auditorías; cambian solo bajo proceso regulatorio.
 
-*Ver: Capítulo 5 §3, sección "La certificación regulatoria reside en la Capability".*
+*Ver: Capítulo 5 §3, sección "La certificación regulatoria reside en el componente certificado".*
 
 ### Catálogo común / efectos de red
 
@@ -344,7 +344,7 @@ Concepto comercial superpuesto al modelo técnico de AgencyDomains. Una Cuenta p
 
 ### DLP — Data Loss Prevention
 
-Detección automatizada de datos personales (PII) en lugares donde no deberían aparecer. Capa de control en Capa 4 (Firewall). Componente del pilar Validación de Trust Infrastructure.
+Detección automatizada de datos personales (PII) en lugares donde no deberían aparecer. Control ejercido en la Capa 4 — Acceso de la arquitectura; en la lente de mercado, es capacidad típica del eslabón Firewall de IA. Componente del pilar Validación de Trust Infrastructure.
 
 *Ver: Capítulo 5 §4.*
 
@@ -564,7 +564,7 @@ Categoría de plataforma que administra la **economía de la cognición**: G1 m�
 
 ### Modos de degradación del AgencyDomain
 
-Cuatro modos canónicos de operación según el escenario de falla, formalizados en Cap 8: **Normal** (todos los componentes activos · topología paralela completa) · **Cognición caída** (vía Autonomía sostiene; Botlets senior ejecutan) · **Edge offline** (Botlets senior contra BD local + Capabilities edge-resident) · **Continuidad operacional total** (protocolo manual del sitio; registro físico como fuente de verdad temporal). Las primeras tres transiciones son automáticas y responsabilidad de la arquitectura; la cuarta es gobernada por el protocolo del cliente y activada explícitamente por un humano.
+Cuatro modos canónicos de operación según el escenario de falla, formalizados en Cap 8: **Normal** (todos los componentes activos · topología paralela completa) · **Cognición caída** (vía Autonomía sostiene; Botlets senior ejecutan) · **Edge offline** (Botlets senior contra BD local + Conectores edge-resident) · **Continuidad operacional total** (protocolo manual del sitio; registro físico como fuente de verdad temporal). Las primeras tres transiciones son automáticas y responsabilidad de la arquitectura; la cuarta es gobernada por el protocolo del cliente y activada explícitamente por un humano.
 
 *Ver: Capítulo 8, sección "Continuidad operacional".*
 
@@ -592,7 +592,7 @@ Detección de patrones repetitivos en la actividad del agente. Inspirada en arqu
 
 Confección específica del cliente sobre un instrumento canónico (reporte / dashboard) en un formato o regla propios del cliente (por ejemplo, una plantilla regulatoria de un instrumento normado). **Capa 1 · Interacción**, junto a Faceta / Botlet de superficie / Botlet de vista. Esquema de confección: relevar expectativa · confeccionar sobre instrumento canónico · validar. No es Capability (saber cognitivo) ni Conector (acceso).
 
-*Ver: Capítulo 4 §1; entradas **Capability**, **Faceta**.*
+*Ver: Capítulo 5 §3, sección "Capability, Conector y Plantilla"; entradas **Capability**, **Faceta**.*
 
 ### Portabilidad de la Capability
 
@@ -735,11 +735,17 @@ Modelo canónico de relación entre las cuatro capas de la Arquitectura Agentiva
 
 *Ver: Capítulo 4, sección "La topología paralela".*
 
+### RLS — Row-Level Security
+
+Seguridad a nivel de fila: la política que decide qué filas de una fuente puede ver cada identidad. En el drill-through de un Producto de Información, la vista destino aplica su propia `RLS` sobre la fuente y el contexto de navegación entra como filtro adicional — nunca como override (propiedad data-anchored / no-bypass).
+
+*Ver: Capítulo 5 §2, descripción del Producto de Información.*
+
 ### Trace
 
 Trazabilidad end-to-end de una operación del agente. Contiene identidad, capability invocada, tool ejecutado, parámetros, resultado, timestamp, contexto. Componente del pilar Auditoría de Trust Infrastructure.
 
-*Ver: Capítulo 6 §2.*
+*Ver: Capítulo 5 §4 (pilar Auditoría); el tracing como capacidad de producto, en el Capítulo 6 §2.*
 
 ### Tres tiempos del agente
 

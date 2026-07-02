@@ -2,7 +2,7 @@
 
 El Capítulo 5 describió Trust Infrastructure como conjunto de cinco pilares — Gobernanza, Auditoría, Validación, Resiliencia, Transparencia — que atraviesa las cuatro capas de la Arquitectura Agentiva. La descripción era conceptual: nombró los pilares, sus mecanismos canónicos, sus propiedades exigidas. Este capítulo cierra el círculo: traduce esos conceptos en construcciones concretas que un implementador puede tomar y construir.
 
-La distinción entre concepto y operacionalización es crítica para el éxito de un sistema agentivo en producción. Un pilar es **conceptual**: *"la organización debe poder gobernar lo que el agente hace"*. Una operacionalización es **constructiva**: *"la organización configura políticas en formato YAML que aplican modelo CRUDLEX, evaluadas en cada invocación de tool, con catálogo declarativo y herencia explícita"*. La distancia entre las dos es exactamente lo que separa un proyecto que pasa de piloto a producción del que se queda en el cuarenta por ciento que Gartner pronostica cancelados antes de fines de 2027.
+La distinción entre concepto y operacionalización es crítica para el éxito de un sistema agentivo en producción. Un pilar es **conceptual**: *"la organización debe poder gobernar lo que el agente hace"*. Una operacionalización es **constructiva**: *"la organización configura políticas en formato YAML que aplican modelo CRUDLEX, evaluadas en cada invocación de tool, con catálogo declarativo y herencia explícita"*. La distancia entre las dos es exactamente lo que separa un proyecto que pasa de piloto a producción del que engrosa la ola de cancelaciones que Gartner pronostica (Capítulo 2).
 
 > *Los pilares responden qué confianza se necesita. Las operacionalizaciones responden cómo se construye.*
 
@@ -296,7 +296,7 @@ Tres reglas operativas exigen disciplina en la implementación. La primera: **to
 
 ## Catálogo mínimo viable
 
-Una organización que opera agentes en producción debe tener, como **mínimo viable**, los siguientes componentes operacionalizados. Por debajo de este mínimo, la operación de agentes deja a la organización expuesta. Por encima, hay refinamiento progresivo según madurez y exigencia regulatoria del dominio.
+Una organización que opera agentes en producción debe tener, como **mínimo viable**, los siguientes componentes operacionalizados. Por debajo de este mínimo, la operación de agentes deja a la organización expuesta. Por encima, hay refinamiento progresivo según madurez y exigencia regulatoria del dominio. Nótese que este catálogo **endurece deliberadamente** algunos SHOULD de la spec (Capítulo 5 §4) a piso operativo — la detección de alucinaciones entre ellos: lo que la spec deja opcional para implementaciones mínimas, la operación enterprise lo exige.
 
 | Componente | Mínimo viable |
 |---|---|
@@ -316,7 +316,7 @@ Lo crítico de este catálogo no es la lista en sí — es que está construida 
 <!-- FIG:g48-tripartito -->
 ![Patrón tripartito · Cloud + Cliente + Local](figuras/g48-tripartito.png)
 
-Operacionalizar Trust Infrastructure en una organización enterprise no es ejercicio puramente técnico — es ejercicio de separación de responsabilidades entre tres planos que operan en lugares físicamente distintos. El patrón canónico que la industria ha consolidado para resolver este problema es el **despliegue tripartito**: tres componentes coordinados que viven en tres lugares con tres roles funcionales diferenciados.
+Operacionalizar Trust Infrastructure en una organización enterprise no es ejercicio puramente técnico — es ejercicio de separación de responsabilidades entre tres planos que operan en lugares físicamente distintos. El patrón que esta operacionalización adopta como canónico para resolver este problema es el **despliegue tripartito**: tres componentes coordinados que viven en tres lugares con tres roles funcionales diferenciados.
 
 El primer componente es el **Cloud** — el plano operado por el proveedor de la infraestructura agentiva. Su rol es **control plane**: gestión de licencias, registry de providers disponibles, integración con proveedores de cognición upstream, telemetría agregada con privacidad preservada. Es donde el proveedor mantiene viva la plataforma y resuelve los problemas que requieren visibilidad cross-cliente — incidentes que afectan a múltiples tenants, actualizaciones del catálogo de políticas canónicas, monitoreo de salud agregado del sistema. El cliente final no opera este componente; lo consume.
 
@@ -366,7 +366,7 @@ Una operación en producción no opera siempre en modo normal. La spec formaliza
 |---|---|---|
 | **Normal** | Todos los componentes activos: cognición, central, edge, red corporativa. | Topología paralela completa. La operación elige la vía Cognición o la vía Autonomía según el patrón. |
 | **Cognición caída** | Capa 2 inalcanzable; central y edge activos. | **Vía Autonomía** sostiene. Los Botlets senior ejecutan; los Botlets junior y en aprendizaje degradan a su última versión funcional. La cognición rescata fallos al volver. |
-| **Edge offline** | Botler edge sin conexión al central; cognición inalcanzable; sitio físico aislado. | **Botlets senior contra BD local + Capabilities edge-resident**. La cola de eventos hacia central acumula; al volver la red, drena y reconcilia. |
+| **Edge offline** | Botler edge sin conexión al central; cognición inalcanzable; sitio físico aislado. | **Botlets senior contra BD local + Conectores edge-resident**. La cola de eventos hacia central acumula; al volver la red, drena y reconcilia. |
 | **Continuidad operacional total** | Cognición + edge caídos por causa exógena (corte de energía, hardware destruido, red catastróficamente perdida). | **Protocolo manual del sitio**. El registro físico es la fuente de verdad temporal; el ingreso retroactivo al sistema es la reconciliación. |
 
 La transición entre modos es **automática hasta `Edge offline`** — el sistema detecta la falla y degrada solo. La transición a **Continuidad operacional total** es **gobernada por el protocolo del sitio** — un humano la activa explícitamente cuando reconoce que ningún componente computacional opera. Esta diferencia importa: los primeros tres modos son responsabilidad de la arquitectura; el cuarto es responsabilidad del cliente, ejecutado por sus operadores.

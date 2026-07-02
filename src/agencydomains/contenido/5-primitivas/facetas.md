@@ -53,7 +53,7 @@ Una pieza de información ya materializada — un snapshot autocontenido que el 
 
 La distinción se traza entre dos interactividades:
 
-- La **exploración libre** lanza queries nuevas y arbitrarias al origen (drill o pivot ad-hoc), opera sobre un espacio abierto, pierde reproducibilidad, excede `G1` y vive fuera del proto-Botlet de información — en otro Botlet o en la cognición misma. Una pieza de información **MUST NOT** absorberla.
+- La **exploración libre** lanza queries nuevas y arbitrarias al origen (drill o pivot ad-hoc), opera sobre un espacio abierto, pierde reproducibilidad, excede `G1` (las generaciones del Botlet, Capítulo 5 §2) y vive fuera del proto-Botlet de información — en otro Botlet o en la cognición misma. Una pieza de información **MUST NOT** absorberla.
 - La **interacción declarada acotada** opera sobre el snapshot ya materializado, dentro de un espacio declarado (dimensiones y valores acotados de antemano), mantiene la reproducibilidad, es `G1` —configuración, no código— y vive en la pieza misma, realizada vía Faceta.
 
 | ¿Qué las distingue? | Exploración libre | Interacción declarada acotada |

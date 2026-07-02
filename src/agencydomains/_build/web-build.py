@@ -24,15 +24,39 @@ def pandoc(md):
 
 def strip_tags(s): return re.sub(r'<[^>]+>', '', s).strip()
 
+# Canales de feedback. El correo directo es el canal SIN paredes: cualquiera puede
+# escribir sin cuenta. (Swappable: cambiar aquí si se crea un alias dedicado.)
+CONTACT_EMAIL = 'cesar.obach@ultrabase.net'
+REPO_URL = 'https://github.com/gegolabs/agencydomains.org'
+
 # Strings de UI por idioma (el resto del HTML es agnóstico).
 STRINGS = {
     'es': {'cover': 'Portada', 'prev': '← Anterior', 'next': 'Siguiente →',
            'nav_aria': 'Índice del libro', 'book': 'El libro',
-           'zoom': 'Ampliar la figura', 'close': 'Cerrar (Esc)'},
+           'zoom': 'Ampliar la figura', 'close': 'Cerrar (Esc)',
+           'fb_q': '¿Comentarios, dudas o una corrección? Este libro se escribe en público y busca crítica.',
+           'fb_mail_k': 'Sin cuenta ·', 'fb_mail': 'escríbeme directo',
+           'fb_issue_k': 'En GitHub ·', 'fb_issue': 'abre un tema',
+           'fb_pr_k': 'A fondo ·', 'fb_pr': 'cómo proponer un cambio (GFDL)'},
     'en': {'cover': 'Cover', 'prev': '← Previous', 'next': 'Next →',
            'nav_aria': 'Book contents', 'book': 'The book',
-           'zoom': 'Enlarge figure', 'close': 'Close (Esc)'},
+           'zoom': 'Enlarge figure', 'close': 'Close (Esc)',
+           'fb_q': 'Comments, questions, or a correction? This book is written in public and invites critique.',
+           'fb_mail_k': 'No account ·', 'fb_mail': 'email me directly',
+           'fb_issue_k': 'On GitHub ·', 'fb_issue': 'open an issue',
+           'fb_pr_k': 'Go deeper ·', 'fb_pr': 'how to propose a change (GFDL)'},
 }
+
+# Pie de feedback por página: correo sin login (para todos) + issue + cómo contribuir.
+def feedback(ui, name, version):
+    subj = f'Feedback — {name} {version}'.replace(' ', '%20').replace('—', '%E2%80%94')
+    return (
+        f'<footer class="book-foot">'
+        f'<p class="ff-q">{ui["fb_q"]}</p>'
+        f'<a href="mailto:{CONTACT_EMAIL}?subject={subj}"><span class="k">{ui["fb_mail_k"]}</span> {ui["fb_mail"]} →</a>'
+        f'<a href="{REPO_URL}/issues/new"><span class="k">{ui["fb_issue_k"]}</span> {ui["fb_issue"]} →</a>'
+        f'<a href="{REPO_URL}/blob/main/CONTRIBUTING.md"><span class="k">{ui["fb_pr_k"]}</span> {ui["fb_pr"]} →</a>'
+        f'</footer>\n')
 
 # Lightbox: las figuras se renderizan reducidas al ancho de la columna; un clic
 # las abre a tamaño real sobre un velo oscuro (clic en cualquier lugar o Esc cierra).
@@ -128,7 +152,7 @@ def main():
             f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · {a.version}</p>'
             f'<ol>{nav_html}</ol></nav>\n'
             f'<main class="book-main"><article class="book">{co}\n{p["body"]}\n{cc}'
-            f'<nav class="prevnext">{prevnext}</nav></article></main>\n'
+            f'<nav class="prevnext">{prevnext}</nav>{feedback(UI, a.name, a.version)}</article></main>\n'
             f'</div>\n{lightbox(UI)}</body>\n</html>\n')
         dest = os.path.join(a.out, 'index.html') if p['cover'] else os.path.join(a.out, p['slug'], 'index.html')
         os.makedirs(os.path.dirname(dest), exist_ok=True)

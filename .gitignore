@@ -3,3 +3,4 @@ _dist/
 node_modules/
 .preview-server.py
 _HANDOFF.md
+__pycache__/

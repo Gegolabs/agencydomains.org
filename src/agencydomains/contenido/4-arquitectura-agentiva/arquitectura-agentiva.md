@@ -35,11 +35,11 @@ Cada vía tiene un régimen propio. La **vía Cognición** es lenta, costosa y d
 
 Las dos vías no operan en aislamiento. Tres patrones de interacción cruzan entre ellas y los desarrollamos en su capítulo correspondiente, pero conviene nombrarlos aquí para que el modelo topológico quede completo. Primero, la Cognición **delega a Botlet** (`2 → 3`): cuando Pattern Recognition detecta una operación repetitiva, la cognición genera un Botlet que ejecutará el patrón en adelante sin invocarla. Segundo, el Botlet **escala fallback a Cognición** (`3 → 2`): cuando el ambiente cambia y el Botlet falla, la cognición rescata la operación, regenera el Botlet con la variante incorporada, y devuelve la ejecución a la vía 3. Tercero, la Cognición **observa el log de Botlets** (`2 ← 3`): el Botlet emite eventos y métricas que la cognición consulta cuando el humano pregunta o cuando necesita razonar sobre el comportamiento del sistema en su conjunto.
 
-La topología paralela tiene cinco consecuencias prácticas que conviene retener. La **primera** es que el modo offline de un nodo edge — un local físico sin red — es trivial de explicar bajo este modelo: la vía Cognición depende típicamente de cloud y queda inactiva sin red; la vía Autonomía local sigue activa porque sus Botlets corren en el edge contra una BD local y Capabilities locales. La operación atraviesa el AgencyDomain por la vía que sigue viva. Lo que sin topología paralela parecería exigir un sistema separado, bajo ella emerge como propiedad estructural.
+La topología paralela tiene cinco consecuencias prácticas que conviene retener. La **primera** es que el modo offline de un nodo edge — un local físico sin red — es trivial de explicar bajo este modelo: la vía Cognición depende típicamente de cloud y queda inactiva sin red; la vía Autonomía local sigue activa porque sus Botlets corren en el edge contra una BD local y Conectores locales. La operación atraviesa el AgencyDomain por la vía que sigue viva. Lo que sin topología paralela parecería exigir un sistema separado, bajo ella emerge como propiedad estructural.
 
 La **segunda** es que la economía cognitiva queda evidente. La organización no paga por "el AgencyDomain" — paga por la mezcla de vías que su operación dispara. Las decisiones de qué patrones consolidar en Botlets son decisiones económicas explícitas, no detalle de implementación.
 
-La **tercera** es que **Trust Infrastructure se ejerce en ambas vías**, no solo en la que pasa por la Cognición. El modelo lineal podía sugerir que la cognición filtra todo lo que llega a Capa 4. El modelo paralelo deja claro que la vía 3 también atraviesa Trust — las políticas se aplican antes de invocar Capa 4 sin importar de qué vía viene la invocación. Un Botlet que invoca DTE-SII pasa por las mismas validaciones de Trust que la cognición que lo haría.
+La **tercera** es que **Trust Infrastructure se ejerce en ambas vías**, no solo en la que pasa por la Cognición. El modelo lineal podía sugerir que la cognición filtra todo lo que llega a Capa 4. El modelo paralelo deja claro que la vía 3 también atraviesa Trust — las políticas se aplican antes de invocar Capa 4 sin importar de qué vía viene la invocación. Un Botlet que invoca DTE-SII — la facturación electrónica del regulador tributario chileno — pasa por las mismas validaciones de Trust que la cognición que lo haría.
 
 La **cuarta** es que la topología paralela distingue dos tipos de Botlets que el modelo lineal confundía. Los **Botlets de fachada operativa** son invocables desde Capa 1 — un botón en un POS, una línea de comando, un endpoint — con contrato estable e identidad humana propagada hacia Capa 4. Los **Botlets de herramienta interna de la cognición** son invocables solo desde Capa 2 — la cognición los compone en planes que ella misma ejecuta. Ambos viven en Capa 3, pero su superficie de invocación es distinta y sus propiedades de gobierno también.
 
@@ -141,55 +141,16 @@ La distinción clave: **shell y vista son superficie (Capa 1); operación es eje
 
 **Catálogo emergente.** Esta descomposición es **prerequisito para razonar sobre el catálogo de piezas reusables**: las operaciones se acumulan en el catálogo a lo largo del tiempo y forman el activo arquitectónico más durable; las vistas reutilizables se extraen y catalogan; los shells permanecen específicos pero su construcción se acelera porque ensamblan piezas existentes. Sin la descomposición explícita, todo se trata como "feature de aplicación" y no se aprovecha la reutilización.
 
-**Producto de Información multi-vista · drill-through.** Un **Producto de Información (`PI`)** — la manifestación que deja un Botlet de operación informativa al consumirse — no es necesariamente una pieza única. Puede componerse de **N piezas nombradas**: cada **vista** es una pieza más del mismo `PI`, elegible desde un selector, con una vista por defecto (la primera). El `PI` sigue siendo **authz-blind** — ni las vistas ni las aristas que las conectan declaran autorización; esa política vive en el policy store, no en la composición.
-
-La conexión entre vistas es el **drill-through**: una **arista de navegación con contexto**. Una tabla declara *"al clickear una fila, ir a la vista destino pasando la clave de esa fila"*; la vista destino se renderiza **filtrada por esa clave**. La propiedad crítica es **data-anchored / no-bypass**: el contexto que viaja con la arista **acota dentro de lo que el viewer ya puede ver** — la vista destino aplica su propia política de filas (`RLS`) sobre la fuente, y el contexto entra como filtro adicional, nunca como override de la política (**MUST**). El drill **acota, nunca amplía** — intersección con lo autorizado, jamás unión. Si el viewer no alcanza la fila origen, no llega a la arista; si llega, el destino sigue gobernado por su propia política.
-
-Un reporte de cartera / aging de saldos ilustra el patrón: vistas nombradas (Clientes, Proveedores, Relacionados, Detalle) sobre el mismo `PI`, una tabla jerárquica Empresa→Socio, y una arista de drill-through Socio→Detalle que abre los documentos de ese socio — filtrados por la clave del socio y acotados a lo que el viewer ya tenía derecho a ver. La composición multi-vista es ortogonal a la familia del Botlet de operación: lo que cambia es cuántas piezas componen la manifestación, no su naturaleza. La descripción canónica del `PI` como manifestación de la familia de información vive en el Capítulo 7.
-
-<!-- FIG:g13-pi-multivista-drillthrough -->
-![PI multi-vista y drill-through — navegación con contexto, data-anchored](figuras/g13-pi-multivista-drillthrough.png)
+**Producto de Información multi-vista · drill-through.** Un **Producto de Información (`PI`)** — la manifestación que deja un Botlet de operación informativa al consumirse — no es necesariamente una pieza única: puede componerse de N **vistas** nombradas conectadas por **drill-through**, la navegación con contexto que acota — nunca amplía — lo que el viewer ya puede ver. La descripción normada del `PI` — la composición multi-vista, la propiedad data-anchored / no-bypass y su ejemplo canónico — vive en el Capítulo 5 §2, junto a la manifestación que lo engendra.
 
 ### Faceta · primitiva atómica de la Capa 1
 
 <!-- FIG:g14-faceta-vs-botlet -->
 ![Faceta vs Botlet · dos primitivas, dos capas, dos naturalezas](figuras/g14-faceta-vs-botlet.png)
 
-Hasta aquí la Capa 1 se ha descrito en términos de regímenes de generación (conversacional puro, on-the-fly, persistente como Botlet) y composición (shell, vista, operación). Falta nombrar la **unidad atómica** con la que estas superficies se construyen — la pieza que la vista pone en la pantalla, el componente que la cognición invoca durante una conversación, el instrumento que el agente toma cuando decide que la información se obtiene mejor visualmente que verbalmente.
+Hasta aquí la Capa 1 se ha descrito en términos de regímenes de generación (conversacional puro, on-the-fly, persistente como Botlet) y composición (shell, vista, operación). Falta nombrar la **unidad atómica** con la que estas superficies se construyen: la **Faceta** — un componente atómico reusable de la Capa 1: un catálogo-selector, un calendario, un mapa clickeable, un slider, una pizarra de dibujo. Es **instrumento**, no proceso: el agente la toma mientras piensa — en plena conversación o dentro de un Botlet de vista — y la suelta al terminar.
 
-Esa unidad es la **Faceta**.
-
-**Definición canónica.** Una **Faceta** es un componente atómico reusable de la Capa 1 — una pizarra de dibujo a mano alzada, un catálogo-selector, una matriz de colores, un calendario, un mapa clickeable, un slider, un ordenamiento drag-and-drop. Una de las muchas caras que la interacción con el usuario puede tomar en un momento dado. Es **instrumento**, no proceso. Vive y opera en la Capa 1.
-
-**La Faceta no es un Botlet.** Esta es la distinción más importante de la sección. Las dos primitivas se confunden fácil porque ambas son "pieza de software canónica con identidad propia", pero su naturaleza es radicalmente distinta:
-
-| Eje | **Faceta** | **Botlet** |
-|---|---|---|
-| Capa | Capa 1 (Interacción) | Capa 3 (Autonomía) |
-| Naturaleza | Instrumento de interacción | Memoria muscular del agente |
-| Activación | La cognición la invoca durante conversación activa | Ejecuta sin cognición presente |
-| Garantía de fallback | NO — si falla, agente vuelve a conversación textual | SÍ — la cognición ejecuta manualmente |
-| Ciclo | No tiene ciclo de regeneración | Ciclo `95/4/1` con regeneración |
-| Persistencia | Efímera por defecto (vive lo que dura la tarea) | Persistente entre sesiones |
-| Estado de fase | No aplica | Junior · en aprendizaje · senior |
-
-El **Botlet es memoria muscular**: el agente consolidó saber repetitivo en código tradicional que ejecuta sin pensar. La **Faceta es instrumento**: el agente la toma mientras piensa, la usa para obtener información del usuario, la suelta cuando termina. El Botlet automatiza; la Faceta interactúa.
-
-**Dos usos canónicos** de la Faceta:
-
-1. **El agente la invoca directamente en conversación** — compone una superficie efímera con una o varias Facetas, el usuario interactúa, la información vuelve, la conversación continúa. La superficie efímera **no es un Botlet** y no persiste. Esto realiza el régimen *GUI generada on-the-fly* descrito antes.
-
-2. **Las superficies estables se componen de Facetas** — los Botlets de presentación (shells y vistas) ensamblan Facetas más lógica de orquestación. La vista de "detalle de pedido" usa internamente la Faceta de "matriz de productos", la Faceta de "calendario", la Faceta de "selector". El Botlet de vista define la orquestación; las Facetas son los instrumentos que el Botlet pone en la pantalla.
-
-**Comportamiento agentivo asociado.** El agente, durante una conversación, **decide** ofrecer una Faceta cuando estima que la información se obtiene más rápido visualmente que verbalmente. Estima el tiempo de verbalización versus el tiempo de uso del instrumento; si el segundo gana, ofrece la Faceta. Heurísticas canónicas:
-
-- Información de **baja dimensionalidad** y bien estructurada → conversación.
-- Información de **alta dimensionalidad** o difícil de verbalizar → Faceta.
-- Información que el usuario ya tiene en **forma espacial o visual** → Faceta.
-
-El agente hace este cálculo en tiempo real. Es decisión cognitiva del agente, no feature pre-programada del producto. Una Capa 1 productiva sin este comportamiento agentivo activo se queda en chat; con él, abre la totalidad del rango interactivo.
-
-**¿Por qué importa la primitiva?** Nombrar la Faceta convierte el "GUI on-the-fly" —que sin ella queda como capacidad sin estructura— en algo razonable: deja claro cuál es la **unidad mínima** de la Capa 1, cómo se relaciona con los Botlets de presentación (composición), y por qué ofrecer un GUI ad-hoc es agentivo (un acto cognitivo, no una feature). La descripción completa de la Faceta como primitiva canónica vive en el Capítulo 5 §6.
+**La Faceta no es un Botlet**: no tiene garantía de fallback, ni ciclo `95/4/1`, ni fases de madurez — si falla, el agente vuelve a la conversación. Ofrecer una Faceta es además un acto cognitivo del agente, no una feature pre-programada: la cognición estima si la información se obtiene más rápido visualmente que verbalmente, y decide. La distinción canónica completa, los dos usos y las heurísticas de esa decisión viven en el Capítulo 5 §6, donde la Faceta se formaliza como primitiva.
 
 > *Si el humano abre aplicaciones para hacer su trabajo, no estamos en la Capa 1 del Mundo Agentivo.*
 
@@ -205,15 +166,13 @@ Los componentes canónicos de la Capa 2 son cinco. El primero es **multi-LLM**: 
 
 El segundo componente son las **Capabilities** — unidades de saber-hacer modular y composable, organizadas en árbol jerárquico. La cognición selecciona y aplica Capabilities según la tarea. Las Capabilities son el saber profesional codificado — saber contable para un agente financiero, saber regulatorio para un agente legal, saber operativo para un agente de soporte. Las desarrollamos con detalle en el Capítulo 5. Por ahora basta retener que la Capa 2 no opera con conocimiento monolítico — opera seleccionando módulos de saber especializado y combinándolos según el caso.
 
-El tercer componente es **Pattern Recognition** — detección de patrones repetitivos en la actividad del agente. La capacidad está inspirada en arquitectura neurobiológica: corteza perirrinal para familiaridad rápida, hipocampo para recollection detallada, corteza prefrontal para decisión consciente. El mismo patrón funcional descrito por Squire y Wixted en su trabajo sobre el sistema de memoria humano. Cuando el agente reconoce un patrón repetitivo en la actividad — la misma tarea ejecutándose con frecuencia variable pero estructura estable —, dispara la generación de un Botlet que automatiza esa tarea sin requerir cognición adicional cada vez. Pattern Recognition es la entrada al ciclo del Botlet, que desarrollamos en el Capítulo 5.
+El tercer componente es **Pattern Recognition** — detección de patrones repetitivos en la actividad del agente. La capacidad está inspirada en la arquitectura neurobiológica de la memoria humana; el Capítulo 5 §2 desarrolla el paralelo (Squire y Wixted) junto al ciclo del Botlet. Cuando el agente reconoce un patrón repetitivo en la actividad — la misma tarea ejecutándose con frecuencia variable pero estructura estable —, dispara la generación de un Botlet que automatiza esa tarea sin requerir cognición adicional cada vez. Pattern Recognition es la entrada al ciclo del Botlet, que desarrollamos en el Capítulo 5.
 
 El cuarto componente es la **generación de Botlets** misma. La cognición decide cuándo delegar tareas repetitivas a la Capa 3 — donde los Botlets se ejecutan sin invocar cognición. Esta decisión no es trivial: una cognición que delega demasiado pierde flexibilidad cuando el ambiente cambia; una cognición que delega muy poco satura sus recursos en tareas que el código tradicional ejecuta mejor. La calibración de cuándo generar Botlet es propiedad emergente de la cognición madura.
 
 El quinto componente es el **Asistente reactivo** — el agente operando en modo respuesta-a-solicitud. Espera input del humano, responde, pasa al siguiente turno. Este modo es Capa 2 pura — cognición sin autonomía, a diferencia del modo proactivo que vive en Capa 3. La distinción Asistente vs Agente Autónomo la desarrolla el Capítulo 5 §5.
 
-La especificación reconoce además **dos modos de acceso a la cognición** que importa nombrar con precisión. El primer modo es **Tokens**: el sistema centraliza credenciales, facturación y políticas para acceder a la cognición. Provee acceso cognitivo a todos sus componentes activos. Este modo aplica cuando los agentes deben operar en background sin intervención del usuario, cuando la organización desea control central sobre consumo y costos, o cuando múltiples agentes comparten un mismo proveedor de cognición. El segundo modo es **Suscripción**: el asistente con el cual el usuario interactúa — Claude, ChatGPT, Copilot, Gemini — accede directamente al recurso cognitivo bajo la suscripción del propio usuario. El sistema agentivo no consume tokens del recurso. Este modo aplica cuando el usuario ya tiene una suscripción activa al proveedor, cuando el sistema expone tools y datos al asistente del usuario sin centralizar la cognición, o cuando la economía operativa privilegia minimizar costos de inferencia.
-
-Los dos modos coexisten. Un mismo sistema agentivo puede operar Asistentes del usuario en modo Suscripción y Agentes Autónomos en background en modo Tokens, simultáneamente. La especificación exige que el sistema declare explícitamente qué modo aplica a qué componente. Confundir los modos en la implementación es fuente recurrente de errores económicos: un Agente Autónomo accidentalmente operando en modo Suscripción puede agotar la cuota del usuario en horas; un Asistente accidentalmente operando en modo Tokens puede facturar al sistema operaciones que deberían ir contra la suscripción del usuario.
+La especificación reconoce además **dos modos de acceso a la cognición**: **Tokens** — el sistema centraliza credenciales, facturación y políticas; el modo natural de los Agentes Autónomos en background — y **Suscripción** — el asistente del usuario (Claude, ChatGPT, Copilot, Gemini) accede bajo la suscripción del propio usuario, sin consumir tokens del sistema. Los dos coexisten en un mismo sistema, la spec exige declarar qué modo aplica a qué componente, y confundirlos es la fuente más recurrente de errores económicos de un despliegue agentivo. La formalización completa de ambos modos vive en el Capítulo 5 §1.
 
 Bajo planes de Suscripción fija, los **Botlets son el mecanismo arquitectónico para extender autonomía sin saturar el plan**: un agente que ejecuta su trabajo cotidiano vía Botlets, reservando la cognición para cuando el ambiente cambia, puede operar en background continuo sin agotar la cuota. Esto hace al Botlet palanca económica, no solo optimización técnica. El Capítulo 5 §2 desarrolla esta economía de la suscripción.
 
@@ -259,17 +218,16 @@ La Capa 4 es donde la mayoría de los proyectos agentivos fracasan, según los d
 
 ## Trust Infrastructure — el eje transversal
 
-Trust Infrastructure no es una capa adicional. Es **transversal a las cuatro**. Sin Trust Infrastructure, los pilotos con agentes mueren al pasar a producción enterprise — y "morir" no es metáfora; es lo que produce el cuarenta por ciento de proyectos cancelados que Gartner pronostica. Trust Infrastructure es la diferencia entre experimentar y operar.
+Trust Infrastructure no es una capa adicional. Es **transversal a las cuatro**. Sin Trust Infrastructure, los pilotos con agentes mueren al pasar a producción enterprise — y "morir" no es metáfora; es lo que produce la ola de cancelaciones que el Capítulo 2 documenta. Trust Infrastructure es la diferencia entre experimentar y operar.
 
 Cinco pilares constituyen Trust Infrastructure. La **Gobernanza** define políticas configurables, permisos CRUDLEX, aprobación humana para operaciones críticas, registro de IA. Se ejerce principalmente en la Capa 4, transversalmente en el resto. La **Auditoría** mantiene append-only log inmutable, trace de cada acción, lineage de decisiones, identity tagging por acción. Se ejerce en Capa 4 y transversalmente. La **Validación** detecta alucinaciones, valida respuestas, previene prompt injection, ejecuta DLP y tokenización. Se ejerce en Capa 2 y Capa 4. La **Resiliencia** garantiza fallback, maneja errores, sandboxing de Botlets. Se ejerce en Capa 3 y transversalmente. La **Transparencia** entrega observabilidad completa, métricas, traces end-to-end, alertas proactivas, dashboards de gobernanza. Es transversal a las cuatro capas.
 
 La descripción detallada de cada pilar — sus mecanismos canónicos, sus propiedades exigidas, su operacionalización en políticas concretas — vive en el Capítulo 5 §4 y en el Capítulo 8 (que operacionaliza los cinco pilares en políticas, modelo CRUDLEX completo, formato del append-only log, protocolos de aprobación humana). En este capítulo basta retener la propiedad arquitectónica fundamental: Trust Infrastructure no se agrega después de que el agente funciona — se diseña desde el inicio, en la arquitectura misma.
 
-La urgencia de Trust Infrastructure ya no es solo arquitectónica — es regulatoria. Singapore IMDA publicó en enero de 2026 el primer framework estatal de gobernanza para IA agentiva — el Model AI Governance Framework for Generative AI (MGF) —, que establece que aunque los agentes actúan autónomamente, *"la responsabilidad humana continúa aplicando"*. La Unión Europea hace lo propio con el EU AI Act, NIST con su AI Risk Management Framework, ISO/IEC con 42001. La pregunta ya no es si los reguladores exigirán infraestructura de confianza — es si la organización puede demostrarla auditablemente cuando se la pidan.
+La urgencia de Trust Infrastructure ya no es solo arquitectónica — es regulatoria: los marcos estatales e internacionales que la exigen se desarrollan en el Capítulo 5 §4. La pregunta ya no es si los reguladores exigirán infraestructura de confianza — es si la organización puede demostrarla auditablemente cuando se la pidan.
 
 El estado del campo respecto a gobernanza está documentado con cifras en el Capítulo 2: la mayoría de las organizaciones que operan agentes hoy no están preparadas para defender lo que sus agentes hacen. Lo que aquí importa es la consecuencia arquitectónica de ese diagnóstico: si la gobernanza no se diseña desde el inicio, no se construye después.
 
-> *La gobernanza no es lo que se agrega después de que el agente funciona. Es lo que separa pilotos de producción.*
 
 ## El principio rector — Agent First
 
@@ -311,19 +269,11 @@ Donde el humano tiene un **Space** —corporeidad heredada del escritorio físic
 
 ### El AgencyDomain como construcción formal
 
-La arquitectura se materializa en una construcción formal: el **AgencyDomain** — ámbito computacional donde habitan agentes autónomos. Análoga conceptual a JavaSpaces — la especificación JSR-000148 de Sun Microsystems que en 1999 estandarizó los espacios distribuidos para sistemas Java sin atar la implementación a un proveedor particular —, AgencyDomains hace lo equivalente para los entornos agentivos. Define cómo deben construirse — capas, ciclos, primitivas, interfaces — sin prescribir una implementación específica. La diferencia de nombre con su predecesor no es ruptura sino precisión: un Java *Space* era espacio computacional para procesos sin cuerpo; un Agency *Domain* es ámbito de jurisdicción para agentes con agencia.
+La arquitectura se materializa en una construcción formal: el **AgencyDomain** — ámbito computacional donde habitan agentes autónomos. Define cómo deben construirse los entornos agentivos — capas, ciclos, primitivas, interfaces — sin prescribir una implementación específica; su paralelo histórico (JavaSpaces, la spec JSR-000148 de 1999) y la derivación completa de la premisa Space ≠ Domain viven en el Capítulo 5 §1.
 
 La especificación formal de AgencyDomains vive en su documento dedicado, que es la primera sección del Capítulo 5. En este capítulo basta retener que la Arquitectura Agentiva, vista como construcción técnica concreta, se instancia en AgencyDomains. Cuando hablamos de "el sistema agentivo", nos referimos a una instancia de AgencyDomain que materializa las cuatro capas, ejerce Trust Infrastructure y respeta el principio Agent First.
 
 La especificación cubre aspectos como el modelo de identidad y direccionamiento de agentes y Botlets, el ciclo de vida del agente dentro del ámbito, la coordinación intra-AgencyDomain y la `A2A` entre AgencyDomains (ambas vía el protocolo `A2A`), la federación entre AgencyDomains (cómo dos ámbitos distintos colaboran), y el modelo de tenancy y aislamiento. Todos estos detalles los desarrolla el Capítulo 5 §1.
-
-## La distinción Asistente vs Agente Autónomo
-
-Una distinción crítica atraviesa las capas 2 y 3 y determina cómo se diseña, opera y cobra cualquier sistema agentivo: la distinción entre **Asistente** y **Agente Autónomo**.
-
-El Asistente vive en Capa 2 (Cognición). Es reactivo: responde cuando se le solicita, espera input del humano, no mantiene Botlets propios, no tiene vida persistente entre sesiones. El Agente Autónomo vive en Capa 3 (Autonomía). Es proactivo: actúa por iniciativa propia, persigue objetivos sin input continuo del humano, mantiene y regenera sus Botlets, vive con vida persistente en background.
-
-La operacionalización de la distinción — cuándo conviene cada rol, qué anti-patrones evitar al confundirlos, cómo se cobran y se gobiernan distinto — la desarrolla el Capítulo 5 §5. En este capítulo basta haber introducido la distinción para que el lector pueda interpretar correctamente las referencias a uno o al otro modo en el resto de la arquitectura.
 
 ## Implementaciones de referencia
 
@@ -343,7 +293,7 @@ Los tres vectores definen la frontera de innovación de la plataforma. Los tres 
 
 Las cuatro capas son la respuesta arquitectónica al paradigma. Pero las capas no se sostienen solas — necesitan piezas reusables que las pueblen para que un implementador pueda construir contra ellas con disciplina. El Capítulo 5 entrega esas piezas — siete primitivas técnicas canónicas que constituyen el vocabulario constructivo de un sistema agentivo conforme: **AgencyDomain** como espacio computacional, **Botlet** como memoria muscular del agente, **proto-Botlet** como su pieza pre-forjada, **Capability** como árbol del saber cognitivo, **Trust Infrastructure** como infraestructura de confianza, la distinción **Asistente vs Agente Autónomo** como eje operativo, y la **Faceta** como unidad atómica de la Capa 1. Quien complete los dos capítulos tiene en mano el conjunto de construcciones formales con las que la categoría agentiva puede ser razonada y construida.
 
-Una nota sobre la numeración de las primitivas: a lo largo del libro la Faceta se rotula como *sexta primitiva canónica* y el proto-Botlet como *séptima primitiva canónica*. Esos ordinales indican el **orden en que cada primitiva se incorporó al canon** —la Faceta se formalizó en v0.3, el proto-Botlet en v0.4— y no su posición en la enumeración de arriba, donde el proto-Botlet aparece junto al Botlet por ser su pieza pre-forjada.
+Una nota sobre la numeración de las primitivas: a lo largo del libro la Faceta se rotula como *sexta primitiva canónica* y el proto-Botlet como *séptima primitiva canónica*. Esos ordinales indican el **orden en que cada primitiva se incorporó al canon**, no su posición en la enumeración de arriba, donde el proto-Botlet aparece junto al Botlet por ser su pieza pre-forjada.
 
 ## Resumen visual
 
@@ -354,7 +304,7 @@ Las cuatro capas en topología paralela, con sus componentes principales, la inf
 | **1 · Interacción** | donde el humano se comunica con el sistema | conversacional textual · conversacional por voz · canales · API directa · GUI generada (on-the-fly · persistente como Botlet de fachada) · señalética |
 | **2 · Cognición** (vía lenta · costosa · decisiva) | donde el sistema piensa | multi-LLM · Capabilities · Pattern Recognition · generación de Botlets · Asistente reactivo |
 | **3 · Autonomía** (vía rápida · barata · repetitiva) | donde el sistema vive con persistencia | Botlets en ejecución · Botler central + edge · tareas asíncronas · monitoreo · garantía de fallback |
-| **4 · Acceso** | donde el sistema actúa sobre el mundo real | tools (MCP) · Conectores · A2A entre AgencyDomains · CRUDLEX · aprobación humana · append-only log · Capabilities cloud/edge/híbridas |
+| **4 · Acceso** | donde el sistema actúa sobre el mundo real | tools (MCP) · Conectores (cloud · edge · híbridos) · A2A entre AgencyDomains · CRUDLEX · aprobación humana · append-only log |
 
 **Trust Infrastructure** es transversal a las cuatro capas (Gobernanza · Auditoría · Validación · Resiliencia · Transparencia). Las Capas 2 y 3 son **vías paralelas** entre Capa 1 y Capa 4 — no etapas en serie —, y el principio rector es **Agent First**.
 
