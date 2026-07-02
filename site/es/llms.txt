@@ -16,18 +16,20 @@ Tres volúmenes responden, en orden, las tres preguntas del tránsito — cada u
 
 ## Libros
 
-- [Postchat — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/Postchat-v0.2-agents-es.md): el destino destilado para que un agente razone dentro del marco — el presupuesto de atención, los siete mecanismos, el modo agentivo, el espectro de representación. v0.2.
-- [Postchat — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/Postchat-v0.2-agents-es.txt)
+- [Trilogía del Mundo Agentivo — manifiesto unificado para agentes (Markdown)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.md): los tres manifiestos canónicos ensamblados en un solo documento, con el canon compartido y el mapa de propiedad conceptual como preámbulo. Un solo fetch, la trilogía completa.
+- [Trilogía — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.txt)
+- [Postchat — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/Postchat-v0.3-agents-es.md): el destino destilado para que un agente razone dentro del marco — el presupuesto de atención, los siete mecanismos, el modo agentivo, el espectro de representación. v0.3.
+- [Postchat — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/Postchat-v0.3-agents-es.txt)
 - [Postchat — versión web (humanos)](https://agencydomains.org/es/postchat/): el libro completo, navegable — la película (el martes de Elena) más el comentario.
-- [Postchat — PDF (humanos)](https://agencydomains.org/es/postchat/Postchat-v0.2-es.pdf)
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.md): el libro destilado para que un agente razone dentro del framework. v0.4.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.txt)
+- [Postchat — PDF (humanos)](https://agencydomains.org/es/postchat/Postchat-v0.3-es.pdf)
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.md): el libro destilado para que un agente razone dentro del framework. v0.5.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
-- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.4-es.pdf)
-- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v0.2-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v0.2.
-- [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v0.2-agents-es.txt)
+- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.5-es.pdf)
+- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v0.3-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v0.3.
+- [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v0.3-agents-es.txt)
 - [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
-- [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v0.2-es.pdf)
+- [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v0.3-es.pdf)
 
 ## Implementación de referencia
 

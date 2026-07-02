@@ -169,6 +169,10 @@ sup a{font-family:var(--mono);font-size:.7em;text-decoration:none}
 .prevnext a:hover{color:var(--accent);text-decoration:none}
 .prevnext .dir{display:block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.25rem}
 .prevnext .nx{margin-left:auto;text-align:right}
+.book-foot{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:.5rem;font-family:var(--mono);font-size:.78rem}
+.book-foot .ff-q{color:var(--ink-soft);margin:0 0 .35rem;line-height:1.5}
+.book-foot a{color:var(--ink-soft)} .book-foot a:hover{color:var(--accent)} .book-foot .k{color:var(--faint)}
 
 /* ---------- toggle de idioma ---------- */
 .hero{position:relative}

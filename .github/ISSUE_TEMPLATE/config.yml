@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ✉️ Feedback without a GitHub account · Feedback sin cuenta de GitHub
+    url: mailto:cesar.obach@ultrabase.net?subject=Feedback%20%E2%80%94%20agencydomains.org
+    about: No account, no friction — email me directly. · Sin cuenta, sin fricción — escríbeme directo.
+  - name: 📖 Read the trilogy · Lee la trilogía
+    url: https://agencydomains.org
+    about: Postchat · AURA · AgencyDomains — the Agentive World.

@@ -16,19 +16,21 @@ Three volumes answer, in order, the three questions of the transition — each r
 
 ## The book — Postchat · The Agentive World (Book I)
 
-- [Postchat — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/Postchat-v0.2-agents-en.md): the destination distilled for an agent to reason within the framework — the attention budget, the seven mechanisms, the agentive mode, the representation spectrum. v0.2.
-- [Postchat — same manifesto as plain text (.txt, alias)](https://agencydomains.org/Postchat-v0.2-agents-en.txt)
+- [The Agentive World Trilogy — unified agents manifest (English, Markdown)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.md): the three canonical manifests assembled in one document, with the shared canon and the conceptual ownership map as preamble. One fetch, the whole trilogy.
+- [Trilogy — same manifest as plain text (.txt, alias)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.txt)
+- [Postchat — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/Postchat-v0.3-agents-en.md): the destination distilled for an agent to reason within the framework — the attention budget, the seven mechanisms, the agentive mode, the representation spectrum. v0.3.
+- [Postchat — same manifesto as plain text (.txt, alias)](https://agencydomains.org/Postchat-v0.3-agents-en.txt)
 - [Postchat — web edition (English)](https://agencydomains.org/postchat/): the full book, navigable — the film (Elena's Tuesday, hour by hour) plus the commentary.
-- [Postchat — PDF (English)](https://agencydomains.org/postchat/Postchat-v0.2-en.pdf)
-- [Postchat — Spanish edition (web)](https://agencydomains.org/es/postchat/) · [PDF](https://agencydomains.org/es/postchat/Postchat-v0.2-es.pdf) · [agents manifest](https://agencydomains.org/es/Postchat-v0.2-agents-es.md)
+- [Postchat — PDF (English)](https://agencydomains.org/postchat/Postchat-v0.3-en.pdf)
+- [Postchat — Spanish edition (web)](https://agencydomains.org/es/postchat/) · [PDF](https://agencydomains.org/es/postchat/Postchat-v0.3-es.pdf) · [agents manifest](https://agencydomains.org/es/Postchat-v0.3-agents-es.md)
 
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
-- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.4-agents-en.md): the book distilled for an agent to reason within the framework. v0.4.
-- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v0.4-agents-en.txt)
+- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.5-agents-en.md): the book distilled for an agent to reason within the framework. v0.5.
+- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v0.5-agents-en.txt)
 - [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable.
-- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v0.4-en.pdf)
-- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.4-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-v0.4-agents-es.md)
+- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v0.5-en.pdf)
+- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.5-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.md)
 
 ## Reference implementation
 
@@ -36,9 +38,9 @@ Three volumes answer, in order, the three questions of the transition — each r
 
 ## The book — AURA · The Agentive Path (Book II)
 
-- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v0.2-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v0.2.
-- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v0.2-agents-en.txt)
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v0.3-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v0.3.
+- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v0.3-agents-en.txt)
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
-- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.2-en.pdf)
-- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.2-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.2-agents-es.md)
+- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.3-en.pdf)
+- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.3-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.3-agents-es.md)
 

@@ -92,6 +92,9 @@ jobs:
           bash src/postchat/_build/build-en.sh
           bash src/postchat/_build/build-web.sh
 
+      - name: Manifiesto unificado de la trilogía (agentes, ES+EN)
+        run: bash src/trilogia/build-agentes.sh
+
       - name: Ensamblar sitio (shell + builds en sus rutas URL)
         run: |
           DIST=src/agencydomains/_dist
@@ -124,6 +127,11 @@ jobs:
           mv _site/postchat/Postchat-${POSTCHAT_VERSION}-agents-en.txt _site/
           mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.md  _site/es/
           mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.txt _site/es/
+          # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
+          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
+          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt
+          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/
+          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
       - uses: actions/upload-pages-artifact@v3
