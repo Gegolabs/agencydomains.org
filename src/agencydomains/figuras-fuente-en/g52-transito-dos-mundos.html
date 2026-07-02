@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>G52 · The transition — two worlds, one question</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .transito-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .pregunta {
+    align-self: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    padding: 14px 36px;
+    border-radius: 6px;
+  }
+  .mundos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .mundo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 30px 40px;
+    border-radius: 10px;
+  }
+  .mundo-ag   { background: var(--capa-2-bg); text-align: right; }
+  .mundo-agtv { background: var(--capa-4-bg); }
+  .mundo-eyebrow { font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+  .mundo-ag .mundo-eyebrow   { color: var(--capa-2); }
+  .mundo-agtv .mundo-eyebrow { color: var(--capa-4); }
+  .mundo-titulo {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .mundo-linea { font-size: 17px; color: var(--ink-soft); margin: 0; }
+  .mundo-linea strong { color: var(--ink); }
+  .linea {
+    position: relative;
+    width: 4px;
+    background: var(--ink);
+    margin: 0 34px;
+    border-radius: 2px;
+  }
+  .linea-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    padding: 14px 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .flecha {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .flecha .shaft {
+    font-size: 26px;
+    color: var(--ink);
+    letter-spacing: -2px;
+  }
+  .trilogia {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .vol { display: flex; flex-direction: column; gap: 2px; text-align: center; }
+  .vol-nombre { font-family: var(--serif); font-size: 19px; font-weight: 600; }
+  .vol-rol { font-size: 14px; color: var(--ink-soft); }
+  .vol-1 .vol-nombre { color: var(--capa-1); }
+  .vol-2 .vol-nombre { color: var(--capa-3); }
+  .vol-3 .vol-nombre { color: var(--trust); }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">The Agentive World Trilogy</div>
+      <h1 class="figure-title">The transition — two worlds, one question</h1>
+    </div>
+    <div class="figure-eyebrow">Figure G52</div>
+  </header>
+
+  <div class="figure-body">
+    <div class="transito-canvas">
+
+      <div class="pregunta">
+        do you still open applications to do your work?
+      </div>
+
+      <div class="mundos">
+        <div class="mundo mundo-ag">
+          <div>
+            <div class="mundo-eyebrow">Yes → Agentic World</div>
+            <h2 class="mundo-titulo">Applications persist</h2>
+          </div>
+          <p class="mundo-linea">AI arrives as a <strong>copilot</strong> inside the usual tools.</p>
+          <p class="mundo-linea">The way of working doesn&rsquo;t change: the speed does. <strong>Incremental evolution.</strong></p>
+        </div>
+
+        <div class="linea">
+          <div class="linea-label">THE NADELLA LINE</div>
+        </div>
+
+        <div class="mundo mundo-agtv">
+          <div>
+            <div class="mundo-eyebrow">No → Agentive World</div>
+            <h2 class="mundo-titulo">Agents are the interface</h2>
+          </div>
+          <p class="mundo-linea">You express <strong>intentions</strong>; applications stop being where work happens.</p>
+          <p class="mundo-linea">The way of working changes. <strong>Fundamental transformation.</strong></p>
+        </div>
+      </div>
+
+      <div class="flecha">
+        <span>the transition</span>
+        <span class="shaft">──────────────▶</span>
+        <span>crossed once per organization — and once per person</span>
+      </div>
+
+      <div class="trilogia">
+        <div class="vol vol-1">
+          <div class="vol-nombre">I · Postchat</div>
+          <div class="vol-rol">the destination — what the other side looks like</div>
+        </div>
+        <div class="vol vol-2">
+          <div class="vol-nombre">II · AURA</div>
+          <div class="vol-rol">the route — how it is measured and crossed</div>
+        </div>
+        <div class="vol vol-3">
+          <div class="vol-nombre">III · AgencyDomains</div>
+          <div class="vol-rol">the vehicle — the architecture that makes it operable</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -69,6 +69,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:560;line-height:1.12;letter-s
 .hfoot a{color:var(--ink-soft)} .hfoot a:hover{color:var(--accent)} .hfoot .k{color:var(--faint)}
 /* colofón bajo el byline: el filete ya lo pone .byline — sin segunda raya */
 .hl .hfoot{margin-top:1.1rem;padding-top:0;border-top:0}
+/* la entrada a la escalera (2 minutos): único CTA en acento de la columna */
+.hl .starthere{font-family:var(--mono);font-size:.78rem;margin:1.6rem 0 0}
+.hl .starthere a{color:var(--accent)} .hl .starthere .k{color:var(--faint)}
 
 /* ---------- LIBRO (multipágina · barra lateral + capítulo) ---------- */
 .book-topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);
