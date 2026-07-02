@@ -67,6 +67,8 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:560;line-height:1.12;letter-s
 .hfoot{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid var(--rule);display:flex;flex-direction:column;
   gap:.5rem;font-family:var(--mono);font-size:.78rem}
 .hfoot a{color:var(--ink-soft)} .hfoot a:hover{color:var(--accent)} .hfoot .k{color:var(--faint)}
+/* colofón bajo el byline: el filete ya lo pone .byline — sin segunda raya */
+.hl .hfoot{margin-top:1.1rem;padding-top:0;border-top:0}
 
 /* ---------- LIBRO (multipágina · barra lateral + capítulo) ---------- */
 .book-topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);
