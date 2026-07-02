@@ -34,6 +34,9 @@ cocina del proyecto):
   registra las **cinco** especificaciones (entra Casos de Uso).
 - **El prólogo placeholder sale del build** hasta que llegue el texto del
   prologuista.
+- **Rescate fundacional**: el **porcentaje agentivo** — el indicador de cruce
+  del documento original de la Línea Nadella (dic-2024) — entra a la
+  Introducción como complemento de posición al par diagnóstico.
 
 ## v0.2 — Junio 2026
 

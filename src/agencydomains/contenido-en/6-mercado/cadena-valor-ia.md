@@ -240,6 +240,19 @@ The second: **Core depth requires discipline**. Reaching Core depth in any link 
 
 The third: **broad coverage demands integration**. A company that aims to cover multiple links at Core depth (domain infrastructure) must solve the problem of internal integration between those links. Operating Runtime + Firewall + Observability + Tools + Integrations as five separate products produces a company with five products. Operating them as a coherent architecture produces a gateway. The difference is what the customer perceives as value.
 
+### Monetization crosses the line
+
+There is a reading of the map that is not about positioning but about **business model**, and it is worth making explicit because it is the deepest economic consequence of the book's thesis: the model that financed enterprise software for two decades — the SaaS license or subscription, charged because users *use* the application — does not survive the crossing of the Nadella Line intact. If employees never open Power BI, how do you charge Power BI licenses? If no user ever sees the Salesforce interface, how does Salesforce demonstrate the value of its CRM? The tension reaches the very author of the quote: Microsoft sells exactly the interfaces whose collapse its CEO predicts — and its accelerated reconversion into an agent platform is the answer, not the denial.
+
+On the agentive side of the line, monetization migrates toward four emerging models:
+
+1. **By capability, not by license** — not "one hundred Salesforce seats" but agent access to the customer-relationship-management capability; the seat disappears along with the interface that justified it.
+2. **By real usage, not by potential access** — not a flat subscription but a charge per analysis executed, transaction processed, conversation resolved; agentive consumption is measurable by design (the append-only log already records it).
+3. **By value created, not by tool provided** — a share of the efficiency gained or of the revenue attributable to the agents' insights; the hardest model to instrument and the best aligned.
+4. **By critical capabilities that agents need** — governance, audit, permissions, identity: services whose value does not depend on anyone "opening" anything. It is no accident that this book devotes two chapters to that category: Trust Infrastructure is not only the technical condition of production — it is one of the few places where the software business model becomes *clearer* after the crossing, not less clear.
+
+The strategic reading: on the agentic side, value is charged at the interface; on the agentive side, at the capability, the consumption, and the trust. The actors on the map that already monetize without depending on a human opening their product — infrastructure, firewall, observability — cross the line with their model intact; those that monetize seats in front of screens have pending, on top of the technical repositioning, a repositioning of their cash line.
+
 ### Agentive discoverability — the displacement of the discovery layer
 
 <!-- FIG:g38-discoverability -->

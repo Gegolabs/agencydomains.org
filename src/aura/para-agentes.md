@@ -64,6 +64,8 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 **La Línea Nadella** — la frontera entre ambos mundos, formulada como pregunta divisoria: *¿sus empleados todavía abren aplicaciones para hacer su trabajo?* Sí → mundo agéntico. No → mundo agentivo.
 
+**El porcentaje agentivo** — indicador operativo de cruce: fracción de las tareas que un empleado puede delegar por completo a un agente sin abrir una aplicación. Bandas: 0–20 % mundo agéntico · 20–50 % aproximación · 50–80 % cruce en curso · 80–100 % mundo agentivo. Complementa a IRIS/MOTOR (capacidades internas) midiendo la **posición** respecto del tránsito; se mide por función, no como promedio único.
+
 ### La Pirámide del Valor de los Datos
 
 Cuatro capas ascendentes: **DATOS** (registros crudos en sistemas) → **INFORMACIÓN** (datos con contexto y estructura) → **CONOCIMIENTO** (análisis, patrones, comprensión) → **ACCIÓN** (ejecución autónoma gobernada). La industria invirtió décadas en las dos capas inferiores; el salto información→conocimiento es dolorosamente lento y el salto conocimiento→acción prácticamente inexistente — no por la tecnología sino porque **hay humanos en el medio**.

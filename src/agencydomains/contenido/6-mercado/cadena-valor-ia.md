@@ -240,6 +240,19 @@ La segunda: **la profundidad Core requiere disciplina**. Llegar a profundidad Co
 
 La tercera: **la cobertura amplia exige integración**. Una empresa que pretende cubrir múltiples eslabones a profundidad Core (infraestructura de dominio) debe resolver el problema de integración interna entre esos eslabones. Operar Runtime + Firewall + Observabilidad + Herramientas + Integraciones como cinco productos separados produce una empresa con cinco productos. Operarlos como una arquitectura coherente produce un gateway. La diferencia es lo que el cliente percibe como valor.
 
+### La monetización cruza la línea
+
+Hay una lectura del mapa que no es de posicionamiento sino de **modelo de negocio**, y conviene hacerla explícita porque es la consecuencia económica más profunda de la tesis del libro: el modelo que financió al software empresarial durante dos décadas — la licencia o suscripción SaaS, cobrada porque los usuarios *usan* la aplicación — no sobrevive intacto al cruce de la Línea Nadella. Si los empleados nunca abren Power BI, ¿cómo se cobran licencias de Power BI? Si ningún usuario ve jamás la interfaz de Salesforce, ¿cómo demuestra Salesforce el valor de su CRM? La tensión alcanza al propio autor de la frase: Microsoft vende exactamente las interfaces cuyo colapso su CEO predice — y su reconversión acelerada a plataforma de agentes es la respuesta, no la negación.
+
+Del lado agentivo de la línea, la monetización migra hacia cuatro modelos emergentes:
+
+1. **Por capacidad, no por licencia** — no "cien asientos de Salesforce" sino acceso de agentes a la capacidad de gestión de relaciones con clientes; el asiento desaparece junto con la interfaz que lo justificaba.
+2. **Por uso real, no por acceso potencial** — no suscripción fija sino cargo por análisis ejecutado, transacción procesada, conversación resuelta; el consumo agentivo es medible por diseño (el append-only log ya lo registra).
+3. **Por valor creado, no por herramienta provista** — participación en la eficiencia ganada o en el ingreso atribuible a los insights de los agentes; el modelo más difícil de instrumentar y el mejor alineado.
+4. **Por capacidades críticas que los agentes necesitan** — gobernanza, auditoría, permisos, identidad: servicios cuyo valor no depende de que nadie "abra" nada. No es casual que este libro dedique dos capítulos a esa categoría: la Trust Infrastructure no es solo la condición técnica de la producción — es de los pocos lugares donde el modelo de negocio del software queda *más* claro después del cruce, no menos.
+
+La lectura estratégica: en el lado agéntico el valor se cobra en la interfaz; en el agentivo, en la capacidad, el consumo y la confianza. Los actores del mapa que ya monetizan sin depender de que un humano abra su producto — infraestructura, firewall, observabilidad — cruzan la línea con el modelo intacto; los que monetizan asientos frente a pantallas tienen pendiente, además del reposicionamiento técnico, un reposicionamiento de caja.
+
 ### Discoverability agentiva — el desplazamiento de la capa de descubrimiento
 
 <!-- FIG:g38-discoverability -->

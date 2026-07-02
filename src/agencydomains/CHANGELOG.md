@@ -46,6 +46,14 @@ cocina del proyecto):
   registra las **cinco** especificaciones de AURA.
 - **El prólogo placeholder sale del build** hasta que llegue el texto del
   prologuista.
+- **Rescate fundacional** (del documento original *La Línea Nadella*,
+  dic-2024): la **cita completa de Nadella** con su mecánica CRUD y sus dos
+  fases entra al Cap. 1 junto al **espectro con el polo extremo** (Musk) y una
+  sección nueva de **contra-argumentos** («Por qué la línea podría no
+  cruzarse») con las respuestas del canon; los **precedentes históricos** del
+  patrón de coexistencia (mainframe/web/nube) entran al Cap. 2; la **crisis de
+  monetización del SaaS** y sus cuatro modelos emergentes entran al Cap. 6; el
+  **porcentaje agentivo** se enlaza a *AURA*, donde vive como indicador.
 
 ## v0.4 — Junio 2026
 

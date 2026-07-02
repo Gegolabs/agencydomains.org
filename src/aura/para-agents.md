@@ -64,6 +64,8 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 **The Nadella Line** — the boundary between the two worlds, formulated as a dividing question: *do your employees still open applications to do their work?* Yes → agentic world. No → agentive world.
 
+**The agentive percentage** — operational crossing indicator: the fraction of tasks an employee can delegate entirely to an agent without opening an application. Bands: 0–20% agentic world · 20–50% approaching · 50–80% crossing · 80–100% agentive world. It complements IRIS/MOTOR (internal capabilities) by measuring **position** with respect to the transition; measured per function, not as a single average.
+
 ### The Data Value Pyramid
 
 Four ascending layers: **DATA** (raw records in systems) → **INFORMATION** (data with context and structure) → **KNOWLEDGE** (analysis, patterns, understanding) → **ACTION** (governed autonomous execution). The industry invested decades in the two lower layers; the information→knowledge leap is painfully slow and the knowledge→action leap practically nonexistent — not because of the technology but because **there are humans in the middle**.
