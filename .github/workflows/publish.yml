@@ -113,7 +113,6 @@ jobs:
           cp -R site/. _site/
           touch _site/.nojekyll
           # los libros reemplazan cualquier placeholder del shell en su ruta
-          # (site/postchat y site/es/postchat son stubs de redirect y se CONSERVAN)
           rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains

@@ -39,8 +39,7 @@ cocina); la re-arquitectura de caras viene del cluster `tres-caras` (docs
 **Builds** (`_build/`): `build-pdf.sh` (ES PDF) · `build-web.sh` (ES web) ·
 `build-en.sh` (EN MD+PDF+web). Distribuibles: `EmpresaTiempoReal-vX.Y-es.*`
 (ES) · `RealTimeEnterprise-vX.Y-en.*` (EN). Rutas de publicación:
-`/real-time-enterprise/` (EN, default) · `/es/empresa-tiempo-real/` (ES);
-las rutas históricas `/postchat/` y `/es/postchat/` redirigen.
+`/real-time-enterprise/` (EN, default) · `/es/empresa-tiempo-real/` (ES).
 
 ## Pendientes hacia v0.5+
 

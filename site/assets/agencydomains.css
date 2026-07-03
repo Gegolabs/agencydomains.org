@@ -69,53 +69,9 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:560;line-height:1.12;letter-s
 .hfoot a{color:var(--ink-soft)} .hfoot a:hover{color:var(--accent)} .hfoot .k{color:var(--faint)}
 /* colofón bajo el byline: el filete ya lo pone .byline — sin segunda raya */
 .hl .hfoot{margin-top:1.1rem;padding-top:0;border-top:0}
-/* la entrada a la escalera (2 minutos): único CTA en acento de la columna */
+/* la entrada a la escalera (la invitación, 1 minuto): único CTA en acento de la columna */
 .hl .starthere{font-family:var(--mono);font-size:.78rem;margin:1.6rem 0 0}
 .hl .starthere a{color:var(--accent)} .hl .starthere .k{color:var(--faint)}
-/* overlay del abreboca: la página /2-minutes/ es el canon; esto es el tráiler */
-dialog.peek{width:min(44rem,92vw);max-height:88vh;overflow-y:auto;overscroll-behavior:contain;
-  background:var(--paper);color:var(--ink);border:1px solid var(--rule);border-radius:10px;
-  padding:0;margin:auto;box-shadow:0 24px 80px rgba(28,26,22,.35)}
-dialog.peek::backdrop{background:rgba(28,26,22,.45);backdrop-filter:blur(2px)}
-.peek-close{position:sticky;top:.9rem;margin:.9rem 1rem 0 auto;display:block;z-index:2;
-  width:2rem;height:2rem;border:1px solid var(--rule);border-radius:50%;background:var(--paper);
-  color:var(--ink-soft);font-family:var(--mono);font-size:1.05rem;line-height:1;cursor:pointer}
-.peek-close:hover{color:var(--accent);border-color:var(--accent)}
-dialog.peek .peek-body.page{max-width:none;margin:-1rem 0 0;padding:0 clamp(1.25rem,4vw,2.6rem) 2.6rem}
-dialog.peek .peek-body .crumb{display:none}
-/* modo lámina: la esencia sin scroll — título, Línea Nadella, g52, escalera */
-dialog.peek.peek-lamina{width:min(72rem,94vw)}
-dialog.peek.peek-lamina .peek-close{position:absolute;top:.9rem;right:1rem;margin:0}
-.lamina{padding:1.5rem clamp(1.25rem,4vw,2.6rem) 1.6rem}
-.lamina .eyebrow{margin:0 0 .7rem}
-.lamina h1{font-size:clamp(1.7rem,3.2vw,2.35rem);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0}
-.lamina .deck{font-family:var(--display);font-style:italic;font-weight:340;color:var(--ink-soft);font-size:1.12rem;margin:.35rem 0 0}
-.lamina p{margin:.9rem 0 0;max-width:46rem;font-size:.98rem;line-height:1.55}
-.lamina p.q{margin-top:1.1rem;font-size:1.05rem}
-.lamina p.q em{color:var(--accent-deep)}
-.lamina figure{margin:1.2rem 0 0}
-.lamina figure img{max-height:46vh;width:auto;max-width:100%;height:auto;display:block;margin:0 auto}
-.lamina figcaption{text-align:center;font-family:var(--mono);font-size:.68rem;color:var(--faint);margin-top:.5rem}
-.lamina .next{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--rule);
-  display:flex;flex-wrap:wrap;gap:.4rem 1.8rem;font-family:var(--mono);font-size:.76rem}
-.lamina .next a{color:var(--ink-soft)} .lamina .next a:hover{color:var(--accent)} .lamina .next .k{color:var(--faint)}
-@media(max-height:940px){
-  .lamina{padding-top:1.2rem}
-  .lamina h1{font-size:1.7rem}
-  .lamina .deck{font-size:1.02rem}
-  .lamina p{margin:.55rem 0 0}
-  .lamina p.q{margin-top:.9rem}
-  .lamina figure{margin-top:.9rem}
-  .lamina figure.g52{padding:.9rem 1.1rem}
-  .lamina .g52-worlds{margin-top:.7rem}
-  .lamina .g52-world{padding:.7rem .95rem;gap:.3rem}
-  .lamina .g52-transit{margin-top:.65rem}
-  .lamina .g52-vols{margin-top:.65rem;padding-top:.55rem}
-  .lamina figure.g52 figcaption{display:none}
-  .lamina figcaption{margin-top:.35rem}
-  .lamina .next{margin-top:.85rem;padding-top:.8rem}
-}
-
 /* ---------- LIBRO (multipágina · barra lateral + capítulo) ---------- */
 .book-topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);
   backdrop-filter:saturate(1.1) blur(6px);border-bottom:1px solid var(--rule);display:flex;
