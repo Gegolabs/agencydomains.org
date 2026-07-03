@@ -2,7 +2,7 @@
 
 Hay dos preguntas que toda organización se hará en esta década, y conviene no confundirlas.
 
-La primera es *¿cómo se ve el destino?* — qué forma tiene una organización cuando los agentes de IA dejan de ser herramientas que la gente abre y se convierten en el medio por el que el trabajo ocurre. Esa pregunta tiene su propio libro en esta serie: *AgencyDomains* describe la arquitectura formal de ese mundo, y *Postchat* describe el mundo mismo.
+La primera es *¿cómo se ve el destino?* — qué forma tiene una organización cuando los agentes de IA dejan de ser herramientas que la gente abre y se convierten en el medio por el que el trabajo ocurre. Esa pregunta tiene su propio libro en esta serie: *AgencyDomains* describe la arquitectura formal de ese mundo, y *La Empresa en Tiempo Real* describe el mundo mismo.
 
 La segunda pregunta es la de este libro: **¿cómo se llega?** No qué construir al final, sino dónde está parada la organización hoy, qué trayectoria tiene por delante, en qué orden conviene recorrerla y con qué instrumentos. La distancia entre una empresa que acumula dashboards y una empresa que detecta, decide y actúa de forma autónoma no se cruza con una compra de software — se recorre. Y un camino se recorre mejor con mapa.
 
@@ -26,4 +26,4 @@ Los capítulos nacieron como especificaciones independientes y conservan esa aut
 
 AURA es **diagnóstica, no prescriptiva**. Sus modelos dicen dónde está una organización y qué significa estar ahí; no dicen qué producto comprar ni qué proyecto ejecutar — eso pertenece al trabajo de consultoría que estos modelos informan. Y AURA es honesta sobre la transición: el camino no es demoler lo construido sino subsumirlo — el data warehouse no muere, se convierte en una fuente que los agentes consumen; la empresa en línea no desaparece, se vuelve el cimiento de la empresa en tiempo real.
 
-El lector que busque la arquitectura del destino — las primitivas, las capas, la *Trust Infrastructure* — debe ir a *AgencyDomains*. El que quiera saber cómo se ve el mundo cuando la transición termina, a *Postchat*. Este libro es para los que tienen que cruzar.
+El lector que busque la arquitectura del destino — las primitivas, las capas, la *Trust Infrastructure* — debe ir a *AgencyDomains*. El que quiera saber cómo se ve el mundo cuando la transición termina, a *La Empresa en Tiempo Real*. Este libro es para los que tienen que cruzar.

@@ -20,7 +20,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos. En particular: **agentivo** ≠ **agéntico** (ver §2) — la distinción es de tesis, no de estilo.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: AURA diagnostica; sus pocos imperativos son estructurales (secuencialidad de niveles, pre-condiciones bloqueantes, honestidad del ROI).
 - **Estado pre-1.0**: el libro está en desarrollo activo, sin publicación pública aún. Términos, estructuras y numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera publicación).
-- **Serie**: AURA es el Libro II de la trilogía del Mundo Agentivo — *AgencyDomains* (la arquitectura del destino; tiene su propio manifiesto canónico) · **AURA** (el camino) · *Postchat* (el destino habitado). Los términos compartidos con la trilogía (La Línea Nadella, agentivo, Trust Infrastructure, empresa en tiempo real) son consistentes entre libros.
+- **Serie**: AURA es el Libro II de la trilogía del Mundo Agentivo — *AgencyDomains* (la arquitectura del destino; tiene su propio manifiesto canónico) · **AURA** (el camino) · *La Empresa en Tiempo Real* (el destino habitado). Los términos compartidos con la trilogía (La Línea Nadella, agentivo, Trust Infrastructure, empresa en tiempo real) son consistentes entre libros.
 
 ---
 
@@ -405,7 +405,7 @@ Nació en gobierno local pero es genérico (banca: cliente/compliance; salud: pa
 ## 10 · Relación con la trilogía
 
 - ***AgencyDomains* — la arquitectura** (Libro III del mapa, publicado en agencydomains.org): las primitivas, las capas, la Trust Infrastructure del destino. Tiene su propio manifiesto canónico para agentes; ante términos arquitectónicos (AgencyDomain, Botlet, Capability, Faceta), ese manifiesto manda.
-- ***Postchat* — el destino** (Libro I, en gestación): cómo se ve el mundo cuando la transición quedó atrás.
+- ***La Empresa en Tiempo Real* — el destino** (Libro I): cómo se ve el mundo cuando la transición quedó atrás, contado en sus cuatro caras — El salto cuántico · Postchat · El Estado Mayor · La guardia.
 - ***AURA* — el camino** (este libro): dónde está parada la organización, qué trayectoria tiene por delante, en qué orden recorrerla y con qué instrumentos.
 
 Regla de lectura cruzada: AURA diagnostica y prepara; AgencyDomains especifica el destino. Una organización madura en ambos ejes de AURA termina operando la arquitectura que AgencyDomains describe.

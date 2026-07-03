@@ -16,7 +16,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 ## Cómo usar este documento
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición y propiedad importa para razonar dentro del framework.
-- **Serie**: AgencyDomains es el Libro III de la trilogía del Mundo Agentivo — *Postchat* (el destino; manifiesto propio) · *AURA* (el camino; manifiesto propio) · **AgencyDomains** (la arquitectura). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
+- **Serie**: AgencyDomains es el Libro III de la trilogía del Mundo Agentivo — *La Empresa en Tiempo Real* (el destino; manifiesto propio) · *AURA* (el camino; manifiesto propio) · **AgencyDomains** (la arquitectura). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
 - **Espejo de v0.5** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos.
 - **Convenciones MUST/SHOULD**: la spec usa esos verbos en sentido RFC 2119.

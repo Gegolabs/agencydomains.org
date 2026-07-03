@@ -8,6 +8,9 @@ SRC="$( dirname "$SCRIPT_DIR" )"
 DIST="$SCRIPT_DIR/_dist"
 mkdir -p "$DIST"
 
+ver() { grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "$SRC/$1/CHANGELOG.md" | cut -d" " -f2; }
+RTE_V=$(ver rte); AURA_V=$(ver aura); AGD_V=$(ver agencydomains)
+
 SEP_I="═══════════════════════════════════════════════════════════════════"
 
 build_lang() {
@@ -30,13 +33,13 @@ build_lang() {
 }
 
 build_lang cabecera-agentes.md "$DIST/Trilogia-MundoAgentivo-agentes-es.md" \
-  postchat/para-agentes.md aura/para-agentes.md agencydomains/para-agentes.md \
-  "PARTE I · POSTCHAT — manifiesto canónico (espejo de Postchat v0.3)" \
-  "PARTE II · AURA — manifiesto canónico (espejo de AURA v0.3)" \
-  "PARTE III · AGENCYDOMAINS — manifiesto canónico (espejo de AgencyDomains v0.5)"
+  rte/para-agentes.md aura/para-agentes.md agencydomains/para-agentes.md \
+  "PARTE I · LA EMPRESA EN TIEMPO REAL — manifiesto canónico (espejo de La Empresa en Tiempo Real $RTE_V)" \
+  "PARTE II · AURA — manifiesto canónico (espejo de AURA $AURA_V)" \
+  "PARTE III · AGENCYDOMAINS — manifiesto canónico (espejo de AgencyDomains $AGD_V)"
 
 build_lang header-agents.md "$DIST/AgentiveWorld-Trilogy-agents-en.md" \
-  postchat/para-agents.md aura/para-agents.md agencydomains/para-agents.md \
-  "PART I · POSTCHAT — canonical manifest (mirror of Postchat v0.3)" \
-  "PART II · AURA — canonical manifest (mirror of AURA v0.3)" \
-  "PART III · AGENCYDOMAINS — canonical manifest (mirror of AgencyDomains v0.5)"
+  rte/para-agents.md aura/para-agents.md agencydomains/para-agents.md \
+  "PART I · THE REAL-TIME ENTERPRISE — canonical manifest (mirror of The Real-Time Enterprise $RTE_V)" \
+  "PART II · AURA — canonical manifest (mirror of AURA $AURA_V)" \
+  "PART III · AGENCYDOMAINS — canonical manifest (mirror of AgencyDomains $AGD_V)"

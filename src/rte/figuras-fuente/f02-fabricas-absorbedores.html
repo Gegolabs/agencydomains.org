@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>F2 · Fábricas y absorbedores de interrupciones</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+  .especies { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; width: 100%; }
+  .especie { border-radius: 10px; padding: 30px 32px; display: flex; flex-direction: column; gap: 16px; }
+  .esp-fab { background: var(--capa-4-bg); border: 1.5px solid var(--capa-4); }
+  .esp-abs { background: var(--capa-3-bg); border: 1.5px solid var(--capa-3); }
+  .especie h2 { font-family: var(--serif); font-size: 28px; margin: 0; }
+  .esp-fab h2 { color: var(--capa-4); }
+  .esp-abs h2 { color: #3f5e3f; }
+  .modelo { font-size: 15px; line-height: 1.5; }
+  .diagrama { font-family: var(--mono); font-size: 14px; line-height: 1.7; background: var(--paper);
+              border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px; white-space: pre; }
+  .metrica { margin-top: auto; border-top: 1px solid var(--rule); padding-top: 14px; font-size: 14px; }
+  .metrica b { font-family: var(--serif); font-size: 16px; }
+  .ejemplos { font-size: 12px; color: var(--ink-soft); font-style: italic; }
+  .sentencia { margin-top: 36px; text-align: center; font-family: var(--serif); font-size: 20px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="figure">
+  <header class="figure-header">
+    <div>
+      <div class="figure-eyebrow">Capítulo 2 · La comunicación viene a ti</div>
+      <h1 class="figure-title">Dos especies de infraestructura de comunicación</h1>
+    </div>
+    <div class="figure-eyebrow">Figura F2</div>
+  </header>
+
+  <div class="figure-body" style="flex-direction: column; justify-content: center;">
+    <div class="especies">
+      <div class="especie esp-fab">
+        <h2>Fábrica de interrupciones</h2>
+        <div class="modelo">Te expone a un flujo y te deja el trabajo de filtrar. <b>Genera</b> interrupciones.</div>
+        <div class="diagrama">flujo ──────▶ TÚ (filtras)
+ruido ──────▶ TÚ (filtras)
+urgente ────▶ TÚ (filtras)
+chiste ─────▶ TÚ (filtras)</div>
+        <div class="metrica">Métrica natural: <b>engagement</b><br><span class="ejemplos">cuántas veces vuelve a capturarte</span></div>
+        <div class="ejemplos">El canal corporativo es una fábrica por diseño; el copiloto de IA dentro del canal es la misma fábrica con ayuda.</div>
+      </div>
+      <div class="especie esp-abs">
+        <h2>Absorbedor de interrupciones</h2>
+        <div class="modelo">Intercepta el flujo y entrega solo lo que justifica atención. <b>Consume</b> interrupciones.</div>
+        <div class="diagrama">flujo ──▶ ┐
+ruido ──▶ │ AGENTE ──▶ briefing
+urgente ▶ │ (absorbe)  (+ urgencia real)
+chiste ─▶ ┘            ──▶ TÚ (decides)</div>
+        <div class="metrica">Métrica natural: <b>horas de trabajo ininterrumpido protegidas</b><br><span class="ejemplos">cuántas horas logró que nadie te tocara</span></div>
+        <div class="ejemplos">Postchat pertenece a esta especie: el silencio como garantía, no como amenaza.</div>
+      </div>
+    </div>
+    <div class="sentencia">No son grados de una misma cosa: son direcciones opuestas.</div>
+  </div>
+
+  <footer class="figure-footer">
+    <span>La Empresa en Tiempo Real · Mundo Agentivo</span>
+    <span>Figura F2</span>
+  </footer>
+</div>
+</body>
+</html>

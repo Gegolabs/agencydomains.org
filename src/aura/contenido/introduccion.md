@@ -27,7 +27,7 @@ Las voces más disruptivas de la industria apuestan por el mundo agentivo. Satya
 
 Ambos modelos son **diagnósticos**: evalúan en qué nivel se encuentra una organización y qué significa ese nivel. No prescriben qué implementar — eso corresponde a la consultoría especializada. Son ortogonales: una organización puede estar alta en uno y baja en el otro. La madurez organizacional plena requiere avanzar en ambos ejes. AURA integra ambos ejes en una arquitectura de referencia que permite diagnosticar el estado completo de la transformación.
 
-> El mundo al otro lado de esta transición está retratado en *Postchat*, y su arquitectura formal especificada en *AgencyDomains* — los volúmenes I y III de esta trilogía.
+> El mundo al otro lado de esta transición está retratado en *La Empresa en Tiempo Real*, y su arquitectura formal especificada en *AgencyDomains* — los volúmenes I y III de esta trilogía.
 
 ## El Estancamiento de la Industria
 

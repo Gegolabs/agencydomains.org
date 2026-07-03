@@ -1,0 +1,28 @@
+# Manifest del libro La Empresa en Tiempo Real v0.4 — orden de concatenación.
+# Parte 1 «La película» (escenas con adelantos) + Parte 2 «El comentario» + glosario.
+# El prólogo se reincorpora cuando llegue el texto del prologuista.
+contenido/00-frontmatter.md
+contenido/prefacio.md
+contenido/parte-pelicula.md
+contenido/p1-0700-el-briefing.md
+contenido/p1-0930-el-encargo.md
+contenido/p1-1100-la-reunion-que-no-fue.md
+contenido/p1-1230-el-agora.md
+contenido/p1-1500-el-agente-de-otro.md
+contenido/p1-1540-los-zapatos.md
+contenido/p1-1700-el-cierre.md
+contenido/p1-nocturno.md
+contenido/p1-epilogo-bisagra.md
+contenido/parte-comentario.md
+contenido/p2-introduccion.md
+contenido/p2-01-el-salto-cuantico.md
+contenido/p2-02-la-oficina-interrumpida.md
+contenido/p2-03-la-inversion.md
+contenido/p2-04-los-mecanismos-del-flujo.md
+contenido/p2-05-el-estado-mayor.md
+contenido/p2-06-la-guardia.md
+contenido/p2-07-la-puerta.md
+contenido/p2-08-la-convergencia.md
+contenido/p2-conclusion.md
+contenido/glosario.md
+contenido/referencias.md

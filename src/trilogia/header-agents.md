@@ -1,6 +1,6 @@
 ---
 title: The Agentive World Trilogy — Unified manifest for agents
-composition: Postchat v0.3 · AURA v0.3 · AgencyDomains v0.5 (the three canonical manifests, in full)
+composition: The Real-Time Enterprise v0.4 · AURA v0.3 · AgencyDomains v0.5 (the three canonical manifests, in full)
 license: GFDL v1.3 (proposed)
 audience: agents that need the complete trilogy in a single document
 precedence_rule: each part mirrors its human book; upon contradiction, the human book of the corresponding part wins
@@ -16,7 +16,7 @@ The transition that occupies the trilogy is a single one: from the world where p
 
 | Vol | Book | Question | Role | Audience |
 |---|---|---|---|---|
-| I | **Postchat** — The Agentive World | Where are we going? | the destination | Managers, directors, and business owners, no technical background |
+| I | **The Real-Time Enterprise** — The Agentive World | Where are we going? | the destination | Managers, directors, and business owners, no technical background |
 | II | **AURA** — The Agentive Path | Which way? | the route | Consultants and architects of the transformation |
 | III | **AgencyDomains** — Agentive Architecture | How do we get there? | the vehicle | Architects and engineers who build or adopt |
 
@@ -26,7 +26,7 @@ The transition that occupies the trilogy is a single one: from the world where p
 
 | Term | One-line definition | Owning book |
 |---|---|---|
-| **Nadella Line** | The dividing question: do you still open applications to do your work? Yes → agentic world; no → agentive world | AgencyDomains (Ch 1); Postchat presents it at vision level |
+| **Nadella Line** | The dividing question: do you still open applications to do your work? Yes → agentic world; no → agentive world | AgencyDomains (Ch 1); The Real-Time Enterprise presents it at vision level |
 | **agentive / agentic** | Agentive = agents are the interface (transformation); agentic = copilots inside applications (incremental evolution). "Agentic" is never used in a positive-technological sense | AgencyDomains (Ch 1) · AURA (Introduction) |
 | **Agentive World** (capitalized) | The paradigm as a proper noun; lowercase, the adjective | AgencyDomains (typographic convention, Ch 1) |
 | **online enterprise / real-time enterprise** | Accesses up-to-date information but depends on humans to act / detects, interprets, decides, and acts continuously under governance | AURA (Introduction and IRIS) · AgencyDomains (Ch 2) |
@@ -35,10 +35,10 @@ The transition that occupies the trilogy is a single one: from the world where p
 | **agentive percentage** | Crossing indicator: fraction of tasks fully delegable to an agent without opening an application (0-20 agentic · 20-50 approaching · 50-80 crossing · 80-100 agentive; measured per function) | AURA (Introduction) |
 | **Trust Infrastructure** | The five pillars (Governance · Audit · Validation · Resilience · Transparency) that separate pilots from production | AgencyDomains (Ch 5 §4 and Ch 8); MOTOR uses it as the 1→2 maturity threshold |
 | **evolutionary coexistence / subsumption** | Each stage subsumes the previous one; the data warehouse does not die — it becomes a source agents consume | AURA · AgencyDomains (Ch 2) |
-| **the three liberations** | From tools (flow), from channels (attention), from availability (time); the order cannot be skipped | Postchat |
+| **the three liberations** | From tools (flow), from channels (attention), from availability (time); the order cannot be skipped | The Real-Time Enterprise |
 | **canon primitives** (seven) | AgencyDomain · Botlet · proto-Botlet · Capability · Trust Infrastructure · Assistant vs Autonomous Agent · Facet | AgencyDomains (Chs 4–5) |
 
-**Conceptual ownership map:** Postchat owns the portrait of the destination (attention budget, the M&Ms and the &, Postchat, agentive mode, the seven mechanisms, representation, the intelligent organization). AURA owns measurement and the route (IRIS, MOTOR, Data Canon, Wingmap, use cases, the agentive percentage). AgencyDomains owns the architecture (the four layers, the seven primitives, CRUDLEX, the market, Vergis). When in doubt about a shared term, the operative definition lives in the owning book.
+**Conceptual ownership map:** The Real-Time Enterprise owns the portrait of the destination (the four faces — The Quantum Leap, Postchat, The General Staff, The Watch —, people as infrastructure, the attention budget, the M&Ms and the &, the agentive mode, the seven mechanisms, representation, the intelligent organization). AURA owns measurement and the route (IRIS, MOTOR, Data Canon, Wingmap, use cases, the agentive percentage). AgencyDomains owns the architecture (the four layers, the seven primitives, CRUDLEX, the market, Vergis). When in doubt about a shared term, the operative definition lives in the owning book.
 
 ## How to read this document
 

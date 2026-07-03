@@ -80,10 +80,12 @@ def main():
     ap.add_argument('--md', required=True); ap.add_argument('--figuras', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--pdf'); ap.add_argument('--agents')
     ap.add_argument('--base', default='/agencydomains')   # ruta absoluta de servido
-    ap.add_argument('--name', default='AgencyDomains')    # nombre del libro (títulos y distribuibles)
+    ap.add_argument('--name', default='AgencyDomains')    # marca corta del libro (nombra los distribuibles)
+    ap.add_argument('--title', default=None)               # título visible (default: --name)
     ap.add_argument('--lang', default='es', choices=('es', 'en'))
     ap.add_argument('--version', required=True)           # vX.Y — nombra los distribuibles
     a = ap.parse_args()
+    a.title = a.title or a.name
     UI = STRINGS[a.lang]
 
     md = open(a.md, encoding='utf-8').read()
@@ -144,7 +146,7 @@ def main():
         crumb = UI['cover'] if p['cover'] else p['title']
         html = (f'<!DOCTYPE html>\n<html lang="{a.lang}">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-            f'<title>{p["title"] if p["title"] == a.name else p["title"] + " · " + a.name}</title>\n{FONTS}\n'
+            f'<title>{p["title"] if p["title"] == a.title else p["title"] + " · " + a.title}</title>\n{FONTS}\n'
             f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
             f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
@@ -152,7 +154,7 @@ def main():
             f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · {a.version}</p>'
             f'<ol>{nav_html}</ol></nav>\n'
             f'<main class="book-main"><article class="book">{co}\n{p["body"]}\n{cc}'
-            f'<nav class="prevnext">{prevnext}</nav>{feedback(UI, a.name, a.version)}</article></main>\n'
+            f'<nav class="prevnext">{prevnext}</nav>{feedback(UI, a.title, a.version)}</article></main>\n'
             f'</div>\n{lightbox(UI)}</body>\n</html>\n')
         dest = os.path.join(a.out, 'index.html') if p['cover'] else os.path.join(a.out, p['slug'], 'index.html')
         os.makedirs(os.path.dirname(dest), exist_ok=True)

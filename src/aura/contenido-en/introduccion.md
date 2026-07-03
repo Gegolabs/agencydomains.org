@@ -27,7 +27,7 @@ The industry's most disruptive voices are betting on the agentive world. Satya N
 
 Both models are **diagnostic**: they assess what level an organization is at and what that level means. They do not prescribe what to implement — that is the province of specialized consulting. They are orthogonal: an organization can be high on one and low on the other. Full organizational maturity requires advancing along both axes. AURA integrates both axes into a reference architecture that makes it possible to diagnose the complete state of the transformation.
 
-> The world on the other side of this transition is portrayed in *Postchat*, and its formal architecture specified in *AgencyDomains* — volumes I and III of this trilogy.
+> The world on the other side of this transition is portrayed in *The Real-Time Enterprise*, and its formal architecture specified in *AgencyDomains* — volumes I and III of this trilogy.
 
 ## The Industry's Stagnation
 

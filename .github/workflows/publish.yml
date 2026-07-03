@@ -12,7 +12,7 @@ name: publish
 
 on:
   push:
-    tags: ['agencydomains-v*', 'aura-v*', 'postchat-v*']
+    tags: ['agencydomains-v*', 'aura-v*', 'rte-v*']
   workflow_dispatch:
 
 permissions:
@@ -34,15 +34,15 @@ jobs:
         run: |
           AGD_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
           AURA_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/aura/CHANGELOG.md | cut -d" " -f2)
-          POSTCHAT_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/postchat/CHANGELOG.md | cut -d" " -f2)
+          RTE_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/rte/CHANGELOG.md | cut -d" " -f2)
           echo "AGD_VERSION=$AGD_VERSION" >> "$GITHUB_ENV"
           echo "AURA_VERSION=$AURA_VERSION" >> "$GITHUB_ENV"
-          echo "POSTCHAT_VERSION=$POSTCHAT_VERSION" >> "$GITHUB_ENV"
+          echo "RTE_VERSION=$RTE_VERSION" >> "$GITHUB_ENV"
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
             case "$GITHUB_REF_NAME" in
               agencydomains-*) TAG_V="${GITHUB_REF_NAME#agencydomains-}"; BOOK_V="$AGD_VERSION";;
               aura-*)          TAG_V="${GITHUB_REF_NAME#aura-}";          BOOK_V="$AURA_VERSION";;
-              postchat-*)      TAG_V="${GITHUB_REF_NAME#postchat-}";      BOOK_V="$POSTCHAT_VERSION";;
+              rte-*)           TAG_V="${GITHUB_REF_NAME#rte-}";           BOOK_V="$RTE_VERSION";;
               *) echo "::error::Tag desconocido: $GITHUB_REF_NAME"; exit 1;;
             esac
             if [ "$TAG_V" != "$BOOK_V" ]; then
@@ -53,8 +53,17 @@ jobs:
 
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
-          for f in site/llms.txt site/es/llms.txt site/index.html site/es/index.html; do
-            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "Postchat-${POSTCHAT_VERSION}-"; do
+          # El Libro I nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
+          for f in site/llms.txt site/index.html; do
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-"; do
+              if ! grep -q "$pref" "$f"; then
+                echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
+                exit 1
+              fi
+            done
+          done
+          for f in site/es/llms.txt site/es/index.html; do
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "EmpresaTiempoReal-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
                 exit 1
@@ -86,11 +95,11 @@ jobs:
           bash src/aura/_build/build-en.sh
           bash src/aura/_build/build-web.sh
 
-      - name: Construir Postchat — ES (PDF) · EN (PDF + web) · ES web
+      - name: Construir La Empresa en Tiempo Real — ES (PDF) · EN (PDF + web) · ES web
         run: |
-          bash src/postchat/_build/build-pdf.sh
-          bash src/postchat/_build/build-en.sh
-          bash src/postchat/_build/build-web.sh
+          bash src/rte/_build/build-pdf.sh
+          bash src/rte/_build/build-en.sh
+          bash src/rte/_build/build-web.sh
 
       - name: Manifiesto unificado de la trilogía (agentes, ES+EN)
         run: bash src/trilogia/build-agentes.sh
@@ -99,21 +108,22 @@ jobs:
         run: |
           DIST=src/agencydomains/_dist
           ADIST=src/aura/_dist
-          PDIST=src/postchat/_dist
+          RDIST=src/rte/_dist
           mkdir -p _site
           cp -R site/. _site/
           touch _site/.nojekyll
           # los libros reemplazan cualquier placeholder del shell en su ruta
-          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/postchat _site/es/postchat
+          # (site/postchat y site/es/postchat son stubs de redirect y se CONSERVAN)
+          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains
           cp -R "$DIST/web-es" _site/es/agencydomains
           # AURA: EN → /aura/ · ES → /es/aura/
           cp -R "$ADIST/web-en" _site/aura
           cp -R "$ADIST/web-es" _site/es/aura
-          # Postchat: EN → /postchat/ · ES → /es/postchat/
-          cp -R "$PDIST/web-en" _site/postchat
-          cp -R "$PDIST/web-es" _site/es/postchat
+          # La Empresa en Tiempo Real: EN → /real-time-enterprise/ · ES → /es/empresa-tiempo-real/
+          cp -R "$RDIST/web-en" _site/real-time-enterprise
+          cp -R "$RDIST/web-es" _site/es/empresa-tiempo-real
           # manifiestos para agentes → raíz de cada idioma
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/
@@ -123,10 +133,10 @@ jobs:
           mv _site/aura/AURA-${AURA_VERSION}-agents-en.txt _site/
           mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.md  _site/es/
           mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.txt _site/es/
-          mv _site/postchat/Postchat-${POSTCHAT_VERSION}-agents-en.md  _site/
-          mv _site/postchat/Postchat-${POSTCHAT_VERSION}-agents-en.txt _site/
-          mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.md  _site/es/
-          mv _site/es/postchat/Postchat-${POSTCHAT_VERSION}-agents-es.txt _site/es/
+          mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.md  _site/
+          mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.txt _site/
+          mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.md  _site/es/
+          mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.txt _site/es/
           # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt

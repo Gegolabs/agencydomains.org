@@ -64,10 +64,10 @@ applications to work, to the world where AI agents are the interface of work.
 The three volumes answer, in order, the three questions of that transition —
 and each one reads complete on its own:
 
-**I · Postchat — The Agentive World**
+**I · The Real-Time Enterprise — The Agentive World**
 Where are we going? — **the destination.** For those who want to see the world
-on the other side of the transition: how people work, decide, and compete once
-applications have already collapsed.
+on the other side of the transition: how people work, decide, and compete when
+the enterprise operates in real time — told in its four faces.
 
 **II · AURA — The Agentive Path**
 Which way? — **the route.** For those who have to make the crossing: leaders
@@ -92,7 +92,7 @@ What do I start with today? — **the keys.** For anyone who wants to start
 making all of this real: the reference implementation of the architecture,
 open source, at <https://github.com/gegolabs/vergis>.
 
-Start with **Postchat** if you need to convince yourself — or someone else —
+Start with **The Real-Time Enterprise** if you need to convince yourself — or someone else —
 that the transition is for real; with **AURA** if you have to lead it; with
 **AgencyDomains** if you have to build it; with **Vergis** if you want to see
 it running. The full trilogy lives at <https://agencydomains.org>.

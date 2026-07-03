@@ -2,7 +2,7 @@
 
 There are two questions every organization will ask itself this decade, and it pays not to confuse them.
 
-The first is *what does the destination look like?* — what shape an organization takes when AI agents stop being tools that people open and become the medium through which work happens. That question has its own book in this series: *AgencyDomains* describes the formal architecture of that world, and *Postchat* describes the world itself.
+The first is *what does the destination look like?* — what shape an organization takes when AI agents stop being tools that people open and become the medium through which work happens. That question has its own book in this series: *AgencyDomains* describes the formal architecture of that world, and *The Real-Time Enterprise* describes the world itself.
 
 The second question is the one this book answers: **how do you get there?** Not what to build at the end, but where the organization stands today, what trajectory lies ahead of it, in what order it is best traveled, and with what instruments. The distance between an enterprise that accumulates dashboards and an enterprise that detects, decides, and acts autonomously is not crossed with a software purchase — it is traveled. And a path is better traveled with a map.
 
@@ -26,4 +26,4 @@ The chapters were born as independent specifications and retain that autonomy: e
 
 AURA is **diagnostic, not prescriptive**. Its models say where an organization stands and what standing there means; they do not say which product to buy or which project to execute — that belongs to the consulting work these models inform. And AURA is honest about the transition: the path is not to demolish what was built but to subsume it — the data warehouse does not die, it becomes a source that agents consume; the online enterprise does not disappear, it becomes the foundation of the real-time enterprise.
 
-The reader looking for the architecture of the destination — the primitives, the layers, the *Trust Infrastructure* — should go to *AgencyDomains*. The one who wants to know what the world looks like once the transition is over, to *Postchat*. This book is for those who have to make the crossing.
+The reader looking for the architecture of the destination — the primitives, the layers, the *Trust Infrastructure* — should go to *AgencyDomains*. The one who wants to know what the world looks like once the transition is over, to *The Real-Time Enterprise*. This book is for those who have to make the crossing.
