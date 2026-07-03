@@ -396,4 +396,4 @@ The complete operationalization of the second mechanism closes the loop opened i
 
 ## What comes next
 
-With the operational block closed, the book enters its epilogue. Anyone who has read the preceding chapters with the sense that each one leaves open questions will find there the explicit confirmation that this reading is correct: what follows is not a closure but the recognition that this specification is a formalized point of departure, not a final destination.
+With the operational block closed, the book closes with the reference implementation — Chapter 9 — and its epilogue. Anyone who has read the preceding chapters with the sense that each one leaves open questions will find there the explicit confirmation that this reading is correct: what follows is not a closure but the recognition that this specification is a formalized point of departure, not a final destination.

@@ -3,7 +3,7 @@
 ### Libro II de la trilogía del Mundo Agentivo
 
 **Autor:** César Obach-Renner · **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · v0.2 · Junio 2026
+**Edición:** Borrador de desarrollo · v0.3 · Julio 2026
 
 ## Composición
 

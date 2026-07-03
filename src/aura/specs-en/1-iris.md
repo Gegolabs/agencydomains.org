@@ -427,5 +427,6 @@ The transformation described in *Visión de AURA — Arquitectura Unificada de R
 <!-- /standalone -->
 <!-- libro
 The Introduction of this book provides the conceptual framework that both models operationalize.
-/libro --> The fundamental concepts — the Value Pyramid, the Quantum Leap, the Three Axes of Change, the Continuous-Intelligence Cycle, and the distinction between online enterprise and real-time enterprise — are the shared foundation.
+/libro -->
+The fundamental concepts — the Value Pyramid, the Quantum Leap, the Three Axes of Change, the Continuous-Intelligence Cycle, and the distinction between online enterprise and real-time enterprise — are the shared foundation.
 

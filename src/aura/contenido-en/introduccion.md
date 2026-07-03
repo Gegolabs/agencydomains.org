@@ -238,7 +238,7 @@ AURA is the architecture that unifies these four concepts into an actionable ref
 ![AURA, the map of the path — two maturity axes, two field instruments, one decision framework](figuras/a01-camino-aura.png)
 
 ### Vision statement
-> **Organizations are moving from the online enterprise — where people use tools to access and understand data — to the real-time enterprise — where people design and govern intelligent systems that autonomously detect, analyze, decide, and act on business information. AURA organizes this transformation along two diagnostic axes: IRIS measures the KNOWING trajectory (organizational intelligence); MOTOR measures the DOING trajectory (organizational automation). Together, within AURA, they diagnose the complete transformation.**
+> **Organizations are moving from the online enterprise — where people use tools to access and understand data — to the real-time enterprise — where people design and govern intelligent systems that autonomously detect, interpret, decide, and act on business information. AURA organizes this transformation along two diagnostic axes: IRIS measures the KNOWING trajectory (organizational intelligence); MOTOR measures the DOING trajectory (organizational automation). Together, within AURA, they diagnose the complete transformation.**
 
 AURA integrates into a unified architecture what multiple industry players are proposing separately: Tableau and Cube on agentive analytics, Salesforce and AtScale on semantic architecture for agents, McKinsey and BCG on the transformation of human roles, Gartner and WEF on autonomy governance, and Deloitte and Informatica on data readiness for agents.
 

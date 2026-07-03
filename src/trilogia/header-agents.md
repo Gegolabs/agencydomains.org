@@ -1,14 +1,14 @@
 ---
-title: The Agentive World Trilogy — Unified manifest for agents
-composition: The Real-Time Enterprise v0.4 · AURA v0.3 · AgencyDomains v0.5 (the three canonical manifests, in full)
+title: The Agentive World Trilogy — Unified manifesto for agents
+composition: The Real-Time Enterprise v0.4 · AURA v0.3 · AgencyDomains v0.5 (the three canonical manifestos, in full)
 license: GFDL v1.3 (proposed)
 audience: agents that need the complete trilogy in a single document
 precedence_rule: each part mirrors its human book; upon contradiction, the human book of the corresponding part wins
 ---
 
-# The Agentive World Trilogy — Unified manifest for agents
+# The Agentive World Trilogy — Unified manifesto for agents
 
-> This document **assembles, in full and unedited**, the three canonical agent manifests of the Agentive World Trilogy. It is generated automatically from the per-book manifests — which are the source of truth for each part and are versioned with their book. Use it when you need to reason over the complete trilogy; use the individual manifest when working within a single volume.
+> This document **assembles, in full and unedited**, the three canonical agent manifestos of the Agentive World Trilogy. It is generated automatically from the per-book manifestos — which are the source of truth for each part and are versioned with their book. Use it when you need to reason over the complete trilogy; use the individual manifesto when working within a single volume.
 
 ## The transition (the frame the three parts share)
 
@@ -42,4 +42,4 @@ The transition that occupies the trilogy is a single one: from the world where p
 
 ## How to read this document
 
-The three parts that follow are the **complete, verbatim** canonical manifests of each book, in trilogy order. Each part keeps its own frontmatter, its version, and its precedence rule ("the human book wins"). The `═══` separators mark the change of volume.
+The three parts that follow are the **complete, verbatim** canonical manifestos of each book, in trilogy order. Each part keeps its own frontmatter, its version, and its precedence rule ("the human book wins"). The `═══` separators mark the change of volume.

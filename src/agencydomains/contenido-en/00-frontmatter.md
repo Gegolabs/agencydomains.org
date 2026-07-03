@@ -32,8 +32,8 @@ The book is **product-agnostic**. The formal constructs described here admit mul
 | **7 · Canonical applications** | Real-time knowledge · Varnished Kimball · conversational BI |
 | **8 · Operation** | Trust Infrastructure operationalized · CRUDLEX · policies · operational business continuity |
 | **9 · Vergis** | The reference implementation · note on the scope of the canon · the Vergis · Botler · Mira scheme · what it includes · production grade · adoption model · common catalog and network effects |
-| **Epilogue** | Evolution frontier · **Botlet generations (G1/G2/G3)** · non-LLM cognition · federation · the Carbon World |
-| **Appendices** | Glossary · references |
+| **Epilogue** | Evolution frontier · four frontiers (non-LLM cognition · federation · the Carbon World · the institutional horizon) · essay on the Botlet generations |
+| **Appendices** | Glossary · references · colophon |
 
 
 <!-- FIG:g01-lamina-indice -->
@@ -77,11 +77,11 @@ the rest of the book:
 
 | Spec | What is it? | Used alone, what does it give you? |
 |:---------|:----------------------------|:----------------------------|
-| **IRIS** | A maturity model of organizational intelligence | Measures how advanced your organization is at Business Intelligence |
+| **IRIS** | A maturity model of organizational intelligence | Locates your organization on the road from data to action |
 | **MOTOR** | A maturity model of organizational automation | Measures how advanced your organization is at process automation |
-| **Data Canon** | The evolution of the decentralized data-management model (Data Mesh) | Defines how to govern data and do BI |
+| **Data Canon** | The evolution of the decentralized data-management model (Data Mesh) | Defines how the organization's data is governed |
 | **Wingmap** | The evolution of business process management (BPM / process mining) | Reconstructs processes and information flows without interviews |
-| **Use Cases** | A portfolio of 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
+| **Use Cases** | A portfolio framework, illustrated with 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
 
 **III · AgencyDomains — Agentive Architecture** *(this book)*
 How do we get there? — **the vehicle.** For architects, CTOs, and builders of

@@ -1,6 +1,6 @@
 # 5. The General Staff
 
-*In the film: 11:00 — the meeting that wasn't: six opinions gathered when each person could think, and the synthesis waiting for the decision-maker. And 5:00 p.m. — the close, with what was pending in the hands of someone who doesn't tire. This chapter names that someone.*
+*In the film: 11:00 — the meeting that wasn't: four opinions gathered when each person could think, and the synthesis waiting for the decision-maker. And 5:00 p.m. — the close, with what was pending in the hands of someone who doesn't tire. This chapter names that someone.*
 
 ## The managerial wire
 

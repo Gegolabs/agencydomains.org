@@ -40,7 +40,7 @@ La segunda cara parte del supuesto contrario, formulado como pregunta:
 
 > Si un agente de IA puede entender una intención, identificar a las audiencias, dar a cada una su versión, elegir el momento, confirmar la recepción y facilitar las decisiones grupales — **¿para qué exactamente necesitamos que las personas escriban en canales?**
 
-La respuesta que desarrollaremos: para nada que no sea la inercia del paradigma anterior. El chat corporativo fue un artefacto de la era en que las personas eran el único medio de transmisión entre personas. Esa era está terminando, y lo que la reemplaza no es un canal mejor — es la ausencia gobernada del canal. A ese estadio — y a esta cara de la empresa en tiempo real — lo llamamos **Postchat**.
+La respuesta será la misma que la de la pregunta madre: para nada. El chat corporativo fue un artefacto de la era en que las personas eran el único medio de transmisión entre personas. Esa era está terminando, y lo que la reemplaza no es un canal mejor — es la ausencia gobernada del canal. A ese estadio — y a esta cara de la empresa en tiempo real — lo llamamos **Postchat**.
 
 > **Lo esencial**
 >

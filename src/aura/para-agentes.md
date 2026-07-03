@@ -4,7 +4,7 @@ edición: Borrador de desarrollo · v0.3 · Julio 2026
 fuente_canónica: libro-aura-v0.3 (libro humano)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que deben diagnosticar madurez organizacional y razonar dentro del marco AURA
-estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
+estado: pre-1.0 — publicado como borrador de desarrollo; sin compromiso de estabilidad de referencias hasta v1.0
 ---
 
 # AURA — Manifiesto canónico para agentes
@@ -19,8 +19,8 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 - **Espejo de v0.3** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos. En particular: **agentivo** ≠ **agéntico** (ver §2) — la distinción es de tesis, no de estilo.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: AURA diagnostica; sus pocos imperativos son estructurales (secuencialidad de niveles, pre-condiciones bloqueantes, honestidad del ROI).
-- **Estado pre-1.0**: el libro está en desarrollo activo, sin publicación pública aún. Términos, estructuras y numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera publicación).
-- **Serie**: AURA es el Libro II de la trilogía del Mundo Agentivo — *AgencyDomains* (la arquitectura del destino; tiene su propio manifiesto canónico) · **AURA** (el camino) · *La Empresa en Tiempo Real* (el destino habitado). Los términos compartidos con la trilogía (La Línea Nadella, agentivo, Trust Infrastructure, empresa en tiempo real) son consistentes entre libros.
+- **Estado pre-1.0**: el libro está publicado como borrador de desarrollo en agencydomains.org y sigue en desarrollo activo. Términos, estructuras y numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera versión estable).
+- **Serie**: AURA es el Libro II de la trilogía del Mundo Agentivo — *La Empresa en Tiempo Real* (el destino; manifiesto propio) · **AURA** (el camino) · *AgencyDomains* (la arquitectura; manifiesto propio). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
 
 ---
 
@@ -51,7 +51,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 - **Empresa en Tiempo Real** es el resultado organizacional de ambas capacidades maduras — el *para qué*.
 - **IA Agentiva** es el mecanismo habilitador — el *cómo*.
 
-**Declaración de visión:** las organizaciones transitan desde la **empresa en línea** — donde personas usan herramientas para acceder y entender datos — hacia la **empresa en tiempo real** — donde personas diseñan y gobiernan sistemas inteligentes que autónomamente detectan, analizan, deciden y actúan sobre la información del negocio. AURA organiza esta transformación en dos ejes diagnósticos; juntos diagnostican la transformación completa.
+**Declaración de visión:** las organizaciones transitan desde la **empresa en línea** — donde personas usan herramientas para acceder y entender datos — hacia la **empresa en tiempo real** — donde personas diseñan y gobiernan sistemas inteligentes que autónomamente detectan, interpretan, deciden y actúan sobre la información del negocio. AURA organiza esta transformación en dos ejes diagnósticos; juntos diagnostican la transformación completa.
 
 ---
 
@@ -225,7 +225,7 @@ IRIS y MOTOR son **ortogonales**: una organización puede estar alta en uno y ba
 
 ## 6 · Data Canon — la gobernanza del dato (instrumento del SABER)
 
-**Tesis.** Data Mesh prescribió descentralizar el ownership del dato por dominio. Tres fuerzas erosionan esa prescripción: (1) los tres modos de falla que Dehghani atribuía a las arquitecturas centralizadas son **límites de escala cognitiva humana**, y la era agentiva los eleva en un orden de magnitud; (2) **la semántica no se inventa: se adopta** — las industrias maduras la externalizaron en estándares (SID/TM Forum, BIAN, ACORD, IFRS/IAS 41, GS1); donde hay estándar, no hay nada local que distribuir; (3) el ownership distribuido pone al definidor de cada cifra a cargo de cómo se reporta esa cifra — un **riesgo de agencia** (Jensen & Meckling) que un marco de control interno (espíritu SOX/COSO) no toleraría. Conclusión sobre-determinada: la recentralización del núcleo agency-crítico es *posible* (era agentiva) y *exigida* (control interno).
+**Tesis.** Data Mesh prescribió descentralizar el ownership del dato por dominio. Dos fuerzas erosionan esa prescripción, y se les suma un argumento de gobierno corporativo: (1) los tres modos de falla que Dehghani atribuía a las arquitecturas centralizadas son **límites de escala cognitiva humana**, y la era agentiva los eleva en un orden de magnitud; (2) **la semántica no se inventa: se adopta** — las industrias maduras la externalizaron en estándares (SID/TM Forum, BIAN, ACORD, IFRS/IAS 41, GS1); donde hay estándar, no hay nada local que distribuir; (3) el ownership distribuido pone al definidor de cada cifra a cargo de cómo se reporta esa cifra — un **riesgo de agencia** (Jensen & Meckling) que un marco de control interno (espíritu SOX/COSO) no toleraría. Conclusión sobre-determinada: la recentralización del núcleo agency-crítico es *posible* (era agentiva) y *exigida* (control interno).
 
 **Data Canon** = Data Fabric con principios de *gobernanza* de Mesh, **anclados a un canon central**, operado por agentes, responsable ante el directorio.
 

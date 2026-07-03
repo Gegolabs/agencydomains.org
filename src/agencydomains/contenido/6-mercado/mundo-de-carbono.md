@@ -94,4 +94,4 @@ La tercera: **Trust Infrastructure es el filtro**. En el mundo de carbono, el fi
 
 ### Lo que sigue
 
-Cerrado el modelo de mercado, el libro entra en su tramo más concreto. Quien busque un caso donde la Arquitectura Agentiva entregue valor demostrable hoy encontrará en el siguiente capítulo el desarrollo de una aplicación canónica fundacional. Quien necesite el detalle operativo para construir lo que hasta aquí se describió como principio encontrará en el último capítulo la traducción a artefactos accionables.
+Cerrado el modelo de mercado, el libro entra en su tramo más concreto. Quien busque un caso donde la Arquitectura Agentiva entregue valor demostrable hoy encontrará en el siguiente capítulo el desarrollo de una aplicación canónica fundacional. Quien necesite el detalle operativo para construir lo que hasta aquí se describió como principio encontrará en el Capítulo 8 la traducción a artefactos accionables.

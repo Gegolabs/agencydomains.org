@@ -102,7 +102,7 @@ La transición tiene tres dinámicas características — **coexistencia evoluti
 
 Las tres dinámicas tomadas juntas explican por qué la transición no es traumática para la organización que la planifica. Una organización que reconoce la coexistencia evolutiva no se ve obligada a un big bang; una que acepta la asimetría entre funciones no fuerza ritmos uniformes; una que rediseña los roles humanos hacia gobernanza no descarta su capital humano sino que lo recoloca. La transición es progresiva, asimétrica y reorganizativa — y eso es lo que la hace operable. El cruce admite además un indicador operativo — el **porcentaje agentivo**: qué fracción de sus tareas puede un empleado delegar por completo sin abrir una aplicación. *AURA*, el volumen II, lo desarrolla como instrumento de diagnóstico junto a sus modelos de madurez.
 
-## Por qué la línea podría no cruzarse — y qué cambia si no se cruza
+## ¿Por qué la línea podría no cruzarse — y qué cambia si no se cruza?
 
 Una tesis que no enfrenta su objeción más fuerte no está validada — está sin probar. Este capítulo ha argumentado que la pregunta es inevitable y que el costo de equivocarse es asimétrico; corresponde ahora dejar que el otro lado hable. Cinco argumentos serios sostienen que la línea podría no cruzarse — o cruzarse solo parcialmente.
 
@@ -135,8 +135,10 @@ Para apoyo de lectura posterior, los dos lados de la línea sintetizados en una 
 | **Rol de la IA** | Copilotos embebidos en cada aplicación | Agentes que reemplazan la interfaz tradicional |
 | **Habilidad humana valiosa** | Saber operar aplicaciones | Saber dirigir agentes |
 | **Transformación** | Evolución incremental, misma forma de trabajar | Transformación fundamental, nueva forma de trabajar |
-| **Predicen** | Altman (OpenAI), Pichai (Google), Zuckerberg (Meta) | Nadella (Microsoft), Musk (xAI), Amodei (Anthropic) |
+| **Predicen** | Altman (OpenAI)\*, Pichai (Google), Zuckerberg (Meta) | Nadella (Microsoft), Musk (xAI), Amodei (Anthropic) |
 | **Apuesta económica** | El modelo de negocio actual sobrevive | El modelo de negocio se reinventa |
+
+\* posición con matices; ver el cuerpo del capítulo.
 
 ---
 

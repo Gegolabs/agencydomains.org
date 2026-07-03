@@ -40,6 +40,8 @@ La escena de las 15:00 fija el estadio tercero sin necesidad de teoría: el agen
 
 **¿Y la disponibilidad no era una virtud?** La oficina del canal confunde disponibilidad con compromiso: quien contesta a las once de la noche "está puesto". Esta cara propone la medida inversa de salud organizacional: que la gente pueda estar **en un solo lugar a la vez** — en campo, en la decisión importante, en su casa — sin que la organización se detenga ni se lo cobre. La representación no reemplaza a las personas: les devuelve el derecho a no ser ubicuas. Y la medida de la cara es doméstica y exacta: **la hora en que tu día termina de verdad**. En la película fueron las 17:00 — lo pendiente quedó en manos de alguien que no se cansa, porque el que ahora monta la guardia es el sistema.
 
+Con la guardia, el cuadro de las cuatro caras está completo. Falta lo que las vuelve alcanzables — la puerta por la que una organización real entra a este mundo — y ese es el capítulo siguiente.
+
 > **Lo esencial**
 >
 > - Asistente y "gemelo" no son dos sistemas: son dos interfaces de un mismo agente que madura.

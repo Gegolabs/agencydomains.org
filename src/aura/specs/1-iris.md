@@ -427,5 +427,6 @@ La transformación descrita en la *Visión de AURA — Arquitectura Unificada de
 <!-- /standalone -->
 <!-- libro
 La Introducción de este libro provee el marco conceptual que ambos modelos operacionalizan.
-/libro --> Los conceptos fundamentales — la Pirámide del Valor, El Salto Cuántico, los Tres Ejes de Cambio, el Ciclo de Inteligencia Continua, y la distinción entre empresa en línea y empresa en tiempo real — son el cimiento compartido.
+/libro -->
+Los conceptos fundamentales — la Pirámide del Valor, El Salto Cuántico, los Tres Ejes de Cambio, el Ciclo de Inteligencia Continua, y la distinción entre empresa en línea y empresa en tiempo real — son el cimiento compartido.
 

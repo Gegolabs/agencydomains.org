@@ -9,7 +9,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v0.5 (development draft)** edition of the book *AgencyDomains: architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v0.5 (development draft)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 
@@ -20,7 +20,8 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 - **A mirror of v0.5** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
-- **pre-1.0 status**: the book is under active development, not yet publicly released. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first release).
+- **pre-1.0 status**: the book is published as a development draft at agencydomains.org and remains under active development. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first stable release).
+- **Changes v0.5 vs v0.4**: a full editorial pass over the trilogy — the **Botlet generations** `G1`/`G2`/`G3` are formalized in Chapter 5 §2 (the Epilogue keeps the background essay without normative weight); the **Information Product** gains its canonical home as a normed term of the Botlet spec (multi-view, drill-through, and their MUSTs); **Capability doctrine restored** — locality (cloud/edge/hybrid) and regulatory certification are predicated of the **Connector** (ESC/POS-Printer, Cash-Drawer, Pinpad, and DTE-SII reclassified) and the **regulated Capability** carries the normative knowledge; the **Botler** is no longer called a primitive (a normed construct of the Botlet spec; the canon remains seven); Chapters 2 ↔ 7 de-duplicated and Chapter 4 slimmed in favor of Chapter 5; the Chapter 6 actor table aligned with its text and "Comprehensive platform" corrected in the glossary; **foundational rescue** from the original document *The Nadella Line* (Nadella's full quote with its CRUD mechanics and its two phases, the spectrum with its extreme pole, counter-arguments with the canon's answers, the historical precedents of coexistence in Chapter 2, the SaaS monetization crisis in Chapter 6); the "The trilogy" micro-section with AURA's five specifications; **Dominion** adopted by the Epilogue; Wingtraining, SME, and RLS defined in the glossary.
 - **Changes v0.4 vs v0.3**: canonical extensions that emerged while building the reference implementation and real projects — **Vergis** (public reference implementation, AGPL, AgencyDomains.org) with the naming scheme Vergis · Botler · Mira; the **proto-Botlet** added to the cast of primitives (tempered · platform) and the **derivation chain** use-cases → Botlets → proto-Botlets; **Botlet generations** G1/G2/G3 with the reconciliation of two axes; **manifestation** and **temporality** (`discrete`/`continuous`) as Botlet attributes; **generic Botler** (no per-domain subtypes; validates by orchestrating; Layer 2 ↔ Layer 3 interface via `MCP`; source code vs spec; one Botlet per `PI`); correction of the "internal A2A" misnomer (`A2A` reserved for the relation between AgencyDomains); `Capability` reserved for the cognitive know-how of Layer 2, with **Connector** (Layer 4), **Template** (Layer 1), **feature**, and **Capability portability**; **declared bounded interaction** (embedded Facet) and **multi-view `PI` with drill-through**; **declarative quality contract** in Trust Infrastructure.
 - **Changes v0.3 vs v0.2**: the agent's three times (Preparation · Attention · Engineering), composition of Layer 1 (shell · view · operation), and the Facet as Layer 1's atomic primitive.
 - **Changes v0.2 vs v0.1**: the main title *AgencyDomains* + ten extensions (Botlet maturity, distributed Layer 3, portability, seed/emergent, certification in the Capability, Capability locality, GUI on-the-fly, operational continuity, parallel topology, title).
@@ -371,7 +372,7 @@ The agent's brain. Interpretation, reasoning, planning, application of specializ
 
 **`Capability` reserved for the cognitive know-how of Layer 2**: a **Capability** is **cognitive**, interpretive, decisional know-how. **It is NOT a plugin, NOT a prompt, NOT a system prompt, NOT a tool — it is knowledge.** The Capability decides which tool to invoke. Two analogous terms live in other layers and are named for what they are, without appending the term Capability:
 
-- **Connector** — knowing how **to access source systems** (a connection with execution power; NOT cognitive knowledge). **Layer 4 · Access.** Replaces the notion of "API turned into a Capability".
+- **Connector** — knowing how **to access source systems** (a connection with execution power; NOT cognitive knowledge). **Layer 4 · Access.** In the legacy→agentive map, an **API** becomes a **Connector** (Layer 4), not a Capability.
 - **Template** — client-specific tailoring over a **canonical instrument** (report/dashboard) in a particular format or rule. **Layer 1 · Interaction**, alongside Facets and surface/view Botlets.
 
 **feature** — an internal operation a Capability exposes (the practical equivalent of *feature/operation/skill/method*). **Capability vs feature test** (all three must be yes to treat it as its own Capability): (1) operational independence? (2) cognitive identity — distinct data model and SME? (3) reusability? If one or more is no → it is a **feature** of the containing Capability.
@@ -871,16 +872,18 @@ A two-dimensional model: **eleven sequential links × four depths**.
 
 | Link | 4 · Infrastructure | 3 · Core | 2 · Platform | 1 · Wrapper |
 |---|---|---|---|---|
-| **1 · Data** | AWS S3 | Scale AI · Labelbox · Hugging Face | — | apps |
-| **2 · Model** | NVIDIA · AWS/GCP/Azure | OpenAI · Anthropic · Google · Meta · DeepSeek | Hugging Face | apps |
-| **3 · Access** | — | OpenAI · Anthropic · Google | Bedrock · Vertex · Portkey · ultraPRO | apps |
-| **4 · Agents** | — | OpenAI Assistants · Agentia (priv.) · Soveria (pub.) · LangChain | — | apps |
-| **5 · Specializations** | — | Cursor · Harvey · Jasper · umeeta | Vertical wrappers | templates |
-| **6 · Runtime** | — | ultraPRO | Managed runtimes | hosts |
-| **7 · Firewall** | — | ultraPRO · Guardrails · NeMo · Lakera · Lasso | Managed guardrails | rules |
-| **8 · Observability** | — | ultraPRO · Langfuse · LangSmith · Helicone | Managed observability | — |
-| **9 · Tools** | — | ultraPRO · Pinecone · Weaviate | Managed VectorDB | apps with SDKs |
-| **10 · Integrations** | — | ultraPRO · Zapier · Make · n8n | Managed workflows | individual recipes |
+| **1 · Data** | AWS/GCP/Azure | Scale AI/Labelbox · Hugging Face | — | — |
+| **2 · Model** | NVIDIA · AWS/GCP/Azure | OpenAI · Anthropic · Google · Meta · DeepSeek/Qwen/Ernie | Hugging Face | — |
+| **3 · Access** | — | Anthropic · DeepSeek/Qwen/Ernie | OpenAI · Google · Perplexity · ultraPRO | — |
+| **4 · Agents** | — | Perplexity · DeepSeek/Qwen/Ernie · Agentia (priv.) · Soveria (pub.) · (LangChain/Graph) · (AutoGPT/CrewAI) | OpenAI · Anthropic · Google · GitHub Copilot | — |
+| **5 · Specializations** | — | Perplexity · GitHub Copilot · Cursor/Replit · Devin · Harvey/Jasper/Fin · umeeta | OpenAI | — |
+| **6 · Runtime** | — | OpenAI · Devin · Agentia · Soveria · ultraPRO · (LangChain/Graph) · (AutoGPT/CrewAI) | — | — |
+| **7 · Firewall** | — | Guardrails/NeMo/Lakera · ultraPRO | — | — |
+| **8 · Observability** | — | Langfuse/LangSmith/W&B · ultraPRO | — | — |
+| **9 · Tools** | — | OpenAI · Anthropic · Google · Devin · ultraPRO · (LangChain/Graph) · (Pinecone/Weaviate) | — | — |
+| **10 · Integrations** | — | Zapier/Make/n8n · ultraPRO | — | — |
+
+Derived from the actor table of Chapter 6 (representative product families of the current market). Parentheses — e.g. (LangChain/Graph) — indicate a framework or meta-tool (to build with, not to use).
 
 > ultraPRO occupies the architectural category **complete enterprise gateway** — simultaneous Core in links 6-10 plus a Platform extension in Access, under the tripartite Cloud + Client + Local pattern.
 
@@ -1060,7 +1063,7 @@ An evolutionary model of how the Botlet's code is born as the state of the art o
 
 **G1 admits rich expressive configuration**: what defines `G1` is that the agent does not write the proto-Botlet's body; the configuration may be as rich as a compositional `DSL` with evaluable formal expressions. The `G1`/`G3` distinction is about **authorship of the body**, not expressiveness of the config.
 
-**`G1`/`G2` edge** (test: *"does the code belong to the invoked Capability or to the proto-Botlet itself?"*): a formal evaluable expression that is a **parameter of a well-defined Capability** (`SQL`→`execute-sql`, Vega-Lite→`render-chart`, filter→`filter-stream`) is configuration → **`G1`**. An expression that **extends/overrides the proto-Botlet's internal logic** (callbacks, lambdas it evaluates internally) is the agent's code → **`G2`**.
+**`G1`/`G2` edge** (test: *"does the code belong to the invoked Capability or to the proto-Botlet itself?"*): a formal evaluable expression that is a **parameter of a well-defined Capability** (`SQL`→`execute-sql`, a chart specification→`render-chart`, filter→`filter-stream`) is configuration → **`G1`**. An expression that **extends/overrides the proto-Botlet's internal logic** (callbacks, lambdas it evaluates internally) is the agent's code → **`G2`**.
 
 **Reconciliation — two distinct axes, not the same arrow**:
 
@@ -1114,7 +1117,7 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **Botlet, surface (shell)** — **Layer 1** Botlet acting as a container: layout, navigation, session, shared state. Specific to each product.
 - **Botlet, view** — **Layer 1** Botlet that materializes a screen or panel within a shell. Assembles Facets + orchestration logic. Reusable across shells.
 - **Botlet generations — G1/G2/G3** — evolutionary model of the birth of the Botlet's code. **G1**: configures pre-forged proto-Botlets (does not write the body). **G2**: co-writes the proto-Botlet. **G3**: generates the complete code (asymptotic). It changes the scope of Engineering, not the architecture. G3 capacity is better spent producing G1 reuse; for a platform proto-Botlet, G1 is terminal by design.
-- **Botler** — **generic** Layer 3 runtime (does not understand domain). A type (canonical primitive), not a proper name. No subtypes by domain; validates by orchestrating (controlled handle); exposes an `MCP` server to the Cognition. **1 Process = 1 Botler + N Botlets**.
+- **Botler** — **generic** Layer 3 runtime (does not understand domain). A type (a normed construct of the Botlet spec), not a proper name. No subtypes by domain; validates by orchestrating (controlled handle); exposes an `MCP` server to the Cognition. **1 Process = 1 Botler + N Botlets**.
 - **Botler, central** — orchestration, planning, reporting Botler in distributed Layer 3.
 - **Botler, edge** — local-transaction Botler in distributed Layer 3. One per physical site.
 - **BYOModel** — Bring Your Own Model. Substitution of the default provider. SHOULD for regulated markets.
@@ -1125,9 +1128,9 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **Connector, cloud-resident** — lives in a remote service. Typically online-only.
 - **Connector, edge-resident** — lives at the physical site, associated with hardware. Typically offline-capable.
 - **Connector, hybrid** — local component + cloud component. Offline-capable with queuing.
-- **Capability, offline-capable** — executes without network. Queues if it emits outward.
-- **Capability, online-only** — requires network.
-- **Capability, regulated** — carries the normative knowledge of a regulated domain; its **certified Connector** executes the regulated operation and holds the certification (immutable between audits). Certification never resides in the Botlet.
+- **Connector, offline-capable** — executes without network. Queues if it emits outward.
+- **Connector, online-only** — requires network.
+- **Capability, regulated** — carries the normative knowledge of an operation subject to certification (DTE-SII, PCI-DSS, etc.). Regulatory certification resides in the **certified Connector** that executes the operation, not in the Capability nor in the Botlet.
 - **Capability portability** — a conformant Capability runs on any conformant AgencyDomain; it makes it real property of the client. Distinct from AgencyDomain portability.
 - **Carbon World** — link 11 extended to the physical world.
 - **Cluster** — instances of the same AgencyDomain sharing load.
@@ -1245,7 +1248,7 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **Semantic layer** — encodes the meaning of dimensions, facts, hierarchies. Essential for Varnished Kimball.
 - **Signage** — passive dashboards without requiring interaction.
 - **Space / WorkSpace** — human habitat. Reserved for humans.
-- **Strategic archetype** — pattern of positioning in the coverage × depth space of the value chain. Four canonical: Comprehensive platform (broad coverage, medium depth) · Vertical specialist (focal coverage, Core depth) · Domain infrastructure (zonal coverage, Core in several links) · Substrate provider (minimal coverage, Infrastructure depth).
+- **Strategic archetype** — pattern of positioning in the coverage × depth space of the value chain. Four canonical: Comprehensive platform (broad coverage; Core in its native link and Platform in the adjacent ones) · Vertical specialist (focal coverage, Core depth) · Domain infrastructure (zonal coverage, Core in several links) · Substrate provider (minimal coverage, Infrastructure depth).
 
 ### T
 
@@ -1260,12 +1263,12 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 
 ### U
 
-- **ucodex** — proper name of the **proprietary codex** of Grupo Ultra: its private catalog of proto-Botlets, Capabilities, and patterns, curated by real cases over the reference implementation (Vergis). An instance that exemplifies the *proprietary codex* mode; same drawer of proper names as soveria, agentia, ultrapro — not a type of the canon.
+- **ucodex** — proper name of the **proprietary codex** of Grupo Ultra: its private catalog of proto-Botlets, Capabilities, and patterns, curated by real cases over the reference implementation (Vergis). An instance that exemplifies the *proprietary codex* mode; same drawer of proper names as Soveria, Agentia, ultraPRO — not a type of the canon.
 
 ### V
 
 - **Validation** — Pillar 3 of Trust Infrastructure.
-- **Vergis** — proper name of the public reference implementation of AgencyDomains (the platform; the AgencyDomain made operational). Category: **Meta-Cognitive Platform**. Distributed **AGPL**, public repo, **AgencyDomains.org**. An instance proper name (like soveria, agentia, ultrapro), not a type like Botler.
+- **Vergis** — proper name of the public reference implementation of AgencyDomains (the platform; the AgencyDomain made operational). Category: **Meta-Cognitive Platform**. Distributed **AGPL**, public repo, **AgencyDomains.org**. An instance proper name (like Soveria, Agentia, ultraPRO), not a type like Botler.
 
 ### W
 
@@ -1292,16 +1295,16 @@ The architecture is **product-agnostic**. It admits multiple cooperating impleme
 | Layer | Type / category | Proper name |
 |---|---|---|
 | Platform · *Meta-Cognitive Platform* | reference implementation of AgencyDomains | **Vergis** |
-| Layer 3 runtime | **Botler** (canonical primitive, generic) | — (no proper name) |
+| Layer 3 runtime | **Botler** (normed construct of the Botlet spec, generic) | — (no proper name) |
 | Catalog component | platform proto-Botlet for informational operation | **Mira** |
 
 - **Botler** is a **type** (a normed construct of the Botlet spec — not one of the seven primitives). Any conformant Layer 3 runtime *is a* Botler.
-- **Vergis** and **Mira** are **proper names** of instances (same drawer as soveria, agentia, ultrapro).
+- **Vergis** and **Mira** are **proper names** of instances (same drawer as Soveria, Agentia, ultraPRO).
 - Vergis's category: **Meta-Cognitive Platform** — it administers the **economics of cognition** (G1 pre-forged muscle vs fresh-cognition fallback, `95/4/1` cycle, junior→senior maturation, crystallization). **NOT abbreviated to "MCP"** — that acronym names the Model Context Protocol. The descriptor is used spelled out.
 
 **What it includes**: the abstract contract of the **Botler** (generic, with control points `capability_call`/`log` and validation by delegation) · **Mira** (a platform proto-Botlet operating in `G1`) · a starter set of **Capabilities** and **Connectors** · Trust Infrastructure templates (policies, append-only log, declarative quality contract) · executable examples that walk the chain `use case → Botlets → proto-Botlets`.
 
-**Production grade**: it is the **same runtime** that operates the commercial products (agentia · soveria · ultrapro). The difference from those products **is not the quality of the code but the catalog**: the products consume the public reference **plus a proprietary codex** (ucodex is one exemplar) that curates proto-Botlets, Capabilities, and patterns refined by real cases.
+**Production grade**: it is the **same runtime** that operates the commercial products (Agentia · Soveria · ultraPRO). The difference from those products **is not the quality of the code but the catalog**: the products consume the public reference **plus a proprietary codex** (ucodex is one exemplar) that curates proto-Botlets, Capabilities, and patterns refined by real cases.
 
 **Adoption model** (replicable without permission or central contract): (1) **consume** the public reference; (2) **curate** its own codex; (3) **offer** its products on that base. AgencyDomains.org is not the property of one actor: it is common ground.
 

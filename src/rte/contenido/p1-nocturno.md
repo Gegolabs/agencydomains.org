@@ -10,6 +10,6 @@ Aléjate ahora de verdad — no del edificio: del siglo. Mira la organización c
 
 > **Lo que acabas de ver:**
 >
-> La jerarquía fue, durante dos mil años, un protocolo de enrutamiento de información construido sobre una limitación biológica — y el organigrama nació como diagrama de flujo, no como escalera de poder. Qué le pasa a ese protocolo cuando el transporte deja de necesitar personas — y por qué el resultado no es una organización plana — es la historia que cierra el comentario. Jack Dorsey llegó a la misma tesis por la otra vía.
+> La jerarquía fue, durante dos mil años, un protocolo de enrutamiento de información construido sobre una limitación biológica — y el organigrama nació como diagrama de flujo, no como escalera de poder. Qué le pasa a ese protocolo cuando el transporte deja de necesitar personas — y por qué el resultado no es una organización plana — es la historia que cierra el comentario. Jack Dorsey — el fundador de Twitter — llegó a la misma tesis por la otra vía.
 >
 > *El comentario de esta escena: capítulo 8.*

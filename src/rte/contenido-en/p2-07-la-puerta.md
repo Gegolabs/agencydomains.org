@@ -33,7 +33,7 @@ Adoption progresses by steps, and none of them can be skipped — each one build
 1. **The full platform, with an assistant.** All the familiar tools; the agent helps whoever asks for help. Nobody changes how they work.
 2. **Agentive mode, available.** Those who turn it on, turn it on; those who don't, stay in their channels. Both coexist without friction: the migrated user's agent delivers into the channels of the one who didn't migrate.
 3. **Agentive mode as the default** for the teams that already live in it, with classic mode one click away.
-4. **Full Postchat.** The day — years later, without ceremony — when someone notices the operational channels have been empty for months.
+4. **The full mode.** The day — years later, without ceremony — when someone notices the operational channels have been empty for months.
 
 The early adopters are predictable and worth cultivating: the desperate — executives drowning in channels, field people who never managed to inhabit them. Their first week of briefings instead of two hundred messages produces the evangelists no internal communications plan can buy.
 
@@ -52,6 +52,8 @@ An honest adoption chapter also inventories what can go wrong:
 ## The migration of species
 
 Let's close the chapter by naming what adoption really is. An organization that climbs the four steps didn't migrate tools — **it migrated species**: from an interruption factory to an absorber. And it did so without taking anything from anyone, letting each person discover at their own pace that the weapon they were defending was the cage.
+
+The book's last question remains: what happens to hierarchy — the oldest invention of human organization — when the four faces operate together. That story has to be told from the beginning.
 
 > **The essentials**
 >

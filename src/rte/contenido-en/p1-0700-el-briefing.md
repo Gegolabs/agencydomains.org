@@ -38,6 +38,6 @@ She works. Nothing rings. Nothing blinks. No one interrupts her for three hours.
 
 > **What you just saw:**
 >
-> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one item that demanded a response didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms. The M&Ms are *managers* and *meetings* — bosses who interrupt and meetings that fragment —; the & is the infrastructure that made them permanent. The briefing is the antidote: interruptions batched into predictable moments and silence by default, enforced by architecture.
+> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one item that demanded a response didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms. The M&Ms are *managers* and *meetings* — bosses who interrupt and meetings that fragment —; the & is the infrastructure that made them permanent. The briefing is the antidote: interruptions batched into predictable moments and silence by default, enforced by architecture. And the comparison that appeared for one decision and died with it hinted at another face: knowledge that answers in seconds, on a surface that belongs to no application.
 >
-> *The commentary for this scene: chapters 2 and 4.*
+> *The commentary for this scene: chapters 1, 2 and 4.*

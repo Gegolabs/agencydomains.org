@@ -4,23 +4,23 @@ edition: Development draft · v0.3 · July 2026
 canonical_source: libro-aura-v0.3 (human book, Spanish)
 license: GFDL v1.3 (proposed)
 audience: agents that must diagnose organizational maturity and reason within the AURA framework
-status: pre-1.0 — no commitment to reference stability until v1.0
+status: pre-1.0 — published as a development draft; no commitment to reference stability until v1.0
 ---
 
 # AURA — Canonical manifesto for agents
 
 > Structured extract of the **v0.3 (development draft)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
 
-> AURA is **diagnostic, not prescriptive**. This manifest makes it possible to *locate* an organization on its maturity trajectories and reason about its next step; it does not recommend products, investments, or timelines — that belongs to the consulting these models inform.
+> AURA is **diagnostic, not prescriptive**. This manifesto makes it possible to *locate* an organization on its maturity trajectories and reason about its next step; it does not recommend products, investments, or timelines — that belongs to the consulting these models inform.
 
 ## How to use this document
 
 - **This is canonical context**, not an executive summary. Every definition, stage, level, and diagnostic question matters for reasoning within the framework.
-- **Mirror of v0.3** — the current version of the book in development. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v0.3); this manifest mirrors it in English.
+- **Mirror of v0.3** — the current version of the book in development. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v0.3); this manifesto mirrors it in English.
 - **Binding vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms. In particular: **agentive** ≠ **agentic** (see §2) — the distinction is one of thesis, not of style.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: AURA diagnoses; its few imperatives are structural (sequentiality of levels, blocking pre-conditions, ROI honesty).
-- **Pre-1.0 status**: the book is in active development, with no public release yet. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first publication).
-- **Series**: AURA is Book II of the Agentive World trilogy — *AgencyDomains* (the architecture of the destination; it has its own canonical manifest) · **AURA** (the path) · *The Real-Time Enterprise* (the destination, inhabited). Terms shared across the trilogy (the Nadella Line, agentive, Trust Infrastructure, real-time enterprise) are consistent between books.
+- **Pre-1.0 status**: the book is published as a development draft at agencydomains.org and remains under active development. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first stable release).
+- **Series**: AURA is Book II of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; it has its own manifesto) · **AURA** (the path) · *AgencyDomains* (the architecture; it has its own manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
 
 ---
 
@@ -51,7 +51,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 - **Real-Time Enterprise** is the organizational outcome of both capabilities at maturity — the *what for*.
 - **Agentive AI** is the enabling mechanism — the *how*.
 
-**Vision statement:** organizations transition from the **online enterprise** — where people use tools to access and understand data — toward the **real-time enterprise** — where people design and govern intelligent systems that autonomously detect, analyze, decide, and act on business information. AURA organizes this transformation along two diagnostic axes; together they diagnose the full transformation.
+**Vision statement:** organizations transition from the **online enterprise** — where people use tools to access and understand data — toward the **real-time enterprise** — where people design and govern intelligent systems that autonomously detect, interpret, decide, and act on business information. AURA organizes this transformation along two diagnostic axes; together they diagnose the full transformation.
 
 ---
 
@@ -225,7 +225,7 @@ IRIS and MOTOR are **orthogonal**: an organization can be high on one and low on
 
 ## 6 · Data Canon — data governance (instrument of KNOWING)
 
-**Thesis.** Data Mesh prescribed decentralizing data ownership by domain. Three forces erode that prescription: (1) the three failure modes Dehghani attributed to centralized architectures are **limits of human cognitive scale**, and the agentive era raises them by an order of magnitude; (2) **semantics is not invented: it is adopted** — mature industries externalized it into standards (SID/TM Forum, BIAN, ACORD, IFRS/IAS 41, GS1); where a standard exists, there is nothing local to distribute; (3) distributed ownership puts the definer of each figure in charge of how that figure is reported — an **agency risk** (Jensen & Meckling) that an internal-control framework (SOX/COSO spirit) would not tolerate. Over-determined conclusion: recentralization of the agency-critical core is *possible* (agentive era) and *required* (internal control).
+**Thesis.** Data Mesh prescribed decentralizing data ownership by domain. Two forces erode that prescription, and a corporate-governance argument joins them: (1) the three failure modes Dehghani attributed to centralized architectures are **limits of human cognitive scale**, and the agentive era raises them by an order of magnitude; (2) **semantics is not invented: it is adopted** — mature industries externalized it into standards (SID/TM Forum, BIAN, ACORD, IFRS/IAS 41, GS1); where a standard exists, there is nothing local to distribute; (3) distributed ownership puts the definer of each figure in charge of how that figure is reported — an **agency risk** (Jensen & Meckling) that an internal-control framework (SOX/COSO spirit) would not tolerate. Over-determined conclusion: recentralization of the agency-critical core is *possible* (agentive era) and *required* (internal control).
 
 **Data Canon** = Data Fabric with Mesh's *governance* principles, **anchored to a central canon**, operated by agents, accountable to the board.
 
@@ -404,7 +404,7 @@ It was born in local government but is generic (banking: customer/compliance; he
 
 ## 10 · Relation to the trilogy
 
-- ***AgencyDomains* — the architecture** (Book III of the map, published at agencydomains.org): the primitives, the layers, the Trust Infrastructure of the destination. It has its own canonical manifest for agents; for architectural terms (AgencyDomain, Botlet, Capability, Facet), that manifest rules.
+- ***AgencyDomains* — the architecture** (Book III of the map, published at agencydomains.org): the primitives, the layers, the Trust Infrastructure of the destination. It has its own canonical manifesto for agents; for architectural terms (AgencyDomain, Botlet, Capability, Facet), that manifesto rules.
 - ***The Real-Time Enterprise* — the destination** (Book I): what the world looks like once the transition is behind us, told in its four faces — The Quantum Leap · Postchat · The General Staff · The Watch.
 - ***AURA* — the path** (this book): where the organization stands, what trajectory lies ahead, in what order to travel it, and with what instruments.
 

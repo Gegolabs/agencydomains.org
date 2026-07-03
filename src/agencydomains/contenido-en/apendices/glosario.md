@@ -244,6 +244,36 @@ Locality and offline availability are declared on the **Connector** that accompa
 
 *See: Chapter 5 §3.*
 
+### Regulated Capability
+
+Capability that carries the **normative knowledge** of a regulated domain — what the norm demands, how it is interpreted, what to do upon a regulator's rejection. It accompanies a **certified Connector**, which is where the regulatory certification resides: the Botlet orchestrates and formats; the certified Connector executes the regulated operation (DTE issuance under SII rules, card charging under PCI-DSS, pharmaceutical dispensing) and returns the receipt; the regulated Capability supplies the judgment with which cognition governs the pair. Certified Connectors are immutable between audits; they change only under regulatory process.
+
+*See: Chapter 5 §3, section "Regulatory certification resides in the certified component."*
+
+### Common catalog / network effects
+
+Principle by which proto-Botlets accumulate in catalogs shared by communities of implementers: each implementer that consumes contributes to the maturation (variants, tested configurations, refinements), and implementer n+1 receives versions refined by implementers 1..n. Membership modes: **private contract** · **proprietary codex** · **open public catalog** (AgencyDomains.org) · **sovereign agreement** (between AgencyDomains that adopt common standards without a direct commercial contract).
+
+*See: entry **proto-Botlet**.*
+
+### Cluster
+
+Group of instances of the **same** AgencyDomain that share operational load. Distinct from federation (which is between **distinct** AgencyDomains).
+
+*See: Chapter 5 §1.*
+
+### proprietary codex
+
+Private catalog of proto-Botlets, Capabilities, and patterns that an implementer curates over the public reference implementation, refined by its real cases. It is one of the four membership modes of a catalog community. The runtime is common (the reference implementation); the codex is one's own — it encapsulates each implementer's competitive advantage. Canonical instance: **ucodex**, the codex of Grupo Ultra.
+
+*See: Chapter 9; entries **Common catalog / network effects**, **proto-Botlet**, **ucodex**.*
+
+### Connector
+
+Knowing how to access source systems: a connection with execution power, **not cognitive knowledge**. **Layer 4 · Access.** In the legacy→agentive map, an **API** becomes a **Connector**, not a Capability. Integration scheme: survey · configure · test · certify.
+
+*See: Chapter 4, section "Layer 4 — Access"; entries **Capability**, **Tool**.*
+
 ### Cloud-resident Connector
 
 Connector whose components live in a remote service. Canonical examples: DTE-SII (no local client), Transbank Onepay, a weather API. Typically online-only — without network there is no possible invocation. Distinct from edge-resident and hybrid.
@@ -273,36 +303,6 @@ Connector that executes without network. If its external contract eventually req
 Connector that requires network to execute. Without network, the invocation fails. Typical: cloud-resident without a local component.
 
 *See: Chapter 5 §3, section "Locality and availability."*
-
-### Regulated Capability
-
-Capability that carries the **normative knowledge** of a regulated domain — what the norm demands, how it is interpreted, what to do upon a regulator's rejection. It accompanies a **certified Connector**, which is where the regulatory certification resides: the Botlet orchestrates and formats; the certified Connector executes the regulated operation (DTE issuance under SII rules, card charging under PCI-DSS, pharmaceutical dispensing) and returns the receipt; the regulated Capability supplies the judgment with which cognition governs the pair. Certified Connectors are immutable between audits; they change only under regulatory process.
-
-*See: Chapter 5 §3, section "Regulatory certification resides in the certified component."*
-
-### Common catalog / network effects
-
-Principle by which proto-Botlets accumulate in catalogs shared by communities of implementers: each implementer that consumes contributes to the maturation (variants, tested configurations, refinements), and implementer n+1 receives versions refined by implementers 1..n. Membership modes: **private contract** · **proprietary codex** · **open public catalog** (AgencyDomains.org) · **sovereign agreement** (between AgencyDomains that adopt common standards without a direct commercial contract).
-
-*See: entry **proto-Botlet**.*
-
-### Cluster
-
-Group of instances of the **same** AgencyDomain that share operational load. Distinct from federation (which is between **distinct** AgencyDomains).
-
-*See: Chapter 5 §1.*
-
-### proprietary codex
-
-Private catalog of proto-Botlets, Capabilities, and patterns that an implementer curates over the public reference implementation, refined by its real cases. It is one of the four membership modes of a catalog community. The runtime is common (the reference implementation); the codex is one's own — it encapsulates each implementer's competitive advantage. Canonical instance: **ucodex**, the codex of Grupo Ultra.
-
-*See: Chapter 9; entries **Common catalog / network effects**, **proto-Botlet**, **ucodex**.*
-
-### Connector
-
-Knowing how to access source systems: a connection with execution power, **not cognitive knowledge**. **Layer 4 · Access.** It replaces the notion of "an API turned into a Capability" — in the legacy→agentic map, an **API** becomes a **Connector**, not a Capability. Integration scheme: survey · configure · test · certify.
-
-*See: Chapter 4, section "Layer 4 — Access"; entries **Capability**, **Tool**.*
 
 ### Conformed dimensions
 
@@ -438,7 +438,7 @@ Architectural category that combines Core in Runtime + Firewall + Observability 
 
 Evolutionary model of how the Botlet's code is born as the state of the art of cognition advances. **G1** — the agent configures pre-forged proto-Botlets (does not write the body). **G2** — the agent co-writes the proto-Botlet. **G3** — the agent generates the complete code (asymptotic scenario). The architecture is the same in all three; what changes is the **scope of Engineering**.
 
-*See: Epilogue (complete development); entry **proto-Botlet**.*
+*See: Chapter 5 §2 (definition); Epilogue (background essay); entry **proto-Botlet**.*
 
 ### Governance
 
@@ -588,12 +588,6 @@ Detection of repetitive patterns in the agent's activity. Inspired by neurobiolo
 
 *See: Chapter 4, section "Layer 2 — Cognition," Chapter 5 §2.*
 
-### RLS — Row-Level Security
-
-The policy that decides which rows of a source each identity may see. In an Information Product's drill-through, the destination view applies its own `RLS` over the source and the navigation context enters as an additional filter — never as an override (the data-anchored / no-bypass property).
-
-*See: Chapter 5 §2, description of the Information Product.*
-
 ### Template
 
 Client-specific tailoring over a canonical instrument (report / dashboard) in a format or rule of the client's own (for example, a regulatory template of a standardized instrument). **Layer 1 · Interaction**, alongside Facet / surface Botlet / view Botlet. Tailoring scheme: survey the expectation · tailor over the canonical instrument · validate. It is not a Capability (cognitive knowledge) nor a Connector (access).
@@ -674,6 +668,12 @@ Pillar 4 of Trust Infrastructure. Guarantee that the system keeps operating — 
 Canonical mechanisms: fallback guarantee, error handling, sandboxing, circuit breakers, rate limiting.
 
 *See: Chapter 5 §4.*
+
+### RLS — Row-Level Security
+
+The policy that decides which rows of a source each identity may see. In an Information Product's drill-through, the destination view applies its own `RLS` over the source and the navigation context enters as an additional filter — never as an override (the data-anchored / no-bypass property).
+
+*See: Chapter 5 §2, description of the Information Product.*
 
 ### Runtime
 

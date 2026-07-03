@@ -60,7 +60,7 @@ Y la frontera de lo que **no** se reemplaza define al modelo tanto como lo anter
 
 ## La convergencia
 
-Esta tesis tiene un testigo independiente de peso. El 31 de marzo de 2026, Jack Dorsey publicó *From Hierarchy to Intelligence*: el mismo recorrido histórico — el span of control, las capas como respuesta racional, los intentos fallidos de aplanar — y la misma conclusión, alcanzada desde la otra punta del problema. Dorsey mira los datos financieros (el grafo económico de Block, donde cada transacción revela la estructura real del negocio); este libro mira el puesto de trabajo (el inbox, el canal, la reunión de status). Su síntesis sirve de epígrafe a todo el capítulo: *la pregunta nunca fue si necesitas capas — la pregunta es si los humanos eran la única opción para lo que esas capas hacen. Ya no lo son.*
+Esta tesis tiene un testigo independiente de peso. El 31 de marzo de 2026, Jack Dorsey — fundador de Twitter y de Block — publicó *From Hierarchy to Intelligence*: el mismo recorrido histórico — el span of control, las capas como respuesta racional, los intentos fallidos de aplanar — y la misma conclusión, alcanzada desde la otra punta del problema. Dorsey mira los datos financieros (el grafo económico de Block, donde cada transacción revela la estructura real del negocio); este libro mira el puesto de trabajo (el inbox, el canal, la reunión de status). Su síntesis sirve de epígrafe a todo el capítulo: *la pregunta nunca fue si necesitas capas — la pregunta es si los humanos eran la única opción para lo que esas capas hacen. Ya no lo son.*
 
 Cuando dos observadores que no se conocen describen el mismo animal desde ángulos opuestos, lo razonable es concluir que el animal existe.
 

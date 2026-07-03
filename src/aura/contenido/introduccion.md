@@ -238,7 +238,7 @@ AURA es la arquitectura que unifica estos cuatro conceptos en un marco de refere
 ![AURA, el mapa del camino — dos ejes de madurez, dos instrumentos de terreno, un marco de decisión](figuras/a01-camino-aura.png)
 
 ### Declaración de visión
-> **Las organizaciones transitan desde la empresa en línea — donde personas usan herramientas para acceder y entender datos — hacia la empresa en tiempo real — donde personas diseñan y gobiernan sistemas inteligentes que autónomamente detectan, analizan, deciden y actúan sobre la información del negocio. AURA organiza esta transformación en dos ejes diagnósticos: IRIS mide la trayectoria del SABER (inteligencia organizacional); MOTOR mide la trayectoria del HACER (automatización organizacional). Juntos, dentro de AURA, diagnostican la transformación completa.**
+> **Las organizaciones transitan desde la empresa en línea — donde personas usan herramientas para acceder y entender datos — hacia la empresa en tiempo real — donde personas diseñan y gobiernan sistemas inteligentes que autónomamente detectan, interpretan, deciden y actúan sobre la información del negocio. AURA organiza esta transformación en dos ejes diagnósticos: IRIS mide la trayectoria del SABER (inteligencia organizacional); MOTOR mide la trayectoria del HACER (automatización organizacional). Juntos, dentro de AURA, diagnostican la transformación completa.**
 
 AURA integra en una arquitectura unificada lo que múltiples actores de la industria están planteando por separado: Tableau y Cube en analytics agentivo, Salesforce y AtScale en arquitectura semántica para agentes, McKinsey y BCG en transformación de roles humanos, Gartner y WEF en gobernanza de autonomía, y Deloitte e Informatica en readiness de datos para agentes.
 

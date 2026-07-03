@@ -10,7 +10,7 @@
 Three volumes answer, in order, the three questions of the transition — each reads complete on its own:
 
 - **I · The Real-Time Enterprise — The Agentive World**: where are we going? — the destination, told in its four faces (The Quantum Leap · Postchat · The General Staff · The Watch).
-- **II · AURA — The Agentive Path**: which way? — the route. Its four specs (IRIS · MOTOR · Data Canon · Wingmap) are standalone instruments.
+- **II · AURA — The Agentive Path**: which way? — the route. Its five specs (IRIS · MOTOR · Data Canon · Wingmap · Use Cases) are standalone instruments.
 - **III · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
 - **Vergis — Agentive Technology** *(not a book: code)*: what do I start with today? — the keys.
 
@@ -26,6 +26,14 @@ Formerly published as "Postchat"; Postchat now names its communication face.
 - [The Real-Time Enterprise — PDF (English)](https://agencydomains.org/real-time-enterprise/RealTimeEnterprise-v0.4-en.pdf)
 - [The Real-Time Enterprise — Spanish edition (web)](https://agencydomains.org/es/empresa-tiempo-real/) · [PDF](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-v0.4-es.pdf) · [agents manifest](https://agencydomains.org/es/EmpresaTiempoReal-v0.4-agents-es.md)
 
+## The book — AURA · The Agentive Path (Book II)
+
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v0.3-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v0.3.
+- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v0.3-agents-en.txt)
+- [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
+- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.3-en.pdf)
+- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.3-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.3-agents-es.md)
+
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
 - [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.5-agents-en.md): the book distilled for an agent to reason within the framework. v0.5.
@@ -37,12 +45,4 @@ Formerly published as "Postchat"; Postchat now names its communication face.
 ## Reference implementation
 
 - [Vergis (code, AGPL-3.0)](https://github.com/gegolabs/vergis): the AgencyDomain made operational — Botler + Mira.
-
-## The book — AURA · The Agentive Path (Book II)
-
-- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v0.3-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v0.3.
-- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v0.3-agents-en.txt)
-- [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
-- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v0.3-en.pdf)
-- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v0.3-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v0.3-agents-es.md)
 

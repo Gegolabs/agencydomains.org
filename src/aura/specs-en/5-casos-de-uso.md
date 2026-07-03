@@ -34,7 +34,7 @@ Every case in the portfolio is classified along three orthogonal dimensions. Tog
 
 Every UC demands a minimum level of organizational maturity to operate — the MOTOR level of the organization able to execute it (and, depending on the case, the IRIS stage its information component presupposes). A chatbot running on masked data is executable at the early levels; an agent managing a budget with organizational authority demands the high levels; an inter-organizational network of agents, the highest level of all.
 
-This dimension is what anchors the portfolio to the diagnosis: **the case's level is crossed against the organization's level.** Cases at the current level are executable today — that is where the *quick wins* live. Cases one level above are the reachable frontier — the *sweet spot* where ambition pulls maturity forward without breaking it. Cases several levels above are long-range vision: valuable for showing the destination, dangerous as an immediate commitment.
+This dimension is what anchors the portfolio to the diagnosis: **the case's level is crossed against the organization's level.** Cases at the current level are executable today — that is where the *quick wins* live. Cases one level above are the reachable frontier — the *sweet spot* where ambition pulls maturity forward without breaking it. (This *sweet spot* is local to the portfolio — your current level plus one — distinct from the market Sweet Spot that MOTOR places at Level 4.) Cases several levels above are long-range vision: valuable for showing the destination, dangerous as an immediate commitment.
 
 ### Dimension 2 · Impact beneficiary (Citizen / City / DUAL)
 

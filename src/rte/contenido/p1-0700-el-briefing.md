@@ -38,6 +38,6 @@ Trabaja. Nada suena. Nada parpadea. Nadie la interrumpe durante tres horas.
 
 > **Lo que acabas de ver:**
 >
-> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único que exigía respuesta ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms. Los M&Ms son *managers* y *meetings* — jefes que interrumpen y reuniones que fragmentan —; el & es la infraestructura que los volvió permanentes. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles y silencio por defecto, impuestos por arquitectura.
+> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único que exigía respuesta ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms. Los M&Ms son *managers* y *meetings* — jefes que interrumpen y reuniones que fragmentan —; el & es la infraestructura que los volvió permanentes. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles y silencio por defecto, impuestos por arquitectura. Y el comparativo que apareció para una decisión y murió con ella asomó otra cara: el conocimiento que responde en segundos, en una superficie que no pertenece a ninguna aplicación.
 >
-> *El comentario de esta escena: los capítulos 2 y 4.*
+> *El comentario de esta escena: los capítulos 1, 2 y 4.*

@@ -94,4 +94,4 @@ The third: **Trust Infrastructure is the filter**. In the Carbon World, the filt
 
 ### What comes next
 
-With the market model closed, the book enters its most concrete stretch. Whoever seeks a case where the Agentive Architecture delivers demonstrable value today will find in the next chapter the development of a foundational canonical application. Whoever needs the operational detail to build what has so far been described as principle will find in the final chapter the translation into actionable artifacts.
+With the market model closed, the book enters its most concrete stretch. Whoever seeks a case where the Agentive Architecture delivers demonstrable value today will find in the next chapter the development of a foundational canonical application. Whoever needs the operational detail to build what has so far been described as principle will find in Chapter 8 the translation into actionable artifacts.

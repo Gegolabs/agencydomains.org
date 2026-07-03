@@ -33,7 +33,7 @@ La adopción progresa por escalones, y ninguno es saltable — cada uno construy
 1. **La plataforma completa, con asistente.** Todas las herramientas familiares; el agente ayuda a quien le pide ayuda. Nadie cambia su forma de trabajar.
 2. **El modo agentivo, disponible.** Quien lo activa, lo activa; quien no, sigue en sus canales. Ambos conviven sin fricción: el agente del migrado entrega a los canales del que no migró.
 3. **El modo agentivo como default** para los equipos que ya viven en él, con el modo clásico a un clic de distancia.
-4. **Postchat pleno.** El día — años después, sin ceremonia — en que alguien nota que los canales operativos llevan meses vacíos.
+4. **El modo pleno.** El día — años después, sin ceremonia — en que alguien nota que los canales operativos llevan meses vacíos.
 
 Los primeros adoptantes son predecibles y conviene cultivarlos: los desesperados — directivos ahogados en canales, gente de campo que nunca pudo habitarlos. Su semana inicial de briefings en lugar de doscientos mensajes produce a los evangelizadores que ningún plan de comunicación interna puede comprar.
 
@@ -46,12 +46,14 @@ Un capítulo de adopción honesto inventaría también lo que puede salir mal:
 | **Confianza** — "¿y si el agente me oculta algo importante?" | Transparencia radical: el briefing declara cuántos ítems procesó y cuántos clasificó como ruido; "muéstrame todo" está siempre disponible; cada entrega es auditable |
 | **Error de priorización** — el agente clasifica mal y algo crítico espera | El umbral de urgencia se calibra conservador al inicio; el costo de un falso-urgente (una interrupción) es menor que el de un falso-rutina, y el sistema aprende de cada corrección |
 | **Dependencia** — si el agente cae, la comunicación cae | El modo clásico nunca se desinstala: es la redundancia permanente, no un respaldo de emergencia |
-| **Percepción de vigilancia** | El acotamiento es de gobernanza, no técnico: el ágora no se escucha, los ámbitos no se cruzan sin autorización, y el "off the record" existe |
+| **Percepción de vigilancia** | El acotamiento es de gobernanza, no técnico: el ágora no se escucha, los ámbitos no se cruzan sin autorización, y el «fuera de registro» existe |
 | **Brecha generacional** | El escalón 1 no exige cambio alguno; la analogía de entrada es el asistente humano ("alguien que lee todo y cada mañana te dice qué necesita tu decisión") — inteligible para cualquier generación |
 
 ## La migración de especie
 
 Cerremos el capítulo nombrando lo que la adopción realmente es. Una organización que recorre los cuatro escalones no migró de herramienta — **migró de especie**: de una fábrica de interrupciones a un absorbedor. Y lo logró sin quitarle nada a nadie, dejando que cada quien descubriera a su ritmo que el arma que defendía era la jaula.
+
+Queda la última pregunta del libro: qué le ocurre a la jerarquía — el invento más viejo de la organización humana — cuando las cuatro caras operan juntas. Esa historia hay que contarla desde el principio.
 
 > **Lo esencial**
 >

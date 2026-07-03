@@ -10,6 +10,6 @@ Now pull back for real — not from the building: from the century. Look at the 
 
 > **What you just saw:**
 >
-> For two thousand years, hierarchy was an information-routing protocol built on a biological limitation — and the org chart was born as a flow diagram, not a ladder of power. What happens to that protocol when transport stops needing people — and why the result is not a flat organization — is the story that closes the commentary. Jack Dorsey arrived at the same thesis by the other road.
+> For two thousand years, hierarchy was an information-routing protocol built on a biological limitation — and the org chart was born as a flow diagram, not a ladder of power. What happens to that protocol when transport stops needing people — and why the result is not a flat organization — is the story that closes the commentary. Jack Dorsey — the founder of Twitter — arrived at the same thesis by the other road.
 >
 > *The commentary for this scene: chapter 8.*

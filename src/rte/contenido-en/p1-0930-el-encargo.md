@@ -20,6 +20,6 @@ At 9:47, a discreet note: "Distribution confirms: rescheduling with no impact. T
 
 > **What you just saw:**
 >
-> The complete inversion of the flow: *communication comes to you* — the Hollywood Principle: *don't call us; we'll call you*. Of the seven variables the office forces you to manage by hand (destination, format, timing, priority, memory, follow-up, decision), the agent took on six; Elena kept one — the decision — and supplied the only thing that isn't on the list because it can't be delegated: the intention. The agent didn't forward her message — it **reformulated** it for each recipient according to their role. And the comparison surface that appeared and died with the decision belongs to no application: in this world the interface is generated, not compiled.
+> The complete inversion of the flow: *communication comes to you* — the Hollywood Principle: *don't call us; we'll call you*. Of the seven variables the office forces you to manage by hand (destination, format, timing, priority, memory, follow-up, decision), the agent took on six; Elena kept one — the decision — and supplied the only thing that isn't on the list because it can't be delegated: the intention. The agent didn't forward her message — it **reformulated** it for each recipient according to their role: in this world communication is generated from the intention, not drafted channel by channel.
 >
-> *The commentary for this scene: chapters 1 and 3.*
+> *The commentary for this scene: chapter 3.*

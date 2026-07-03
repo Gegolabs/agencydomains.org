@@ -29,9 +29,8 @@ and each one reads complete on its own:
 
 **I · The Real-Time Enterprise — The Agentive World** *(this book)*
 Where are we going? — **the destination.** For those who want to see the world
-on the other side of the transition: how work is done, decisions are made, and
-competition happens once the enterprise operates in real time — told in its
-four faces.
+on the other side of the transition: how people work, decide, and compete when
+the enterprise operates in real time — told in its four faces.
 
 **II · AURA — The Agentive Path**
 Which way? — **the route.** For those who have to make the crossing: leaders
@@ -41,11 +40,11 @@ the rest of the book:
 
 | Spec | What is it? | Used alone, what does it give you? |
 |:---------|:----------------------------|:----------------------------|
-| **IRIS** | A maturity model of organizational intelligence | Measures how advanced your organization is at Business Intelligence |
+| **IRIS** | A maturity model of organizational intelligence | Locates your organization on the road from data to action |
 | **MOTOR** | A maturity model of organizational automation | Measures how advanced your organization is at process automation |
-| **Data Canon** | The evolution of the decentralized data-management model (Data Mesh) | Defines how to govern data and do BI |
+| **Data Canon** | The evolution of the decentralized data-management model (Data Mesh) | Defines how the organization's data is governed |
 | **Wingmap** | The evolution of business process management (BPM / process mining) | Reconstructs processes and information flows without interviews |
-| **Use Cases** | A portfolio of 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
+| **Use Cases** | A portfolio framework, illustrated with 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
 
 **III · AgencyDomains — Agentive Architecture**
 How do we get there? — **the vehicle.** For architects, CTOs, and builders of

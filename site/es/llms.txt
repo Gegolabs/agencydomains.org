@@ -10,7 +10,7 @@
 Tres volúmenes responden, en orden, las tres preguntas del tránsito — cada uno se lee completo por sí solo:
 
 - **I · La Empresa en Tiempo Real — Mundo Agentivo**: ¿hacia dónde vamos? — el destino, contado en sus cuatro caras (El salto cuántico · Postchat · El Estado Mayor · La guardia).
-- **II · AURA — Camino Agentivo**: ¿por dónde? — la ruta. Sus cuatro specs (IRIS · MOTOR · Data Canon · Wingmap) son instrumentos autónomos.
+- **II · AURA — Camino Agentivo**: ¿por dónde? — la ruta. Sus cinco specs (IRIS · MOTOR · Data Canon · Wingmap · Casos de Uso) son instrumentos autónomos.
 - **III · AgencyDomains — Arquitectura Agentiva**: ¿cómo llegamos? — el vehículo.
 - **Vergis — Tecnología Agentiva** *(no es un libro: es código)*: ¿con qué arranco hoy? — las llaves.
 
@@ -22,14 +22,14 @@ Tres volúmenes responden, en orden, las tres preguntas del tránsito — cada u
 - [La Empresa en Tiempo Real — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/EmpresaTiempoReal-v0.4-agents-es.txt)
 - [La Empresa en Tiempo Real — versión web (humanos)](https://agencydomains.org/es/empresa-tiempo-real/): el libro completo, navegable — la película (el martes de Elena) más el comentario.
 - [La Empresa en Tiempo Real — PDF (humanos)](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-v0.4-es.pdf)
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.md): el libro destilado para que un agente razone dentro del framework. v0.5.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.txt)
-- [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
-- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.5-es.pdf)
 - [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v0.3-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v0.3.
 - [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v0.3-agents-es.txt)
 - [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
 - [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v0.3-es.pdf)
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.md): el libro destilado para que un agente razone dentro del framework. v0.5.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.txt)
+- [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
+- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.5-es.pdf)
 
 ## Implementación de referencia
 

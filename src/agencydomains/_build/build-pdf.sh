@@ -51,7 +51,7 @@ pandoc "$TMPSRC" \
   --metadata title="AgencyDomains" \
   --metadata subtitle="Arquitectura del Mundo Agentivo" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Borrador de desarrollo ${VERSION} · Junio 2026" \
+  --metadata date="Borrador de desarrollo ${VERSION} · Julio 2026" \
   --toc --toc-depth=2 \
   -V documentclass=book \
   -V classoption=twoside \

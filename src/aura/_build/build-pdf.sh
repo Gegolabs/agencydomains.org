@@ -23,7 +23,7 @@ pandoc "$TMPSRC" -o "$PDF" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
   --metadata title="AURA" --metadata subtitle="El Camino Agentivo" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Borrador de desarrollo ${VERSION} · Junio 2026" \
+  --metadata date="Borrador de desarrollo ${VERSION} · Julio 2026" \
   --toc --toc-depth=2 \
   -V documentclass=book -V classoption=twoside -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \

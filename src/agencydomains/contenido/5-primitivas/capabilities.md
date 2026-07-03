@@ -153,7 +153,7 @@ Dado un agente con un conjunto de Capabilities activas, cuando el agente recibe 
 
 **Paso cinco**: la cognición invoca los tools que la Capability indica. Consulta la base de datos contable para los asientos del mes pasado, consulta el extracto bancario, ejecuta el proceso de match.
 
-**Paso seis**: la cognición compone la respuesta usando el vocabulario del dominio y las heurísticas de la Capability. Reporta los matches encontrados, los items sin match, las recomendaciones de cómo proceder con los discrepancias. Usa terminología que un profesional contable reconocería como correcta.
+**Paso seis**: la cognición compone la respuesta usando el vocabulario del dominio y las heurísticas de la Capability. Reporta los matches encontrados, los items sin match, las recomendaciones de cómo proceder con las discrepancias. Usa terminología que un profesional contable reconocería como correcta.
 
 **Paso siete**: si la solicitud es repetitiva — el agente ya hizo reconciliaciones similares en el pasado —, Pattern Recognition sugiere generar un Botlet que automatice el ciclo uno a seis para futuras solicitudes similares. La cognición evalúa la sugerencia y, si las condiciones son apropiadas (frecuencia alta, patrón estable), genera el Botlet.
 
@@ -234,7 +234,7 @@ La regla operativa que la clasificación habilita es directa: **un Botlet edge s
 
 ### Portabilidad de la Capability
 
-La sección anterior clasifica *dónde* reside físicamente una Capability — cloud, edge o híbrida. Una propiedad distinta, que la spec formaliza explícitamente, es la **portabilidad de la Capability**: una Capability conforme puede instalarse y ejecutarse en **cualquier AgencyDomain conforme**, sin reescritura. Esta portabilidad es lo que vuelve a la Capability **propiedad real del cliente** — no del AgencyDomain que la aloja, ni del hosting que sostiene a ese AgencyDomain.
+La sección anterior clasifica *dónde* reside físicamente el Conector que acompaña a la Capability — cloud, edge o híbrido. Una propiedad distinta, que la spec formaliza explícitamente, es la **portabilidad de la Capability**: una Capability conforme puede instalarse y ejecutarse en **cualquier AgencyDomain conforme**, sin reescritura. Esta portabilidad es lo que vuelve a la Capability **propiedad real del cliente** — no del AgencyDomain que la aloja, ni del hosting que sostiene a ese AgencyDomain.
 
 El argumento es el mismo de no-lock-in que el canon hace para el AgencyDomain, aplicado un nivel más abajo. Así como un AgencyDomain conforme migra a otra plataforma hosting conforme sin quedar cautivo de ella, una Capability conforme migra a otro AgencyDomain conforme sin quedar cautiva de él. El cliente que adquiere una Capability adquiere un activo portable, no un alquiler atado a una plataforma.
 

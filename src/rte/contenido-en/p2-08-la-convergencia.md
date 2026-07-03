@@ -60,7 +60,7 @@ And the boundary of what is **not** replaced defines the model as much as the ab
 
 ## The convergence
 
-This thesis has an independent witness of weight. On March 31, 2026, Jack Dorsey published *From Hierarchy to Intelligence*: the same historical arc — the span of control, layers as a rational response, the failed attempts to flatten — and the same conclusion, reached from the other end of the problem. Dorsey looks at the financial data (Block's economic graph, where every transaction reveals the real structure of the business); this book looks at the workstation (the inbox, the channel, the status meeting). His synthesis serves as an epigraph for the entire chapter: *the question was never whether you need layers — the question is whether humans were the only option for what those layers do. They no longer are.*
+This thesis has an independent witness of weight. On March 31, 2026, Jack Dorsey — founder of Twitter and Block — published *From Hierarchy to Intelligence*: the same historical arc — the span of control, layers as a rational response, the failed attempts to flatten — and the same conclusion, reached from the other end of the problem. Dorsey looks at the financial data (Block's economic graph, where every transaction reveals the real structure of the business); this book looks at the workstation (the inbox, the channel, the status meeting). His synthesis serves as an epigraph for the entire chapter: *the question was never whether you need layers — the question is whether humans were the only option for what those layers do. They no longer are.*
 
 When two observers who don't know each other describe the same animal from opposite angles, the reasonable conclusion is that the animal exists.
 

@@ -273,4 +273,4 @@ La **cognición agnóstica** es la segunda. La spec admite cognición no-LLM —
 
 La **identidad criptográfica de agentes** es la tercera. El modelo de identidad verificable on-chain o por DID está en exploración. La adopción depende de que el ecosistema más amplio de identidad descentralizada madure suficientemente para soportar el caso de uso agentivo.
 
-Estas tres fronteras coinciden con las del Capítulo 4 — son fronteras de la arquitectura misma, no solo de su materialización en AgencyDomains.
+Dos de estas fronteras — la federación y la cognición agnóstica — coinciden con las del Capítulo 4; la identidad criptográfica es propia de esta spec. Todas son fronteras de la arquitectura misma, no solo de su materialización en AgencyDomains.

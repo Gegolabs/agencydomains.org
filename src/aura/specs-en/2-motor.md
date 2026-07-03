@@ -323,7 +323,7 @@ The difference from the previous level: at Level 4, an agent reacts when an even
 
   Prescriptive Digital Twin (simulation):
   → SIMULATES 5 network configurations:
-     Scenario A: COWs at position X,Y → 12% degradation
+     Scenario A: COWs (cells on wheels) at position X,Y → 12% degradation
      Scenario B: COWs at position W,Z → 3% degradation
      Scenario C: COWs + power adjustment → 0.8% degradation
 

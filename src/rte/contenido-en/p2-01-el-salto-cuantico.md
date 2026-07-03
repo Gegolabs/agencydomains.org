@@ -1,6 +1,6 @@
 # 1. The Quantum Leap
 
-*In the film: the route-comparison surface that appeared for one decision and died with it; the 9:30 question answered before the coffee went cold; the analysis Elena declined in order to do it in pencil. Nobody opened an application all Tuesday — and no question waited for a report.*
+*In the film: the route-comparison surface, which appeared at 7:00 for one decision and died with it; the simulator question, asked in passing on the way back from the cafeteria and answered on the spot; the analysis Elena declined in order to do it in pencil. Nobody opened an application all Tuesday — and no question waited for a report.*
 
 ## The question that divides two worlds
 

@@ -20,6 +20,6 @@ Elena vuelve a su escritorio y no piensa más en el asunto. No coordinó agendas
 
 > **Lo que acabas de ver:**
 >
-> Casi toda reunión existe para compartir información o tomar una decisión — y ambas funciones encontraron un mecanismo mejor: el contexto persigue a cada participante, cada quien opina cuando puede pensar, y nadie ve las posiciones ajenas antes de dar la suya — desaparece el **sesgo de anclaje**: la primera opinión dicha deja de arrastrar a las demás. La reunión no se acortó: desapareció. Es el tercer estadio de la comunicación de empresa — email, chat, **Postchat** — y deja armada la pregunta que funda este mundo: si el agente entiende la intención, reparte las versiones y confirma la recepción, ¿para qué necesitábamos que las personas escribieran en canales?
+> Casi toda reunión existe para compartir información o tomar una decisión — y ambas funciones encontraron un mecanismo mejor: el contexto persigue a cada participante, cada quien opina cuando puede pensar, y nadie ve las posiciones ajenas antes de dar la suya — desaparece el **sesgo de anclaje**: la primera opinión dicha deja de arrastrar a las demás. La reunión no se acortó: desapareció — la absorbió el agente en un oficio que tiene nombre propio, el **Estado Mayor**: coordinar, consolidar y perseguir para que el humano decida. Y deja armada la pregunta de esa cara: ¿qué fracción del tiempo directivo era puro transporte de información?
 >
 > *El comentario de esta escena: el capítulo 5.*

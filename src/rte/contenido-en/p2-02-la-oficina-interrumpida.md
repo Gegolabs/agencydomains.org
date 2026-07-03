@@ -40,7 +40,7 @@ The second face starts from the opposite assumption, formulated as a question:
 
 > If an AI agent can understand an intention, identify the audiences, give each one its version, choose the moment, confirm receipt, and facilitate group decisions — **what exactly do we need people writing in channels for?**
 
-The answer we will develop: for nothing but the inertia of the previous paradigm. Corporate chat was an artifact of the era in which people were the only transmission medium between people. That era is ending, and what replaces it is not a better channel — it is the governed absence of the channel. We call that stage — and this face of the real-time enterprise — **Postchat**.
+The answer will be the same as the one to the mother question: for nothing. Corporate chat was an artifact of the era in which people were the only transmission medium between people. That era is ending, and what replaces it is not a better channel — it is the governed absence of the channel. We call that stage — and this face of the real-time enterprise — **Postchat**.
 
 > **The essentials**
 >

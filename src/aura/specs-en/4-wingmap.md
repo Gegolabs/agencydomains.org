@@ -4,6 +4,10 @@
 
 ---
 
+<!-- libro
+MOTOR has just located the DOING level; what is missing is the terrain on which that doing happens — the real processes and information flows, which the organization cannot articulate on its own. This chapter formalizes the technique that reconstructs them without asking for them. Like Data Canon, it was born as a standalone paper and keeps that register — abstract, conceptual framework, principles, phases.
+/libro -->
+
 ## Abstract
 
 Modern organizations operate faster than they can articulate themselves. Twenty years of Business Process Management proved, against its own promise, that formally documenting processes in order to automate them is an undertaking that most dynamic industries cannot sustain: the process-modification cycle outpaces the documentation-adjustment cycle, and the organization ends up preferring not to control its processes rather than pay the toll. The agentive era opens a structural way out of that asymmetry — not by building the documentation faster, but by ceasing to ask for it.

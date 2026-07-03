@@ -1,6 +1,6 @@
 # Preface
 
-*By César Obach-Renner · June 2026*
+*By César Obach-Renner · July 2026*
 
 ---
 

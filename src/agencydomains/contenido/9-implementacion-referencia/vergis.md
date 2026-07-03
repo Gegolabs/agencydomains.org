@@ -22,7 +22,7 @@ Vergis no es tutorial ni juguete pedagógico. Es el sustrato sobre el que corren
 
 ## ¿Dónde vive?
 
-Vergis vive en **AgencyDomains.org**, en un repositorio público. El código se distribuye bajo **`AGPL`** (Affero General Public License); la documentación, bajo **`GFDL`** (GNU Free Documentation License).
+Vergis vive en un repositorio público enlazado desde **AgencyDomains.org**. El código se distribuye bajo **`AGPL`** (Affero General Public License); la documentación, bajo **`GFDL`** (GNU Free Documentation License).
 
 La elección de licencias es estructural, no incidental. La `AGPL` garantiza que las mejoras al runtime —incluidas las que operan como servicio de red— permanezcan disponibles para la comunidad: quien despliega una versión modificada de Vergis y la ofrece por red MUST publicar su fuente. La `GFDL` mantiene la documentación libre y derivable. Juntas, sostienen la promesa de una base común que ningún actor puede cerrar: la plataforma de referencia permanece abierta aunque los catálogos que se construyan sobre ella sean privados.
 
@@ -36,7 +36,7 @@ Tres etiquetas de **naturaleza distinta** intervienen en la implementación de r
 | Capa | Tipo · categoría / primitiva canónica | Nombre propio |
 |------|----------------------------------------|---------------|
 | Plataforma · *Meta-Cognitive Platform* | implementación de referencia de AgencyDomains (el AgencyDomain hecho operativo) | **Vergis** |
-| Runtime de Capa 3 | **Botler** (primitiva canónica) | — *(genérico; "el Botler". La build de Vergis no le pone nombre propio.)* |
+| Runtime de Capa 3 | **Botler** (constructo normado de la spec de Botlets) | — *(genérico; "el Botler". La build de Vergis no le pone nombre propio.)* |
 | Componente del catálogo | proto-Botlet platafórmico de operación informativa | **Mira** |
 
 La distinción tipo / nombre propio:

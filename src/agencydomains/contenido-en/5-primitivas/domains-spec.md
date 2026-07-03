@@ -273,4 +273,4 @@ Three areas of the specification are under active evolution and a future version
 
 **Cryptographic identity of agents** is the third. The model of verifiable on-chain or DID-based identity is under exploration. Adoption depends on the broader decentralized-identity ecosystem maturing sufficiently to support the agentive use case.
 
-These three frontiers coincide with those of Chapter 4 — they are frontiers of the architecture itself, not only of its materialization in AgencyDomains.
+Two of these frontiers — federation and agnostic cognition — coincide with those of Chapter 4; cryptographic identity is specific to this spec. All of them are frontiers of the architecture itself, not only of its materialization in AgencyDomains.

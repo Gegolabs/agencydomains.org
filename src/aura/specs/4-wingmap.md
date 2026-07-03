@@ -4,6 +4,10 @@
 
 ---
 
+<!-- libro
+MOTOR acaba de ubicar el nivel del HACER; falta el terreno sobre el que ese hacer ocurre — los procesos y flujos de información reales, que la organización no puede articular por sí misma. Este capítulo formaliza la técnica que los reconstruye sin pedirlos. Como Data Canon, nació como paper autónomo y conserva ese registro — resumen, marco conceptual, principios, fases.
+/libro -->
+
 ## Resumen
 
 Las organizaciones modernas operan más rápido de lo que pueden articularse a sí mismas. Veinte años de Business Process Management probaron, contra su propia promesa, que documentar formalmente los procesos para automatizarlos es una empresa que la mayoría de las industrias dinámicas no puede sostener: el ciclo de modificación del proceso supera al ciclo de ajuste de la documentación, y la organización termina prefiriendo no controlar sus procesos antes que pagar el peaje. La era agentiva abre una salida estructural a esa asimetría — no construyendo más rápido la documentación, sino dejando de pedirla.
@@ -46,7 +50,7 @@ Wingmap es la técnica que materializa esa hipótesis: una práctica reproducibl
 
 Conviene fijar terminología. **Pre-agentivo** designa el conjunto de tecnologías de gestión de procesos y de información que dominaron entre 1995 y 2025: BPM clásico, ERPs monolíticos, suites de workflow documental, plataformas de orquestación, RPA, low-code tradicional. Lo que distingue a este conjunto no es su antigüedad ni su capacidad técnica — varias categorías siguen siendo competitivas — sino su topología fundamental: el software se construye antes de operar, opera con interfaces precreadas, y el ciclo de cambio del proceso requiere ciclo de cambio del software. La lógica es de *artefacto persistente*.
 
-**Agéntico** designa una topología distinta donde el software se construye, en parte sustantiva, *durante* la operación. Las interfaces se instancian al momento, según contexto. La capacidad ejecutiva del software emerge de la conversación entre el agente y el humano, no de pantallas pre-diseñadas. El ciclo de cambio del proceso ya no requiere ciclo de cambio del software — requiere actualización del modelo subyacente y nada más, porque la interfaz se regenera al vuelo. La lógica es de *evento situacional*.
+**Agentivo** designa una topología distinta donde el software se construye, en parte sustantiva, *durante* la operación. Las interfaces se instancian al momento, según contexto. La capacidad ejecutiva del software emerge de la conversación entre el agente y el humano, no de pantallas pre-diseñadas. El ciclo de cambio del proceso ya no requiere ciclo de cambio del software — requiere actualización del modelo subyacente y nada más, porque la interfaz se regenera al vuelo. La lógica es de *evento situacional*.
 
 La distinción no es absoluta — los productos reales mezclan ambas topologías en proporciones variables — pero sí es discriminativa para clasificar qué hace cada uno con la era agentiva. Un producto que usa IA en el constructor y entrega software con interfaz precreada es agentivo para construir, pre-agentivo para correr. Un producto que usa IA tanto en el modelado como en la ejecución es agentivo de punta a punta. Wingmap pertenece a una categoría intermedia con vocación agentiva plena: agentivo para levantar (construye el modelo de la organización por observación) y agentivo para correr (su output está diseñado para ser consumido por agentes operacionales en runtime, no por software pre-creado).
 

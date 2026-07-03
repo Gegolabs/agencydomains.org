@@ -1,6 +1,6 @@
 # 1. El salto cuántico
 
-*En la película: la superficie del comparativo de rutas, que apareció para una decisión y murió con ella; la pregunta de las 9:30 respondida antes de que se enfriara el café; el análisis que Elena declinó para hacerlo a lápiz. Nadie abrió una aplicación en todo el martes — y ninguna pregunta esperó a un reporte.*
+*En la película: la superficie del comparativo de rutas, que apareció a las 7:00 para una decisión y murió con ella; la pregunta por el simulador, hecha de pasada al volver del comedor y respondida en el acto; el análisis que Elena declinó para hacerlo a lápiz. Nadie abrió una aplicación en todo el martes — y ninguna pregunta esperó a un reporte.*
 
 ## La pregunta que divide dos mundos
 

@@ -244,6 +244,36 @@ La localidad y la disponibilidad offline se declaran sobre el **Conector** que a
 
 *Ver: Capítulo 5 §3.*
 
+### Capability regulada
+
+Capability que porta el **saber normativo** de un dominio regulado — qué exige la norma, cómo se interpreta, qué hacer ante rechazo del regulador. Acompaña a un **Conector certificado**, que es donde reside la certificación regulatoria: el Botlet orquesta y formatea; el Conector certificado ejecuta la operación regulada (emisión DTE bajo norma SII, cobro con tarjeta bajo PCI-DSS, dispensación farmacéutica) y devuelve el comprobante; la Capability regulada aporta el criterio con que la cognición gobierna el conjunto. Los Conectores certificados son inmutables entre auditorías; cambian solo bajo proceso regulatorio.
+
+*Ver: Capítulo 5 §3, sección "La certificación regulatoria reside en el componente certificado".*
+
+### Catálogo común / efectos de red
+
+Principio por el cual los proto-Botlets se acumulan en catálogos compartidos por comunidades de implementadores: cada implementador que consume contribuye a la maduración (variantes, configuraciones probadas, refinamientos), y el implementador n+1 recibe versiones refinadas por los implementadores 1..n. Modos de pertenencia: **contrato privado** · **códice propietario** · **catálogo público abierto** (AgencyDomains.org) · **acuerdo soberano** (entre AgencyDomains que adoptan estándares comunes sin contrato comercial directo).
+
+*Ver: entrada **proto-Botlet**.*
+
+### Cluster
+
+Grupo de instancias del **mismo** AgencyDomain que comparten carga operativa. Distinto de federación (que es entre AgencyDomains **distintos**).
+
+*Ver: Capítulo 5 §1.*
+
+### códice propietario
+
+Catálogo privado de proto-Botlets, Capabilities y patrones que un implementador cura sobre la implementación de referencia pública, refinado por sus casos reales. Es uno de los cuatro modos de pertenencia a una comunidad de catálogo. El runtime es común (la implementación de referencia); el códice es propio — encapsula la ventaja competitiva de cada implementador. Instancia canónica: **ucodex**, el códice del Grupo Ultra.
+
+*Ver: Capítulo 9; entradas **Catálogo común / efectos de red**, **proto-Botlet**, **ucodex**.*
+
+### Conector
+
+Saber acceder a sistemas fuente: conexión con poder de ejecución, **no saber cognitivo**. **Capa 4 · Acceso.** En el mapa legacy→agentivo, una **API** se convierte en **Conector**, no en Capability. Esquema de integración: relevar · configurar · probar · certificar.
+
+*Ver: Capítulo 4, sección "Capa 4 — Acceso"; entradas **Capability**, **Tool**.*
+
 ### Conector cloud-resident
 
 Conector cuyos componentes viven en un servicio remoto. Ejemplos canónicos: DTE-SII (sin cliente local), Transbank Onepay, API meteorológica. Típicamente online-only — sin red no hay invocación posible. Distinto de edge-resident e híbrido.
@@ -273,36 +303,6 @@ Conector que ejecuta sin red. Si su contrato externo exige eventualmente comunic
 Conector que requiere red para ejecutar. Sin red, la invocación falla. Típicos: cloud-resident sin componente local.
 
 *Ver: Capítulo 5 §3, sección "Localidad y disponibilidad".*
-
-### Capability regulada
-
-Capability que porta el **saber normativo** de un dominio regulado — qué exige la norma, cómo se interpreta, qué hacer ante rechazo del regulador. Acompaña a un **Conector certificado**, que es donde reside la certificación regulatoria: el Botlet orquesta y formatea; el Conector certificado ejecuta la operación regulada (emisión DTE bajo norma SII, cobro con tarjeta bajo PCI-DSS, dispensación farmacéutica) y devuelve el comprobante; la Capability regulada aporta el criterio con que la cognición gobierna el conjunto. Los Conectores certificados son inmutables entre auditorías; cambian solo bajo proceso regulatorio.
-
-*Ver: Capítulo 5 §3, sección "La certificación regulatoria reside en el componente certificado".*
-
-### Catálogo común / efectos de red
-
-Principio por el cual los proto-Botlets se acumulan en catálogos compartidos por comunidades de implementadores: cada implementador que consume contribuye a la maduración (variantes, configuraciones probadas, refinamientos), y el implementador n+1 recibe versiones refinadas por los implementadores 1..n. Modos de pertenencia: **contrato privado** · **códice propietario** · **catálogo público abierto** (AgencyDomains.org) · **acuerdo soberano** (entre AgencyDomains que adoptan estándares comunes sin contrato comercial directo).
-
-*Ver: entrada **proto-Botlet**.*
-
-### Cluster
-
-Grupo de instancias del **mismo** AgencyDomain que comparten carga operativa. Distinto de federación (que es entre AgencyDomains **distintos**).
-
-*Ver: Capítulo 5 §1.*
-
-### códice propietario
-
-Catálogo privado de proto-Botlets, Capabilities y patrones que un implementador cura sobre la implementación de referencia pública, refinado por sus casos reales. Es uno de los cuatro modos de pertenencia a una comunidad de catálogo. El runtime es común (la implementación de referencia); el códice es propio — encapsula la ventaja competitiva de cada implementador. Instancia canónica: **ucodex**, el códice del Grupo Ultra.
-
-*Ver: Capítulo 9; entradas **Catálogo común / efectos de red**, **proto-Botlet**, **ucodex**.*
-
-### Conector
-
-Saber acceder a sistemas fuente: conexión con poder de ejecución, **no saber cognitivo**. **Capa 4 · Acceso.** Reemplaza la noción de "API convertida en Capability" — en el mapa legacy→agentic, una **API** se convierte en **Conector**, no en Capability. Esquema de integración: relevar · configurar · probar · certificar.
-
-*Ver: Capítulo 4, sección "Capa 4 — Acceso"; entradas **Capability**, **Tool**.*
 
 ### Conformed dimensions
 
@@ -438,7 +438,7 @@ Categoría arquitectónica que combina Core en Runtime + Firewall + Observabilid
 
 Modelo evolutivo de cómo nace el código del Botlet conforme avanza el estado del arte de la cognición. **G1** — el agente configura proto-Botlets pre-forjados (no escribe el cuerpo). **G2** — el agente co-escribe el proto-Botlet. **G3** — el agente genera el código completo (escenario asintótico). La arquitectura es la misma en las tres; lo que cambia es el **alcance de la Ingeniería**.
 
-*Ver: Epílogo (desarrollo completo); entrada **proto-Botlet**.*
+*Ver: Capítulo 5 §2 (definición); Epílogo (ensayo de fondo); entrada **proto-Botlet**.*
 
 ### Gobernanza
 
@@ -669,6 +669,12 @@ Mecanismos canónicos: garantía de fallback, manejo de errores, sandboxing, cir
 
 *Ver: Capítulo 5 §4.*
 
+### RLS — Row-Level Security
+
+Seguridad a nivel de fila: la política que decide qué filas de una fuente puede ver cada identidad. En el drill-through de un Producto de Información, la vista destino aplica su propia `RLS` sobre la fuente y el contexto de navegación entra como filtro adicional — nunca como override (propiedad data-anchored / no-bypass).
+
+*Ver: Capítulo 5 §2, descripción del Producto de Información.*
+
 ### Runtime
 
 Eslabón 6 de la cadena de valor: ambiente operativo donde los agentes viven y operan de manera autónoma. Ciclo de vida, persistencia de estado, identidad, scheduling. Corresponde a la Capa 3 (Autonomía) de la Arquitectura Agentiva.
@@ -734,12 +740,6 @@ NO es Capability. La Capability es saber; el tool es acción. La Capability **de
 Modelo canónico de relación entre las cuatro capas de la Arquitectura Agentiva (Cap 4). Las **Capas 2 (Cognición) y 3 (Autonomía) son vías paralelas** entre Capa 1 (Interacción) y Capa 4 (Acceso), no etapas en serie. Una operación que entra por Capa 1 puede llegar a Capa 4 atravesando la **vía Cognición** (lenta, costosa, decisiva) o la **vía Autonomía** (rápida, barata, repetitiva). Las dos vías interactúan (`2 ↔ 3`: cognición delega a Botlet, Botlet escala fallback a cognición, cognición observa el log) pero ninguna domina sobre la otra. Modelo refundacional respecto a la lectura lineal `1 → 2 → 3 → 4`.
 
 *Ver: Capítulo 4, sección "La topología paralela".*
-
-### RLS — Row-Level Security
-
-Seguridad a nivel de fila: la política que decide qué filas de una fuente puede ver cada identidad. En el drill-through de un Producto de Información, la vista destino aplica su propia `RLS` sobre la fuente y el contexto de navegación entra como filtro adicional — nunca como override (propiedad data-anchored / no-bypass).
-
-*Ver: Capítulo 5 §2, descripción del Producto de Información.*
 
 ### Trace
 

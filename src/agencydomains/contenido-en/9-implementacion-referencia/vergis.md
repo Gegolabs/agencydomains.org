@@ -22,7 +22,7 @@ Vergis is neither a tutorial nor a pedagogical toy. It is the substrate on which
 
 ## Where does it live?
 
-Vergis lives at **AgencyDomains.org**, in a public repository. The code is distributed under **`AGPL`** (Affero General Public License); the documentation, under **`GFDL`** (GNU Free Documentation License).
+Vergis lives in a public repository linked from **AgencyDomains.org**. The code is distributed under **`AGPL`** (Affero General Public License); the documentation, under **`GFDL`** (GNU Free Documentation License).
 
 The choice of licenses is structural, not incidental. The `AGPL` guarantees that improvements to the runtime — including those that operate as a network service — remain available to the community: whoever deploys a modified version of Vergis and offers it over the network MUST publish its source. The `GFDL` keeps the documentation free and derivable. Together, they sustain the promise of a common base that no actor can close: the reference platform remains open even though the catalogs built upon it are private.
 
@@ -36,7 +36,7 @@ Three labels of **distinct nature** intervene in the reference implementation. C
 | Layer | Type · category / canonical primitive | Proper name |
 |------|----------------------------------------|---------------|
 | Platform · *Meta-Cognitive Platform* | reference implementation of AgencyDomains (the AgencyDomain made operational) | **Vergis** |
-| Layer 3 runtime | **Botler** (canonical primitive) | — *(generic; "the Botler". The Vergis build gives it no proper name.)* |
+| Layer 3 runtime | **Botler** (normed construct of the Botlet spec) | — *(generic; "the Botler". The Vergis build gives it no proper name.)* |
 | Catalog component | platform proto-Botlet for informational operation | **Mira** |
 
 The type / proper-name distinction:

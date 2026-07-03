@@ -1,6 +1,6 @@
 # 5. El Estado Mayor
 
-*En la película: las 11:00 — la reunión que no fue: seis opiniones recogidas cuando cada quien podía pensar, y la síntesis esperando al decisor. Y las 17:00 — el cierre, con lo pendiente en manos de alguien que no se cansa. Este capítulo nombra a ese alguien.*
+*En la película: las 11:00 — la reunión que no fue: cuatro opiniones recogidas cuando cada quien podía pensar, y la síntesis esperando al decisor. Y las 17:00 — el cierre, con lo pendiente en manos de alguien que no se cansa. Este capítulo nombra a ese alguien.*
 
 ## La gerencia-cable
 

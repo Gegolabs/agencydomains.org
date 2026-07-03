@@ -34,7 +34,7 @@ Cada caso del portafolio se clasifica en tres dimensiones ortogonales. Las tres 
 
 Cada CU exige un nivel mínimo de madurez organizacional para operar — el nivel MOTOR de la organización que puede ejecutarlo (y, según el caso, la etapa IRIS que su componente de información presupone). Un chatbot con datos enmascarados es ejecutable en los niveles tempranos; un agente que gestiona presupuesto con autoridad organizacional exige los niveles altos; una red inter-organizacional de agentes, el nivel máximo.
 
-Esta dimensión es la que ancla el portafolio al diagnóstico: **el nivel del caso se cruza con el nivel de la organización.** Los casos del nivel actual son ejecutables hoy — ahí viven los *quick wins*. Los casos un nivel por encima son la frontera alcanzable — el *sweet spot* donde la ambición tracciona la madurez sin romperla. Los casos varios niveles por encima son visión de largo plazo: valiosos para mostrar el destino, peligrosos como compromiso inmediato.
+Esta dimensión es la que ancla el portafolio al diagnóstico: **el nivel del caso se cruza con el nivel de la organización.** Los casos del nivel actual son ejecutables hoy — ahí viven los *quick wins*. Los casos un nivel por encima son la frontera alcanzable — el *sweet spot* donde la ambición tracciona la madurez sin romperla. (Este *sweet spot* es local al portafolio — tu nivel actual más uno —, distinto del Sweet Spot de mercado que MOTOR sitúa en el Nivel 4.) Los casos varios niveles por encima son visión de largo plazo: valiosos para mostrar el destino, peligrosos como compromiso inmediato.
 
 ### Dimensión 2 · Beneficiario del impacto (Citizen / City / DUAL)
 

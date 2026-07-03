@@ -40,6 +40,8 @@ The 15:00 scene pins down the third stage with no need for theory: Andrés's age
 
 **And wasn't availability a virtue?** The office of the channel confuses availability with commitment: whoever answers at eleven at night is "all in." This face proposes the inverse measure of organizational health: that people can be **in one place at a time** — in the field, in the important decision, at home — without the organization stopping or making them pay for it. Representation doesn't replace people: it gives them back the right not to be ubiquitous. And the measure of the face is domestic and exact: **the hour at which your day truly ends**. In the film it was 5:00 p.m. — what was pending stayed in the hands of someone who doesn't tire, because the one now standing watch is the system.
 
+With the Watch, the picture of the four faces is complete. What remains is what makes them reachable — the door through which a real organization enters this world — and that is the next chapter.
+
 > **The essentials**
 >
 > - Assistant and "twin" are not two systems: they are two interfaces of one agent that matures.

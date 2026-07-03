@@ -234,7 +234,7 @@ The operational rule the classification enables is direct: **a senior edge Botle
 
 ### Capability portability
 
-The previous section classifies *where* a Capability physically resides — cloud, edge, or hybrid. A distinct property, which the spec formalizes explicitly, is **Capability portability**: a conformant Capability can be installed and run on **any conformant AgencyDomain**, without rewriting. This portability is what makes the Capability **real property of the client** — not of the AgencyDomain that hosts it, nor of the hosting that sustains that AgencyDomain.
+The previous section classifies *where* the Connector that accompanies the Capability physically resides — cloud, edge, or hybrid. A distinct property, which the spec formalizes explicitly, is **Capability portability**: a conformant Capability can be installed and run on **any conformant AgencyDomain**, without rewriting. This portability is what makes the Capability **real property of the client** — not of the AgencyDomain that hosts it, nor of the hosting that sustains that AgencyDomain.
 
 The argument is the same no-lock-in one the canon makes for the AgencyDomain, applied one level lower. Just as a conformant AgencyDomain migrates to another conformant hosting platform without being held captive by it, a conformant Capability migrates to another conformant AgencyDomain without being held captive by it. The client who acquires a Capability acquires a portable asset, not a rental tied to a platform.
 

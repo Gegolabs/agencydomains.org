@@ -135,8 +135,10 @@ For support in later reading, the two sides of the line synthesized in a compari
 | **Role of AI** | Copilots embedded in each application | Agents that replace the traditional interface |
 | **Valuable human skill** | Knowing how to operate applications | Knowing how to direct agents |
 | **Transformation** | Incremental evolution, same way of working | Fundamental transformation, new way of working |
-| **Predicted by** | Altman (OpenAI), Pichai (Google), Zuckerberg (Meta) | Nadella (Microsoft), Musk (xAI), Amodei (Anthropic) |
+| **Predicted by** | Altman (OpenAI)\*, Pichai (Google), Zuckerberg (Meta) | Nadella (Microsoft), Musk (xAI), Amodei (Anthropic) |
 | **Economic bet** | The current business model survives | The business model reinvents itself |
+
+\* a nuanced position; see the body of the chapter.
 
 ---
 

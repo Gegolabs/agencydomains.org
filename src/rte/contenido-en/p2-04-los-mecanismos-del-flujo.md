@@ -2,7 +2,7 @@
 
 *In the film: the 7:00 briefing and the midday agora. Behind each moment, a mechanism was at work. Here are the ones of the flow — and the principle that governs them all.*
 
-The inversion of the previous chapter is not an aspiration: it is a system of **seven mechanisms**. Three are of flow — they move the right communication toward the right person — and this chapter develops them, along with the deliberate exception that completes them. The other three do not transport: they coordinate, remember, and pursue — they are the machinery of the **General Staff**, and they have the next chapter to themselves.
+The inversion of the previous chapter is not an aspiration: it is a system of **seven mechanisms**. (Not to be confused with the seven variables of the previous chapter: those were the work to be managed; these are the machinery that takes it on.) Three are of flow — they move the right communication toward the right person — and this chapter develops them, along with the deliberate exception that completes them. The other three do not transport: they coordinate, remember, and pursue — they are the machinery of the **General Staff**, and they have the next chapter to themselves.
 
 <!-- FIG:f03-siete-mecanismos -->
 ![The seven mechanisms: three of flow, three of the General Staff, and one deliberate exception](figuras/f03-siete-mecanismos.png)

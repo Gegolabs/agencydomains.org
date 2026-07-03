@@ -323,7 +323,7 @@ La diferencia con el nivel anterior: en Nivel 4, un agente reacciona cuando un e
 
   Digital Twin Prescriptivo (simulación):
   → SIMULA 5 configuraciones de red:
-     Escenario A: COWs en posición X,Y → 12% degradación
+     Escenario A: COWs (celdas móviles) en posición X,Y → 12% degradación
      Escenario B: COWs en posición W,Z → 3% degradación
      Escenario C: COWs + ajuste potencia → 0.8% degradación
 

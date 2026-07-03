@@ -2,7 +2,7 @@
 
 *En la película: el briefing de las 7:00 y el ágora del mediodía. Detrás de cada momento había un mecanismo trabajando. Aquí están los del flujo — y el principio que gobierna a todos.*
 
-La inversión del capítulo anterior no es una aspiración: es un sistema de **siete mecanismos**. Tres son de flujo — mueven la comunicación correcta hacia la persona correcta — y este capítulo los desarrolla, junto con la excepción deliberada que los completa. Los otros tres no transportan: coordinan, recuerdan y persiguen — son la maquinaria del **Estado Mayor**, y tienen el capítulo siguiente para ellos solos.
+La inversión del capítulo anterior no es una aspiración: es un sistema de **siete mecanismos**. (No confundir con las siete variables del capítulo anterior: aquellas eran el trabajo por gestionar; estos son la maquinaria que lo asume.) Tres son de flujo — mueven la comunicación correcta hacia la persona correcta — y este capítulo los desarrolla, junto con la excepción deliberada que los completa. Los otros tres no transportan: coordinan, recuerdan y persiguen — son la maquinaria del **Estado Mayor**, y tienen el capítulo siguiente para ellos solos.
 
 <!-- FIG:f03-siete-mecanismos -->
 ![Los siete mecanismos: tres de flujo, tres del Estado Mayor, y una excepción deliberada](figuras/f03-siete-mecanismos.png)

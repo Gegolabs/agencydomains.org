@@ -20,7 +20,8 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 - **Espejo de v0.5** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos.
 - **Convenciones MUST/SHOULD**: la spec usa esos verbos en sentido RFC 2119.
-- **Estado pre-1.0**: el libro está en desarrollo activo, sin publicación pública aún. Los términos, las estructuras y la numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera publicación).
+- **Estado pre-1.0**: el libro está publicado como borrador de desarrollo en agencydomains.org y sigue en desarrollo activo. Los términos, las estructuras y la numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera versión estable).
+- **Cambios v0.5 vs v0.4**: pasada editorial integral de la trilogía — las **generaciones del Botlet** `G1`/`G2`/`G3` se formalizan en el Cap. 5 §2 (el Epílogo conserva el ensayo de fondo sin carga normativa); el **Producto de Información** obtiene casa canónica como término normado de la spec de Botlets (multi-vista, drill-through y sus MUST); **doctrina Capability restaurada** — la localidad (cloud/edge/híbrido) y la certificación regulatoria se predican del **Conector** (ESC/POS-Printer, Cash-Drawer, Pinpad y DTE-SII reclasificados) y la **Capability regulada** porta el saber normativo; el **Botler** deja de llamarse primitiva (constructo normado de la spec de Botlets; el canon sigue siendo de siete); Cap. 2 ↔ Cap. 7 desduplicados y Cap. 4 adelgazado a favor del Cap. 5; tabla de actores del Cap. 6 alineada con su texto y «Plataforma integral» corregida en el glosario; **rescate fundacional** del documento original *La Línea Nadella* (cita completa de Nadella con su mecánica CRUD y sus dos fases, espectro con el polo extremo, contra-argumentos con las respuestas del canon, precedentes históricos de coexistencia en el Cap. 2, crisis de monetización del SaaS en el Cap. 6); micro-sección «La trilogía» con las cinco especificaciones de AURA; **Dominion** adoptado por el Epílogo; Wingtraining, SME y RLS definidos en el glosario.
 - **Cambios v0.4 vs v0.3**: extensiones canónicas surgidas al construir la implementación de referencia y proyectos reales — **Vergis** (implementación de referencia pública, AGPL, AgencyDomains.org) con el esquema de nombres Vergis · Botler · Mira; **proto-Botlet** incorporado al elenco de primitivas (templado · platafórmico) y la **cadena de derivación** casos-uso → Botlets → proto-Botlets; **generaciones del Botlet** G1/G2/G3 con la reconciliación de dos ejes; **manifestación** y **temporalidad** (`discreta`/`continua`) como atributos del Botlet; **Botler genérico** (sin subtipos por dominio; valida orquestando; interfaz Capa 2 ↔ Capa 3 vía `MCP`; código fuente vs spec; un Botlet por `PI`); corrección del misnomer "A2A interna" (`A2A` reservado a la relación entre AgencyDomains); `Capability` reservada al saber-hacer cognitivo de Capa 2, con **Conector** (Capa 4), **Plantilla** (Capa 1), **feature** y **portabilidad de la Capability**; **interacción declarada acotada** (Faceta embebida) y **PI multi-vista con drill-through**; **contrato declarativo de calidad** en Trust Infrastructure.
 - **Cambios v0.3 vs v0.2**: tres tiempos del agente (Preparación · Atención · Ingeniería), composición de la Capa 1 (shell · vista · operación), y la Faceta como primitiva atómica de Capa 1.
 - **Cambios v0.2 vs v0.1**: título principal *AgencyDomains* + diez extensiones (madurez Botlet, Capa 3 distribuida, portabilidad, seed/emergente, certificación en Capability, localidad de Capabilities, GUI on-the-fly, continuidad operacional, topología paralela, título).
@@ -371,7 +372,7 @@ El cerebro del agente. Interpretación, razonamiento, planificación, aplicació
 
 **`Capability` reservada al saber-hacer cognitivo de Capa 2**: una **Capability** es saber-hacer **cognitivo**, interpretativo, decisional. **NO es plugin, NO es prompt, NO es system prompt, NO es tool — es saber.** La Capability decide qué tool invocar. Dos términos análogos viven en otras capas y se nombran por lo que son, sin apellidar el término Capability:
 
-- **Conector** — saber **acceder a sistemas fuente** (conexión con poder de ejecución; NO es saber cognitivo). **Capa 4 · Acceso.** Reemplaza la noción de "API convertida en Capability".
+- **Conector** — saber **acceder a sistemas fuente** (conexión con poder de ejecución; NO es saber cognitivo). **Capa 4 · Acceso.** En el mapa legacy→agentivo, una **API** se convierte en **Conector** (Capa 4), no en Capability.
 - **Plantilla** — confección específica del cliente sobre un **instrumento canónico** (reporte/dashboard) en un formato o regla particular. **Capa 1 · Interacción**, junto a Faceta y Botlets de superficie/vista.
 
 **feature** — operación interna que una Capability expone (equivalente práctico de *feature/operation/skill/method*). **Test Capability vs feature** (los tres deben ser sí para tratarla como Capability propia): (1) ¿independencia operativa? (2) ¿identidad cognitiva — modelo de datos y SME distintos? (3) ¿reusabilidad? Si uno o más es no → es **feature** de la Capability contenedora.
@@ -871,16 +872,18 @@ Modelo bidimensional: **once eslabones secuenciales × cuatro profundidades**.
 
 | Eslabón | 4 · Infraestructura | 3 · Core | 2 · Plataforma | 1 · Wrapper |
 |---|---|---|---|---|
-| **1 · Datos** | AWS S3 | Scale AI · Labelbox · Hugging Face | — | apps |
-| **2 · Modelo** | NVIDIA · AWS/GCP/Azure | OpenAI · Anthropic · Google · Meta · DeepSeek | Hugging Face | apps |
-| **3 · Acceso** | — | OpenAI · Anthropic · Google | Bedrock · Vertex · Portkey · ultraPRO | apps |
-| **4 · Agentes** | — | OpenAI Assistants · Agentia (priv.) · Soveria (públ.) · LangChain | — | apps |
-| **5 · Especializaciones** | — | Cursor · Harvey · Jasper · umeeta | Wrappers verticales | plantillas |
-| **6 · Runtime** | — | ultraPRO | Runtimes gestionados | hosts |
-| **7 · Firewall** | — | ultraPRO · Guardrails · NeMo · Lakera · Lasso | Guardrails gestionados | reglas |
-| **8 · Observabilidad** | — | ultraPRO · Langfuse · LangSmith · Helicone | Observabilidad gestionada | — |
-| **9 · Herramientas** | — | ultraPRO · Pinecone · Weaviate | VectorDB managed | apps con SDKs |
-| **10 · Integraciones** | — | ultraPRO · Zapier · Make · n8n | Workflows managed | recetas individuales |
+| **1 · Datos** | AWS/GCP/Azure | Scale AI/Labelbox · Hugging Face | — | — |
+| **2 · Modelo** | NVIDIA · AWS/GCP/Azure | OpenAI · Anthropic · Google · Meta · DeepSeek/Qwen/Ernie | Hugging Face | — |
+| **3 · Acceso** | — | Anthropic · DeepSeek/Qwen/Ernie | OpenAI · Google · Perplexity · ultraPRO | — |
+| **4 · Agentes** | — | Perplexity · DeepSeek/Qwen/Ernie · Agentia (priv.) · Soveria (públ.) · (LangChain/Graph) · (AutoGPT/CrewAI) | OpenAI · Anthropic · Google · GitHub Copilot | — |
+| **5 · Especializaciones** | — | Perplexity · GitHub Copilot · Cursor/Replit · Devin · Harvey/Jasper/Fin · umeeta | OpenAI | — |
+| **6 · Runtime** | — | OpenAI · Devin · Agentia · Soveria · ultraPRO · (LangChain/Graph) · (AutoGPT/CrewAI) | — | — |
+| **7 · Firewall** | — | Guardrails/NeMo/Lakera · ultraPRO | — | — |
+| **8 · Observabilidad** | — | Langfuse/LangSmith/W&B · ultraPRO | — | — |
+| **9 · Herramientas** | — | OpenAI · Anthropic · Google · Devin · ultraPRO · (LangChain/Graph) · (Pinecone/Weaviate) | — | — |
+| **10 · Integraciones** | — | Zapier/Make/n8n · ultraPRO | — | — |
+
+Derivada de la tabla de actores del Capítulo 6 (familias de productos representativas del mercado actual). Los paréntesis — p. ej. (LangChain/Graph) — indican framework o meta-herramienta (para construir, no para usar).
 
 > ultraPRO ocupa la categoría arquitectónica **gateway empresarial completo** — Core simultáneo en eslabones 6-10 más extensión Plataforma en Acceso, bajo el patrón tripartito Cloud + Cliente + Local.
 
@@ -1060,7 +1063,7 @@ Modelo evolutivo de cómo nace el código del Botlet conforme avanza el estado d
 
 **G1 admite configuración expresiva rica**: lo que define `G1` es que el agente no escribe el cuerpo del proto-Botlet; la configuración puede ser tan rica como un `DSL` composicional con expresiones formales evaluables. La distinción `G1`/`G3` es sobre **autoría del cuerpo**, no sobre expresividad de la config.
 
-**Filo `G1`/`G2`** (test: *"¿el código pertenece a la Capability invocada o al proto-Botlet mismo?"*): una expresión formal evaluable que es **parámetro de una Capability bien definida** (`SQL`→`execute-sql`, Vega-Lite→`render-chart`, filtro→`filter-stream`) es configuración → **`G1`**. Una expresión que **extiende/sobreescribe la lógica interna del proto-Botlet** (callbacks, lambdas que evalúa internamente) es código del agente → **`G2`**.
+**Filo `G1`/`G2`** (test: *"¿el código pertenece a la Capability invocada o al proto-Botlet mismo?"*): una expresión formal evaluable que es **parámetro de una Capability bien definida** (`SQL`→`execute-sql`, una especificación de gráfico→`render-chart`, filtro→`filter-stream`) es configuración → **`G1`**. Una expresión que **extiende/sobreescribe la lógica interna del proto-Botlet** (callbacks, lambdas que evalúa internamente) es código del agente → **`G2`**.
 
 **Reconciliación — dos ejes distintos, no la misma flecha**:
 
@@ -1091,7 +1094,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Agent First** — principio rector: experiencia del agente prima sobre la del humano.
 - **Append-only log** — registro inmutable, encadenado criptográficamente.
 - **Aprobación humana** — autorización antes de ejecutar operación crítica.
-- **Arquetipo estratégico** — patrón de posicionamiento en el espacio cobertura × profundidad de la cadena de valor. Cuatro canónicos: Plataforma integral (cobertura amplia, profundidad media) · Especialista vertical (cobertura focal, profundidad Core) · Infraestructura de dominio (cobertura zonal, Core en varios eslabones) · Proveedor de sustrato (cobertura mínima, profundidad Infraestructura).
+- **Arquetipo estratégico** — patrón de posicionamiento en el espacio cobertura × profundidad de la cadena de valor. Cuatro canónicos: Plataforma integral (cobertura amplia; Core en su eslabón nativo y Plataforma en los adyacentes) · Especialista vertical (cobertura focal, profundidad Core) · Infraestructura de dominio (cobertura zonal, Core en varios eslabones) · Proveedor de sustrato (cobertura mínima, profundidad Infraestructura).
 - **Arquitectura Agentiva** — diseño técnico que materializa el Mundo Agentivo. Cuatro capas (Interacción, Cognición, Autonomía, Acceso), gobernadas por Trust Infrastructure transversal y ordenadas por el principio Agent First.
 - **Asistente** — agente reactivo, sin Botlets, sin vida persistente. Capa 2.
 - **Atención** — uno de los **tres tiempos del agente**. Tiempo en que el agente interactúa con usuarios o eventos en tiempo real. Capa 1 activa, camino crítico, prioritario.
@@ -1109,7 +1112,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Botlet junior** — fase inicial. Proporción `60/35/5`. Depende de cognición.
 - **Botlet seed** — generado por cognición a pedido del equipo de diseño, como parte del producto inicial.
 - **Botlet senior** — fase madura. Proporción `99+/<1/~0`. Fallos solo exógenos. Operable offline.
-- **Botler** — runtime **genérico** de Capa 3 (no entiende dominio). Tipo (primitiva canónica), no nombre propio. Sin subtipos por dominio; valida orquestando (handle controlado); expone servidor `MCP` a la Cognición. **1 Proceso = 1 Botler + N Botlets**.
+- **Botler** — runtime **genérico** de Capa 3 (no entiende dominio). Tipo (constructo normado de la spec de Botlets), no nombre propio. Sin subtipos por dominio; valida orquestando (handle controlado); expone servidor `MCP` a la Cognición. **1 Proceso = 1 Botler + N Botlets**.
 - **Botler central** — Botler de orquestación, planificación, reportería en Capa 3 distribuida.
 - **Botler edge** — Botler de transacciones locales en Capa 3 distribuida. Uno por sitio físico.
 - **BYOModel** — Bring Your Own Model. Sustitución del proveedor default. SHOULD para mercados regulados.
@@ -1123,12 +1126,12 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Capa 3 distribuida** — patrón canónico para presencia física múltiple. Botler central + N Botlers edge.
 - **Capa 4 — Acceso** — poder de ejecución con Trust Infrastructure.
 - **Capability** — saber-hacer **cognitivo** modular y composable, reservado a **Capa 2 · Cognición**. NO plugin, NO prompt, NO tool. **Es saber.** Expone **features**; es **portable** (corre en cualquier AgencyDomain conforme).
-- **Capability cloud-resident** — vive en servicio remoto. Típicamente online-only.
+- **Conector cloud-resident** — vive en servicio remoto. Típicamente online-only.
 - **Conector edge-resident** — vive en sitio físico, asociado a hardware. Típicamente offline-capable.
-- **Capability híbrida** — componente local + componente cloud. Offline-capable con encolamiento.
-- **Capability offline-capable** — ejecuta sin red. Encola si emite hacia afuera.
-- **Capability online-only** — requiere red.
-- **Capability regulada** — operación sujeta a certificación (DTE-SII, PCI-DSS, etc.). Inmutable entre auditorías. La certificación reside en la Capability, no en el Botlet.
+- **Conector híbrido** — componente local + componente cloud. Offline-capable con encolamiento.
+- **Conector offline-capable** — ejecuta sin red. Encola si emite hacia afuera.
+- **Conector online-only** — requiere red.
+- **Capability regulada** — porta el saber normativo de una operación sujeta a certificación (DTE-SII, PCI-DSS, etc.). La certificación regulatoria reside en el **Conector certificado** que ejecuta la operación, no en la Capability ni en el Botlet.
 - **Capa semántica** — codifica significado de dimensiones, hechos, jerarquías. Esencial para Kimball Barnizada.
 - **Cadena de derivación** — relación estructural `casos de uso → Botlets necesarios → proto-Botlets del catálogo`. Todo Botlet conforme MUST poder trazarse en ella; el log registra el proto-Botlet de origen.
 - **Catálogo común** — los proto-Botlets se acumulan en catálogos compartidos con efectos de red. Modos: contrato privado · códice propietario · catálogo público abierto · acuerdo soberano.
@@ -1248,12 +1251,12 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 
 ### U
 
-- **ucodex** — nombre propio del **códice propietario** del Grupo Ultra: su catálogo privado de proto-Botlets, Capabilities y patrones, curado por casos reales sobre la implementación de referencia (Vergis). Instancia que ejemplifica el modo *códice propietario*; mismo cajón de nombres propios que soveria, agentia, ultrapro — no un tipo del canon.
+- **ucodex** — nombre propio del **códice propietario** del Grupo Ultra: su catálogo privado de proto-Botlets, Capabilities y patrones, curado por casos reales sobre la implementación de referencia (Vergis). Instancia que ejemplifica el modo *códice propietario*; mismo cajón de nombres propios que Soveria, Agentia, ultraPRO — no un tipo del canon.
 
 ### V
 
 - **Validación** — Pilar 3 de Trust Infrastructure.
-- **Vergis** — nombre propio de la implementación de referencia pública de AgencyDomains (la plataforma; el AgencyDomain hecho operativo). Categoría: **Meta-Cognitive Platform**. Distribuida **AGPL**, repo público, **AgencyDomains.org**. Nombre propio de instancia (como soveria, agentia, ultrapro), no un tipo como Botler.
+- **Vergis** — nombre propio de la implementación de referencia pública de AgencyDomains (la plataforma; el AgencyDomain hecho operativo). Categoría: **Meta-Cognitive Platform**. Distribuida **AGPL**, repo público, **AgencyDomains.org**. Nombre propio de instancia (como Soveria, Agentia, ultraPRO), no un tipo como Botler.
 - **Vía Autonomía** — una de las dos vías de la topología paralela. Rápida, barata, repetitiva. Para Botlets sobre patrones estables.
 - **Vía Cognición** — una de las dos vías de la topología paralela. Lenta, costosa, decisiva. Para conversación, decisiones nuevas, casos no anticipados.
 
@@ -1282,16 +1285,16 @@ La arquitectura es **agnóstica a productos**. Admite múltiples implementacione
 | Capa | Tipo / categoría | Nombre propio |
 |---|---|---|
 | Plataforma · *Meta-Cognitive Platform* | implementación de referencia de AgencyDomains | **Vergis** |
-| Runtime de Capa 3 | **Botler** (primitiva canónica, genérico) | — (sin nombre propio) |
+| Runtime de Capa 3 | **Botler** (constructo normado de la spec de Botlets, genérico) | — (sin nombre propio) |
 | Componente del catálogo | proto-Botlet platafórmico de operación informativa | **Mira** |
 
 - **Botler** es un **tipo** (constructo normado de la spec de Botlets — no una de las siete primitivas). Cualquier runtime de Capa 3 conforme *es un* Botler.
-- **Vergis** y **Mira** son **nombres propios** de instancias (mismo cajón que soveria, agentia, ultrapro).
+- **Vergis** y **Mira** son **nombres propios** de instancias (mismo cajón que Soveria, Agentia, ultraPRO).
 - Categoría de Vergis: **Meta-Cognitive Platform** — administra la **economía de la cognición** (G1 músculo pre-forjado vs fallback de cognición fresca, ciclo `95/4/1`, maduración junior→senior, cristalización). **NO se abrevia a "MCP"** — esa sigla nombra el Model Context Protocol. El descriptor se usa deletreado.
 
 **Qué incluye**: contrato abstracto del **Botler** (genérico, con puntos de control `capability_call`/`log` y validación por delegación) · **Mira** (proto-Botlet platafórmico operando en `G1`) · conjunto starter de **Capabilities** y **Conectores** · plantillas de Trust Infrastructure (políticas, append-only log, contrato declarativo de calidad) · ejemplos ejecutables que recorren la cadena `caso de uso → Botlets → proto-Botlets`.
 
-**Production grade**: es el **mismo runtime** que opera los productos comerciales (agentia · soveria · ultrapro). La diferencia con esos productos **no es la calidad del código sino el catálogo**: los productos consumen la referencia pública **más un códice propietario** (ucodex es un ejemplar) que cura proto-Botlets, Capabilities y patrones refinados por casos reales.
+**Production grade**: es el **mismo runtime** que opera los productos comerciales (Agentia · Soveria · ultraPRO). La diferencia con esos productos **no es la calidad del código sino el catálogo**: los productos consumen la referencia pública **más un códice propietario** (ucodex es un ejemplar) que cura proto-Botlets, Capabilities y patrones refinados por casos reales.
 
 **Modelo de adopción** (replicable sin permiso ni contrato central): (1) **consume** la referencia pública; (2) **cura** su propio códice; (3) **ofrece** sus productos sobre esa base. AgencyDomains.org no es propiedad de un actor: es base común.
 

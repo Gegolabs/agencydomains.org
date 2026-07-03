@@ -40,11 +40,11 @@ del resto del libro:
 
 | Spec | ¿Qué es? | Usada sola, ¿qué te da? |
 |:---------|:----------------------------|:----------------------------|
-| **IRIS** | Un modelo de madurez de inteligencia organizacional | Mide cuán avanzada está tu organización en Inteligencia de Negocios |
+| **IRIS** | Un modelo de madurez de inteligencia organizacional | Mide dónde está tu organización en el camino de los datos a la acción |
 | **MOTOR** | Un modelo de madurez de automatización organizacional | Mide cuán avanzada está tu organización en automatización de procesos |
-| **Data Canon** | La evolución del modelo de gestión descentralizada de datos (Data Mesh) | Define cómo gobernar datos y hacer BI |
+| **Data Canon** | La evolución del modelo de gestión descentralizada de datos (Data Mesh) | Define cómo se gobiernan los datos de la organización |
 | **Wingmap** | La evolución de la gestión de procesos (BPM / *process mining*) | Reconstruye procesos y flujos de información sin entrevistas |
-| **Casos de Uso** | Un portafolio de 100 casos de uso y 30 soluciones de valor | Prioriza por dónde empezar, según tu madurez |
+| **Casos de Uso** | Un marco de portafolio, ilustrado con 100 casos de uso y 30 soluciones de valor | Prioriza por dónde empezar, según tu madurez |
 
 **III · AgencyDomains — Arquitectura Agentiva**
 ¿Cómo llegamos? — **el vehículo.** Para arquitectos, CTOs y constructores de
