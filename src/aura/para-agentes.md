@@ -148,7 +148,7 @@ Datos & Arquitectura · Capacidades Analíticas · Personas & Cultura · Goberna
 
 ## 4 · MOTOR — el eje HACER
 
-**MOTOR (Modelo de Madurez de Automatización Organizacional)** mide el grado de automatización de los procesos en **7 niveles**. Su pregunta fundamental: **¿quién ejecuta el trabajo en tu organización — humanos, humanos asistidos, o agentes autónomos?** Es diagnóstico, no prescriptivo; la prescripción vive en el cuerpo complementario *MOTOR in Practice*.
+**MOTOR (Modelo de Madurez de Automatización Organizacional)** mide el grado de automatización de los procesos en **7 niveles**. Su pregunta fundamental: **¿quién ejecuta el trabajo en tu organización — humanos, humanos asistidos, o agentes autónomos?** Es diagnóstico, no prescriptivo.
 
 ### Los 7 niveles
 

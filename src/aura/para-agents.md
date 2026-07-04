@@ -148,7 +148,7 @@ Data & Architecture · Analytical Capabilities · People & Culture · Governance
 
 ## 4 · MOTOR — the DOING axis
 
-**MOTOR (Organizational Automation Maturity Model)** measures the degree of process automation in **7 levels**. Its fundamental question: **who executes the work in your organization — humans, assisted humans, or autonomous agents?** It is diagnostic, not prescriptive; prescription lives in the companion body *MOTOR in Practice*.
+**MOTOR (Organizational Automation Maturity Model)** measures the degree of process automation in **7 levels**. Its fundamental question: **who executes the work in your organization — humans, assisted humans, or autonomous agents?** It is diagnostic, not prescriptive.
 
 ### The 7 levels
 

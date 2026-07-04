@@ -33,6 +33,6 @@ Auditoría integral de la trilogía. Correcciones aplicadas a fuente ES, espejos
 
 ## No aplicado (decisiones del autor pendientes)
 
-Referencia a «MOTOR in Practice» sin puerta para el lector — en espera de decisión (¿señalizar como cuerpo complementario de ultraBASE, o mover a standalone?).
+Ninguna pendiente en este libro. (La referencia a «MOTOR in Practice» se resolvió por decisión del autor moviéndola a bloques standalone: vive en la spec autónoma y en la edición-libro no se menciona; los manifiestos recortaron la cola equivalente. Verificado contra el ensamblado: 0 menciones en el libro, párrafos íntegros.)
 
 • *Generado con Wingworking*

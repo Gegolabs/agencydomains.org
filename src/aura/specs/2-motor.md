@@ -45,7 +45,9 @@ Esta decisión de diseño es intencional: el estado del arte en IA evoluciona a 
 La razón de diseño es la misma que sostiene a IRIS: se diagnostican capacidades organizacionales, no herramientas — y por eso el modelo no envejece con el estado del arte.
 /libro -->
 
+<!-- standalone -->
 La prescripción específica — enablers de implementación, inversiones, timelines, ROI, proveedores y roadmaps — se desarrolla en el documento complementario *MOTOR in Practice* (ultraBASE, Febrero 2026).
+<!-- /standalone -->
 
 ---
 
@@ -606,7 +608,12 @@ Estas estimaciones son referenciales y basadas en la observación del mercado al
 
 **Para diagnóstico:** Identifica el nivel que mejor describe el estado actual de la organización en cada dimensión. Una organización puede estar en niveles diferentes según la dimensión — por ejemplo, en Nivel 3 en Autonomía Operacional pero en Nivel 1 en Gobernanza. El nivel general se determina por la dimensión más baja, ya que representa el cuello de botella real.
 
+<!-- standalone -->
 **Para planificación:** El modelo permite identificar brechas y priorizar. Si la organización está en Nivel 3 en operaciones pero en Nivel 1 en gobernanza, la gobernanza es el cuello de botella — no importa cuánta automatización se implemente si no hay gobernanza para sostenerla. La prescripción específica de qué implementar y en qué orden pertenece al trabajo de consultoría que parte de este diagnóstico (ver *MOTOR in Practice*).
+<!-- /standalone -->
+<!-- libro
+**Para planificación:** El modelo permite identificar brechas y priorizar. Si la organización está en Nivel 3 en operaciones pero en Nivel 1 en gobernanza, la gobernanza es el cuello de botella — no importa cuánta automatización se implemente si no hay gobernanza para sostenerla. La prescripción específica de qué implementar y en qué orden pertenece al trabajo de consultoría que parte de este diagnóstico.
+/libro -->
 
 **Para comunicación ejecutiva:** Los 7 niveles ofrecen un vocabulario común. "Estamos en Nivel 2, avanzando hacia Nivel 3" es una frase que un board entiende y que permite tomar decisiones estratégicas sobre inversión y prioridad.
 
@@ -672,7 +679,9 @@ Estas estimaciones son referenciales y basadas en la observación del mercado al
 
 MOTOR es el instrumento de medición del eje HACER — la automatización organizacional mediante IA. Junto con **IRIS** (Modelo de Madurez de Inteligencia Organizacional), conforma el par diagnóstico de **AURA** — la arquitectura empresarial agentiva de ultraBASE.
 
+<!-- standalone -->
 La prescripción específica de enablers, inversiones, timelines, ROI y roadmaps se desarrolla en el documento complementario: *MOTOR in Practice — Guía de Implementación* (ultraBASE, Febrero 2026).
+<!-- /standalone -->
 
 <!-- standalone -->
 La visión fundacional de la arquitectura se encuentra en: *Visión de AURA — Arquitectura Unificada de Referencia Agentiva* (ultraBASE, Febrero 2026).

@@ -45,7 +45,9 @@ This design decision is intentional: the state of the art in AI evolves at unpre
 The design rationale is the same one that sustains IRIS: what gets diagnosed are organizational capabilities, not tools — which is why the model doesn't age with the state of the art.
 /libro -->
 
+<!-- standalone -->
 The specific prescription — implementation enablers, investments, timelines, ROI, vendors, and roadmaps — is developed in the companion document *MOTOR in Practice* (ultraBASE, February 2026).
+<!-- /standalone -->
 
 ---
 
@@ -606,7 +608,12 @@ These estimates are referential and based on observation of the market at the ti
 
 **For diagnosis:** Identify the level that best describes the organization's current state in each dimension. An organization can be at different levels depending on the dimension — for example, at Level 3 in Operational Autonomy but at Level 1 in Governance. The overall level is determined by the lowest dimension, since it represents the real bottleneck.
 
+<!-- standalone -->
 **For planning:** The model makes it possible to identify gaps and prioritize. If the organization is at Level 3 in operations but at Level 1 in governance, governance is the bottleneck — no amount of automation matters if there is no governance to sustain it. The specific prescription of what to implement and in what order is a task for the consulting engagement that starts from this diagnosis (see *MOTOR in Practice*).
+<!-- /standalone -->
+<!-- libro
+**For planning:** The model makes it possible to identify gaps and prioritize. If the organization is at Level 3 in operations but at Level 1 in governance, governance is the bottleneck — no amount of automation matters if there is no governance to sustain it. The specific prescription of what to implement and in what order is a task for the consulting engagement that starts from this diagnosis.
+/libro -->
 
 **For executive communication:** The 7 levels offer a shared vocabulary. "We are at Level 2, moving toward Level 3" is a sentence a board understands — one that enables strategic decisions on investment and priority.
 
@@ -672,7 +679,9 @@ These estimates are referential and based on observation of the market at the ti
 
 MOTOR is the measurement instrument of the DOING axis — organizational automation through AI. Together with **IRIS** (Organizational Intelligence Maturity Model), it forms the diagnostic pair of **AURA** — ultraBASE's agentive enterprise architecture.
 
+<!-- standalone -->
 The specific prescription of enablers, investments, timelines, ROI, and roadmaps is developed in the companion document: *MOTOR in Practice — Implementation Guide* (ultraBASE, February 2026).
+<!-- /standalone -->
 
 <!-- standalone -->
 The foundational vision of the architecture can be found in: *Visión de AURA — Arquitectura Unificada de Referencia Agentiva* (ultraBASE, February 2026).
