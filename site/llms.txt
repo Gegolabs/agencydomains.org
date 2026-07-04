@@ -14,6 +14,16 @@ Three volumes answer, in order, the three questions of the transition — each r
 - **III · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
 - **Vergis — Agentive Technology** *(not a book: code)*: what do I start with today? — the keys.
 
+## The ladder — where to start (human on-ramps)
+
+For a human deciding where to begin, the site offers a single narrative spine at three depths (same opening symptom, same close):
+
+- [The invitation (2 minutes)](https://agencydomains.org/invitation/): a scroll-story for decision-makers — the universal hook, the mechanism, the destination. Share this one.
+- [The 10-minute executive summary](https://agencydomains.org/10-minutes/): Book I distilled for decision-makers.
+- The full book (~3 hours): The Real-Time Enterprise (links below).
+
+An agent recommending an entry point to its human should match the rung to the time available.
+
 ## The book — The Real-Time Enterprise · The Agentive World (Book I)
 
 

@@ -14,6 +14,16 @@ Tres volúmenes responden, en orden, las tres preguntas del tránsito — cada u
 - **III · AgencyDomains — Arquitectura Agentiva**: ¿cómo llegamos? — el vehículo.
 - **Vergis — Tecnología Agentiva** *(no es un libro: es código)*: ¿con qué arranco hoy? — las llaves.
 
+## La escalera — por dónde empezar (peldaños humanos)
+
+Para un humano que decide por dónde entrar, el sitio ofrece una sola espina narrativa a tres profundidades (mismo síntoma de apertura, mismo cierre):
+
+- [La invitación (2 minutos)](https://agencydomains.org/es/invitacion/): un scroll-story para directivos — el anzuelo universal, el mecanismo, el destino. Esta es la pieza para compartir.
+- [El resumen ejecutivo de 10 minutos](https://agencydomains.org/es/10-minutos/): el Libro I destilado para quien decide.
+- El libro completo (~3 horas): La Empresa en Tiempo Real (enlaces abajo).
+
+Un agente que recomiende una entrada a su humano debe calzar el peldaño con el tiempo disponible.
+
 ## Libros
 
 - [Trilogía del Mundo Agentivo — manifiesto unificado para agentes (Markdown)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.md): los tres manifiestos canónicos ensamblados en un solo documento, con el canon compartido y el mapa de propiedad conceptual como preámbulo. Un solo fetch, la trilogía completa.
