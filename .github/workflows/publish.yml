@@ -75,7 +75,7 @@ jobs:
         run: |
           FAIL=0
           # 1) frontmatter.tex de AGD lleva la versión vigente (entra al PDF ES publicado)
-          if ! grep -q "v${AGD_VERSION}" src/agencydomains/_build/frontmatter.tex; then
+          if ! grep -q "${AGD_VERSION}" src/agencydomains/_build/frontmatter.tex; then
             echo "::error::frontmatter.tex de AGD no menciona v${AGD_VERSION} — el PDF llevaría impresa otra versión."; FAIL=1
           fi
           # 2) el mes/año de las portadas de build coincide con el frontmatter de cada libro
