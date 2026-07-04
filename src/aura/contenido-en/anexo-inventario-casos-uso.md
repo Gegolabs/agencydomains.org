@@ -365,7 +365,7 @@ portfolio discipline demands).
 *DUAL | Area B*
 
 **CU-052:** Garbage Collection with Dynamic Routes
-*DUAL | Area A*
+*DUAL | Area D*
 
 **CU-053:** Adaptive Multi-Intersection Traffic Lights
 *DUAL | Area C*
@@ -383,7 +383,7 @@ portfolio discipline demands).
 *CITY | Area A*
 
 **CU-058:** Municipal Epidemiological Surveillance System
-*DUAL | Area A | Social Value*
+*DUAL | Area D | Social Value*
 
 **CU-059:** Autonomous Environmental Noise Control
 *DUAL | Area D*
@@ -540,7 +540,7 @@ portfolio discipline demands).
 ## The Four Thematic Areas
 
 ### Area A — Citizen Services and Communication
-**Total:** 19 UC (19%)
+**Total:** 17 UC (17%)
 
 **Use Cases:**
 - CU-003: Responses to Frequently Asked Questions
@@ -553,7 +553,7 @@ portfolio discipline demands).
 - CU-026: Certified Translation with Validation
 - CU-028: Comprehensive Business License
 - CU-029: Citizen Proposal Processing
-- ... and 9 more UC
+- ... and 7 more UC
 
 ### Area B — Internal Management, Legal, HR, Finance, Procurement, and Budget
 **Total:** 37 UC (37%)
@@ -588,7 +588,7 @@ portfolio discipline demands).
 - ... and 14 more UC
 
 ### Area D — Health, Education, Culture, Sports, and the Environment
-**Total:** 20 UC (20%)
+**Total:** 22 UC (22%)
 
 **Use Cases:**
 - CU-041: Mass Event Management
@@ -601,6 +601,6 @@ portfolio discipline demands).
 - CU-060: Air Quality Monitoring Network
 - CU-061: Smart Municipal Vaccination System
 - CU-062: Historic Heritage Management with AI
-- ... and 10 more UC
+- ... and 12 more UC
 
 ---

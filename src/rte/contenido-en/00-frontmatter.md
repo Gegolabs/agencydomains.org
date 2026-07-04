@@ -10,10 +10,8 @@
 > **A note on this version.** This edition (v0.4) presents the book by its
 > complete thesis: the **real-time enterprise** and the four faces in which it
 > is lived — The Quantum Leap · Postchat · The General Staff · The Watch —
-> with the intelligent organization as their convergence. **Postchat**, which
-> gave the earlier editions their name, now names what it always named
-> precisely: the face of communication. The film did not change: it always
-> showed all of them. The protagonist and her organization are fictional
+> with the intelligent organization as their convergence.
+> The protagonist and her organization are fictional
 > composites. The guest prologue remains pending.
 
 **How to cite:**

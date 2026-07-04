@@ -94,6 +94,14 @@ Uno de los **tres tiempos del agente** (Cap 4). Tiempo en que el agente interact
 
 *Ver: Capítulo 4, sección "Los tres tiempos del agente".*
 
+### Auditoría
+
+Pilar 2 de Trust Infrastructure. Capacidad de reconstruir, después del hecho, **qué hizo el agente, cuándo, por qué y sobre qué datos** — con fidelidad suficiente para análisis forense, cumplimiento regulatorio o disputa contractual.
+
+Mecanismos canónicos: el **append-only log** inmutable (componente central), el trace de cada acción, el lineage de decisiones y el identity tagging por acción. Exige diseño explícito desde el inicio — no emerge naturalmente de una arquitectura agentiva.
+
+*Ver: Capítulo 5 §4; Capítulo 8; entradas **Append-only log**, **Trace**.*
+
 ## B
 
 ### BCA — Bounded Concerns Architecture
@@ -112,7 +120,7 @@ Ciclo canónico **95/4/1**: 95% ejecución normal, 4% cambio detectado, 1% regen
 
 ### Botlet de fachada
 
-Botlet de **Capa 1** invocable desde una superficie operativa (POS, pantalla de cocina, dashboard, panel industrial), con contrato estable e identidad humana propagada hacia Capa 4. Tipo de Botlet que la **topología paralela** (Cap 4) distingue del Botlet de herramienta interna de la cognición. Atraviesa la vía `Capa 1 → Capa 3 → Capa 4` sin invocar Capa 2.
+Botlet de **Capa 3** que expone una superficie con contrato estable en **Capa 1** (POS, pantalla de cocina, dashboard, panel industrial), con identidad humana propagada hacia Capa 4. Tipo de Botlet que la **topología paralela** (Cap 4) distingue del Botlet de herramienta interna de la cognición. Atraviesa la vía `Capa 1 → Capa 3 → Capa 4` sin invocar Capa 2.
 
 *Ver: Capítulo 4, sección "La topología paralela".*
 
@@ -154,7 +162,7 @@ Fase inicial de la trayectoria de madurez del Botlet. Recién generado, conoce e
 
 ### Botlet seed
 
-Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets seed de Capa 1.
+Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
 
 *Ver: Capítulo 5 §2, sección "Botlets seed vs Botlets emergentes".*
 
@@ -454,7 +462,7 @@ Régimen 2 de generación de Capa 1 (Cap 4 §1). Superficie gráfica que el agen
 
 ### GUI persistente como Botlet de fachada
 
-Régimen 3 de generación de Capa 1 (Cap 4 §1). Superficie estable que el agente genera y consolida como **Botlet de Capa 1** porque el rol operativo es estable y la velocidad crítica (cajero en hora punta, panel de cocina, dashboard de caja, panel industrial). Sigue siendo agentiva: el agente puede regenerarla cuando el ambiente cambia. **Ningún equipo humano de UI/UX la diseñó** — la cognición la generó. Típicamente Botlet seed.
+Régimen 3 de generación de Capa 1 (Cap 4 §1). Superficie estable que el agente genera y consolida como **Botlet de fachada** — un Botlet de Capa 3 que la expone en Capa 1 — porque el rol operativo es estable y la velocidad crítica (cajero en hora punta, panel de cocina, dashboard de caja, panel industrial). Sigue siendo agentiva: el agente puede regenerarla cuando el ambiente cambia. **Ningún equipo humano de UI/UX la diseñó** — la cognición la generó. Típicamente Botlet seed.
 
 *Ver: Capítulo 4 §1, sección "Tres regímenes de GUI en la Capa 1 agentiva".*
 
@@ -522,6 +530,8 @@ Umbral conceptual que separa el Mundo Agéntico del Mundo Agentivo. Pregunta div
 
 Origen del nombre: Satya Nadella en BG2 podcast (diciembre 2024) — *"La noción de que las aplicaciones de negocio existen, probablemente es donde todo colapsará, en la era de los agentes."*
 
+La formulación canónica es la de este libro; cada volumen de la trilogía la conjuga a su audiencia: en segunda persona en *La Empresa en Tiempo Real* («¿todavía abres aplicaciones para hacer tu trabajo?») y en la voz del directivo en *AURA* («¿sus empleados todavía abren aplicaciones para hacer su trabajo?»). Las tres son equivalentes oficiales.
+
 *Ver: Capítulo 1.*
 
 ## M
@@ -573,6 +583,14 @@ Cuatro modos canónicos de operación según el escenario de falla, formalizados
 El mundo físico (IoT, procesos industriales, máquinas, sistemas biológicos) en oposición al mundo digital (sistemas, APIs). Eslabón 11 (Entorno) de la cadena de valor extendido al mundo físico. Frontera de evolución de la Arquitectura Agentiva.
 
 *Ver: Capítulo 6 §3.*
+
+## O
+
+### Observabilidad
+
+Eslabón 8 de la cadena de valor de IA: la capa que **observa, mide y retroalimenta** sobre el comportamiento de un sistema de IA en producción. Provee el **ciclo de feedback operacional** que permite mantener confiabilidad, costo y calidad bajo control. Su pregunta: *¿cómo funciona?* — distinta de la del Firewall (*¿es seguro?*) y de la de Herramientas (*¿qué puede hacer?*). Sin Observabilidad, los agentes son cajas negras; con ella, sistemas operables. Seis capacidades canónicas: tracing, monitoreo de costos, evaluación de calidad, métricas de rendimiento, debugging y reproducibilidad, alertas y anomalías.
+
+*Ver: Capítulo 6 §2 (deep-dive del eslabón).*
 
 ## P
 
@@ -707,6 +725,12 @@ Dashboards pasivos que comunican información continuamente sin requerir interac
 
 *Ver: Capítulo 4, sección "Capa 1 — Interacción".*
 
+### SME — subject-matter expert
+
+Experto humano cuyo saber se transfiere al agente en el esquema de construcción de Capabilities. El Wingtraining abre con un workshop con el SME y valida con él la fase ALFA; tener un **SME identificable** es criterio del test de clasificación de la Capability, y compartir SME y modelo de datos con la capacidad contenedora es señal de que una operación es feature, no Capability propia.
+
+*Ver: Capítulo 5 §3; entradas **Capability**, **Wingtraining**, **feature**.*
+
 ### Space
 
 Habitat humano físico. La palabra carga corporeidad: oficina, escritorio, hogar, ciudad. En esta especificación, **Space se reserva para humanos**. El ámbito computacional del agente nunca se nombra como Space — se nombra como Domain (AgencyDomain).
@@ -746,6 +770,14 @@ Modelo canónico de relación entre las cuatro capas de la Arquitectura Agentiva
 Trazabilidad end-to-end de una operación del agente. Contiene identidad, capability invocada, tool ejecutado, parámetros, resultado, timestamp, contexto. Componente del pilar Auditoría de Trust Infrastructure.
 
 *Ver: Capítulo 5 §4 (pilar Auditoría); el tracing como capacidad de producto, en el Capítulo 6 §2.*
+
+### Transparencia
+
+Pilar 5 de Trust Infrastructure. Capacidad del humano de entender, en tiempo real, **qué está haciendo el agente y por qué** — con detalle suficiente para intervenir si es necesario. Es el pilar que conecta los otros cuatro: la Gobernanza define qué puede hacer, la Auditoría registra qué hizo, la Validación verifica qué está por hacer, la Resiliencia asegura que sigue operando; la Transparencia asegura que un humano puede entender todo lo anterior.
+
+Mecanismos canónicos: observabilidad completa, métricas operativas, traces consultables por humanos, alertas proactivas, dashboards de gobernanza.
+
+*Ver: Capítulo 5 §4.*
 
 ### Tres tiempos del agente
 
@@ -802,6 +834,12 @@ Una de las dos vías de la **topología paralela** (Cap 4). Camino que una opera
 *Ver: Capítulo 4, sección "La topología paralela".*
 
 ## W
+
+### Wingtraining
+
+Esquema canónico de desarrollo de una Capability en cinco pasos: **workshop con el SME** · **creación** · **personalización** · **ALFA** (validación con el SME) · **BETA** (validación en operación real). Su desarrollo pertenece a la práctica de entrega, no al canon; el test de clasificación de la Capability lo usa como criterio porque es la prueba operativa de que un alcance es transferencia de saber — no integración ni formato.
+
+*Ver: Capítulo 5 §3; entradas **Capability**, **SME**.*
 
 ### Wingworking
 

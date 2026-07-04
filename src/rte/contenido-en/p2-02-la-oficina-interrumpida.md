@@ -22,15 +22,7 @@ The & is corporate chat: the always-on infrastructure that amplifies both interr
 
 ## The hidden costs of the channel
 
-The attention cost is the largest, but it is not the only one. The full inventory of the channel paradigm includes five more line items, each invisible on its own:
-
-| Cost | Mechanism |
-|---|---|
-| **Illusion of communication** | Posting in a channel of fifty produces the feeling of having communicated; it does not guarantee that the three who needed to act have read, understood, or remembered. The channel turned *communicating* into *publishing* |
-| **Structural noise** | In that channel of fifty, the share of messages relevant to each reader is minimal: the model charges fifty the toll of reading so that three may act |
-| **Temporal asymmetry** | Channels are dominated by those with time to inhabit them; whoever runs a plant or does the deep work disconnects and loses context. The channel penalizes those who work hardest |
-| **Institutional FOMO** | Where "not being in the loop" carries a political cost, the channel produces compulsive checking — the rational response to a system where the critical and the noise travel through the same pipe |
-| **Workday without a boundary** | The thread never ends; "disconnecting" becomes a transgression announced with guilt. The channel dissolved the end of the day |
+The attention cost is the largest, but it is not the only one — and the rest need no inventory: they are recognized on sight. Posting in a channel of fifty produces the **illusion of having communicated**, with no guarantee whatsoever that the three who needed to act have read, understood, or remembered — the channel turned *communicating* into *publishing*. And it charges those fifty the toll of reading everything so that three may act: **structural noise** by design. The channel, moreover, rewards whoever has time to inhabit it and penalizes whoever runs a plant or does the deep work — the harder you work, the more context you lose. Where "not being in the loop" carries a political cost, it produces compulsive checking: **institutional FOMO** is the rational response to a system where the critical and the noise travel through the same pipe. And since the thread never ends, "disconnecting" became a transgression announced with guilt: the channel dissolved the end of the day.
 
 ## The question of this face
 
@@ -46,5 +38,5 @@ The answer will be the same as the one to the mother question: for nothing. Corp
 >
 > - Attention is a budget: three or four hours of deep work a day, and every interruption costs five hundred times its duration.
 > - Fried's M&Ms — *managers* and *meetings* — have a connector this book names: the **&**, the corporate chat that made them permanent.
-> - The channel also charges five hidden costs; the last one dissolved the end of the day.
+> - The channel also charges other hidden costs — the illusion of communicating, the noise, the penalty on those who work hardest, the FOMO — and the last one dissolved the end of the day.
 > - A copilot inside the channel is the same paradigm with help. The way out is not a better channel: it is the governed absence of the channel — **Postchat**.

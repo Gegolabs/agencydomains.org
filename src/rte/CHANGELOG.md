@@ -4,6 +4,13 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 (hasta la v0.3, *Postchat · Mundo Agentivo*).
 
 ## v0.4 — Julio 2026
+> **Revisiones dentro de v0.4** (auditoría integral + decisiones editoriales,
+> 2026-07-03): correcciones de consistencia post-renombre; la cara 1 gana su
+> escena en la película (la pregunta del bloqueo, 7:00); callback del simulador
+> en el cap. 5; costos ocultos y riesgos pasan de tabla a prosa; figura f06
+> (mapa de los marcos) en la Conclusión; f05 corrige punteros de capítulo;
+> puentes 6→7 y 7→8; referencias ES citan las ediciones ES. Detalle en
+> `editorial/auditorias/_correcciones-aplicadas-v0.4.md`.
 
 **El libro se presenta por su tesis completa: la empresa en tiempo real.**
 Re-arquitectura del comentario sobre las cuatro caras (decisiones en la cocina

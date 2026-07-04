@@ -10,9 +10,7 @@
 > **Nota sobre la versión.** Esta edición (v0.4) presenta el libro por su tesis
 > completa: la **empresa en tiempo real** y las cuatro caras en que se vive —
 > El salto cuántico · Postchat · El Estado Mayor · La guardia — con la
-> organización inteligente como su convergencia. **Postchat**, que dio nombre
-> a las ediciones anteriores, nombra ahora lo que siempre nombró con precisión:
-> la cara de la comunicación. La película no cambió: siempre las mostró todas.
+> organización inteligente como su convergencia.
 > La protagonista y su organización son composiciones ficticias. Queda
 > pendiente el prólogo del invitado.
 

@@ -22,7 +22,7 @@ The room this mechanism replaces is a familiar one: six calendars hijacked at th
 
 ## Collective memory
 
-The agent maintains organizational memory not as a searchable history but as a **knowledge graph**: decisions, commitments, precedents, relationships. Whoever asks "what was decided about X?" receives the answer with context and sources — not twenty search results. Whoever proposes something that contradicts a previous decision receives the precedent. Whoever joins receives the state of the world. In organizations where institutional memory lives in heads that rotate, this mechanism is, quietly, the most valuable of the seven.
+The agent maintains organizational memory not as a searchable history but as a **knowledge graph**: decisions, commitments, precedents, relationships. Whoever asks "what was decided about X?" receives the answer with context and sources — not twenty search results. Whoever proposes something that contradicts a previous decision receives the precedent. Whoever joins receives the state of the world. In organizations where institutional memory lives in heads that rotate, this mechanism is, quietly, the most valuable of the seven. And it is the one that guarantees that the simulator alert — the one an engineer let drop in after-lunch talk — reaches the major maintenance review without anyone having to remember it: from the agora to a follow-up with an owner, from the follow-up to the review, with no archaeology and no heroic memory.
 
 ## Closed loop
 

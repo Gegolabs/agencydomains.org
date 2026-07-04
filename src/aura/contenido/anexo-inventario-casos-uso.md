@@ -365,7 +365,7 @@ línea base, como manda la disciplina del portafolio).
 *DUAL | Area B*
 
 **CU-052:** Recolección de Basura con Rutas Dinámicas
-*DUAL | Area A*
+*DUAL | Area D*
 
 **CU-053:** Semáforos Adaptativos Multi-Intersección
 *DUAL | Area C*
@@ -383,7 +383,7 @@ línea base, como manda la disciplina del portafolio).
 *CITY | Area A*
 
 **CU-058:** Sistema de Vigilancia Epidemiológica Municipal
-*DUAL | Area A | Valor Social*
+*DUAL | Area D | Valor Social*
 
 **CU-059:** Control de Ruido Ambiental Autónomo
 *DUAL | Area D*
@@ -540,7 +540,7 @@ línea base, como manda la disciplina del portafolio).
 ## Las Cuatro Áreas Temáticas
 
 ### Área A — Atención Ciudadana y Comunicación
-**Total:** 19 CU (19%)
+**Total:** 17 CU (17%)
 
 **Casos de Uso:**
 - CU-003: Respuestas a Consultas Frecuentes
@@ -553,7 +553,7 @@ línea base, como manda la disciplina del portafolio).
 - CU-026: Traducción Certificada con Validación
 - CU-028: Patente Comercial Integral
 - CU-029: Procesamiento de Propuestas Ciudadanas
-- ... y 9 CU más
+- ... y 7 CU más
 
 ### Área B — Gestión Interna, Legal, RRHH, Finanzas, Compras y Presupuesto
 **Total:** 37 CU (37%)
@@ -588,7 +588,7 @@ línea base, como manda la disciplina del portafolio).
 - ... y 14 CU más
 
 ### Área D — Salud, Educación, Cultura, Deporte y Medioambiente
-**Total:** 20 CU (20%)
+**Total:** 22 CU (22%)
 
 **Casos de Uso:**
 - CU-041: Gestión de Eventos Masivos
@@ -601,6 +601,6 @@ línea base, como manda la disciplina del portafolio).
 - CU-060: Red de Monitoreo de Calidad del Aire
 - CU-061: Sistema de Vacunación Municipal Inteligente
 - CU-062: Gestión de Patrimonio Histórico con IA
-- ... y 10 CU más
+- ... y 12 CU más
 
 ---

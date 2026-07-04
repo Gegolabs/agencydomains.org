@@ -22,7 +22,7 @@ La sala que este mecanismo reemplaza es conocida: seis agendas secuestradas a la
 
 ## Memoria colectiva
 
-El agente mantiene la memoria organizacional no como historial buscable sino como **grafo de conocimiento**: decisiones, compromisos, antecedentes, relaciones. Quien pregunta "¿qué se decidió sobre X?" recibe la respuesta con contexto y fuentes — no veinte resultados de búsqueda. Quien propone algo que contradice una decisión previa, recibe el antecedente. Quien se incorpora, recibe el estado del mundo. En organizaciones donde la memoria institucional vive en cabezas que rotan, este mecanismo es, silenciosamente, el más valioso de los siete.
+El agente mantiene la memoria organizacional no como historial buscable sino como **grafo de conocimiento**: decisiones, compromisos, antecedentes, relaciones. Quien pregunta "¿qué se decidió sobre X?" recibe la respuesta con contexto y fuentes — no veinte resultados de búsqueda. Quien propone algo que contradice una decisión previa, recibe el antecedente. Quien se incorpora, recibe el estado del mundo. En organizaciones donde la memoria institucional vive en cabezas que rotan, este mecanismo es, silenciosamente, el más valioso de los siete. Y es el que garantiza que la alerta del simulador — la que una ingeniera dejó caer en una sobremesa — llegue al mantenimiento mayor sin que nadie tenga que acordarse de ella: del ágora al seguimiento con responsable, del seguimiento a la revisión, sin arqueología ni memoria heroica.
 
 ## Ciclo cerrado
 

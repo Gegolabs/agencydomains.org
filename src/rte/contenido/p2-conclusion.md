@@ -20,6 +20,11 @@ En primera persona, ese mismo mundo se vive como las **tres liberaciones** que e
 
 La consecuencia agregada (capítulo 8) es el cambio de naturaleza de la organización: de la pirámide-red que consumía personas como infraestructura de transmisión, a la **organización inteligente** — autoridad de carbono, transporte de silicio, personas en el borde. No es una quinta cara: es lo que la empresa *se vuelve* cuando las cuatro operan juntas.
 
+Y para que ningún marco compita con otro en tu memoria, el mapa completo en una lámina — qué es tesis, qué es cara, y qué es solo la maquinaria que las sirve:
+
+<!-- FIG:f06-mapa-de-marcos -->
+![El mapa de los marcos](figuras/f06-mapa-de-marcos.png)
+
 ## La agenda ejecutiva
 
 Para la dirección que toma en serio este destino, la agenda tiene un orden:

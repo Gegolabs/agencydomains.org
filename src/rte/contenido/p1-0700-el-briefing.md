@@ -26,6 +26,12 @@ Elena mira el comparativo de rutas. Toca la columna del puerto sur, lee los dos 
 
 — Hecho. Distribución ya lo sabe.
 
+Elena se queda mirando el mapa un segundo más. El bloqueo del acceso norte no tiene precedente — un derrumbe así no había pasado nunca — y le cruza una pregunta que en su oficina de hace diez años ni siquiera habría formulado, porque no existía reporte que la contuviera ni analista a quien pedírsela sin abrir un proyecto:
+
+— ¿Y cuánto nos cuesta esto por día? El bloqueo, digo — con los desvíos de esta semana incluidos.
+
+La duda le dura menos que el sorbo de café. La respuesta ya está en la pantalla: una cifra, los tres supuestos con que se calculó, y la oferta de desglosarla por ruta. Elena la lee dos veces — no porque no la entienda, sino porque todavía no se acostumbra a que preguntas así tengan respuesta —, la guarda para el comité de mañana, y sigue.
+
 Son las 7:06. Elena toma su café y se vuelve hacia el plan de mantenimiento que defenderá mañana — el documento al que anoche siguió dándole vueltas por gusto, mucho después de que el sistema cerrara la jornada. Nadie se lo pidió.
 
 — ¿Te preparo el análisis de holguras? — ofrece el agente.
@@ -38,6 +44,6 @@ Trabaja. Nada suena. Nada parpadea. Nadie la interrumpe durante tres horas.
 
 > **Lo que acabas de ver:**
 >
-> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único que exigía respuesta ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms. Los M&Ms son *managers* y *meetings* — jefes que interrumpen y reuniones que fragmentan —; el & es la infraestructura que los volvió permanentes. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles y silencio por defecto, impuestos por arquitectura. Y el comparativo que apareció para una decisión y murió con ella asomó otra cara: el conocimiento que responde en segundos, en una superficie que no pertenece a ninguna aplicación.
+> Seis minutos sin nada espectacular — y eso es lo espectacular. Toda la comunicación de la noche fue absorbida, clasificada y retenida; lo único que exigía respuesta ni siquiera interrumpió: esperó al briefing. Detrás hay una contabilidad — la atención como presupuesto finito, donde cada interrupción cuesta quinientas veces su duración — y un culpable con nombre: el **&** de los M&Ms. Los M&Ms son *managers* y *meetings* — jefes que interrumpen y reuniones que fragmentan —; el & es la infraestructura que los volvió permanentes. El briefing es el antídoto: interrupciones agrupadas en momentos predecibles y silencio por defecto, impuestos por arquitectura. Y entre medio asomó otra cara: una pregunta sin precedente — nacida de un derrumbe que ningún reporte anticipó — respondida antes de que se enfriara el café. El conocimiento que responde en segundos, en superficies que no pertenecen a ninguna aplicación.
 >
 > *El comentario de esta escena: los capítulos 1, 2 y 4.*

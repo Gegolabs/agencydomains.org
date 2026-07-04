@@ -3,6 +3,12 @@
 Historial de versiones del libro *AURA · El Camino Agentivo*.
 
 ## v0.3 — Julio 2026
+> **Revisiones dentro de v0.3** (auditoría integral + decisiones editoriales,
+> 2026-07-03): oración final de IRIS rescatada del ensamblado; «Agentivo» en
+> Wingmap + puente de apertura; CU-052/058 reclasificados a Área D (conteos
+> 17/37/24/22); tesis duplicadas variadas en la edición-libro; manifiestos con
+> estado real de publicación. Detalle en
+> `editorial/auditorias/_correcciones-aplicadas-v0.3.md`.
 
 **La pasada editorial.** Revisión integral de la trilogía (inventario en la
 cocina del proyecto):

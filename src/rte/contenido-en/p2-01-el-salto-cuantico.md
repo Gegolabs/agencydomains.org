@@ -1,6 +1,6 @@
 # 1. The Quantum Leap
 
-*In the film: the route-comparison surface, which appeared at 7:00 for one decision and died with it; the simulator question, asked in passing on the way back from the cafeteria and answered on the spot; the analysis Elena declined in order to do it in pencil. Nobody opened an application all Tuesday — and no question waited for a report.*
+*In the film: the roadblock question — the one no report contained, because the landslide had no precedent — answered at 7:00 before the coffee could cool; the route comparison that appeared for one decision and died with it; the analysis Elena declined in order to do it in pencil. Nobody opened an application all Tuesday — and no question waited for a report.*
 
 ## The question that divides two worlds
 
@@ -43,7 +43,7 @@ Today's scene is this one. An executive has a hunch — margins seem to be slipp
 
 On the other side of the line, the executive talks directly to an agent that has governed access to the data. The question is answered in seconds; the refinement — *"and now show me only the corporate segment"* — in the seconds that follow. **The conversation replaces the project.** The metric goes from four-to-twelve weeks to five-to-sixty seconds: three orders of magnitude. That collapse in the cost of asking is what we call **the Quantum Leap** — it is not an improvement of the report: it is a change in the nature of the relationship between an organization and its information.
 
-Because the deep effect is not the speed — it is what the speed frees. When asking is free, organizations discover they can ask things they never used to ask, and they discover that **the unasked questions held the most valuable insights**. The executive no longer has to choose what to ask: they explore, refine, and go deeper in a continuous conversation with their business. That cognitive freedom — not the faster dashboard — is the benefit this face delivers to leadership.
+Because the deep effect is not the speed — it is what the speed frees. When asking is free, organizations discover they can ask things they never used to ask, and they discover that **the unasked questions held the most valuable insights**. The 7:00 roadblock question was exactly that: a question no report could contain, because its circumstances had never existed — and it still had an answer before the next sip. The executive no longer has to choose what to ask: they explore, refine, and go deeper in a continuous conversation with their business. That cognitive freedom — not the faster dashboard — is the benefit this face delivers to leadership.
 
 ## What Doesn't Disappear
 

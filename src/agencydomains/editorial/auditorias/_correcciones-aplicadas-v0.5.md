@@ -29,8 +29,16 @@ Auditoría integral de la trilogía. Correcciones aplicadas a fuente ES, espejos
 - Cap. 9: «Vergis vive en un repositorio público enlazado desde AgencyDomains.org» (antes sugería dos hogares).
 - Cita EN del manifiesto en title case (*Architecture of the Agentive World*).
 
-## No aplicado (decisiones del autor)
+## Decisiones editoriales aplicadas (2026-07-03, segunda pasada — aprobadas por el autor)
 
-Desduplicación Cap 2 ↔ Cap 7 (cuatro frases casi literales) y dup interna del Cap 7 · «Botlet de fachada» Capa 1 vs Capa 3 (requiere decisión doctrinal) · entradas nuevas de glosario (Auditoría, Transparencia, Observabilidad, Wingtraining, SME) · dosificación restante de Gartner 40%.
+- **Doctrina del Botlet de fachada fijada**: es un Botlet de **Capa 3** que expone una superficie/contrato estable en **Capa 1** (la sede es la topología del Cap 4); glosarios y manifiestos alineados (ES+EN).
+- **Cinco entradas nuevas de glosario**: Auditoría · Transparencia · Observabilidad · Wingtraining · SME — destiladas de sus capítulos, en glosario ES/EN y §12 de ambos manifiestos.
+- **Desduplicación Cap 2 ↔ Cap 7** (cuatro frases casi literales, cada una a su sede) y del cierre del Cap 7 respecto de su apertura.
+- **Dosificación Gartner 40%**: formulación completa solo en frontmatter, Cap 2 y Cap 5 §4; Cap 8 y Epílogo pasan a referencia breve.
+- **Canon de la pregunta Nadella declarado**: la formulación canónica es la de este libro; las conjugaciones por audiencia de los volúmenes I y II quedan listadas como equivalentes oficiales (glosario + cabecera de la trilogía).
+
+## No aplicado (decisiones del autor pendientes)
+
+Ninguna pendiente en este libro.
 
 • *Generado con Wingworking*

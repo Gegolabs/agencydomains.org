@@ -4,8 +4,7 @@
 
 **Autor:** César Obach-Renner · **Editor:** GegoLabs
 **Edición:** Borrador de desarrollo · v0.4 · Julio 2026
-*(Hasta la v0.3 el libro se tituló «Postchat»; Postchat nombra ahora su cara
-de la comunicación. Slug técnico del libro: `rte`.)*
+*(Slug técnico del libro: `rte`.)*
 
 ## Composición
 

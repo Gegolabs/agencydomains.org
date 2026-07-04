@@ -26,5 +26,5 @@ Los "M&Ms" (Managers y Meetings) y las "reglas de biblioteca" son conceptos de F
 
 **De la trilogía del Mundo Agentivo:**
 
-- Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. GegoLabs, 2026. <https://agencydomains.org/agencydomains/> — la arquitectura formal: la Línea Nadella, las cuatro capas, las primitivas, la Trust Infrastructure.
-- Obach-Renner, César. *AURA: The Agentive Path*. GegoLabs, 2026. <https://agencydomains.org/aura/> — el camino: los modelos de madurez IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso.
+- Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. GegoLabs, 2026. <https://agencydomains.org/es/agencydomains/> — la arquitectura formal: la Línea Nadella, las cuatro capas, las primitivas, la Trust Infrastructure.
+- Obach-Renner, César. *AURA: el Camino Agentivo*. GegoLabs, 2026. <https://agencydomains.org/es/aura/> — el camino: los modelos de madurez IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso.

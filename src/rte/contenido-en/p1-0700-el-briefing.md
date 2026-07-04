@@ -26,6 +26,12 @@ Elena looks at the route comparison. She taps the south port column, reads the t
 
 — Done. Distribution already knows.
 
+Elena keeps her eyes on the map a second longer. The blockage on the north access has no precedent — a landslide like that had simply never happened — and a question crosses her mind that, in her office of ten years ago, she wouldn't even have formulated, because no report existed that contained it and no analyst she could ask without opening a project:
+
+— And how much is this costing us per day? The blockage, I mean — with this week's detours included.
+
+The doubt lasts less than a sip of coffee. The answer is already on the screen: a figure, the three assumptions behind it, and an offer to break it down by route. Elena reads it twice — not because she doesn't understand it, but because she still isn't used to questions like that having answers —, saves it for tomorrow's committee, and moves on.
+
 It's 7:06. Elena picks up her coffee and turns to the maintenance plan she will defend tomorrow — the document she kept turning over in her head last night, for the pleasure of it, long after the system had closed the day. Nobody asked her to.
 
 — Shall I prepare the slack analysis? — the agent offers.
@@ -38,6 +44,6 @@ She works. Nothing rings. Nothing blinks. No one interrupts her for three hours.
 
 > **What you just saw:**
 >
-> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one item that demanded a response didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms. The M&Ms are *managers* and *meetings* — bosses who interrupt and meetings that fragment —; the & is the infrastructure that made them permanent. The briefing is the antidote: interruptions batched into predictable moments and silence by default, enforced by architecture. And the comparison that appeared for one decision and died with it hinted at another face: knowledge that answers in seconds, on a surface that belongs to no application.
+> Six minutes with nothing spectacular in them — and that is what's spectacular. All of the night's communication was absorbed, classified, and held; the one item that demanded a response didn't even interrupt: it waited for the briefing. Behind it there is an accounting — attention as a finite budget, where every interruption costs five hundred times its duration — and a culprit with a name: the **&** in M&Ms. The M&Ms are *managers* and *meetings* — bosses who interrupt and meetings that fragment —; the & is the infrastructure that made them permanent. The briefing is the antidote: interruptions batched into predictable moments and silence by default, enforced by architecture. And in between, another face showed itself: a question without precedent — born of a landslide no report had anticipated — answered before the coffee could cool. Knowledge that answers in seconds, on surfaces that belong to no application.
 >
 > *The commentary for this scene: chapters 1, 2 and 4.*

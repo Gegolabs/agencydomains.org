@@ -36,7 +36,7 @@ The diagnostic pair was presented at the opening of Part I: IRIS measures KNOWIN
 
 ### Diagnostic nature
 
-MOTOR is a **diagnostic** model. Its purpose is to assess what level an organization is at and what that level means. It does not prescribe what to implement, how much to invest, or on what timeline — that belongs to the specialized consulting built on top of the diagnosis.
+MOTOR is a **diagnostic** model. Its purpose is to assess what level an organization is at and what that level means. It does not prescribe what to implement, how much to invest, or on what timeline — that is no longer diagnosis: it is the consulting that draws on it.
 
 <!-- standalone -->
 This design decision is intentional: the state of the art in AI evolves at unprecedented speed. A model that prescribes specific technologies becomes obsolete in months. A model that diagnoses maturity states remains valid because it measures organizational capabilities, not tools.
@@ -606,7 +606,7 @@ These estimates are referential and based on observation of the market at the ti
 
 **For diagnosis:** Identify the level that best describes the organization's current state in each dimension. An organization can be at different levels depending on the dimension — for example, at Level 3 in Operational Autonomy but at Level 1 in Governance. The overall level is determined by the lowest dimension, since it represents the real bottleneck.
 
-**For planning:** The model makes it possible to identify gaps and prioritize. If the organization is at Level 3 in operations but at Level 1 in governance, governance is the bottleneck — no amount of automation matters if there is no governance to sustain it. The specific prescription of what to implement and in what order belongs to the specialized consulting built on this diagnosis (see *MOTOR in Practice*).
+**For planning:** The model makes it possible to identify gaps and prioritize. If the organization is at Level 3 in operations but at Level 1 in governance, governance is the bottleneck — no amount of automation matters if there is no governance to sustain it. The specific prescription of what to implement and in what order is a task for the consulting engagement that starts from this diagnosis (see *MOTOR in Practice*).
 
 **For executive communication:** The 7 levels offer a shared vocabulary. "We are at Level 2, moving toward Level 3" is a sentence a board understands — one that enables strategic decisions on investment and priority.
 

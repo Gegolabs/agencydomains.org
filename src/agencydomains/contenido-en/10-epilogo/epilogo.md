@@ -174,4 +174,4 @@ The question that opened this book — *does the human open applications to do t
 
 This book does not guarantee the crossing. The organizations that adopt it can still fail — by execution, by market, by a thousand reasons that have nothing to do with the architecture. What the book guarantees is that **the architecture will not be the cause of the failure**.
 
-And that, given the forty percent of agentive projects canceled before 2027 for inadequate governance, is no small promise.
+And that, with Gartner's cancellation projection from Chapter 2 hanging over the field, is no small promise.

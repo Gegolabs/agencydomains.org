@@ -36,7 +36,7 @@ El par diagnóstico quedó presentado al abrir la Parte I: IRIS mide el SABER, M
 
 ### Naturaleza diagnóstica
 
-MOTOR es un modelo **diagnóstico**. Su propósito es evaluar en qué nivel se encuentra una organización y qué significa ese nivel. No prescribe qué implementar, cuánto invertir ni en qué plazo — eso corresponde a la consultoría especializada que se construye sobre el diagnóstico.
+MOTOR es un modelo **diagnóstico**. Su propósito es evaluar en qué nivel se encuentra una organización y qué significa ese nivel. No prescribe qué implementar, cuánto invertir ni en qué plazo — eso ya no es diagnóstico: es la consultoría que se apoya en él.
 
 <!-- standalone -->
 Esta decisión de diseño es intencional: el estado del arte en IA evoluciona a velocidad sin precedente. Un modelo que prescriba tecnologías específicas queda obsoleto en meses. Un modelo que diagnostique estados de madurez permanece válido porque mide capacidades organizacionales, no herramientas.
@@ -606,7 +606,7 @@ Estas estimaciones son referenciales y basadas en la observación del mercado al
 
 **Para diagnóstico:** Identifica el nivel que mejor describe el estado actual de la organización en cada dimensión. Una organización puede estar en niveles diferentes según la dimensión — por ejemplo, en Nivel 3 en Autonomía Operacional pero en Nivel 1 en Gobernanza. El nivel general se determina por la dimensión más baja, ya que representa el cuello de botella real.
 
-**Para planificación:** El modelo permite identificar brechas y priorizar. Si la organización está en Nivel 3 en operaciones pero en Nivel 1 en gobernanza, la gobernanza es el cuello de botella — no importa cuánta automatización se implemente si no hay gobernanza para sostenerla. La prescripción específica de qué implementar y en qué orden corresponde a la consultoría especializada que se construye sobre este diagnóstico (ver *MOTOR in Practice*).
+**Para planificación:** El modelo permite identificar brechas y priorizar. Si la organización está en Nivel 3 en operaciones pero en Nivel 1 en gobernanza, la gobernanza es el cuello de botella — no importa cuánta automatización se implemente si no hay gobernanza para sostenerla. La prescripción específica de qué implementar y en qué orden pertenece al trabajo de consultoría que parte de este diagnóstico (ver *MOTOR in Practice*).
 
 **Para comunicación ejecutiva:** Los 7 niveles ofrecen un vocabulario común. "Estamos en Nivel 2, avanzando hacia Nivel 3" es una frase que un board entiende y que permite tomar decisiones estratégicas sobre inversión y prioridad.
 

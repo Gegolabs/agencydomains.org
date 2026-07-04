@@ -39,15 +39,7 @@ Los primeros adoptantes son predecibles y conviene cultivarlos: los desesperados
 
 ## Los riesgos, con sus mitigaciones
 
-Un capítulo de adopción honesto inventaría también lo que puede salir mal:
-
-| Riesgo | Mitigación |
-|---|---|
-| **Confianza** — "¿y si el agente me oculta algo importante?" | Transparencia radical: el briefing declara cuántos ítems procesó y cuántos clasificó como ruido; "muéstrame todo" está siempre disponible; cada entrega es auditable |
-| **Error de priorización** — el agente clasifica mal y algo crítico espera | El umbral de urgencia se calibra conservador al inicio; el costo de un falso-urgente (una interrupción) es menor que el de un falso-rutina, y el sistema aprende de cada corrección |
-| **Dependencia** — si el agente cae, la comunicación cae | El modo clásico nunca se desinstala: es la redundancia permanente, no un respaldo de emergencia |
-| **Percepción de vigilancia** | El acotamiento es de gobernanza, no técnico: el ágora no se escucha, los ámbitos no se cruzan sin autorización, y el «fuera de registro» existe |
-| **Brecha generacional** | El escalón 1 no exige cambio alguno; la analogía de entrada es el asistente humano ("alguien que lee todo y cada mañana te dice qué necesita tu decisión") — inteligible para cualquier generación |
+Un capítulo de adopción honesto nombra también lo que puede salir mal — y cómo se gestiona. La primera objeción es de **confianza**: *¿y si el agente me oculta algo importante?* La respuesta es transparencia radical — el briefing declara cuántos ítems procesó y cuántos clasificó como ruido, "muéstrame todo" está siempre disponible, y cada entrega es auditable. La segunda es el **error de priorización** — que algo crítico espere por mal clasificado —: el umbral de urgencia se calibra conservador al inicio, porque el costo de un falso-urgente (una interrupción) es menor que el de un falso-rutina, y el sistema aprende de cada corrección. La tercera es la **dependencia** — si el agente cae, ¿cae la comunicación? —: el modo clásico nunca se desinstala; es redundancia permanente, no respaldo de emergencia. La cuarta es la **percepción de vigilancia**, y su mitigación es de gobernanza, no técnica: el ágora no se escucha, los ámbitos no se cruzan sin autorización, y el «fuera de registro» existe. Y la quinta es la **brecha generacional**: el escalón 1 no exige cambio alguno, y la analogía de entrada — un asistente humano que lee todo y cada mañana te dice qué necesita tu decisión — es inteligible para cualquier generación.
 
 ## La migración de especie
 

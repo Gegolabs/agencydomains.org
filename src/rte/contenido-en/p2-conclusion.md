@@ -20,6 +20,11 @@ In the first person, that same world is lived as the **three liberations** the f
 
 The aggregate consequence (chapter 8) is the change in the organization's nature: from the pyramid-network that consumed people as transmission infrastructure, to the **intelligent organization** — carbon authority, silicon transport, people at the edge. It is not a fifth face: it is what the enterprise *becomes* when the four operate together.
 
+And so that no framework competes with another in your memory, the complete map on one sheet — what is thesis, what is face, and what is merely the machinery that serves them:
+
+<!-- FIG:f06-mapa-de-marcos -->
+![The map of frameworks](figuras/f06-mapa-de-marcos.png)
+
 ## The executive agenda
 
 For the leadership team that takes this destination seriously, the agenda has an order:

@@ -1,6 +1,6 @@
 # 1. El salto cuántico
 
-*En la película: la superficie del comparativo de rutas, que apareció a las 7:00 para una decisión y murió con ella; la pregunta por el simulador, hecha de pasada al volver del comedor y respondida en el acto; el análisis que Elena declinó para hacerlo a lápiz. Nadie abrió una aplicación en todo el martes — y ninguna pregunta esperó a un reporte.*
+*En la película: la pregunta del bloqueo — la que ningún reporte contenía, porque el derrumbe no tenía precedente — respondida a las 7:00 antes de que se enfriara el café; el comparativo de rutas que apareció para una decisión y murió con ella; el análisis que Elena declinó para hacerlo a lápiz. Nadie abrió una aplicación en todo el martes — y ninguna pregunta esperó a un reporte.*
 
 ## La pregunta que divide dos mundos
 
@@ -43,7 +43,7 @@ La escena de hoy es esta. El ejecutivo tiene una intuición — los márgenes pa
 
 Al otro lado de la línea, el ejecutivo conversa directamente con un agente que tiene acceso gobernado a los datos. La pregunta se responde en segundos; el refinamiento — *"y ahora muéstrame solo el segmento corporativo"* — en los segundos siguientes. **La conversación reemplaza al proyecto.** La métrica pasa de cuatro-a-doce semanas a cinco-a-sesenta segundos: tres órdenes de magnitud. A ese colapso del costo de preguntar lo llamamos **el salto cuántico** — no es una mejora del reporte: es un cambio de naturaleza en la relación entre la organización y su información.
 
-Porque el efecto profundo no es la velocidad — es lo que la velocidad libera. Cuando preguntar es gratis, las organizaciones descubren que pueden preguntar cosas que antes no se preguntaban, y descubren que **las preguntas no formuladas contenían los insights más valiosos**. El ejecutivo deja de tener que elegir qué preguntar: explora, refina y profundiza en una conversación continua con su negocio. Esa libertad cognitiva — no el dashboard más rápido — es el beneficio que esta cara le entrega a la dirección.
+Porque el efecto profundo no es la velocidad — es lo que la velocidad libera. Cuando preguntar es gratis, las organizaciones descubren que pueden preguntar cosas que antes no se preguntaban, y descubren que **las preguntas no formuladas contenían los insights más valiosos**. La pregunta del bloqueo de las 7:00 era exactamente eso: una pregunta que ningún reporte podía contener, porque su coyuntura no había existido nunca — y aun así tuvo respuesta antes del siguiente sorbo. El ejecutivo deja de tener que elegir qué preguntar: explora, refina y profundiza en una conversación continua con su negocio. Esa libertad cognitiva — no el dashboard más rápido — es el beneficio que esta cara le entrega a la dirección.
 
 ## Lo que no desaparece
 

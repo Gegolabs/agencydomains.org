@@ -26,8 +26,13 @@ Auditoría integral de la trilogía. Correcciones aplicadas a fuente ES, espejos
 - «manifest/manifests» → «manifesto(s)» en el manifiesto EN y la cabecera de la trilogía.
 - README del libro actualizado a v0.3 · Julio 2026; portadas de builds a Julio/July 2026.
 
-## No aplicado (decisiones del autor)
+## Decisiones editoriales aplicadas (2026-07-03, segunda pasada — aprobadas por el autor)
 
-CU-052/CU-058 en Área A (validar con el dueño del inventario) · referencia a «MOTOR in Practice» sin enlace · deduplicación de tesis Introducción↔IRIS↔MOTOR.
+- **CU-052 y CU-058 reclasificados a Área D** (residuos y salud; conteos por área: 17/37/24/22, reconteo por script; ES+EN).
+- **Tesis duplicadas variadas en la edición-libro** vía marcadores standalone/libro: ortogonalidad IRIS/MOTOR (remisión en IRIS), coletilla de la consultoría (tres redacciones distintas), «empresa en línea vs tiempo real» (la segunda enunciación de la Introducción reducida; la apertura y la fijación se conservan). Las specs autónomas conservan su texto íntegro.
+
+## No aplicado (decisiones del autor pendientes)
+
+Referencia a «MOTOR in Practice» sin puerta para el lector — en espera de decisión (¿señalizar como cuerpo complementario de ultraBASE, o mover a standalone?).
 
 • *Generado con Wingworking*

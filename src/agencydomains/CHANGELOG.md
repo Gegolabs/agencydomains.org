@@ -8,6 +8,14 @@ iteraciones. A partir de **v1.0** (primera publicación pública estable) aplica
 disponible al final, sin re-enumerar las existentes.
 
 ## v0.5 — Julio 2026
+> **Revisiones dentro de v0.5** (auditoría integral + decisiones editoriales,
+> 2026-07-03): frontmatter.tex a v0.5; doctrina del Botlet de fachada fijada
+> (Capa 3, superficie en Capa 1); Botler «constructo normado» ×5; glosario
+> Conector de los manifiestos; 5 entradas nuevas de glosario (Auditoría ·
+> Transparencia · Observabilidad · Wingtraining · SME); desduplicación Cap 2↔7;
+> dosificación Gartner; canon de la pregunta Nadella declarado con sus
+> conjugaciones. Detalle en
+> `editorial/auditorias/_correcciones-aplicadas-v0.5.md`.
 
 **La pasada editorial.** Revisión integral de la trilogía (inventario en la
 cocina del proyecto):

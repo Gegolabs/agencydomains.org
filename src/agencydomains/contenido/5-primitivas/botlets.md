@@ -96,7 +96,7 @@ La distinción tiene tres consecuencias prácticas.
 
 **Primera**, un sistema agentivo productivo **no requiere esperar a que Pattern Recognition descubra los Botlets críticos**. Los Botlets seed se generan al inicio según la spec del producto, y el sistema entra en producción con la batería de Botlets necesaria para operar. Pattern Recognition entra después, durante la vida del sistema, para optimizar lo que el diseño no anticipó.
 
-**Segunda**, los Botlets seed pueden vivir **en cualquier capa**, no solo en Capa 3. Las **GUIs persistentes generadas como Botlets de fachada** del Capítulo 4 §1 son Botlets seed de Capa 1 — generadas por la cognición a pedido del equipo de diseño porque el rol operativo (cajero, cocinero, operador de planta) lo justifica. La definición canónica del Botlet seed permite estas materializaciones sin que la spec las trate como excepciones.
+**Segunda**, los Botlets seed pueden vivir **en cualquier capa**, no solo en Capa 3. Las **GUIs persistentes generadas como Botlets de fachada** del Capítulo 4 §1 lo ilustran: el Botlet de fachada es un Botlet seed de Capa 3 que expone su superficie estable en Capa 1, y los Botlets de presentación que componen esa superficie (shells y vistas) son Botlets seed de Capa 1 — generados por la cognición a pedido del equipo de diseño porque el rol operativo (cajero, cocinero, operador de planta) lo justifica. La definición canónica del Botlet seed permite estas materializaciones sin que la spec las trate como excepciones.
 
 **Tercera**, la trayectoria de madurez aplica igual a Botlets seed que a Botlets emergentes. Un Botlet seed recién deployado es **junior**; un Botlet seed que ya operó miles de veces y consolidó su saber del ambiente es **senior**. La distinción origen no cambia la trayectoria; solo el momento de inicio.
 
@@ -234,7 +234,7 @@ El Botler **no entiende el dominio** de los Botlets que ejecuta. Gestiona el cic
 
 De aquí se sigue una propiedad estructural: **no existen subtipos de Botler por familia de operación.** No hay un Botler "informativo", uno "transaccional", uno "para artefactos de información" — un Botlet de operación informativa ya carga su propia frescura, su caché, su distribución, de modo que un subtipo de Botler que lo duplicara contradiría la genericidad del runtime sin agregar nada.
 
-> *Los subtipos de Botler se distinguen por topología y rol de despliegue — central, edge, fachada operativa para Botlets de Capa 1 —, **nunca por dominio**. La especialización de dominio vive íntegramente en los Botlets que el Botler ejecuta.*
+> *Los subtipos de Botler se distinguen por topología y rol de despliegue — central, edge, fachada operativa para Botlets invocables desde Capa 1 —, **nunca por dominio**. La especialización de dominio vive íntegramente en los Botlets que el Botler ejecuta.*
 
 Los ejes de topología y rol son legítimos porque responden a *dónde* corre el runtime y con qué autonomía, no a *qué* dominio ejecuta: un Botler central y un Botler edge difieren en conectividad y operación offline, no en conocimiento de negocio. La nota normativa es la frontera: cualquier distinción de Botler que apele a la familia de operación que ejecuta está mal planteada.
 

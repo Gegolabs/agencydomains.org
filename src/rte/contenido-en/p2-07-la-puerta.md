@@ -39,15 +39,7 @@ The early adopters are predictable and worth cultivating: the desperate — exec
 
 ## The risks, with their mitigations
 
-An honest adoption chapter also inventories what can go wrong:
-
-| Risk | Mitigation |
-|---|---|
-| **Trust** — "what if the agent hides something important from me?" | Radical transparency: the briefing states how many items it processed and how many it classified as noise; "show me everything" is always available; every delivery is auditable |
-| **Prioritization error** — the agent misclassifies and something critical waits | The urgency threshold is calibrated conservatively at first; the cost of a false-urgent (one interruption) is lower than that of a false-routine, and the system learns from every correction |
-| **Dependency** — if the agent goes down, communication goes down | Classic mode never gets uninstalled: it is the permanent redundancy, not an emergency backup |
-| **Perception of surveillance** | The boundary is one of governance, not technology: the agora is not listened to, contexts don't cross without authorization, and "off the record" exists |
-| **Generational gap** | Step 1 demands no change at all; the entry analogy is the human assistant ("someone who reads everything and tells you each morning what needs your decision") — intelligible to any generation |
+An honest adoption chapter also names what can go wrong — and how it is managed. The first objection is one of **trust**: *what if the agent hides something important from me?* The answer is radical transparency — the briefing states how many items it processed and how many it classified as noise, "show me everything" is always available, and every delivery is auditable. The second is the **prioritization error** — something critical waiting because it was misclassified —: the urgency threshold is calibrated conservatively at first, because the cost of a false-urgent (one interruption) is lower than that of a false-routine, and the system learns from every correction. The third is **dependency** — if the agent goes down, does communication go down? —: classic mode never gets uninstalled; it is permanent redundancy, not an emergency backup. The fourth is the **perception of surveillance**, and its mitigation is a matter of governance, not technology: the agora is not listened to, contexts don't cross without authorization, and "off the record" exists. And the fifth is the **generational gap**: step 1 demands no change at all, and the entry analogy — a human assistant who reads everything and tells you each morning what needs your decision — is intelligible to any generation.
 
 ## The migration of species
 

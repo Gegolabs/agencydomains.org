@@ -12,7 +12,7 @@ precedence_rule: each part mirrors its human book; upon contradiction, the human
 
 ## The transition (the frame the three parts share)
 
-The transition that occupies the trilogy is a single one: from the world where people open applications to work, to the world where AI agents are the interface of work. The boundary is **the Nadella Line** — *do you still open applications to do your work?* — and the three volumes answer, in order, the three questions of that transition:
+The transition that occupies the trilogy is a single one: from the world where people open applications to work, to the world where AI agents are the interface of work. The boundary is **the Nadella Line** — *does the human open applications to do their work?*, in its canonical formulation; each volume conjugates it to its audience — and the three volumes answer, in order, the three questions of that transition:
 
 | Vol | Book | Question | Role | Audience |
 |---|---|---|---|---|
@@ -22,11 +22,11 @@ The transition that occupies the trilogy is a single one: from the world where p
 
 **Vergis** (not a book: it's code) is the reference implementation, at <https://github.com/gegolabs/vergis>. The full trilogy lives at <https://agencydomains.org>.
 
-## Shared canon (identical across the three parts; the owning book develops it)
+## Shared canon (identical across the three parts, except where a conjugation is declared; the owning book develops it)
 
 | Term | One-line definition | Owning book |
 |---|---|---|
-| **Nadella Line** | The dividing question: do you still open applications to do your work? Yes → agentic world; no → agentive world | AgencyDomains (Ch 1); The Real-Time Enterprise presents it at vision level |
+| **Nadella Line** | The dividing question, in its canonical formulation: does the human open applications to do their work? Yes → agentic world; no → agentive world. Official conjugations by audience: "do you still open applications to do your work?" (The Real-Time Enterprise, second person) · "do your employees still open applications to do their work?" (AURA, the executive's voice) — the three equivalent | AgencyDomains (Ch 1); The Real-Time Enterprise presents it at vision level |
 | **agentive / agentic** | Agentive = agents are the interface (transformation); agentic = copilots inside applications (incremental evolution). "Agentic" is never used in a positive-technological sense | AgencyDomains (Ch 1) · AURA (Introduction) |
 | **Agentive World** (capitalized) | The paradigm as a proper noun; lowercase, the adjective | AgencyDomains (typographic convention, Ch 1) |
 | **online enterprise / real-time enterprise** | Accesses up-to-date information but depends on humans to act / detects, interprets, decides, and acts continuously under governance | AURA (Introduction and IRIS) · AgencyDomains (Ch 2) |

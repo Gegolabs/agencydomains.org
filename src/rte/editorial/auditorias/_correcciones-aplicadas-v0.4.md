@@ -24,8 +24,16 @@ Auditoría integral de la trilogía (storytelling, consistencia estructural, par
 - Eco verbatim «para nada que no sea la inercia…» variado en su segunda instancia (cap. 2).
 - EN p1-1100: «in two days» → «tomorrow at this hour» (divergencia con el plazo de 24 horas del ES).
 
-## No aplicado (decisiones del autor)
+## Decisiones editoriales aplicadas (2026-07-03, segunda pasada — aprobadas por el autor)
 
-Escena nueva del salto cuántico en la película (se optó por el re-anclaje honesto) · dieta taxonómica · callback de la ingeniera del simulador · referencias ES con títulos EN.
+- **La cara 1 gana su escena**: beat nuevo en la película (7:00) — la pregunta del bloqueo, sin precedente, que ningún reporte podía contener, respondida antes de que se enfriara el café. Re-anclaje de intro del comentario, epígrafe del cap. 1 y recap de las 7:00 en esa escena. (ES+EN.)
+- **Callback del simulador**: la alerta de la ingeniera se cobra en el cap. 5 (memoria colectiva).
+- **Dieta taxonómica**: los costos ocultos (cap. 2) y los riesgos de adopción (cap. 7) pasan de tabla numerada a prosa; figura nueva **f06 «El mapa de los marcos»** en la Conclusión (jerarquía: tesis → caras → maquinaria → puerta → convergencia). La f05 corrige punteros de capítulo pre-v0.4 (representación cap. 6; organización inteligente cap. 8).
+- **Referencias ES**: los hermanos se citan en español con URLs /es/.
+- **Purga del rastro evolutivo «Postchat»** (decisión: a todos los efectos, Postchat nunca existió como libro): eliminado de la nota de versión de los frontmatters ES/EN, de los headers de ambos manifiestos, del README del libro y de los llms.txt del shell. El CHANGELOG y los registros editoriales conservan la historia.
+
+## No aplicado (decisiones del autor pendientes)
+
+Ninguna pendiente en este libro.
 
 • *Generado con Wingworking*

@@ -174,5 +174,5 @@ La pregunta que abrió este libro — *¿abre el humano aplicaciones para hacer 
 
 Este libro no garantiza el cruce. Las organizaciones que lo adopten todavía pueden fallar — por ejecución, por mercado, por mil razones que nada tienen que ver con la arquitectura. Lo que el libro garantiza es que **la arquitectura no será la causa del fracaso**.
 
-Y eso, dado el cuarenta por ciento de proyectos agentivos cancelados antes de 2027 por gobernanza inadecuada, no es promesa pequeña.
+Y eso, con la proyección de cancelaciones de Gartner del Capítulo 2 pendiendo sobre el campo, no es promesa pequeña.
 

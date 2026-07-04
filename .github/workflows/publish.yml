@@ -71,6 +71,37 @@ jobs:
             done
           done
 
+      - name: Guardia — los derivados no derivan (builds, manifiestos, shell)
+        run: |
+          FAIL=0
+          # 1) frontmatter.tex de AGD lleva la versión vigente (entra al PDF ES publicado)
+          if ! grep -q "v${AGD_VERSION}" src/agencydomains/_build/frontmatter.tex; then
+            echo "::error::frontmatter.tex de AGD no menciona v${AGD_VERSION} — el PDF llevaría impresa otra versión."; FAIL=1
+          fi
+          # 2) el mes/año de las portadas de build coincide con el frontmatter de cada libro
+          for libro in rte aura agencydomains; do
+            MES_ES=$(grep -oE "(Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre) 2[0-9]{3}" src/$libro/contenido/00-frontmatter.md | head -1)
+            MES_EN=$(grep -oE "(January|February|March|April|May|June|July|August|September|October|November|December) 2[0-9]{3}" src/$libro/contenido-en/00-frontmatter.md | head -1)
+            if [ -n "$MES_ES" ] && ! grep -q "$MES_ES" src/$libro/_build/build-pdf.sh; then
+              echo "::error::build-pdf.sh de $libro no dice «$MES_ES» (frontmatter ES)."; FAIL=1
+            fi
+            if [ -n "$MES_EN" ] && ! grep -q "$MES_EN" src/$libro/_build/build-en.sh; then
+              echo "::error::build-en.sh de $libro no dice «$MES_EN» (frontmatter EN)."; FAIL=1
+            fi
+          done
+          # 3) ningún manifiesto declara que su libro no está publicado
+          if grep -rn "sin publicación pública\|not yet publicly published" src/*/para-agent*.md; then
+            echo "::error::Un manifiesto declara «sin publicación pública» — los tres libros están publicados."; FAIL=1
+          fi
+          # 4) el shell cuenta las cinco specs de AURA
+          grep -q "five specs" site/llms.txt   || { echo "::error::site/llms.txt no dice «five specs»."; FAIL=1; }
+          grep -q "cinco specs" site/es/llms.txt || { echo "::error::site/es/llms.txt no dice «cinco specs»."; FAIL=1; }
+          # 5) Wingmap no invierte el vocabulario (agéntico ≠ la topología agentiva)
+          if grep -qE '\*\*Agéntico\*\* designa|\*\*Agentic\*\* designates' src/aura/specs/4-wingmap.md src/aura/specs-en/4-wingmap.md; then
+            echo "::error::Wingmap define «Agéntico/Agentic» con la topología del mundo agentivo — residuo de renombre."; FAIL=1
+          fi
+          exit $FAIL
+
       - name: Toolchain (pandoc + XeLaTeX)
         run: |
           sudo apt-get update -q
@@ -136,6 +167,15 @@ jobs:
           mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.txt _site/
           mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.md  _site/es/
           mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.txt _site/es/
+          # alias estables sin versión — siempre la edición vigente (los versionados quedan para cita exacta)
+          for ext in md txt; do
+            cp _site/AgencyDomains-${AGD_VERSION}-agents-en.$ext      _site/AgencyDomains-agents-en.$ext
+            cp _site/AURA-${AURA_VERSION}-agents-en.$ext              _site/AURA-agents-en.$ext
+            cp _site/RealTimeEnterprise-${RTE_VERSION}-agents-en.$ext _site/RealTimeEnterprise-agents-en.$ext
+            cp _site/es/AgencyDomains-${AGD_VERSION}-agents-es.$ext   _site/es/AgencyDomains-agents-es.$ext
+            cp _site/es/AURA-${AURA_VERSION}-agents-es.$ext           _site/es/AURA-agents-es.$ext
+            cp _site/es/EmpresaTiempoReal-${RTE_VERSION}-agents-es.$ext _site/es/EmpresaTiempoReal-agents-es.$ext
+          done
           # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt

@@ -85,11 +85,16 @@ IRIS es uno de dos modelos complementarios dentro de **AURA**. Junto con **MOTOR
 
 **IRIS** mide qué tan bien fluye la información — desde datos fragmentados hasta un ecosistema de inteligencia auto-gestionado. **MOTOR** mide qué tan automatizados están los procesos — desde uso ad-hoc de IA hasta ejecución autónoma orquestada.
 
+<!-- standalone -->
 Son ortogonales: una organización puede estar alta en uno y baja en el otro. La madurez organizacional plena requiere avanzar en ambos ejes.
+<!-- /standalone -->
+<!-- libro
+La ortogonalidad del par quedó establecida en la Introducción: se puede saber mucho y hacer poco, y viceversa. Aquí basta recordar que la madurez plena exige avanzar en ambos ejes.
+/libro -->
 
 ### Naturaleza diagnóstica
 
-IRIS es un modelo **diagnóstico**. Su propósito es evaluar en qué etapa se encuentra una organización y qué significa esa etapa — no prescribir qué implementar, cuánto invertir ni en qué plazo. La prescripción corresponde a la consultoría especializada que se construye sobre el diagnóstico.
+IRIS es un modelo **diagnóstico**. Su propósito es evaluar en qué etapa se encuentra una organización y qué significa esa etapa — no prescribir qué implementar, cuánto invertir ni en qué plazo. La prescripción es terreno de la consultoría que se apoya en ese diagnóstico.
 
 Esta decisión de diseño es intencional: el estado del arte en IA evoluciona a velocidad sin precedente. Un modelo que prescriba tecnologías específicas queda obsoleto en meses. Un modelo que diagnostique estados de madurez permanece válido porque mide capacidades organizacionales, no herramientas.
 

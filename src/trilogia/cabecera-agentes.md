@@ -12,7 +12,7 @@ regla_de_precedencia: cada parte es espejo de su libro humano; ante contradicci�
 
 ## El tránsito (el marco que comparten las tres partes)
 
-El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas abren aplicaciones para trabajar, al mundo donde los agentes de IA son la interfaz del trabajo. La frontera es **la Línea Nadella** — *¿todavía abres aplicaciones para hacer tu trabajo?* — y los tres volúmenes responden, en orden, las tres preguntas de ese tránsito:
+El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas abren aplicaciones para trabajar, al mundo donde los agentes de IA son la interfaz del trabajo. La frontera es **la Línea Nadella** — *¿el humano abre aplicaciones para hacer su trabajo?*, en su formulación canónica; cada volumen la conjuga a su audiencia — y los tres volúmenes responden, en orden, las tres preguntas de ese tránsito:
 
 | Vol | Libro | Pregunta | Rol | Audiencia |
 |---|---|---|---|---|
@@ -22,11 +22,11 @@ El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas 
 
 **Vergis** (no es un libro: es código) es la implementación de referencia, en <https://github.com/gegolabs/vergis>. La trilogía completa vive en <https://agencydomains.org>.
 
-## Canon compartido (idéntico en las tres partes; el libro dueño desarrolla)
+## Canon compartido (idéntico en las tres partes, salvo conjugación declarada; el libro dueño desarrolla)
 
 | Término | Definición de una línea | Libro dueño |
 |---|---|---|
-| **Línea Nadella** | La pregunta divisoria: ¿todavía abres aplicaciones para hacer tu trabajo? Sí → mundo agéntico; no → mundo agentivo | AgencyDomains (Cap 1); La Empresa en Tiempo Real la presenta a nivel de visión |
+| **Línea Nadella** | La pregunta divisoria, en su formulación canónica: ¿el humano abre aplicaciones para hacer su trabajo? Sí → mundo agéntico; no → mundo agentivo. Conjugaciones oficiales por audiencia: «¿todavía abres aplicaciones para hacer tu trabajo?» (La Empresa en Tiempo Real, segunda persona) · «¿sus empleados todavía abren aplicaciones para hacer su trabajo?» (AURA, voz del directivo) — las tres equivalentes | AgencyDomains (Cap 1); La Empresa en Tiempo Real la presenta a nivel de visión |
 | **agentivo / agéntico** | Agentivo = los agentes son la interfaz (transformación); agéntico = copilotos dentro de aplicaciones (evolución incremental). "Agéntico" nunca se usa en sentido positivo-tecnológico | AgencyDomains (Cap 1) · AURA (Introducción) |
 | **Mundo Agentivo** (mayúsculas) | El paradigma como nombre propio; en minúsculas, adjetivo | AgencyDomains (convención tipográfica, Cap 1) |
 | **empresa en línea / empresa en tiempo real** | La que accede a información al día pero depende de humanos para actuar / la que detecta, interpreta, decide y actúa de forma continua y gobernada | AURA (Introducción e IRIS) · AgencyDomains (Cap 2) |

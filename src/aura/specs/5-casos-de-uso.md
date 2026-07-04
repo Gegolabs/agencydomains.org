@@ -90,7 +90,7 @@ A esto se suma la calidad formal del catálogo: terminología consistente, descr
 
 El sistema completo — CU/SV, tres dimensiones, marco de priorización — se ilustra mejor con el portafolio donde nació: el inventario de transformación agentiva para gobierno municipal, desarrollado por ultraBASE durante 2025.
 
-**La escala:** 100 casos de uso atómicos y 30 soluciones de valor, con un retorno agregado estimado (referencial) del orden de USD 118M/año para el conjunto, distribuidos en cuatro dominios de negocio: atención ciudadana y comunicación (19%), gestión interna —legal, RRHH, finanzas, compras y presupuesto— (37%), infraestructura, vialidad, seguridad y emergencias (24%), y servicios —salud, educación, cultura, deporte y medioambiente— (20%).
+**La escala:** 100 casos de uso atómicos y 30 soluciones de valor, con un retorno agregado estimado (referencial) del orden de USD 118M/año para el conjunto, distribuidos en cuatro dominios de negocio: atención ciudadana y comunicación (17%), gestión interna —legal, RRHH, finanzas, compras y presupuesto— (37%), infraestructura, vialidad, seguridad y emergencias (24%), y servicios —salud, educación, cultura, deporte y medioambiente— (22%).
 
 **La distribución por madurez** cuenta la historia de la transformación completa:
 

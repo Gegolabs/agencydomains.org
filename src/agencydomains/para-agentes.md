@@ -237,7 +237,7 @@ La **séptima separación** es la grieta inicial por la cual el Mundo Agentivo e
 1. **Modo offline trivial** — sin red, la vía Cognición (cloud) cae; la vía Autonomía (edge) sigue activa. La operación atraviesa el AgencyDomain por la vía que sigue viva.
 2. **Economía cognitiva evidente** — la organización elige por qué vía fluye cada operación: repetitiva → vía 3 (barata); nueva o decisiva → vía 2 (costosa). El costo total es el mix de las dos vías.
 3. **Trust Infrastructure se ejerce en ambas vías** — las políticas se aplican antes de invocar Capa 4 sin importar de qué vía viene la invocación.
-4. **Distingue dos tipos de Botlets** — **Botlets de fachada operativa** (invocables desde Capa 1, contrato estable, identidad humana propagada) vs **Botlets de herramienta interna** (invocables solo desde Capa 2).
+4. **Distingue dos tipos de Botlets** — **Botlets de fachada operativa** (invocables desde Capa 1, contrato estable, identidad humana propagada) vs **Botlets de herramienta interna** (invocables solo desde Capa 2). Ambos viven en Capa 3; difieren en su superficie de invocación.
 5. **`Capa 1 → Capa 3 → Capa 4` es vía canónica** — una superficie operativa (POS, pantalla cocina, panel industrial) que invoca un Botlet senior atraviesa esta vía sin tocar Capa 2. **No es bypass; es una de las dos vías estructurales.**
 
 ### Los tres tiempos del agente
@@ -309,7 +309,7 @@ Responsable de toda comunicación entre humanos y el sistema. Interfaz pura, sin
 - **Conversacional por voz** — asistentes virtuales, llamadas, audio-bots.
 - **Canales corporativos** — Slack, Teams, WhatsApp, email.
 - **API programática** — invocación máquina-a-máquina sin intermediación humana.
-- **GUI generada** — superficie gráfica generada por la cognición (nunca por un equipo humano de UI/UX), en tres regímenes: **(1) conversacional puro** — sin superficie, cuando no hace falta; **(2) on-the-fly** — adaptada a la tarea inmediata, vive lo que dura la tarea, puede regenerarse distinta la próxima vez; **(3) persistente como Botlet de fachada** — para roles operativos repetitivos (cajero en hora punta, panel de cocina, dashboard de caja, panel industrial), superficie estable consolidada como **Botlet de Capa 1** (típicamente seed), que el agente regenera cuando el ambiente cambia.
+- **GUI generada** — superficie gráfica generada por la cognición (nunca por un equipo humano de UI/UX), en tres regímenes: **(1) conversacional puro** — sin superficie, cuando no hace falta; **(2) on-the-fly** — adaptada a la tarea inmediata, vive lo que dura la tarea, puede regenerarse distinta la próxima vez; **(3) persistente como Botlet de fachada** — para roles operativos repetitivos (cajero en hora punta, panel de cocina, dashboard de caja, panel industrial), superficie estable consolidada como **Botlet de fachada** — un Botlet de Capa 3 (típicamente seed) que la expone en Capa 1 —, que el agente regenera cuando el ambiente cambia.
 - **Señalética pasiva** — superficies que comunican continuamente sin requerir interacción.
 
 > *La GUI no desaparece en el Mundo Agentivo. Lo que desaparece es la GUI precreada. Toda GUI en una Capa 1 agentiva es generada por la cognición — algunas efímeras, otras estabilizadas como Botlets de fachada.*
@@ -647,7 +647,7 @@ El ciclo `95/4/1` describe el estado estacionario; los Botlets transitan por fas
 
 Dos orígenes canónicos del Botlet:
 
-- **Botlet seed** — generado por la cognición a pedido del **equipo de diseño**, como parte del producto inicial. La decisión de existir es del diseño, no de Pattern Recognition. Las **GUIs persistentes generadas como Botlets de fachada** son Botlets seed de Capa 1.
+- **Botlet seed** — generado por la cognición a pedido del **equipo de diseño**, como parte del producto inicial. La decisión de existir es del diseño, no de Pattern Recognition. Las **GUIs persistentes generadas como Botlets de fachada** son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
 - **Botlet emergente** — generado por **Pattern Recognition** durante operación, cuando la cognición detecta un patrón repetitivo no anticipado.
 
 Ambos viven y operan idénticamente una vez generados. La diferencia está en el origen. Un sistema agentivo productivo **no requiere esperar a Pattern Recognition** para descubrir Botlets críticos — los seed se generan al inicio según la spec del producto.
@@ -1098,12 +1098,13 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Arquitectura Agentiva** — diseño técnico que materializa el Mundo Agentivo. Cuatro capas (Interacción, Cognición, Autonomía, Acceso), gobernadas por Trust Infrastructure transversal y ordenadas por el principio Agent First.
 - **Asistente** — agente reactivo, sin Botlets, sin vida persistente. Capa 2.
 - **Atención** — uno de los **tres tiempos del agente**. Tiempo en que el agente interactúa con usuarios o eventos en tiempo real. Capa 1 activa, camino crítico, prioritario.
+- **Auditoría** — Pilar 2 de Trust Infrastructure. Reconstruir después del hecho **qué hizo el agente, cuándo, por qué y sobre qué datos**. Mecanismo central: append-only log; lo completan trace, lineage e identity tagging.
 
 ### B
 
 - **BCA — Bounded Concerns Architecture** — arquitectura del estado pre-agentivo.
 - **Botlet** — unidad de automatización auto-evolutiva. Código no-LLM. Memoria muscular. Ciclo `95/4/1`.
-- **Botlet de fachada** — Botlet de Capa 1 invocable desde superficie operativa, contrato estable, identidad humana propagada.
+- **Botlet de fachada** — Botlet de Capa 3 que expone una superficie operativa con contrato estable en Capa 1, identidad humana propagada.
 - **Botlet de operación** — Botlet de **Capa 3** que ejecuta lógica de negocio invocada desde la Capa 1 (vistas y shells). Más reutilizable del catálogo. Ejemplos: cobrar mesa, imprimir comanda, cerrar turno.
 - **Botlet de superficie (shell)** — Botlet de **Capa 1** que actúa como contenedor: layout, navegación, sesión, estado compartido. Específico de cada producto.
 - **Botlet de vista** — Botlet de **Capa 1** que materializa una pantalla o panel dentro de un shell. Ensambla Facetas + lógica de orquestación. Reutilizable entre shells.
@@ -1172,7 +1173,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Gateway empresarial de IA** — Core en Runtime+Firewall+Observabilidad+Herramientas+Integraciones.
 - **Gobernanza** — Pilar 1 de Trust Infrastructure.
 - **GUI on-the-fly** — Régimen 2 de Capa 1. Superficie gráfica adaptada a la tarea, vive lo que dura la tarea.
-- **GUI persistente como Botlet de fachada** — Régimen 3 de Capa 1. Superficie estable consolidada como Botlet seed de Capa 1 para roles operativos repetitivos.
+- **GUI persistente como Botlet de fachada** — Régimen 3 de Capa 1. Superficie estable de un Botlet de fachada (Capa 3, típicamente seed) para roles operativos repetitivos.
 
 ### H
 
@@ -1196,7 +1197,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 ### L
 
 - **LLM** — Large Language Model.
-- **Línea Nadella** — umbral entre Mundo Agéntico y Mundo Agentivo. *¿El humano abre aplicaciones para hacer su trabajo?*
+- **Línea Nadella** — umbral entre Mundo Agéntico y Mundo Agentivo. *¿El humano abre aplicaciones para hacer su trabajo?* (formulación canónica; *La Empresa en Tiempo Real* la conjuga en segunda persona y *AURA* en la voz del directivo — las tres son equivalentes oficiales).
 
 ### M
 
@@ -1208,6 +1209,10 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Mira** — nombre propio de un proto-Botlet **platafórmico** de operación informativa del catálogo de la implementación de referencia.
 - **Modos de degradación del AgencyDomain** — Normal · Cognición caída · Edge offline · Continuidad operacional total. Las primeras tres transiciones son automáticas; la cuarta requiere activación humana por protocolo.
 - **Mundo de carbono** — eslabón 11 extendido al mundo físico.
+
+### O
+
+- **Observabilidad** — eslabón 8 de la cadena de valor: la capa que **observa, mide y retroalimenta** el sistema de IA en producción. Su pregunta: *¿cómo funciona?* Sin ella, los agentes son cajas negras.
 
 ### P
 
@@ -1236,6 +1241,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Salto Cuántico** — umbral habilitado por el colapso del costo de la pregunta analítica: cuando preguntarle a los datos deja de ser caro, lento o mediado por un humano, la organización cruza de **empresa en línea** a **empresa en tiempo real**. Cambio de régimen operativo, no mejora incremental de BI.
 - **Sandbox** — aislamiento de ejecución de Botlets. Cuatro estrategias: procesos+seccomp, contenedores, WASM, MicroVMs.
 - **Señalética** — dashboards pasivos sin requerir interacción.
+- **SME — subject-matter expert** — experto humano cuyo saber se transfiere al agente en la construcción de Capabilities. Workshop inicial y validación ALFA del Wingtraining.
 - **Space / WorkSpace** — habitat humano. Reservado para humanos.
 
 ### T
@@ -1245,6 +1251,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Tool** — herramienta invocable. Eslabón 9. Protocolo canónico: MCP. **NO es Capability.**
 - **Topología paralela** — modelo canónico de las cuatro capas. Capas 2 y 3 son **vías paralelas** entre Capa 1 y Capa 4, no etapas en serie.
 - **Trace** — trazabilidad end-to-end.
+- **Transparencia** — Pilar 5 de Trust Infrastructure. Entender en tiempo real **qué está haciendo el agente y por qué**, con detalle para intervenir. Conecta los otros cuatro pilares.
 - **Tres tiempos del agente** — marco temporal canónico: **Preparación** (mise en place, batch / off-peak), **Atención** (camino crítico, tiempo real), **Ingeniería** (puente, mediano plazo). La topología paralela describe DÓNDE; los tres tiempos describen CUÁNDO.
 - **Trust Infrastructure** — cinco pilares: Gobernanza, Auditoría, Validación, Resiliencia, Transparencia.
 - **Twin digital** — gemelo digital. Patrón para mundo de carbono.
@@ -1262,6 +1269,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 
 ### W
 
+- **Wingtraining** — esquema canónico de desarrollo de una Capability en cinco pasos: workshop con el SME · creación · personalización · ALFA · BETA.
 - **Wingworking** — práctica colaborativa humano-IA. Marco metodológico bajo el cual el libro fue producido.
 - **WorkSpace** — ver Space.
 - **Wrapper / Plataforma / Core / Infraestructura** — las cuatro profundidades canónicas.

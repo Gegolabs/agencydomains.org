@@ -90,7 +90,7 @@ To this is added the catalog's formal quality: consistent terminology, descripti
 
 The complete system — UC/VS, three dimensions, prioritization framework — is best illustrated by the portfolio where it was born: the agentive transformation inventory for municipal government, developed by ultraBASE over the course of 2025.
 
-**The scale:** 100 atomic use cases and 30 value solutions, with an estimated (referential) aggregate return on the order of USD 118M/year for the whole, distributed across four business domains: citizen services and communication (19%), internal management — legal, HR, finance, procurement, and budget — (37%), infrastructure, roads, security, and emergencies (24%), and services — health, education, culture, sports, and environment — (20%).
+**The scale:** 100 atomic use cases and 30 value solutions, with an estimated (referential) aggregate return on the order of USD 118M/year for the whole, distributed across four business domains: citizen services and communication (17%), internal management — legal, HR, finance, procurement, and budget — (37%), infrastructure, roads, security, and emergencies (24%), and services — health, education, culture, sports, and environment — (22%).
 
 **The distribution by maturity** tells the story of the complete transformation:
 

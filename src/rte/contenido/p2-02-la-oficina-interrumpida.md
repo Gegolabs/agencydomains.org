@@ -22,15 +22,7 @@ El & es el chat corporativo: la infraestructura siempre encendida que amplifica 
 
 ## Los costos ocultos del canal
 
-El costo de atención es el mayor, pero no es el único. El inventario completo del paradigma del canal incluye cinco partidas más, cada una invisible por separado:
-
-| Costo | Mecanismo |
-|---|---|
-| **Ilusión de comunicación** | Publicar en un canal de cincuenta produce la sensación de haber comunicado; no garantiza que los tres que debían actuar hayan leído, entendido o recordado. El canal convirtió *comunicar* en *publicar* |
-| **Ruido estructural** | En ese canal de cincuenta, la proporción de mensajes relevantes para cada lector es mínima: el modelo cobra a cincuenta el peaje de leer para que tres actúen |
-| **Asimetría temporal** | Los canales los dominan quienes tienen tiempo de habitarlos; quien opera una planta o hace el trabajo profundo se desconecta y pierde contexto. El canal penaliza a quien más trabaja |
-| **FOMO institucional** | Donde "no estar enterado" tiene costo político, el canal produce revisión compulsiva — la respuesta racional a un sistema donde lo crítico y el ruido viajan por el mismo tubo |
-| **Jornada sin frontera** | El hilo no termina; "desconectarse" se vuelve una transgresión que se anuncia con culpa. El canal disolvió el final del día |
+El costo de atención es el mayor, pero no es el único — y los demás no necesitan inventario: se reconocen. Publicar en un canal de cincuenta produce la **ilusión de haber comunicado**, sin garantía alguna de que los tres que debían actuar hayan leído, entendido o recordado — el canal convirtió *comunicar* en *publicar*. Y a esos cincuenta les cobra el peaje de leerlo todo para que tres actúen: **ruido estructural** por diseño. El canal, además, premia a quien tiene tiempo de habitarlo y castiga a quien opera una planta o hace el trabajo profundo — quien más trabaja, más contexto pierde. Donde "no estar enterado" tiene costo político, produce revisión compulsiva: el **FOMO institucional** es la respuesta racional a un sistema donde lo crítico y el ruido viajan por el mismo tubo. Y como el hilo no termina nunca, "desconectarse" se volvió una transgresión que se anuncia con culpa: el canal disolvió el final del día.
 
 ## La pregunta de esta cara
 
@@ -46,5 +38,5 @@ La respuesta será la misma que la de la pregunta madre: para nada. El chat corp
 >
 > - La atención es un presupuesto: tres o cuatro horas de trabajo profundo por día, y cada interrupción cuesta quinientas veces su duración.
 > - Los M&Ms de Fried — *managers* y *meetings* — tienen un conector que este libro nombra: el **&**, el chat corporativo que los volvió permanentes.
-> - El canal cobra además cinco costos ocultos; el último disolvió el final del día.
+> - El canal cobra además otros costos ocultos — la ilusión de comunicar, el ruido, el castigo a quien más trabaja, el FOMO — y el último disolvió el final del día.
 > - Un copiloto dentro del canal es el mismo paradigma con ayuda. La salida no es un canal mejor: es la ausencia gobernada del canal — **Postchat**.

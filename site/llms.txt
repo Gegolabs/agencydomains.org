@@ -16,9 +16,9 @@ Three volumes answer, in order, the three questions of the transition — each r
 
 ## The book — The Real-Time Enterprise · The Agentive World (Book I)
 
-Formerly published as "Postchat"; Postchat now names its communication face.
 
 - [The Agentive World Trilogy — unified agents manifest (English, Markdown)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.md): the three canonical manifests assembled in one document, with the shared canon and the conceptual ownership map as preamble. One fetch, the whole trilogy.
+- Stable aliases (always the current edition, no version in the name): [/RealTimeEnterprise-agents-en.md](https://agencydomains.org/RealTimeEnterprise-agents-en.md) · [/AURA-agents-en.md](https://agencydomains.org/AURA-agents-en.md) · [/AgencyDomains-agents-en.md](https://agencydomains.org/AgencyDomains-agents-en.md) (each also as .txt). Versioned filenames remain for exact citation.
 - [Trilogy — same manifest as plain text (.txt, alias)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.txt)
 - [The Real-Time Enterprise — canonical manifest for agents (English, Markdown)](https://agencydomains.org/RealTimeEnterprise-v0.4-agents-en.md): the destination distilled for an agent to reason within the framework — people as infrastructure, the four faces with their questions and measures, the agentive mode, the intelligent organization. v0.4.
 - [The Real-Time Enterprise — same manifest as plain text (.txt, alias)](https://agencydomains.org/RealTimeEnterprise-v0.4-agents-en.txt)
