@@ -4,7 +4,7 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · Julio 2026 · v0.5
+**Edición:** Borrador de desarrollo · Julio 2026 · v0.6
 **Licencia:** GNU Free Documentation License v1.3 *(propuesta)*
 
 > **Nota sobre la versión.** Este es un **borrador de desarrollo pre-1.0**: las referencias y las figuras pueden reorganizarse entre iteraciones hasta la versión **1.0**, que será la primera publicación pública estable. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
@@ -27,7 +27,7 @@ El libro es **agnóstico a productos**. Las construcciones formales aquí descri
 | **2 · El Mundo Agentivo** | Las consecuencias del cruce · transformación organizacional · la nueva economía de la información · datos del campo |
 | **3 · Bounded Concerns Architecture** | El estado pre-agentivo · tres capas y siete separaciones · la séptima separación Procedural/Agentic · mapping al Mundo Agentivo |
 | **4 · Arquitectura Agentiva** | Las cuatro capas en topología paralela · **tres tiempos del agente** (Preparación · Atención · Ingeniería) · interfaz Capa 2 ↔ Capa 3 vía `MCP` · Trust Infrastructure transversal · principio Agent First · GUI generada on-the-fly · **composición de la Capa 1** (shell · vista · operación · **PI multi-vista y drill-through**) · **Faceta vs Botlet** |
-| **5 · Primitivas** | AgencyDomains (con Capa 3 distribuida + portabilidad) · Botlets (con madurez + seed/emergente + **proto-Botlet · manifestación · temporalidad** + Botler genérico) · Capabilities (**estricta a Capa 2** + localidad + certificación regulatoria + **portabilidad · feature · Conector · Plantilla**) · Trust Infrastructure (con continuidad operacional + **contrato declarativo de calidad**) · Asistente vs Agente Autónomo · **Facetas (sexta primitiva — Capa 1) · interacción declarada acotada** |
+| **5 · Primitivas** | AgencyDomains (con Capa 3 distribuida + portabilidad) · Botlets (con madurez + seed/emergente + **proto-Botlet · manifestación · temporalidad** + Botler genérico) · Capabilities (**estricta a Capa 2** + localidad + certificación regulatoria + **portabilidad · feature · Conector · Plantilla**) · Trust Infrastructure (con continuidad operacional + **contrato declarativo de calidad**) · Asistente vs Agente Autónomo · **Facetas (sexta primitiva — Capa 1) · interacción declarada acotada** · **Agentlets (octava primitiva — juicio de rutina empaquetado)** |
 | **6 · Mercado** | Cadena de valor de IA · profundidades y arquetipos · deep-dives por eslabón · mundo de carbono |
 | **7 · Aplicaciones canónicas** | Conocimiento en tiempo real · Kimball Barnizada · BI conversacional |
 | **8 · Operación** | Trust Infrastructure operacionalizada · CRUDLEX · políticas · continuidad de negocio operacional |
@@ -54,7 +54,7 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Borrador de desarrollo v0.5. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Borrador de desarrollo v0.6. GegoLabs, 2026.
 
 ## La trilogía
 

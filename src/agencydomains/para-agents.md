@@ -1,7 +1,7 @@
 ---
 title: AgencyDomains — Canonical manifesto for agents
-edition: Development draft · v0.5 · July 2026
-canonical_source: libro-agency_domains-v0.5 (human book, Spanish)
+edition: Development draft · v0.6 · July 2026
+canonical_source: libro-agency_domains-v0.6 (human book, Spanish)
 license: GFDL v1.3 (proposed)
 audience: agents that must reason within the framework
 status: pre-1.0 — no commitment to reference stability until v1.0
@@ -9,7 +9,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v0.5 (development draft)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v0.6 (development draft)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 
@@ -17,10 +17,11 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
 - **Series**: AgencyDomains is Book III of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
-- **A mirror of v0.5** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
+- **A mirror of v0.6** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
 - **pre-1.0 status**: the book is published as a development draft at agencydomains.org and remains under active development. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first stable release).
+- **Changes v0.6 vs v0.5**: the **Agentlet** is incorporated as the **eighth canonical primitive** — the Botlet's sibling unit whose body invokes **bounded inference**; the home of the task recurrent in form but interpretive in every instance (Chapter 5 §7). With it: the **unit** genus (`1 Process = 1 Botler + N units`; the Botler hosts Botlets and Agentlets with one more control point in the handle — `cognition_call`); the **Agent** umbrella grows to three members (Assistant · Autonomous Agent · Agentlet; **the Agent has an agenda, the Agentlet has a charter**, with a three-question border test); the bidirectional **smuggling rule** (inference in the body → Agentlet; deterministic body → Botlet); the **proto-Agentlet** in the derivation chain and the catalogs; **maturity semantics of its own** (spec stabilization and decreasing escalation rate — no convergence to determinism; offline only with a declared edge model); the **three-rung economics** (Botlet ~0 · bounded Agentlet · full Cognition); and the **Validation pillar with a seat in Layer 3** over the bounded inference.
 - **Changes v0.5 vs v0.4**: a full editorial pass over the trilogy — the **Botlet generations** `G1`/`G2`/`G3` are formalized in Chapter 5 §2 (the Epilogue keeps the background essay without normative weight); the **Information Product** gains its canonical home as a normed term of the Botlet spec (multi-view, drill-through, and their MUSTs); **Capability doctrine restored** — locality (cloud/edge/hybrid) and regulatory certification are predicated of the **Connector** (ESC/POS-Printer, Cash-Drawer, Pinpad, and DTE-SII reclassified) and the **regulated Capability** carries the normative knowledge; the **Botler** is no longer called a primitive (a normed construct of the Botlet spec; the canon remains seven); Chapters 2 ↔ 7 de-duplicated and Chapter 4 slimmed in favor of Chapter 5; the Chapter 6 actor table aligned with its text and "Comprehensive platform" corrected in the glossary; **foundational rescue** from the original document *The Nadella Line* (Nadella's full quote with its CRUD mechanics and its two phases, the spectrum with its extreme pole, counter-arguments with the canon's answers, the historical precedents of coexistence in Chapter 2, the SaaS monetization crisis in Chapter 6); the "The trilogy" micro-section with AURA's five specifications; **Dominion** adopted by the Epilogue; Wingtraining, SME, and RLS defined in the glossary.
 - **Changes v0.4 vs v0.3**: canonical extensions that emerged while building the reference implementation and real projects — **Vergis** (public reference implementation, AGPL, AgencyDomains.org) with the naming scheme Vergis · Botler · Mira; the **proto-Botlet** added to the cast of primitives (tempered · platform) and the **derivation chain** use-cases → Botlets → proto-Botlets; **Botlet generations** G1/G2/G3 with the reconciliation of two axes; **manifestation** and **temporality** (`discrete`/`continuous`) as Botlet attributes; **generic Botler** (no per-domain subtypes; validates by orchestrating; Layer 2 ↔ Layer 3 interface via `MCP`; source code vs spec; one Botlet per `PI`); correction of the "internal A2A" misnomer (`A2A` reserved for the relation between AgencyDomains); `Capability` reserved for the cognitive know-how of Layer 2, with **Connector** (Layer 4), **Template** (Layer 1), **feature**, and **Capability portability**; **declared bounded interaction** (embedded Facet) and **multi-view `PI` with drill-through**; **declarative quality contract** in Trust Infrastructure.
 - **Changes v0.3 vs v0.2**: the agent's three times (Preparation · Attention · Engineering), composition of Layer 1 (shell · view · operation), and the Facet as Layer 1's atomic primitive.
@@ -53,9 +54,10 @@ status: pre-1.0 — no commitment to reference stability until v1.0
                           │
    ┌──────────┬───────────┼───────────┬──────────┐
 AgencyDomain Botlet    Capability   Trust    Assistant
-+ proto-     (with      (Layer 2 ·   Infra    vs Autonomous
-Botlet       manifest./ Connector ·           Agent
-(pre-forged) tempor.)   Template)             + Facet
++ proto-     + Agentlet (Layer 2 ·   Infra    vs Autonomous
+Botlet       (units:    Connector ·           Agent
+(pre-forged) manifest./ Template)             + Facet
+             tempor.)
                           │
                           ▼
                    THE MARKET POSITIONING
@@ -73,9 +75,9 @@ Botlet       manifest./ Connector ·           Agent
                     operational continuity)
 ```
 
-**The seven canonical primitives**: **AgencyDomain** · **Botlet** · **proto-Botlet** · **Capability** · **Trust Infrastructure** (cross-cutting axis) · **Assistant vs Autonomous Agent** · **Facet**. The **proto-Botlet** is the pre-forged piece the agent configures to instantiate a Botlet; the **Facet** is the atomic primitive of Layer 1.
+**The eight canonical primitives**: **AgencyDomain** · **Botlet** · **proto-Botlet** · **Agentlet** · **Capability** · **Trust Infrastructure** (cross-cutting axis) · **Assistant vs Autonomous Agent** · **Facet**. The **proto-Botlet** is the pre-forged piece the agent configures to instantiate a Botlet; the **Agentlet** is the Botlet's sibling unit with bounded inference; the **Facet** is the atomic primitive of Layer 1.
 
-> **Numbering note**: when the canon labels the Facet as the *sixth primitive* and the proto-Botlet as the *seventh primitive*, the ordinal indicates the **order of incorporation into the canon** (Facet in v0.3, proto-Botlet in v0.4), **not** the position in this list.
+> **Numbering note**: when the canon labels the Facet as the *sixth primitive*, the proto-Botlet as the *seventh primitive* and the Agentlet as the *eighth primitive*, the ordinal indicates the **order of incorporation into the canon** (Facet in v0.3, proto-Botlet in v0.4, Agentlet in v0.6), **not** the position in this list.
 
 **Pre-agentive layer (BCA)**: cartography of the state *prior* to crossing the Nadella Line. Three layers (Presentation · Business Logic · Domain), seven structural separations (the seventh, canonical: Procedural / Agentic), with explicit mapping of how each cell migrates into the Agentive World.
 
@@ -276,7 +278,7 @@ The parallel topology describes **where** each operation lives. The three times 
                      ▼                                                 ▼
        ┌────────────────────────────┐               ┌────────────────────────────┐
        │  LAYER 2 · COGNITION       │               │  LAYER 3 · AUTONOMY        │
-       │  Multi-LLM · Capabilities  │               │  Botlets in execution      │
+       │  Multi-LLM · Capabilities  │               │  Botlets and Agentlets     │
        │  Pattern Recognition       │  ◄── 2 ↔ 3 ──►│  Botler (central + edge)   │
        │  Botlet generation         │               │  Asynchronous tasks        │
        │  Reactive assistant        │  ◄── `MCP` ──►│  Monitoring · A2A protocol │
@@ -397,15 +399,15 @@ Where the agent lives. Persistent life, continuous execution, action on its own 
 
 **Six canonical components**:
 - **Proactive processing**, **asynchronous tasks**, **continuous monitoring**.
-- **Botlets in execution** — the agent's muscle memory operating.
-- **Botler** — generic runtime that executes Botlets. Invisible. **1 Process = 1 Botler + N Botlets**.
+- **Units in execution** — two sibling species: **Botlets** (muscle memory, non-LLM code) and **Agentlets** (packaged routine judgment, bounded inference; §7).
+- **Botler** — generic runtime that executes the units of both species. Invisible. **1 Process = 1 Botler + N units**.
 - **Intra-AgencyDomain coordination (via the `A2A` protocol)** — communication between runtimes of the same agent. It is NOT `A2A` between AgencyDomains.
 
 **Non-negotiable property — Fallback guarantee (MUST)**: if a Botlet fails catastrophically, the cognition executes the task manually. **The process never stops.**
 
 **Three required properties (MUST)**:
 1. **Persistence between sessions**.
-2. **Execution isolation** — Botlets under sandboxing.
+2. **Execution isolation** — units (Botlets and Agentlets) under sandboxing.
 3. **Structural resilience**.
 
 **The Botler is generic by definition (MUST)**: it manages the lifecycle, isolation, and execution of *any* Botlet **without understanding its domain**. **No Botler subtypes exist by family of operation** (informational, transactional, etc.) — that specialization lives in the Botlets and their proto-Botlets. Botler subtypes are distinguished by **deployment topology and role** (central/edge; operational facade), **never by domain**. A flat architecture: a generic runtime hosts self-contained specialist components.
@@ -446,7 +448,7 @@ Where cognition becomes real action. Every decision MUST pass through governance
 |---|---|---|
 | **Governance** | Configurable policies · CRUDLEX · human approval · AI registry | Layer 4 (primary), cross-cutting |
 | **Audit** | Append-only log · trace of each action · decision lineage · per-action identity tagging | Layer 4 (primary), cross-cutting |
-| **Validation** | Hallucination detection · response validation · prompt injection prevention · DLP · tokenization | Layer 2 (partial) + Layer 4 (primary) |
+| **Validation** | Hallucination detection · response validation · prompt injection prevention · DLP · tokenization | Layer 2 (partial) + Layer 3 (Agentlets' bounded inference) + Layer 4 (primary) |
 | **Resilience** | Fallback guarantee · error handling · sandboxing · circuit breakers · rate limiting | Layer 3 (primary), cross-cutting |
 | **Transparency** | Full observability · metrics · end-to-end traces · proactive alerts · governance dashboards | Cross-cutting to all four |
 
@@ -626,7 +628,7 @@ It guarantees that the AgencyDomain is **real property of the client**, not of t
 
 **Fallback guarantee (MUST)**: if the Botlet fails catastrophically, the cognition executes manually.
 
-**Botler** — generic runtime (without understanding the domain). **1 Process = 1 Botler + N Botlets**.
+**Botler** — generic runtime (without understanding the domain) that executes the layer's units: Botlets and Agentlets. **1 Process = 1 Botler + N units**.
 
 #### Botlet maturity — junior, learning, senior
 
@@ -707,6 +709,46 @@ Required structural property: every conformant Botlet **MUST** be traceable alon
 
 **One Botlet per `PI`** over a shared engine: each Information Product is its own Botlet/service — with its own `identity`, temporality, maturity, and fallback —, specialized from the shared engine (platform proto-Botlet). Not one Botlet with N configs; not N programs. It is `1 Process = 1 Botler + N Botlets` with the Botlets as specialized instances of the same proto-Botlet. **RISC** rationale: many simple, focused Botlets compose better than a monolith. The `subscribe` consumption is the bridge to the **agentive north** — today a human consumes it (`SSE` in the browser), tomorrow the Cognition.
 
+### Agentlet · eighth canonical primitive
+
+**Packaged unit of Layer 3, sibling of the Botlet, whose execution body invokes bounded inference** — a model sized to the task, within a charter declared in the spec. The canonical home of the task **recurrent in form but interpretive in every instance** (classify, triage, summarize, extract, judge): stable pattern, fresh judgment on every execution, with no possible convergence to determinism. An instance of a **proto-Agentlet** (same tempered · platform classes); hosted by the Botler; engendered and maintained by the agent.
+
+> *The Botlet is muscle memory. The Agentlet is packaged routine judgment. Cognition is reserved for the genuinely new.*
+
+**The "unit" genus**: the Botler hosts **units** — Botlets and Agentlets, its two species. The shared apparatus is predicated of the genus (proto-/instance, catalogs and network effects, spec vs source code, manifestation, temporality, declarative quality contract, derivation chain, append-only log, operation verbs); the differential guarantees, of each species. Canonical relation: **1 Process = 1 Botler + N units**.
+
+**Agentlet vs Botlet** (the differential; everything else is identical by genus):
+
+| Axis | **Botlet** | **Agentlet** |
+|---|---|---|
+| Body | Non-LLM code; zero inference | Bounded inference via the Botler's handle |
+| Natural task | Recurrent, **crystallizable** into code | Recurrent in form, **interpretive** in every instance |
+| Determinism | Converges with maturity | Does not converge — statistical correctness by nature |
+| Marginal cost | ~0 | Tokens per execution, budgeted in the spec |
+| Maturity | Junior → senior (exogenous-only failures) | Spec stabilization + decreasing escalation rate |
+| Offline | Senior operable offline | Only with an edge-resident model, **declared** (MUST) |
+| Fallback | Cognition executes manually | Escalates to **full Cognition** |
+
+**Smuggling rule (bidirectional, MUST)**: if there is inference in the body, it is an Agentlet — a Botlet with a hidden `llm_call` is non-conformant. If there is none, it is a Botlet — an Agentlet resolvable with deterministic code is **crystallized** into a Botlet. The mature system migrates work down the ladder: Cognition → Agentlets → Botlets.
+
+**Agentlet vs Agent — agenda vs charter**: the **Agent** umbrella covers three members — Assistant · Autonomous Agent · **Agentlet**. **The Agent has an agenda; the Agentlet has a charter**: its inference is spent on *how* to do its own work, never on deciding *what* its work is. Border test (any "yes" on the autonomy side → it is an Agent, not an Agentlet): (1) does it choose its own goals or receive them declared in the spec? (2) can it alter its process or engender other units? (3) is its identity that of an inhabitant (provisioning) or an instance (`specialize`)?
+
+| Axis | **Autonomous Agent** | **Agentlet** |
+|---|---|---|
+| Nature | **Inhabitant** of the AgencyDomain | **Catalog piece** (instance of a proto) |
+| Born through | Provisioning (six phases) | `specialize` over a proto-Agentlet |
+| Agenda | Pursues goals; decides what to do | Fixed charter declared in the spec |
+| Cognition | Full (bindings, complete tree, multi-LLM) | Bounded (sized model, the spec's Capabilities) |
+| Engenders | Generates and regenerates Botlets and Agentlets | Engenders nothing; it is maintained |
+| Fallback | *Is* the fallback (above it, only the human) | Escalates to Cognition via the Botler |
+| Governance | Exercises the five pillars (MUST) | Control points of the Botler's handle |
+
+**The Botler as sole guardian (MUST)**: the Agentlet brings no runtime of its own. The controlled handle gains a third control point — **`cognition_call`** — alongside `capability_call` and `log`: the body's only path to a model. All of its inference is thus metered, budgeted, **validated** (Pillar 3 gains a seat in Layer 3) and audited in the same append-only log. Segregation by resource profile is a deployment role (pools), never a parallel runtime per species. The two relations cover both species equally: the **agent** engenders and maintains (parent); the **Botler** hosts and executes (butler).
+
+**Three-rung economics**: Botlet (zero inference, ~0 cost) · Agentlet (bounded inference, budgetable per unit) · Cognition (full, for the new). The Autonomy Path remains the cheap one, but stops being uniformly free: the mix is declared per unit. Under fixed Subscription, Agentlets consume quota — bounded and visible in the log —; their share of the mix is an explicit economic decision.
+
+**Required properties**: declared charter — task, inputs, outputs, limits (MUST) · declared bounded inference — model, Capabilities, budget (MUST) · all inference via `cognition_call` (MUST) · fallback to full Cognition (MUST) · zero inference outside the handle (MUST) · hosting by the generic Botler, no parallel runtime (MUST) · traceability of every execution and inference call in the log (MUST) · traceable in the derivation chain with the proto-Agentlet recorded (MUST) · declared locality of the bounded cognition and offline behavior (MUST) · Pillar 3 Validation at the control point (MUST) · Agentlet vs Autonomous Agent distinction in API and documentation (MUST) · maturity metrics of its own (SHOULD) · crystallization into Botlets (SHOULD) · pool segregated by resource profile (MAY).
+
 ### Capability
 
 **Unit of specialized cognitive know-how**, modular and composable. Organized in a hierarchical tree. **Reserved in the strict sense to Layer 2 · Cognition.**
@@ -774,6 +816,8 @@ A critical distinction that cuts across Layer 2 and Layer 3. **It is not hierarc
 | Life | Per session | Persistent in the background |
 
 **They are governed differently**: the Assistant operates under the human's immediate control (conversational validation, light governance); the Autonomous Agent operates without immediate supervision (systemic validation). **The Autonomous Agent exercises the five pillars of Trust Infrastructure (MUST)** — robust governance, not just access controls.
+
+The **Agent** umbrella covers a third member beyond these two modes: the **Agentlet** (packaged agent of bounded charter; a catalog piece, not an inhabitant — see its section above). The modes describe how the full agent operates; the Agentlet is a piece the full agent engenders and maintains.
 
 ### Facet · sixth canonical primitive
 
@@ -1089,7 +1133,8 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **AgencyDomain** — computational scope with its own identity where autonomous agents and Botlets dwell, **where the Capabilities are hosted and run**, and where the resources that sustain them live. Minimal unit of deployment.
 - **AgencyDomain degradation modes** — Normal · Cognition down · Edge offline · Total operational continuity. The first three transitions are automatic; the fourth requires human activation by protocol.
 - **AgencyDomain portability** — structural property: a conformant AgencyDomain migratable to another conformant platform without rewriting. Three conditions: Botlets against canonical primitives, exportable DB, portable Trust Layer.
-- **Agent** — umbrella term covering the **Assistant** (Layer 2, reactive) and the **Autonomous Agent** (Layer 3, proactive). The distinction is not hierarchical.
+- **Agent** — umbrella term covering three members: the **Assistant** (Layer 2, reactive), the **Autonomous Agent** (Layer 3, proactive, an inhabitant) and the **Agentlet** (Layer 3, packaged, a catalog piece). The distinction is not hierarchical.
+- **Agentlet** — **eighth canonical primitive**. Packaged unit of Layer 3, sibling of the Botlet, whose body invokes **bounded inference** within a charter declared in the spec. The home of the task recurrent in form but interpretive in every instance. **The Agent has an agenda; the Agentlet has a charter.** An instance of a proto-Agentlet; hosted by the Botler (`cognition_call`); fallback to full Cognition. The intermediate economic rung between Botlet and Cognition.
 - **Agent First** — governing principle: the agent's experience takes precedence over the human's.
 - **Agentic** — the world of complementary agents. Incremental evolution.
 - **Agentic fallback guarantee** — the cognition executes when the Botlet fails. **The process never stops.** **What produces the Botlet's maturity.**
@@ -1118,7 +1163,7 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **Botlet, surface (shell)** — **Layer 1** Botlet acting as a container: layout, navigation, session, shared state. Specific to each product.
 - **Botlet, view** — **Layer 1** Botlet that materializes a screen or panel within a shell. Assembles Facets + orchestration logic. Reusable across shells.
 - **Botlet generations — G1/G2/G3** — evolutionary model of the birth of the Botlet's code. **G1**: configures pre-forged proto-Botlets (does not write the body). **G2**: co-writes the proto-Botlet. **G3**: generates the complete code (asymptotic). It changes the scope of Engineering, not the architecture. G3 capacity is better spent producing G1 reuse; for a platform proto-Botlet, G1 is terminal by design.
-- **Botler** — **generic** Layer 3 runtime (does not understand domain). A type (a normed construct of the Botlet spec), not a proper name. No subtypes by domain; validates by orchestrating (controlled handle); exposes an `MCP` server to the Cognition. **1 Process = 1 Botler + N Botlets**.
+- **Botler** — **generic** Layer 3 runtime (does not understand domain) that executes the **units** of the layer: Botlets and Agentlets. A type (a normed construct of the Botlet spec), not a proper name. No subtypes by domain; validates by orchestrating (controlled handle with `capability_call` · `log` · `cognition_call`); exposes an `MCP` server to the Cognition. **1 Process = 1 Botler + N units**.
 - **Botler, central** — orchestration, planning, reporting Botler in distributed Layer 3.
 - **Botler, edge** — local-transaction Botler in distributed Layer 3. One per physical site.
 - **BYOModel** — Bring Your Own Model. Substitution of the default provider. SHOULD for regulated markets.
@@ -1229,6 +1274,7 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 - **Preparation** — one of the **agent's three times**. *Mise en place* — the agent refines the catalog, improves capabilities, outside the service window. Batch / off-peak regime.
 - **Private (regime)** — AgencyDomain in a controlled perimeter. No public access.
 - **Prompt injection** — manipulation via malicious inputs.
+- **proto-Agentlet** — a pre-forged piece of interpretive capability that the agent **configures** in its Engineering time to instantiate an Agentlet. It contains the body (the charter's structure, the skeleton of the operating prompt, input/output contracts, escalation thresholds); the Agentlet is the configured instance. Same classes (tempered · platform), same derivation chain and same catalogs as the proto-Botlet.
 - **proto-Botlet** — **seventh canonical primitive**. A pre-forged piece of operational capability that the agent **configures** in its Engineering time to instantiate a Botlet. The proto-Botlet contains the code; the Botlet is the configured instance. Two classes: **tempered** (specific code; bounded parameterization) · **platform** (generic engine; compositional configuration; covers N functions). Public catalogs (AgencyDomains.org) or private (proprietary codices).
 - **Public (regime)** — publicly accessible AgencyDomain.
 
@@ -1268,6 +1314,7 @@ A public-regime AgencyDomain that adopts the model of agentive citizenship. The 
 ### U
 
 - **ucodex** — proper name of the **proprietary codex** of Grupo Ultra: its private catalog of proto-Botlets, Capabilities, and patterns, curated by real cases over the reference implementation (Vergis). An instance that exemplifies the *proprietary codex* mode; same drawer of proper names as Soveria, Agentia, ultraPRO — not a type of the canon.
+- **unit (of Layer 3)** — the genus of the packaged pieces the Botler hosts and executes. Two species: **Botlet** (non-LLM code) and **Agentlet** (bounded inference). The shared apparatus is predicated of the genus; the differential guarantees, of each species. Canonical relation: **1 Process = 1 Botler + N units**.
 
 ### V
 
@@ -1303,7 +1350,7 @@ The architecture is **product-agnostic**. It admits multiple cooperating impleme
 | Layer 3 runtime | **Botler** (normed construct of the Botlet spec, generic) | — (no proper name) |
 | Catalog component | platform proto-Botlet for informational operation | **Mira** |
 
-- **Botler** is a **type** (a normed construct of the Botlet spec — not one of the seven primitives). Any conformant Layer 3 runtime *is a* Botler.
+- **Botler** is a **type** (a normed construct of the Botlet spec — not one of the eight primitives). Any conformant Layer 3 runtime *is a* Botler.
 - **Vergis** and **Mira** are **proper names** of instances (same drawer as Soveria, Agentia, ultraPRO).
 - Vergis's category: **Meta-Cognitive Platform** — it administers the **economics of cognition** (G1 pre-forged muscle vs fresh-cognition fallback, `95/4/1` cycle, junior→senior maturation, crystallization). **NOT abbreviated to "MCP"** — that acronym names the Model Context Protocol. The descriptor is used spelled out.
 

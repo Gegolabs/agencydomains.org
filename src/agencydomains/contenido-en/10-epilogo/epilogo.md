@@ -12,7 +12,7 @@ Over nine chapters this book established a coherent set of formal constructs tha
 
 - **A paradigm** — the Nadella Line and its operative dividing question: *does the human open applications to do their work?*
 - **A formal architecture** — four layers (Interaction, Cognition, Autonomy, Access), cross-cutting Trust Infrastructure, the Agent First principle; product-agnostic, in the manner of JavaSpaces or the OSI model.
-- **Seven canonical technical primitives** — **AgencyDomain**, **Botlet**, **proto-Botlet**, **Capability**, **Trust Infrastructure**, the **Assistant vs Autonomous Agent** distinction, and the **Facet**; reusable across implementations.
+- **Eight canonical technical primitives** — **AgencyDomain**, **Botlet**, **proto-Botlet**, **Agentlet**, **Capability**, **Trust Infrastructure**, the **Assistant vs Autonomous Agent** distinction, and the **Facet**; reusable across implementations.
 - **A market model** — eleven links by four depths, with four strategic archetypes, to map any actor in the industry.
 - **A canonical application** — real-time knowledge as the foundational case, replicable in any organization with a mature data warehouse.
 - **An operationalization** — Trust Infrastructure translated into policies, CRUDLEX, a chained append-only log, human approval, hallucination detection, tokenization: what separates the spec from the buildable guide.

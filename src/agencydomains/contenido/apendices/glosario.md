@@ -24,18 +24,25 @@ Tres regímenes posibles: **privado**, **público**, **híbrido**.
 
 ### Agente
 
-Sistema computacional que actúa con cierto grado de iniciativa para producir resultados en nombre de un usuario u organización. El término genérico cubre dos modos distintos:
+Sistema computacional que actúa con cierto grado de iniciativa para producir resultados en nombre de un usuario u organización. El término paraguas cubre tres miembros:
 
 - **Asistente** — agente reactivo (Capa 2).
-- **Agente Autónomo** — agente proactivo con vida persistente (Capa 3).
+- **Agente Autónomo** — agente proactivo con vida persistente (Capa 3); habitante del AgencyDomain.
+- **Agentlet** — agente empaquetado de charter acotado (Capa 3); pieza de catálogo, no habitante.
 
-*Ver: Capítulo 5 §5.*
+*Ver: Capítulo 5 §5 (los dos modos) y §7 (el Agentlet).*
 
 ### Agent First
 
 Principio rector de diseño de la Arquitectura Agentiva: ante cualquier disyuntiva, se prioriza la experiencia del agente sobre la del humano. El agente es el usuario primario; las necesidades del humano se resuelven en una capa de gestión sin degradar lo que el agente ve y puede hacer.
 
 *Ver: Capítulo 4, sección "El principio rector — Agent First".*
+
+### Agentlet
+
+**Octava primitiva canónica**. Unidad empaquetada de Capa 3 (Autonomía), hermana del Botlet, cuyo cuerpo de ejecución **invoca inferencia acotada** — un modelo dimensionado a la tarea, dentro de un charter declarado en el spec. Casa canónica de la tarea **recurrente en forma pero interpretativa en cada instancia** (clasificar, triar, resumir, extraer, juzgar). Su juicio opera *dentro* del charter, nunca sobre el charter: **el Agente tiene agenda; el Agentlet tiene charter**. Instancia de un **proto-Agentlet**; hospedado por el Botler (toda su inferencia cursa por el punto de control `cognition_call` del handle); su fallback escala a la Cognición plena. Miembro del paraguas **Agente**, pieza de catálogo y no habitante. Peldaño económico intermedio entre el Botlet (inferencia cero) y la Cognición (inferencia plena).
+
+*Ver: Capítulo 5 §7; entradas **Botlet**, **Botler**, **proto-Agentlet**.*
 
 ### AgentNation
 
@@ -174,11 +181,11 @@ Fase madura de la trayectoria del Botlet. Ya incorporó las variantes del ambien
 
 ### Botler
 
-Runtime genérico de Capa 3 (Autonomía) que ejecuta los Botlets sin entender su dominio. Invisible al usuario. La Cognición (Capa 2) lo comanda por una interfaz interna cuyo transporte natural es `MCP` — el Botler expone servidor(es) `MCP` y la Cognición es el cliente; esto **no es `A2A`**.
+Runtime genérico de Capa 3 (Autonomía) que ejecuta las **unidades** de la capa — Botlets y Agentlets — sin entender su dominio. Invisible al usuario. La Cognición (Capa 2) lo comanda por una interfaz interna cuyo transporte natural es `MCP` — el Botler expone servidor(es) `MCP` y la Cognición es el cliente; esto **no es `A2A`**.
 
-Relación: 1 Proceso = 1 Botler + N Botlets.
+Relación: 1 Proceso = 1 Botler + N unidades (instanciada por especie: N Botlets, N Agentlets, o mezcla).
 
-**Handle controlado** — punto de acceso ligado que el Botler entrega al Botlet en cada invocación (objeto con `capability_call` y `log` enlazados al Botler) para invocar Capabilities. Hace el bypass estructuralmente imposible, no solo prohibido.
+**Handle controlado** — punto de acceso ligado que el Botler entrega a la unidad en cada invocación (objeto con `capability_call`, `log` y — para Agentlets — `cognition_call`, enlazados al Botler). Hace el bypass estructuralmente imposible, no solo prohibido.
 
 ### Botler central
 
@@ -226,7 +233,7 @@ Capa de la Arquitectura Agentiva. El cerebro del agente. Razonamiento, planifica
 
 ### Capa 3 — Autonomía
 
-Capa de la Arquitectura Agentiva. Vida persistente del agente. Ejecución de Botlets, monitoreo continuo, coordinación intra-AgencyDomain (vía el protocolo `A2A`).
+Capa de la Arquitectura Agentiva. Vida persistente del agente. Ejecución de unidades — Botlets y Agentlets —, monitoreo continuo, coordinación intra-AgencyDomain (vía el protocolo `A2A`).
 
 *Ver: Capítulo 4, sección "Capa 3 — Autonomía".*
 
@@ -432,9 +439,9 @@ Eslabón 7 de la cadena de valor: seguridad, control, governance. Protección co
 
 ### Garantía de fallback
 
-Propiedad innegociable del Botlet conforme a esta especificación: si el Botlet falla catastróficamente, **la cognición ejecuta la tarea manualmente**. El proceso nunca se detiene.
+Propiedad innegociable de las unidades de Capa 3 conformes a esta especificación: si un Botlet falla catastróficamente, **la cognición ejecuta la tarea manualmente**; si un Agentlet no resuelve dentro de su charter, **escala a la Cognición plena**. El proceso nunca se detiene.
 
-*Ver: Capítulo 5 §2.*
+*Ver: Capítulo 5 §2 y §7.*
 
 ### Gateway empresarial de IA
 
@@ -652,6 +659,12 @@ Dimensión vertical del modelo de cadena de valor de IA. Cuatro niveles canónic
 
 Manipulación de un sistema de IA mediante inputs maliciosos disfrazados como datos legítimos. Detección y prevención son parte del pilar Validación de Trust Infrastructure.
 
+### proto-Agentlet
+
+Pieza pre-forjada de capacidad interpretativa que el agente, en su tiempo de **Ingeniería**, **configura** para instanciar un Agentlet específico al caso. El proto-Agentlet contiene el cuerpo — el andamiaje de la tarea interpretativa: estructura del charter, esqueleto del prompt operativo, contratos de entrada/salida, umbrales de escalamiento —; el Agentlet es la instancia configurada. Las dos clases del proto-Botlet aplican sin cambio (templado · platafórmico), igual que la cadena de derivación y los catálogos comunes con sus efectos de red.
+
+*Ver: Capítulo 5 §7; entradas **Agentlet**, **proto-Botlet**, **Cadena de derivación**.*
+
 ### proto-Botlet
 
 **Séptima primitiva canónica** del libro. Pieza pre-forjada de capacidad operativa que el agente, en su tiempo de **Ingeniería**, **configura** para instanciar un Botlet específico al caso. El proto-Botlet contiene el código; el Botlet es la instancia configurada. En **G1**, la totalidad del código de un Botlet vive en su proto-Botlet (el agente solo configura); en **G3** el agente puede generar el código sin proto-Botlet de por medio. Distintas implementaciones mantienen catálogos de proto-Botlets (públicos en AgencyDomains.org, privados en códices propietarios). Dos clases:
@@ -709,7 +722,7 @@ Umbral habilitado por el colapso del costo de la pregunta analítica: cuando pre
 
 ### Sandbox
 
-Aislamiento de ejecución de Botlets y código generado dinámicamente. Cuatro estrategias canónicas con sus trade-offs: procesos+seccomp, contenedores, WASM, MicroVMs.
+Aislamiento de ejecución de las unidades de Capa 3 (Botlets y Agentlets) y código generado dinámicamente. Cuatro estrategias canónicas con sus trade-offs: procesos+seccomp, contenedores, WASM, MicroVMs.
 
 *Ver: Capítulo 5 §2.*
 
@@ -805,6 +818,12 @@ Gemelo digital que refleja en tiempo real el estado de un sistema físico. Patr�
 
 *Ver: Capítulo 9; entradas **códice propietario**, **Catálogo común / efectos de red**.*
 
+### unidad (de Capa 3)
+
+Género de las piezas empaquetadas que el Botler hospeda y ejecuta. Dos especies: el **Botlet** (código no-LLM, memoria muscular) y el **Agentlet** (inferencia acotada, juicio de rutina empaquetado). El aparato compartido — patrón proto-/instancia, catálogos, spec, manifestación, temporalidad, contrato declarativo de calidad, cadena de derivación, append-only log, verbos de operación — se predica del género; las garantías diferenciales (costo, determinismo, offline, fallback), de cada especie. Relación canónica del runtime: **1 Proceso = 1 Botler + N unidades**.
+
+*Ver: Capítulo 5 §2 y §7; entradas **Botlet**, **Agentlet**, **Botler**.*
+
 ## V
 
 ### Validación
@@ -823,7 +842,7 @@ Mecanismos canónicos: detección de alucinaciones, validación de respuestas es
 
 ### Vía Autonomía
 
-Una de las dos vías de la **topología paralela** (Cap 4). Camino que una operación atraviesa entre Capa 1 y Capa 4 pasando por Capa 3 (Autonomía) sin invocar Capa 2 (Cognición). Régimen propio: rápido, barato, repetitivo. Para ejecución de Botlets sobre patrones estables. Es la vía que sostiene la operación cotidiana de un AgencyDomain en producción y la base estructural del modo offline cuando los Botlets son senior.
+Una de las dos vías de la **topología paralela** (Cap 4). Camino que una operación atraviesa entre Capa 1 y Capa 4 pasando por Capa 3 (Autonomía) sin invocar Capa 2 (Cognición). Régimen propio: rápido, barato, repetitivo. Para ejecución de unidades — Botlets sobre patrones estables y Agentlets sobre juicio de rutina —. Es la vía que sostiene la operación cotidiana de un AgencyDomain en producción y la base estructural del modo offline cuando los Botlets son senior.
 
 *Ver: Capítulo 4, sección "La topología paralela".*
 

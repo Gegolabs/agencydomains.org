@@ -12,7 +12,7 @@ A lo largo de nueve capítulos este libro estableció un conjunto coherente de c
 
 - **Un paradigma** — la Línea Nadella y su pregunta divisoria operativa: *¿el humano abre aplicaciones para hacer su trabajo?*
 - **Una arquitectura formal** — cuatro capas (Interacción, Cognición, Autonomía, Acceso), Trust Infrastructure transversal, principio Agent First; agnóstica a productos, al modo de JavaSpaces o el modelo OSI.
-- **Siete primitivas técnicas canónicas** — **AgencyDomain**, **Botlet**, **proto-Botlet**, **Capability**, **Trust Infrastructure**, la distinción **Asistente vs Agente Autónomo** y la **Faceta**; reusables entre implementaciones.
+- **Ocho primitivas técnicas canónicas** — **AgencyDomain**, **Botlet**, **proto-Botlet**, **Agentlet**, **Capability**, **Trust Infrastructure**, la distinción **Asistente vs Agente Autónomo** y la **Faceta**; reusables entre implementaciones.
 - **Un modelo de mercado** — once eslabones por cuatro profundidades, con cuatro arquetipos estratégicos, para mapear a cualquier actor de la industria.
 - **Una aplicación canónica** — el conocimiento en tiempo real como caso fundacional, replicable en cualquier organización con data warehouse maduro.
 - **Una operacionalización** — Trust Infrastructure traducida a políticas, CRUDLEX, append-only log encadenado, aprobación humana, detección de alucinaciones, tokenización: lo que separa la spec de la guía construible.

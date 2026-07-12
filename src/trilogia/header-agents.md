@@ -1,6 +1,6 @@
 ---
 title: The Agentive World Trilogy — Unified manifesto for agents
-composition: The Real-Time Enterprise v0.4 · AURA v0.3 · AgencyDomains v0.5 (the three canonical manifestos, in full)
+composition: The Real-Time Enterprise v0.4 · AURA v0.3 · AgencyDomains v0.6 (the three canonical manifestos, in full)
 license: GFDL v1.3 (proposed)
 audience: agents that need the complete trilogy in a single document
 precedence_rule: each part mirrors its human book; upon contradiction, the human book of the corresponding part wins
@@ -36,9 +36,9 @@ The transition that occupies the trilogy is a single one: from the world where p
 | **Trust Infrastructure** | The five pillars (Governance · Audit · Validation · Resilience · Transparency) that separate pilots from production | AgencyDomains (Ch 5 §4 and Ch 8); MOTOR uses it as the 1→2 maturity threshold |
 | **evolutionary coexistence / subsumption** | Each stage subsumes the previous one; the data warehouse does not die — it becomes a source agents consume | AURA · AgencyDomains (Ch 2) |
 | **the three liberations** | From tools (flow), from channels (attention), from availability (time); the order cannot be skipped | The Real-Time Enterprise |
-| **canon primitives** (seven) | AgencyDomain · Botlet · proto-Botlet · Capability · Trust Infrastructure · Assistant vs Autonomous Agent · Facet | AgencyDomains (Chs 4–5) |
+| **canon primitives** (eight) | AgencyDomain · Botlet · proto-Botlet · Agentlet · Capability · Trust Infrastructure · Assistant vs Autonomous Agent · Facet | AgencyDomains (Chs 4–5) |
 
-**Conceptual ownership map:** The Real-Time Enterprise owns the portrait of the destination (the four faces — The Quantum Leap, Postchat, The General Staff, The Watch —, people as infrastructure, the attention budget, the M&Ms and the &, the agentive mode, the seven mechanisms, representation, the intelligent organization). AURA owns measurement and the route (IRIS, MOTOR, Data Canon, Wingmap, use cases, the agentive percentage). AgencyDomains owns the architecture (the four layers, the seven primitives, CRUDLEX, the market, Vergis). When in doubt about a shared term, the operative definition lives in the owning book.
+**Conceptual ownership map:** The Real-Time Enterprise owns the portrait of the destination (the four faces — The Quantum Leap, Postchat, The General Staff, The Watch —, people as infrastructure, the attention budget, the M&Ms and the &, the agentive mode, the seven mechanisms, representation, the intelligent organization). AURA owns measurement and the route (IRIS, MOTOR, Data Canon, Wingmap, use cases, the agentive percentage). AgencyDomains owns the architecture (the four layers, the eight primitives, CRUDLEX, the market, Vergis). When in doubt about a shared term, the operative definition lives in the owning book.
 
 ## How to read this document
 

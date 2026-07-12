@@ -7,6 +7,38 @@ iteraciones. A partir de **v1.0** (primera publicación pública estable) aplica
 **append-only** para la numeración de figuras: cada figura nueva toma el siguiente número
 disponible al final, sin re-enumerar las existentes.
 
+## v0.6 — Julio 2026
+
+**El Agentlet — octava primitiva canónica.** El canon incorpora la unidad hermana
+del Botlet cuyo cuerpo de ejecución invoca inferencia acotada: la casa de la tarea
+recurrente en forma pero interpretativa en cada instancia (clasificar, triar,
+resumir, extraer, juzgar), que hasta ahora pagaba precio de Cognición plena o se
+forzaba, frágil, a código determinístico. Careo de origen en la cocina del proyecto
+(doc 012).
+
+- **Sección nueva Cap. 5 §7 — Agentlets**: definición y charter, la regla de
+  contrabando (bidireccional), tablas canónicas Agentlet vs Botlet y Agentlet vs
+  Agente (agenda vs charter), test de frontera de tres preguntas, el Botler como
+  tutor único (handle con punto de control `cognition_call`), semántica de madurez
+  propia (estabilización, no convergencia; offline solo con modelo edge declarado),
+  proto-Agentlet con cadena de derivación y catálogos, la economía de los tres
+  peldaños, criterios de uso y conformidad.
+- **El género «unidad»**: el Botler hospeda unidades — Botlets y Agentlets —; la
+  relación canónica se generaliza a `1 Proceso = 1 Botler + N unidades` (Cap. 5 §2,
+  glosario). El aparato compartido se predica del género; las garantías
+  diferenciales, de cada especie.
+- **El paraguas «Agente» pasa a tres miembros**: Asistente · Agente Autónomo ·
+  Agentlet (Cap. 5 §5, glosario).
+- **El pilar de Validación gana sede en Capa 3**: los mecanismos del Pilar 3 aplican
+  sobre la inferencia acotada de los Agentlets en el punto de control del Botler
+  (Cap. 4, Cap. 5 §4).
+- **Economía de la vía Autonomía matizada**: tres peldaños de costo (Botlet ~0 ·
+  Agentlet acotado y presupuestado · Cognición plena); el mix se declara por unidad
+  (Cap. 4).
+- Conteo del elenco actualizado en Cap. 4, Cap. 9, Epílogo y frontmatter; glosario
+  con entradas nuevas **Agentlet**, **proto-Agentlet** y **unidad (de Capa 3)**;
+  la transición de cierre del Cap. 5 se reubica al final real del capítulo.
+
 ## v0.5 — Julio 2026
 > **Revisiones dentro de v0.5** (auditoría integral + decisiones editoriales,
 > 2026-07-03): frontmatter.tex a v0.5; doctrina del Botlet de fachada fijada

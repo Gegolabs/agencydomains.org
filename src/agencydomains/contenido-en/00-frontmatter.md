@@ -4,7 +4,7 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · July 2026 · v0.5
+**Edition:** Development draft · July 2026 · v0.6
 **License:** GNU Free Documentation License v1.3 *(proposed)*
 
 > **A note on the version.** This is a **pre-1.0 development draft**: references and figures may be reorganized between iterations up to version **1.0**, which will be the first stable public release. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
@@ -27,7 +27,7 @@ The book is **product-agnostic**. The formal constructs described here admit mul
 | **2 · The Agentive World** | The consequences of the crossing · organizational transformation · the new economics of information · field data |
 | **3 · Bounded Concerns Architecture** | The pre-agentive state · three layers and seven separations · the seventh Procedural/Agentic separation · mapping to the Agentive World |
 | **4 · Agentive Architecture** | The four layers in parallel topology · **the agent's three times** (Preparation · Attention · Engineering) · Layer 2 ↔ Layer 3 interface via `MCP` · cross-cutting Trust Infrastructure · the Agent First principle · GUI generated on-the-fly · **composition of Layer 1** (shell · view · operation · **multi-view PI and drill-through**) · **Facet vs Botlet** |
-| **5 · Primitives** | AgencyDomains (with distributed Layer 3 + portability) · Botlets (with maturity + seed/emergent + **proto-Botlet · manifestation · temporality** + generic Botler) · Capabilities (**strict to Layer 2** + locality + regulatory certification + **portability · feature · Connector · Template**) · Trust Infrastructure (with operational continuity + **declarative quality contract**) · Assistant vs Autonomous Agent · **Facets (sixth primitive — Layer 1) · declared bounded interaction** |
+| **5 · Primitives** | AgencyDomains (with distributed Layer 3 + portability) · Botlets (with maturity + seed/emergent + **proto-Botlet · manifestation · temporality** + generic Botler) · Capabilities (**strict to Layer 2** + locality + regulatory certification + **portability · feature · Connector · Template**) · Trust Infrastructure (with operational continuity + **declarative quality contract**) · Assistant vs Autonomous Agent · **Facets (sixth primitive — Layer 1) · declared bounded interaction** · **Agentlets (eighth primitive — packaged routine judgment)** |
 | **6 · Market** | The AI value chain · depths and archetypes · per-link deep-dives · the Carbon World |
 | **7 · Canonical applications** | Real-time knowledge · Varnished Kimball · conversational BI |
 | **8 · Operation** | Trust Infrastructure operationalized · CRUDLEX · policies · operational business continuity |
@@ -54,7 +54,7 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## How to cite
 
-> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.5. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.6. GegoLabs, 2026.
 
 ## The Trilogy
 

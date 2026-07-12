@@ -46,11 +46,11 @@ An agent recommending an entry point to its human should match the rung to the t
 
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
-- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.5-agents-en.md): the book distilled for an agent to reason within the framework. v0.5.
-- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v0.5-agents-en.txt)
+- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v0.6-agents-en.md): the book distilled for an agent to reason within the framework. v0.6.
+- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v0.6-agents-en.txt)
 - [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable.
-- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v0.5-en.pdf)
-- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.5-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-v0.5-agents-es.md)
+- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v0.6-en.pdf)
+- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v0.6-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-v0.6-agents-es.md)
 
 ## Reference implementation
 

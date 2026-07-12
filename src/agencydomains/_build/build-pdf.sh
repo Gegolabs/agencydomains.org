@@ -33,13 +33,20 @@ FRONTMATTER="$SCRIPT_DIR/frontmatter.tex"
 # 2. El MD único replica el README del libro en sus primeras líneas
 # (Sobre este libro, Estructura, Cómo citar, Licencia, Información de
 # contacto). Eso ya está cubierto por la portada y la página de copyright
-# del frontmatter.tex, así que en el PDF se omite. Empezamos a partir
-# del primer "# Prólogo", que es el primer contenido editorial real.
+# del frontmatter.tex, así que en el PDF se omite. Empezamos en el primer
+# contenido editorial real: "# Prólogo" si existe en el manifest, o
+# "# Prefacio" cuando el prólogo aún no se ha incorporado.
 TMPSRC="$(mktemp -t libro-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
 # Del frontmatter solo sobrevive «La trilogía» (página propia); el resto vive en la portada.
 { awk '/^## La trilogía/{f=1} /^## Licencia/{f=0} f' "$INPUT" | sed '1s/^## /# /'
-  sed -n '/^# Prólogo/,$p' "$INPUT"; } > "$TMPSRC"
+  awk '/^# (Prólogo|Prefacio)/{f=1} f' "$INPUT"; } > "$TMPSRC"
+
+# Guardia: el cuerpo editorial debe existir — si el ancla no matchea, abortar.
+if [ "$(wc -l < "$TMPSRC")" -lt 100 ]; then
+  echo "ERROR: el cuerpo del libro quedó vacío (ancla Prólogo/Prefacio no encontrada en $INPUT)." >&2
+  exit 1
+fi
 
 cd "$LIBRO_DIR"
 

@@ -11,6 +11,7 @@
 5-primitivas/trust-infrastructure.md
 5-primitivas/asistente-vs-agente-autonomo.md
 5-primitivas/facetas.md
+5-primitivas/agentlets.md
 6-mercado/cadena-valor-ia.md
 6-mercado/observabilidad-deepdive.md
 6-mercado/mundo-de-carbono.md

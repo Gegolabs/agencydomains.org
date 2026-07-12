@@ -1,6 +1,6 @@
 # Capítulo 5 · Primitivas
 
-Las cuatro capas del Capítulo 4 son la respuesta arquitectónica al paradigma, pero no se sostienen solas: necesitan piezas reusables que las pueblen. Este capítulo entrega esas piezas — las **primitivas técnicas canónicas** del Mundo Agentivo. Cada sección formaliza una: el **AgencyDomain** (§1), el **Botlet** con su **proto-Botlet** (§2), la **Capability** (§3), la **Trust Infrastructure** (§4), la distinción **Asistente vs Agente Autónomo** (§5) y la **Faceta** (§6).
+Las cuatro capas del Capítulo 4 son la respuesta arquitectónica al paradigma, pero no se sostienen solas: necesitan piezas reusables que las pueblen. Este capítulo entrega esas piezas — las **primitivas técnicas canónicas** del Mundo Agentivo. Cada sección formaliza una: el **AgencyDomain** (§1), el **Botlet** con su **proto-Botlet** (§2), la **Capability** (§3), la **Trust Infrastructure** (§4), la distinción **Asistente vs Agente Autónomo** (§5), la **Faceta** (§6) y el **Agentlet** (§7).
 
 ## AgencyDomains
 

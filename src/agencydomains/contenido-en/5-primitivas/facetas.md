@@ -17,7 +17,7 @@ The Facet is an **instrument**, not a process. It lives and operates in Layer 1.
 
 ### Facet vs Botlet — the canonical distinction
 
-The Facet and the Botlet are the agent's two software primitives. They are easily confused because both are pieces with an identity of their own that the agent uses to do things. The canonical distinction:
+The Facet and the Botlet are two of the agent's software primitives. They are easily confused because both are pieces with an identity of their own that the agent uses to do things. The canonical distinction:
 
 | Axis | **Facet** | **Botlet** |
 |---|---|---|

@@ -1,6 +1,6 @@
 ---
 título: Trilogía del Mundo Agentivo — Manifiesto unificado para agentes
-composición: La Empresa en Tiempo Real v0.4 · AURA v0.3 · AgencyDomains v0.5 (los tres manifiestos canónicos, íntegros)
+composición: La Empresa en Tiempo Real v0.4 · AURA v0.3 · AgencyDomains v0.6 (los tres manifiestos canónicos, íntegros)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que necesitan la trilogía completa en un solo documento
 regla_de_precedencia: cada parte es espejo de su libro humano; ante contradicción, gana el libro humano de la parte correspondiente
@@ -36,9 +36,9 @@ El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas 
 | **Trust Infrastructure** | Los cinco pilares (Gobernanza · Auditoría · Validación · Resiliencia · Transparencia) que separan pilotos de producción | AgencyDomains (Cap 5 §4 y Cap 8); MOTOR la usa como umbral de madurez 1→2 |
 | **coexistencia evolutiva / subsunción** | Cada etapa subsume a la anterior; el data warehouse no muere — se vuelve fuente que los agentes consumen | AURA · AgencyDomains (Cap 2) |
 | **las tres liberaciones** | De las herramientas (flujo), de los canales (atención), de la disponibilidad (tiempo); el orden no se salta | La Empresa en Tiempo Real |
-| **primitivas del canon** (siete) | AgencyDomain · Botlet · proto-Botlet · Capability · Trust Infrastructure · Asistente vs Agente Autónomo · Faceta | AgencyDomains (Caps 4–5) |
+| **primitivas del canon** (ocho) | AgencyDomain · Botlet · proto-Botlet · Agentlet · Capability · Trust Infrastructure · Asistente vs Agente Autónomo · Faceta | AgencyDomains (Caps 4–5) |
 
-**Mapa de propiedad conceptual:** La Empresa en Tiempo Real es dueño del retrato del destino (las cuatro caras — El salto cuántico, Postchat, El Estado Mayor, La guardia —, la persona como infraestructura, el presupuesto de atención, los M&Ms y el &, el modo agentivo, los siete mecanismos, la representación, la organización inteligente). AURA es dueño de la medición y la ruta (IRIS, MOTOR, Data Canon, Wingmap, casos de uso, porcentaje agentivo). AgencyDomains es dueño de la arquitectura (las cuatro capas, las siete primitivas, CRUDLEX, el mercado, Vergis). Ante duda sobre un término compartido, la definición operativa vive en el libro dueño.
+**Mapa de propiedad conceptual:** La Empresa en Tiempo Real es dueño del retrato del destino (las cuatro caras — El salto cuántico, Postchat, El Estado Mayor, La guardia —, la persona como infraestructura, el presupuesto de atención, los M&Ms y el &, el modo agentivo, los siete mecanismos, la representación, la organización inteligente). AURA es dueño de la medición y la ruta (IRIS, MOTOR, Data Canon, Wingmap, casos de uso, porcentaje agentivo). AgencyDomains es dueño de la arquitectura (las cuatro capas, las ocho primitivas, CRUDLEX, el mercado, Vergis). Ante duda sobre un término compartido, la definición operativa vive en el libro dueño.
 
 ## Cómo leer este documento
 

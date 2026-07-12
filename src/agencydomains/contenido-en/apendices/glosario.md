@@ -24,18 +24,25 @@ Three possible regimes: **private**, **public**, **hybrid**.
 
 ### Agent
 
-Computational system that acts with some degree of initiative to produce results on behalf of a user or organization. The umbrella term covers two distinct modes:
+Computational system that acts with some degree of initiative to produce results on behalf of a user or organization. The umbrella term covers three members:
 
 - **Assistant** — reactive agent (Layer 2).
-- **Autonomous Agent** — proactive agent with persistent life (Layer 3).
+- **Autonomous Agent** — proactive agent with persistent life (Layer 3); an inhabitant of the AgencyDomain.
+- **Agentlet** — packaged agent of bounded charter (Layer 3); a catalog piece, not an inhabitant.
 
-*See: Chapter 5 §5.*
+*See: Chapter 5 §5 (the two modes) and §7 (the Agentlet).*
 
 ### Agent First
 
 The governing design principle of the Agentive Architecture: faced with any dilemma, the agent's experience is prioritized over the human's. The agent is the primary user; the human's needs are resolved in a management layer without degrading what the agent sees and can do.
 
 *See: Chapter 4, section "The governing principle — Agent First."*
+
+### Agentlet
+
+**Eighth canonical primitive**. Packaged unit of Layer 3 (Autonomy), sibling of the Botlet, whose execution body **invokes bounded inference** — a model sized to the task, within a charter declared in the spec. The canonical home of the task **recurrent in form but interpretive in every instance** (classify, triage, summarize, extract, judge). Its judgment operates *within* the charter, never over the charter: **the Agent has an agenda; the Agentlet has a charter**. An instance of a **proto-Agentlet**; hosted by the Botler (all of its inference passes through the `cognition_call` control point of the handle); its fallback escalates to full Cognition. A member of the **Agent** umbrella, a catalog piece and not an inhabitant. The intermediate economic rung between the Botlet (zero inference) and Cognition (full inference).
+
+*See: Chapter 5 §7; entries **Botlet**, **Botler**, **proto-Agentlet**.*
 
 ### AgentNation
 
@@ -174,11 +181,11 @@ Mature phase of the Botlet's trajectory. It has already incorporated the variant
 
 ### Botler
 
-Generic Layer 3 (Autonomy) runtime that executes Botlets without understanding their domain. Invisible to the user. Cognition (Layer 2) commands it through an internal interface whose natural transport is `MCP` — the Botler exposes `MCP` server(s) and Cognition is the client; this is **not `A2A`**.
+Generic Layer 3 (Autonomy) runtime that executes the **units** of the layer — Botlets and Agentlets — without understanding their domain. Invisible to the user. Cognition (Layer 2) commands it through an internal interface whose natural transport is `MCP` — the Botler exposes `MCP` server(s) and Cognition is the client; this is **not `A2A`**.
 
-Relation: 1 Process = 1 Botler + N Botlets.
+Relation: 1 Process = 1 Botler + N units (instantiated per species: N Botlets, N Agentlets, or a mix).
 
-**Controlled handle** — bound access point that the Botler hands to the Botlet on each invocation (an object with `capability_call` and `log` bound to the Botler) to invoke Capabilities. It makes the bypass structurally impossible, not merely prohibited.
+**Controlled handle** — bound access point that the Botler hands to the unit on each invocation (an object with `capability_call`, `log` and — for Agentlets — `cognition_call`, bound to the Botler). It makes the bypass structurally impossible, not merely prohibited.
 
 ### Central Botler
 
@@ -226,7 +233,7 @@ Layer of the Agentive Architecture. The agent's brain. Reasoning, planning, appl
 
 ### Layer 3 — Autonomy
 
-Layer of the Agentive Architecture. The agent's persistent life. Execution of Botlets, continuous monitoring, intra-AgencyDomain coordination (via the `A2A` protocol).
+Layer of the Agentive Architecture. The agent's persistent life. Execution of units — Botlets and Agentlets —, continuous monitoring, intra-AgencyDomain coordination (via the `A2A` protocol).
 
 *See: Chapter 4, section "Layer 3 — Autonomy."*
 
@@ -432,9 +439,9 @@ Link 7 of the value chain: security, control, governance. Protection against pro
 
 ### Fallback guarantee
 
-Non-negotiable property of the Botlet conformant to this specification: if the Botlet fails catastrophically, **cognition executes the task manually**. The process never stops.
+Non-negotiable property of the Layer 3 units conformant to this specification: if a Botlet fails catastrophically, **cognition executes the task manually**; if an Agentlet cannot resolve within its charter, **it escalates to full Cognition**. The process never stops.
 
-*See: Chapter 5 §2.*
+*See: Chapter 5 §2 and §7.*
 
 ### Enterprise AI gateway
 
@@ -652,6 +659,12 @@ Vertical dimension of the AI value chain model. Four canonical levels: **Wrapper
 
 Manipulation of an AI system through malicious inputs disguised as legitimate data. Detection and prevention are part of the Validation pillar of Trust Infrastructure.
 
+### proto-Agentlet
+
+A pre-forged piece of interpretive capability that the agent, in its **Engineering** time, **configures** to instantiate an Agentlet specific to the case. The proto-Agentlet contains the body — the scaffolding of the interpretive task: the charter's structure, the skeleton of the operating prompt, the input/output contracts, the escalation thresholds —; the Agentlet is the configured instance. The proto-Botlet's two classes apply unchanged (tempered · platform), as do the derivation chain and the common catalogs with their network effects.
+
+*See: Chapter 5 §7; entries **Agentlet**, **proto-Botlet**, **Derivation chain**.*
+
 ### proto-Botlet
 
 **Seventh canonical primitive** of the book. A pre-forged piece of operational capability that the agent, in its **Engineering** time, **configures** to instantiate a Botlet specific to the case. The proto-Botlet contains the code; the Botlet is the configured instance. In **G1**, the entirety of a Botlet's code lives in its proto-Botlet (the agent only configures); in **G3** the agent can generate the code with no proto-Botlet in between. Different implementations maintain catalogs of proto-Botlets (public on AgencyDomains.org, private in proprietary codices). Two classes:
@@ -709,7 +722,7 @@ Threshold enabled by the collapse of the cost of the analytical question: when a
 
 ### Sandbox
 
-Execution isolation of Botlets and dynamically generated code. Four canonical strategies with their trade-offs: processes+seccomp, containers, WASM, MicroVMs.
+Execution isolation of the Layer 3 units (Botlets and Agentlets) and dynamically generated code. Four canonical strategies with their trade-offs: processes+seccomp, containers, WASM, MicroVMs.
 
 *See: Chapter 5 §2.*
 
@@ -805,6 +818,12 @@ A digital twin that reflects in real time the state of a physical system. Canoni
 
 *See: Chapter 9; entries **proprietary codex**, **Common catalog / network effects**.*
 
+### unit (of Layer 3)
+
+The genus of the packaged pieces that the Botler hosts and executes. Two species: the **Botlet** (non-LLM code, muscle memory) and the **Agentlet** (bounded inference, packaged routine judgment). The shared apparatus — proto-/instance pattern, catalogs, spec, manifestation, temporality, declarative quality contract, derivation chain, append-only log, operation verbs — is predicated of the genus; the differential guarantees (cost, determinism, offline, fallback), of each species. Canonical runtime relation: **1 Process = 1 Botler + N units**.
+
+*See: Chapter 5 §2 and §7; entries **Botlet**, **Agentlet**, **Botler**.*
+
 ## V
 
 ### Validation
@@ -823,7 +842,7 @@ Canonical mechanisms: hallucination detection, structured-response validation, p
 
 ### Autonomy Path
 
-One of the two paths of the **parallel topology** (Ch. 4). The path an operation traverses between Layer 1 and Layer 4 passing through Layer 3 (Autonomy) without invoking Layer 2 (Cognition). Its own regime: fast, cheap, repetitive. For the execution of Botlets over stable patterns. It is the path that sustains the everyday operation of an AgencyDomain in production and the structural basis of the offline mode when the Botlets are senior.
+One of the two paths of the **parallel topology** (Ch. 4). The path an operation traverses between Layer 1 and Layer 4 passing through Layer 3 (Autonomy) without invoking Layer 2 (Cognition). Its own regime: fast, cheap, repetitive. For the execution of units — Botlets over stable patterns and Agentlets over routine judgment —. It is the path that sustains the everyday operation of an AgencyDomain in production and the structural basis of the offline mode when the Botlets are senior.
 
 *See: Chapter 4, section "The parallel topology."*
 

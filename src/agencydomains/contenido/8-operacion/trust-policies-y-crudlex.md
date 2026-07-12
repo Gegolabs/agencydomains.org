@@ -344,7 +344,7 @@ La asimetría del costo es lo que justifica la inversión. Implementar Trust Inf
 
 ## Continuidad operacional — operacionalización del segundo mecanismo
 
-El Capítulo 5 §4 formaliza la distinción entre los dos mecanismos complementarios de continuidad — fallback agéntico y continuidad de negocio operacional — y se asume aquí como dada. El primero ya está cubierto operacionalmente por la spec del Botlet (Cap 5 §2) y la garantía de no-detención de la Capa 3 (Cap 4). El segundo necesita operacionalización propia — la sección que sigue la entrega.
+El Capítulo 5 §4 formaliza la distinción entre los dos mecanismos complementarios de continuidad — fallback agéntico y continuidad de negocio operacional — y se asume aquí como dada. El primero ya está cubierto operacionalmente por la spec de las unidades de Capa 3 (Cap 5 §2 y §7) y la garantía de no-detención de la capa (Cap 4). El segundo necesita operacionalización propia — la sección que sigue la entrega.
 
 ### Protocolo de continuidad por sitio físico
 
@@ -378,7 +378,7 @@ El append-only log debe registrar las transiciones entre modos para que la audit
 - **Inicio de continuidad operacional** — cuando el sitio activa el protocolo manual, emite (cuando vuelve la red, retroactivamente) un evento `mode-change: continuity-operational` con timestamp del corte y duración estimada.
 - **Registros físicos ingresados retroactivamente** — cada transacción ingresada desde registro físico lleva tag `provenance: manual-continuity` y `original-timestamp: <hora física>` distinto del `system-timestamp: <hora de ingreso>`. La distinción permite que reportes y reconciliaciones distingan eventos físicos de eventos digitales.
 - **Reconciliación de cola edge** — cuando un Botler edge drena su cola hacia central tras volver la red, los eventos llevan tag `provenance: edge-queue-replay` con el timestamp original del sitio.
-- **Distinción auditable entre fallback agéntico y continuidad operacional** — el log distingue eventos `agentic-fallback` (cognición rescató al Botlet) de `operational-continuity` (humano sostuvo la operación). Auditoría posterior puede separar ambos casos sin ambigüedad. Esta distinción es lo que la organización presenta cuando un regulador pregunta cómo operó durante un incidente.
+- **Distinción auditable entre fallback agéntico y continuidad operacional** — el log distingue eventos `agentic-fallback` (la cognición rescató a la unidad — ejecutó por el Botlet o recibió el escalamiento del Agentlet) de `operational-continuity` (humano sostuvo la operación). Auditoría posterior puede separar ambos casos sin ambigüedad. Esta distinción es lo que la organización presenta cuando un regulador pregunta cómo operó durante un incidente.
 
 ### Propiedades exigidas operacionales
 

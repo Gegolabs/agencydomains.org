@@ -19,6 +19,8 @@ La frase canónica resume bien la diferencia operativa. El Asistente es trabajad
 
 La distinción **no es jerárquica**. Un Agente Autónomo no es un Asistente mejorado. Son **roles distintos** con propósitos distintos. Un sistema agentivo maduro contiene **ambos modos** y los compone. La organización que solo opera Asistentes se queda corta porque sus agentes no pueden operar en background; la organización que solo opera Agentes Autónomos se queda corta porque no puede atender solicitudes humanas conversacionales. Sistemas serios necesitan los dos.
 
+El término paraguas **Agente** cubre un tercer miembro además de estos dos modos: el **Agentlet** — el agente empaquetado, de charter acotado, que vive como unidad de catálogo en la Capa 3 junto al Botlet. No es un tercer modo del mismo eje — los modos describen cómo opera el agente pleno; el Agentlet es una pieza que el agente pleno engendra y mantiene. Su formalización, y la frontera que lo separa del Agente Autónomo, viven en el §7 de este capítulo.
+
 ### ¿Por qué la distinción importa?
 
 Tres razones operativas concretas justifican la atención que esta sección dedica a la distinción.
@@ -119,9 +121,3 @@ Una implementación que ofrece ambos modos conforme a esta especificación debe 
 | Componibilidad: Asistente puede consultar estado del Agente Autónomo | **SHOULD** |
 | Distinción de modelo de cobro entre los dos modos | **SHOULD** |
 | Prevención de los tres anti-patrones | **MUST** |
-
----
-
-Con esta distinción cierra el bloque de construcciones formales que sostienen la Arquitectura Agentiva. Quien haya seguido el Capítulo 5 tiene en mano el vocabulario constructivo necesario para razonar sobre sistemas agentivos sin caer en los tres anti-patrones recurrentes detrás del fracaso documentado en el Capítulo 2.
-
-El Capítulo 6 desplaza la mirada del sistema individual al mercado. Permite a quien construye o invierte responder con disciplina la pregunta de dónde compite cada actor — propio o ajeno — y por qué un mismo eslabón de la cadena puede ser zona muy disputada o territorio aún abierto.

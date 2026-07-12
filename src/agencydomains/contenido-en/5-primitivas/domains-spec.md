@@ -1,6 +1,6 @@
 # Chapter 5 · Primitives
 
-The four layers of Chapter 4 are the architectural answer to the paradigm, but they do not stand on their own: they need reusable pieces to populate them. This chapter delivers those pieces — the **canonical technical primitives** of the Agentive World. Each section formalizes one: the **AgencyDomain** (§1), the **Botlet** with its **proto-Botlet** (§2), the **Capability** (§3), the **Trust Infrastructure** (§4), the **Assistant vs Autonomous Agent** distinction (§5), and the **Facet** (§6).
+The four layers of Chapter 4 are the architectural answer to the paradigm, but they do not stand on their own: they need reusable pieces to populate them. This chapter delivers those pieces — the **canonical technical primitives** of the Agentive World. Each section formalizes one: the **AgencyDomain** (§1), the **Botlet** with its **proto-Botlet** (§2), the **Capability** (§3), the **Trust Infrastructure** (§4), the **Assistant vs Autonomous Agent** distinction (§5), the **Facet** (§6), and the **Agentlet** (§7).
 
 ## AgencyDomains
 

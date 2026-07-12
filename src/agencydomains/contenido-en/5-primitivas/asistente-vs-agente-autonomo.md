@@ -19,6 +19,8 @@ The canonical phrase captures the operational difference well. The Assistant is 
 
 The distinction is **not hierarchical**. An Autonomous Agent is not an upgraded Assistant. They are **distinct roles** with distinct purposes. A mature agentive system contains **both modes** and composes them. The organization that operates only Assistants falls short because its agents cannot operate in the background; the organization that operates only Autonomous Agents falls short because it cannot handle conversational human requests. Serious systems need both.
 
+The umbrella term **Agent** covers a third member beyond these two modes: the **Agentlet** — the packaged agent of bounded charter, living as a catalog unit in Layer 3 alongside the Botlet. It is not a third mode on the same axis — the modes describe how the full agent operates; the Agentlet is a piece the full agent engenders and maintains. Its formalization, and the border that separates it from the Autonomous Agent, live in §7 of this chapter.
+
 ### Why does the distinction matter?
 
 Three concrete operational reasons justify the attention this section devotes to the distinction.
@@ -119,9 +121,3 @@ An implementation that offers both modes conformant with this specification must
 | Composability: Assistant can query the Autonomous Agent's status | **SHOULD** |
 | Distinction of billing model between the two modes | **SHOULD** |
 | Prevention of the three anti-patterns | **MUST** |
-
----
-
-With this distinction the block of formal constructs that underpin the Agentive Architecture comes to a close. Whoever has followed Chapter 5 holds the constructive vocabulary needed to reason about agentive systems without falling into the three recurrent anti-patterns behind the failure documented in Chapter 2.
-
-Chapter 6 shifts the gaze from the individual system to the market. It lets whoever builds or invests answer with discipline the question of where each actor — one's own or another's — competes, and why one and the same link in the chain can be a hotly contested zone or still-open territory.

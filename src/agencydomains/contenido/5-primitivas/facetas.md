@@ -17,7 +17,7 @@ La Faceta es **instrumento**, no proceso. Vive y opera en la Capa 1. Es invocada
 
 ### Faceta vs Botlet — la distinción canónica
 
-La Faceta y el Botlet son las dos primitivas de software del agente. Se confunden fácil porque ambas son piezas con identidad propia que el agente usa para hacer cosas. La distinción canónica:
+La Faceta y el Botlet son dos primitivas de software del agente. Se confunden fácil porque ambas son piezas con identidad propia que el agente usa para hacer cosas. La distinción canónica:
 
 | Eje | **Faceta** | **Botlet** |
 |---|---|---|
