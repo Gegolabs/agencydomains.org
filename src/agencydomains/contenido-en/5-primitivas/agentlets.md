@@ -14,7 +14,7 @@ This section formalizes the **Agentlet** as the **eighth canonical primitive** �
 
 An **Agentlet** is a packaged unit of Layer 3 (Autonomy), sibling of the Botlet, whose execution body **invokes bounded inference**: a model sized to the task, applied within a charter the spec declares. Like the Botlet, it is a configured instance of a pre-forged piece — the **proto-Agentlet** —, it is hosted by the Botler, and it is engendered and maintained by the agent. Unlike the Botlet, each of its executions exercises judgment: it interprets the concrete instance in front of it rather than executing deterministic code.
 
-The phrase that fixes the sibling doctrine: **an Agentlet is a Botlet with judgment inside — no more, no less**. It lives exactly like its sibling. It inherits by structure, not by exception, the entire apparatus of Layer 3 units: the proto-/instance pattern, the catalogs and their network effects, the source-code vs spec separation, **manifestation** and **temporality** (`discrete`/`continuous`), the declarative quality contract, the derivation chain, the append-only log, and the operation API verbs (`specialize` · `invoke`/`schedule` · `read`/`subscribe` · `status`/`activate`/`deactivate`/`retire`). What changes is a single attribute — the body invokes inference — and from that attribute follow, in cascade, the differences the rest of this section develops.
+The phrase that fixes the sibling doctrine: **an Agentlet is a Botlet with judgment inside — no more, no less**. It lives exactly like its sibling. It inherits by structure, not by exception, the entire apparatus of the Lets — the packaged units of Layer 3 —: the proto-/instance pattern, the catalogs and their network effects, the source-code vs spec separation, **manifestation** and **temporality** (`discrete`/`continuous`), the declarative quality contract, the derivation chain, the append-only log, and the operation API verbs (`specialize` · `invoke`/`schedule` · `read`/`subscribe` · `status`/`activate`/`deactivate`/`retire`). What changes is a single attribute — the body invokes inference — and from that attribute follow, in cascade, the differences the rest of this section develops.
 
 Four properties define the conformant Agentlet. The first is that its **charter is declared in the spec**: what task it resolves, over what inputs, with what outputs, within what limits. The Agentlet does not choose what to do — its inference is spent on *how* to do its own work, never on deciding *what* its work is. The second is that its **inference is bounded**: the spec declares the model (sized to the task, not the frontier model of Cognition), the Capabilities it may consult, and the budget per execution. The third is that **all of its inference passes through the Botler**: the controlled handle the Botler hands it includes the cognition control point, so that every model call is metered, budgeted, validated and audited — bypass is structurally impossible, not merely forbidden. The fourth is that it carries a **fallback guarantee toward full Cognition**: when its bounded inference cannot resolve the case — the charter does not reach, the verdict's confidence falls below threshold, the input resembles nothing anticipated —, the Agentlet escalates and Layer 2 Cognition rescues. The process never stops.
 
@@ -40,7 +40,7 @@ The second direction of the rule also describes a **natural trajectory**: there 
 | **Offline** | Senior reliably operable offline | Only with an edge-resident model, declared in the spec |
 | **Fallback** | Cognition executes manually | Escalates to full Cognition |
 
-What the table does **not** contain matters as much as what it does: proto-/instance, catalogs, spec, manifestation, temporality, quality contract, derivation chain, log, operation verbs, hosting by the Botler, genesis by the agent — all of that is identical, because it is predicated of the genus and not of the species. The spec calls the genus **units**: the Botler hosts units; the Botlet and the Agentlet are its two species. The canonical runtime relation is stated in its general form — **1 Process = 1 Botler + N units** — and each context instantiates it to the species at hand.
+What the table does **not** contain matters as much as what it does: proto-/instance, catalogs, spec, manifestation, temporality, quality contract, derivation chain, log, operation verbs, hosting by the Botler, genesis by the agent — all of that is identical, because it is predicated of the genus and not of the species. The spec calls the genus by its proper name: the **Lets** — the Botler hosts Lets; the Botlet and the Agentlet are its two species. The name derives from the family's own morphology and is, like Botler, normed vocabulary of the canon — not a ninth primitive. The canonical runtime relation is stated in its general form — **1 Process = 1 Botler + N Lets** — and each context instantiates it to the species at hand.
 
 ### Agentlet vs Agent — agenda vs charter
 
@@ -61,7 +61,7 @@ The border fits in one line: **the Agent has an agenda; the Agentlet has a chart
 The **border test** protects the category from bleeding upward. Three questions; any answer on the side of autonomy means the piece is an Agent, not an Agentlet:
 
 1. Does it choose its own goals, or does it receive them declared in the spec?
-2. Can it alter its own process or engender other units?
+2. Can it alter its own process or engender other Lets?
 3. Is its identity that of an inhabitant (provisioning) or of an instance (`specialize`)?
 
 An Agentlet with a fat charter, an internal loop and its own criteria about what to pursue is not an advanced Agentlet: it is an Autonomous Agent in disguise, operating without the governance its nature demands — the agentive version of anti-pattern C in §5.
@@ -72,16 +72,16 @@ The Agentlet brings no runtime of its own. It is hosted by **the same Botler** t
 
 The governance consequence is the entire argument: **because all of the Agentlet's inference passes through the handle, Trust Infrastructure sees it whole.** Every model call is metered (tokens, latency), budgeted (against the limit the spec declares), validated (the Pillar 3 mechanisms — hallucination detection, DLP, tokenization — apply at the control point) and audited (in the same append-only log, under the same identity, under the same governance as the rest of the AgencyDomain). A parallel runtime for Agentlets would have to duplicate all of that machinery — a second sandbox, a second handle scheme, a second escalation chain, a second presence in the distributed Layer 3 — only to end up delivering the same guarantees. The Botler's flat architecture already delivers them.
 
-The legitimate concern that might push toward a separate runtime — the resource profile: model latency, per-token cost, eventual hardware acceleration — is a deployment matter, and the canon already holds the door open: Botler subtypes are distinguished **by topology and deployment role, never by domain**. A segregated execution pool for inference-heavy units is exactly a deployment-role distinction: one conceptual Botler, N processes if the operation calls for it.
+The legitimate concern that might push toward a separate runtime — the resource profile: model latency, per-token cost, eventual hardware acceleration — is a deployment matter, and the canon already holds the door open: Botler subtypes are distinguished **by topology and deployment role, never by domain**. A segregated execution pool for inference-heavy Lets is exactly a deployment-role distinction: one conceptual Botler, N processes if the operation calls for it.
 
-It is worth making explicit the **two relations** that sustain the units, because they operate on different floors and both cover both species equally:
+It is worth making explicit the **two relations** that sustain the Lets, because they operate on different floors and both cover both species equally:
 
 | Relation | Who exercises it | Over Botlets | Over Agentlets |
 |---|---|---|---|
 | **Hosting / execution** — runtime without agency: lifecycle, isolation, controlled handle, log | The **Botler** | Yes | Yes (same handle, plus `cognition_call`) |
 | **Genesis / maintenance** — deciding it exists, specializing it, regenerating it, answering for it | The **agent** (cognition) | Yes | Yes |
 
-The agent is the parent of both species; the Botler is the butler of both. No unit gets a separate house.
+The agent is the parent of both species; the Botler is the butler of both. No Let gets a separate house.
 
 ### Agentlet maturity — stabilization, not convergence
 
@@ -99,7 +99,7 @@ The Agentlet's **offline** behavior demands explicit declaration, not inheritanc
 
 Like its sibling, the Agentlet rarely springs from nothing: it springs from a **proto-Agentlet** — the pre-forged piece the agent configures in its Engineering time to instantiate an Agentlet specific to the case. The proto-Agentlet contains the body (the scaffolding of the interpretive task: the charter's structure, the skeleton of the operating prompt, the input and output contracts, the escalation thresholds); the Agentlet is the configured instance. The proto-Botlet's two classes apply unchanged: a **tempered** proto-Agentlet resolves one interpretive function and is configured through bounded parametrization (an operational email classifier, an invoice field extractor); a **platform** proto-Agentlet is a generic judgment engine whose specialization lives in compositional configuration and covers N functions of its domain.
 
-The **derivation chain** extends without friction: documented use cases require units — zero, one or several, of either species —, and each unit is an instance of some proto in the catalog. Every conformant Agentlet **MUST** be traceable in that chain, and the append-only log **MUST** record the proto-Agentlet of origin of each instance. The common catalogs — public and open at AgencyDomains.org, proprietary codices, private contracts, sovereign agreements — accumulate proto-Agentlets with the same network effects with which they accumulate proto-Botlets: implementer n+1 receives charters, operating prompts and thresholds refined by implementers 1 through n.
+The **derivation chain** extends without friction: documented use cases require Lets — zero, one or several, of either species —, and each Let is an instance of some proto in the catalog. Every conformant Agentlet **MUST** be traceable in that chain, and the append-only log **MUST** record the proto-Agentlet of origin of each instance. The common catalogs — public and open at AgencyDomains.org, proprietary codices, private contracts, sovereign agreements — accumulate proto-Agentlets with the same network effects with which they accumulate proto-Botlets: implementer n+1 receives charters, operating prompts and thresholds refined by implementers 1 through n.
 
 The **generations** (`G1`/`G2`/`G3`) apply with a natural reading: in `G1` the agent configures the proto-Agentlet — fills in the charter, adjusts the operating prompt within the scaffolding, sets thresholds — without writing its body. The `G1`/`G2` edge is the same as the Botlet's: configuration that a well-defined Capability evaluates is `G1`; extension of the proto's internal logic is `G2`.
 
@@ -110,14 +110,14 @@ With the Agentlet, the agentive system's economic ladder is complete. Chapter 4 
 | Rung | Unit | Inference | Marginal cost |
 |---|---|---|---|
 | 1 | **Botlet** | Zero | ~0 — traditional compute |
-| 2 | **Agentlet** | Bounded: sized model, declared budget | Low and **budgetable per unit** |
+| 2 | **Agentlet** | Bounded: sized model, declared budget | Low and **budgetable per Let** |
 | 3 | **Cognition** | Full: deliberative, frontier model, complete tree | High — reserved for the new |
 
 The middle rung is the one that was missing. Without it, every recurrent interpretive task paid rung-3 prices — or was forced, fragile, onto rung 1. With it, the organization assigns each pattern to its natural cost, and the mature system migrates work down the ladder: Cognition cedes interpretive routines to Agentlets; Agentlets cede crystallizable cores to Botlets.
 
-The Agentlet's arrival **qualifies, but does not break**, the economic promise of the Autonomy Path. The path remains the cheap one — but it stops being uniformly free: it contains units of ~0 marginal cost and units of bounded cost, and the mix is declared per unit, not averaged away. Under **fixed Subscription** plans, the argument of Chapter 5 §2 refines in the same direction: Botlets remain the mechanism that makes sustained autonomy possible without exhausting the quota, and Agentlets consume quota — bounded, budgeted, visible in the log — so their share of the mix is an explicit economic decision of the organization, exactly as the decision of which patterns to consolidate into Botlets is.
+The Agentlet's arrival **qualifies, but does not break**, the economic promise of the Autonomy Path. The path remains the cheap one — but it stops being uniformly free: it contains Lets of ~0 marginal cost and Lets of bounded cost, and the mix is declared per Let, not averaged away. Under **fixed Subscription** plans, the argument of Chapter 5 §2 refines in the same direction: Botlets remain the mechanism that makes sustained autonomy possible without exhausting the quota, and Agentlets consume quota — bounded, budgeted, visible in the log — so their share of the mix is an explicit economic decision of the organization, exactly as the decision of which patterns to consolidate into Botlets is.
 
-There is a second cross-cutting consequence: **the Validation pillar gains a seat in Layer 3.** Until this version of the canon, Validation was exercised in Layer 2 (partial) and Layer 4 (principal), because Layer 3 contained only deterministic code. With Agentlets, statistical correction enters the muscle-memory zone — exactly the volatility the Bounded Concerns Architecture (Chapter 3) teaches to confine —, and the Pillar 3 mechanisms (hallucination detection, structured-output validation, DLP, tokenization) apply at the Botler's `cognition_call` control point, over every execution of every Agentlet. The thinness of the domain is preserved: statistical judgment stays confined to declared, governed, auditable units — never scattered through the runtime.
+There is a second cross-cutting consequence: **the Validation pillar gains a seat in Layer 3.** Until this version of the canon, Validation was exercised in Layer 2 (partial) and Layer 4 (principal), because Layer 3 contained only deterministic code. With Agentlets, statistical correction enters the muscle-memory zone — exactly the volatility the Bounded Concerns Architecture (Chapter 3) teaches to confine —, and the Pillar 3 mechanisms (hallucination detection, structured-output validation, DLP, tokenization) apply at the Botler's `cognition_call` control point, over every execution of every Agentlet. The thinness of the domain is preserved: statistical judgment stays confined to declared, governed, auditable Lets — never scattered through the runtime.
 
 ### When to use an Agentlet — and when not?
 
@@ -142,7 +142,7 @@ An Agentlet implementation conformant with this specification must satisfy:
 | Zero inference outside the handle (the smuggling rule, Botlet→Agentlet direction) | **MUST** |
 | Hosting by the generic Botler — no parallel runtime per species | **MUST** |
 | Traceability: every execution and every inference call in the append-only log | **MUST** |
-| Traceable in the use-cases → units → protos chain; proto-Agentlet of origin recorded | **MUST** |
+| Traceable in the use-cases → Lets → protos chain; proto-Agentlet of origin recorded | **MUST** |
 | Declared locality of the bounded cognition (cloud / edge / hybrid) and offline behavior | **MUST** |
 | Pillar 3 Validation applied at the cognition control point | **MUST** |
 | Explicit Agentlet vs Autonomous Agent distinction in API and documentation (the border test) | **MUST** |

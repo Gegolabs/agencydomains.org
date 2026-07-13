@@ -7,6 +7,26 @@ iteraciones. A partir de **v1.0** (primera publicación pública estable) aplica
 **append-only** para la numeración de figuras: cada figura nueva toma el siguiente número
 disponible al final, sin re-enumerar las existentes.
 
+## v0.7 — Julio 2026
+
+**El género tiene nombre propio: los Lets.** Las piezas empaquetadas que el
+Botler hospeda — hasta ahora «unidades» — se consagran como **Lets** (singular
+**Let**): nombre derivado de la morfología de la propia familia (Botlet ·
+Agentlet), vocabulario normado del canon al rango de Botler — no una novena
+primitiva. «Unidad empaquetada de Capa 3» queda como su definición descriptiva.
+Resuelve la sobrecarga de «unidad» (que colisionaba con «unidad mínima de
+despliegue») y completa la familia nominal Botler · Botlet · Agentlet · Lets.
+Invariante ES/EN. Careo de origen: doc 012 v1.2 de la cocina del proyecto.
+
+- Relación canónica del runtime: **1 Proceso = 1 Botler + N Lets** (Cap 5 §2,
+  glosario, manifiestos).
+- Coronación aplicada en Cap 4 (componentes de Capa 3, Resiliencia,
+  aislamiento), Cap 5 §2 (Botler), §4 (Validación y Resiliencia), §7 (sede del
+  género), Cap 8 (spec y tags del log) y glosario — la entrada **Let (plural:
+  Lets)** reemplaza a «unidad (de Capa 3)» y se muda a su lugar alfabético.
+- Diligencia de colisión: nadie usa «Lets» en el espacio agéntico; homónimo
+  LETS (Local Exchange Trading System) en dominio ajeno — riesgo bajo, anotado.
+
 ## v0.6 — Julio 2026
 
 **El Agentlet — octava primitiva canónica.** El canon incorpora la unidad hermana

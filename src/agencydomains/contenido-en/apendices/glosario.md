@@ -40,7 +40,7 @@ The governing design principle of the Agentive Architecture: faced with any dile
 
 ### Agentlet
 
-**Eighth canonical primitive**. Packaged unit of Layer 3 (Autonomy), sibling of the Botlet, whose execution body **invokes bounded inference** — a model sized to the task, within a charter declared in the spec. The canonical home of the task **recurrent in form but interpretive in every instance** (classify, triage, summarize, extract, judge). Its judgment operates *within* the charter, never over the charter: **the Agent has an agenda; the Agentlet has a charter**. An instance of a **proto-Agentlet**; hosted by the Botler (all of its inference passes through the `cognition_call` control point of the handle); its fallback escalates to full Cognition. A member of the **Agent** umbrella, a catalog piece and not an inhabitant. The intermediate economic rung between the Botlet (zero inference) and Cognition (full inference).
+**Eighth canonical primitive**. A **Let** — packaged unit of Layer 3 (Autonomy) —, sibling of the Botlet, whose execution body **invokes bounded inference** — a model sized to the task, within a charter declared in the spec. The canonical home of the task **recurrent in form but interpretive in every instance** (classify, triage, summarize, extract, judge). Its judgment operates *within* the charter, never over the charter: **the Agent has an agenda; the Agentlet has a charter**. An instance of a **proto-Agentlet**; hosted by the Botler (all of its inference passes through the `cognition_call` control point of the handle); its fallback escalates to full Cognition. A member of the **Agent** umbrella, a catalog piece and not an inhabitant. The intermediate economic rung between the Botlet (zero inference) and Cognition (full inference).
 
 *See: Chapter 5 §7; entries **Botlet**, **Botler**, **proto-Agentlet**.*
 
@@ -181,11 +181,11 @@ Mature phase of the Botlet's trajectory. It has already incorporated the variant
 
 ### Botler
 
-Generic Layer 3 (Autonomy) runtime that executes the **units** of the layer — Botlets and Agentlets — without understanding their domain. Invisible to the user. Cognition (Layer 2) commands it through an internal interface whose natural transport is `MCP` — the Botler exposes `MCP` server(s) and Cognition is the client; this is **not `A2A`**.
+Generic Layer 3 (Autonomy) runtime that executes the **Lets** of the layer — Botlets and Agentlets — without understanding their domain. Invisible to the user. Cognition (Layer 2) commands it through an internal interface whose natural transport is `MCP` — the Botler exposes `MCP` server(s) and Cognition is the client; this is **not `A2A`**.
 
-Relation: 1 Process = 1 Botler + N units (instantiated per species: N Botlets, N Agentlets, or a mix).
+Relation: 1 Process = 1 Botler + N Lets (instantiated per species: N Botlets, N Agentlets, or a mix).
 
-**Controlled handle** — bound access point that the Botler hands to the unit on each invocation (an object with `capability_call`, `log` and — for Agentlets — `cognition_call`, bound to the Botler). It makes the bypass structurally impossible, not merely prohibited.
+**Controlled handle** — bound access point that the Botler hands to the Let on each invocation (an object with `capability_call`, `log` and — for Agentlets — `cognition_call`, bound to the Botler). It makes the bypass structurally impossible, not merely prohibited.
 
 ### Central Botler
 
@@ -233,7 +233,7 @@ Layer of the Agentive Architecture. The agent's brain. Reasoning, planning, appl
 
 ### Layer 3 — Autonomy
 
-Layer of the Agentive Architecture. The agent's persistent life. Execution of units — Botlets and Agentlets —, continuous monitoring, intra-AgencyDomain coordination (via the `A2A` protocol).
+Layer of the Agentive Architecture. The agent's persistent life. Execution of Lets — Botlets and Agentlets —, continuous monitoring, intra-AgencyDomain coordination (via the `A2A` protocol).
 
 *See: Chapter 4, section "Layer 3 — Autonomy."*
 
@@ -439,7 +439,7 @@ Link 7 of the value chain: security, control, governance. Protection against pro
 
 ### Fallback guarantee
 
-Non-negotiable property of the Layer 3 units conformant to this specification: if a Botlet fails catastrophically, **cognition executes the task manually**; if an Agentlet cannot resolve within its charter, **it escalates to full Cognition**. The process never stops.
+Non-negotiable property of the Lets conformant to this specification: if a Botlet fails catastrophically, **cognition executes the task manually**; if an Agentlet cannot resolve within its charter, **it escalates to full Cognition**. The process never stops.
 
 *See: Chapter 5 §2 and §7.*
 
@@ -530,6 +530,12 @@ Canonical format of Java specifications published by Sun Microsystems / Oracle. 
 ### LLM — Large Language Model
 
 Large language model (Claude, GPT, Gemini, Llama, etc.). Contemporary cognition (Layer 2) is predominantly LLM-centric, but the architecture admits non-LLM cognition (frontier of evolution).
+
+### Let (plural: Lets)
+
+**Proper name of the genus** of the packaged pieces the Botler hosts and executes — normed vocabulary of the canon (like Botler), not one of the eight primitives. Descriptively: the packaged unit of Layer 3. Two species: the **Botlet** (non-LLM code, muscle memory) and the **Agentlet** (bounded inference, packaged routine judgment). The shared apparatus — proto-/instance pattern, catalogs, spec, manifestation, temporality, declarative quality contract, derivation chain, append-only log, operation verbs — is predicated of the genus; the differential guarantees (cost, determinism, offline, fallback), of each species. The name derives from the family's own `-let` suffix; invariant across ES/EN. Canonical runtime relation: **1 Process = 1 Botler + N Lets**.
+
+*See: Chapter 5 §2 and §7; entries **Botlet**, **Agentlet**, **Botler**.*
 
 ### Nadella Line
 
@@ -722,7 +728,7 @@ Threshold enabled by the collapse of the cost of the analytical question: when a
 
 ### Sandbox
 
-Execution isolation of the Layer 3 units (Botlets and Agentlets) and dynamically generated code. Four canonical strategies with their trade-offs: processes+seccomp, containers, WASM, MicroVMs.
+Execution isolation of the Lets (Botlets and Agentlets) and dynamically generated code. Four canonical strategies with their trade-offs: processes+seccomp, containers, WASM, MicroVMs.
 
 *See: Chapter 5 §2.*
 
@@ -818,12 +824,6 @@ A digital twin that reflects in real time the state of a physical system. Canoni
 
 *See: Chapter 9; entries **proprietary codex**, **Common catalog / network effects**.*
 
-### unit (of Layer 3)
-
-The genus of the packaged pieces that the Botler hosts and executes. Two species: the **Botlet** (non-LLM code, muscle memory) and the **Agentlet** (bounded inference, packaged routine judgment). The shared apparatus — proto-/instance pattern, catalogs, spec, manifestation, temporality, declarative quality contract, derivation chain, append-only log, operation verbs — is predicated of the genus; the differential guarantees (cost, determinism, offline, fallback), of each species. Canonical runtime relation: **1 Process = 1 Botler + N units**.
-
-*See: Chapter 5 §2 and §7; entries **Botlet**, **Agentlet**, **Botler**.*
-
 ## V
 
 ### Validation
@@ -842,7 +842,7 @@ Canonical mechanisms: hallucination detection, structured-response validation, p
 
 ### Autonomy Path
 
-One of the two paths of the **parallel topology** (Ch. 4). The path an operation traverses between Layer 1 and Layer 4 passing through Layer 3 (Autonomy) without invoking Layer 2 (Cognition). Its own regime: fast, cheap, repetitive. For the execution of units — Botlets over stable patterns and Agentlets over routine judgment —. It is the path that sustains the everyday operation of an AgencyDomain in production and the structural basis of the offline mode when the Botlets are senior.
+One of the two paths of the **parallel topology** (Ch. 4). The path an operation traverses between Layer 1 and Layer 4 passing through Layer 3 (Autonomy) without invoking Layer 2 (Cognition). Its own regime: fast, cheap, repetitive. For the execution of Lets — Botlets over stable patterns and Agentlets over routine judgment —. It is the path that sustains the everyday operation of an AgencyDomain in production and the structural basis of the offline mode when the Botlets are senior.
 
 *See: Chapter 4, section "The parallel topology."*
 

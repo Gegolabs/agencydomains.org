@@ -344,7 +344,7 @@ The asymmetry of the cost is what justifies the investment. Implementing Trust I
 
 ## Operational continuity — operationalizing the second mechanism
 
-Chapter 5 §4 formalizes the distinction between the two complementary continuity mechanisms — agentic fallback and operational business continuity — and it is assumed here as given. The first is already covered operationally by the spec of the Layer 3 units (Ch 5 §2 and §7) and the no-stop guarantee of the layer (Ch 4). The second needs its own operationalization — the section that follows delivers it.
+Chapter 5 §4 formalizes the distinction between the two complementary continuity mechanisms — agentic fallback and operational business continuity — and it is assumed here as given. The first is already covered operationally by the spec of the Lets (Ch 5 §2 and §7) and the no-stop guarantee of the layer (Ch 4). The second needs its own operationalization — the section that follows delivers it.
 
 ### Continuity protocol per physical site
 
@@ -378,7 +378,7 @@ The append-only log must record the transitions between modes so that subsequent
 - **Start of operational continuity** — when the site activates the manual protocol, it emits (when the network returns, retroactively) a `mode-change: continuity-operational` event with the timestamp of the cut and the estimated duration.
 - **Physical records entered retroactively** — each transaction entered from a physical record carries the tag `provenance: manual-continuity` and `original-timestamp: <physical time>` distinct from `system-timestamp: <time of entry>`. The distinction lets reports and reconciliations distinguish physical events from digital events.
 - **Edge queue reconciliation** — when an edge Botler drains its queue toward the central after the network returns, the events carry the tag `provenance: edge-queue-replay` with the site's original timestamp.
-- **Auditable distinction between agentic fallback and operational continuity** — the log distinguishes `agentic-fallback` events (the cognition rescued the unit — executing on behalf of the Botlet or receiving the Agentlet's escalation) from `operational-continuity` events (a human sustained the operation). Subsequent auditing can separate the two cases without ambiguity. This distinction is what the organization presents when a regulator asks how it operated during an incident.
+- **Auditable distinction between agentic fallback and operational continuity** — the log distinguishes `agentic-fallback` events (the cognition rescued the Let — executing on behalf of the Botlet or receiving the Agentlet's escalation) from `operational-continuity` events (a human sustained the operation). Subsequent auditing can separate the two cases without ambiguity. This distinction is what the organization presents when a regulator asks how it operated during an incident.
 
 ### Operational properties demanded
 

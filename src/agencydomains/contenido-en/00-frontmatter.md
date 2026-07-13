@@ -4,7 +4,7 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · July 2026 · v0.6
+**Edition:** Development draft · July 2026 · v0.7
 **License:** GNU Free Documentation License v1.3 *(proposed)*
 
 > **A note on the version.** This is a **pre-1.0 development draft**: references and figures may be reorganized between iterations up to version **1.0**, which will be the first stable public release. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
@@ -54,7 +54,7 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## How to cite
 
-> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.6. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.7. GegoLabs, 2026.
 
 ## The Trilogy
 

@@ -14,7 +14,7 @@ Esta sección formaliza el **Agentlet** como **octava primitiva canónica** — 
 
 Un **Agentlet** es una unidad empaquetada de la Capa 3 (Autonomía), hermana del Botlet, cuyo cuerpo de ejecución **invoca inferencia acotada**: un modelo dimensionado a la tarea, aplicado dentro de un charter que el spec declara. Como el Botlet, es instancia configurada de una pieza pre-forjada — el **proto-Agentlet** —, es hospedado por el Botler y es engendrado y mantenido por el agente. A diferencia del Botlet, cada una de sus ejecuciones ejerce juicio: interpreta la instancia concreta que tiene delante en lugar de ejecutar código determinístico.
 
-La frase que fija la doctrina de hermandad: **un Agentlet es un Botlet con juicio adentro — ni más ni menos**. Vive exactamente como su hermano. Hereda por estructura, no por excepción, todo el aparato de las unidades de Capa 3: el patrón proto-/instancia, los catálogos y sus efectos de red, la separación código fuente vs spec, la **manifestación** y la **temporalidad** (`discreta`/`continua`), el contrato declarativo de calidad, la cadena de derivación, el append-only log y los verbos del API de operación (`specialize` · `invoke`/`schedule` · `read`/`subscribe` · `status`/`activate`/`deactivate`/`retire`). Lo que cambia es un solo atributo — el cuerpo invoca inferencia — y de ese atributo se siguen, en cascada, las diferencias que el resto de la sección desarrolla.
+La frase que fija la doctrina de hermandad: **un Agentlet es un Botlet con juicio adentro — ni más ni menos**. Vive exactamente como su hermano. Hereda por estructura, no por excepción, todo el aparato de los Lets — las unidades empaquetadas de la Capa 3 —: el patrón proto-/instancia, los catálogos y sus efectos de red, la separación código fuente vs spec, la **manifestación** y la **temporalidad** (`discreta`/`continua`), el contrato declarativo de calidad, la cadena de derivación, el append-only log y los verbos del API de operación (`specialize` · `invoke`/`schedule` · `read`/`subscribe` · `status`/`activate`/`deactivate`/`retire`). Lo que cambia es un solo atributo — el cuerpo invoca inferencia — y de ese atributo se siguen, en cascada, las diferencias que el resto de la sección desarrolla.
 
 Cuatro propiedades definen al Agentlet conforme. La primera es que su **charter está declarado en el spec**: qué tarea resuelve, sobre qué entradas, con qué salidas, dentro de qué límites. El Agentlet no elige qué hacer — su inferencia se gasta en *cómo* hacer lo suyo, nunca en decidir *qué* es lo suyo. La segunda es que su **inferencia es acotada**: el spec declara el modelo (dimensionado a la tarea, no el modelo frontera de la Cognición), las Capabilities que puede consultar y el presupuesto por ejecución. La tercera es que **toda su inferencia pasa por el Botler**: el handle controlado que el Botler le entrega incluye el punto de control de cognición, de modo que cada llamada al modelo queda medida, presupuestada, validada y auditada — el bypass es estructuralmente imposible, no solo prohibido. La cuarta es que tiene **garantía de fallback hacia la Cognición plena**: cuando su inferencia acotada no resuelve el caso — el charter no alcanza, la confianza del veredicto queda bajo umbral, la entrada no se parece a nada previsto —, el Agentlet escala y la Cognición de Capa 2 rescata. El proceso nunca se detiene.
 
@@ -40,7 +40,7 @@ La segunda dirección de la regla describe además una **trayectoria natural**: 
 | **Offline** | Senior operable offline confiablemente | Solo con modelo edge-resident, declarado en el spec |
 | **Fallback** | La cognición ejecuta manualmente | Escala a la Cognición plena |
 
-Lo que la tabla **no** contiene es tan importante como lo que contiene: proto-/instancia, catálogos, spec, manifestación, temporalidad, contrato de calidad, cadena de derivación, log, verbos de operación, hospedaje por el Botler, génesis por el agente — todo eso es idéntico, porque se predica del género y no de la especie. La spec llama **unidades** al género: el Botler hospeda unidades; el Botlet y el Agentlet son sus dos especies. La relación canónica del runtime se enuncia en su forma general — **1 Proceso = 1 Botler + N unidades** — y cada contexto la instancia a la especie que corresponda.
+Lo que la tabla **no** contiene es tan importante como lo que contiene: proto-/instancia, catálogos, spec, manifestación, temporalidad, contrato de calidad, cadena de derivación, log, verbos de operación, hospedaje por el Botler, génesis por el agente — todo eso es idéntico, porque se predica del género y no de la especie. La spec llama al género por su nombre propio: los **Lets** — el Botler hospeda Lets; el Botlet y el Agentlet son sus dos especies. El nombre deriva de la morfología de la propia familia y es, como Botler, vocabulario normado del canon — no una novena primitiva. La relación canónica del runtime se enuncia en su forma general — **1 Proceso = 1 Botler + N Lets** — y cada contexto la instancia a la especie que corresponda.
 
 ### Agentlet vs Agente — agenda vs charter
 
@@ -61,7 +61,7 @@ La frontera cabe en una línea: **el Agente tiene agenda; el Agentlet tiene char
 El **test de frontera** protege la categoría de desangrarse hacia arriba. Tres preguntas; cualquier respuesta del lado de la autonomía significa que la pieza es un Agente, no un Agentlet:
 
 1. ¿Elige sus propias metas, o las recibe declaradas en el spec?
-2. ¿Puede alterar su propio proceso o engendrar otras unidades?
+2. ¿Puede alterar su propio proceso o engendrar otros Lets?
 3. ¿Su identidad es de habitante (provisioning) o de instancia (`specialize`)?
 
 Un Agentlet con charter gordo, un loop interno y criterio propio sobre qué perseguir no es un Agentlet avanzado: es un Agente Autónomo disfrazado, operando sin la gobernanza que su naturaleza exige — la versión agentiva del anti-patrón C del §5.
@@ -72,16 +72,16 @@ El Agentlet no trae runtime propio. Lo hospeda **el mismo Botler** que hospeda a
 
 La consecuencia de gobierno es el argumento entero: **como toda la inferencia del Agentlet pasa por el handle, Trust Infrastructure la ve completa**. Cada llamada al modelo queda medida (tokens, latencia), presupuestada (contra el límite que el spec declara), validada (los mecanismos del Pilar 3 — detección de alucinaciones, DLP, tokenización — aplican en el punto de control) y auditada (en el mismo append-only log, con la misma identidad, bajo el mismo gobierno que el resto del AgencyDomain). Un runtime paralelo para Agentlets tendría que duplicar toda esa maquinaria — segundo sandbox, segundo esquema de handle, segunda cadena de escalamiento, segunda presencia en la Capa 3 distribuida — para terminar entregando las mismas garantías. La arquitectura plana del Botler ya las entrega.
 
-La preocupación legítima que podría empujar hacia un runtime separado — el perfil de recursos: latencia de modelo, costo por token, eventual aceleración por hardware — es asunto de despliegue, y el canon ya tiene la puerta abierta: los subtipos de Botler se distinguen **por topología y rol de despliegue, nunca por dominio**. Un pool de ejecución segregado para unidades de inferencia pesada es exactamente una distinción de rol de despliegue: un Botler conceptual, N procesos si la operación lo pide.
+La preocupación legítima que podría empujar hacia un runtime separado — el perfil de recursos: latencia de modelo, costo por token, eventual aceleración por hardware — es asunto de despliegue, y el canon ya tiene la puerta abierta: los subtipos de Botler se distinguen **por topología y rol de despliegue, nunca por dominio**. Un pool de ejecución segregado para Lets de inferencia pesada es exactamente una distinción de rol de despliegue: un Botler conceptual, N procesos si la operación lo pide.
 
-Conviene dejar explícitas las **dos relaciones** que sostienen a las unidades, porque operan en pisos distintos y las dos cubren a las dos especies por igual:
+Conviene dejar explícitas las **dos relaciones** que sostienen a los Lets, porque operan en pisos distintos y las dos cubren a las dos especies por igual:
 
 | Relación | ¿Quién la ejerce? | Sobre Botlets | Sobre Agentlets |
 |---|---|---|---|
 | **Hospedaje / ejecución** — runtime sin agencia: ciclo de vida, aislamiento, handle controlado, log | El **Botler** | Sí | Sí (mismo handle, más `cognition_call`) |
 | **Génesis / mantenimiento** — decidir que exista, especializarlo, regenerarlo, responder por él | El **agente** (la cognición) | Sí | Sí |
 
-El agente es el padre de ambas especies; el Botler es el mayordomo de ambas. Ninguna unidad tiene casa aparte.
+El agente es el padre de ambas especies; el Botler es el mayordomo de ambas. Ningún Let tiene casa aparte.
 
 ### Madurez del Agentlet — estabilización, no convergencia
 
@@ -99,7 +99,7 @@ El **offline** del Agentlet exige declaración explícita, no herencia del herma
 
 Como su hermano, el Agentlet rara vez nace de la nada: nace de un **proto-Agentlet** — la pieza pre-forjada que el agente configura en su tiempo de Ingeniería para instanciar un Agentlet específico al caso. El proto-Agentlet contiene el cuerpo (el andamiaje de la tarea interpretativa: la estructura del charter, el esqueleto del prompt operativo, los contratos de entrada y salida, los umbrales de escalamiento); el Agentlet es la instancia configurada. Las dos clases del proto-Botlet aplican sin cambio: un proto-Agentlet **templado** resuelve una función interpretativa y se configura por parametrización acotada (un clasificador de correo operativo, un extractor de campos de factura); un proto-Agentlet **platafórmico** es un motor de juicio genérico cuya especialización vive en configuración composicional y cubre N funciones de su dominio.
 
-La **cadena de derivación** se extiende sin fricción: los casos de uso documentados requieren unidades — cero, una o varias, de cualquiera de las dos especies —, y cada unidad es instancia de algún proto del catálogo. Todo Agentlet conforme **MUST** poder trazarse en esa cadena, y el append-only log **MUST** registrar el proto-Agentlet de origen de cada instancia. Los catálogos comunes — público abierto en AgencyDomains.org, códices propietarios, contratos privados, acuerdos soberanos — acumulan proto-Agentlets con los mismos efectos de red que acumulan proto-Botlets: el implementador n+1 recibe charters, prompts operativos y umbrales refinados por los implementadores 1 a n.
+La **cadena de derivación** se extiende sin fricción: los casos de uso documentados requieren Lets — cero, uno o varios, de cualquiera de las dos especies —, y cada Let es instancia de algún proto del catálogo. Todo Agentlet conforme **MUST** poder trazarse en esa cadena, y el append-only log **MUST** registrar el proto-Agentlet de origen de cada instancia. Los catálogos comunes — público abierto en AgencyDomains.org, códices propietarios, contratos privados, acuerdos soberanos — acumulan proto-Agentlets con los mismos efectos de red que acumulan proto-Botlets: el implementador n+1 recibe charters, prompts operativos y umbrales refinados por los implementadores 1 a n.
 
 Las **generaciones** (`G1`/`G2`/`G3`) aplican con una lectura natural: en `G1` el agente configura el proto-Agentlet — rellena el charter, ajusta el prompt operativo dentro del andamiaje, fija umbrales — sin escribir su cuerpo. El filo `G1`/`G2` es el mismo del Botlet: configuración que una Capability bien definida evalúa es `G1`; extensión de la lógica interna del proto es `G2`.
 
@@ -110,14 +110,14 @@ Con el Agentlet, la escalera económica del sistema agentivo queda completa. El 
 | Peldaño | Unidad | Inferencia | Costo marginal |
 |---|---|---|---|
 | 1 | **Botlet** | Cero | ~0 — cómputo tradicional |
-| 2 | **Agentlet** | Acotada: modelo dimensionado, presupuesto declarado | Bajo y **presupuestable por unidad** |
+| 2 | **Agentlet** | Acotada: modelo dimensionado, presupuesto declarado | Bajo y **presupuestable por Let** |
 | 3 | **Cognición** | Plena: deliberativa, modelo frontera, árbol completo | Alto — se reserva para lo nuevo |
 
 El peldaño intermedio es el que faltaba. Sin él, toda tarea interpretativa recurrente pagaba precio de peldaño 3 — o se forzaba, frágil, al peldaño 1. Con él, la organización asigna cada patrón a su costo natural, y el sistema maduro migra trabajo escalera abajo: la Cognición cede rutinas interpretativas a Agentlets; los Agentlets ceden núcleos cristalizables a Botlets.
 
-La entrada del Agentlet **matiza, no rompe**, la promesa económica de la vía Autonomía. La vía sigue siendo la barata — pero deja de ser uniformemente gratuita: contiene unidades de costo marginal ~0 y unidades de costo acotado, y el mix se declara por unidad, no se promedia. Bajo planes de **Suscripción fija**, el argumento del Capítulo 5 §2 se refina en el mismo sentido: los Botlets siguen siendo el mecanismo que hace posible la autonomía sostenida sin agotar la cuota, y los Agentlets consumen cuota — acotada, presupuestada, visible en el log — por lo que su proporción en el mix es una decisión económica explícita de la organización, exactamente como lo es la decisión de qué patrones consolidar en Botlets.
+La entrada del Agentlet **matiza, no rompe**, la promesa económica de la vía Autonomía. La vía sigue siendo la barata — pero deja de ser uniformemente gratuita: contiene Lets de costo marginal ~0 y Lets de costo acotado, y el mix se declara por Let, no se promedia. Bajo planes de **Suscripción fija**, el argumento del Capítulo 5 §2 se refina en el mismo sentido: los Botlets siguen siendo el mecanismo que hace posible la autonomía sostenida sin agotar la cuota, y los Agentlets consumen cuota — acotada, presupuestada, visible en el log — por lo que su proporción en el mix es una decisión económica explícita de la organización, exactamente como lo es la decisión de qué patrones consolidar en Botlets.
 
-Hay una segunda consecuencia transversal: **el pilar de Validación gana presencia en la Capa 3.** Hasta esta versión del canon, la Validación se ejercía en la Capa 2 (parcial) y en la Capa 4 (principal), porque la Capa 3 solo contenía código determinístico. Con los Agentlets entra corrección estadística a la zona de la memoria muscular — exactamente la volatilidad que la Bounded Concerns Architecture (Capítulo 3) enseña a confinar —, y los mecanismos del Pilar 3 (detección de alucinaciones, validación de salidas estructuradas, DLP, tokenización) aplican en el punto de control `cognition_call` del Botler, sobre cada ejecución de cada Agentlet. La delgadez del dominio se preserva: el juicio estadístico queda confinado a unidades declaradas, gobernadas y auditables, nunca disperso por el runtime.
+Hay una segunda consecuencia transversal: **el pilar de Validación gana presencia en la Capa 3.** Hasta esta versión del canon, la Validación se ejercía en la Capa 2 (parcial) y en la Capa 4 (principal), porque la Capa 3 solo contenía código determinístico. Con los Agentlets entra corrección estadística a la zona de la memoria muscular — exactamente la volatilidad que la Bounded Concerns Architecture (Capítulo 3) enseña a confinar —, y los mecanismos del Pilar 3 (detección de alucinaciones, validación de salidas estructuradas, DLP, tokenización) aplican en el punto de control `cognition_call` del Botler, sobre cada ejecución de cada Agentlet. La delgadez del dominio se preserva: el juicio estadístico queda confinado a Lets declarados, gobernados y auditables, nunca disperso por el runtime.
 
 ### ¿Cuándo usar Agentlet — y cuándo no?
 
@@ -142,7 +142,7 @@ Una implementación de Agentlet conforme a esta especificación debe satisfacer:
 | Cero inferencia fuera del handle (la regla de contrabando, dirección Botlet→Agentlet) | **MUST** |
 | Hospedaje por el Botler genérico — sin runtime paralelo por especie | **MUST** |
 | Trazabilidad: cada ejecución y cada llamada de inferencia en el append-only log | **MUST** |
-| Trazable en la cadena casos-de-uso → unidades → protos; proto-Agentlet de origen registrado | **MUST** |
+| Trazable en la cadena casos-de-uso → Lets → protos; proto-Agentlet de origen registrado | **MUST** |
 | Declaración de localidad de la cognición acotada (cloud / edge / híbrida) y comportamiento offline | **MUST** |
 | Validación del Pilar 3 aplicada en el punto de control de cognición | **MUST** |
 | Distinción explícita Agentlet vs Agente Autónomo en API y documentación (el test de frontera) | **MUST** |
