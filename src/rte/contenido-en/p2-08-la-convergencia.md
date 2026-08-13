@@ -74,7 +74,7 @@ Two thousand years pushed people toward the center of the network because there 
 
 > **The essentials**
 >
-> - Hierarchy was born as a routing protocol dimensioned by the technology of each era: the centurion's voice, the General Staff's paper, McCallum's telegraph. The org chart is an information flow diagram, not a ladder of power.
+> - Hierarchy was born as a routing protocol dimensioned by the technology of each era: the centurion's voice, the General Staff's paper, McCallum's telegraph. The org chart was born as an information flow diagram; the reading as a ladder of power came later.
 > - A century of office technology accelerated the wire without taking the person out of the middle; the CC on your email is fossilized carbon paper.
 > - Flat organizations failed by removing the nodes without replacing the protocol.
 > - The resulting organization is not flat — it is intelligent: carbon authority, silicon transport. People belong at the edge.

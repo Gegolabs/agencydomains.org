@@ -11,6 +11,12 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 > (mapa de los marcos) en la Conclusión; f05 corrige punteros de capítulo;
 > puentes 6→7 y 7→8; referencias ES citan las ediciones ES. Detalle en
 > `editorial/auditorias/_correcciones-aplicadas-v0.4.md`.
+>
+> **Revisión 2026-08-13** (ronda de Juan Grimalt sobre la v0.4): la enumeración
+> de las caras en el prefacio incorpora sus nombres propios (ES/EN); el bullet
+> del organigrama en Lo esencial del cap. 8 pasa al registro histórico — «nació
+> como diagrama de flujo de información; la lectura como escalera de poder vino
+> después» (ES/EN).
 
 **El libro se presenta por su tesis completa: la empresa en tiempo real.**
 Re-arquitectura del comentario sobre las cuatro caras (decisiones en la cocina

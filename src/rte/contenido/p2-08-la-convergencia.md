@@ -74,7 +74,7 @@ Dos mil años empujaron a las personas hacia el centro de la red porque no habí
 
 > **Lo esencial**
 >
-> - La jerarquía nació como protocolo de enrutamiento dimensionado por la tecnología de cada época: la voz del centurión, el papel del Estado Mayor, el telégrafo de McCallum. El organigrama es un diagrama de flujo de información, no una escalera de poder.
+> - La jerarquía nació como protocolo de enrutamiento dimensionado por la tecnología de cada época: la voz del centurión, el papel del Estado Mayor, el telégrafo de McCallum. El organigrama nació como diagrama de flujo de información; la lectura como escalera de poder vino después.
 > - Un siglo de tecnología de oficina aceleró el cable sin sacar a la persona del medio; el CC de tu correo es papel carbón fosilizado.
 > - Las organizaciones planas fracasaron por quitar los nodos sin reemplazar el protocolo.
 > - La organización resultante no es plana — es inteligente: autoridad de carbono, transporte de silicio. Las personas pertenecen al borde.
