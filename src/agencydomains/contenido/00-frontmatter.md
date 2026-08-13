@@ -4,10 +4,10 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · Julio 2026 · v0.7
-**Licencia:** GNU Free Documentation License v1.3 *(propuesta)*
+**Edición:** Primera edición · Agosto 2026 · v1.0
+**Licencia:** GNU Free Documentation License v1.3
 
-> **Nota sobre la versión.** Este es un **borrador de desarrollo pre-1.0**: las referencias y las figuras pueden reorganizarse entre iteraciones hasta la versión **1.0**, que será la primera publicación pública estable. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
+> **Nota sobre la versión.** Esta es la **primera edición (v1.0)**: la primera publicación pública estable. Desde aquí rige la regla *append-only* para la numeración de figuras — cada figura nueva toma el siguiente número disponible, sin re-enumerar las existentes. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
 
 ## Sobre este libro
 
@@ -54,7 +54,7 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Borrador de desarrollo v0.7. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Primera edición v1.0. GegoLabs, 2026.
 
 ## La trilogía
 
@@ -99,7 +99,7 @@ funcionando. La trilogía completa vive en <https://agencydomains.org>.
 
 ## Licencia
 
-Este libro se publica bajo **GNU Free Documentation License v1.3** (propuesta). El lector puede copiar, distribuir y modificar la obra bajo los términos de la licencia. La sección invariante es el Prefacio.
+Este libro se publica bajo **GNU Free Documentation License v1.3**. El lector puede copiar, distribuir y modificar la obra bajo los términos de la licencia. La sección invariante es el Prefacio.
 
 El motivo de la apertura de licenciamiento es deliberado: la Arquitectura Agentiva pretende establecer una categoría que sirva al ecosistema completo, no a un proveedor particular. Al adoptarla y desarrollarla, otras empresas, investigadores y constructores la enriquecen y consolidan como estándar de facto. Esto sirve al campo y refuerza simultáneamente la autoridad de quienes la acuñaron.
 

@@ -1,4 +1,4 @@
-# Manifest del libro AURA v0.3 — orden de concatenación.
+# Manifest del libro AURA v1.0 — orden de concatenación.
 # El prólogo se reincorpora cuando llegue el texto del prologuista.
 # Rutas relativas a la raíz del libro.
 # Las 5 specs componentes se incluyen POR REFERENCIA desde specs/ — nunca se copian.

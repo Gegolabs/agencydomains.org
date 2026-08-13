@@ -26,7 +26,7 @@ pandoc "$TMPSRC" -o "$PDF" \
   --lua-filter="$SCRIPT_DIR/teaser.lua" \
   --metadata title="La Empresa en Tiempo Real" --metadata subtitle="Mundo Agentivo" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Borrador de desarrollo ${VERSION} · Julio 2026" \
+  --metadata date="Primera edición ${VERSION} · Agosto 2026" \
   --toc --toc-depth=1 \
   -V documentclass=book -V classoption=oneside -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \

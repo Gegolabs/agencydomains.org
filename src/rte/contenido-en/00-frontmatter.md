@@ -4,18 +4,17 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · July 2026 · v0.4
-**License:** GNU Free Documentation License v1.3 *(proposed)*
+**Edition:** First edition · August 2026 · v1.0
+**License:** GNU Free Documentation License v1.3
 
-> **A note on this version.** This edition (v0.4) presents the book by its
+> **A note on this version.** This first edition (v1.0) presents the book by its
 > complete thesis: the **real-time enterprise** and the four faces in which it
 > is lived — The Quantum Leap · Postchat · The General Staff · The Watch —
 > with the intelligent organization as their convergence.
-> The protagonist and her organization are fictional
-> composites. The guest prologue remains pending.
+> The protagonist and her organization are fictional composites.
 
 **How to cite:**
-Obach-Renner, César. *The Real-Time Enterprise: The Agentive World*. Development draft v0.4. GegoLabs, 2026.
+Obach-Renner, César. *The Real-Time Enterprise: The Agentive World*. First edition v1.0. GegoLabs, 2026.
 
 ## The Trilogy
 

@@ -4,10 +4,10 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · July 2026 · v0.3
-**License:** GNU Free Documentation License v1.3 *(proposed)*
+**Edition:** First edition · August 2026 · v1.0
+**License:** GNU Free Documentation License v1.3
 
-> **Note on this version.** This edition (v0.3) incorporates the trilogy's full
+> **Note on this version.** This first edition (v1.0) incorporates the trilogy's full
 > editorial review: the agentive/agentic system is unified across the whole book
 > (Wingmap speaks agentive), the assembly duplications between the Introduction
 > and the specs are resolved with cross-references, the continuous-intelligence
@@ -16,7 +16,7 @@
 > prologue is still pending.
 
 **How to cite:**
-Obach-Renner, César. *AURA: The Agentive Path*. Development draft v0.3. GegoLabs, 2026.
+Obach-Renner, César. *AURA: The Agentive Path*. First edition v1.0. GegoLabs, 2026.
 
 ## The Trilogy
 

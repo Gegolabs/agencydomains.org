@@ -4,18 +4,17 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · Julio 2026 · v0.4
-**Licencia:** GNU Free Documentation License v1.3 *(propuesta)*
+**Edición:** Primera edición · Agosto 2026 · v1.0
+**Licencia:** GNU Free Documentation License v1.3
 
-> **Nota sobre la versión.** Esta edición (v0.4) presenta el libro por su tesis
+> **Nota sobre la versión.** Esta primera edición (v1.0) presenta el libro por su tesis
 > completa: la **empresa en tiempo real** y las cuatro caras en que se vive —
 > El salto cuántico · Postchat · El Estado Mayor · La guardia — con la
 > organización inteligente como su convergencia.
-> La protagonista y su organización son composiciones ficticias. Queda
-> pendiente el prólogo del invitado.
+> La protagonista y su organización son composiciones ficticias.
 
 **Cómo citar:**
-Obach-Renner, César. *La Empresa en Tiempo Real: Mundo Agentivo*. Borrador de desarrollo v0.4. GegoLabs, 2026.
+Obach-Renner, César. *La Empresa en Tiempo Real: Mundo Agentivo*. Primera edición v1.0. GegoLabs, 2026.
 
 ## La trilogía
 

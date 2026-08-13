@@ -2,6 +2,13 @@
 
 Historial de versiones del libro *AURA · El Camino Agentivo*.
 
+## v1.0 — Agosto 2026
+
+**Primera edición.** El libro se sanciona como obra publicada: el corpus queda
+estable y citable, y las ediciones ES/EN quedan a la par. Respecto de la v0.3 no
+hay cambios de contenido — lo que cambia es el estatuto: deja de presentarse como
+borrador de desarrollo.
+
 ## v0.3 — Julio 2026
 > **Revisiones dentro de v0.3** (auditoría integral + decisiones editoriales,
 > 2026-07-03): oración final de IRIS rescatada del ensamblado; «Agentivo» en

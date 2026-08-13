@@ -4,10 +4,10 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** Development draft · July 2026 · v0.7
-**License:** GNU Free Documentation License v1.3 *(proposed)*
+**Edition:** First edition · August 2026 · v1.0
+**License:** GNU Free Documentation License v1.3
 
-> **A note on the version.** This is a **pre-1.0 development draft**: references and figures may be reorganized between iterations up to version **1.0**, which will be the first stable public release. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
+> **A note on the version.** This is the **first edition (v1.0)**: the first stable public release. From here the *append-only* rule governs figure numbering — every new figure takes the next available number, with no renumbering of existing ones. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
 
 ## About this book
 
@@ -54,7 +54,7 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## How to cite
 
-> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. Development draft v0.7. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. First edition v1.0. GegoLabs, 2026.
 
 ## The Trilogy
 
@@ -99,7 +99,7 @@ it running. The full trilogy lives at <https://agencydomains.org>.
 
 ## License
 
-This book is published under the **GNU Free Documentation License v1.3** (proposed). The reader may copy, distribute, and modify the work under the terms of the license. The invariant section is the Preface.
+This book is published under the **GNU Free Documentation License v1.3**. The reader may copy, distribute, and modify the work under the terms of the license. The invariant section is the Preface.
 
 The reason for the open licensing is deliberate: the Agentive Architecture aims to establish a category that serves the whole ecosystem, not a particular vendor. By adopting and developing it, other companies, researchers, and builders enrich it and consolidate it as a de facto standard. This serves the field and simultaneously reinforces the authority of those who coined it.
 

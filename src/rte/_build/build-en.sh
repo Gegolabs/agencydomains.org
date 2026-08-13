@@ -28,7 +28,7 @@ pandoc "$TMPSRC" -o "$PDF" \
   --lua-filter="$SCRIPT_DIR/teaser.lua" \
   --metadata title="The Real-Time Enterprise" --metadata subtitle="The Agentive World" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Development draft ${VERSION} · July 2026" \
+  --metadata date="First edition ${VERSION} · August 2026" \
   --toc --toc-depth=1 \
   -V documentclass=book -V classoption=oneside -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \

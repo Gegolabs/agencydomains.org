@@ -3,6 +3,21 @@
 Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 (hasta la v0.3, *Postchat · Mundo Agentivo*).
 
+## v1.0 — Agosto 2026
+
+**Primera edición.** El libro se sanciona como obra publicada: el corpus queda
+estable y citable, y las ediciones ES/EN quedan a la par. Respecto de la v0.4 no
+hay cambios de tesis ni de estructura — lo que cambia es el estatuto: deja de
+presentarse como borrador de desarrollo.
+
+Ajustes editoriales incorporados en esta edición: la enumeración de las cuatro
+caras en el prefacio nombra cada una (el salto cuántico · Postchat · el Estado
+Mayor · la guardia); el cierre del capítulo 8 sitúa el organigrama en registro
+histórico («nació como diagrama de flujo de información; la lectura como escalera
+de poder vino después»); y el presupuesto de atención explicita que tres o cuatro
+horas de trabajo profundo es un techo, no un promedio. Los tres provienen de la
+lectura de Juan Grimalt sobre la v0.4.
+
 ## v0.4 — Julio 2026
 > **Revisiones dentro de v0.4** (auditoría integral + decisiones editoriales,
 > 2026-07-03): correcciones de consistencia post-renombre; la cara 1 gana su

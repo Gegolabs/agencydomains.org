@@ -2,10 +2,17 @@
 
 Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agentivo*.
 
-**Pre-1.0:** las referencias y las figuras pueden reorganizarse libremente entre
-iteraciones. A partir de **v1.0** (primera publicación pública estable) aplica la regla
-**append-only** para la numeración de figuras: cada figura nueva toma el siguiente número
-disponible al final, sin re-enumerar las existentes.
+**Numeración de figuras:** desde **v1.0** (primera edición) rige la regla
+**append-only** — cada figura nueva toma el siguiente número disponible al final, sin
+re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
+
+## v1.0 — Agosto 2026
+
+**Primera edición.** El libro se sanciona como obra publicada: el corpus queda
+estable y citable, y las ediciones ES/EN quedan a la par. Respecto de la v0.7 no
+hay cambios de contenido — lo que cambia es el estatuto: deja de presentarse como
+borrador de desarrollo. **Desde esta versión rige la regla append-only** para la
+numeración de figuras, según se anunció desde el inicio del changelog.
 
 ## v0.7 — Julio 2026
 

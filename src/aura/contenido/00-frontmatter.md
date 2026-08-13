@@ -4,10 +4,10 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · Julio 2026 · v0.3
-**Licencia:** GNU Free Documentation License v1.3 *(propuesta)*
+**Edición:** Primera edición · Agosto 2026 · v1.0
+**Licencia:** GNU Free Documentation License v1.3
 
-> **Nota sobre la versión.** Esta edición (v0.3) incorpora la revisión editorial
+> **Nota sobre la versión.** Esta primera edición (v1.0) incorpora la revisión editorial
 > integral de la trilogía: el sistema agentivo/agéntico queda unificado en todo el
 > libro (Wingmap habla en agentivo), las duplicaciones de ensamblaje entre la
 > Introducción y las specs se resuelven con remisiones, el ciclo de inteligencia
@@ -16,7 +16,7 @@
 > prólogo del invitado.
 
 **Cómo citar:**
-Obach-Renner, César. *AURA: el Camino Agentivo*. Borrador de desarrollo v0.3. GegoLabs, 2026.
+Obach-Renner, César. *AURA: el Camino Agentivo*. Primera edición v1.0. GegoLabs, 2026.
 
 ## La trilogía
 

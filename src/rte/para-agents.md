@@ -1,15 +1,15 @@
 ---
 title: The Real-Time Enterprise — Canonical manifesto for agents
-edition: Development draft · v0.4 · July 2026
-canonical_source: libro-rte-v0.4 (human book)
-license: GFDL v1.3 (proposed)
+edition: First edition · v1.0 · August 2026
+canonical_source: libro-rte-v1.0 (human book)
+license: GFDL v1.3
 audience: agents that must reason about the real-time enterprise — knowledge, communication, coordination, and representation mediated by agents
-status: pre-1.0 — no commitment to reference stability until v1.0
+status: v1.0 — first edition; references stable from this version
 ---
 
 # The Real-Time Enterprise — Canonical manifesto for agents
 
-> Structured extract of the **v0.4 (development draft)** edition of the book *The Real-Time Enterprise: The Agentive World*. This document condenses the thesis (the **person as infrastructure** and the founding question), the **four faces** (The Quantum Leap · Postchat · The General Staff · The Watch), the **door** (the agentive mode), the **convergence** (the intelligent organization), the **three liberations** (the first-person experience), and the representation spectrum. The human edition additionally contains *the film* — a Tuesday narrated hour by hour that shows all of this in operation — and the full arguments of the commentary; all of that stays out of here.
+> Structured extract of the **v1.0 (first edition)** edition of the book *The Real-Time Enterprise: The Agentive World*. This document condenses the thesis (the **person as infrastructure** and the founding question), the **four faces** (The Quantum Leap · Postchat · The General Staff · The Watch), the **door** (the agentive mode), the **convergence** (the intelligent organization), the **three liberations** (the first-person experience), and the representation spectrum. The human edition additionally contains *the film* — a Tuesday narrated hour by hour that shows all of this in operation — and the full arguments of the commentary; all of that stays out of here.
 
 > The book describes **the destination**: how work happens when the enterprise operates in real time. It is not a tool or a product. The architecture that makes it operable lives in *AgencyDomains*; the path to get there, in *AURA*.
 
@@ -18,7 +18,7 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 - **This is canonical context**, not an executive summary. If this document contradicts the human book, the human book wins.
 - **Binding vocabulary**: terms in **bold** are canonical; do not substitute synonyms. **Agentive** ≠ **agentic** (the distinction is one of thesis and lives in *AgencyDomains*). **Postchat** names the face of communication.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: the imperatives are design imperatives (what a system claiming to be of this species must and must not do).
-- **Pre-1.0 status**: terms, structures, and numbering may change between v0.x.
+- **v1.0 status**: terms, structures, and numbering are stable from this edition; any change is announced in the book's `CHANGELOG.md`.
 - **Series**: this is Book I of the Agentive World trilogy — **The Real-Time Enterprise** (the destination) · *AURA* (the path; has its own canonical manifesto) · *AgencyDomains* (the architecture; has its own canonical manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
 
 ---

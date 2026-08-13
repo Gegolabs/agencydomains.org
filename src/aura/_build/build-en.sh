@@ -26,7 +26,7 @@ pandoc "$TMPSRC" -o "$PDF" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
   --metadata title="AURA" --metadata subtitle="The Agentive Path" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Development draft ${VERSION} · July 2026" \
+  --metadata date="First edition ${VERSION} · August 2026" \
   --toc --toc-depth=2 \
   -V documentclass=book -V classoption=twoside -V geometry:margin=2.5cm \
   -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \

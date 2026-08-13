@@ -1,15 +1,15 @@
 ---
 title: AgencyDomains — Canonical manifesto for agents
-edition: Development draft · v0.7 · July 2026
-canonical_source: libro-agency_domains-v0.7 (human book, Spanish)
-license: GFDL v1.3 (proposed)
+edition: First edition · v1.0 · August 2026
+canonical_source: libro-agency_domains-v1.0 (human book, Spanish)
+license: GFDL v1.3
 audience: agents that must reason within the framework
-status: pre-1.0 — no commitment to reference stability until v1.0
+status: v1.0 — first edition; references stable from this version
 ---
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v0.7 (development draft)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v1.0 (first edition)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 
@@ -17,10 +17,10 @@ status: pre-1.0 — no commitment to reference stability until v1.0
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
 - **Series**: AgencyDomains is Book III of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
-- **A mirror of v0.7** — the current in-development edition of the book. If this document contradicts the human book, the human book wins.
+- **A mirror of v1.0** — the current edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
-- **pre-1.0 status**: the book is published as a development draft at agencydomains.org and remains under active development. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first stable release).
+- **v1.0 status**: the book is published as a first edition at agencydomains.org. From this version terms, structures, and numbering are stable: any change is announced in the book's `CHANGELOG.md`.
 - **Changes v0.7 vs v0.6**: the genus of the packaged pieces of Layer 3 receives a **proper name: Let (plural Lets)** — derived from the family's own `-let` suffix; normed vocabulary at the rank of Botler, not a ninth primitive; "packaged unit of Layer 3" remains as the descriptive definition. Canonical relation: **`1 Process = 1 Botler + N Lets`**. Invariant across ES/EN. Resolves the overload of "unit" (collision with "minimal unit of deployment").
 - **Changes v0.6 vs v0.5**: the **Agentlet** is incorporated as the **eighth canonical primitive** — the Botlet's sibling unit whose body invokes **bounded inference**; the home of the task recurrent in form but interpretive in every instance (Chapter 5 §7). With it: the **unit** genus (`1 Process = 1 Botler + N units`; the Botler hosts Botlets and Agentlets with one more control point in the handle — `cognition_call`); the **Agent** umbrella grows to three members (Assistant · Autonomous Agent · Agentlet; **the Agent has an agenda, the Agentlet has a charter**, with a three-question border test); the bidirectional **smuggling rule** (inference in the body → Agentlet; deterministic body → Botlet); the **proto-Agentlet** in the derivation chain and the catalogs; **maturity semantics of its own** (spec stabilization and decreasing escalation rate — no convergence to determinism; offline only with a declared edge model); the **three-rung economics** (Botlet ~0 · bounded Agentlet · full Cognition); and the **Validation pillar with a seat in Layer 3** over the bounded inference.
 - **Changes v0.5 vs v0.4**: a full editorial pass over the trilogy — the **Botlet generations** `G1`/`G2`/`G3` are formalized in Chapter 5 §2 (the Epilogue keeps the background essay without normative weight); the **Information Product** gains its canonical home as a normed term of the Botlet spec (multi-view, drill-through, and their MUSTs); **Capability doctrine restored** — locality (cloud/edge/hybrid) and regulatory certification are predicated of the **Connector** (ESC/POS-Printer, Cash-Drawer, Pinpad, and DTE-SII reclassified) and the **regulated Capability** carries the normative knowledge; the **Botler** is no longer called a primitive (a normed construct of the Botlet spec; the canon remains seven); Chapters 2 ↔ 7 de-duplicated and Chapter 4 slimmed in favor of Chapter 5; the Chapter 6 actor table aligned with its text and "Comprehensive platform" corrected in the glossary; **foundational rescue** from the original document *The Nadella Line* (Nadella's full quote with its CRUD mechanics and its two phases, the spectrum with its extreme pole, counter-arguments with the canon's answers, the historical precedents of coexistence in Chapter 2, the SaaS monetization crisis in Chapter 6); the "The trilogy" micro-section with AURA's five specifications; **Dominion** adopted by the Epilogue; Wingtraining, SME, and RLS defined in the glossary.

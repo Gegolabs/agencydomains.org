@@ -1,15 +1,15 @@
 ---
 título: AgencyDomains — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.7 · Julio 2026
-fuente_canónica: libro-agency_domains-v0.7 (libro humano)
-licencia: GFDL v1.3 (propuesta)
+edición: Primera edición · v1.0 · Agosto 2026
+fuente_canónica: libro-agency_domains-v1.0 (libro humano)
+licencia: GFDL v1.3
 audiencia: agentes que deben razonar dentro del framework
-estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
+estado: v1.0 — primera edición; referencias estables desde esta versión
 ---
 
 # AgencyDomains — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.7 (borrador de desarrollo)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v1.0 (primera edición)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
 
 > Este canon contiene la **estructura y el vocabulario** del Mundo Agentivo: definiciones, primitivas, propiedades exigidas, separaciones canónicas. **No contiene métodos para implementar ni catálogos operacionales** — esos viven en cuerpos complementarios. La implementación de referencia pública es **AgencyDomains.org**, materializada en **Vergis**, diseñada para que cualquier desarrollador o estudiante pueda descargarla, leerla, ejecutarla y aprender cómo el canon se traduce en sistemas vivos. Otros implementadores (productos comerciales, códices propietarios) ofrecen sus propios cuerpos complementarios sobre la misma estructura canónica.
 
@@ -17,10 +17,10 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición y propiedad importa para razonar dentro del framework.
 - **Serie**: AgencyDomains es el Libro III de la trilogía del Mundo Agentivo — *La Empresa en Tiempo Real* (el destino; manifiesto propio) · *AURA* (el camino; manifiesto propio) · **AgencyDomains** (la arquitectura). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
-- **Espejo de v0.7** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
+- **Espejo de v1.0** — la edición vigente del libro. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos.
 - **Convenciones MUST/SHOULD**: la spec usa esos verbos en sentido RFC 2119.
-- **Estado pre-1.0**: el libro está publicado como borrador de desarrollo en agencydomains.org y sigue en desarrollo activo. Los términos, las estructuras y la numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera versión estable).
+- **Estado v1.0**: el libro está publicado como primera edición en agencydomains.org. Desde esta versión los términos, las estructuras y la numeración son estables: lo que cambie se anunciará en el `CHANGELOG.md` del libro.
 - **Cambios v0.7 vs v0.6**: el género de las piezas empaquetadas de Capa 3 recibe **nombre propio: Let (plural Lets)** — derivado del sufijo `-let` de la propia familia; vocabulario normado al rango de Botler, no una novena primitiva; «unidad empaquetada de Capa 3» queda como definición descriptiva. Relación canónica: **`1 Proceso = 1 Botler + N Lets`**. Invariante ES/EN. Resuelve la sobrecarga de «unidad» (colisión con «unidad mínima de despliegue»).
 - **Cambios v0.6 vs v0.5**: el **Agentlet** se incorpora como **octava primitiva canónica** — unidad hermana del Botlet cuyo cuerpo invoca **inferencia acotada**; casa de la tarea recurrente en forma pero interpretativa en cada instancia (Cap. 5 §7). Con él: el género **unidad** (`1 Proceso = 1 Botler + N unidades`; el Botler hospeda Botlets y Agentlets con un punto de control más en el handle — `cognition_call`); el paraguas **Agente** pasa a tres miembros (Asistente · Agente Autónomo · Agentlet; **el Agente tiene agenda, el Agentlet tiene charter**, con test de frontera de tres preguntas); la **regla de contrabando** bidireccional (inferencia en el cuerpo → Agentlet; cuerpo determinístico → Botlet); **proto-Agentlet** en la cadena de derivación y los catálogos; semántica de **madurez propia** (estabilización del spec y tasa de escalamiento decreciente — no convergencia a determinismo; offline solo con modelo edge declarado); la **economía de los tres peldaños** (Botlet ~0 · Agentlet acotado · Cognición plena); y el pilar de **Validación con sede en Capa 3** sobre la inferencia acotada.
 - **Cambios v0.5 vs v0.4**: pasada editorial integral de la trilogía — las **generaciones del Botlet** `G1`/`G2`/`G3` se formalizan en el Cap. 5 §2 (el Epílogo conserva el ensayo de fondo sin carga normativa); el **Producto de Información** obtiene casa canónica como término normado de la spec de Botlets (multi-vista, drill-through y sus MUST); **doctrina Capability restaurada** — la localidad (cloud/edge/híbrido) y la certificación regulatoria se predican del **Conector** (ESC/POS-Printer, Cash-Drawer, Pinpad y DTE-SII reclasificados) y la **Capability regulada** porta el saber normativo; el **Botler** deja de llamarse primitiva (constructo normado de la spec de Botlets; el canon sigue siendo de siete); Cap. 2 ↔ Cap. 7 desduplicados y Cap. 4 adelgazado a favor del Cap. 5; tabla de actores del Cap. 6 alineada con su texto y «Plataforma integral» corregida en el glosario; **rescate fundacional** del documento original *La Línea Nadella* (cita completa de Nadella con su mecánica CRUD y sus dos fases, espectro con el polo extremo, contra-argumentos con las respuestas del canon, precedentes históricos de coexistencia en el Cap. 2, crisis de monetización del SaaS en el Cap. 6); micro-sección «La trilogía» con las cinco especificaciones de AURA; **Dominion** adoptado por el Epílogo; Wingtraining, SME y RLS definidos en el glosario.

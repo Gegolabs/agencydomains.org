@@ -1,6 +1,6 @@
 ---
 título: Trilogía del Mundo Agentivo — Manifiesto unificado para agentes
-composición: La Empresa en Tiempo Real v0.4 · AURA v0.3 · AgencyDomains v0.7 (los tres manifiestos canónicos, íntegros)
+composición: La Empresa en Tiempo Real v1.0 · AURA v1.0 · AgencyDomains v1.0 (los tres manifiestos canónicos, íntegros)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que necesitan la trilogía completa en un solo documento
 regla_de_precedencia: cada parte es espejo de su libro humano; ante contradicción, gana el libro humano de la parte correspondiente

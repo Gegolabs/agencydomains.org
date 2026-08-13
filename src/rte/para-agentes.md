@@ -1,15 +1,15 @@
 ---
 título: La Empresa en Tiempo Real — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.4 · Julio 2026
-fuente_canónica: libro-rte-v0.4 (libro humano)
-licencia: GFDL v1.3 (propuesta)
+edición: Primera edición · v1.0 · Agosto 2026
+fuente_canónica: libro-rte-v1.0 (libro humano)
+licencia: GFDL v1.3
 audiencia: agentes que deben razonar sobre la empresa en tiempo real — conocimiento, comunicación, coordinación y representación mediados por agentes
-estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
+estado: v1.0 — primera edición; referencias estables desde esta versión
 ---
 
 # La Empresa en Tiempo Real — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.4 (borrador de desarrollo)** del libro *La Empresa en Tiempo Real: Mundo Agentivo*. Este documento condensa la tesis (la **persona como infraestructura** y la pregunta fundante), las **cuatro caras** (El salto cuántico · Postchat · El Estado Mayor · La guardia), la **puerta** (el modo agentivo), la **convergencia** (la organización inteligente), las **tres liberaciones** (la vivencia en primera persona) y el espectro de representación. La versión humana contiene además *la película* — un martes narrado hora por hora que muestra todo esto en operación — y los argumentos completos del comentario; eso queda fuera de aquí.
+> Extracto estructurado de la edición **v1.0 (primera edición)** del libro *La Empresa en Tiempo Real: Mundo Agentivo*. Este documento condensa la tesis (la **persona como infraestructura** y la pregunta fundante), las **cuatro caras** (El salto cuántico · Postchat · El Estado Mayor · La guardia), la **puerta** (el modo agentivo), la **convergencia** (la organización inteligente), las **tres liberaciones** (la vivencia en primera persona) y el espectro de representación. La versión humana contiene además *la película* — un martes narrado hora por hora que muestra todo esto en operación — y los argumentos completos del comentario; eso queda fuera de aquí.
 
 > El libro describe **el destino**: cómo se trabaja cuando la empresa opera en tiempo real. No es una herramienta ni un producto. La arquitectura que lo hace operable vive en *AgencyDomains*; el camino para llegar, en *AURA*.
 
@@ -18,7 +18,7 @@ estado: pre-1.0 — sin compromiso de estabilidad de referencias hasta v1.0
 - **Es contexto canónico**, no resumen ejecutivo. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en **negrita** son canónicos; no sustituir por sinónimos. **Agentivo** ≠ **agéntico** (la distinción es de tesis y vive en *AgencyDomains*). **Postchat** nombra la cara de la comunicación.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: los imperativos son de diseño (qué debe y qué no debe hacer un sistema que se reclame de esta especie).
-- **Estado pre-1.0**: términos, estructuras y numeración pueden cambiar entre v0.x.
+- **Estado v1.0**: términos, estructuras y numeración son estables desde esta edición; lo que cambie se anuncia en el `CHANGELOG.md` del libro.
 - **Serie**: este es el Libro I de la trilogía del Mundo Agentivo — **La Empresa en Tiempo Real** (el destino) · *AURA* (el camino; manifiesto propio) · *AgencyDomains* (la arquitectura; manifiesto propio). Los términos compartidos (Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
 
 ---

@@ -1,4 +1,4 @@
-# Manifest del libro La Empresa en Tiempo Real v0.4 — orden de concatenación.
+# Manifest del libro La Empresa en Tiempo Real v1.0 — orden de concatenación.
 # Parte 1 «La película» (escenas con adelantos) + Parte 2 «El comentario» + glosario.
 # El prólogo se reincorpora cuando llegue el texto del prologuista.
 contenido/00-frontmatter.md

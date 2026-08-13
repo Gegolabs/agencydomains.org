@@ -1,25 +1,25 @@
 ---
 título: AURA — Manifiesto canónico para agentes
-edición: Borrador de desarrollo · v0.3 · Julio 2026
-fuente_canónica: libro-aura-v0.3 (libro humano)
-licencia: GFDL v1.3 (propuesta)
+edición: Primera edición · v1.0 · Agosto 2026
+fuente_canónica: libro-aura-v1.0 (libro humano)
+licencia: GFDL v1.3
 audiencia: agentes que deben diagnosticar madurez organizacional y razonar dentro del marco AURA
-estado: pre-1.0 — publicado como borrador de desarrollo; sin compromiso de estabilidad de referencias hasta v1.0
+estado: v1.0 — primera edición; referencias estables desde esta versión
 ---
 
 # AURA — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v0.3 (borrador de desarrollo)** del libro *AURA: el Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v1.0 (primera edición)** del libro *AURA: el Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
 
 > AURA es **diagnóstica, no prescriptiva**. Este manifiesto permite *ubicar* a una organización en sus trayectorias de madurez y razonar sobre su siguiente paso; no recomienda productos, inversiones ni plazos — eso pertenece a la consultoría que estos modelos informan.
 
 ## Cómo usar este documento
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición, etapa, nivel y pregunta diagnóstica importa para razonar dentro del marco.
-- **Espejo de v0.3** — la versión vigente del libro en desarrollo. Si este documento contradice al libro humano, el libro humano gana.
+- **Espejo de v1.0** — la edición vigente del libro. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos. En particular: **agentivo** ≠ **agéntico** (ver §2) — la distinción es de tesis, no de estilo.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: AURA diagnostica; sus pocos imperativos son estructurales (secuencialidad de niveles, pre-condiciones bloqueantes, honestidad del ROI).
-- **Estado pre-1.0**: el libro está publicado como borrador de desarrollo en agencydomains.org y sigue en desarrollo activo. Términos, estructuras y numeración pueden cambiar entre v0.x. La estabilidad de referencias se compromete a partir de v1.0 (primera versión estable).
+- **Estado v1.0**: el libro está publicado como primera edición en agencydomains.org. Desde esta versión los términos, las estructuras y la numeración son estables: lo que cambie se anunciará en el `CHANGELOG.md` del libro.
 - **Serie**: AURA es el Libro II de la trilogía del Mundo Agentivo — *La Empresa en Tiempo Real* (el destino; manifiesto propio) · **AURA** (el camino) · *AgencyDomains* (la arquitectura; manifiesto propio). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
 
 ---

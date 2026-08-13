@@ -1,25 +1,25 @@
 ---
 title: AURA — Canonical manifesto for agents
-edition: Development draft · v0.3 · July 2026
-canonical_source: libro-aura-v0.3 (human book, Spanish)
-license: GFDL v1.3 (proposed)
+edition: First edition · v1.0 · August 2026
+canonical_source: libro-aura-v1.0 (human book, Spanish)
+license: GFDL v1.3
 audience: agents that must diagnose organizational maturity and reason within the AURA framework
-status: pre-1.0 — published as a development draft; no commitment to reference stability until v1.0
+status: v1.0 — first edition; references stable from this version
 ---
 
 # AURA — Canonical manifesto for agents
 
-> Structured extract of the **v0.3 (development draft)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
+> Structured extract of the **v1.0 (first edition)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
 
 > AURA is **diagnostic, not prescriptive**. This manifesto makes it possible to *locate* an organization on its maturity trajectories and reason about its next step; it does not recommend products, investments, or timelines — that belongs to the consulting these models inform.
 
 ## How to use this document
 
 - **This is canonical context**, not an executive summary. Every definition, stage, level, and diagnostic question matters for reasoning within the framework.
-- **Mirror of v0.3** — the current version of the book in development. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v0.3); this manifesto mirrors it in English.
+- **Mirror of v1.0** — the current edition of the book. If this document contradicts the human book, the human book wins. The canonical human book is currently in Spanish (libro-aura-v1.0); this manifesto mirrors it in English.
 - **Binding vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms. In particular: **agentive** ≠ **agentic** (see §2) — the distinction is one of thesis, not of style.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: AURA diagnoses; its few imperatives are structural (sequentiality of levels, blocking pre-conditions, ROI honesty).
-- **Pre-1.0 status**: the book is published as a development draft at agencydomains.org and remains under active development. Terms, structures, and numbering may change between v0.x. Reference stability is committed from v1.0 (first stable release).
+- **v1.0 status**: the book is published as a first edition at agencydomains.org. From this version terms, structures, and numbering are stable: any change is announced in the book's `CHANGELOG.md`.
 - **Series**: AURA is Book II of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; it has its own manifesto) · **AURA** (the path) · *AgencyDomains* (the architecture; it has its own manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
 
 ---

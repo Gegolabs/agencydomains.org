@@ -3,7 +3,7 @@
 ### Libro I de la trilogía del Mundo Agentivo
 
 **Autor:** César Obach-Renner · **Editor:** GegoLabs
-**Edición:** Borrador de desarrollo · v0.4 · Julio 2026
+**Edición:** Primera edición · v1.0 · Agosto 2026
 *(Slug técnico del libro: `rte`.)*
 
 ## Composición
@@ -40,9 +40,9 @@ cocina); la re-arquitectura de caras viene del cluster `tres-caras` (docs
 (ES) · `RealTimeEnterprise-vX.Y-en.*` (EN). Rutas de publicación:
 `/real-time-enterprise/` (EN, default) · `/es/empresa-tiempo-real/` (ES).
 
-## Pendientes hacia v0.5+
+## Pendientes hacia v1.1+
 
 - Prólogo (prologuista invitado: Omar, por confirmar).
 - Revisión humana de estilo de la edición EN (traducción de agentes).
 - Figura propia de las cuatro caras (candidata: f06).
-- Iteración con lectores (Vitor · Grimalt · JC) sobre la v0.4.
+- Iteración con lectores (Vitor · Grimalt · JC) sobre la primera edición.
