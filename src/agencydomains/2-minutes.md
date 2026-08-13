@@ -1,8 +1,8 @@
-# Back cover — AgencyDomains · Agentive Architecture
+# In 2 minutes — AgencyDomains · Agentive Architecture
 
-> Canonical back-cover text (César + Claude, 2026-08-13). It is the book's
-> 2-minute piece: reused on the site home, in the PDF, and in a future print
-> edition. It speaks of the work, not the channel — back-cover criterion:
+> The book's 2-minute summary — canonical text (César + Claude, 2026-08-13). Its destinations:
+> the book's card on the site home, the PDF, and — in a print edition —
+> the back cover. It speaks of the work, not the channel — criterion:
 > expository prose, no question games, no subheadings.
 
 The industry names the horizon — agents, copilots, autonomous workflows — but builds on loose language: plenty of marketing, little architecture. **AgencyDomains is the missing specification**: the formal architecture of the Agentive World, written with the discipline by which technical categories are established.

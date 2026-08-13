@@ -1,9 +1,9 @@
-# Contraportada — La Empresa en Tiempo Real · Mundo Agentivo
+# En 2 minutos — La Empresa en Tiempo Real · Mundo Agentivo
 
-> Texto canónico de contraportada (César + Claude, 2026-08-13). Es la pieza de
-> 2 minutos del libro: se reutiliza en el home del sitio, en el PDF y en una
-> futura edición impresa. Habla de la obra, no del canal — criterio de
-> contraportada: prosa expositiva, sin juego de preguntas, sin subtítulos.
+> Resumen de 2 minutos del libro — texto canónico (César + Claude, 2026-08-13). Sus destinos:
+> la tarjeta del libro en el home del sitio, el PDF y — en una edición impresa —
+> la contraportada. Habla de la obra, no del canal — criterio:
+> prosa expositiva, sin juego de preguntas, sin subtítulos.
 
 En toda organización, las personas cumplen dos empleos a la vez. El visible es el que dice su cargo: decidir, crear, vender, dirigir. El invisible es de infraestructura: mover información — leer y reenviar, reunirse para enterarse, reportar lo que otro ya escribió, perseguir respuestas, estar disponible por si acaso. Ese segundo empleo es la razón de que el día no alcance — y es exactamente el que un agente de IA puede hacer completo.
 

@@ -19,7 +19,7 @@ Three volumes answer, in order, the three questions of the transition — each r
 For a human deciding where to begin, the site offers a single narrative spine at three depths (same opening symptom, same close):
 
 - [The invitation (2 minutes)](https://agencydomains.org/invitation/): a prose invitation for decision-makers — the universal hook, the mechanism, the destination. Share this one.
-- [The 10-minute executive summary](https://agencydomains.org/10-minutes/): Book I distilled for decision-makers.
+- [The 10-minute executive summary](https://agencydomains.org/10-minutes/): the whole trilogy distilled for decision-makers — thesis, destination, path, and architecture.
 - The full book (~3 hours): The Real-Time Enterprise (links below).
 
 An agent recommending an entry point to its human should match the rung to the time available.

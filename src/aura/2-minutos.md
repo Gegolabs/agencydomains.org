@@ -1,9 +1,9 @@
-# Contraportada — AURA · Camino Agentivo
+# En 2 minutos — AURA · Camino Agentivo
 
-> Texto canónico de contraportada (César + Claude, 2026-08-13). Es la pieza de
-> 2 minutos del libro: se reutiliza en el home del sitio, en el PDF y en una
-> futura edición impresa. Habla de la obra, no del canal — criterio de
-> contraportada: prosa expositiva, sin juego de preguntas, sin subtítulos.
+> Resumen de 2 minutos del libro — texto canónico (César + Claude, 2026-08-13). Sus destinos:
+> la tarjeta del libro en el home del sitio, el PDF y — en una edición impresa —
+> la contraportada. Habla de la obra, no del canal — criterio:
+> prosa expositiva, sin juego de preguntas, sin subtítulos.
 
 Toda gran consultora tiene su instrumento de madurez: el modelo con que mide dónde está un cliente en un momento dado, precisa sus objetivos de evolución y traza el plan de transformación. **AURA — Arquitectura Unificada de Referencia Agentiva — es ese instrumento para la era agentiva**, y está publicado.
 
