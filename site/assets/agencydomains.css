@@ -191,3 +191,16 @@ sup a{font-family:var(--mono);font-size:.7em;text-decoration:none}
 .book-nav > ol > li.part > a{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-soft)}
 .book-part h1{margin-top:18vh;text-align:center}
+
+/* ------------------------------------------------------------
+   Contraportadas en el home: cada libro de la trilogía despliega
+   su contraportada canónica (la pieza de 2 minutos del libro).
+   ------------------------------------------------------------ */
+.canon details.back{margin:.4rem 0 0}
+.canon details.back summary{cursor:pointer;list-style:none;font-family:var(--mono);
+  font-size:.7rem;letter-spacing:.06em;color:var(--accent)}
+.canon details.back summary::-webkit-details-marker{display:none}
+.canon details.back summary::after{content:" ↓"}
+.canon details.back[open] summary::after{content:" ↑"}
+.canon details.back p{font-size:.86rem;line-height:1.55;color:var(--ink-soft);margin:.55rem 0 0}
+.canon details.back p strong{color:var(--ink)}
