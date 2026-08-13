@@ -1,8 +1,8 @@
 # En 2 minutos — AgencyDomains · Arquitectura Agentiva
 
 > Resumen de 2 minutos del libro — texto canónico (César + Claude, 2026-08-13). Sus destinos:
-> la tarjeta del libro en el home del sitio, el PDF y — en una edición impresa —
-> la contraportada. Habla de la obra, no del canal — criterio:
+> la tarjeta del libro en el home del sitio y, en una edición impresa, la contraportada
+> — donde el lector aún no ha entrado. Habla de la obra, no del canal — criterio:
 > prosa expositiva, sin juego de preguntas, sin subtítulos.
 
 La industria nombra el horizonte — agentes, copilotos, flujos autónomos — pero construye sobre lenguaje suelto: mucho marketing, poca arquitectura. **AgencyDomains es la especificación que faltaba**: la arquitectura formal del Mundo Agentivo, escrita con la disciplina con que se establecen las categorías técnicas.

@@ -1,8 +1,8 @@
 # In 2 minutes — AURA · Agentive Path
 
 > The book's 2-minute summary — canonical text (César + Claude, 2026-08-13). Its destinations:
-> the book's card on the site home, the PDF, and — in a print edition —
-> the back cover. It speaks of the work, not the channel — criterion:
+> the book's card on the site home and, in a print edition, the back cover
+> — where the reader has not yet come in. It speaks of the work, not the channel — criterion:
 > expository prose, no question games, no subheadings.
 
 Every major consultancy has its maturity instrument: the model it uses to measure where a client stands at a given moment, set its evolution targets, and chart the transformation plan. **AURA — Agentive Unified Reference Architecture — is that instrument for the agentive era**, and it is published.

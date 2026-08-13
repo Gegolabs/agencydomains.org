@@ -1,8 +1,8 @@
 # In 2 minutes — The Real-Time Enterprise · Agentive World
 
 > The book's 2-minute summary — canonical text (César + Claude, 2026-08-13). Its destinations:
-> the book's card on the site home, the PDF, and — in a print edition —
-> the back cover. It speaks of the work, not the channel — criterion:
+> the book's card on the site home and, in a print edition, the back cover
+> — where the reader has not yet come in. It speaks of the work, not the channel — criterion:
 > expository prose, no question games, no subheadings.
 
 In every organization, people hold two jobs at once. The visible one is what their title says: deciding, creating, selling, leading. The invisible one is infrastructure: moving information — reading and forwarding, meeting to find out, reporting what someone else already wrote, chasing replies, staying available just in case. That second job is the reason the day falls short — and it is exactly the one an AI agent can do whole.
