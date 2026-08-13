@@ -26,7 +26,7 @@ Los términos de este mundo, en una línea cada uno — para el lector que llega
 
 **interfaz generada / compilada** — La compilada pertenece a una aplicación y existe siempre; la generada la produce el agente para una interacción, con la forma óptima, y muere al terminar. *(Capítulo 1.)*
 
-**presupuesto de atención** — La capacidad finita de trabajo profundo (tres o cuatro horas diarias) tratada como presupuesto que el agente administra: cada interrupción cuesta quinientas veces su duración. *(Capítulos 2 y 4.)*
+**presupuesto de atención** — La capacidad finita de trabajo profundo (tres o cuatro horas diarias, en el mejor de los casos) tratada como presupuesto que el agente administra: cada interrupción cuesta quinientas veces su duración. *(Capítulos 2 y 4.)*
 
 **los M&Ms y el &** — Los M&Ms son *managers* y *meetings*, los dos grandes interruptores del trabajo (Jason Fried); el **&** es el chat corporativo — la infraestructura que los volvió permanentes. Las dos Ms son de Fried; el & lo nombra este libro. *(Capítulo 2.)*
 

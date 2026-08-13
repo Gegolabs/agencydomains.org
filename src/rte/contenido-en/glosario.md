@@ -26,7 +26,7 @@ The terms of this world, one line each — for the reader arriving from any page
 
 **generated / compiled interface** — The compiled one belongs to an application and always exists; the generated one is produced by the agent for one interaction, in the optimal form, and dies when it's done. *(Chapter 1.)*
 
-**attention budget** — The finite capacity for deep work (three to four hours a day) treated as a budget the agent manages: every interruption costs five hundred times its duration. *(Chapters 2 and 4.)*
+**attention budget** — The finite capacity for deep work (three to four hours a day, at best) treated as a budget the agent manages: every interruption costs five hundred times its duration. *(Chapters 2 and 4.)*
 
 **the M&Ms and the &** — The M&Ms are *managers* and *meetings*, the two great interrupters of work (Jason Fried); the **&** is corporate chat — the infrastructure that made them permanent. The two Ms are Fried's; the & is this book's. *(Chapter 2.)*
 

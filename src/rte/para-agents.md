@@ -85,7 +85,7 @@ In Postchat, silence changes its nature: it stops meaning "maybe I'm missing som
 
 **The cost model — the attention budget:**
 
-- **Attention** is a budget in the strict sense: finite (3–4 hours of deep work per person per day), perishable, and with a counterintuitive cost structure — **every interruption costs ~500 times its duration** (a 30 s notification ≈ 15–25 min of focus recovery; see Gloria Mark).
+- **Attention** is a budget in the strict sense: finite (3–4 hours of deep work per person per day — a ceiling, not an average), perishable, and with a counterintuitive cost structure — **every interruption costs ~500 times its duration** (a 30 s notification ≈ 15–25 min of focus recovery; see Gloria Mark).
 - **The M&Ms** (Fried): *Managers* and *Meetings*, the two classic destroyers of productivity. **The & — this book's contribution —** is what connects them: corporate chat, the always-on infrastructure that makes both interruptions permanent. Without the &, an interruption carries a social cost that regulates it; with the &, it is free, continuous, and invisible.
 - **The five hidden costs of the channel**: the illusion of communication (posting ≠ communicating) · structural noise (fifty pay the toll of reading so that three act) · temporal asymmetry (the channel penalizes whoever works the most) · institutional FOMO · the workday without a boundary.
 

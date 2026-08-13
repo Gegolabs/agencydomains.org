@@ -84,7 +84,7 @@ En Postchat el silencio cambia de naturaleza: deja de significar "quizás me est
 
 **El modelo de costos — el presupuesto de atención:**
 
-- La **atención** es un presupuesto en sentido estricto: finita (3–4 horas diarias de trabajo profundo por persona), perecedera, y con estructura de costos contraintuitiva — **cada interrupción cuesta ~500 veces su duración** (30 s de notificación ≈ 15–25 min de recuperación de concentración; ver Gloria Mark).
+- La **atención** es un presupuesto en sentido estricto: finita (3–4 horas diarias de trabajo profundo por persona — techo, no promedio), perecedera, y con estructura de costos contraintuitiva — **cada interrupción cuesta ~500 veces su duración** (30 s de notificación ≈ 15–25 min de recuperación de concentración; ver Gloria Mark).
 - **Los M&Ms** (Fried): *Managers* y *Meetings*, los dos destructores clásicos de productividad. **El & — contribución de este libro —** es lo que los conecta: el chat corporativo, la infraestructura siempre encendida que vuelve permanentes ambas interrupciones. Sin el &, la interrupción tiene costo social que la regula; con el &, es gratuita, continua e invisible.
 - **Los cinco costos ocultos del canal**: ilusión de comunicación (publicar ≠ comunicar) · ruido estructural (cincuenta pagan el peaje de leer para que tres actúen) · asimetría temporal (el canal penaliza a quien más trabaja) · FOMO institucional · jornada sin frontera.
 

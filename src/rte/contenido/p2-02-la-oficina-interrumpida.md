@@ -6,7 +6,7 @@
 
 Toda organización administra con rigor sus presupuestos de capital, de gasto y de personal. Ninguna administra el presupuesto del que depende la calidad de todos los demás: la **atención** de su gente.
 
-La atención es un presupuesto en el sentido estricto. Es finita — la investigación sitúa en tres o cuatro horas diarias la capacidad máxima de trabajo profundo de una persona —, es perecedera, y tiene una estructura de costos contraintuitiva: cada interrupción cuesta no lo que dura, sino lo que destruye. Leer una notificación toma treinta segundos; recuperar el estado de concentración previo toma entre quince y veinticinco minutos. La interrupción cuesta quinientas veces su duración.
+La atención es un presupuesto en el sentido estricto. Es finita — la investigación sitúa en tres o cuatro horas diarias la capacidad máxima de trabajo profundo de una persona, y eso es el techo: los días corrientes rinden menos —, es perecedera, y tiene una estructura de costos contraintuitiva: cada interrupción cuesta no lo que dura, sino lo que destruye. Leer una notificación toma treinta segundos; recuperar el estado de concentración previo toma entre quince y veinticinco minutos. La interrupción cuesta quinientas veces su duración.
 
 Con esa estructura de costos, la aritmética de la oficina contemporánea es devastadora. Un directivo con ocho canales activos y una notificación cada veinte minutos dispone de exactamente **cero** bloques de trabajo profundo por jornada. No pocos: cero. Su día es una sucesión de fragmentos demasiado cortos para pensar, y su trabajo real — el que exige criterio sostenido — se desplaza a la noche, al fin de semana, al avión. La sensación universal de "estar ocupadísimo sin avanzar en nada" no es una debilidad personal: es la consecuencia contable de un sistema que gasta el presupuesto de atención de toda la organización sin que nadie lo autorice.
 
@@ -36,7 +36,7 @@ La respuesta será la misma que la de la pregunta madre: para nada. El chat corp
 
 > **Lo esencial**
 >
-> - La atención es un presupuesto: tres o cuatro horas de trabajo profundo por día, y cada interrupción cuesta quinientas veces su duración.
+> - La atención es un presupuesto: tres o cuatro horas de trabajo profundo por día — y eso en el mejor de los casos —, y cada interrupción cuesta quinientas veces su duración.
 > - Los M&Ms de Fried — *managers* y *meetings* — tienen un conector que este libro nombra: el **&**, el chat corporativo que los volvió permanentes.
 > - El canal cobra además otros costos ocultos — la ilusión de comunicar, el ruido, el castigo a quien más trabaja, el FOMO — y el último disolvió el final del día.
 > - Un copiloto dentro del canal es el mismo paradigma con ayuda. La salida no es un canal mejor: es la ausencia gobernada del canal — **Postchat**.

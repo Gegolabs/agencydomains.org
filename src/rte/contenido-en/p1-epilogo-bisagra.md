@@ -6,7 +6,7 @@ Elena's Tuesday looked like a succession of hours, and it was a ladder. Three ti
 
 **At 7:00 and at 9:30, you saw the liberation from tools.** No one in this film opened an application they didn't want to open. Surfaces appeared when they served and died when they were done; the artifacts — the comparison, the query, the briefing — were generated from intention. What that layer protects is **flow**: the continuity of thought, which the previous paradigm shredded by force of opening, searching, switching, and operating software.
 
-**From 9:30 to 12:30, you saw the liberation from channels.** Communication stopped being a place you go and became something that arrives — filtered, reframed, in its moment. The & died, and with it the interruption factory. What that layer protects is **attention**: the three or four hours of true concentration a human has per day, which the chat office confiscated without a receipt.
+**From 9:30 to 12:30, you saw the liberation from channels.** Communication stopped being a place you go and became something that arrives — filtered, reframed, in its moment. The & died, and with it the interruption factory. What that layer protects is **attention**: the three or four hours of true concentration a human has per day — at most — which the chat office confiscated without a receipt.
 
 **At 15:00, you saw the liberation from availability.** The agent matured until it could speak for its user: it answered for Andrés with Andrés's criteria, protected the word that wasn't its to give, and the organization stopped demanding that its people be ubiquitous. What that layer protects is **time** — the right to be in one place, to be in the field, to be asleep — without the world stopping or billing you for it.
 

@@ -6,7 +6,7 @@
 
 Every organization manages its capital, operating, and personnel budgets with rigor. None manages the budget on which the quality of all the others depends: the **attention** of its people.
 
-Attention is a budget in the strict sense. It is finite — research puts a person's maximum capacity for deep work at three or four hours a day —, it is perishable, and it has a counterintuitive cost structure: each interruption costs not what it lasts, but what it destroys. Reading a notification takes thirty seconds; recovering the prior state of concentration takes fifteen to twenty-five minutes. The interruption costs five hundred times its duration.
+Attention is a budget in the strict sense. It is finite — research puts a person's maximum capacity for deep work at three or four hours a day, and that is the ceiling: ordinary days yield less —, it is perishable, and it has a counterintuitive cost structure: each interruption costs not what it lasts, but what it destroys. Reading a notification takes thirty seconds; recovering the prior state of concentration takes fifteen to twenty-five minutes. The interruption costs five hundred times its duration.
 
 With that cost structure, the arithmetic of the contemporary office is devastating. An executive with eight active channels and a notification every twenty minutes has exactly **zero** blocks of deep work per day. Not few: zero. Their day is a succession of fragments too short to think in, and their real work — the kind that demands sustained judgment — gets pushed to the night, the weekend, the airplane. The universal feeling of "being insanely busy without getting anywhere" is not a personal weakness: it is the accounting consequence of a system that spends the entire organization's attention budget without anyone authorizing it.
 
@@ -36,7 +36,7 @@ The answer will be the same as the one to the mother question: for nothing. Corp
 
 > **The essentials**
 >
-> - Attention is a budget: three or four hours of deep work a day, and every interruption costs five hundred times its duration.
+> - Attention is a budget: three or four hours of deep work a day — at best —, and every interruption costs five hundred times its duration.
 > - Fried's M&Ms — *managers* and *meetings* — have a connector this book names: the **&**, the corporate chat that made them permanent.
 > - The channel also charges other hidden costs — the illusion of communicating, the noise, the penalty on those who work hardest, the FOMO — and the last one dissolved the end of the day.
 > - A copilot inside the channel is the same paradigm with help. The way out is not a better channel: it is the governed absence of the channel — **Postchat**.

@@ -16,7 +16,10 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 > de las caras en el prefacio incorpora sus nombres propios (ES/EN); el bullet
 > del organigrama en Lo esencial del cap. 8 pasa al registro histórico — «nació
 > como diagrama de flujo de información; la lectura como escalera de poder vino
-> después» (ES/EN).
+> después» (ES/EN). Además, por decisión de autor: el presupuesto de atención
+> explicita que tres o cuatro horas de trabajo profundo es techo, no promedio
+> (cap. 2 §presupuesto + Lo esencial, glosario, epílogo-bisagra, manifiestos;
+> ES/EN).
 
 **El libro se presenta por su tesis completa: la empresa en tiempo real.**
 Re-arquitectura del comentario sobre las cuatro caras (decisiones en la cocina
