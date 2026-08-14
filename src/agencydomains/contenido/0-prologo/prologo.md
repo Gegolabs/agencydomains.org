@@ -1,3 +1,0 @@
-# Prólogo
-
-> *(Por completar)*

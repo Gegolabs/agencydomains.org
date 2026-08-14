@@ -1,3 +1,0 @@
-# Prologue
-
-*(Pending — guest prologue.)*

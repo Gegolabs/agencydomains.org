@@ -21,7 +21,6 @@ El libro es **agnóstico a productos**. Las construcciones formales aquí descri
 
 | Capítulo | Contenido |
 |---|---|
-| **Prólogo** | *(por completar)* |
 | **Prefacio** | Origen del libro · quién debe leerlo · cómo está organizado · términos en inglés |
 | **1 · La Línea Nadella** | La pregunta canónica · Agéntico vs Agentivo · los CEOs · por qué importa estratégicamente |
 | **2 · El Mundo Agentivo** | Las consecuencias del cruce · transformación organizacional · la nueva economía de la información · datos del campo |

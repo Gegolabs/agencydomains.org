@@ -21,7 +21,6 @@ The book is **product-agnostic**. The formal constructs described here admit mul
 
 | Chapter | Content |
 |---|---|
-| **Prologue** | *(to be written)* |
 | **Preface** | Origin of the book · who should read it · how it is organized · on terminology |
 | **1 · The Nadella Line** | The canonical question · Agentic vs Agentive · the CEOs · why it matters strategically |
 | **2 · The Agentive World** | The consequences of the crossing · organizational transformation · the new economics of information · field data |

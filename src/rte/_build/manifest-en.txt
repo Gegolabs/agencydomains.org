@@ -1,6 +1,5 @@
 # Manifest of the book The Real-Time Enterprise v1.0 (EN) — concatenation order.
 # Part 1 «The film» (scenes with teasers) + Part 2 «The commentary» + glossary.
-# The prologue is reincorporated when the guest prologuist's text arrives.
 contenido-en/00-frontmatter.md
 contenido-en/prefacio.md
 contenido-en/parte-pelicula.md

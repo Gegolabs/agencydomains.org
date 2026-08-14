@@ -42,7 +42,6 @@ cocina); la re-arquitectura de caras viene del cluster `tres-caras` (docs
 
 ## Pendientes hacia v1.1+
 
-- Prólogo (prologuista invitado: Omar, por confirmar).
 - Revisión humana de estilo de la edición EN (traducción de agentes).
 - Figura propia de las cuatro caras (candidata: f06).
 - Iteración con lectores (Vitor · Grimalt · JC) sobre la primera edición.

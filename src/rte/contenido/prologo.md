@@ -1,3 +1,0 @@
-# Prólogo
-
-*(Pendiente — prologuista invitado.)*

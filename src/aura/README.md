@@ -68,7 +68,5 @@ manifiestos para agentes en la raíz de cada idioma.
 
 ## Pendientes
 
-- Prólogo (prologuista invitado: Jesús, candidato) — el libro se publica sin
-  prólogo, al estilo AgencyDomains; entrará en una versión posterior.
 - Figuras en inglés (compartido con AgencyDomains) y figuras propias para
   Wingmap y Casos de Uso.
