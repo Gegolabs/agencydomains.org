@@ -4,19 +4,17 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** First edition · August 2026 · v1.0
+**Edition:** First edition · August 2026 · v1.1
 **License:** GNU Free Documentation License v1.3
 
-> **Note on this version.** This first edition (v1.0) incorporates the trilogy's full
-> editorial review: the agentive/agentic system is unified across the whole book
-> (Wingmap speaks agentive), the assembly duplications between the Introduction
-> and the specs are resolved with cross-references, the continuous-intelligence
-> cycle has a single canonical formulation, and the residues of the specs'
-> standalone life are confined to their standalone versions. The invited
-> prologue is still pending.
+> **Note on this version.** This edition incorporates **Annex A · The Diagnostic
+> Instrument**: the seventeen questions of IRIS and MOTOR in applicable form, with the
+> rule for placing yourself and the reading of the pair. It is the practical consequence
+> of the book's design decision —diagnostic, not prescriptive— and it is published to be
+> used: by an organization on itself, or by a consultant with their clients.
 
 **How to cite:**
-Obach-Renner, César. *AURA: The Agentive Path*. First edition v1.0. GegoLabs, 2026.
+Obach-Renner, César. *AURA: The Agentive Path*. First edition v1.1. GegoLabs, 2026.
 
 ## The Trilogy
 

@@ -1,6 +1,6 @@
 ---
 title: The Agentive World Trilogy — Unified manifesto for agents
-composition: The Real-Time Enterprise v1.0 · AURA v1.0 · AgencyDomains v1.0 (the three canonical manifestos, in full)
+composition: The Real-Time Enterprise v1.0 · AURA v1.1 · AgencyDomains v1.0 (the three canonical manifestos, in full)
 license: GFDL v1.3 (proposed)
 audience: agents that need the complete trilogy in a single document
 precedence_rule: each part mirrors its human book; upon contradiction, the human book of the corresponding part wins

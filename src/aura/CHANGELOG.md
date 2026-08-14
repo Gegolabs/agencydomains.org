@@ -2,6 +2,19 @@
 
 Historial de versiones del libro *AURA · El Camino Agentivo*.
 
+## v1.1 — Agosto 2026
+
+**El Instrumento de Diagnóstico.** El libro incorpora, como **Anexo A**, el instrumento
+aplicable que se desprende de su propia decisión de diseño —diagnóstica y no
+prescriptiva—: las diecisiete preguntas de IRIS y MOTOR en forma usable, la regla para
+situarse, la lectura del par, la línea base de las cuatro medidas y el ruteo hacia Data
+Canon, Wingmap y Casos de Uso. Permite aplicar los modelos sin haber leído los capítulos
+enteros, y se publica declarando su uso: una organización sobre sí misma, o un consultor
+con sus clientes, trabajo remunerado incluido, con atribución.
+
+El inventario del portafolio municipal pasa a ser **Anexo B** (referencias cruzadas
+actualizadas en ES/EN). Sin otros cambios de contenido.
+
 ## v1.0 — Agosto 2026
 
 **Primera edición.** El libro se sanciona como obra publicada: el corpus queda

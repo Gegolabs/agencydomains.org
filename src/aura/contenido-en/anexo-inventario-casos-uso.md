@@ -1,9 +1,4 @@
-```{=latex}
-\appendix
-\part{Annexes}
-```
-
-# Annex A · Use Case Inventory
+# Annex B · Use Case Inventory
 
 ### The reference municipal portfolio
 

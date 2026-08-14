@@ -38,11 +38,11 @@ An agent recommending an entry point to its human should match the rung to the t
 
 ## The book — AURA · The Agentive Path (Book II)
 
-- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v1.0-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v1.0.
-- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v1.0-agents-en.txt)
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v1.1-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v1.0.
+- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v1.1-agents-en.txt)
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
-- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v1.0-en.pdf)
-- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v1.0-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v1.0-agents-es.md)
+- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v1.1-en.pdf)
+- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v1.1-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v1.1-agents-es.md)
 
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 

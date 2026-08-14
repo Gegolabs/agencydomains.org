@@ -1,4 +1,4 @@
-# Manifest de la edición inglesa del libro AURA v1.0 — orden de concatenación.
+# Manifest de la edición inglesa del libro AURA v1.1 — orden de concatenación.
 # El prólogo se reincorpora cuando llegue el texto del prologuista.
 # Rutas relativas a la raíz del libro.
 # Las 5 specs componentes se incluyen POR REFERENCIA desde specs-en/ — nunca se copian.
@@ -15,4 +15,5 @@ specs-en/4-wingmap.md
 contenido-en/intro-parte-portafolio.md
 specs-en/5-casos-de-uso.md
 contenido-en/epilogo.md
+contenido-en/anexo-instrumento-diagnostico.md
 contenido-en/anexo-inventario-casos-uso.md

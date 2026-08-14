@@ -4,19 +4,17 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Primera edición · Agosto 2026 · v1.0
+**Edición:** Primera edición · Agosto 2026 · v1.1
 **Licencia:** GNU Free Documentation License v1.3
 
-> **Nota sobre la versión.** Esta primera edición (v1.0) incorpora la revisión editorial
-> integral de la trilogía: el sistema agentivo/agéntico queda unificado en todo el
-> libro (Wingmap habla en agentivo), las duplicaciones de ensamblaje entre la
-> Introducción y las specs se resuelven con remisiones, el ciclo de inteligencia
-> continua tiene una sola formulación canónica, y los residuos de la vida autónoma
-> de las specs quedan confinados a sus versiones standalone. Queda pendiente el
-> prólogo del invitado.
+> **Nota sobre la versión.** Esta edición incorpora el **Anexo A · El Instrumento de
+> Diagnóstico**: las diecisiete preguntas de IRIS y MOTOR en forma aplicable, con la
+> regla para situarse y la lectura del par. Es la consecuencia práctica de la decisión
+> de diseño del libro —diagnóstico, no prescriptivo— y se publica para ser usado: por
+> una organización sobre sí misma, o por un consultor con sus clientes.
 
 **Cómo citar:**
-Obach-Renner, César. *AURA: el Camino Agentivo*. Primera edición v1.0. GegoLabs, 2026.
+Obach-Renner, César. *AURA: el Camino Agentivo*. Primera edición v1.1. GegoLabs, 2026.
 
 ## La trilogía
 

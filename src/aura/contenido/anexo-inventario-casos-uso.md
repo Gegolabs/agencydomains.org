@@ -1,9 +1,4 @@
-```{=latex}
-\appendix
-\part{Anexos}
-```
-
-# Anexo A · Inventario de Casos de Uso
+# Anexo B · Inventario de Casos de Uso
 
 ### El portafolio municipal de referencia
 
