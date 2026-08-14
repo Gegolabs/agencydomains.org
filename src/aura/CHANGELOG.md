@@ -12,6 +12,15 @@ Canon, Wingmap y Casos de Uso. Permite aplicar los modelos sin haber leído los 
 enteros, y se publica declarando su uso: una organización sobre sí misma, o un consultor
 con sus clientes, trabajo remunerado incluido, con atribución.
 
+El instrumento pasó por auditoría antes de publicarse, y de ahí salieron sus piezas
+menos obvias: la **regla de posición contempla la polaridad invertida** de las primeras
+preguntas de cada eje (un «no» rotundo a la pregunta 1 *es* el diagnóstico), la regla
+canónica de la **dimensión más baja** ante desacuerdos entre áreas, las **notas para
+responder** que declaran qué cuenta como evidencia en las preguntas frágiles, y la
+lectura de las **islas** — capacidades sin cimientos, que nombran exposición y no
+posición. El cruce de la Línea Nadella se enuncia como progresivo desde la etapa 5,
+según la Introducción.
+
 El inventario del portafolio municipal pasa a ser **Anexo B** (referencias cruzadas
 actualizadas en ES/EN). Sin otros cambios de contenido.
 
