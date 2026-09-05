@@ -449,6 +449,12 @@ Architectural category that combines Core in Runtime + Firewall + Observability 
 
 *See: Chapter 6 §1.*
 
+### Botlet tests — minion · specialty · life
+
+The three identity tests an artifact must pass to be declared a Botlet. **Minion**: does it execute, or is it applied? — what is applied is what a minion handles; the cases of a minion's life are its executions over time, not different assignments. **Specialty** (`RISC` versus `CISC`): one specialty per unit — N Botlets over a shared engine, not one Botlet that handles N things. **Life**: does it have a life cycle to manage — active, down, degraded, retired — or only a version? An Information Product passes all three; an assessment instrument, none.
+
+*See: Chapter 5 §2, section "The three Botlet tests".*
+
 ### Botlet generations — G1/G2/G3
 
 Evolutionary model of how the Botlet's code is born as the state of the art of cognition advances. **G1** — the agent configures pre-forged proto-Botlets (does not write the body). **G2** — the agent co-writes the proto-Botlet. **G3** — the agent generates the complete code (asymptotic scenario). The architecture is the same in all three; what changes is the **scope of Engineering**.

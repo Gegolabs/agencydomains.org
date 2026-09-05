@@ -680,6 +680,12 @@ Pieza pre-forjada de capacidad interpretativa que el agente, en su tiempo de **I
 
 *Ver: Capítulo 5; entradas **Botlet**, **Generaciones del Botlet — G1/G2/G3**, **Cadena de derivación**.*
 
+### Pruebas del Botlet — minion · especialidad · vida
+
+Las tres pruebas de identidad que un artefacto debe pasar para declararse Botlet. **Minion**: ¿se ejecuta o se aplica? — lo que se aplica es lo que un minion maneja; los casos de la vida de un minion son sus ejecuciones en el tiempo, no encargos distintos. **Especialidad** (`RISC` contra `CISC`): una especialidad por unidad — N Botlets sobre un motor compartido, no un Botlet que maneja N cosas. **Vida**: ¿tiene un ciclo de vida que gestionar —activo, caído, degradado, retirado— o solo una versión? Un Producto de Información pasa las tres; un instrumento de evaluación, ninguna.
+
+*Ver: Capítulo 5 §2, sección «Las tres pruebas del Botlet».*
+
 ### Público (régimen)
 
 Régimen de AgencyDomain donde el espacio es accesible públicamente. Agentes, Botlets y tools son invocables desde fuera del perímetro. Análogo a Public Cloud.

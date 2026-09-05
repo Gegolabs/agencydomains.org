@@ -6,6 +6,26 @@ Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agenti
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
 
+## v1.1 — Septiembre 2026
+
+**Las tres pruebas del Botlet — minion, especialidad y vida.** El canon gana una
+prueba de identidad para la primitiva que no la tenía: Capability tiene su test
+contra feature y el Agentlet su test de agenda contra charter, pero nada decía cómo
+reconocer un Botlet ante un artefacto ya existente — y dos lectores con el capítulo
+delante llegaron en minutos a conclusiones opuestas sobre si cada `PI` de Mira es un
+Botlet. Tres pruebas, y solo se es Botlet pasando las tres: **minion** (¿se ejecuta o
+se aplica?), **especialidad** (`RISC` contra `CISC`: una especialidad por unidad, N
+Botlets sobre un motor compartido) y **vida** (¿ciclo de vida o solo versión?).
+Confirman la regla de granularidad «un Botlet por `PI`» y fijan que Mira es el
+proto-Botlet, no el Botlet. Origen: sesión de trabajo del 2026-09-05 sobre una
+plataforma de evaluación escolar, cuyos instrumentos no pasan ninguna de las tres.
+
+- Cap 5 §2: nueva sección «Las tres pruebas del Botlet» tras «¿Cuándo usar Botlets,
+  y cuándo no?»; remisión desde «un Botlet por `PI`».
+- Glosario: entrada **Pruebas del Botlet**.
+- Manifiestos ES/EN: bloque compacto en la sección Botlet y entrada de glosario.
+- Sin figuras nuevas. ES/EN a la par.
+
 ## v1.0 — Agosto 2026
 
 **Primera edición.** El libro se sanciona como obra publicada: el corpus queda

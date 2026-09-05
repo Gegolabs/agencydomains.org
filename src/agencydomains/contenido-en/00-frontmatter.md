@@ -4,10 +4,10 @@
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
-**Edition:** First edition · August 2026 · v1.0
+**Edition:** First edition · September 2026 · v1.1
 **License:** GNU Free Documentation License v1.3
 
-> **A note on the version.** This is the **first edition (v1.0)**: the first stable public release. From here the *append-only* rule governs figure numbering — every new figure takes the next available number, with no renumbering of existing ones. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
+> **A note on the version.** This is the **first edition (v1.0; this revision is v1.1)**: the first stable public release. From here the *append-only* rule governs figure numbering — every new figure takes the next available number, with no renumbering of existing ones. Comments and errata are welcome in the repository. The version history lives in `CHANGELOG.md`.
 
 ## About this book
 
@@ -53,7 +53,7 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## How to cite
 
-> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. First edition v1.0. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. First edition v1.1. GegoLabs, 2026.
 
 ## The Trilogy
 
