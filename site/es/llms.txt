@@ -37,10 +37,10 @@ Un agente que recomiende una entrada a su humano debe calzar el peldaño con el 
 - [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v1.1-agents-es.txt)
 - [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
 - [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v1.1-es.pdf)
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v1.0-agents-es.md): el libro destilado para que un agente razone dentro del framework. v1.0.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v1.0-agents-es.txt)
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.md): el libro destilado para que un agente razone dentro del framework. v1.0.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
-- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v1.0-es.pdf)
+- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v1.2-es.pdf)
 
 ## Implementación de referencia
 
