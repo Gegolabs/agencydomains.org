@@ -26,9 +26,9 @@ Vergis lives in a public repository linked from **AgencyDomains.org**. The code 
 
 The choice of licenses is structural, not incidental. The `AGPL` guarantees that improvements to the runtime — including those that operate as a network service — remain available to the community: whoever deploys a modified version of Vergis and offers it over the network MUST publish its source. The `GFDL` keeps the documentation free and derivable. Together, they sustain the promise of a common base that no actor can close: the reference platform remains open even though the catalogs built upon it are private.
 
-## How are the pieces named? — Vergis · Botler · Mira
+## How are the pieces named? — Vergis · Botler · Mira · Daftar
 
-Three labels of **distinct nature** intervene in the reference implementation. Confusing their nature — in particular, confusing a type with a proper name — obscures the architecture. The scheme:
+Four labels of **three distinct natures** intervene in the reference implementation. Confusing their nature — in particular, confusing a type with a proper name — obscures the architecture. The scheme:
 
 <!-- FIG:g49-vergis-botler-mira -->
 ![Vergis · Botler · Mira — type vs proper name](figuras/g49-vergis-botler-mira.png)
@@ -38,17 +38,18 @@ Three labels of **distinct nature** intervene in the reference implementation. C
 | Platform · *Meta-Cognitive Platform* | reference implementation of AgencyDomains (the AgencyDomain made operational) | **Vergis** |
 | Layer 3 runtime | **Botler** (normed construct of the Botlet spec) | — *(generic; "the Botler". The Vergis build gives it no proper name.)* |
 | Catalog component | platform proto-Botlet for informational operation | **Mira** |
+| Catalog component | platform proto-Botlet for **capture** (assessor of instruments) — the second in the catalog, built in Vergis 0.27.0 | **Daftar** |
 
 The type / proper-name distinction:
 
 - **Botler** is a **type** — a canonical construct of the Botlet spec (not one of the eight primitives, but normed vocabulary of the canon). Any conformant Layer 3 runtime *is a* Botler. It is not a proper name; the Botler that Vergis packages is "the Botler" generic, with no instance name.
-- **Vergis** and **Mira** are **proper names** of specific instances — they live in the same drawer as Soveria, Agentia, or ultraPRO. Vergis names *this* platform; Mira names *this* catalog proto-Botlet.
+- **Vergis**, **Mira**, and **Daftar** are **proper names** of specific instances — they live in the same drawer as Soveria, Agentia, or ultraPRO. Vergis names *this* platform; Mira names *this* catalog proto-Botlet; Daftar, the second one.
 
 By category, Vergis is a **Meta-Cognitive Platform**: it does not perform object-level cognition — that is Layer 2 — but rather **administers the economics of cognition**. It decides when the agent runs on pre-forged muscle (G1) and when it invokes fresh cognition (fallback), manages the `95/4/1` cycle, junior→senior maturation, and the crystallization of experience into reusable structure. That is metacognition in the precise sense: monitoring and control of cognitive processes.
 
 > The descriptor **Meta-Cognitive Platform** **MUST NOT** be abbreviated to `MCP`. In the current agentive space, `MCP` names the **Model Context Protocol**; the acronym is taken. The descriptor is used spelled out.
 
-The name **Vergis** comes from *Caprica* (the *Battlestar Galactica* universe): Tomas Vergis was the legitimate inventor of the Meta-Cognitive Processor, the piece that gave machines cognitive independence. The name reclaims metacognition for its legitimate source. And it carries, out of the box, the design principle that governs the platform: in that story, the metacognitive substrate **never worked until it fused with a living consciousness**. The substrate is **inert until something animates it** — the "breath of life" principle: Vergis comes alive only when Mira and the agents animate it. The platform, by itself, is muscle at rest; cognition and the Botlets are what actualize it.
+The name **Vergis** comes from *Caprica* (the *Battlestar Galactica* universe): Tomas Vergis was the legitimate inventor of the Meta-Cognitive Processor, the piece that gave machines cognitive independence. The name reclaims metacognition for its legitimate source. And it carries, out of the box, the design principle that governs the platform: in that story, the metacognitive substrate **never worked until it fused with a living consciousness**. The substrate is **inert until something animates it** — the "breath of life" principle: Vergis comes alive only when Mira, Daftar, and the agents animate it. The platform, by itself, is muscle at rest; cognition and the Botlets are what actualize it.
 
 ## What does it include?
 
@@ -56,6 +57,7 @@ Vergis packages an initial set of components. Each one materializes a canonical 
 
 - **The Botler's abstract contract** — the **Layer 3** runtime primitive (§5). The Vergis Botler is generic by definition: it manages the lifecycle, isolation, and execution of *any* Botlet without understanding its domain. It exposes the control points — `capability_call`, `log` — into which the specialists plug, and it enforces each spec's validation by orchestrating the validation point the Botlet type provides, without executing it with domain knowledge.
 - **Mira** — a **platform proto-Botlet** (§5) for informational operation. Its code is generic — the shared engine —; its specialization lives in a compositional configuration that the agent fills in at Engineering time. Each Information Product is its own Botlet, a specialized instance of the common engine. Mira operates in **G1**: the agent configures, it does not write the engine's body.
+- **Daftar** — the **second platform proto-Botlet** in the catalog, of the **capture** family (§5) and its reference proto-Botlet: a per-instance assessor Let that serves the instrument catalog of whichever student comes in, applies the instrument, records every attempt, and grades it. Built in version 0.27.0 of Vergis, it is the executable proof that the Botler has no subtypes by family: Mira and Daftar enter through the same runtime interface. The instruments it applies are catalog content, immutable once published — not Botlets, as the three tests of §5 establish.
 - **A starter set of Capabilities** — a minimal repertoire of canonical **Capabilities** (§5, in the strict sense: cognitive know-how of Layer 2) and the **Connectors** (Layer 4) that feed them, sufficient to compose the examples.
 - **Trust Infrastructure templates** — skeletons of the cross-cutting axis (§5): policies, append-only log, declarative quality contract (Freshness · SLA · Degradation policy · Audience · Refresh policy) that any conformant Botlet may declare.
 - **Executable examples** — complete, anonymized cases that walk the derivation chain `use case → Botlets → proto-Botlets` and show the pieces operating together.

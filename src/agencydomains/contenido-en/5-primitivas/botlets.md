@@ -191,7 +191,7 @@ The criteria above say when it is *worth* generating a Botlet. What is missing i
 
 **The life test.** Does the artifact have a life cycle to manage? A Botlet is running or stopped, active or retired; it can fail on its own; it matures from junior to senior; it has temporality and a quality contract; it answers to `status`, `activate`, `deactivate`, and `retire`. If there is something that can be alive, down, degraded, or retired, there is a Botlet. If all the artifact has is an editorial state — current or withdrawn as content, a version — it is not a Botlet: it is catalog. An Information Product has a life: it is serving or it is down, its source changed, it matured. An assessment instrument has a version, not a life.
 
-Applied to the reference implementation, the three tests give the same result as the granularity rule below: **Mira is the platform proto-Botlet — the engine —; each live Information Product passes all three tests and is a Botlet; the Information Product's spec is what specializes it.** Applied to a sibling case outside the information family — a study platform that applies assessment instruments to a student — they give the opposite result: the assessor that applies, grades, and records passes all three and is a Botlet; the instrument it applies passes none, and is catalog content, immutable once published. Both answers come from the same tests, which is what is asked of them.
+Applied to the reference implementation, the three tests give the same result as the granularity rule below: **Mira is the platform proto-Botlet — the engine —; each live Information Product passes all three tests and is a Botlet; the Information Product's spec is what specializes it.** Applied to a sibling case outside the information family — a study platform that applies assessment instruments to a student — they give the opposite result: the assessor that applies, grades, and records passes all three and is a Botlet; the instrument it applies passes none, and is catalog content, immutable once published. Both answers come from the same tests, which is what is asked of them. That assessor has a proper name in the reference implementation — **Daftar**, the second proto-Botlet in Vergis's catalog (Chapter 9) — and it belongs to the **capture** family, which the next section defines.
 
 ### Manifestation and temporality of the Botlet
 
@@ -202,11 +202,16 @@ The word demands care. **Manifestation is not appearance.** The common term sugg
 <!-- FIG:g25-manifestacion-temporalidad -->
 ![Manifestation and temporality of the Botlet — discrete vs continuous](figuras/g25-manifestacion-temporalidad.png)
 
-Manifestation is the **abstract genus**; each Botlet family specializes it, and each practice gives it its loaded name:
+Manifestation is the **abstract genus**; each Botlet family specializes it, and each practice gives it its loaded name. The families are distinguished by the **direction of the effect** — from where to where what the Let moves goes — and there are four of them:
 
-- the **information** family → its manifestation leaves an **Information Product** (`PI`),
-- the **action** family → an effect on the world, with no artifact,
-- the **decision** family → named by its own practice.
+- the **information** family → from the Let to the human: it **represents** something the system already has; its manifestation leaves an **Information Product** (`PI`),
+- the **capture** family → from the world to the Let: it **records** something that was not in the system before — a measurement, an answer, an ingested file —; its manifestation leaves a **record**, and each domain's practice gives it a name: an attempt, a reading, an entry,
+- the **action** family → from the Let to a system: it **changes** something, and the Let itself closes the loop; its manifestation is an effect on the world, with no artifact,
+- the **decision** family → it **resolves** among alternatives; named by its own practice.
+
+The membership test is a single question: *what was in the system before and after the Let?* If the system is left unchanged and only the human knows more, it is information; if a datum that was not there came in, it is capture; if something outside the system changed by the Let's own hand, it is action; if an alternative was closed, it is decision. The periodic ingestion that served as an example a few lines above is capture: it records what the world had and the system did not. And an interactive Let — the one that asks and records what it is answered — **composes** information and capture without being a new family: a "communication family" was evaluated and discarded precisely because each of its acts decomposes into representing and recording. Families are primitives of direction; Lets are composed of them.
+
+**Daftar** is the reference proto-Botlet of the capture family (Chapter 9): its specialty is to **assess** — apply an instrument and record what the student knows, in its two modes, practice and exam (the measurement). The immediate grading of practice mode is feedback on the capture — like a form that validates what is written into it — not action: the learning is executed by the student outside, and the Let changes nothing in the world by its own hand. Two classifications were tried and discarded: "information", because it looked at the byproduct — the results report — and not at the purpose; and "action", because the transfer of knowledge is not executed by the Let. The membership question settles it: before the Let the system did not know what the student knows; after it, it does.
 
 The `PI` **is not a primitive of the canon**: it is the manifestation of *one* family. The canon stops at `manifestation`; the Information Product is a **normed term of this spec** — not a primitive, but vocabulary with rules — and its governance load is added here without contaminating the canonical level. This is its reference description:
 

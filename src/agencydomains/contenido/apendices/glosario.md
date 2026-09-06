@@ -265,6 +265,12 @@ Capability que porta el **saber normativo** de un dominio regulado — qué exig
 
 *Ver: Capítulo 5 §3, sección "La certificación regulatoria reside en el componente certificado".*
 
+### Captura (familia de)
+
+Familia de manifestación cuya dirección del efecto va **del mundo al Let**: el Let **registra** algo que antes no estaba en el sistema —una medición, una respuesta, un archivo ingerido—. Su manifestación deja un **registro**; cada práctica le pone nombre (un intento, una lectura, un asiento). Se distingue de **información** (que representa lo que el sistema ya tiene) por la prueba de pertenencia: después de una captura hay un dato nuevo. La retroalimentación inmediata sobre lo capturado —un formulario que valida, un corrector que califica— es parte de la captura, no actuación. Proto-Botlet de referencia: **Daftar**.
+
+*Ver: entradas **Familias de manifestación**, **manifestación**, **Daftar**.*
+
 ### Catálogo común / efectos de red
 
 Principio por el cual los proto-Botlets se acumulan en catálogos compartidos por comunidades de implementadores: cada implementador que consume contribuye a la maduración (variantes, configuraciones probadas, refinamientos), y el implementador n+1 recibe versiones refinadas por los implementadores 1..n. Modos de pertenencia: **contrato privado** · **códice propietario** · **catálogo público abierto** (AgencyDomains.org) · **acuerdo soberano** (entre AgencyDomains que adoptan estándares comunes sin contrato comercial directo).
@@ -357,6 +363,12 @@ Concepto comercial superpuesto al modelo técnico de AgencyDomains. Una Cuenta p
 
 ## D
 
+### Daftar
+
+**Nombre propio** del segundo **proto-Botlet platafórmico** del catálogo de Vergis, construido en su versión 0.27.0: el proto-Botlet de referencia de la familia de **captura**. Su especialidad es **evaluar** — aplicar un instrumento de estudio y registrar lo que el estudiante sabe, en modo práctica (con corrección inmediata) y en modo examen (la medición). Los instrumentos que aplica son contenido de catálogo, inmutables una vez publicados, y no pasan ninguna de las tres pruebas del Botlet; el evaluador pasa las tres.
+
+*Ver: entradas **Mira**, **Vergis**, **Captura (familia de)**, **Pruebas del Botlet**.*
+
 ### DLP — Data Loss Prevention
 
 Detección automatizada de datos personales (PII) en lugares donde no deberían aparecer. Control ejercido en la Capa 4 — Acceso de la arquitectura; en la lente de mercado, es capacidad típica del eslabón Firewall de IA. Componente del pilar Validación de Trust Infrastructure.
@@ -416,6 +428,12 @@ Capa funcional secuencial de la cadena de valor de IA. La especificación canón
 Dos usos canónicos: (1) la cognición la invoca directamente durante conversación para componer una superficie efímera (realiza el régimen *GUI on-the-fly*); (2) los Botlets de presentación (shells y vistas) la ensamblan como pieza de su composición.
 
 *Ver: Capítulo 4 §1 · Capítulo 5 §6 (la primitiva completa).*
+
+### Familias de manifestación
+
+Las cuatro especializaciones del género **manifestación**, distinguidas por la **dirección del efecto**: **información** (del Let al humano: representa), **captura** (del mundo al Let: registra), **actuación** (del Let a un sistema: cambia, y el Let cierra el lazo), **decisión** (resuelve). Son primitivas de dirección, no de dominio: un Let interactivo compone información y captura sin ser una familia nueva («comunicación» se evaluó y se descartó por eso). No existen subtipos de Botler por familia.
+
+*Ver: Capítulo 5 §2, «Manifestación y temporalidad del Botlet».*
 
 ### feature
 
@@ -551,9 +569,9 @@ La formulación canónica es la de este libro; cada volumen de la trilogía la c
 
 ### manifestación
 
-Actualización de la disposición latente del Botlet en el mundo, perceptible o no. Un Botlet es memoria muscular (disposición latente); al ejecutarse, ese latente se actualiza — se manifiesta (potencia → acto). **No es "aparición"**: un Botlet que dispara una ingestión periódica se manifiesta aunque no deje artefacto visible. Es el género abstracto; cada familia lo especializa — **información** → deja un **Producto de Información (PI)**; **actuación** → un efecto sobre el mundo; **decisión** → según su práctica.
+Actualización de la disposición latente del Botlet en el mundo, perceptible o no. Un Botlet es memoria muscular (disposición latente); al ejecutarse, ese latente se actualiza — se manifiesta (potencia → acto). **No es "aparición"**: un Botlet que dispara una ingestión periódica se manifiesta aunque no deje artefacto visible. Es el género abstracto; cada familia lo especializa según la **dirección del efecto** — **información** (del Let al humano) → deja un **Producto de Información (PI)**; **captura** (del mundo al Let) → deja un **registro**; **actuación** (del Let a un sistema) → un efecto sobre el mundo; **decisión** → según su práctica. Prueba de pertenencia: *¿qué había en el sistema antes y después del Let?*
 
-*Ver: entradas **temporalidad**, **Producto de Información (PI)**.*
+*Ver: entradas **temporalidad**, **Producto de Información (PI)**, **Familias de manifestación**.*
 
 ### MCP — Model Context Protocol
 
@@ -583,7 +601,7 @@ Categoría de plataforma que administra la **economía de la cognición**: G1 m�
 
 **Nombre propio** de un proto-Botlet **platafórmico** de operación informativa, parte del catálogo de la implementación de referencia. Especializa N Productos de Información sobre un motor compartido.
 
-*Ver: entradas **proto-Botlet**, **Vergis**.*
+*Ver: entradas **proto-Botlet**, **Vergis**, **Daftar**.*
 
 ### Modos de degradación del AgencyDomain
 
@@ -682,7 +700,7 @@ Pieza pre-forjada de capacidad interpretativa que el agente, en su tiempo de **I
 
 ### Pruebas del Botlet — minion · especialidad · vida
 
-Las tres pruebas de identidad que un artefacto debe pasar para declararse Botlet. **Minion**: ¿se ejecuta o se aplica? — lo que se aplica es lo que un minion maneja; los casos de la vida de un minion son sus ejecuciones en el tiempo, no encargos distintos. **Especialidad** (`RISC` contra `CISC`): una especialidad por unidad — N Botlets sobre un motor compartido, no un Botlet que maneja N cosas. **Vida**: ¿tiene un ciclo de vida que gestionar —activo, caído, degradado, retirado— o solo una versión? Un Producto de Información pasa las tres; un instrumento de evaluación, ninguna.
+Las tres pruebas de identidad que un artefacto debe pasar para declararse Botlet. **Minion**: ¿se ejecuta o se aplica? — lo que se aplica es lo que un minion maneja; los casos de la vida de un minion son sus ejecuciones en el tiempo, no encargos distintos. **Especialidad** (`RISC` contra `CISC`): una especialidad por unidad — N Botlets sobre un motor compartido, no un Botlet que maneja N cosas. **Vida**: ¿tiene un ciclo de vida que gestionar —activo, caído, degradado, retirado— o solo una versión? Un Producto de Información pasa las tres; un instrumento de evaluación, ninguna — el evaluador que lo aplica (**Daftar**), las tres.
 
 *Ver: Capítulo 5 §2, sección «Las tres pruebas del Botlet».*
 
@@ -844,7 +862,7 @@ Mecanismos canónicos: detección de alucinaciones, validación de respuestas es
 
 **Nombre propio** de la implementación de referencia pública de AgencyDomains (la plataforma; el AgencyDomain hecho operativo). Categoría: **Meta-Cognitive Platform**. Distribuida bajo **AGPL**, repositorio público, **AgencyDomains.org**. Es nombre propio de una instancia (mismo cajón que Soveria, Agentia, ultraPRO), no un tipo como Botler o Botlet.
 
-*Ver: Capítulo 9; entradas **Meta-Cognitive Platform**, **Mira**, **Botler**.*
+*Ver: Capítulo 9; entradas **Meta-Cognitive Platform**, **Mira**, **Daftar**, **Botler**.*
 
 ### Vía Autonomía
 

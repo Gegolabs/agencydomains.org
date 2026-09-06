@@ -191,7 +191,7 @@ Los criterios anteriores dicen cuándo *conviene* generar un Botlet. Falta la pr
 
 **La prueba de vida.** ¿Tiene el artefacto un ciclo de vida que gestionar? Un Botlet está en marcha o detenido, activo o retirado; puede fallar por sí mismo; madura de junior a senior; tiene temporalidad y contrato de calidad; responde a `status`, `activate`, `deactivate` y `retire`. Si hay algo que puede estar vivo, caído, degradado o retirado, hay un Botlet. Si lo único que tiene el artefacto es un estado editorial —vigente o retirado como contenido, una versión—, no es un Botlet: es catálogo. Un Producto de Información tiene vida: está sirviendo o está caído, su fuente cambió, maduró. Un instrumento de evaluación tiene una versión, no una vida.
 
-Aplicadas a la implementación de referencia, las tres pruebas dan el mismo resultado que la regla de granularidad de más abajo: **Mira es el proto-Botlet platafórmico —el motor—; cada Producto de Información en vivo pasa las tres pruebas y es un Botlet; el spec del Producto de Información es lo que lo especializa.** Y aplicadas a un caso hermano fuera de la familia de información —una plataforma de estudio que aplica instrumentos de evaluación a un estudiante— dan el resultado contrario: el evaluador que aplica, corrige y registra pasa las tres y es un Botlet; el instrumento que aplica no pasa ninguna, y es contenido de catálogo, inmutable una vez publicado. Las dos respuestas salen de las mismas pruebas, que es lo que se les pide.
+Aplicadas a la implementación de referencia, las tres pruebas dan el mismo resultado que la regla de granularidad de más abajo: **Mira es el proto-Botlet platafórmico —el motor—; cada Producto de Información en vivo pasa las tres pruebas y es un Botlet; el spec del Producto de Información es lo que lo especializa.** Y aplicadas a un caso hermano fuera de la familia de información —una plataforma de estudio que aplica instrumentos de evaluación a un estudiante— dan el resultado contrario: el evaluador que aplica, corrige y registra pasa las tres y es un Botlet; el instrumento que aplica no pasa ninguna, y es contenido de catálogo, inmutable una vez publicado. Las dos respuestas salen de las mismas pruebas, que es lo que se les pide. Ese evaluador tiene nombre propio en la implementación de referencia —**Daftar**, el segundo proto-Botlet del catálogo de Vergis (Capítulo 9)— y pertenece a la familia de **captura**, que la sección siguiente define.
 
 ### Manifestación y temporalidad del Botlet
 
@@ -202,11 +202,16 @@ La palabra exige cuidado. **Manifestación no es aparición.** El término corri
 <!-- FIG:g25-manifestacion-temporalidad -->
 ![Manifestación y temporalidad del Botlet — discreta vs continua](figuras/g25-manifestacion-temporalidad.png)
 
-La manifestación es el **género abstracto**; cada familia de Botlet la especializa, y cada práctica le pone su nombre cargado:
+La manifestación es el **género abstracto**; cada familia de Botlet la especializa, y cada práctica le pone su nombre cargado. Las familias se distinguen por la **dirección del efecto** —de dónde a dónde va lo que el Let mueve—, y son cuatro:
 
-- familia de **información** → su manifestación deja un **Producto de Información** (`PI`),
-- familia de **actuación** → un efecto sobre el mundo, sin artefacto,
-- familia de **decisión** → la nombra su propia práctica.
+- familia de **información** → del Let al humano: **representa** algo que el sistema ya tiene; su manifestación deja un **Producto de Información** (`PI`),
+- familia de **captura** → del mundo al Let: **registra** algo que antes no estaba en el sistema —una medición, una respuesta, un archivo ingerido—; su manifestación deja un **registro**, y la práctica de cada dominio le pone nombre: un intento, una lectura, un asiento,
+- familia de **actuación** → del Let a un sistema: **cambia** algo, y el Let mismo cierra el lazo; su manifestación es un efecto sobre el mundo, sin artefacto,
+- familia de **decisión** → **resuelve** entre alternativas; la nombra su propia práctica.
+
+La prueba de pertenencia es una sola pregunta: *¿qué había en el sistema antes y después del Let?* Si el sistema queda igual y solo el humano sabe más, es información; si entró un dato que no estaba, es captura; si algo fuera del sistema cambió por mano del Let, es actuación; si quedó cerrada una alternativa, es decisión. La ingestión periódica que sirvió de ejemplo unas líneas más arriba es captura: registra lo que el mundo tenía y el sistema no. Y un Let interactivo —el que pregunta y registra lo que le responden— **compone** información y captura sin ser una familia nueva: una «familia de comunicación» fue evaluada y descartada justamente porque cada uno de sus actos se descompone en representar y registrar. Las familias son primitivas de dirección; los Lets se componen de ellas.
+
+**Daftar** es el proto-Botlet de referencia de la familia de captura (Capítulo 9): su especialidad es **evaluar** — aplicar un instrumento y registrar lo que el estudiante sabe, en sus dos modos, práctica y examen (la medición). La corrección inmediata del modo práctica es retroalimentación de la captura —como un formulario que valida lo que se le escribe—, no actuación: el aprender lo ejecuta el estudiante afuera, y el Let no cambia nada en el mundo por su mano. Dos clasificaciones se probaron y se descartaron: «información», porque miraba el subproducto —el reporte de resultados— y no el propósito; y «actuación», porque la transferencia de conocimiento no la ejecuta el Let. La pregunta de pertenencia lo zanja: antes del Let el sistema no sabía qué sabe el estudiante; después, sí.
 
 El `PI` **no es primitiva del canon**: es la manifestación de *una* familia. El canon se queda en `manifestación`; el Producto de Información es un **término normado de esta spec** — no primitiva, pero sí vocabulario con reglas —, y su carga de gobernabilidad se añade aquí sin contaminar el nivel canónico. Esta es su descripción de referencia:
 

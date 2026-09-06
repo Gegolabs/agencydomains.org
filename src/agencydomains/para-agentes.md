@@ -1,15 +1,15 @@
 ---
 título: AgencyDomains — Manifiesto canónico para agentes
-edición: Primera edición · v1.1 · Septiembre 2026
-fuente_canónica: libro-agency_domains-v1.1 (libro humano)
+edición: Primera edición · v1.2 · Septiembre 2026
+fuente_canónica: libro-agency_domains-v1.2 (libro humano)
 licencia: GFDL v1.3
 audiencia: agentes que deben razonar dentro del framework
-estado: v1.1 — primera edición, revisión 1; referencias estables desde la v1.0
+estado: v1.2 — primera edición, revisión 2; referencias estables desde la v1.0
 ---
 
 # AgencyDomains — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v1.1 (primera edición, revisión 1)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v1.2 (primera edición, revisión 2)** del libro *AgencyDomains: arquitectura del Mundo Agentivo*. Este documento condensa el vocabulario canónico, las construcciones formales y las propiedades exigidas. La versión humana del libro contiene además motivación, datos de industria, ejemplos extendidos y derivaciones — todo eso queda fuera de aquí.
 
 > Este canon contiene la **estructura y el vocabulario** del Mundo Agentivo: definiciones, primitivas, propiedades exigidas, separaciones canónicas. **No contiene métodos para implementar ni catálogos operacionales** — esos viven en cuerpos complementarios. La implementación de referencia pública es **AgencyDomains.org**, materializada en **Vergis**, diseñada para que cualquier desarrollador o estudiante pueda descargarla, leerla, ejecutarla y aprender cómo el canon se traduce en sistemas vivos. Otros implementadores (productos comerciales, códices propietarios) ofrecen sus propios cuerpos complementarios sobre la misma estructura canónica.
 
@@ -17,10 +17,11 @@ estado: v1.1 — primera edición, revisión 1; referencias estables desde la v1
 
 - **Es contexto canónico**, no resumen ejecutivo. Cada definición y propiedad importa para razonar dentro del framework.
 - **Serie**: AgencyDomains es el Libro III de la trilogía del Mundo Agentivo — *La Empresa en Tiempo Real* (el destino; manifiesto propio) · *AURA* (el camino; manifiesto propio) · **AgencyDomains** (la arquitectura). Los términos compartidos (la Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
-- **Espejo de v1.1** — la edición vigente del libro. Si este documento contradice al libro humano, el libro humano gana.
+- **Espejo de v1.2** — la edición vigente del libro. Si este documento contradice al libro humano, el libro humano gana.
 - **Vocabulario obligatorio**: los términos en `código` y **negrita** son canónicos. No sustituir por sinónimos.
 - **Convenciones MUST/SHOULD**: la spec usa esos verbos en sentido RFC 2119.
-- **Estado v1.1**: el libro está publicado como primera edición (v1.0, agosto de 2026; revisión v1.1, septiembre) en agencydomains.org. Desde esta versión los términos, las estructuras y la numeración son estables: lo que cambie se anunciará en el `CHANGELOG.md` del libro.
+- **Estado v1.2**: el libro está publicado como primera edición (v1.0, agosto de 2026; revisiones v1.1 y v1.2, septiembre) en agencydomains.org. Desde esta versión los términos, las estructuras y la numeración son estables: lo que cambie se anunciará en el `CHANGELOG.md` del libro.
+- **Cambios v1.2 vs v1.1**: la manifestación tiene **cuatro familias por dirección del efecto** — **información** (del Let al humano: representa) · **captura** (del mundo al Let: registra algo que antes no estaba en el sistema) · **actuación** (del Let a un sistema: cambia, y el Let cierra el lazo) · **decisión** (resuelve) —, con la prueba de pertenencia *¿qué había en el sistema antes y después del Let?*; un Let interactivo compone información y captura («comunicación» no es primitiva). **Daftar** entra al Cap 9 como segundo proto-Botlet de Vergis y proto-Botlet de referencia de captura (Vergis 0.27.0). Invariante ES/EN.
 - **Cambios v1.1 vs v1.0**: el canon gana **las tres pruebas del Botlet** — minion (¿se ejecuta o se aplica?) · especialidad (`RISC` contra `CISC`: una especialidad por unidad) · vida (¿ciclo de vida o solo versión?) — como prueba de identidad de la primitiva (Cap 5 §2, glosario). Confirman «un Botlet por `PI`» y fijan que Mira es el proto-Botlet, no el Botlet. Sin cambios de estructura.
 - **Cambios v0.7 vs v0.6**: el género de las piezas empaquetadas de Capa 3 recibe **nombre propio: Let (plural Lets)** — derivado del sufijo `-let` de la propia familia; vocabulario normado al rango de Botler, no una novena primitiva; «unidad empaquetada de Capa 3» queda como definición descriptiva. Relación canónica: **`1 Proceso = 1 Botler + N Lets`**. Invariante ES/EN. Resuelve la sobrecarga de «unidad» (colisión con «unidad mínima de despliegue»).
 - **Cambios v0.6 vs v0.5**: el **Agentlet** se incorpora como **octava primitiva canónica** — unidad hermana del Botlet cuyo cuerpo invoca **inferencia acotada**; casa de la tarea recurrente en forma pero interpretativa en cada instancia (Cap. 5 §7). Con él: el género **unidad** (`1 Proceso = 1 Botler + N unidades`; el Botler hospeda Botlets y Agentlets con un punto de control más en el handle — `cognition_call`); el paraguas **Agente** pasa a tres miembros (Asistente · Agente Autónomo · Agentlet; **el Agente tiene agenda, el Agentlet tiene charter**, con test de frontera de tres preguntas); la **regla de contrabando** bidireccional (inferencia en el cuerpo → Agentlet; cuerpo determinístico → Botlet); **proto-Agentlet** en la cadena de derivación y los catálogos; semántica de **madurez propia** (estabilización del spec y tasa de escalamiento decreciente — no convergencia a determinismo; offline solo con modelo edge declarado); la **economía de los tres peldaños** (Botlet ~0 · Agentlet acotado · Cognición plena); y el pilar de **Validación con sede en Capa 3** sobre la inferencia acotada.
@@ -687,7 +688,7 @@ Propiedad estructural exigida: todo Botlet conforme **MUST** poder trazarse en e
 
 #### Manifestación y temporalidad
 
-**Manifestación** — la actualización de la disposición latente del Botlet en el mundo, perceptible o no (potencia → acto). **NO es "aparición"**: un Botlet que dispara una ingestión periódica se manifiesta aunque no deje artefacto visible. Es el género abstracto; cada familia la especializa: **información** → deja un **Producto de Información (`PI`)**; **actuación** → un efecto sobre el mundo; **decisión** → según su práctica. El `PI` **no es primitiva del canon** — vive en la práctica de información, un nivel más concreto.
+**Manifestación** — la actualización de la disposición latente del Botlet en el mundo, perceptible o no (potencia → acto). **NO es "aparición"**: un Botlet que dispara una ingestión periódica se manifiesta aunque no deje artefacto visible. Es el género abstracto; cada familia la especializa según la **dirección del efecto**: **información** (del Let al humano) → deja un **Producto de Información (`PI`)**; **captura** (del mundo al Let) → deja un **registro**; **actuación** (del Let a un sistema) → un efecto sobre el mundo; **decisión** → según su práctica. Prueba de pertenencia: *¿qué había en el sistema antes y después del Let?* El `PI` **no es primitiva del canon** — vive en la práctica de información, un nivel más concreto.
 
 **Temporalidad** — el régimen de la manifestación. Atributo declarado, dos valores:
 
@@ -711,7 +712,7 @@ Propiedad estructural exigida: todo Botlet conforme **MUST** poder trazarse en e
 
 **Un Botlet por `PI`** sobre un motor compartido: cada Producto de Información es su propio Botlet/servicio — con `identity`, temporalidad, madurez y fallback propios —, especializado del motor compartido (proto-Botlet platafórmico). No un Botlet con N configs; no N programas. Es `1 Proceso = 1 Botler + N Botlets` con los Botlets como instancias especializadas del mismo proto-Botlet. Rationale **RISC**: muchos Botlets simples y focalizados componen mejor que un monolito. El consumo `subscribe` es el puente al **norte agentivo** — hoy lo consume un humano (`SSE` en el navegador), mañana la Cognición.
 
-**Las tres pruebas del Botlet** (identidad, no conveniencia; un artefacto es Botlet solo si pasa las tres): **minion** — ¿se ejecuta o se aplica? lo que se aplica es lo que un minion maneja; los casos de la vida de un minion son sus ejecuciones en el tiempo, no encargos distintos · **especialidad** (`RISC` contra `CISC`) — una especialidad por unidad: N Botlets sobre un motor compartido (proto-Botlet platafórmico), no un Botlet que maneja N cosas · **vida** — ¿tiene ciclo de vida que gestionar (activo · caído · degradado · retirado; `status`/`activate`/`deactivate`/`retire`; madurez) o solo una versión? Un `PI` pasa las tres → Botlet; Mira es el proto-Botlet (el motor); un instrumento de evaluación no pasa ninguna → catálogo.
+**Las tres pruebas del Botlet** (identidad, no conveniencia; un artefacto es Botlet solo si pasa las tres): **minion** — ¿se ejecuta o se aplica? lo que se aplica es lo que un minion maneja; los casos de la vida de un minion son sus ejecuciones en el tiempo, no encargos distintos · **especialidad** (`RISC` contra `CISC`) — una especialidad por unidad: N Botlets sobre un motor compartido (proto-Botlet platafórmico), no un Botlet que maneja N cosas · **vida** — ¿tiene ciclo de vida que gestionar (activo · caído · degradado · retirado; `status`/`activate`/`deactivate`/`retire`; madurez) o solo una versión? Un `PI` pasa las tres → Botlet; Mira es el proto-Botlet (el motor); un instrumento de evaluación no pasa ninguna → catálogo. El evaluador de ese caso es **Daftar**, segundo proto-Botlet de Vergis, de la familia de **captura**.
 
 ### Agentlet · octava primitiva canónica
 
@@ -1185,6 +1186,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 - **Capa semántica** — codifica significado de dimensiones, hechos, jerarquías. Esencial para Kimball Barnizada.
 - **Cadena de derivación** — relación estructural `casos de uso → Botlets necesarios → proto-Botlets del catálogo`. Todo Botlet conforme MUST poder trazarse en ella; el log registra el proto-Botlet de origen.
 - **Catálogo común** — los proto-Botlets se acumulan en catálogos compartidos con efectos de red. Modos: contrato privado · códice propietario · catálogo público abierto · acuerdo soberano.
+- **Captura (familia de)** — familia de manifestación cuya dirección va **del mundo al Let**: registra algo que antes no estaba en el sistema (una medición, una respuesta, un archivo ingerido). Deja un **registro**; cada práctica le pone nombre (intento, lectura, asiento). La retroalimentación inmediata sobre lo capturado es parte de la captura, no actuación. Proto-Botlet de referencia: **Daftar**.
 - **Cluster** — instancias del mismo AgencyDomain compartiendo carga.
 - **códice propietario** — catálogo privado de proto-Botlets, Capabilities y patrones que un implementador cura sobre la implementación de referencia pública, refinado por sus casos reales. Uno de los cuatro modos de pertenencia a una comunidad de catálogo. El runtime es común; el códice es propio (encapsula la ventaja competitiva). Instancia canónica: **ucodex** (Grupo Ultra).
 - **Conector** — saber **acceder a sistemas fuente** (conexión con poder de ejecución; NO saber cognitivo). **Capa 4 · Acceso.** La API legacy traída al Mundo Agentivo se convierte en Conector, no en Capability.
@@ -1197,6 +1199,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 
 ### D
 
+- **Daftar** — nombre propio del **segundo proto-Botlet platafórmico** del catálogo de Vergis (versión 0.27.0), de referencia para la familia de **captura**. Especialidad: **evaluar** — aplicar un instrumento y registrar lo que el estudiante sabe (modo práctica con corrección inmediata · modo examen, la medición). Los instrumentos que aplica son catálogo inmutable, no Botlets.
 - **DLP — Data Loss Prevention** — detección de PII no autorizada.
 - **Domain** — sinónimo comercial de AgencyDomain.
 - **Dominion** — Domain conseguido por agente en AgencyDomain público con modelo de AgentNation.
@@ -1211,6 +1214,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 ### F
 
 - **Faceta** — **sexta primitiva canónica**. Componente atómico reusable de Capa 1: pizarra, catálogo-selector, calendario, mapa, slider, drag-and-drop. Instrumento que la cognición invoca durante conversación o que los Botlets de presentación ensamblan. **NO es un Botlet** (Capa 1 vs Capa 3 · efímera vs persistente · sin fallback agéntico vs con).
+- **Familias de manifestación** — las cuatro especializaciones del género **manifestación** por **dirección del efecto**: información (del Let al humano: representa) · captura (del mundo al Let: registra) · actuación (del Let a un sistema: cambia, y el Let cierra el lazo) · decisión (resuelve). Primitivas de dirección, no de dominio: un Let interactivo compone información y captura («comunicación» se evaluó y se descartó). No hay subtipos de Botler por familia.
 - **feature** — operación interna que una Capability expone (equivalente de *feature/operation/skill/method*). Test Capability vs feature: independencia operativa + identidad cognitiva + reusabilidad; si falla uno → es feature de la Capability contenedora.
 - **Federación** — comunicación entre AgencyDomains distintos.
 - **Firewall** — eslabón 7. Seguridad, governance, prompt injection prevention.
@@ -1251,7 +1255,7 @@ AgencyDomain en régimen público que adopta el modelo de ciudadanía agentiva. 
 
 ### M
 
-- **manifestación** — actualización de la disposición latente del Botlet en el mundo, perceptible o no (potencia → acto). NO es "aparición". Género abstracto: información → deja un `PI`; actuación → efecto sobre el mundo; decisión → según su práctica.
+- **manifestación** — actualización de la disposición latente del Botlet en el mundo, perceptible o no (potencia → acto). NO es "aparición". Género abstracto especializado por **dirección del efecto**: información (del Let al humano) → deja un `PI`; captura (del mundo al Let) → deja un **registro**; actuación (del Let a un sistema) → efecto sobre el mundo; decisión → según su práctica. Prueba de pertenencia: *¿qué había en el sistema antes y después del Let?*
 - **MCP — Model Context Protocol** — protocolo abierto canónico para tools de Capa 4 y para la interfaz interna Capa 2 → Capa 3 (Cognición cliente, Botler servidor). Anthropic, noviembre 2024.
 - **MEO — Model Engine Optimization** — equivalente del SEO en descubrimiento agentivo.
 - **Memoria muscular** — metáfora canónica del Botlet.
@@ -1347,12 +1351,13 @@ La arquitectura es **agnóstica a productos**. Admite múltiples implementacione
 | Plataforma · *Meta-Cognitive Platform* | implementación de referencia de AgencyDomains | **Vergis** |
 | Runtime de Capa 3 | **Botler** (constructo normado de la spec de Botlets, genérico) | — (sin nombre propio) |
 | Componente del catálogo | proto-Botlet platafórmico de operación informativa | **Mira** |
+| Componente del catálogo | proto-Botlet platafórmico de **captura** (evaluador de instrumentos) | **Daftar** |
 
 - **Botler** es un **tipo** (constructo normado de la spec de Botlets — no una de las ocho primitivas). Cualquier runtime de Capa 3 conforme *es un* Botler.
-- **Vergis** y **Mira** son **nombres propios** de instancias (mismo cajón que Soveria, Agentia, ultraPRO).
+- **Vergis**, **Mira** y **Daftar** son **nombres propios** de instancias (mismo cajón que Soveria, Agentia, ultraPRO).
 - Categoría de Vergis: **Meta-Cognitive Platform** — administra la **economía de la cognición** (G1 músculo pre-forjado vs fallback de cognición fresca, ciclo `95/4/1`, maduración junior→senior, cristalización). **NO se abrevia a "MCP"** — esa sigla nombra el Model Context Protocol. El descriptor se usa deletreado.
 
-**Qué incluye**: contrato abstracto del **Botler** (genérico, con puntos de control `capability_call`/`log` y validación por delegación) · **Mira** (proto-Botlet platafórmico operando en `G1`) · conjunto starter de **Capabilities** y **Conectores** · plantillas de Trust Infrastructure (políticas, append-only log, contrato declarativo de calidad) · ejemplos ejecutables que recorren la cadena `caso de uso → Botlets → proto-Botlets`.
+**Qué incluye**: contrato abstracto del **Botler** (genérico, con puntos de control `capability_call`/`log` y validación por delegación) · **Mira** (proto-Botlet platafórmico de información, operando en `G1`) · **Daftar** (segundo proto-Botlet platafórmico, de **captura**: evaluador que aplica instrumentos, registra cada intento y corrige; Vergis 0.27.0) · conjunto starter de **Capabilities** y **Conectores** · plantillas de Trust Infrastructure (políticas, append-only log, contrato declarativo de calidad) · ejemplos ejecutables que recorren la cadena `caso de uso → Botlets → proto-Botlets`.
 
 **Production grade**: es el **mismo runtime** que opera los productos comerciales (Agentia · Soveria · ultraPRO). La diferencia con esos productos **no es la calidad del código sino el catálogo**: los productos consumen la referencia pública **más un códice propietario** (ucodex es un ejemplar) que cura proto-Botlets, Capabilities y patrones refinados por casos reales.
 

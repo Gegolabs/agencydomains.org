@@ -26,9 +26,9 @@ Vergis vive en un repositorio público enlazado desde **AgencyDomains.org**. El 
 
 La elección de licencias es estructural, no incidental. La `AGPL` garantiza que las mejoras al runtime —incluidas las que operan como servicio de red— permanezcan disponibles para la comunidad: quien despliega una versión modificada de Vergis y la ofrece por red MUST publicar su fuente. La `GFDL` mantiene la documentación libre y derivable. Juntas, sostienen la promesa de una base común que ningún actor puede cerrar: la plataforma de referencia permanece abierta aunque los catálogos que se construyan sobre ella sean privados.
 
-## ¿Cómo se nombran las piezas? — Vergis · Botler · Mira
+## ¿Cómo se nombran las piezas? — Vergis · Botler · Mira · Daftar
 
-Tres etiquetas de **naturaleza distinta** intervienen en la implementación de referencia. Confundir su naturaleza —en particular, confundir un tipo con un nombre propio— oscurece la arquitectura. El esquema:
+Cuatro etiquetas de **tres naturalezas distintas** intervienen en la implementación de referencia. Confundir su naturaleza —en particular, confundir un tipo con un nombre propio— oscurece la arquitectura. El esquema:
 
 <!-- FIG:g49-vergis-botler-mira -->
 ![Vergis · Botler · Mira — tipo vs nombre propio](figuras/g49-vergis-botler-mira.png)
@@ -38,17 +38,18 @@ Tres etiquetas de **naturaleza distinta** intervienen en la implementación de r
 | Plataforma · *Meta-Cognitive Platform* | implementación de referencia de AgencyDomains (el AgencyDomain hecho operativo) | **Vergis** |
 | Runtime de Capa 3 | **Botler** (constructo normado de la spec de Botlets) | — *(genérico; "el Botler". La build de Vergis no le pone nombre propio.)* |
 | Componente del catálogo | proto-Botlet platafórmico de operación informativa | **Mira** |
+| Componente del catálogo | proto-Botlet platafórmico de **captura** (evaluador de instrumentos) — el segundo del catálogo, construido en Vergis 0.27.0 | **Daftar** |
 
 La distinción tipo / nombre propio:
 
 - **Botler** es un **tipo** — un constructo canónico de la spec de Botlets (no una de las ocho primitivas, pero sí vocabulario normado del canon). Cualquier runtime de Capa 3 conforme *es un* Botler. No es nombre propio; el Botler que Vergis empaqueta es "el Botler" genérico, sin nombre de instancia.
-- **Vergis** y **Mira** son **nombres propios** de instancias específicas — viven en el mismo cajón que Soveria, Agentia o ultraPRO. Vergis nombra *esta* plataforma; Mira nombra *este* proto-Botlet del catálogo.
+- **Vergis**, **Mira** y **Daftar** son **nombres propios** de instancias específicas — viven en el mismo cajón que Soveria, Agentia o ultraPRO. Vergis nombra *esta* plataforma; Mira nombra *este* proto-Botlet del catálogo; Daftar, el segundo.
 
 Por categoría, Vergis es una **Meta-Cognitive Platform**: no realiza la cognición de objeto —eso es la Capa 2—, sino que **administra la economía de la cognición**. Decide cuándo el agente corre con músculo pre-forjado (G1) y cuándo invoca cognición fresca (fallback), gestiona el ciclo `95/4/1`, la maduración junior→senior y la cristalización de experiencia en estructura reutilizable. Eso es metacognición en sentido preciso: monitoreo y control de los procesos cognitivos.
 
 > El descriptor **Meta-Cognitive Platform** **MUST NOT** abreviarse a `MCP`. En el espacio agentivo actual, `MCP` nombra el **Model Context Protocol**; la sigla está tomada. El descriptor se usa deletreado.
 
-El nombre **Vergis** proviene de *Caprica* (universo *Battlestar Galactica*): Tomas Vergis fue el inventor legítimo del Meta-Cognitive Processor, la pieza que dio independencia cognitiva a las máquinas. El nombre reclama la metacognición para su fuente legítima. Y carga, de fábrica, el principio de diseño que gobierna la plataforma: en aquel relato, el sustrato metacognitivo **nunca funcionó hasta fusionarse con una consciencia viva**. El sustrato es **inerte hasta que algo lo anima** — el principio "aliento de vida": Vergis cobra vida solo cuando Mira y los agentes lo animan. La plataforma, por sí sola, es músculo en reposo; la cognición y los Botlets son lo que la actualizan.
+El nombre **Vergis** proviene de *Caprica* (universo *Battlestar Galactica*): Tomas Vergis fue el inventor legítimo del Meta-Cognitive Processor, la pieza que dio independencia cognitiva a las máquinas. El nombre reclama la metacognición para su fuente legítima. Y carga, de fábrica, el principio de diseño que gobierna la plataforma: en aquel relato, el sustrato metacognitivo **nunca funcionó hasta fusionarse con una consciencia viva**. El sustrato es **inerte hasta que algo lo anima** — el principio "aliento de vida": Vergis cobra vida solo cuando Mira, Daftar y los agentes lo animan. La plataforma, por sí sola, es músculo en reposo; la cognición y los Botlets son lo que la actualizan.
 
 ## ¿Qué incluye?
 
@@ -56,6 +57,7 @@ Vergis empaqueta un conjunto inicial de componentes. Cada uno materializa una pr
 
 - **Contrato abstracto del Botler** — la primitiva runtime de **Capa 3** (§5). El Botler de Vergis es genérico por definición: gestiona ciclo de vida, aislamiento y ejecución de *cualquier* Botlet sin entender su dominio. Expone los puntos de control —`capability_call`, `log`— en los que se enchufan los especialistas, y hace valer la validación de cada spec orquestando el punto de validación que el tipo de Botlet provee, sin ejecutarla con conocimiento de dominio.
 - **Mira** — un **proto-Botlet platafórmico** (§5) de operación informativa. Su código es genérico —el motor compartido—; su especialización vive en una configuración composicional que el agente rellena en tiempo de Ingeniería. Cada Producto de Información es su propio Botlet, instancia especializada del motor común. Mira opera en **G1**: el agente configura, no escribe el cuerpo del motor.
+- **Daftar** — el **segundo proto-Botlet platafórmico** del catálogo, de la familia de **captura** (§5) y su proto-Botlet de referencia: un Let evaluador por instancia que sirve el catálogo de instrumentos del estudiante que entra, aplica el instrumento, registra cada intento y corrige. Construido en la versión 0.27.0 de Vergis, es la prueba ejecutable de que el Botler no tiene subtipos por familia: Mira y Daftar entran por la misma interfaz del runtime. Los instrumentos que aplica son contenido de catálogo, inmutables una vez publicados — no Botlets, como fijan las tres pruebas del §5.
 - **Conjunto starter de Capabilities** — un repertorio mínimo de **Capabilities** canónicas (§5, sentido estricto: saber-hacer cognitivo de Capa 2) y los **Conectores** (Capa 4) que las alimentan, suficiente para componer los ejemplos.
 - **Plantillas de Trust Infrastructure** — esqueletos del eje transversal (§5): políticas, append-only log, contrato declarativo de calidad (Frescura · SLA · Política de degradación · Audiencia · Política de refresh) que cualquier Botlet conforme puede declarar.
 - **Ejemplos ejecutables** — casos completos y anonimizados que recorren la cadena de derivación `caso de uso → Botlets → proto-Botlets` y muestran las piezas operando juntas.

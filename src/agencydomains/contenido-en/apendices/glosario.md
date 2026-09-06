@@ -265,6 +265,12 @@ Capability that carries the **normative knowledge** of a regulated domain — wh
 
 *See: Chapter 5 §3, section "Regulatory certification resides in the certified component."*
 
+### Capture (family)
+
+Manifestation family whose direction of effect runs **from the world to the Let**: the Let **records** something that was not in the system before — a measurement, an answer, an ingested file. Its manifestation leaves a **record**; each practice gives it a name (an attempt, a reading, an entry). It is distinguished from **information** (which represents what the system already has) by the membership test: after a capture there is a new datum. Immediate feedback on what was captured — a form that validates, a grader that scores — is part of the capture, not action. Reference proto-Botlet: **Daftar**.
+
+*See: entries **Manifestation families**, **manifestation**, **Daftar**.*
+
 ### Common catalog / network effects
 
 Principle by which proto-Botlets accumulate in catalogs shared by communities of implementers: each implementer that consumes contributes to the maturation (variants, tested configurations, refinements), and implementer n+1 receives versions refined by implementers 1..n. Membership modes: **private contract** · **proprietary codex** · **open public catalog** (AgencyDomains.org) · **sovereign agreement** (between AgencyDomains that adopt common standards without a direct commercial contract).
@@ -357,6 +363,12 @@ Commercial concept overlaid on the technical model of AgencyDomains. An Account 
 
 ## D
 
+### Daftar
+
+**Proper name** of the second **platform proto-Botlet** in Vergis's catalog, built in its version 0.27.0: the reference proto-Botlet of the **capture** family. Its specialty is to **assess** — apply a study instrument and record what the student knows, in practice mode (with immediate grading) and in exam mode (the measurement). The instruments it applies are catalog content, immutable once published, and pass none of the three Botlet tests; the assessor passes all three.
+
+*See: entries **Mira**, **Vergis**, **Capture (family)**, **Botlet tests**.*
+
 ### DLP — Data Loss Prevention
 
 Automated detection of personal data (PII) in places where it should not appear. A control exercised in the architecture's Layer 4 — Access; through the market lens, it is a typical capability of the AI Firewall link. A component of the Validation pillar of Trust Infrastructure.
@@ -417,6 +429,12 @@ Two canonical uses: (1) cognition invokes it directly during conversation to com
 
 *See: Chapter 4 §1 · Chapter 5 §6 (the complete primitive).*
 
+### Manifestation families
+
+The four specializations of the genus **manifestation**, distinguished by the **direction of the effect**: **information** (from the Let to the human: it represents), **capture** (from the world to the Let: it records), **action** (from the Let to a system: it changes, and the Let closes the loop), **decision** (it resolves). They are primitives of direction, not of domain: an interactive Let composes information and capture without being a new family ("communication" was evaluated and discarded for that reason). There are no Botler subtypes by family.
+
+*See: Chapter 5 §2, "Manifestation and temporality of the Botlet".*
+
 ### feature
 
 Internal operation that a Capability exposes — a functional sub-unit (practical equivalent of *feature/operation/skill/method*). **Capability vs feature test** (all three must be yes to treat it as a Capability of its own): (1) operational independence — can it be installed and operate without the other?; (2) cognitive identity — does it have a distinct data model and SME?; (3) reusability — does it have value for more than one consumer/context? If one or more is **no** → it is a feature of the containing Capability.
@@ -451,7 +469,7 @@ Architectural category that combines Core in Runtime + Firewall + Observability 
 
 ### Botlet tests — minion · specialty · life
 
-The three identity tests an artifact must pass to be declared a Botlet. **Minion**: does it execute, or is it applied? — what is applied is what a minion handles; the cases of a minion's life are its executions over time, not different assignments. **Specialty** (`RISC` versus `CISC`): one specialty per unit — N Botlets over a shared engine, not one Botlet that handles N things. **Life**: does it have a life cycle to manage — active, down, degraded, retired — or only a version? An Information Product passes all three; an assessment instrument, none.
+The three identity tests an artifact must pass to be declared a Botlet. **Minion**: does it execute, or is it applied? — what is applied is what a minion handles; the cases of a minion's life are its executions over time, not different assignments. **Specialty** (`RISC` versus `CISC`): one specialty per unit — N Botlets over a shared engine, not one Botlet that handles N things. **Life**: does it have a life cycle to manage — active, down, degraded, retired — or only a version? An Information Product passes all three; an assessment instrument, none — the assessor that applies it (**Daftar**), all three.
 
 *See: Chapter 5 §2, section "The three Botlet tests".*
 
@@ -557,9 +575,9 @@ The canonical formulation is this book's; each volume of the trilogy conjugates 
 
 ### manifestation
 
-Actualization of the Botlet's latent disposition in the world, perceptible or not. A Botlet is muscle memory (latent disposition); upon executing, that latent is actualized — it manifests (potency → act). **It is not "appearance"**: a Botlet that triggers a periodic ingestion manifests even if it leaves no visible artifact. It is the abstract genus; each family specializes it — **information** → leaves an **Information Product (PI)**; **action** → an effect on the world; **decision** → per its practice.
+Actualization of the Botlet's latent disposition in the world, perceptible or not. A Botlet is muscle memory (latent disposition); upon executing, that latent is actualized — it manifests (potency → act). **It is not "appearance"**: a Botlet that triggers a periodic ingestion manifests even if it leaves no visible artifact. It is the abstract genus; each family specializes it according to the **direction of the effect** — **information** (from the Let to the human) → leaves an **Information Product (PI)**; **capture** (from the world to the Let) → leaves a **record**; **action** (from the Let to a system) → an effect on the world; **decision** → per its practice. Membership test: *what was in the system before and after the Let?*
 
-*See: entries **temporality**, **Information Product (PI)**.*
+*See: entries **temporality**, **Information Product (PI)**, **Manifestation families**.*
 
 ### MCP — Model Context Protocol
 
@@ -589,7 +607,7 @@ Platform category that administers the **economics of cognition**: G1 pre-forged
 
 **Proper name** of a **platform** proto-Botlet for informational operation, part of the reference implementation's catalog. It specializes N Information Products over a shared engine.
 
-*See: entries **proto-Botlet**, **Vergis**.*
+*See: entries **proto-Botlet**, **Vergis**, **Daftar**.*
 
 ### AgencyDomain degradation modes
 
@@ -844,7 +862,7 @@ Canonical mechanisms: hallucination detection, structured-response validation, p
 
 **Proper name** of the public reference implementation of AgencyDomains (the platform; the AgencyDomain made operational). Category: **Meta-Cognitive Platform**. Distributed under **AGPL**, public repository, **AgencyDomains.org**. It is the proper name of an instance (same drawer as Soveria, Agentia, ultraPRO), not a type like Botler or Botlet.
 
-*See: Chapter 9; entries **Meta-Cognitive Platform**, **Mira**, **Botler**.*
+*See: Chapter 9; entries **Meta-Cognitive Platform**, **Mira**, **Daftar**, **Botler**.*
 
 ### Autonomy Path
 

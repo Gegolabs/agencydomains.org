@@ -4,10 +4,10 @@
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
-**Edición:** Primera edición · Septiembre 2026 · v1.1
+**Edición:** Primera edición · Septiembre 2026 · v1.2
 **Licencia:** GNU Free Documentation License v1.3
 
-> **Nota sobre la versión.** Esta es la **primera edición (v1.0; esta revisión es la v1.1)**: la primera publicación pública estable. Desde aquí rige la regla *append-only* para la numeración de figuras — cada figura nueva toma el siguiente número disponible, sin re-enumerar las existentes. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
+> **Nota sobre la versión.** Esta es la **primera edición (v1.0; esta revisión es la v1.2)**: la primera publicación pública estable. Desde aquí rige la regla *append-only* para la numeración de figuras — cada figura nueva toma el siguiente número disponible, sin re-enumerar las existentes. Comentarios y erratas son bienvenidos en el repositorio. El historial de versiones vive en `CHANGELOG.md`.
 
 ## Sobre este libro
 
@@ -30,7 +30,7 @@ El libro es **agnóstico a productos**. Las construcciones formales aquí descri
 | **6 · Mercado** | Cadena de valor de IA · profundidades y arquetipos · deep-dives por eslabón · mundo de carbono |
 | **7 · Aplicaciones canónicas** | Conocimiento en tiempo real · Kimball Barnizada · BI conversacional |
 | **8 · Operación** | Trust Infrastructure operacionalizada · CRUDLEX · políticas · continuidad de negocio operacional |
-| **9 · Vergis** | La implementación de referencia · nota de alcance del canon · esquema Vergis · Botler · Mira · qué incluye · production grade · modelo de adopción · catálogo común y efectos de red |
+| **9 · Vergis** | La implementación de referencia · nota de alcance del canon · esquema Vergis · Botler · Mira · Daftar · qué incluye · production grade · modelo de adopción · catálogo común y efectos de red |
 | **Epílogo** | Frontera de evolución · cuatro fronteras (cognición no-LLM · federación · mundo de carbono · horizonte institucional) · ensayo de las generaciones del Botlet |
 | **Apéndices** | Glosario · referencias · colofón |
 
@@ -53,7 +53,7 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Primera edición v1.1. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Primera edición v1.2. GegoLabs, 2026.
 
 ## La trilogía
 

@@ -6,6 +6,37 @@ Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agenti
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
 
+## v1.2 — Septiembre 2026
+
+**Captura, la cuarta familia de manifestación.** Las familias de manifestación pasan
+a distinguirse por la **dirección del efecto** —de dónde a dónde va lo que el Let
+mueve— y son cuatro: **información** (del Let al humano: representa), **captura**
+(del mundo al Let: registra algo que antes no estaba en el sistema), **actuación**
+(del Let a un sistema: cambia, y el Let cierra el lazo) y **decisión** (resuelve). La
+prueba de pertenencia es una sola pregunta —*¿qué había en el sistema antes y después
+del Let?*— y con ella la ingestión periódica, que el capítulo ya usaba de ejemplo,
+queda clasificada. Una «familia de comunicación» se evaluó y se descartó: un Let
+interactivo **compone** información y captura sin ser familia nueva. **Daftar** entra
+como proto-Botlet de referencia de la captura y como segunda fila del Capítulo 9.
+Origen: sesión de trabajo del 2026-09-05 sobre la plataforma de evaluación escolar,
+cuando Daftar se construyó como Let de Vergis 0.27.0 y hubo que clasificarlo — la
+clasificación nació de un artefacto real, no de una taxonomía a priori.
+
+- Cap 5 §2: familias reescritas por dirección del efecto, con la prueba de
+  pertenencia y el párrafo de Daftar; remisión a Daftar al cierre de «Las tres
+  pruebas del Botlet».
+- Cap 9: título de la sección de nombres, fila nueva en la tabla, bullet de nombres
+  propios, etimología de Vergis y bullet de **Daftar** en «¿Qué incluye?».
+- Glosario: entradas nuevas **Captura (familia de)**, **Familias de manifestación** y
+  **Daftar**; **manifestación** y **Pruebas del Botlet** ajustadas.
+- Manifiestos ES/EN: frontmatter a v1.2, bloque de cambios, manifestación, tres
+  pruebas, esquema de nombres y glosario.
+- Frontmatter ES/EN a v1.2 (edición, nota de versión, cita, tabla de contenidos del Cap 9); cabeceras
+  de la trilogía de «AgencyDomains v1.0» a «v1.2».
+- Sin figuras nuevas; g49 conserva el esquema. ES/EN a la par.
+
+La v1.1 no se publicó por separado: v1.2 la acumula.
+
 ## v1.1 — Septiembre 2026
 
 **Las tres pruebas del Botlet — minion, especialidad y vida.** El canon gana una
