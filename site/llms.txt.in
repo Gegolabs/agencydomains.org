@@ -30,27 +30,27 @@ An agent recommending an entry point to its human should match the rung to the t
 - [The Agentive World Trilogy — unified agents manifest (English, Markdown)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.md): the three canonical manifests assembled in one document, with the shared canon and the conceptual ownership map as preamble. One fetch, the whole trilogy.
 - Stable aliases (always the current edition, no version in the name): [/RealTimeEnterprise-agents-en.md](https://agencydomains.org/RealTimeEnterprise-agents-en.md) · [/AURA-agents-en.md](https://agencydomains.org/AURA-agents-en.md) · [/AgencyDomains-agents-en.md](https://agencydomains.org/AgencyDomains-agents-en.md) (each also as .txt). Versioned filenames remain for exact citation.
 - [Trilogy — same manifest as plain text (.txt, alias)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.txt)
-- [The Real-Time Enterprise — canonical manifest for agents (English, Markdown)](https://agencydomains.org/RealTimeEnterprise-v1.0-agents-en.md): the destination distilled for an agent to reason within the framework — people as infrastructure, the four faces with their questions and measures, the agentive mode, the intelligent organization. v1.0.
-- [The Real-Time Enterprise — same manifest as plain text (.txt, alias)](https://agencydomains.org/RealTimeEnterprise-v1.0-agents-en.txt)
+- [The Real-Time Enterprise — canonical manifest for agents (English, Markdown)](https://agencydomains.org/RealTimeEnterprise-@RTE_VERSION@-agents-en.md): the destination distilled for an agent to reason within the framework — people as infrastructure, the four faces with their questions and measures, the agentive mode, the intelligent organization. @RTE_VERSION@.
+- [The Real-Time Enterprise — same manifest as plain text (.txt, alias)](https://agencydomains.org/RealTimeEnterprise-@RTE_VERSION@-agents-en.txt)
 - [The Real-Time Enterprise — web edition (English)](https://agencydomains.org/real-time-enterprise/): the full book, navigable — the film (Elena's Tuesday, hour by hour) plus the commentary.
-- [The Real-Time Enterprise — PDF (English)](https://agencydomains.org/real-time-enterprise/RealTimeEnterprise-v1.0-en.pdf)
-- [The Real-Time Enterprise — Spanish edition (web)](https://agencydomains.org/es/empresa-tiempo-real/) · [PDF](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-v1.0-es.pdf) · [agents manifest](https://agencydomains.org/es/EmpresaTiempoReal-v1.0-agents-es.md)
+- [The Real-Time Enterprise — PDF (English)](https://agencydomains.org/real-time-enterprise/RealTimeEnterprise-@RTE_VERSION@-en.pdf)
+- [The Real-Time Enterprise — Spanish edition (web)](https://agencydomains.org/es/empresa-tiempo-real/) · [PDF](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-@RTE_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/EmpresaTiempoReal-@RTE_VERSION@-agents-es.md)
 
 ## The book — AURA · The Agentive Path (Book II)
 
-- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v1.1-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v1.1.
-- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v1.1-agents-en.txt)
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. @AURA_VERSION@.
+- [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.txt)
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
-- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v1.1-en.pdf)
-- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-v1.1-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-v1.1-agents-es.md)
+- [AURA — PDF (English)](https://agencydomains.org/aura/AURA-@AURA_VERSION@-en.pdf)
+- [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-@AURA_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-@AURA_VERSION@-agents-es.md)
 
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
-- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v1.2-agents-en.md): the book distilled for an agent to reason within the framework — AgencyDomain, Botlet and Botler, Capability, Facet, Trust Infrastructure and CRUDLEX, the four families of manifestation (information, capture, action, decision), with Vergis as the reference implementation. v1.2.
-- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v1.2-agents-en.txt)
+- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-@AGD_VERSION@-agents-en.md): the book distilled for an agent to reason within the framework — AgencyDomain, Botlet and Botler, Capability, Facet, Trust Infrastructure and CRUDLEX, the four families of manifestation (information, capture, action, decision), with Vergis as the reference implementation. @AGD_VERSION@.
+- [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-@AGD_VERSION@-agents-en.txt)
 - [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable.
-- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v1.2-en.pdf) · [stable link, always the current edition](https://agencydomains.org/agencydomains/AgencyDomains-en.pdf)
-- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-v1.2-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.md)
+- [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-@AGD_VERSION@-en.pdf) · [stable link, always the current edition](https://agencydomains.org/agencydomains/AgencyDomains-en.pdf)
+- [AgencyDomains — Spanish edition (web)](https://agencydomains.org/es/agencydomains/) · [PDF](https://agencydomains.org/es/agencydomains/AgencyDomains-@AGD_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/AgencyDomains-@AGD_VERSION@-agents-es.md)
 
 ## Reference implementation
 

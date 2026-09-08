@@ -58,7 +58,7 @@ jobs:
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
           # El Libro I nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
-          for f in site/llms.txt site/index.html; do
+          for f in site/index.html; do   # llms.txt se deriva de plantilla: no puede desalinearse
             for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
@@ -66,7 +66,7 @@ jobs:
               fi
             done
           done
-          for f in site/es/llms.txt site/es/index.html; do
+          for f in site/es/index.html; do   # ídem
             for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "EmpresaTiempoReal-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
@@ -98,27 +98,17 @@ jobs:
             echo "::error::Un manifiesto declara «sin publicación pública» — los tres libros están publicados."; FAIL=1
           fi
           # 4) el shell cuenta las cinco specs de AURA
-          grep -q "five specs" site/llms.txt   || { echo "::error::site/llms.txt no dice «five specs»."; FAIL=1; }
-          grep -q "cinco specs" site/es/llms.txt || { echo "::error::site/es/llms.txt no dice «cinco specs»."; FAIL=1; }
-          # 4b) el TEXTO que describe cada manifiesto nombra la misma versión que su enlace.
-          #     La guardia de arriba verifica los LINKS; el texto divergía sin que nadie lo viera
-          #     (2026-09-08: AURA y AgencyDomains se describían como v1.0 enlazando v1.1 y v1.2).
-          #     Un agente que lee la descripción se lleva el número equivocado.
-          check_desc() {   # $1=archivo  $2=prefijo del manifiesto  $3=version esperada
-            L=$(grep -F "$2" "$1" | head -1)
-            if [ -z "$L" ]; then return 0; fi   # la guardia de links ya cubre la ausencia
-            BAD=$(printf '%s\n' "$L" | grep -oE '\bv[0-9]+\.[0-9]+\b' | sort -u | grep -vx "$3" || true)
-            if [ -n "$BAD" ]; then
-              echo "::error::$1 describe «$2» con $(echo $BAD | tr '\n' ' ') pero enlaza $3 — el texto quedó atrás."
-              FAIL=1
-            fi
-          }
-          check_desc site/llms.txt     "AgencyDomains-${AGD_VERSION}-agents-en.md"      "${AGD_VERSION}"
-          check_desc site/llms.txt     "AURA-${AURA_VERSION}-agents-en.md"              "${AURA_VERSION}"
-          check_desc site/llms.txt     "RealTimeEnterprise-${RTE_VERSION}-agents-en.md" "${RTE_VERSION}"
-          check_desc site/es/llms.txt  "AgencyDomains-${AGD_VERSION}-agents-es.md"      "${AGD_VERSION}"
-          check_desc site/es/llms.txt  "AURA-${AURA_VERSION}-agents-es.md"              "${AURA_VERSION}"
-          check_desc site/es/llms.txt  "EmpresaTiempoReal-${RTE_VERSION}-agents-es.md"  "${RTE_VERSION}"
+          # 4b) la plantilla de llms.txt no lleva versiones escritas a mano.
+          #     Sustituye a la guardia que comparaba texto contra enlace: con la
+          #     plantilla el desajuste es imposible, y lo que hay que impedir es que
+          #     alguien vuelva a cablear un número.
+          if grep -nE 'v[0-9]+\.[0-9]+' site/llms.txt.in site/es/llms.txt.in; then
+            echo "::error::llms.txt.in tiene una versión escrita a mano; usa @AGD_VERSION@ · @AURA_VERSION@ · @RTE_VERSION@."
+            FAIL=1
+          fi
+          # 4c) las cinco specs de AURA se cuentan en la plantilla
+          grep -q "five specs" site/llms.txt.in   || { echo "::error::site/llms.txt.in no dice «five specs»."; FAIL=1; }
+          grep -q "cinco specs" site/es/llms.txt.in || { echo "::error::site/es/llms.txt.in no dice «cinco specs»."; FAIL=1; }
           # 5) Wingmap no invierte el vocabulario (agéntico ≠ la topología agentiva)
           if grep -qE '\*\*Agéntico\*\* designa|\*\*Agentic\*\* designates' src/aura/specs/4-wingmap.md src/aura/specs-en/4-wingmap.md; then
             echo "::error::Wingmap define «Agéntico/Agentic» con la topología del mundo agentivo — residuo de renombre."; FAIL=1
@@ -171,6 +161,21 @@ jobs:
           # Ver work/cloudfront-analytics/RUNBOOK.md §9 (repo agencydomains-org).
           rm -f _site/CNAME
           touch _site/.nojekyll
+          # llms.txt sale de una plantilla: las versiones NO se escriben a mano.
+          # El texto que describe cada manifiesto y el enlace que lo acompaña salen
+          # del mismo lugar, así que no pueden divergir (llegaron a hacerlo: el texto
+          # decía v1.0 enlazando v1.2). La prosa sigue siendo editorial y se escribe.
+          for f in llms.txt es/llms.txt; do
+            sed -e "s/@AGD_VERSION@/${AGD_VERSION}/g" \
+                -e "s/@AURA_VERSION@/${AURA_VERSION}/g" \
+                -e "s/@RTE_VERSION@/${RTE_VERSION}/g" \
+                "site/$f.in" > "_site/$f"
+          done
+          rm -f _site/llms.txt.in _site/es/llms.txt.in
+          if grep -n '@[A-Z_]*VERSION@' _site/llms.txt _site/es/llms.txt; then
+            echo "::error::quedaron marcadores sin sustituir en llms.txt — falta una variable en el sed."
+            exit 1
+          fi
           # los libros reemplazan cualquier placeholder del shell en su ruta
           rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/

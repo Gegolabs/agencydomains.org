@@ -29,18 +29,18 @@ Un agente que recomiende una entrada a su humano debe calzar el peldaño con el 
 - [Trilogía del Mundo Agentivo — manifiesto unificado para agentes (Markdown)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.md): los tres manifiestos canónicos ensamblados en un solo documento, con el canon compartido y el mapa de propiedad conceptual como preámbulo. Un solo fetch, la trilogía completa.
 - [Trilogía — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.txt)
 - Alias estables (siempre la edición vigente, sin versión en el nombre): [/es/EmpresaTiempoReal-agents-es.md](https://agencydomains.org/es/EmpresaTiempoReal-agents-es.md) · [/es/AURA-agents-es.md](https://agencydomains.org/es/AURA-agents-es.md) · [/es/AgencyDomains-agents-es.md](https://agencydomains.org/es/AgencyDomains-agents-es.md) (cada uno también en .txt). Los nombres versionados quedan para cita exacta.
-- [La Empresa en Tiempo Real — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/EmpresaTiempoReal-v1.0-agents-es.md): el destino destilado para que un agente razone dentro del marco — la persona como infraestructura, las cuatro caras con sus preguntas y medidas, el modo agentivo, la organización inteligente. v1.0.
-- [La Empresa en Tiempo Real — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/EmpresaTiempoReal-v1.0-agents-es.txt)
+- [La Empresa en Tiempo Real — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/EmpresaTiempoReal-@RTE_VERSION@-agents-es.md): el destino destilado para que un agente razone dentro del marco — la persona como infraestructura, las cuatro caras con sus preguntas y medidas, el modo agentivo, la organización inteligente. @RTE_VERSION@.
+- [La Empresa en Tiempo Real — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/EmpresaTiempoReal-@RTE_VERSION@-agents-es.txt)
 - [La Empresa en Tiempo Real — versión web (humanos)](https://agencydomains.org/es/empresa-tiempo-real/): el libro completo, navegable — la película (el martes de Elena) más el comentario.
-- [La Empresa en Tiempo Real — PDF (humanos)](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-v1.0-es.pdf)
-- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v1.1-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v1.1.
-- [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v1.1-agents-es.txt)
+- [La Empresa en Tiempo Real — PDF (humanos)](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-@RTE_VERSION@-es.pdf)
+- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-@AURA_VERSION@-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. @AURA_VERSION@.
+- [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-@AURA_VERSION@-agents-es.txt)
 - [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
-- [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v1.1-es.pdf)
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.md): el libro destilado para que un agente razone dentro del framework — AgencyDomain, Botlet y Botler, Capability, Faceta, Trust Infrastructure y CRUDLEX, las cuatro familias de manifestación (información, captura, actuación, decisión), con Vergis como implementación de referencia. v1.2.
-- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.txt)
+- [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-@AURA_VERSION@-es.pdf)
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-@AGD_VERSION@-agents-es.md): el libro destilado para que un agente razone dentro del framework — AgencyDomain, Botlet y Botler, Capability, Faceta, Trust Infrastructure y CRUDLEX, las cuatro familias de manifestación (información, captura, actuación, decisión), con Vergis como implementación de referencia. @AGD_VERSION@.
+- [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-@AGD_VERSION@-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
-- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v1.2-es.pdf) · [enlace estable, siempre la edición vigente](https://agencydomains.org/es/agencydomains/AgencyDomains-es.pdf)
+- [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-@AGD_VERSION@-es.pdf) · [enlace estable, siempre la edición vigente](https://agencydomains.org/es/agencydomains/AgencyDomains-es.pdf)
 
 ## Implementación de referencia
 
