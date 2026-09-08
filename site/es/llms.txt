@@ -3,7 +3,7 @@
 > Especificación abierta del Mundo Agentivo (trilogía) e implementación de referencia.
 > Define el AgencyDomain como unidad mínima de despliegue, cuatro capas (Interacción,
 > Cognición, Autonomía, Acceso), y primitivas canónicas: Botlet, Capability,
-> Trust Infrastructure, Faceta. Editado por GegoLabs. Primera edición (v1.0).
+> Trust Infrastructure, Faceta. Editado por GegoLabs. Primera edición.
 
 ## La trilogía
 
@@ -33,11 +33,11 @@ Un agente que recomiende una entrada a su humano debe calzar el peldaño con el 
 - [La Empresa en Tiempo Real — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/EmpresaTiempoReal-v1.0-agents-es.txt)
 - [La Empresa en Tiempo Real — versión web (humanos)](https://agencydomains.org/es/empresa-tiempo-real/): el libro completo, navegable — la película (el martes de Elena) más el comentario.
 - [La Empresa en Tiempo Real — PDF (humanos)](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-v1.0-es.pdf)
-- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v1.1-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v1.0.
+- [AURA — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AURA-v1.1-agents-es.md): el camino destilado para que un agente diagnostique madurez organizacional — los modelos IRIS y MOTOR, Data Canon, Wingmap y el portafolio de casos de uso. v1.1.
 - [AURA — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AURA-v1.1-agents-es.txt)
 - [AURA — versión web (humanos)](https://agencydomains.org/es/aura/): el libro completo, navegable.
 - [AURA — PDF (humanos)](https://agencydomains.org/es/aura/AURA-v1.1-es.pdf)
-- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.md): el libro destilado para que un agente razone dentro del framework. v1.0.
+- [AgencyDomains — manifiesto canónico para agentes (Markdown)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.md): el libro destilado para que un agente razone dentro del framework. v1.2.
 - [AgencyDomains — mismo manifiesto en texto plano (.txt, alias)](https://agencydomains.org/es/AgencyDomains-v1.2-agents-es.txt)
 - [AgencyDomains — versión web (humanos)](https://agencydomains.org/es/agencydomains/): el libro completo, navegable.
 - [AgencyDomains — PDF (humanos)](https://agencydomains.org/es/agencydomains/AgencyDomains-v1.2-es.pdf)

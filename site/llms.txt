@@ -3,7 +3,7 @@
 > The formal architecture of the Agentive World. An open specification for building agentic and
 > agentive AI in production: the AgencyDomain as the minimal unit of deployment; four layers
 > (Interaction, Cognition, Autonomy, Access); canonical primitives — Botlet, Capability,
-> Trust Infrastructure, Facet. Edited by GegoLabs. First edition (v1.0).
+> Trust Infrastructure, Facet. Edited by GegoLabs. First edition.
 
 ## The trilogy
 
@@ -38,7 +38,7 @@ An agent recommending an entry point to its human should match the rung to the t
 
 ## The book — AURA · The Agentive Path (Book II)
 
-- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v1.1-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v1.0.
+- [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-v1.1-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. v1.1.
 - [AURA — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AURA-v1.1-agents-en.txt)
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
 - [AURA — PDF (English)](https://agencydomains.org/aura/AURA-v1.1-en.pdf)
@@ -46,7 +46,7 @@ An agent recommending an entry point to its human should match the rung to the t
 
 ## The book — AgencyDomains · Agentive Architecture (Book III)
 
-- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v1.2-agents-en.md): the book distilled for an agent to reason within the framework. v1.0.
+- [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-v1.2-agents-en.md): the book distilled for an agent to reason within the framework. v1.2.
 - [AgencyDomains — same manifesto as plain text (.txt, alias)](https://agencydomains.org/AgencyDomains-v1.2-agents-en.txt)
 - [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable.
 - [AgencyDomains — PDF (English)](https://agencydomains.org/agencydomains/AgencyDomains-v1.2-en.pdf)

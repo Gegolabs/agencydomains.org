@@ -100,6 +100,25 @@ jobs:
           # 4) el shell cuenta las cinco specs de AURA
           grep -q "five specs" site/llms.txt   || { echo "::error::site/llms.txt no dice «five specs»."; FAIL=1; }
           grep -q "cinco specs" site/es/llms.txt || { echo "::error::site/es/llms.txt no dice «cinco specs»."; FAIL=1; }
+          # 4b) el TEXTO que describe cada manifiesto nombra la misma versión que su enlace.
+          #     La guardia de arriba verifica los LINKS; el texto divergía sin que nadie lo viera
+          #     (2026-09-08: AURA y AgencyDomains se describían como v1.0 enlazando v1.1 y v1.2).
+          #     Un agente que lee la descripción se lleva el número equivocado.
+          check_desc() {   # $1=archivo  $2=prefijo del manifiesto  $3=version esperada
+            L=$(grep -F "$2" "$1" | head -1)
+            if [ -z "$L" ]; then return 0; fi   # la guardia de links ya cubre la ausencia
+            BAD=$(printf '%s\n' "$L" | grep -oE '\bv[0-9]+\.[0-9]+\b' | sort -u | grep -vx "$3" || true)
+            if [ -n "$BAD" ]; then
+              echo "::error::$1 describe «$2» con $(echo $BAD | tr '\n' ' ') pero enlaza $3 — el texto quedó atrás."
+              FAIL=1
+            fi
+          }
+          check_desc site/llms.txt     "AgencyDomains-${AGD_VERSION}-agents-en.md"      "${AGD_VERSION}"
+          check_desc site/llms.txt     "AURA-${AURA_VERSION}-agents-en.md"              "${AURA_VERSION}"
+          check_desc site/llms.txt     "RealTimeEnterprise-${RTE_VERSION}-agents-en.md" "${RTE_VERSION}"
+          check_desc site/es/llms.txt  "AgencyDomains-${AGD_VERSION}-agents-es.md"      "${AGD_VERSION}"
+          check_desc site/es/llms.txt  "AURA-${AURA_VERSION}-agents-es.md"              "${AURA_VERSION}"
+          check_desc site/es/llms.txt  "EmpresaTiempoReal-${RTE_VERSION}-agents-es.md"  "${RTE_VERSION}"
           # 5) Wingmap no invierte el vocabulario (agéntico ≠ la topología agentiva)
           if grep -qE '\*\*Agéntico\*\* designa|\*\*Agentic\*\* designates' src/aura/specs/4-wingmap.md src/aura/specs-en/4-wingmap.md; then
             echo "::error::Wingmap define «Agéntico/Agentic» con la topología del mundo agentivo — residuo de renombre."; FAIL=1
