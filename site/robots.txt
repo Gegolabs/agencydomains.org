@@ -10,3 +10,5 @@
 
 User-agent: *
 Allow: /
+
+Sitemap: https://agencydomains.org/sitemap.xml

@@ -211,6 +211,9 @@ jobs:
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
+      - name: Sitemap (derivado del sitio ya ensamblado)
+        run: python3 .github/scripts/gen-sitemap.py _site
+
       # El sitio se publica en un bucket S3 PRIVADO que CloudFront lee por OAC.
       # GitHub Pages ya no participa: su URL pública duplicaba el sitio y sus
       # políticas gobernaban un origen que no controlábamos.
