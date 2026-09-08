@@ -204,6 +204,15 @@ jobs:
             cp _site/es/AURA-${AURA_VERSION}-agents-es.$ext           _site/es/AURA-agents-es.$ext
             cp _site/es/EmpresaTiempoReal-${RTE_VERSION}-agents-es.$ext _site/es/EmpresaTiempoReal-agents-es.$ext
           done
+          # alias estables para los PDF — el enlace que se comparte no debe caducar.
+          # Medido el 2026-09-08: 1.351 peticiones 404 a distribuibles de ediciones
+          # retiradas, 642 de ellas a AgencyDomains-v0.4-en.pdf.
+          cp _site/agencydomains/AgencyDomains-${AGD_VERSION}-en.pdf                _site/agencydomains/AgencyDomains-en.pdf
+          cp _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-es.pdf             _site/es/agencydomains/AgencyDomains-es.pdf
+          cp _site/aura/AURA-${AURA_VERSION}-en.pdf                                 _site/aura/AURA-en.pdf
+          cp _site/es/aura/AURA-${AURA_VERSION}-es.pdf                              _site/es/aura/AURA-es.pdf
+          cp _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-en.pdf    _site/real-time-enterprise/RealTimeEnterprise-en.pdf
+          cp _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-es.pdf   _site/es/empresa-tiempo-real/EmpresaTiempoReal-es.pdf
           # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt
@@ -227,9 +236,22 @@ jobs:
       - name: Publicar en S3
         run: |
           set -euo pipefail
+          # Dos pasadas, y el motivo es editorial: una edición publicada NO se retira.
+          # Con una sola pasada, `--delete` borraba del sitio los distribuibles de la
+          # versión anterior en cuanto salía una nueva, y cada enlace compartido a un
+          # PDF moría en la siguiente publicación (1.351 peticiones 404 medidas el
+          # 2026-09-08). Ver DECISIONS D-24.
+          #
+          # 1 · todo salvo los distribuibles versionados, con --delete: limpia lo obsoleto
           aws s3 sync _site/ s3://agencydomains-org-site-754902277002/ \
             --delete --cache-control 'public, max-age=600' \
-            --exclude '.nojekyll'
+            --exclude '.nojekyll' \
+            --exclude '*-v*.pdf' --exclude '*-v*-agents-*' --exclude '*-v*-agentes-*'
+          # 2 · los distribuibles versionados, SIN --delete: se suman, no reemplazan
+          aws s3 sync _site/ s3://agencydomains-org-site-754902277002/ \
+            --cache-control 'public, max-age=600' \
+            --exclude '*' \
+            --include '*-v*.pdf' --include '*-v*-agents-*' --include '*-v*-agentes-*'
           echo "=== objetos en el bucket ==="
           aws s3 ls s3://agencydomains-org-site-754902277002/ --recursive --summarize | tail -3
 
