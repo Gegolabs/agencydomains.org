@@ -17,8 +17,7 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  id-token: write   # OIDC hacia AWS; el sitio se publica en S3, no en Pages
 
 concurrency:
   group: pages
@@ -188,16 +187,32 @@ jobs:
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
-      - uses: actions/upload-pages-artifact@v3
+      # El sitio se publica en un bucket S3 PRIVADO que CloudFront lee por OAC.
+      # GitHub Pages ya no participa: su URL pública duplicaba el sitio y sus
+      # políticas gobernaban un origen que no controlábamos.
+      # Ver work/cloudfront-analytics/RUNBOOK.md §10 (repo agencydomains-org).
+      - name: Credenciales AWS (OIDC, sin secretos de larga vida)
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          path: _site
+          role-to-assume: arn:aws:iam::754902277002:role/agencydomains-site-deploy
+          aws-region: us-east-1
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publicar en S3
+        run: |
+          set -euo pipefail
+          aws s3 sync _site/ s3://agencydomains-org-site-754902277002/ \
+            --delete --cache-control 'public, max-age=600' \
+            --exclude '.nojekyll'
+          echo "=== objetos en el bucket ==="
+          aws s3 ls s3://agencydomains-org-site-754902277002/ --recursive --summarize | tail -3
+
+      - name: Invalidar CloudFront
+        run: |
+          set -euo pipefail
+          ID=$(aws cloudfront create-invalidation \
+                 --distribution-id E1P0KOY6SE3EBJ --paths '/*' \
+                 --query 'Invalidation.Id' --output text)
+          echo "invalidacion $ID"
+          aws cloudfront wait invalidation-completed \
+            --distribution-id E1P0KOY6SE3EBJ --id "$ID"
+          echo "sitio publicado en https://agencydomains.org/"
