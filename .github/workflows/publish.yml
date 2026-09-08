@@ -260,6 +260,27 @@ jobs:
           echo "=== objetos en el bucket ==="
           aws s3 ls s3://agencydomains-org-site-754902277002/ --recursive --summarize | tail -3
 
+      - name: Publicar el router del borde (lleva las versiones vigentes)
+        run: |
+          set -euo pipefail
+          # El router redirige un distribuible de edición anterior al alias de la
+          # vigente, así que necesita saber cuál es la vigente. Se la pone el build,
+          # no una mano: un número cableado ahí volvería a divergir del sitio.
+          sed -e "s/@AGD_VERSION@/${AGD_VERSION}/g" \
+              -e "s/@AURA_VERSION@/${AURA_VERSION}/g" \
+              -e "s/@RTE_VERSION@/${RTE_VERSION}/g" \
+              .github/functions/router.js.in > /tmp/router.js
+          if grep -n '@[A-Z_]*VERSION@' /tmp/router.js; then
+            echo "::error::quedaron marcadores sin sustituir en el router."; exit 1
+          fi
+          ET=$(aws cloudfront describe-function --name agencydomains-router --query ETag --output text)
+          aws cloudfront update-function --name agencydomains-router \
+            --function-config '{"Comment":"www->apex, ediciones retiradas, barra final e index.html","Runtime":"cloudfront-js-2.0"}' \
+            --function-code fileb:///tmp/router.js --if-match "$ET" >/dev/null
+          ET=$(aws cloudfront describe-function --name agencydomains-router --query ETag --output text)
+          aws cloudfront publish-function --name agencydomains-router --if-match "$ET" \
+            --query 'FunctionSummary.Status' --output text
+
       - name: Invalidar CloudFront
         run: |
           set -euo pipefail

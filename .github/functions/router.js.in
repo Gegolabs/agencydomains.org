@@ -1,0 +1,68 @@
+function buildQuery(qs) {
+    var parts = [];
+    for (var k in qs) {
+        if (qs[k].value !== undefined && qs[k].value !== '') {
+            parts.push(k + '=' + qs[k].value);
+        } else {
+            parts.push(k);
+        }
+    }
+    return parts.length ? '?' + parts.join('&') : '';
+}
+
+function redirect(location) {
+    return {
+        statusCode: 301,
+        statusDescription: 'Moved Permanently',
+        headers: { 'location': { value: location } }
+    };
+}
+
+// Version vigente de cada libro. La escribe el build sustituyendo estos
+// marcadores (ver .github/workflows/publish.yml): un numero cableado a mano
+// aqui volveria a divergir del sitio, que es la falla que ya ocurrio en llms.txt.
+var VIGENTE = {
+    'AgencyDomains':      '@AGD_VERSION@',
+    'AURA':               '@AURA_VERSION@',
+    'RealTimeEnterprise': '@RTE_VERSION@',
+    'EmpresaTiempoReal':  '@RTE_VERSION@'
+};
+
+function handler(event) {
+    var request = event.request;
+    var host = request.headers.host ? request.headers.host.value : '';
+    var uri = request.uri;
+    var qs = buildQuery(request.querystring);
+
+    // www siempre va al apex: una sola URL canonica
+    if (host === 'www.agencydomains.org') {
+        return redirect('https://agencydomains.org' + uri + qs);
+    }
+
+    // Un distribuible de una edicion ANTERIOR va al alias de la vigente, en vez
+    // de morir en 404. Las ediciones ya no se retiran (D-24), pero las anteriores
+    // a esa fecha nunca estuvieron en el bucket: 1.351 peticiones medidas el
+    // 2026-09-08, 642 a un solo PDF. La edicion vigente NO se toca, para que su
+    // URL siga sirviendo como cita exacta.
+    var v = uri.match(/^(.*\/)([A-Za-z]+)-(v[0-9]+\.[0-9]+)-(.+)$/);
+    if (v && VIGENTE[v[2]] && VIGENTE[v[2]] !== v[3]) {
+        return redirect('https://agencydomains.org' + v[1] + v[2] + '-' + v[4] + qs);
+    }
+
+    var lastSlash = uri.lastIndexOf('/');
+    var last = uri.substring(lastSlash + 1);
+
+    // Un segmento final sin punto es un directorio: se le pone la barra.
+    // Lo hace CloudFront, no el origen, para que el Location nunca apunte
+    // fuera del dominio (asi se fugaban visitantes con Pages de origen).
+    if (last !== '' && last.indexOf('.') === -1) {
+        return redirect('https://agencydomains.org' + uri + '/' + qs);
+    }
+
+    // S3 por REST no sirve indices de directorio: hay que nombrarlos.
+    if (uri.charAt(uri.length - 1) === '/') {
+        request.uri = uri + 'index.html';
+    }
+
+    return request;
+}
