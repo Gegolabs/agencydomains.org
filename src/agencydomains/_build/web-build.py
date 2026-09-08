@@ -5,6 +5,10 @@ Las partes LaTeX (```{=latex}\part{X}```) se vuelven páginas-divisor con clase 
 Salida: <out>/index.html (portada) y <out>/<slug>/index.html por capítulo."""
 import argparse, os, re, shutil, subprocess, sys, unicodedata
 
+# Origen canonico del sitio. Sin esto, una URL con parametros (?utm_source=...)
+# es otra pagina para un buscador. Ver DECISIONS D-24.
+SITE = 'https://agencydomains.org'
+
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
  '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;'
@@ -147,6 +151,7 @@ def main():
         html = (f'<!DOCTYPE html>\n<html lang="{a.lang}">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             f'<title>{p["title"] if p["title"] == a.title else p["title"] + " · " + a.title}</title>\n{FONTS}\n'
+            f'<link rel="canonical" href="{SITE}{url(p)}">\n'
             f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
             f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
