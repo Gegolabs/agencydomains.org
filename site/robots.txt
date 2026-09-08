@@ -4,9 +4,12 @@
 # La puerta canónica para un agente es /llms.txt (y /es/llms.txt),
 # que enumera los manifiestos de los tres libros en Markdown y texto plano.
 #
-# Este archivo existe para que su ausencia no vuelva a ser ambigua: un 5xx en
-# robots.txt se lee como «todo prohibido», y durante la caída del 2026-09-07
-# el sitio apareció bloqueado a los agentes sin que nadie escribiera un Disallow.
+# Por qué existe: para declarar la política de rastreo y apuntar al sitemap.
+# NO para prevenir el bloqueo del 2026-09-07: durante esa caída todo el sitio
+# devolvía 502, y un 5xx en robots.txt se lee como «todo prohibido» — este
+# archivo habría devuelto 502 igual y no habría evitado nada. La ausencia previa
+# tampoco bloqueaba: un 404 en robots.txt se lee como «sin restricciones».
+# Lo que evita ese bloqueo es que el sitio no se caiga, no este archivo.
 
 User-agent: *
 Allow: /
