@@ -1,0 +1,3 @@
+# Alias en español; la política canónica está en https://agencydomains.org/robots.txt
+User-agent: *
+Allow: /

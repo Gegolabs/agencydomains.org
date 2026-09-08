@@ -1,0 +1,12 @@
+# agencydomains.org — el corpus del Mundo Agentivo
+#
+# Todo el sitio es público y está abierto a humanos y agentes.
+# La puerta canónica para un agente es /llms.txt (y /es/llms.txt),
+# que enumera los manifiestos de los tres libros en Markdown y texto plano.
+#
+# Este archivo existe para que su ausencia no vuelva a ser ambigua: un 5xx en
+# robots.txt se lee como «todo prohibido», y durante la caída del 2026-09-07
+# el sitio apareció bloqueado a los agentes sin que nadie escribiera un Disallow.
+
+User-agent: *
+Allow: /
