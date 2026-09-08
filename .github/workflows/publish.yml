@@ -142,6 +142,11 @@ jobs:
           RDIST=src/rte/_dist
           mkdir -p _site
           cp -R site/. _site/
+          # NO debe existir site/CNAME: el dominio lo sirve CloudFront y Pages
+          # publica sin custom domain. Un CNAME en el artefacto puede reponer el
+          # custom domain y meter al visitante en un bucle de redirects.
+          # Ver work/cloudfront-analytics/RUNBOOK.md §9 (repo agencydomains-org).
+          rm -f _site/CNAME
           touch _site/.nojekyll
           # los libros reemplazan cualquier placeholder del shell en su ruta
           rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
