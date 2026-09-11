@@ -28,6 +28,26 @@ def pandoc(md):
 
 def strip_tags(s): return re.sub(r'<[^>]+>', '', s).strip()
 
+# Anclas por entrada de glosario. Una entrada «**término** — definición» se
+# renderiza como <p><strong>término</strong> — …</p> y pandoc no le da id; sin id,
+# nada puede enlazar a un término concreto (el plan de promoción y la página de
+# vocabulario canónico lo necesitan). El id sale de slugify(término) — ASCII —
+# y se deduplica contra los ids que la página ya trae. gen-vocabulario.py
+# importa esta función: el ancla y el enlace nacen del mismo código.
+ENTRY_RE = re.compile(r'<p><strong>(.+?)</strong>\s*(?:—|&#8212;|&mdash;)', re.S)
+
+def entry_anchors(html):
+    import html as _h
+    seen = set(re.findall(r'\bid="([^"]+)"', html))
+    def _add(m):
+        base = slugify(_h.unescape(strip_tags(m.group(1)))) or 'entrada'
+        sid, n = base, 2
+        while sid in seen:
+            sid = f'{base}-{n}'; n += 1
+        seen.add(sid)
+        return f'<p id="{sid}" class="entry">' + m.group(0)[len('<p>'):]
+    return ENTRY_RE.sub(_add, html)
+
 # Canales de feedback. El correo directo es el canal SIN paredes: cualquiera puede
 # escribir sin cuenta. (Swappable: cambiar aquí si se crea un alias dedicado.)
 CONTACT_EMAIL = 'cesar.obach@ultrabase.net'
@@ -118,7 +138,7 @@ def main():
 
     # render cuerpo + sub-toc por página
     for p in pages:
-        body = pandoc(p['md']).replace('src="figuras/', f'src="{a.base}/figuras/')
+        body = entry_anchors(pandoc(p['md']).replace('src="figuras/', f'src="{a.base}/figuras/'))
         p['body'] = body
         p['sub'] = [(m.group(1), strip_tags(m.group(2)))
                     for m in re.finditer(r'<h2 id="([^"]+)">(.*?)</h2>', body, re.S)]

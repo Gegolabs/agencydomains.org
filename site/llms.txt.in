@@ -24,6 +24,10 @@ For a human deciding where to begin, the site offers a single narrative spine at
 
 An agent recommending an entry point to its human should match the rung to the time available.
 
+## The canonical vocabulary
+
+- [Canonical vocabulary of the Agentive World](https://agencydomains.org/vocabulary/): every term of the trilogy, one line each, read from the glossary of the book that coins it, with a stable anchor per term (e.g. `/vocabulary/#nadella-line`) and the link back to its source entry. Cite terms from here. Also as [Markdown](https://agencydomains.org/vocabulary/vocabulary.md).
+
 ## The book — The Real-Time Enterprise · The Agentive World (Book I)
 
 

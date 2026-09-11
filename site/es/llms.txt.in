@@ -24,6 +24,10 @@ Para un humano que decide por dónde entrar, el sitio ofrece una sola espina nar
 
 Un agente que recomiende una entrada a su humano debe calzar el peldaño con el tiempo disponible.
 
+## El vocabulario canónico
+
+- [Vocabulario canónico del Mundo Agentivo](https://agencydomains.org/es/vocabulario/): todos los términos de la trilogía, en una línea cada uno, leídos del glosario del libro que los acuña, con un ancla estable por término (p. ej. `/es/vocabulario/#linea-nadella`) y el enlace a su entrada de origen. Los términos se citan desde aquí. También en [Markdown](https://agencydomains.org/es/vocabulario/vocabulario.md).
+
 ## Libros
 
 - [Trilogía del Mundo Agentivo — manifiesto unificado para agentes (Markdown)](https://agencydomains.org/es/Trilogia-MundoAgentivo-agentes-es.md): los tres manifiestos canónicos ensamblados en un solo documento, con el canon compartido y el mapa de propiedad conceptual como preámbulo. Un solo fetch, la trilogía completa.

@@ -225,6 +225,12 @@ jobs:
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
+      # La página de vocabulario se DERIVA de los glosarios de los tres libros: no
+      # define nada, enlaza cada término a su entrada de origen. Va antes del
+      # sitemap para que éste la liste. Falla si ES y EN no son espejo.
+      - name: Vocabulario canónico (derivado de los glosarios, ES + EN)
+        run: python3 .github/scripts/gen-vocabulario.py _site
+
       - name: Sitemap (derivado del sitio ya ensamblado)
         run: python3 .github/scripts/gen-sitemap.py _site
 

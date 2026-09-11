@@ -32,6 +32,21 @@
 .page .next a{color:var(--ink-soft)}.page .next a:hover{color:var(--accent)}.page .next .k{color:var(--faint)}
 
 /* ------------------------------------------------------------
+   Vocabulario canónico (/vocabulary/ · /es/vocabulario/) — generado por
+   .github/scripts/gen-vocabulario.py desde los glosarios de los libros.
+   ------------------------------------------------------------ */
+.page h2 .ed{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--faint);font-weight:400;margin-left:.5rem}
+.page dl.vocab{margin:1rem 0 0}
+.page dl.vocab dt{margin:1.15rem 0 .15rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .7rem;
+  scroll-margin-top:1.5rem}
+.page dl.vocab dt .t{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none}
+.page dl.vocab dt .t:hover{color:var(--accent)}
+.page dl.vocab dt .src,.page dl.vocab dt .also{font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--faint)}
+.page dl.vocab dt .src:hover{color:var(--accent)}
+.page dl.vocab dt:target .t{color:var(--accent)}
+.page dl.vocab dd{margin:0;color:var(--ink-soft);line-height:1.55}
+
+/* ------------------------------------------------------------
    g52 viva — el tránsito, dos mundos, una pregunta.
    Texto real (no raster) para que sea legible a cualquier tamaño;
    misma anatomía y paleta que figuras-fuente/g52, tipografía de la casa.
