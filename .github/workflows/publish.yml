@@ -263,6 +263,17 @@ jobs:
             --cache-control 'public, max-age=600' \
             --exclude '*' \
             --include '*-v*.pdf' --include '*-v*-agents-*' --include '*-v*-agentes-*'
+          # 3 · charset explícito en los textos planos. S3 los tipa `text/markdown` y
+          #     `text/plain` SIN charset, y el navegador los decodifica como Latin-1:
+          #     cada «—», «·», «→» y cada caja de los diagramas salía como basura.
+          #     Copia en sitio sobre TODO el bucket (no solo _site/) para que también
+          #     las ediciones retenidas por la pasada 2 queden corregidas.
+          for pair in 'md:text/markdown' 'txt:text/plain'; do
+            aws s3 cp s3://agencydomains-org-site-754902277002/ s3://agencydomains-org-site-754902277002/ \
+              --recursive --exclude '*' --include "*.${pair%%:*}" \
+              --content-type "${pair#*:}; charset=utf-8" \
+              --cache-control 'public, max-age=600' --metadata-directive REPLACE --only-show-errors
+          done
           echo "=== objetos en el bucket ==="
           aws s3 ls s3://agencydomains-org-site-754902277002/ --recursive --summarize | tail -3
 
