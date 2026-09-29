@@ -223,6 +223,9 @@ jobs:
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
+          # alias corto: el nombre que la portada muestra es la URL
+          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/trilogy.md
+          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/trilogia.md
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
       # La página de vocabulario se DERIVA de los glosarios de los tres libros: no
