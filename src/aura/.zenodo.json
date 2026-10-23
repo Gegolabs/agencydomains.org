@@ -1,0 +1,44 @@
+{
+  "title": "AURA: el Camino Agentivo",
+  "upload_type": "publication",
+  "publication_type": "book",
+  "creators": [
+    {
+      "name": "Obach-Renner, César"
+    }
+  ],
+  "description": "<p>Volumen II de la Trilogía del Mundo Agentivo. ¿Por dónde? — <strong>la ruta.</strong> Para quien tiene que hacer el cruce: líderes y asesores de la transformación. Sus cinco especificaciones son instrumentos autónomos para la era agentiva — cada una se usa por separado, sin necesidad del resto del libro: IRIS, MOTOR, Data Canon, Wingmap y Casos de Uso.</p><p>Volume II of the Agentive World Trilogy. Which way? — <strong>the route.</strong> For those who have to make the crossing: leaders and advisors of the transformation. Its five specifications are standalone instruments for the agentive era — each one can be used separately, without the rest of the book: IRIS, MOTOR, Data Canon, Wingmap and Use Cases.</p><p>Edición bilingüe: el depósito trae el PDF en español, el PDF en inglés y los manifiestos para agentes (ES y EN). El libro se lee completo en <a href=\"https://agencydomains.org/es/aura/\">https://agencydomains.org/es/aura/</a>; su fuente vive en <a href=\"https://github.com/gegolabs/agencydomains.org\">github.com/gegolabs/agencydomains.org</a>. Vocabulario canónico: <a href=\"https://agencydomains.org/es/vocabulario/\">agencydomains.org/es/vocabulario/</a> · <a href=\"https://agencydomains.org/vocabulary/\">agencydomains.org/vocabulary/</a>.</p><p>Bilingual edition: Spanish PDF, English PDF and the manifests for agents (ES and EN). English title: <em>AURA: The Agentive Path</em>.</p>",
+  "access_right": "open",
+  "license": "gfdl-1.3-only",
+  "language": "spa",
+  "version": "v1.1",
+  "imprint_publisher": "GegoLabs",
+  "keywords": [
+    "Mundo Agentivo",
+    "Agentive World",
+    "AURA",
+    "IRIS",
+    "MOTOR",
+    "Data Canon",
+    "Wingmap",
+    "Trilogía del Mundo Agentivo"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://agencydomains.org/aura/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://agencydomains.org/es/aura/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://github.com/gegolabs/agencydomains.org",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://agencydomains.org/",
+      "relation": "isPartOf"
+    }
+  ]
+}

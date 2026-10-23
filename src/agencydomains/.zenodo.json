@@ -1,0 +1,44 @@
+{
+  "title": "AgencyDomains: arquitectura del Mundo Agentivo",
+  "upload_type": "publication",
+  "publication_type": "book",
+  "creators": [
+    {
+      "name": "Obach-Renner, César"
+    }
+  ],
+  "description": "<p>Volumen III de la Trilogía del Mundo Agentivo. ¿Cómo llegamos? — <strong>el vehículo.</strong> Para arquitectos, CTOs y constructores de plataformas agentivas: la especificación formal del Mundo Agentivo.</p><p>Volume III of the Agentive World Trilogy. How do we get there? — <strong>the vehicle.</strong> For architects, CTOs, and builders of agentive platforms: the formal specification of the Agentive World.</p><p>Edición bilingüe: el depósito trae el PDF en español, el PDF en inglés y los manifiestos para agentes (ES y EN). El libro se lee completo en <a href=\"https://agencydomains.org/es/agencydomains/\">https://agencydomains.org/es/agencydomains/</a>; su fuente vive en <a href=\"https://github.com/gegolabs/agencydomains.org\">github.com/gegolabs/agencydomains.org</a>. Vocabulario canónico: <a href=\"https://agencydomains.org/es/vocabulario/\">agencydomains.org/es/vocabulario/</a> · <a href=\"https://agencydomains.org/vocabulary/\">agencydomains.org/vocabulary/</a>.</p><p>Bilingual edition: Spanish PDF, English PDF and the manifests for agents (ES and EN). English title: <em>AgencyDomains: Architecture of the Agentive World</em>.</p>",
+  "access_right": "open",
+  "license": "gfdl-1.3-only",
+  "language": "spa",
+  "version": "v1.2",
+  "imprint_publisher": "GegoLabs",
+  "keywords": [
+    "Mundo Agentivo",
+    "Agentive World",
+    "AgencyDomain",
+    "Botlet",
+    "Capability",
+    "Trust Infrastructure",
+    "Vergis",
+    "Trilogía del Mundo Agentivo"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://agencydomains.org/agencydomains/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://agencydomains.org/es/agencydomains/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://github.com/gegolabs/agencydomains.org",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://agencydomains.org/",
+      "relation": "isPartOf"
+    }
+  ]
+}
