@@ -336,6 +336,7 @@ jobs:
             agencydomains-*) LIBRO=agencydomains; V="$AGD_VERSION";;
             aura-*)          LIBRO=aura;          V="$AURA_VERSION";;
             rte-*)           LIBRO=rte;           V="$RTE_VERSION";;
+            *) echo "::warning::zenodo: tag $GITHUB_REF_NAME sin libro; no se deposita"; exit 0;;
           esac
           python3 .github/scripts/zenodo-deposito.py --libro "$LIBRO" --version "$V" \
             --sitio _site --sin-token-ok

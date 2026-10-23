@@ -28,6 +28,7 @@ propios con el mismo título y, si existe, se aborta.
 Uso:
   zenodo-deposito.py --libro aura --version v1.1 --sitio _site [--entorno sandbox|zenodo]
                      [--en-seco] [--vocabularios] [--sin-publicar] [--sin-token-ok]
+                     [--version-de-prueba vX.Y-prueba-N]   (solo sandbox)
 El token se lee de la variable de entorno que nombra deposito.json para el entorno
 (ZENODO_SANDBOX_TOKEN o ZENODO_TOKEN); nunca se pasa por argumento ni se imprime.
 """
@@ -158,11 +159,15 @@ def main():
     ap.add_argument('--vocabularios', action='store_true', help='coteja licencia e idioma contra la API pública')
     ap.add_argument('--sin-publicar', action='store_true', help='deja el borrador sin publicar')
     ap.add_argument('--sin-token-ok', action='store_true', help='sin token: aviso y salida 0 (uso en el workflow)')
+    ap.add_argument('--version-de-prueba', help='solo sandbox: deposita con este número de versión '
+                    '(p. ej. v1.0-prueba-2) para ejercitar newversion sin subir el CHANGELOG')
     a = ap.parse_args()
 
     with open(CONFIG, encoding='utf-8') as f:
         cfg = json.load(f)
     entorno = a.entorno or cfg['entorno']
+    if a.version_de_prueba and entorno != 'sandbox':
+        fallar('--version-de-prueba solo vale en el sandbox')
     api = cfg['entornos'][entorno]['api']
     secreto = cfg['entornos'][entorno]['secreto']
     with open(os.path.join(RAIZ, 'src', a.libro, '.zenodo.json'), encoding='utf-8') as f:
@@ -183,6 +188,12 @@ def main():
         print('  archivo %s %s' % ('FALTA' if p in faltan else 'ok   ', p))
     concepto = cfg['conceptos'][entorno][a.libro]
     print('  concepto: %s' % (concepto or 'ninguno aún → la primera versión crea el concepto'))
+
+    # Los archivos se buscan con la versión del libro; el número que se deposita
+    # puede ser uno de prueba (solo sandbox).
+    version = a.version_de_prueba or version
+    if a.version_de_prueba:
+        print('  versión de prueba: se deposita como %s' % version)
 
     if a.en_seco:
         if faltan:
@@ -208,17 +219,27 @@ def main():
             return
         # Se asume, sin medir todavía, que el id del registro es el id del depósito
         # (en Zenodo coinciden en los ejemplos de la documentación); la primera
-        # versión nueva en el sandbox lo refuta o lo corrobora.
+        # versión nueva en el sandbox (--version-de-prueba) lo refuta o lo corrobora.
+        # Si ya hay un borrador de versión nueva, la documentación dice que
+        # newversion «will have no effect» y latest_draft apunta a ese borrador.
         r = http('POST', '%s/deposit/depositions/%s/actions/newversion' % (api, ultimo['id']), token)
         borrador = http('GET', r['links']['latest_draft'], token)
     else:
         q = urllib.parse.urlencode({'q': 'title:"%s"' % md['title'], 'size': 100, 'all_versions': 'true'})
         propios = http('GET', '%s/deposit/depositions?%s' % (api, q), token)
         iguales = [d for d in propios if d.get('title') == md['title']]
+        publicados = [d for d in iguales if d.get('submitted')]
+        if publicados:
+            fallar('ya hay un depósito publicado con el título «%s» (conceptrecid %s): regístralo en '
+                   'deposito.json en vez de abrir un segundo concepto'
+                   % (md['title'], publicados[0].get('conceptrecid')))
         if iguales:
-            fallar('ya hay un depósito con el título «%s» (conceptrecid %s): regístralo en deposito.json '
-                   'en vez de abrir un segundo concepto' % (md['title'], iguales[0].get('conceptrecid')))
-        borrador = http('POST', '%s/deposit/depositions' % api, token, {})
+            # Un primer depósito que quedó a medias (corrida sin publicar, o caída
+            # tras crearlo) se retoma: crear otro abriría un segundo concepto.
+            borrador = http('GET', '%s/deposit/depositions/%s' % (api, iguales[0]['id']), token)
+            print('  retomo el borrador %s, sin publicar' % borrador['id'])
+        else:
+            borrador = http('POST', '%s/deposit/depositions' % api, token, {})
     did = borrador['id']
 
     # Un borrador de versión nueva hereda los archivos de la anterior: se vacían.

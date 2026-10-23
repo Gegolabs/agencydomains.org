@@ -1,10 +1,15 @@
-# Prueba del depósito en el SANDBOX de Zenodo, sin publicar nada.
+# Prueba del depósito en el SANDBOX de Zenodo, sin publicar el sitio.
 #
 # Construye UN libro, arma sus distribuibles con los mismos nombres que publish.yml
 # y los deposita en https://sandbox.zenodo.org con el secreto ZENODO_SANDBOX_TOKEN.
 # No toca S3, CloudFront ni zenodo.org: el entorno va forzado a sandbox, así que
-# ni un deposito.json con "entorno": "zenodo" lo saca de ahí. Sirve para probar el
-# paso de publish.yml sin empujar un tag (empujar un tag publica el sitio).
+# ni un deposito.json con "entorno": "zenodo" lo saca de ahí. En el sandbox SÍ
+# publica (DOI de prueba, que el sandbox puede borrar en cualquier momento) salvo
+# que se desmarque «publicar». Sirve para probar el paso de publish.yml sin
+# empujar un tag (empujar un tag publica el sitio).
+#
+# Para ejercitar la versión nueva sobre un concepto ya registrado sin tocar el
+# CHANGELOG, se da una «version_de_prueba» (p. ej. v1.0-prueba-2).
 #
 # workflow_dispatch solo aparece para los workflows que están en la rama por
 # defecto; se elige la rama a probar en el selector «Use workflow from».
@@ -23,6 +28,11 @@ on:
         required: true
         type: boolean
         default: true
+      version_de_prueba:
+        description: 'Opcional: número de versión de prueba (p. ej. v1.0-prueba-2) para ejercitar newversion'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -69,7 +79,12 @@ jobs:
       - name: Depositar en el sandbox
         env:
           ZENODO_SANDBOX_TOKEN: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+          LIBRO: ${{ inputs.libro }}
+          PUBLICAR: ${{ inputs.publicar }}
+          PRUEBA: ${{ inputs.version_de_prueba }}
         run: |
-          V=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "src/${{ inputs.libro }}/CHANGELOG.md" | cut -d" " -f2)
-          python3 .github/scripts/zenodo-deposito.py --libro "${{ inputs.libro }}" --version "$V" \
-            --sitio _site --entorno sandbox ${{ inputs.publicar && ' ' || '--sin-publicar' }}
+          V=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "src/$LIBRO/CHANGELOG.md" | cut -d" " -f2)
+          ARGS=(--libro "$LIBRO" --version "$V" --sitio _site --entorno sandbox)
+          [ "$PUBLICAR" = "true" ] || ARGS+=(--sin-publicar)
+          [ -z "$PRUEBA" ] || ARGS+=(--version-de-prueba "$PRUEBA")
+          python3 .github/scripts/zenodo-deposito.py "${ARGS[@]}"
