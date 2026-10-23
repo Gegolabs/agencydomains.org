@@ -1,0 +1,61 @@
+% Portadilla y página de créditos de la edición impresa (compartida por los
+% tres libros). La incluye build-print.sh con -B, después de definir:
+%   \imprTitulo \imprSubtitulo \imprAutor \imprEditor \imprEdicion
+%   \imprCita   \imprDOI       \imprISBN  \imprCopyright
+% Un campo vacío se imprime como hueco marcado («PENDIENTE»): el piloto deja
+% visible el lugar de lo que aún no existe en vez de inventarlo.
+\newcommand{\imprHueco}[1]{%
+  \fcolorbox{black!45}{black!6}{\parbox{0.86\linewidth}{\centering\footnotesize
+    \textsc{pendiente}\enspace #1}}}
+\newcommand{\imprCampo}[2]{\ifx#1\empty\imprHueco{#2}\else#1\fi}
+
+% --- Portadilla (recto) ---
+\begin{titlepage}
+\centering
+\vspace*{0.16\textheight}
+{\Huge\bfseries\imprTitulo\par}
+\vspace{0.8em}
+{\Large\itshape\imprSubtitulo\par}
+\vspace{3.2em}
+{\large\imprAutor\par}
+\vfill
+% Lugar del DOI-concepto (Zenodo): uno por libro, estable entre versiones.
+{\small\textsc{doi}\par}
+\vspace{0.3em}
+{\small\imprCampo{\imprDOI}{DOI-concepto del libro (Zenodo): 10.5281/zenodo.\_\_\_\_\_\_\_}\par}
+\vspace{2.4em}
+{\normalsize\scshape\imprEditor\par}
+\end{titlepage}
+
+% --- Créditos (verso) ---
+\thispagestyle{empty}
+\begingroup\small\raggedright
+\vspace*{\fill}
+\noindent\textbf{\imprTitulo}\\
+\imprSubtitulo\\
+\imprAutor
+
+\vspace{1.2em}
+\noindent\imprCampo{\imprCopyright}{Aviso de copyright: año y titular}
+
+\vspace{0.8em}
+\noindent\textbf{Edición:} \imprEdicion\\
+\textbf{Editor:} \imprEditor\\
+\textbf{DOI:} \imprCampo{\imprDOI}{DOI-concepto}\\
+\textbf{ISBN:} \imprCampo{\imprISBN}{ISBN de esta edición impresa}
+
+\vspace{1.2em}
+\noindent Este libro se publica bajo la GNU Free Documentation License,
+versión 1.3, publicada por la Free Software Foundation. Se permite copiarlo,
+distribuirlo y modificarlo bajo los términos de esa licencia. Se incluye una
+copia de la licencia en el apéndice titulado «GNU Free Documentation License».
+
+\vspace{1.2em}
+\noindent\textbf{Cómo citar:}\\
+\imprCita
+
+\vspace{1.2em}
+\noindent agencydomains.org\\
+github.com/gegolabs/agencydomains.org
+\endgroup
+\clearpage

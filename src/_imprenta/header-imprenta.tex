@@ -1,0 +1,18 @@
+% Ajustes de la edición impresa (6×9 pulgadas, KDP), sobre el header común
+% de los libros (agencydomains/_build/header-libro-extra.tex). La caja y los
+% márgenes los fija build-print.sh vía geometry; aquí va lo que depende de
+% imprimir en papel y no en pantalla.
+
+% Columna angosta: dar holgura al justificado antes que desbordar el margen.
+\setlength{\emergencystretch}{3em}
+\setlength{\headheight}{14pt}
+
+% Enlaces en negro: en papel el color no significa nada.
+\AtBeginDocument{\hypersetup{hidelinks}}
+
+% Las portadillas de parte (\partecon, en header-fusion.tex) abren en recto.
+\usepackage{etoolbox}
+\AtBeginDocument{\ifdefined\partecon\pretocmd{\partecon}{\cleardoublepage}{}{}\fi}
+
+% Figuras dentro de la caja (las PNG son de 1600 px: ~330 ppp al ancho de caja).
+\setkeys{Gin}{width=\linewidth,height=0.45\textheight,keepaspectratio}
