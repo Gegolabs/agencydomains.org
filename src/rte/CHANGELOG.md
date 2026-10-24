@@ -5,6 +5,13 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 
 ## v1.0 — Agosto 2026
 
+> **Fe de erratas dentro de v1.0** (2026-10-24, decisión de autor): el costo de
+> la interrupción se corrige de «quinientas veces su duración» a «entre treinta y
+> cincuenta veces su duración», que es lo que dan los propios datos del capítulo
+> (treinta segundos de interrupción contra quince a veinticinco minutos de
+> recuperación). Cap. 2 §presupuesto + Lo esencial, escena de las 7:00, glosario,
+> manifiestos para agentes y la página «10 minutos» del sitio; ES/EN.
+
 **Primera edición.** El libro se sanciona como obra publicada: el corpus queda
 estable y citable, y las ediciones ES/EN quedan a la par. Respecto de la v0.4 no
 hay cambios de tesis ni de estructura — lo que cambia es el estatuto: deja de
