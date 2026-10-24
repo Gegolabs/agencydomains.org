@@ -9,7 +9,7 @@ y la configuración (entorno, conceptos, archivos) en .github/zenodo/deposito.js
 Flujo, contra la documentación (verificada el 2026-10-23):
   · API de depósito ............ https://developers.zenodo.org/
       crear       POST /api/deposit/depositions
-      listar      GET  /api/deposit/depositions?q=…&size=100&all_versions=true
+      listar      GET  /api/deposit/depositions?size=100&page=N&all_versions=true  (sin q)
       metadatos   PUT  /api/deposit/depositions/:id            {"metadata": …}
       archivos    PUT  <links.bucket>/<nombre>   ·   DELETE …/depositions/:id/files/:file_id
       versión     POST /api/deposit/depositions/:id/actions/newversion  (:id = la ÚLTIMA versión;
@@ -22,8 +22,9 @@ Flujo, contra la documentación (verificada el 2026-10-23):
 
 Un concepto nace con la primera versión que se deposita; su conceptrecid se
 registra a mano en deposito.json (el workflow lee el repo, no lo escribe). Para no
-abrir un segundo concepto si se olvida, antes de crear uno se buscan los depósitos
-propios con el mismo título y, si existe, se aborta.
+abrir un segundo concepto si se olvida, antes de crear uno se listan TODOS los
+depósitos propios y, si hay uno publicado con el mismo título, se aborta. Una
+versión ya depositada en cualquier punto del concepto no se vuelve a depositar.
 
 Uso:
   zenodo-deposito.py --libro aura --version v1.1 --sitio _site [--entorno sandbox|zenodo]
@@ -128,6 +129,9 @@ def http(metodo, url, token=None, datos=None, tipo='application/json', esperado=
             codigo, texto = r.status, r.read()
     except urllib.error.HTTPError as e:
         codigo, texto = e.code, e.read()
+    except OSError as e:
+        # Caída de red, DNS o timeout: el log dice qué llamada falló, no un traceback.
+        fallar('%s %s → sin respuesta (%s)' % (metodo, url.split('?')[0], e))
     if codigo not in esperado:
         fallar('%s %s → %s %s' % (metodo, url.split('?')[0], codigo, texto[:800].decode('utf-8', 'replace')))
     return json.loads(texto) if texto.strip() else {}
@@ -146,7 +150,26 @@ def vocabularios_en_linea(api, md):
                 print('  vocabulario %s/%s → 200 «%s»' % (voc, valor, titulo))
         except urllib.error.HTTPError as e:
             err.append('%s «%s» no existe en %s (%s)' % (voc, valor, api, e.code))
+        except OSError as e:
+            err.append('%s «%s»: %s sin respuesta (%s)' % (voc, valor, api, e))
     return err
+
+
+def propios(api, token):
+    """Todos los depósitos de la cuenta, con todas sus versiones, página a página.
+
+    Sin `q`: la búsqueda del índice puede no devolver un depósito recién creado, y
+    una guardia que dependa de ella falla abierta. Los depósitos de esta cuenta son
+    pocos (tres libros), así que se traen todos y se filtra en el cliente.
+    """
+    todos, pagina = [], 1
+    while True:
+        q = urllib.parse.urlencode({'size': 100, 'page': pagina, 'all_versions': 'true'})
+        lote = http('GET', '%s/deposit/depositions?%s' % (api, q), token)
+        todos += lote
+        if len(lote) < 100:
+            return todos
+        pagina += 1
 
 
 def main():
@@ -212,11 +235,21 @@ def main():
         fallar('falta la variable de entorno %s' % secreto)
 
     if concepto:
-        ultimo = http('GET', '%s/records/%s/versions/latest' % (api, concepto), token)
-        if ultimo.get('metadata', {}).get('version') == version:
+        # Idempotencia contra TODAS las versiones publicadas del concepto, no solo la
+        # última: re-ejecutar el job de un tag viejo cuando su libro ya tiene una
+        # versión más nueva no debe acuñar un DOI duplicado.
+        versiones = [d for d in propios(api, token)
+                     if str(d.get('conceptrecid')) == str(concepto) and d.get('submitted')]
+        if not versiones:
+            fallar('el concepto %s de %s no aparece entre los depósitos publicados de esta cuenta: '
+                   'no puedo comprobar que %s no esté ya depositada (¿token de otra cuenta, o '
+                   'conceptrecid mal registrado?)' % (concepto, a.libro, version))
+        ya = [d for d in versiones if d.get('metadata', {}).get('version') == version]
+        if ya:
             resumen('zenodo: %s %s ya está depositada en el concepto %s (%s) — nada que hacer'
-                    % (a.libro, version, concepto, ultimo.get('doi')))
+                    % (a.libro, version, concepto, ya[0].get('doi')))
             return
+        ultimo = http('GET', '%s/records/%s/versions/latest' % (api, concepto), token)
         # Se asume, sin medir todavía, que el id del registro es el id del depósito
         # (en Zenodo coinciden en los ejemplos de la documentación); la primera
         # versión nueva en el sandbox (--version-de-prueba) lo refuta o lo corrobora.
@@ -225,9 +258,7 @@ def main():
         r = http('POST', '%s/deposit/depositions/%s/actions/newversion' % (api, ultimo['id']), token)
         borrador = http('GET', r['links']['latest_draft'], token)
     else:
-        q = urllib.parse.urlencode({'q': 'title:"%s"' % md['title'], 'size': 100, 'all_versions': 'true'})
-        propios = http('GET', '%s/deposit/depositions?%s' % (api, q), token)
-        iguales = [d for d in propios if d.get('title') == md['title']]
+        iguales = [d for d in propios(api, token) if d.get('title') == md['title']]
         publicados = [d for d in iguales if d.get('submitted')]
         if publicados:
             fallar('ya hay un depósito publicado con el título «%s» (conceptrecid %s): regístralo en '
