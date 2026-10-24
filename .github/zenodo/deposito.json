@@ -1,0 +1,31 @@
+{
+  "entorno": "sandbox",
+  "entornos": {
+    "sandbox": {"api": "https://sandbox.zenodo.org/api", "secreto": "ZENODO_SANDBOX_TOKEN"},
+    "zenodo":  {"api": "https://zenodo.org/api",         "secreto": "ZENODO_TOKEN"}
+  },
+  "conceptos": {
+    "sandbox": {"rte": null, "aura": null, "agencydomains": null},
+    "zenodo":  {"rte": null, "aura": null, "agencydomains": null}
+  },
+  "archivos": {
+    "rte": [
+      "es/empresa-tiempo-real/EmpresaTiempoReal-{V}-es.pdf",
+      "real-time-enterprise/RealTimeEnterprise-{V}-en.pdf",
+      "es/EmpresaTiempoReal-{V}-agents-es.md",
+      "RealTimeEnterprise-{V}-agents-en.md"
+    ],
+    "aura": [
+      "es/aura/AURA-{V}-es.pdf",
+      "aura/AURA-{V}-en.pdf",
+      "es/AURA-{V}-agents-es.md",
+      "AURA-{V}-agents-en.md"
+    ],
+    "agencydomains": [
+      "es/agencydomains/AgencyDomains-{V}-es.pdf",
+      "agencydomains/AgencyDomains-{V}-en.pdf",
+      "es/AgencyDomains-{V}-agents-es.md",
+      "AgencyDomains-{V}-agents-en.md"
+    ]
+  }
+}

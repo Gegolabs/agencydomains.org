@@ -1,0 +1,90 @@
+# Prueba del depósito en el SANDBOX de Zenodo, sin publicar el sitio.
+#
+# Construye UN libro, arma sus distribuibles con los mismos nombres que publish.yml
+# y los deposita en https://sandbox.zenodo.org con el secreto ZENODO_SANDBOX_TOKEN.
+# No toca S3, CloudFront ni zenodo.org: el entorno va forzado a sandbox, así que
+# ni un deposito.json con "entorno": "zenodo" lo saca de ahí. En el sandbox SÍ
+# publica (DOI de prueba, que el sandbox puede borrar en cualquier momento) salvo
+# que se desmarque «publicar». Sirve para probar el paso de publish.yml sin
+# empujar un tag (empujar un tag publica el sitio).
+#
+# Para ejercitar la versión nueva sobre un concepto ya registrado sin tocar el
+# CHANGELOG, se da una «version_de_prueba» (p. ej. v1.0-prueba-2).
+#
+# workflow_dispatch solo aparece para los workflows que están en la rama por
+# defecto; se elige la rama a probar en el selector «Use workflow from».
+name: zenodo-sandbox
+
+on:
+  workflow_dispatch:
+    inputs:
+      libro:
+        description: 'Libro a depositar en el sandbox'
+        required: true
+        type: choice
+        options: [rte, aura, agencydomains]
+      publicar:
+        description: 'Publicar el depósito en el sandbox (si no, queda en borrador)'
+        required: true
+        type: boolean
+        default: true
+      version_de_prueba:
+        description: 'Opcional: número de versión de prueba (p. ej. v1.0-prueba-2) para ejercitar newversion'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  sandbox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
+
+      - name: Metadatos (con los vocabularios del sandbox)
+        run: python3 .github/scripts/zenodo-deposito.py --libro "${{ inputs.libro }}" --entorno sandbox --en-seco --vocabularios
+
+      - name: Toolchain (pandoc + XeLaTeX)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q pandoc texlive-xetex texlive-latex-extra fontconfig
+
+      - name: Fuentes vendorizadas (src/_fonts)
+        run: |
+          mkdir -p ~/.local/share/fonts
+          cp src/_fonts/*/*.otf ~/.local/share/fonts/
+          fc-cache -f
+
+      - name: Construir el libro y armar sus distribuibles como publish.yml
+        run: |
+          set -euo pipefail
+          L="${{ inputs.libro }}"
+          bash src/$L/_build/build-pdf.sh
+          bash src/$L/_build/build-en.sh
+          bash src/$L/_build/build-web.sh
+          case "$L" in
+            rte)           EN=real-time-enterprise; ES=empresa-tiempo-real;;
+            aura)          EN=aura;                 ES=aura;;
+            agencydomains) EN=agencydomains;        ES=agencydomains;;
+          esac
+          mkdir -p _site/es
+          cp -R src/$L/_dist/web-en _site/$EN
+          cp -R src/$L/_dist/web-es _site/es/$ES
+          mv _site/$EN/*-agents-en.md _site/
+          mv _site/es/$ES/*-agents-es.md _site/es/
+          find _site -maxdepth 3 \( -name '*.pdf' -o -name '*-agents-*.md' \) | sort
+
+      - name: Depositar en el sandbox
+        env:
+          ZENODO_SANDBOX_TOKEN: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+          LIBRO: ${{ inputs.libro }}
+          PUBLICAR: ${{ inputs.publicar }}
+          PRUEBA: ${{ inputs.version_de_prueba }}
+        run: |
+          V=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "src/$LIBRO/CHANGELOG.md" | cut -d" " -f2)
+          ARGS=(--libro "$LIBRO" --version "$V" --sitio _site --entorno sandbox)
+          [ "$PUBLICAR" = "true" ] || ARGS+=(--sin-publicar)
+          [ -z "$PRUEBA" ] || ARGS+=(--version-de-prueba "$PRUEBA")
+          python3 .github/scripts/zenodo-deposito.py "${ARGS[@]}"

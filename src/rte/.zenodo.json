@@ -1,0 +1,42 @@
+{
+  "title": "La Empresa en Tiempo Real: Mundo Agentivo",
+  "upload_type": "publication",
+  "publication_type": "book",
+  "creators": [
+    {
+      "name": "Obach-Renner, César"
+    }
+  ],
+  "description": "<p>Volumen I de la Trilogía del Mundo Agentivo. ¿Hacia dónde vamos? — <strong>el destino.</strong> Para quien quiere ver el mundo al otro lado de la transición: cómo se trabaja, se decide y se compite cuando la empresa opera en tiempo real — contado en sus cuatro caras.</p><p>Volume I of the Agentive World Trilogy. Where are we going? — <strong>the destination.</strong> For those who want to see the world on the other side of the transition: how people work, decide, and compete when the enterprise operates in real time — told in its four faces.</p><p>Edición bilingüe: el depósito trae el PDF en español, el PDF en inglés y los manifiestos para agentes (ES y EN). El libro se lee completo en <a href=\"https://agencydomains.org/es/empresa-tiempo-real/\">https://agencydomains.org/es/empresa-tiempo-real/</a>; su fuente vive en <a href=\"https://github.com/gegolabs/agencydomains.org\">github.com/gegolabs/agencydomains.org</a>. Vocabulario canónico: <a href=\"https://agencydomains.org/es/vocabulario/\">agencydomains.org/es/vocabulario/</a> · <a href=\"https://agencydomains.org/vocabulary/\">agencydomains.org/vocabulary/</a>.</p><p>Bilingual edition: Spanish PDF, English PDF and the manifests for agents (ES and EN). English title: <em>The Real-Time Enterprise: The Agentive World</em>.</p>",
+  "access_right": "open",
+  "license": "gfdl-1.3-only",
+  "language": "spa",
+  "version": "v1.0",
+  "imprint_publisher": "GegoLabs",
+  "keywords": [
+    "Mundo Agentivo",
+    "Agentive World",
+    "La Empresa en Tiempo Real",
+    "The Real-Time Enterprise",
+    "Postchat",
+    "Trilogía del Mundo Agentivo"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://agencydomains.org/real-time-enterprise/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://agencydomains.org/es/empresa-tiempo-real/",
+      "relation": "isVariantFormOf"
+    },
+    {
+      "identifier": "https://github.com/gegolabs/agencydomains.org",
+      "relation": "isDerivedFrom"
+    },
+    {
+      "identifier": "https://agencydomains.org/",
+      "relation": "isPartOf"
+    }
+  ]
+}

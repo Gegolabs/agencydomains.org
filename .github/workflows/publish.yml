@@ -115,6 +115,14 @@ jobs:
           fi
           exit $FAIL
 
+      # El .zenodo.json de cada libro se valida antes de publicar nada: un depósito
+      # que fallaría después de subir el sitio dejaría una edición sin su DOI.
+      - name: Guardia — los metadatos de Zenodo de cada libro (sin red)
+        run: |
+          for libro in rte aura agencydomains; do
+            python3 .github/scripts/zenodo-deposito.py --libro "$libro" --en-seco
+          done
+
       - name: Toolchain (pandoc + XeLaTeX)
         run: |
           sudo apt-get update -q
@@ -311,3 +319,24 @@ jobs:
           aws cloudfront wait invalidation-completed \
             --distribution-id E1P0KOY6SE3EBJ --id "$ID"
           echo "sitio publicado en https://agencydomains.org/"
+
+      # DOI por libro: el tag deposita la edición de SU libro (PDF ES, PDF EN y los
+      # manifiestos para agentes) como versión nueva de su concepto en Zenodo. Va
+      # después del sitio: Zenodo no puede retener una publicación. El entorno lo
+      # fija .github/zenodo/deposito.json y vale "sandbox" hasta que se cambie con
+      # un commit; cada entorno tiene su propio secreto. Sin el secreto, avisa y no
+      # falla. workflow_dispatch republica main y no deposita.
+      - name: Depositar en Zenodo la edición del tag
+        if: github.ref_type == 'tag'
+        env:
+          ZENODO_SANDBOX_TOKEN: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: |
+          case "$GITHUB_REF_NAME" in
+            agencydomains-*) LIBRO=agencydomains; V="$AGD_VERSION";;
+            aura-*)          LIBRO=aura;          V="$AURA_VERSION";;
+            rte-*)           LIBRO=rte;           V="$RTE_VERSION";;
+            *) echo "::warning::zenodo: tag $GITHUB_REF_NAME sin libro; no se deposita"; exit 0;;
+          esac
+          python3 .github/scripts/zenodo-deposito.py --libro "$LIBRO" --version "$V" \
+            --sitio _site --sin-token-ok
