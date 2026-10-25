@@ -7,21 +7,22 @@
 <meta property="og:title" content="The Agentive World Trilogy in 10 minutes — executive summary">
 <meta property="og:description" content="The thesis, the destination, the path, and the architecture — distilled for decision-makers.">
 <meta property="og:type" content="article">
-<link rel="canonical" href="https://agencydomains.org/10-minutes/">
-<link rel="alternate" hreflang="en" href="https://agencydomains.org/10-minutes/">
-<link rel="alternate" hreflang="es" href="https://agencydomains.org/es/10-minutos/">
+<link rel="canonical" href="@SITIO@@BASE@/10-minutes/">
+<link rel="alternate" hreflang="en" href="@SITIO@@BASE@/10-minutes/">
+<link rel="alternate" hreflang="es" href="@SITIO@@BASE@/es/10-minutos/">
+<link rel="alternate" hreflang="x-default" href="@SITIO@@BASE@/10-minutes/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/agencydomains.css">
-<link rel="stylesheet" href="/assets/page.css">
+<link rel="stylesheet" href="@BASE@/assets/agencydomains.css">
+<link rel="stylesheet" href="@BASE@/assets/page.css">
 </head>
 <body>
 <main class="page">
-  <nav class="crumb"><a href="/">← agencydomains.org</a><span><span class="on">EN</span> · <a href="/es/10-minutos/">ES</a></span></nav>
+  <nav class="crumb"><a href="@BASE@/">← agencydomains.org</a><span><span class="on">EN</span> · <a href="@BASE@/es/10-minutos/">ES</a></span></nav>
 
   <p class="eyebrow">The ladder · the 10-minute rung</p>
   <h1>The Agentive World Trilogy, in 10 minutes</h1>
   <p class="deck">The executive summary of the work — the thesis, the destination, the path, and the architecture.</p>
-  <p class="promise">Editions: I v1.0 · II v1.0 · III v1.0 · arriving cold? start with <a href="/invitation/">the 2 minutes</a></p>
+  <p class="promise">Editions: I v1.0 · II v1.0 · III v1.0 · arriving cold? start with <a href="@BASE@/invitation/">the 2 minutes</a></p>
 
   <p>The trilogy holds a single thesis: office work is about to change shape, because AI agents
     can take over the part of the work that never should have been human. These lines summarize
@@ -120,10 +121,10 @@
     primitive.</p>
 
   <div class="next">
-    <a href="/real-time-enterprise/"><span class="k">The destination ·</span> The Real-Time Enterprise (web · ~2 h) →</a>
-    <a href="/aura/"><span class="k">The path ·</span> AURA (web · ~4 h) →</a>
-    <a href="/agencydomains/"><span class="k">The architecture ·</span> AgencyDomains (web · ~9 h) →</a>
-    <a href="/"><span class="k">The trilogy ·</span> agencydomains.org →</a>
+    <a href="@BASE@/real-time-enterprise/"><span class="k">The destination ·</span> The Real-Time Enterprise (web · ~2 h) →</a>
+    <a href="@BASE@/aura/"><span class="k">The path ·</span> AURA (web · ~4 h) →</a>
+    <a href="@BASE@/agencydomains/"><span class="k">The architecture ·</span> AgencyDomains (web · ~9 h) →</a>
+    <a href="@BASE@/"><span class="k">The trilogy ·</span> agencydomains.org →</a>
   </div>
 </main>
 </body>

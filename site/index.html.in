@@ -7,16 +7,17 @@
 <meta property="og:title" content="AgencyDomains · Architecture of the Agentive World">
 <meta property="og:description" content="The destination, the route, and the architecture of the Agentive World — the real-time enterprise, made operable.">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://agencydomains.org/">
-<link rel="alternate" hreflang="en" href="https://agencydomains.org/">
-<link rel="alternate" hreflang="es" href="https://agencydomains.org/es/">
-<link rel="alternate" type="text/markdown" href="/llms.txt">
+<link rel="canonical" href="@SITIO@@BASE@/">
+<link rel="alternate" hreflang="en" href="@SITIO@@BASE@/">
+<link rel="alternate" hreflang="es" href="@SITIO@@BASE@/es/">
+<link rel="alternate" hreflang="x-default" href="@SITIO@@BASE@/">
+<link rel="alternate" type="text/markdown" href="@BASE@/llms.txt">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/agencydomains.css">
+<link rel="stylesheet" href="@BASE@/assets/agencydomains.css">
 </head>
 <body>
 <main class="hero">
-  <nav class="langtoggle"><a class="on">EN</a><span class="sep">·</span><a href="/es/">ES</a></nav>
+  <nav class="langtoggle"><a class="on">EN</a><span class="sep">·</span><a href="@BASE@/es/">ES</a></nav>
   <section class="hl">
     <p class="eyebrow">Open specification · GegoLabs</p>
     <h1>AgencyDomains</h1>
@@ -25,7 +26,7 @@
       one collapses them. Only the latter makes <strong>the real-time enterprise</strong> possible —
       the one that stopped using people as infrastructure. Three books map the transition:
       the destination, the route, the architecture.</p>
-    <p class="starthere"><a href="/invitation/"><span class="k">New here? ·</span> The Agentive World in 2 minutes →</a> <span class="k">· or</span> <a href="/10-minutes/">in 10 →</a></p>
+    <p class="starthere"><a href="@BASE@/invitation/"><span class="k">New here? ·</span> The Agentive World in 2 minutes →</a> <span class="k">· or</span> <a href="@BASE@/10-minutes/">in 10 →</a></p>
     <p class="byline">César Obach-Renner · GNU FDL v1.3 · first edition</p>
     <div class="hfoot">
       <a href="mailto:cesar.obach@ultrabase.net?subject=Feedback%20%E2%80%94%20agencydomains.org"><span class="k">Comments? ·</span> email me →</a>
@@ -43,7 +44,7 @@
           <p><em>The Real-Time Enterprise</em> portrays the organization that acted on this. Its first half is a film in prose: an ordinary Tuesday of Elena, chief operating officer of an energy company, narrated hour by hour — no jargon, almost no explanations. Its second half is the director's commentary: the <strong>four faces</strong> of that world — the quantum leap in knowledge, Postchat in communication, the General Staff in coordination, the guard in availability —, the <strong>door</strong> you enter through (the agentive mode, optional and reversible), and the <strong>intelligent organization</strong> that emerges when the four operate together. Every chapter closes with the essentials; the book, with the agenda to start on Monday.</p>
           <p>It is Book I of the Agentive World Trilogy, written for those who lead — no technical background required. The transformation path has its own book — <em>AURA</em> — and the architecture its own — <em>AgencyDomains</em>. <strong>This one shows the destination: the enterprise that stopped using its people as the wire — and the end of the day that exists again.</strong></p>
         </div>
-        <span class="links"><a href="/real-time-enterprise/">book · ~2&nbsp;h</a> · <a href="/real-time-enterprise/RealTimeEnterprise-v1.0-en.pdf" title="58 pages">PDF</a> · <a href="/RealTimeEnterprise-v1.0-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
+        <span class="links"><a href="@BASE@/real-time-enterprise/">book · ~2&nbsp;h</a> · <a href="@BASE@/real-time-enterprise/RealTimeEnterprise-v1.0-en.pdf" title="58 pages">PDF</a> · <a href="@BASE@/RealTimeEnterprise-v1.0-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
       <li><span class="n">II</span><div><b>AURA</b> <span class="vol">· The Agentive Path</span>
         <i>Which way? — the route</i>
         <button class="bcbtn" popovertarget="bc2">In 2 minutes</button>
@@ -53,7 +54,7 @@
           <p>Its organizing thesis: the agentive transformation advances along two axes that do not move together. <strong>KNOWING</strong> — turning data into actionable intelligence — and <strong>DOING</strong> — executing processes with growing autonomy. An organization can know a lot and do little: impeccable dashboards, bottled-up decisions. Or do a lot and know little: blind automation over data nobody governs. AURA operationalizes both axes in two diagnostic models — <strong>IRIS</strong>, the ten stages of knowing; <strong>MOTOR</strong>, the seven levels of doing — and accompanies them with the instruments to advance: <strong>Data Canon</strong> for data governance in the era when agents are the consumers, <strong>Wingmap</strong> to reconstruct the organization's real processes without interviews, from the digital traces its operation already produces, and the <strong>Portfolio</strong> method to turn a diagnosis into a prioritized casebook — illustrated with a real portfolio of one hundred cases.</p>
           <p>AURA is diagnostic, not prescriptive: it says where an organization stands and what standing there means. The destination has its own book — <em>The Real-Time Enterprise</em> — and the architecture its own — <em>AgencyDomains</em>. <strong>This one is for those who have to cross — and, before anything else, for those who need to know where they stand.</strong></p>
         </div>
-        <span class="links"><a href="/aura/">book · ~4&nbsp;h</a> · <a href="/aura/AURA-v1.1-en.pdf" title="126 pages">PDF</a> · <a href="/AURA-v1.1-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
+        <span class="links"><a href="@BASE@/aura/">book · ~4&nbsp;h</a> · <a href="@BASE@/aura/AURA-v1.1-en.pdf" title="126 pages">PDF</a> · <a href="@BASE@/AURA-v1.1-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
       <li><span class="n">III</span><div><b>AgencyDomains</b> <span class="vol">· Agentive Architecture</span>
         <i>How do we get there? — the vehicle</i>
         <button class="bcbtn" popovertarget="bc3">In 2 minutes</button>
@@ -63,13 +64,13 @@
           <p>It starts from the paradigm — the <strong>Nadella Line</strong>, the question that divides the two worlds — and builds out its full consequences: a <strong>four-layer architecture</strong> under the <em>Agent First</em> principle; the <strong>eight primitives</strong> that inhabit it — from the AgencyDomain to the Botlet, from the Capability to the Agentlet —; the transversal <strong>Trust Infrastructure</strong> that makes autonomy governable; the two-dimensional map of the <strong>AI value chain</strong>, to position any player in the market; the canonical application of real-time knowledge; and a reference implementation: <strong>Vergis</strong>.</p>
           <p>It is not an implementation manual — <strong>it is the specification a manual should respect.</strong> For architects, CTOs, strategists, and engineers building, evaluating, or governing productive agentive systems.</p>
         </div>
-        <span class="links"><a href="/agencydomains/">reference · ~9&nbsp;h</a> · <a href="/agencydomains/AgencyDomains-v1.2-en.pdf" title="258 pages">PDF</a> · <a href="/AgencyDomains-v1.2-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
+        <span class="links"><a href="@BASE@/agencydomains/">reference · ~9&nbsp;h</a> · <a href="@BASE@/agencydomains/AgencyDomains-v1.2-en.pdf" title="258 pages">PDF</a> · <a href="@BASE@/AgencyDomains-v1.2-agents-en.md" title="agent manifest (md; txt in /llms.txt)">agents</a></span></div></li>
       <li><span class="n">IV</span><div><b>Vergis</b> <span class="vol">· Agentive Technology</span>
         <i>What do I start with today? — the keys</i>
         <span class="links"><a href="https://github.com/gegolabs/vergis">code · GitHub</a> · AGPL-3.0</span></div></li>
     </ol>
     <div class="hfoot">
-      <span><span class="k">For agents and models:</span> <a href="/llms.txt">llms.txt</a> <span class="k">·</span> <a href="/trilogy.md" title="the whole trilogy in one Markdown file — one fetch">trilogy.md</a></span>
+      <span><span class="k">For agents and models:</span> <a href="@BASE@/llms.txt">llms.txt</a> <span class="k">·</span> <a href="@BASE@/trilogy.md" title="the whole trilogy in one Markdown file — one fetch">trilogy.md</a></span>
     </div>
   </section>
 </main>

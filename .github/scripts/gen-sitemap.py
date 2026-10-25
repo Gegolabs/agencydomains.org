@@ -12,7 +12,10 @@ cada uno en dos o tres URLs (versionada, alias y .txt).
 """
 import os, sys, datetime, xml.sax.saxutils as sx
 
-SITE = 'https://agencydomains.org'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import casa
+_c = casa.cargar()
+SITE = _c['sitio'] + _c['base']     # la casa (casa.json): origen + ruta del fondo
 root = sys.argv[1] if len(sys.argv) > 1 else '_site'
 hoy = datetime.date.today().isoformat()
 

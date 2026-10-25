@@ -5,9 +5,15 @@ Las partes LaTeX (```{=latex}\part{X}```) se vuelven páginas-divisor con clase 
 Salida: <out>/index.html (portada) y <out>/<slug>/index.html por capítulo."""
 import argparse, os, re, shutil, subprocess, sys, unicodedata
 
-# Origen canonico del sitio. Sin esto, una URL con parametros (?utm_source=...)
-# es otra pagina para un buscador. Ver DECISIONS D-24.
-SITE = 'https://agencydomains.org'
+# La casa: origen canonico y ruta base del sitio, de casa.json (raiz del repo).
+# El canonical evita que una URL con parametros (?utm_source=...) sea otra pagina
+# para un buscador (DECISIONS D-24). BASE va delante de todo enlace absoluto que
+# se genera aqui: con la casa en una ruta (soveria.ai/biblioteca/...), un "/x"
+# pelado apuntaria a la raiz de otro sitio.
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '.github', 'scripts'))
+import casa
+CASA = casa.cargar()
+SITE, BASE = CASA['sitio'], CASA['base']
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -103,13 +109,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--md', required=True); ap.add_argument('--figuras', required=True)
     ap.add_argument('--out', required=True); ap.add_argument('--pdf'); ap.add_argument('--agents')
-    ap.add_argument('--base', default='/agencydomains')   # ruta absoluta de servido
+    ap.add_argument('--base', default='/agencydomains')   # ruta del libro dentro de la casa
     ap.add_argument('--name', default='AgencyDomains')    # marca corta del libro (nombra los distribuibles)
     ap.add_argument('--title', default=None)               # título visible (default: --name)
     ap.add_argument('--lang', default='es', choices=('es', 'en'))
     ap.add_argument('--version', required=True)           # vX.Y — nombra los distribuibles
     a = ap.parse_args()
     a.title = a.title or a.name
+    a.base = BASE + a.base                                 # ruta absoluta de servido
     UI = STRINGS[a.lang]
 
     md = open(a.md, encoding='utf-8').read()
@@ -172,8 +179,8 @@ def main():
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             f'<title>{p["title"] if p["title"] == a.title else p["title"] + " · " + a.title}</title>\n{FONTS}\n'
             f'<link rel="canonical" href="{SITE}{url(p)}">\n'
-            f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
-            f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
+            f'<link rel="stylesheet" href="{BASE}/assets/agencydomains.css">\n</head>\n<body>\n'
+            f'<div class="book-topbar"><a class="home" href="{BASE}/">← AgencyDomains.org</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
             f'<div class="book-shell">\n'
             f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · {a.version}</p>'

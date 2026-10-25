@@ -41,7 +41,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.join(REPO, 'src', 'agencydomains', '_build'))
 import importlib
 wb = importlib.import_module('web-build')          # slugify · pandoc · strip_tags · entry_anchors
-SITE = wb.SITE
+SITE, BASE = wb.SITE, wb.BASE                       # la casa (casa.json): todo enlace raíz lleva BASE
 
 
 def ver(book):
@@ -175,14 +175,14 @@ def load(book, lang):
     md = open(path, encoding='utf-8').read()
     if book['kind'] == 'manifest':
         entries = parse_manifest(md, book['section'][lang])
-        href = book['link'][lang]
+        href = BASE + book['link'][lang]
         for e in entries:
             e['src'] = href
     else:
         html = wb.entry_anchors(wb.pandoc(md))
         entries = parse_entries(html) if book['kind'] == 'entries' else parse_headings(html)
         h1 = re.search(r'^# (.+)$', md, re.M).group(1)
-        page = f"{book['base'][lang]}/{wb.slugify(wb.strip_tags(h1))}/"   # misma regla que web-build.py
+        page = f"{BASE}{book['base'][lang]}/{wb.slugify(wb.strip_tags(h1))}/"   # misma regla que web-build.py
         for e in entries:
             e['src'] = f"{page}#{e['id']}"
     if not entries:
@@ -224,29 +224,30 @@ def render_html(lang, books_entries, versions):
                 f'<dd>{e["def"]}</dd>')
             terms_ld.append({'@type': 'DefinedTerm', 'name': H.unescape(wb.strip_tags(e['term'])),
                              'description': H.unescape(wb.strip_tags(e['def'])),
-                             'url': f'{SITE}{ui["path"]}#{e["anchor"]}',
-                             'inDefinedTermSet': f'{SITE}{ui["path"]}'})
+                             'url': f'{SITE}{BASE}{ui["path"]}#{e["anchor"]}',
+                             'inDefinedTermSet': f'{SITE}{BASE}{ui["path"]}'})
         parts.append('</dl>')
     ld = {'@context': 'https://schema.org', '@type': 'DefinedTermSet', 'name': ui['h1'],
-          'url': f'{SITE}{ui["path"]}', 'inLanguage': lang, 'license': 'https://www.gnu.org/licenses/fdl-1.3.html',
+          'url': f'{SITE}{BASE}{ui["path"]}', 'inLanguage': lang, 'license': 'https://www.gnu.org/licenses/fdl-1.3.html',
           'hasDefinedTerm': terms_ld}
     eds = ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in BOOKS)
-    toggle = (f'<span><span class="on">ES</span> · <a href="{ui["alt"]}">EN</a></span>' if lang == 'es'
-              else f'<span><span class="on">EN</span> · <a href="{ui["alt"]}">ES</a></span>')
-    nxt = ''.join(f'<a href="{h}"><span class="k">{k}</span> {t}</a>' for k, t, h in ui['next'])
+    toggle = (f'<span><span class="on">ES</span> · <a href="{BASE}{ui["alt"]}">EN</a></span>' if lang == 'es'
+              else f'<span><span class="on">EN</span> · <a href="{BASE}{ui["alt"]}">ES</a></span>')
+    nxt = ''.join(f'<a href="{BASE}{h}"><span class="k">{k}</span> {t}</a>' for k, t, h in ui['next'])
     return (f'<!DOCTYPE html>\n<html lang="{lang}">\n<head>\n<meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             f'<title>{ui["h1"]} · AgencyDomains</title>\n'
             f'<meta name="description" content="{H.escape(wb.strip_tags(ui["deck"]))}">\n'
-            f'<link rel="canonical" href="{SITE}{ui["path"]}">\n'
-            f'<link rel="alternate" hreflang="{lang}" href="{SITE}{ui["path"]}">\n'
-            f'<link rel="alternate" hreflang="{alt}" href="{SITE}{ui["alt"]}">\n'
-            f'<link rel="alternate" type="text/markdown" href="{SITE}{ui["path"]}{ui["md"]}">\n'
-            f'{FONTS}\n<link rel="stylesheet" href="/assets/agencydomains.css">\n'
-            f'<link rel="stylesheet" href="/assets/page.css">\n'
+            f'<link rel="canonical" href="{SITE}{BASE}{ui["path"]}">\n'
+            f'<link rel="alternate" hreflang="{lang}" href="{SITE}{BASE}{ui["path"]}">\n'
+            f'<link rel="alternate" hreflang="{alt}" href="{SITE}{BASE}{ui["alt"]}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{SITE}{BASE}{UI["en"]["path"]}">\n'
+            f'<link rel="alternate" type="text/markdown" href="{SITE}{BASE}{ui["path"]}{ui["md"]}">\n'
+            f'{FONTS}\n<link rel="stylesheet" href="{BASE}/assets/agencydomains.css">\n'
+            f'<link rel="stylesheet" href="{BASE}/assets/page.css">\n'
             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n'
             f'</head>\n<body>\n<main class="page">\n'
-            f'  <nav class="crumb"><a href="{"/es/" if lang == "es" else "/"}">{ui["crumb_home"]}</a>{toggle}</nav>\n'
+            f'  <nav class="crumb"><a href="{BASE}{"/es/" if lang == "es" else "/"}">{ui["crumb_home"]}</a>{toggle}</nav>\n'
             f'  <p class="eyebrow">{ui["eyebrow"]}</p>\n  <h1>{ui["h1"]}</h1>\n'
             f'  <p class="deck">{ui["deck"]}</p>\n'
             f'  <p class="promise">{ui["editions"]}: {eds}</p>\n'
@@ -265,7 +266,7 @@ def render_md(lang, books_entries, versions):
         out += [f'## {book["num"]} · {book["title"][lang]} ({versions[book["key"]]})', '']
         for e in entries:
             t = H.unescape(wb.strip_tags(e['term'])); d = H.unescape(wb.strip_tags(e['def']))
-            out.append(f'- **{t}** — {d} · {SITE}{e["src"]}')
+            out.append(f'- **{t}** — {d} · {SITE}{e["src"]}')   # src ya lleva BASE
         out.append('')
     return '\n'.join(out)
 
