@@ -6,6 +6,27 @@ Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agenti
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
 
+## v1.2.1 — sin publicar
+
+**Los Botlets son del agente.** Se hace explícito, en un destacado, lo que la
+definición ya decía y la sección del proto-Botlet dejaba leer al revés: un Botlet no
+lo construye nadie para que un agente lo use. Lo hace el agente que atiende el flujo,
+para ahorrarse la cognición de repetir la tarea, y es su memoria muscular. Puede
+partir de un proto-Botlet o de un Botlet existente, de su catálogo, del público o de
+un códice, pero al tomarlo lo hace suyo y asume su evolución, su regeneración y su
+sustitución. Un catálogo es un punto de partida, no un proveedor. Origen: César,
+2026-10-25, al leer la objeción del TM Forum de que los operadores no desarrollarán
+en la era de la IA, que presupone que alguien fabrica las piezas que el agente usa.
+Sin cambios de estructura; la versión del frontmatter se sube al publicar.
+
+- Cap 5 §2: destacado «Los Botlets son del agente» tras la definición; el catálogo
+  del proto-Botlet es del agente; la frase de los catálogos públicos y privados
+  reescrita como siembra que el agente adopta.
+- Glosario: entradas **Botlet** y **proto-Botlet**.
+- `para-agentes.md` y `para-agents.md`: entradas **Botlet** y **proto-Botlet**, y la
+  línea de cambios.
+- Invariante ES/EN.
+
 ## v1.2 — Septiembre 2026
 
 **Captura, la cuarta familia de manifestación.** Las familias de manifestación pasan
