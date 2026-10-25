@@ -58,6 +58,11 @@ plataformas agentivas: la especificación formal del Mundo Agentivo.
 esto realidad: la implementación de referencia de la arquitectura, código
 abierto, en <https://github.com/gegolabs/vergis>.
 
+Los cuatro libros se escribieron en el orden inverso al de lectura, como una pila:
+*AgencyDomains* fue el primero y quedó en el fondo; *La muerte del software como lo
+conocemos*, el último, quedó arriba. Por eso un libro puede citar a otro que se lee
+después: lo cita porque ya estaba escrito.
+
 Empieza por **La muerte del software como lo conocemos** si necesitas entender por qué el cambio es ahora; por **La Empresa en Tiempo Real** si necesitas convencerte — o convencer a alguien — de
 que el tránsito va en serio; por **AURA** si te toca liderarlo; por
 **AgencyDomains** si te toca construirlo; por **Vergis** si quieres verlo
