@@ -58,6 +58,11 @@ What do I start with today? — **the keys.** For anyone who wants to start
 making all of this real: the reference implementation of the architecture,
 open source, at <https://github.com/gegolabs/vergis>.
 
+The four books were written in the reverse of their reading order, like a stack:
+*AgencyDomains* was the first and ended up at the bottom; *The Death of Software as We
+Know It*, the last, ended up on top. That is why a book may cite another that is read
+later: it cites it because it was already written.
+
 Start with **The Death of Software as We Know It** if you need to understand why the change is happening now; with **The Real-Time Enterprise** if you need to convince yourself — or someone else —
 that the transition is for real; with **AURA** if you have to lead it; with
 **AgencyDomains** if you have to build it; with **Vergis** if you want to see
