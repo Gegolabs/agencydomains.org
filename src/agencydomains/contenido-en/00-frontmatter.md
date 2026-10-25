@@ -92,7 +92,7 @@ the rest of the book:
 How do we get there? — **the vehicle.** For architects, CTOs, and builders of
 agentive platforms: the formal specification of the Agentive World.
 
-**Vergis — Agentive Technology** *(not a book: it's code)*
+**A · Vergis — Agentive Technology** *(the reference implementation: not a book, it's code)*
 What do I start with today? — **the keys.** For anyone who wants to start
 making all of this real: the reference implementation of the architecture,
 open source, at <https://github.com/gegolabs/vergis>.

@@ -53,7 +53,7 @@ del resto del libro:
 ¿Cómo llegamos? — **el vehículo.** Para arquitectos, CTOs y constructores de
 plataformas agentivas: la especificación formal del Mundo Agentivo.
 
-**Vergis — Tecnología Agentiva** *(no es un libro: es código)*
+**A · Vergis — Tecnología Agentiva** *(la implementación de referencia: no es un libro, es código)*
 ¿Con qué arranco hoy? — **las llaves.** Para quien quiera empezar a hacer todo
 esto realidad: la implementación de referencia de la arquitectura, código
 abierto, en <https://github.com/gegolabs/vergis>.

@@ -35,7 +35,7 @@ Sin cambios de estructura; la versión del frontmatter se sube al publicar.
 **La trilogía se renumera** (decisión de César, 2026-10-25, antes de generar los
 DOI): *La muerte del software como lo conocemos* es el **Libro I** (¿por qué ahora?,
 el punto de partida); *La Empresa en Tiempo Real* pasa a II, *AURA* a III y
-*AgencyDomains* a IV. Vergis sigue sin número: es la implementación de referencia.
+*AgencyDomains* a IV. Vergis se rotula **A**: las letras quedan para las implementaciones de referencia y los números romanos para los libros.
 Son cuatro libros y una implementación, «en cinco partes (por ahora)». Se tocan las
 microsecciones de la trilogía de los tres libros, los manifiestos, los README, el
 sitio (`llms.txt`, portadas, 10 minutos) y la figura g52. Queda para la integración del
