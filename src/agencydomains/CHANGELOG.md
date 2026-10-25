@@ -43,6 +43,15 @@ Libro I al sitio lo que necesita sus archivos: su tarjeta en la portada, el cont
 «tres libros», su manifiesto en `build-agentes.sh`, su lugar en el generador del
 vocabulario (al final de la lista, para no mover anclas) y las guardas de `publish.yml`.
 
+**La escalera ordena tres cosas, y la decisión tipada como cuerpo del Agentlet**
+(Cap 5 §7, ES/EN). La economía de los tres peldaños ordena también la latencia y la
+dependencia de infraestructura. Y una clase de modelos aparecida en 2026, que no genera
+texto y devuelve decisiones tipadas con probabilidad calibrada, se reconoce como el
+cuerpo natural del charter de un Agentlet: la calibración fija el umbral de
+escalamiento. Con dos cautelas: la calibración se mide antes de apoyar un umbral en
+ella, y un modelo solo alojado por su proveedor no es edge-resident. Origen: César,
+2026-10-25, al escribir el Libro I. El canon no nombra productos.
+
 ## v1.2 — Septiembre 2026
 
 **Captura, la cuarta familia de manifestación.** Las familias de manifestación pasan
