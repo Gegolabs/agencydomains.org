@@ -57,7 +57,7 @@ jobs:
 
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
-          # El Libro I nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
+          # El Libro II (La Empresa en Tiempo Real) nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
           for f in site/index.html; do   # llms.txt se deriva de plantilla: no puede desalinearse
             for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then

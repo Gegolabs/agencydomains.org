@@ -1,6 +1,6 @@
 # La Empresa en Tiempo Real — Mundo Agentivo
 
-### Libro I de la trilogía del Mundo Agentivo
+### Libro II de la trilogía del Mundo Agentivo
 
 **Autor:** César Obach-Renner · **Editor:** GegoLabs
 **Edición:** Primera edición · v1.0 · Agosto 2026

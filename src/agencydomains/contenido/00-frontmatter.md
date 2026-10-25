@@ -57,18 +57,24 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## La trilogía
 
-Este libro es el volumen **III** de la **Trilogía del Mundo Agentivo**. El
+Este libro es el volumen **IV** de la **Trilogía del Mundo Agentivo**, en cinco partes (por ahora). El
 tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas
 abren aplicaciones para trabajar, al mundo donde los agentes de IA son la
-interfaz del trabajo. Los tres volúmenes responden, en orden, las tres
+interfaz del trabajo. Los cuatro volúmenes responden, en orden, las cuatro
 preguntas de ese tránsito — y cada uno se lee completo por sí solo:
 
-**I · La Empresa en Tiempo Real — Mundo Agentivo**
+**I · La muerte del software como lo conocemos**
+¿Por qué ahora? — **el punto de partida.** Para quien decide cómo automatizar su
+negocio: por qué el software comprado deja de ser la respuesta, qué se pierde
+cuando cada organización construye su propio sistema y qué pieza sobrevive al
+cambio — el sistema de verdad.
+
+**II · La Empresa en Tiempo Real — Mundo Agentivo**
 ¿Hacia dónde vamos? — **el destino.** Para quien quiere ver el mundo al otro
 lado de la transición: cómo se trabaja, se decide y se compite cuando la
 empresa opera en tiempo real — contado en sus cuatro caras.
 
-**II · AURA — Camino Agentivo**
+**III · AURA — Camino Agentivo**
 ¿Por dónde? — **la ruta.** Para quien tiene que hacer el cruce: líderes y
 asesores de la transformación. Sus cinco especificaciones son instrumentos
 autónomos para la era agentiva — cada una se usa por separado, sin necesidad
@@ -82,16 +88,16 @@ del resto del libro:
 | **Wingmap** | La evolución de la gestión de procesos (BPM / *process mining*) | Reconstruye procesos y flujos de información sin entrevistas |
 | **Casos de Uso** | Un marco de portafolio, ilustrado con 100 casos de uso y 30 soluciones de valor | Prioriza por dónde empezar, según tu madurez |
 
-**III · AgencyDomains — Arquitectura Agentiva** *(este libro)*
+**IV · AgencyDomains — Arquitectura Agentiva** *(este libro)*
 ¿Cómo llegamos? — **el vehículo.** Para arquitectos, CTOs y constructores de
 plataformas agentivas: la especificación formal del Mundo Agentivo.
 
-**Vergis — Tecnología Agentiva** *(no es un libro: es código)*
+**A · Vergis — Tecnología Agentiva** *(la implementación de referencia: no es un libro, es código)*
 ¿Con qué arranco hoy? — **las llaves.** Para quien quiera empezar a hacer todo
 esto realidad: la implementación de referencia de la arquitectura, código
 abierto, en <https://github.com/gegolabs/vergis>.
 
-Empieza por **La Empresa en Tiempo Real** si necesitas convencerte — o convencer a alguien — de
+Empieza por **La muerte del software como lo conocemos** si necesitas entender por qué el cambio es ahora; por **La Empresa en Tiempo Real** si necesitas convencerte — o convencer a alguien — de
 que el tránsito va en serio; por **AURA** si te toca liderarlo; por
 **AgencyDomains** si te toca construirlo; por **Vergis** si quieres verlo
 funcionando. La trilogía completa vive en <https://agencydomains.org>.

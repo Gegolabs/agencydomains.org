@@ -9,13 +9,13 @@ Escribirla a mano la desincronizaría a la primera edición nueva (es el defecto
 por el que se descartó el «kit» suelto; ver NEXT.md del repo agencydomains-org).
 
 Fuentes, por libro y por idioma (una función de parseo por sintaxis):
-  · Libro I   — contenido/glosario.md · contenido-en/glosario.md
+  · Libro II  — contenido/glosario.md · contenido-en/glosario.md
                 entradas «**término** — definición *(dónde vive)*»
-  · Libro II  — §9 del manifiesto para agentes (para-agentes.md · para-agents.md)
+  · Libro III — §9 del manifiesto para agentes (para-agentes.md · para-agents.md)
                 lista «- **término** — definición». Es la única fuente canónica de
                 vocabulario que AURA tiene hoy; cuando el libro incorpore su propio
                 glosario, se cambia la fuente aquí y nada más.
-  · Libro III — contenido/apendices/glosario.md · contenido-en/apendices/glosario.md
+  · Libro IV  — contenido/apendices/glosario.md · contenido-en/apendices/glosario.md
                 entradas «### Término» + primer párrafo + «*Ver: …*»
 
 Las anclas de origen salen del MISMO código que las produce en el libro-web

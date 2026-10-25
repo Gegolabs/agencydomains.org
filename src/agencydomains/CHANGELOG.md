@@ -6,6 +6,43 @@ Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agenti
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
 
+## v1.2.1 — sin publicar
+
+**Los Botlets son del agente.** Se hace explícito, en un destacado, lo que la
+definición dice y las secciones de origen y de proto-Botlet dejaban sin cerrar —quién
+posee el Botlet, sea cual sea quien decidió que existiera—: lo hace el agente que
+atiende el flujo, sea que el diseño haya decidido que exista o que lo haya hecho la
+experiencia, y es su memoria muscular. Puede partir de un proto-Botlet o de un Botlet
+existente, pero al tomarlo lo hace suyo y asume su evolución, su regeneración y su
+sustitución; lo que conserve del origen lo fija el modo de pertenencia al catálogo
+(Cap 9). Origen: César,
+2026-10-25, al leer la objeción del TM Forum de que los operadores no desarrollarán
+en la era de la IA, que presupone que alguien fabrica las piezas que el agente usa.
+Sin cambios de estructura; la versión del frontmatter se sube al publicar.
+
+- Cap 5 §2: destacado «Los Botlets son del agente» tras la definición; el catálogo
+  del proto-Botlet es del agente; la frase de los catálogos públicos y privados
+  reescrita como siembra que el agente adopta.
+- Glosario: entradas **Botlet**, **proto-Botlet**, **Botlet seed** y **Botlet emergente**
+  (el diseño decide que existe; el agente lo hace y lo posee). Cap 4: los Botlets, que el
+  agente forma y posee. La adopción de un proto-Botlet ajeno es una bifurcación; tomar las
+  mejoras del origen depende del modo de pertenencia (Cap 9), y la reconciliación entre
+  catálogos es trabajo abierto.
+- `para-agentes.md` y `para-agents.md`: entradas **Botlet** y **proto-Botlet**, y la
+  línea de cambios.
+- Invariante ES/EN.
+
+**La trilogía se renumera** (decisión de César, 2026-10-25, antes de generar los
+DOI): *La muerte del software como lo conocemos* es el **Libro I** (¿por qué ahora?,
+el punto de partida); *La Empresa en Tiempo Real* pasa a II, *AURA* a III y
+*AgencyDomains* a IV. Vergis se rotula **A**: las letras quedan para las implementaciones de referencia y los números romanos para los libros.
+Son cuatro libros y una implementación, «en cinco partes (por ahora)». Se tocan las
+microsecciones de la trilogía de los tres libros, los manifiestos, los README, el
+sitio (`llms.txt`, portadas, 10 minutos) y la figura g52. Queda para la integración del
+Libro I al sitio lo que necesita sus archivos: su tarjeta en la portada, el conteo
+«tres libros», su manifiesto en `build-agentes.sh`, su lugar en el generador del
+vocabulario (al final de la lista, para no mover anclas) y las guardas de `publish.yml`.
+
 ## v1.2 — Septiembre 2026
 
 **Captura, la cuarta familia de manifestación.** Las familias de manifestación pasan

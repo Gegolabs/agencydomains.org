@@ -57,18 +57,24 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## The Trilogy
 
-This book is volume **III** of the **Agentive World Trilogy**. The transition
+This book is volume **IV** of the **Agentive World Trilogy**, in five parts (so far). The transition
 that occupies the trilogy is a single one: from the world where people open
 applications to work, to the world where AI agents are the interface of work.
-The three volumes answer, in order, the three questions of that transition —
+The four volumes answer, in order, the four questions of that transition —
 and each one reads complete on its own:
 
-**I · The Real-Time Enterprise — The Agentive World**
+**I · The Death of Software as We Know It**
+Why now? — **the starting point.** For those who decide how to automate their
+business: why bought software stops being the answer, what is lost when every
+organization builds its own system, and which piece survives the change — the
+system of truth.
+
+**II · The Real-Time Enterprise — The Agentive World**
 Where are we going? — **the destination.** For those who want to see the world
 on the other side of the transition: how people work, decide, and compete when
 the enterprise operates in real time — told in its four faces.
 
-**II · AURA — The Agentive Path**
+**III · AURA — The Agentive Path**
 Which way? — **the route.** For those who have to make the crossing: leaders
 and advisors of the transformation. Its five specifications are standalone
 instruments for the agentive era — each one can be used separately, without
@@ -82,16 +88,16 @@ the rest of the book:
 | **Wingmap** | The evolution of business process management (BPM / process mining) | Reconstructs processes and information flows without interviews |
 | **Use Cases** | A portfolio framework, illustrated with 100 use cases and 30 value solutions | Prioritizes where to start, according to your maturity |
 
-**III · AgencyDomains — Agentive Architecture** *(this book)*
+**IV · AgencyDomains — Agentive Architecture** *(this book)*
 How do we get there? — **the vehicle.** For architects, CTOs, and builders of
 agentive platforms: the formal specification of the Agentive World.
 
-**Vergis — Agentive Technology** *(not a book: it's code)*
+**A · Vergis — Agentive Technology** *(the reference implementation: not a book, it's code)*
 What do I start with today? — **the keys.** For anyone who wants to start
 making all of this real: the reference implementation of the architecture,
 open source, at <https://github.com/gegolabs/vergis>.
 
-Start with **The Real-Time Enterprise** if you need to convince yourself — or someone else —
+Start with **The Death of Software as We Know It** if you need to understand why the change is happening now; with **The Real-Time Enterprise** if you need to convince yourself — or someone else —
 that the transition is for real; with **AURA** if you have to lead it; with
 **AgencyDomains** if you have to build it; with **Vergis** if you want to see
 it running. The full trilogy lives at <https://agencydomains.org>.

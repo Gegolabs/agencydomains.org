@@ -119,7 +119,7 @@ Arquitectura del estado pre-agentivo: el patrón de separación de incumbencias 
 
 ### Botlet
 
-Unidad de automatización auto-evolutiva. Código tradicional (no-LLM) generado por un agente para ejecutar tareas repetitivas sin invocar cognición costosa. Es la **memoria muscular** del agente.
+Unidad de automatización auto-evolutiva. Código tradicional (no-LLM) generado por un agente para ejecutar tareas repetitivas sin invocar cognición costosa. Es la **memoria muscular** del agente. Lo hace el agente que atiende el flujo, no alguien para que el agente lo use; si parte de una pieza existente, la hace suya y asume su evolución y su sustitución.
 
 Ciclo canónico **95/4/1**: 95% ejecución normal, 4% cambio detectado, 1% regeneración. Garantía de fallback: si falla, la cognición ejecuta manualmente.
 
@@ -151,7 +151,7 @@ Botlet de **Capa 1 (Interacción)** que materializa una pantalla o panel dentro 
 
 ### Botlet emergente
 
-Botlet generado por **Pattern Recognition** cuando la cognición detecta un patrón repetitivo no anticipado por el diseño. Distinto del Botlet seed por su origen, no por sus propiedades operativas.
+Botlet generado por **Pattern Recognition** cuando la cognición detecta un patrón repetitivo no anticipado por el diseño. Distinto del Botlet seed por su origen, no por sus propiedades operativas. Lo hace y lo posee el agente.
 
 *Ver: Capítulo 5 §2.*
 
@@ -169,7 +169,7 @@ Fase inicial de la trayectoria de madurez del Botlet. Recién generado, conoce e
 
 ### Botlet seed
 
-Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
+Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. El diseño decide que existe; quien lo hace y lo posee es el agente. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
 
 *Ver: Capítulo 5 §2, sección "Botlets seed vs Botlets emergentes".*
 
@@ -691,7 +691,7 @@ Pieza pre-forjada de capacidad interpretativa que el agente, en su tiempo de **I
 
 ### proto-Botlet
 
-**Séptima primitiva canónica** del libro. Pieza pre-forjada de capacidad operativa que el agente, en su tiempo de **Ingeniería**, **configura** para instanciar un Botlet específico al caso. El proto-Botlet contiene el código; el Botlet es la instancia configurada. En **G1**, la totalidad del código de un Botlet vive en su proto-Botlet (el agente solo configura); en **G3** el agente puede generar el código sin proto-Botlet de por medio. Distintas implementaciones mantienen catálogos de proto-Botlets (públicos en AgencyDomains.org, privados en códices propietarios). Dos clases:
+**Séptima primitiva canónica** del libro. Pieza pre-forjada de capacidad operativa que el agente, en su tiempo de **Ingeniería**, **configura** para instanciar un Botlet específico al caso. El proto-Botlet contiene el código; el Botlet es la instancia configurada. En **G1**, la totalidad del código de un Botlet vive en su proto-Botlet (el agente solo configura); en **G3** el agente puede generar el código sin proto-Botlet de por medio. El catálogo es del agente: puede sembrarlo con proto-Botlets ajenos (públicos en AgencyDomains.org, privados en códices propietarios), pero al adoptarlos los hace suyos y asume su evolución, su regeneración y su sustitución. Dos clases:
 
 - **proto-Botlet templado** — código específico de su función (ej. `cobro-cuenta`, `comanda-impresora-esc-pos`); su configuración es parametrización acotada.
 - **proto-Botlet platafórmico** — código genérico cuya especialización vive en una configuración composicional (ej. `mira`); cubre N funciones de su dominio. Para él, G1 es terminal por diseño.

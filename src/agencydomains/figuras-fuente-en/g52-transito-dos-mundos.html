@@ -89,7 +89,7 @@
   }
   .trilogia {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 14px;
     border-top: 1px solid var(--rule);
     padding-top: 16px;
@@ -97,6 +97,7 @@
   .vol { display: flex; flex-direction: column; gap: 2px; text-align: center; }
   .vol-nombre { font-family: var(--serif); font-size: 19px; font-weight: 600; }
   .vol-rol { font-size: 14px; color: var(--ink-soft); }
+  .vol-0 .vol-nombre { color: var(--ink); }
   .vol-1 .vol-nombre { color: var(--capa-1); }
   .vol-2 .vol-nombre { color: var(--capa-3); }
   .vol-3 .vol-nombre { color: var(--trust); }
@@ -150,16 +151,20 @@
       </div>
 
       <div class="trilogia">
+        <div class="vol vol-0">
+          <div class="vol-nombre">I · The Death of Software</div>
+          <div class="vol-rol">the starting point — why now</div>
+        </div>
         <div class="vol vol-1">
-          <div class="vol-nombre">I · The Real-Time Enterprise</div>
+          <div class="vol-nombre">II · The Real-Time Enterprise</div>
           <div class="vol-rol">the destination — what the other side looks like</div>
         </div>
         <div class="vol vol-2">
-          <div class="vol-nombre">II · AURA</div>
+          <div class="vol-nombre">III · AURA</div>
           <div class="vol-rol">the route — how it is measured and crossed</div>
         </div>
         <div class="vol vol-3">
-          <div class="vol-nombre">III · AgencyDomains</div>
+          <div class="vol-nombre">IV · AgencyDomains</div>
           <div class="vol-rol">the vehicle — the architecture that makes it operable</div>
         </div>
       </div>

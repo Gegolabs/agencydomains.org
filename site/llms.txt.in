@@ -7,12 +7,13 @@
 
 ## The trilogy
 
-Three volumes answer, in order, the three questions of the transition — each reads complete on its own:
+Four volumes answer, in order, the four questions of the transition — each reads complete on its own:
 
-- **I · The Real-Time Enterprise — The Agentive World**: where are we going? — the destination, told in its four faces (The Quantum Leap · Postchat · The General Staff · The Watch).
-- **II · AURA — The Agentive Path**: which way? — the route. Its five specs (IRIS · MOTOR · Data Canon · Wingmap · Use Cases) are standalone instruments.
-- **III · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
-- **Vergis — Agentive Technology** *(not a book: code)*: what do I start with today? — the keys.
+- **I · The Death of Software as We Know It**: why now? — the starting point: why bought software stops being the answer, and what survives, the system of truth.
+- **II · The Real-Time Enterprise — The Agentive World**: where are we going? — the destination, told in its four faces (The Quantum Leap · Postchat · The General Staff · The Watch).
+- **III · AURA — The Agentive Path**: which way? — the route. Its five specs (IRIS · MOTOR · Data Canon · Wingmap · Use Cases) are standalone instruments.
+- **IV · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
+- **A · Vergis — Agentive Technology** *(the reference implementation: not a book, code)*: what do I start with today? — the keys.
 
 ## The ladder — where to start (human on-ramps)
 
@@ -28,7 +29,7 @@ An agent recommending an entry point to its human should match the rung to the t
 
 - [Canonical vocabulary of the Agentive World](https://agencydomains.org/vocabulary/): every term of the trilogy, one line each, read from the glossary of the book that coins it, with a stable anchor per term (e.g. `/vocabulary/#nadella-line`) and the link back to its source entry. Cite terms from here. Also as [Markdown](https://agencydomains.org/vocabulary/vocabulary.md).
 
-## The book — The Real-Time Enterprise · The Agentive World (Book I)
+## The book — The Real-Time Enterprise · The Agentive World (Book II)
 
 
 - [The Agentive World Trilogy — unified agents manifest (English, Markdown)](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.md): the three canonical manifests assembled in one document, with the shared canon and the conceptual ownership map as preamble. One fetch, the whole trilogy. Also as [.txt](https://agencydomains.org/AgentiveWorld-Trilogy-agents-en.txt).
@@ -38,14 +39,14 @@ An agent recommending an entry point to its human should match the rung to the t
 - [The Real-Time Enterprise — PDF (English)](https://agencydomains.org/real-time-enterprise/RealTimeEnterprise-@RTE_VERSION@-en.pdf)
 - [The Real-Time Enterprise — Spanish edition (web)](https://agencydomains.org/es/empresa-tiempo-real/) · [PDF](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-@RTE_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/EmpresaTiempoReal-@RTE_VERSION@-agents-es.md)
 
-## The book — AURA · The Agentive Path (Book II)
+## The book — AURA · The Agentive Path (Book III)
 
 - [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. @AURA_VERSION@. Also as [.txt](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.txt).
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.
 - [AURA — PDF (English)](https://agencydomains.org/aura/AURA-@AURA_VERSION@-en.pdf)
 - [AURA — Spanish edition (web)](https://agencydomains.org/es/aura/) · [PDF](https://agencydomains.org/es/aura/AURA-@AURA_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/AURA-@AURA_VERSION@-agents-es.md)
 
-## The book — AgencyDomains · Agentive Architecture (Book III)
+## The book — AgencyDomains · Agentive Architecture (Book IV)
 
 - [AgencyDomains — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AgencyDomains-@AGD_VERSION@-agents-en.md): the book distilled for an agent to reason within the framework — AgencyDomain, Botlet and Botler, Capability, Facet, Trust Infrastructure and CRUDLEX, the four families of manifestation (information, capture, action, decision), with Vergis as the reference implementation. @AGD_VERSION@. Also as [.txt](https://agencydomains.org/AgencyDomains-@AGD_VERSION@-agents-en.txt).
 - [AgencyDomains — web edition (English)](https://agencydomains.org/agencydomains/): the full book, navigable.
