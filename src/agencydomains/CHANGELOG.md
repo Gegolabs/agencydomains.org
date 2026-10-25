@@ -10,12 +10,12 @@ re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganiza
 
 **Los Botlets son del agente.** Se hace explícito, en un destacado, lo que la
 definición dice y las secciones de origen y de proto-Botlet dejaban sin cerrar —quién
-posee el Botlet, sea cual sea quien decidió que existiera—: un Botlet no
-lo construye nadie para que un agente lo use. Lo hace el agente que atiende el flujo,
-para ahorrarse la cognición de repetir la tarea, y es su memoria muscular. Puede
-partir de un proto-Botlet o de un Botlet existente, de su catálogo, del público o de
-un códice, pero al tomarlo lo hace suyo y asume su evolución, su regeneración y su
-sustitución. Un catálogo es un punto de partida, no un proveedor. Origen: César,
+posee el Botlet, sea cual sea quien decidió que existiera—: lo hace el agente que
+atiende el flujo, sea que el diseño haya decidido que exista o que lo haya hecho la
+experiencia, y es su memoria muscular. Puede partir de un proto-Botlet o de un Botlet
+existente, pero al tomarlo lo hace suyo y asume su evolución, su regeneración y su
+sustitución; lo que conserve del origen lo fija el modo de pertenencia al catálogo
+(Cap 9). Origen: César,
 2026-10-25, al leer la objeción del TM Forum de que los operadores no desarrollarán
 en la era de la IA, que presupone que alguien fabrica las piezas que el agente usa.
 Sin cambios de estructura; la versión del frontmatter se sube al publicar.
@@ -25,8 +25,9 @@ Sin cambios de estructura; la versión del frontmatter se sube al publicar.
   reescrita como siembra que el agente adopta.
 - Glosario: entradas **Botlet**, **proto-Botlet**, **Botlet seed** y **Botlet emergente**
   (el diseño decide que existe; el agente lo hace y lo posee). Cap 4: los Botlets, que el
-  agente forma y posee. La adopción de un proto-Botlet ajeno es una bifurcación que el
-  agente puede mantener sincronizada con su origen (Cap 9, modos de pertenencia).
+  agente forma y posee. La adopción de un proto-Botlet ajeno es una bifurcación; tomar las
+  mejoras del origen depende del modo de pertenencia (Cap 9), y la reconciliación entre
+  catálogos es trabajo abierto.
 - `para-agentes.md` y `para-agents.md`: entradas **Botlet** y **proto-Botlet**, y la
   línea de cambios.
 - Invariante ES/EN.
