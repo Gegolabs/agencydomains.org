@@ -151,7 +151,7 @@ Botlet de **Capa 1 (Interacción)** que materializa una pantalla o panel dentro 
 
 ### Botlet emergente
 
-Botlet generado por **Pattern Recognition** cuando la cognición detecta un patrón repetitivo no anticipado por el diseño. Distinto del Botlet seed por su origen, no por sus propiedades operativas.
+Botlet generado por **Pattern Recognition** cuando la cognición detecta un patrón repetitivo no anticipado por el diseño. Distinto del Botlet seed por su origen, no por sus propiedades operativas. Lo hace y lo posee el agente.
 
 *Ver: Capítulo 5 §2.*
 
@@ -169,7 +169,7 @@ Fase inicial de la trayectoria de madurez del Botlet. Recién generado, conoce e
 
 ### Botlet seed
 
-Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
+Botlet generado por la cognición a pedido del equipo de diseño, como parte del producto inicial. La cognición ejecuta la implementación; la decisión de existir es del diseño, no de Pattern Recognition. El diseño decide que existe; quien lo hace y lo posee es el agente. Distinto del Botlet emergente. Las **GUIs persistentes generadas como Botlets de fachada** (Cap 4 §1) son Botlets de fachada seed — Botlets de Capa 3 cuya superficie estable vive en Capa 1.
 
 *Ver: Capítulo 5 §2, sección "Botlets seed vs Botlets emergentes".*
 

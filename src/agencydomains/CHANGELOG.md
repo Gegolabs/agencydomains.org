@@ -9,7 +9,8 @@ re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganiza
 ## v1.2.1 — sin publicar
 
 **Los Botlets son del agente.** Se hace explícito, en un destacado, lo que la
-definición ya decía y la sección del proto-Botlet dejaba leer al revés: un Botlet no
+definición dice y las secciones de origen y de proto-Botlet dejaban sin cerrar —quién
+posee el Botlet, sea cual sea quien decidió que existiera—: un Botlet no
 lo construye nadie para que un agente lo use. Lo hace el agente que atiende el flujo,
 para ahorrarse la cognición de repetir la tarea, y es su memoria muscular. Puede
 partir de un proto-Botlet o de un Botlet existente, de su catálogo, del público o de
@@ -22,7 +23,10 @@ Sin cambios de estructura; la versión del frontmatter se sube al publicar.
 - Cap 5 §2: destacado «Los Botlets son del agente» tras la definición; el catálogo
   del proto-Botlet es del agente; la frase de los catálogos públicos y privados
   reescrita como siembra que el agente adopta.
-- Glosario: entradas **Botlet** y **proto-Botlet**.
+- Glosario: entradas **Botlet**, **proto-Botlet**, **Botlet seed** y **Botlet emergente**
+  (el diseño decide que existe; el agente lo hace y lo posee). Cap 4: los Botlets, que el
+  agente forma y posee. La adopción de un proto-Botlet ajeno es una bifurcación que el
+  agente puede mantener sincronizada con su origen (Cap 9, modos de pertenencia).
 - `para-agentes.md` y `para-agents.md`: entradas **Botlet** y **proto-Botlet**, y la
   línea de cambios.
 - Invariante ES/EN.
