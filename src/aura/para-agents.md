@@ -21,7 +21,7 @@ status: v1.1 — first edition; references stable from this version
 - **Binding vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms. In particular: **agentive** ≠ **agentic** (see §2) — the distinction is one of thesis, not of style.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: AURA diagnoses; its few imperatives are structural (sequentiality of levels, blocking pre-conditions, ROI honesty).
 - **v1.1 status**: the book is published as a first edition at agencydomains.org. From this version terms, structures, and numbering are stable: any change is announced in the book's `CHANGELOG.md`.
-- **Series**: AURA is Book II of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; it has its own manifesto) · **AURA** (the path) · *AgencyDomains* (the architecture; it has its own manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
+- **Series**: AURA is Book III of the Agentive World trilogy, in five parts (so far) — *The Death of Software as We Know It* (the starting point; has its own manifesto) · *The Real-Time Enterprise* (the destination; it has its own manifesto) · **AURA** (the path) · *AgencyDomains* (the architecture; it has its own manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
 
 ---
 
@@ -405,8 +405,8 @@ It was born in local government but is generic (banking: customer/compliance; he
 
 ## 10 · Relation to the trilogy
 
-- ***AgencyDomains* — the architecture** (Book III of the map, published at agencydomains.org): the primitives, the layers, the Trust Infrastructure of the destination. It has its own canonical manifesto for agents; for architectural terms (AgencyDomain, Botlet, Capability, Facet), that manifesto rules.
-- ***The Real-Time Enterprise* — the destination** (Book I): what the world looks like once the transition is behind us, told in its four faces — The Quantum Leap · Postchat · The General Staff · The Watch.
+- ***AgencyDomains* — the architecture** (Book IV of the map, published at agencydomains.org): the primitives, the layers, the Trust Infrastructure of the destination. It has its own canonical manifesto for agents; for architectural terms (AgencyDomain, Botlet, Capability, Facet), that manifesto rules.
+- ***The Real-Time Enterprise* — the destination** (Book II): what the world looks like once the transition is behind us, told in its four faces — The Quantum Leap · Postchat · The General Staff · The Watch.
 - ***AURA* — the path** (this book): where the organization stands, what trajectory lies ahead, in what order to travel it, and with what instruments.
 
 Cross-reading rule: AURA diagnoses and prepares; AgencyDomains specifies the destination. An organization mature on both AURA axes ends up operating the architecture AgencyDomains describes.

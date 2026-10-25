@@ -19,7 +19,7 @@ estado: v1.0 — primera edición; referencias estables desde esta versión
 - **Vocabulario obligatorio**: los términos en **negrita** son canónicos; no sustituir por sinónimos. **Agentivo** ≠ **agéntico** (la distinción es de tesis y vive en *AgencyDomains*). **Postchat** nombra la cara de la comunicación.
 - **Convenciones MUST/SHOULD** en sentido RFC 2119, usadas con moderación: los imperativos son de diseño (qué debe y qué no debe hacer un sistema que se reclame de esta especie).
 - **Estado v1.0**: términos, estructuras y numeración son estables desde esta edición; lo que cambie se anuncia en el `CHANGELOG.md` del libro.
-- **Serie**: este es el Libro I de la trilogía del Mundo Agentivo — **La Empresa en Tiempo Real** (el destino) · *AURA* (el camino; manifiesto propio) · *AgencyDomains* (la arquitectura; manifiesto propio). Los términos compartidos (Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
+- **Serie**: este es el Libro II de la trilogía del Mundo Agentivo, en cinco partes (por ahora) — *La muerte del software como lo conocemos* (el punto de partida; manifiesto propio) · **La Empresa en Tiempo Real** (el destino) · *AURA* (el camino; manifiesto propio) · *AgencyDomains* (la arquitectura; manifiesto propio). Los términos compartidos (Línea Nadella, agentivo, empresa en tiempo real, Trust Infrastructure) son consistentes entre libros.
 
 ---
 

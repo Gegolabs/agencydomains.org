@@ -27,6 +27,17 @@ Sin cambios de estructura; la versión del frontmatter se sube al publicar.
   línea de cambios.
 - Invariante ES/EN.
 
+**La trilogía se renumera** (decisión de César, 2026-10-25, antes de generar los
+DOI): *La muerte del software como lo conocemos* es el **Libro I** (¿por qué ahora?,
+el punto de partida); *La Empresa en Tiempo Real* pasa a II, *AURA* a III y
+*AgencyDomains* a IV. Vergis sigue sin número: es la implementación de referencia.
+Son cuatro libros y una implementación, «en cinco partes (por ahora)». Se tocan las
+microsecciones de la trilogía de los tres libros, los manifiestos, los README, el
+sitio (`llms.txt`, portadas, 10 minutos) y la figura g52. Queda para la integración del
+Libro I al sitio lo que necesita sus archivos: su tarjeta en la portada, el conteo
+«tres libros», su manifiesto en `build-agentes.sh`, su lugar en el generador del
+vocabulario (al final de la lista, para no mover anclas) y las guardas de `publish.yml`.
+
 ## v1.2 — Septiembre 2026
 
 **Captura, la cuarta familia de manifestación.** Las familias de manifestación pasan

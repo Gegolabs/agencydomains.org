@@ -19,7 +19,7 @@ status: v1.0 — first edition; references stable from this version
 - **Binding vocabulary**: terms in **bold** are canonical; do not substitute synonyms. **Agentive** ≠ **agentic** (the distinction is one of thesis and lives in *AgencyDomains*). **Postchat** names the face of communication.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: the imperatives are design imperatives (what a system claiming to be of this species must and must not do).
 - **v1.0 status**: terms, structures, and numbering are stable from this edition; any change is announced in the book's `CHANGELOG.md`.
-- **Series**: this is Book I of the Agentive World trilogy — **The Real-Time Enterprise** (the destination) · *AURA* (the path; has its own canonical manifesto) · *AgencyDomains* (the architecture; has its own canonical manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
+- **Series**: this is Book II of the Agentive World trilogy, in five parts (so far) — *The Death of Software as We Know It* (the starting point; has its own manifesto) · **The Real-Time Enterprise** (the destination) · *AURA* (the path; has its own canonical manifesto) · *AgencyDomains* (the architecture; has its own canonical manifesto). Terms shared across the trilogy (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent between books.
 
 ---
 

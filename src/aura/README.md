@@ -1,6 +1,6 @@
 # AURA — El Camino Agentivo
 
-### Libro II de la trilogía del Mundo Agentivo
+### Libro III de la trilogía del Mundo Agentivo
 
 **Autor:** César Obach-Renner · **Editor:** GegoLabs
 **Edición:** Primera edición · v1.1 · Agosto 2026

@@ -16,7 +16,7 @@ status: v1.2 — first edition, revision 2; references stable since v1.0
 ## How to use this document
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
-- **Series**: AgencyDomains is Book III of the Agentive World trilogy — *The Real-Time Enterprise* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
+- **Series**: AgencyDomains is Book IV of the Agentive World trilogy, in five parts (so far) — *The Death of Software as We Know It* (the starting point; has its own manifesto) · *The Real-Time Enterprise* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
 - **A mirror of v1.2** — the current edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
