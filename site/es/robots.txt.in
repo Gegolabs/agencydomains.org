@@ -1,0 +1,3 @@
+# Alias en español; la política canónica está en @SITIO@@BASE@/robots.txt
+User-agent: *
+Allow: /

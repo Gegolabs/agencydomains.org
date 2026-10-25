@@ -42,6 +42,9 @@ jobs:
           echo "AGD_VERSION=$AGD_VERSION" >> "$GITHUB_ENV"
           echo "AURA_VERSION=$AURA_VERSION" >> "$GITHUB_ENV"
           echo "RTE_VERSION=$RTE_VERSION" >> "$GITHUB_ENV"
+          # La casa (casa.json): dónde se sirve y a dónde se publica. Ningún paso
+          # cablea dominio, bucket, distribución, router ni rol.
+          python3 .github/scripts/casa.py env >> "$GITHUB_ENV"
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
             case "$GITHUB_REF_NAME" in
               agencydomains-*) TAG_V="${GITHUB_REF_NAME#agencydomains-}"; BOOK_V="$AGD_VERSION";;
@@ -58,7 +61,7 @@ jobs:
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
           # El Libro I nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
-          for f in site/index.html; do   # llms.txt se deriva de plantilla: no puede desalinearse
+          for f in site/index.html.in; do   # llms.txt se deriva de plantilla: no puede desalinearse
             for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
@@ -66,7 +69,7 @@ jobs:
               fi
             done
           done
-          for f in site/es/index.html; do   # ídem
+          for f in site/es/index.html.in; do   # ídem
             for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "EmpresaTiempoReal-${RTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
@@ -149,84 +152,7 @@ jobs:
         run: bash src/trilogia/build-agentes.sh
 
       - name: Ensamblar sitio (shell + builds en sus rutas URL)
-        run: |
-          DIST=src/agencydomains/_dist
-          ADIST=src/aura/_dist
-          RDIST=src/rte/_dist
-          mkdir -p _site
-          cp -R site/. _site/
-          # NO debe existir site/CNAME: el dominio lo sirve CloudFront y Pages
-          # publica sin custom domain. Un CNAME en el artefacto puede reponer el
-          # custom domain y meter al visitante en un bucle de redirects.
-          # Ver work/cloudfront-analytics/RUNBOOK.md §9 (repo agencydomains-org).
-          rm -f _site/CNAME
-          touch _site/.nojekyll
-          # llms.txt sale de una plantilla: las versiones NO se escriben a mano.
-          # El texto que describe cada manifiesto y el enlace que lo acompaña salen
-          # del mismo lugar, así que no pueden divergir (llegaron a hacerlo: el texto
-          # decía v1.0 enlazando v1.2). La prosa sigue siendo editorial y se escribe.
-          for f in llms.txt es/llms.txt; do
-            sed -e "s/@AGD_VERSION@/${AGD_VERSION}/g" \
-                -e "s/@AURA_VERSION@/${AURA_VERSION}/g" \
-                -e "s/@RTE_VERSION@/${RTE_VERSION}/g" \
-                "site/$f.in" > "_site/$f"
-          done
-          rm -f _site/llms.txt.in _site/es/llms.txt.in
-          if grep -n '@[A-Z_]*VERSION@' _site/llms.txt _site/es/llms.txt; then
-            echo "::error::quedaron marcadores sin sustituir en llms.txt — falta una variable en el sed."
-            exit 1
-          fi
-          # los libros reemplazan cualquier placeholder del shell en su ruta
-          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
-          # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
-          cp -R "$DIST/web-en" _site/agencydomains
-          cp -R "$DIST/web-es" _site/es/agencydomains
-          # AURA: EN → /aura/ · ES → /es/aura/
-          cp -R "$ADIST/web-en" _site/aura
-          cp -R "$ADIST/web-es" _site/es/aura
-          # La Empresa en Tiempo Real: EN → /real-time-enterprise/ · ES → /es/empresa-tiempo-real/
-          cp -R "$RDIST/web-en" _site/real-time-enterprise
-          cp -R "$RDIST/web-es" _site/es/empresa-tiempo-real
-          # manifiestos para agentes → raíz de cada idioma
-          mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
-          mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/
-          mv _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-agents-es.md  _site/es/
-          mv _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-agents-es.txt _site/es/
-          mv _site/aura/AURA-${AURA_VERSION}-agents-en.md  _site/
-          mv _site/aura/AURA-${AURA_VERSION}-agents-en.txt _site/
-          mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.md  _site/es/
-          mv _site/es/aura/AURA-${AURA_VERSION}-agents-es.txt _site/es/
-          mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.md  _site/
-          mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.txt _site/
-          mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.md  _site/es/
-          mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.txt _site/es/
-          # alias estables sin versión — siempre la edición vigente (los versionados quedan para cita exacta)
-          for ext in md txt; do
-            cp _site/AgencyDomains-${AGD_VERSION}-agents-en.$ext      _site/AgencyDomains-agents-en.$ext
-            cp _site/AURA-${AURA_VERSION}-agents-en.$ext              _site/AURA-agents-en.$ext
-            cp _site/RealTimeEnterprise-${RTE_VERSION}-agents-en.$ext _site/RealTimeEnterprise-agents-en.$ext
-            cp _site/es/AgencyDomains-${AGD_VERSION}-agents-es.$ext   _site/es/AgencyDomains-agents-es.$ext
-            cp _site/es/AURA-${AURA_VERSION}-agents-es.$ext           _site/es/AURA-agents-es.$ext
-            cp _site/es/EmpresaTiempoReal-${RTE_VERSION}-agents-es.$ext _site/es/EmpresaTiempoReal-agents-es.$ext
-          done
-          # alias estables para los PDF — el enlace que se comparte no debe caducar.
-          # Medido el 2026-09-08: 1.351 peticiones 404 a distribuibles de ediciones
-          # retiradas, 642 de ellas a AgencyDomains-v0.4-en.pdf.
-          cp _site/agencydomains/AgencyDomains-${AGD_VERSION}-en.pdf                _site/agencydomains/AgencyDomains-en.pdf
-          cp _site/es/agencydomains/AgencyDomains-${AGD_VERSION}-es.pdf             _site/es/agencydomains/AgencyDomains-es.pdf
-          cp _site/aura/AURA-${AURA_VERSION}-en.pdf                                 _site/aura/AURA-en.pdf
-          cp _site/es/aura/AURA-${AURA_VERSION}-es.pdf                              _site/es/aura/AURA-es.pdf
-          cp _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-en.pdf    _site/real-time-enterprise/RealTimeEnterprise-en.pdf
-          cp _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-es.pdf   _site/es/empresa-tiempo-real/EmpresaTiempoReal-es.pdf
-          # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
-          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
-          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt
-          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/
-          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/Trilogia-MundoAgentivo-agentes-es.txt
-          # alias corto: el nombre que la portada muestra es la URL
-          cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/trilogy.md
-          cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/trilogia.md
-          echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
+        run: bash .github/scripts/ensamblar.sh
 
       # La página de vocabulario se DERIVA de los glosarios de los tres libros: no
       # define nada, enlaza cada término a su entrada de origen. Va antes del
@@ -234,8 +160,17 @@ jobs:
       - name: Vocabulario canónico (derivado de los glosarios, ES + EN)
         run: python3 .github/scripts/gen-vocabulario.py _site
 
+      # Los pares en · es de cada página de libro; las ediciones se construyen por
+      # separado y solo aquí están las dos.
+      - name: hreflang de los libros (pares por posición en el índice)
+        run: python3 .github/scripts/gen-hreflang.py _site
+
       - name: Sitemap (derivado del sitio ya ensamblado)
         run: python3 .github/scripts/gen-sitemap.py _site
+
+      # Antes de cualquier credencial: un sitio que no calza con su casa no se publica.
+      - name: Guardia — la casa (enlaces bajo la base, sin dominio de la puerta, hreflang)
+        run: python3 .github/scripts/guardias-casa.py _site
 
       # El sitio se publica en un bucket S3 PRIVADO que CloudFront lee por OAC.
       # GitHub Pages ya no participa: su URL pública duplicaba el sitio y sus
@@ -244,7 +179,7 @@ jobs:
       - name: Credenciales AWS (OIDC, sin secretos de larga vida)
         uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a  # v4
         with:
-          role-to-assume: arn:aws:iam::754902277002:role/agencydomains-site-deploy
+          role-to-assume: ${{ env.CASA_ROL }}
           aws-region: us-east-1
 
       - name: Publicar en S3
@@ -257,12 +192,12 @@ jobs:
           # 2026-09-08). Ver DECISIONS D-24.
           #
           # 1 · todo salvo los distribuibles versionados, con --delete: limpia lo obsoleto
-          aws s3 sync _site/ s3://agencydomains-org-site-754902277002/ \
+          aws s3 sync _site/ s3://${CASA_BUCKET}${CASA_BASE}/ \
             --delete --cache-control 'public, max-age=600' \
             --exclude '.nojekyll' \
             --exclude '*-v*.pdf' --exclude '*-v*-agents-*' --exclude '*-v*-agentes-*'
           # 2 · los distribuibles versionados, SIN --delete: se suman, no reemplazan
-          aws s3 sync _site/ s3://agencydomains-org-site-754902277002/ \
+          aws s3 sync _site/ s3://${CASA_BUCKET}${CASA_BASE}/ \
             --cache-control 'public, max-age=600' \
             --exclude '*' \
             --include '*-v*.pdf' --include '*-v*-agents-*' --include '*-v*-agentes-*'
@@ -272,13 +207,13 @@ jobs:
           #     Copia en sitio sobre TODO el bucket (no solo _site/) para que también
           #     las ediciones retenidas por la pasada 2 queden corregidas.
           for pair in 'md:text/markdown' 'txt:text/plain'; do
-            aws s3 cp s3://agencydomains-org-site-754902277002/ s3://agencydomains-org-site-754902277002/ \
+            aws s3 cp s3://${CASA_BUCKET}${CASA_BASE}/ s3://${CASA_BUCKET}${CASA_BASE}/ \
               --recursive --exclude '*' --include "*.${pair%%:*}" \
               --content-type "${pair#*:}; charset=utf-8" \
               --cache-control 'public, max-age=600' --metadata-directive REPLACE --only-show-errors
           done
           echo "=== objetos en el bucket ==="
-          aws s3 ls s3://agencydomains-org-site-754902277002/ --recursive --summarize | tail -3
+          aws s3 ls s3://${CASA_BUCKET}${CASA_BASE}/ --recursive --summarize | tail -3
 
       - name: Publicar el router del borde (lleva las versiones vigentes)
         run: |
@@ -293,21 +228,21 @@ jobs:
           if grep -n '@[A-Z_]*VERSION@' /tmp/router.js; then
             echo "::error::quedaron marcadores sin sustituir en el router."; exit 1
           fi
-          ET=$(aws cloudfront describe-function --name agencydomains-router --query ETag --output text)
-          aws cloudfront update-function --name agencydomains-router \
+          ET=$(aws cloudfront describe-function --name "$CASA_ROUTER" --query ETag --output text)
+          aws cloudfront update-function --name "$CASA_ROUTER" \
             --function-config '{"Comment":"www->apex, ediciones retiradas, barra final e index.html","Runtime":"cloudfront-js-2.0"}' \
             --function-code fileb:///tmp/router.js --if-match "$ET" >/dev/null
-          ET=$(aws cloudfront describe-function --name agencydomains-router --query ETag --output text)
-          aws cloudfront publish-function --name agencydomains-router --if-match "$ET" \
+          ET=$(aws cloudfront describe-function --name "$CASA_ROUTER" --query ETag --output text)
+          aws cloudfront publish-function --name "$CASA_ROUTER" --if-match "$ET" \
             --query 'FunctionSummary.Status' --output text
 
       - name: Invalidar CloudFront
         run: |
           set -euo pipefail
           ID=$(aws cloudfront create-invalidation \
-                 --distribution-id E1P0KOY6SE3EBJ --paths '/*' \
+                 --distribution-id "$CASA_DISTRIBUCION" --paths "${CASA_BASE}/*" \
                  --query 'Invalidation.Id' --output text)
           echo "invalidacion $ID"
           aws cloudfront wait invalidation-completed \
-            --distribution-id E1P0KOY6SE3EBJ --id "$ID"
-          echo "sitio publicado en https://agencydomains.org/"
+            --distribution-id "$CASA_DISTRIBUCION" --id "$ID"
+          echo "sitio publicado en ${CASA_SITIO}${CASA_BASE}/"

@@ -7,21 +7,22 @@
 <meta property="og:title" content="La Trilogía del Mundo Agentivo en 10 minutos — resumen ejecutivo">
 <meta property="og:description" content="La tesis, el destino, el camino y la arquitectura — destilados para quien decide.">
 <meta property="og:type" content="article">
-<link rel="canonical" href="https://agencydomains.org/es/10-minutos/">
-<link rel="alternate" hreflang="en" href="https://agencydomains.org/10-minutes/">
-<link rel="alternate" hreflang="es" href="https://agencydomains.org/es/10-minutos/">
+<link rel="canonical" href="@SITIO@@BASE@/es/10-minutos/">
+<link rel="alternate" hreflang="en" href="@SITIO@@BASE@/10-minutes/">
+<link rel="alternate" hreflang="es" href="@SITIO@@BASE@/es/10-minutos/">
+<link rel="alternate" hreflang="x-default" href="@SITIO@@BASE@/10-minutes/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/agencydomains.css">
-<link rel="stylesheet" href="/assets/page.css">
+<link rel="stylesheet" href="@BASE@/assets/agencydomains.css">
+<link rel="stylesheet" href="@BASE@/assets/page.css">
 </head>
 <body>
 <main class="page">
-  <nav class="crumb"><a href="/es/">← agencydomains.org</a><span><a href="/10-minutes/">EN</a> · <span class="on">ES</span></span></nav>
+  <nav class="crumb"><a href="@BASE@/es/">← agencydomains.org</a><span><a href="@BASE@/10-minutes/">EN</a> · <span class="on">ES</span></span></nav>
 
   <p class="eyebrow">La escalera · peldaño de 10 minutos</p>
   <h1>La Trilogía del Mundo Agentivo, en 10 minutos</h1>
   <p class="deck">El resumen ejecutivo de la obra — la tesis, el destino, el camino y la arquitectura.</p>
-  <p class="promise">Ediciones: I v1.0 · II v1.0 · III v1.0 · si vienes en frío, empieza por <a href="/es/invitacion/">los 2 minutos</a></p>
+  <p class="promise">Ediciones: I v1.0 · II v1.0 · III v1.0 · si vienes en frío, empieza por <a href="@BASE@/es/invitacion/">los 2 minutos</a></p>
 
   <p>La trilogía sostiene una sola tesis: el trabajo de oficina está a punto de cambiar de forma,
     porque los agentes de IA pueden hacerse cargo de la parte del trabajo que nunca debió ser
@@ -119,10 +120,10 @@
     construye: la arquitectura formal, primitiva por primitiva.</p>
 
   <div class="next">
-    <a href="/es/empresa-tiempo-real/"><span class="k">El destino ·</span> La Empresa en Tiempo Real (web · ~2 h) →</a>
-    <a href="/es/aura/"><span class="k">El camino ·</span> AURA (web · ~4 h) →</a>
-    <a href="/es/agencydomains/"><span class="k">La arquitectura ·</span> AgencyDomains (web · ~9 h) →</a>
-    <a href="/es/"><span class="k">La trilogía ·</span> agencydomains.org →</a>
+    <a href="@BASE@/es/empresa-tiempo-real/"><span class="k">El destino ·</span> La Empresa en Tiempo Real (web · ~2 h) →</a>
+    <a href="@BASE@/es/aura/"><span class="k">El camino ·</span> AURA (web · ~4 h) →</a>
+    <a href="@BASE@/es/agencydomains/"><span class="k">La arquitectura ·</span> AgencyDomains (web · ~9 h) →</a>
+    <a href="@BASE@/es/"><span class="k">La trilogía ·</span> agencydomains.org →</a>
   </div>
 </main>
 </body>

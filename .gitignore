@@ -4,3 +4,5 @@ node_modules/
 .preview-server.py
 _HANDOFF.md
 __pycache__/
+# el sitio ensamblado (publish.yml · ensamblar.sh): se construye, no se commitea
+_site/

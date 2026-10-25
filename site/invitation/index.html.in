@@ -7,17 +7,18 @@
 <meta property="og:title" content="The Agentive World, in 2 minutes">
 <meta property="og:description" content="The thesis of the Agentive World Trilogy, told whole in two minutes.">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://agencydomains.org/assets/figuras/g52-transito-dos-mundos-en.png">
-<link rel="canonical" href="https://agencydomains.org/invitation/">
-<link rel="alternate" hreflang="en" href="https://agencydomains.org/invitation/">
-<link rel="alternate" hreflang="es" href="https://agencydomains.org/es/invitacion/">
+<meta property="og:image" content="@SITIO@@BASE@/assets/figuras/g52-transito-dos-mundos-en.png">
+<link rel="canonical" href="@SITIO@@BASE@/invitation/">
+<link rel="alternate" hreflang="en" href="@SITIO@@BASE@/invitation/">
+<link rel="alternate" hreflang="es" href="@SITIO@@BASE@/es/invitacion/">
+<link rel="alternate" hreflang="x-default" href="@SITIO@@BASE@/invitation/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340..620;1,9..144,340..560&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/agencydomains.css">
-<link rel="stylesheet" href="/assets/page.css">
+<link rel="stylesheet" href="@BASE@/assets/agencydomains.css">
+<link rel="stylesheet" href="@BASE@/assets/page.css">
 </head>
 <body>
 <main class="page">
-  <nav class="crumb"><a href="/">← agencydomains.org</a><span><span class="on">EN</span> · <a href="/es/invitacion/">ES</a></span></nav>
+  <nav class="crumb"><a href="@BASE@/">← agencydomains.org</a><span><span class="on">EN</span> · <a href="@BASE@/es/invitacion/">ES</a></span></nav>
 
   <p class="eyebrow">The ladder · the 2-minute rung</p>
   <h1>The Agentive World, in 2 minutes</h1>
@@ -56,9 +57,9 @@
     picture.</p>
 
   <div class="next">
-    <a href="/10-minutes/"><span class="k">For decision-makers ·</span> The trilogy in 10 minutes →</a>
-    <a href="/real-time-enterprise/"><span class="k">The full book ·</span> The Real-Time Enterprise (web and PDF, free) →</a>
-    <a href="/"><span class="k">The full trilogy ·</span> agencydomains.org →</a>
+    <a href="@BASE@/10-minutes/"><span class="k">For decision-makers ·</span> The trilogy in 10 minutes →</a>
+    <a href="@BASE@/real-time-enterprise/"><span class="k">The full book ·</span> The Real-Time Enterprise (web and PDF, free) →</a>
+    <a href="@BASE@/"><span class="k">The full trilogy ·</span> agencydomains.org →</a>
   </div>
   <p class="promise" style="border-bottom:0">César Obach-Renner · The Agentive World Trilogy</p>
 </main>

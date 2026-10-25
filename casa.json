@@ -1,0 +1,10 @@
+{
+  "sitio": "https://agencydomains.org",
+  "base": "",
+  "puerta": "https://agencydomains.org",
+  "bucket": "agencydomains-org-site-754902277002",
+  "distribucion": "E1P0KOY6SE3EBJ",
+  "router": "agencydomains-router",
+  "rol": "arn:aws:iam::754902277002:role/agencydomains-site-deploy",
+  "patrocinio": { "nivel": "puerta" }
+}
