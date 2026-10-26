@@ -15,6 +15,10 @@ VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" CHANGELOG.md | cut -d" "
 MD="_dist/AURA-EN-${VERSION}.md"
 PDF="_dist/AURA-EN-${VERSION}.pdf"
 HEADER="$LIBRO_DIR/../agencydomains/_build/header-libro-extra.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="_dist/portada-en.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" aura en "$PORTADA"
 TMPSRC="$(mktemp -t aura-en-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
 # Del frontmatter solo sobrevive «La trilogía» (página propia); el resto vive en la portada.
@@ -22,7 +26,7 @@ trap 'rm -f "$TMPSRC"' EXIT
   sed -n '/^# Prologue/,$p' "$MD"; } > "$TMPSRC"
 sed -i '' 's|](figuras/|](figuras-en/|g' "$TMPSRC" 2>/dev/null || sed -i 's|](figuras/|](figuras-en/|g' "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
-  --pdf-engine=xelatex -H "$HEADER" \
+  --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
   --metadata title="AURA" --metadata subtitle="The Agentive Path" \
   --metadata author="César Obach-Renner" \

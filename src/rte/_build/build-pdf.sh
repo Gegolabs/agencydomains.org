@@ -10,6 +10,10 @@ VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" CHANGELOG.md | cut -d" "
 MD="_dist/EmpresaTiempoReal-${VERSION}.md"
 PDF="_dist/EmpresaTiempoReal-${VERSION}.pdf"
 HEADER="$LIBRO_DIR/../agencydomains/_build/header-libro-extra.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="_dist/portada-es.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" rte es "$PORTADA"
 TMPSRC="$(mktemp -t rte-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
 # Del frontmatter solo sobrevive «La trilogía» (promovida a página propia);
@@ -22,7 +26,7 @@ trap 'rm -f "$TMPSRC"' EXIT
 # título sobre el borde de la caja.
 perl -0777 -i -pe 's{^> \*\*Lo que acabas de ver:\*\*\n>\n> ([^\n]*)\n>\n> \*(El comentario de esta escena: [^\n]*?)\.?\*\n}{::: {.cajateaser comentario="$2"}\n$1\n:::\n}gm' "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
-  --pdf-engine=xelatex -H "$HEADER" -H "$SCRIPT_DIR/header-fusion.tex" \
+  --pdf-engine=xelatex -H "$HEADER" -H "$SCRIPT_DIR/header-fusion.tex" -H "${PORTADA%.pdf}.tex" \
   --lua-filter="$SCRIPT_DIR/teaser.lua" \
   --metadata title="La Empresa en Tiempo Real" --metadata subtitle="Mundo Agentivo" \
   --metadata author="César Obach-Renner" \

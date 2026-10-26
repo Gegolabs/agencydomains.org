@@ -29,6 +29,10 @@ INPUT="$DIST_DIR/AgencyDomains-${VERSION}-humanos.md"
 OUTPUT="$DIST_DIR/AgencyDomains-${VERSION}-humanos.pdf"
 HEADER="$SCRIPT_DIR/header-libro-extra.tex"
 FRONTMATTER="$SCRIPT_DIR/frontmatter.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="$DIST_DIR/portada-es.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" agencydomains es "$PORTADA"
 
 # 2. El MD único replica el README del libro en sus primeras líneas
 # (Sobre este libro, Estructura, Cómo citar, Licencia, Información de
@@ -54,11 +58,12 @@ pandoc "$TMPSRC" \
   -o "$OUTPUT" \
   --pdf-engine=xelatex \
   -H "$HEADER" \
+  -H "${PORTADA%.pdf}.tex" \
   --include-before-body="$FRONTMATTER" \
   --metadata title="AgencyDomains" \
   --metadata subtitle="Arquitectura del Mundo Agentivo" \
   --metadata author="César Obach-Renner" \
-  --metadata date="Primera edición ${VERSION} · Septiembre 2026" \
+  --metadata date="Primera edición ${VERSION} · Octubre 2026" \
   --toc --toc-depth=2 \
   -V documentclass=book \
   -V classoption=twoside \

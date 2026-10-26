@@ -115,10 +115,15 @@ jobs:
           fi
           exit $FAIL
 
-      - name: Toolchain (pandoc + XeLaTeX)
+      - name: Toolchain (pandoc + XeLaTeX + WeasyPrint)
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q pandoc texlive-xetex texlive-latex-extra fontconfig
+          sudo apt-get install -y -q pandoc texlive-xetex texlive-latex-extra fontconfig poppler-utils
+          # WeasyPrint renderiza las portadas (src/trilogia/portada); fijada a la
+          # versión con que se validó la maqueta. poppler-utils trae pdfinfo, con el
+          # que render.sh comprueba que cada portada salga en una sola página.
+          pipx install 'weasyprint==66.0'
+          weasyprint --version
 
       - name: Fuentes vendorizadas (src/_fonts)
         run: |
