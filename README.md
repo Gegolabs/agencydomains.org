@@ -10,8 +10,9 @@ Publicado en **https://agencydomains.org** vía GitHub Pages.
 |---|---|
 | `src/agencydomains/` | **Fuente canónica** del libro AgencyDomains (Markdown ES + EN, figuras, builds) — aquí llegan los *pull requests* |
 | `src/agencydomains/editorial/` | Historia editorial pública del libro: auditorías y decisiones |
+| `src/muerte/` | Fuente del Libro I, *La muerte del software como lo conocemos* (ES + EN, manifiestos, portada; PDF con WeasyPrint) |
 | `src/_fonts/` | Tipografías del PDF (STIX Two · Source Code Pro), vendorizadas bajo SIL OFL |
-| `site/` | Shell estático del sitio: landings EN/ES, `llms.txt`, assets, y la escalera de entrada `/invitation/` y `/10-minutes/` (con sus pares `/es/invitacion/` y `/es/10-minutos/`); los tres libros se publican en `/real-time-enterprise/` · `/aura/` · `/agencydomains/` (ES bajo `/es/`) |
+| `site/` | Shell estático del sitio: landings EN/ES, `llms.txt`, assets, y la escalera de entrada `/invitation/` y `/10-minutes/` (con sus pares `/es/invitacion/` y `/es/10-minutos/`); los cuatro libros se publican en `/death-of-software/` · `/real-time-enterprise/` · `/aura/` · `/agencydomains/` (ES bajo `/es/`) |
 | `.github/workflows/publish.yml` | El **publicador**: un tag `agencydomains-vX.Y` construye todo (web ES/EN, PDFs, manifiestos para agentes) y despliega a Pages |
 
 Lo publicado (el libro navegable, los PDFs, los manifiestos `AgencyDomains-vX.Y-agents-{en,es}.{md,txt}`)

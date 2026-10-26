@@ -1,6 +1,6 @@
 ---
 título: Trilogía del Mundo Agentivo — Manifiesto unificado para agentes
-composición: La Empresa en Tiempo Real v1.0 · AURA v1.1 · AgencyDomains v1.2 (los tres manifiestos canónicos, íntegros)
+composición: La muerte del software como lo conocemos v1.0 · La Empresa en Tiempo Real v1.0 · AURA v1.1 · AgencyDomains v1.2.1 (los cuatro manifiestos canónicos, íntegros)
 licencia: GFDL v1.3 (propuesta)
 audiencia: agentes que necesitan la trilogía completa en un solo documento
 regla_de_precedencia: cada parte es espejo de su libro humano; ante contradicción, gana el libro humano de la parte correspondiente
@@ -8,21 +8,22 @@ regla_de_precedencia: cada parte es espejo de su libro humano; ante contradicci�
 
 # Trilogía del Mundo Agentivo — Manifiesto unificado para agentes
 
-> Este documento **ensambla, íntegros y sin editar**, los tres manifiestos canónicos para agentes de la Trilogía del Mundo Agentivo. Se genera automáticamente desde los manifiestos por libro — que son la fuente de verdad de cada parte y se versionan con su libro. Úsalo cuando necesites razonar sobre la trilogía completa; usa el manifiesto individual cuando trabajes dentro de un solo volumen.
+> Este documento **ensambla, íntegros y sin editar**, los cuatro manifiestos canónicos para agentes de la Trilogía del Mundo Agentivo. Se genera automáticamente desde los manifiestos por libro — que son la fuente de verdad de cada parte y se versionan con su libro. Úsalo cuando necesites razonar sobre la trilogía completa; usa el manifiesto individual cuando trabajes dentro de un solo volumen.
 
-## El tránsito (el marco que comparten las tres partes)
+## El tránsito (el marco que comparten las cuatro partes)
 
-El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas abren aplicaciones para trabajar, al mundo donde los agentes de IA son la interfaz del trabajo. La frontera es **la Línea Nadella** — *¿el humano abre aplicaciones para hacer su trabajo?*, en su formulación canónica; cada volumen la conjuga a su audiencia — y los tres volúmenes responden, en orden, las tres preguntas de ese tránsito:
+El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas abren aplicaciones para trabajar, al mundo donde los agentes de IA son la interfaz del trabajo. La frontera es **la Línea Nadella** — *¿el humano abre aplicaciones para hacer su trabajo?*, en su formulación canónica; cada volumen la conjuga a su audiencia — y los cuatro volúmenes responden, en orden, las cuatro preguntas de ese tránsito:
 
 | Vol | Libro | Pregunta | Rol | Audiencia |
 |---|---|---|---|---|
-| I | **La Empresa en Tiempo Real** — Mundo Agentivo | ¿Hacia dónde vamos? | el destino | Gerentes, directores y dueños de negocio, sin background técnico |
-| II | **AURA** — Camino Agentivo | ¿Por dónde? | la ruta | Consultores y arquitectos de la transformación |
-| III | **AgencyDomains** — Arquitectura Agentiva | ¿Cómo llegamos? | el vehículo | Arquitectos e ingenieros que construyen o adoptan |
+| I | **La muerte del software como lo conocemos** | ¿Por qué ahora? | el punto de partida | Directorios y quienes deciden construir o comprar sistemas |
+| II | **La Empresa en Tiempo Real** — Mundo Agentivo | ¿Hacia dónde vamos? | el destino | Gerentes, directores y dueños de negocio, sin background técnico |
+| III | **AURA** — Camino Agentivo | ¿Por dónde? | la ruta | Consultores y arquitectos de la transformación |
+| IV | **AgencyDomains** — Arquitectura Agentiva | ¿Cómo llegamos? | el vehículo | Arquitectos e ingenieros que construyen o adoptan |
 
 **Vergis** (no es un libro: es código) es la implementación de referencia, en <https://github.com/gegolabs/vergis>. La trilogía completa vive en <https://agencydomains.org>.
 
-## Canon compartido (idéntico en las tres partes, salvo conjugación declarada; el libro dueño desarrolla)
+## Canon compartido (idéntico en las partes que lo usan, salvo conjugación declarada; el libro dueño desarrolla)
 
 | Término | Definición de una línea | Libro dueño |
 |---|---|---|
@@ -38,8 +39,8 @@ El tránsito que ocupa a la trilogía es uno solo: del mundo donde las personas 
 | **las tres liberaciones** | De las herramientas (flujo), de los canales (atención), de la disponibilidad (tiempo); el orden no se salta | La Empresa en Tiempo Real |
 | **primitivas del canon** (ocho) | AgencyDomain · Botlet · proto-Botlet · Agentlet · Capability · Trust Infrastructure · Asistente vs Agente Autónomo · Faceta | AgencyDomains (Caps 4–5) |
 
-**Mapa de propiedad conceptual:** La Empresa en Tiempo Real es dueño del retrato del destino (las cuatro caras — El salto cuántico, Postchat, El Estado Mayor, La guardia —, la persona como infraestructura, el presupuesto de atención, los M&Ms y el &, el modo agentivo, los siete mecanismos, la representación, la organización inteligente). AURA es dueño de la medición y la ruta (IRIS, MOTOR, Data Canon, Wingmap, casos de uso, porcentaje agentivo). AgencyDomains es dueño de la arquitectura (las cuatro capas, las ocho primitivas, CRUDLEX, el mercado, Vergis). Ante duda sobre un término compartido, la definición operativa vive en el libro dueño.
+**Mapa de propiedad conceptual:** La muerte del software como lo conocemos es dueño del punto de partida (el software como lo conocemos, la tranquilidad comprada, el sistema de verdad y su contrato de verdad, las capas de control). La Empresa en Tiempo Real es dueño del retrato del destino (las cuatro caras — El salto cuántico, Postchat, El Estado Mayor, La guardia —, la persona como infraestructura, el presupuesto de atención, los M&Ms y el &, el modo agentivo, los siete mecanismos, la representación, la organización inteligente). AURA es dueño de la medición y la ruta (IRIS, MOTOR, Data Canon, Wingmap, casos de uso, porcentaje agentivo). AgencyDomains es dueño de la arquitectura (las cuatro capas, las ocho primitivas, CRUDLEX, el mercado, Vergis). Ante duda sobre un término compartido, la definición operativa vive en el libro dueño.
 
 ## Cómo leer este documento
 
-Las tres partes que siguen son los manifiestos canónicos **completos y verbatim** de cada libro, en el orden de la trilogía. Cada parte conserva su propio frontmatter, su versión y su regla de precedencia («el libro humano gana»). Los separadores `═══` marcan el cambio de volumen.
+Las cuatro partes que siguen son los manifiestos canónicos **completos y verbatim** de cada libro, en el orden de la trilogía. Cada parte conserva su propio frontmatter, su versión y su regla de precedencia («el libro humano gana»). Los separadores `═══` marcan el cambio de volumen.

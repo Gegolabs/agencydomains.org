@@ -25,7 +25,9 @@ var VIGENTE = {
     'AgencyDomains':      '@AGD_VERSION@',
     'AURA':               '@AURA_VERSION@',
     'RealTimeEnterprise': '@RTE_VERSION@',
-    'EmpresaTiempoReal':  '@RTE_VERSION@'
+    'EmpresaTiempoReal':  '@RTE_VERSION@',
+    'DeathOfSoftware':    '@MUERTE_VERSION@',
+    'MuerteDelSoftware':  '@MUERTE_VERSION@'
 };
 
 function handler(event) {

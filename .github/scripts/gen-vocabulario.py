@@ -17,6 +17,13 @@ Fuentes, por libro y por idioma (una función de parseo por sintaxis):
                 glosario, se cambia la fuente aquí y nada más.
   · Libro IV  — contenido/apendices/glosario.md · contenido-en/apendices/glosario.md
                 entradas «### Término» + primer párrafo + «*Ver: …*»
+  · Libro I   — contenido/glosario.md · contenido-en/glosario.md (misma sintaxis que el II)
+
+El orden de BOOKS es el orden de prioridad de las anclas, no el de lectura: el
+Libro I entró último (es el último que se escribió) y va al final para que
+ningún término de II–IV pierda su ancla pelada; sus repeticiones («Botlet»,
+«Agentlet», «Wingworking»…) llevan sufijo «--muerte». La página se presenta
+en el orden de lectura (clave 'order').
 
 Las anclas de origen salen del MISMO código que las produce en el libro-web
 (web-build.py: ids de pandoc para «###», entry_anchors() para «**término** —»),
@@ -55,7 +62,7 @@ def ver(book):
 # cómo se enlaza la entrada de origen) por idioma.
 BOOKS = [
     {
-        'key': 'rte', 'num': 'I',
+        'key': 'rte', 'num': 'II', 'order': 2,
         'title': {'es': 'La Empresa en Tiempo Real', 'en': 'The Real-Time Enterprise'},
         'base':  {'es': '/es/empresa-tiempo-real', 'en': '/real-time-enterprise'},
         'src':   {'es': 'src/rte/contenido/glosario.md', 'en': 'src/rte/contenido-en/glosario.md'},
@@ -63,7 +70,7 @@ BOOKS = [
         'src_label': {'es': 'Glosario', 'en': 'Glossary'},
     },
     {
-        'key': 'aura', 'num': 'II',
+        'key': 'aura', 'num': 'III', 'order': 3,
         'title': {'es': 'AURA', 'en': 'AURA'},
         'base':  {'es': '/es/aura', 'en': '/aura'},
         'src':   {'es': 'src/aura/para-agentes.md', 'en': 'src/aura/para-agents.md'},
@@ -73,7 +80,7 @@ BOOKS = [
         'src_label': {'es': 'Manifiesto canónico §9', 'en': 'Canonical manifest §9'},
     },
     {
-        'key': 'agencydomains', 'num': 'III',
+        'key': 'agencydomains', 'num': 'IV', 'order': 4,
         'title': {'es': 'AgencyDomains', 'en': 'AgencyDomains'},
         'base':  {'es': '/es/agencydomains', 'en': '/agencydomains'},
         'src':   {'es': 'src/agencydomains/contenido/apendices/glosario.md',
@@ -81,7 +88,16 @@ BOOKS = [
         'kind': 'headings',
         'src_label': {'es': 'Apéndice A', 'en': 'Appendix A'},
     },
+    {   # al final: ver el docstring
+        'key': 'muerte', 'num': 'I', 'order': 1,
+        'title': {'es': 'La muerte del software como lo conocemos', 'en': 'The Death of Software as We Know It'},
+        'base':  {'es': '/es/muerte-del-software', 'en': '/death-of-software'},
+        'src':   {'es': 'src/muerte/contenido/glosario.md', 'en': 'src/muerte/contenido-en/glosario.md'},
+        'kind': 'entries',
+        'src_label': {'es': 'Glosario', 'en': 'Glossary'},
+    },
 ]
+READING = sorted(BOOKS, key=lambda b: b['order'])   # orden de presentación
 
 UI = {
     'es': {
@@ -193,7 +209,7 @@ def load(book, lang):
 # ---------------------------------------------------------------- render ----
 def assign_anchors(books_entries):
     """El primer libro que acuña un término se lleva el ancla pelada; una repetición
-    posterior (p. ej. «Línea Nadella» en I y en II) lleva sufijo de libro."""
+    posterior (p. ej. «Línea Nadella» en II y en III) lleva sufijo de libro."""
     taken = {}
     for book, entries in books_entries:
         for e in entries:
@@ -212,7 +228,7 @@ def render_html(lang, books_entries, versions):
     alt = 'en' if lang == 'es' else 'es'
     parts = []
     terms_ld = []
-    for book, entries in books_entries:
+    for book, entries in sorted(books_entries, key=lambda be: be[0]['order']):
         parts.append(f'<h2 id="book-{book["key"]}">{book["num"]} · {book["title"][lang]}'
                      f' <span class="ed">{versions[book["key"]]}</span></h2>')
         parts.append('<dl class="vocab">')
@@ -230,7 +246,7 @@ def render_html(lang, books_entries, versions):
     ld = {'@context': 'https://schema.org', '@type': 'DefinedTermSet', 'name': ui['h1'],
           'url': f'{SITE}{ui["path"]}', 'inLanguage': lang, 'license': 'https://www.gnu.org/licenses/fdl-1.3.html',
           'hasDefinedTerm': terms_ld}
-    eds = ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in BOOKS)
+    eds = ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in READING)
     toggle = (f'<span><span class="on">ES</span> · <a href="{ui["alt"]}">EN</a></span>' if lang == 'es'
               else f'<span><span class="on">EN</span> · <a href="{ui["alt"]}">ES</a></span>')
     nxt = ''.join(f'<a href="{h}"><span class="k">{k}</span> {t}</a>' for k, t, h in ui['next'])
@@ -260,8 +276,8 @@ def render_html(lang, books_entries, versions):
 def render_md(lang, books_entries, versions):
     ui = UI[lang]
     out = [f'# {ui["md_title"]}', '', f'> {ui["md_intro"]}', '',
-           f'> {ui["editions"]}: ' + ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in BOOKS), '']
-    for book, entries in books_entries:
+           f'> {ui["editions"]}: ' + ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in READING), '']
+    for book, entries in sorted(books_entries, key=lambda be: be[0]['order']):
         out += [f'## {book["num"]} · {book["title"][lang]} ({versions[book["key"]]})', '']
         for e in entries:
             t = H.unescape(wb.strip_tags(e['term'])); d = H.unescape(wb.strip_tags(e['def']))

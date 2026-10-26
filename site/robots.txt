@@ -2,7 +2,7 @@
 #
 # Todo el sitio es público y está abierto a humanos y agentes.
 # La puerta canónica para un agente es /llms.txt (y /es/llms.txt),
-# que enumera los manifiestos de los tres libros en Markdown y texto plano.
+# que enumera los manifiestos de los cuatro libros en Markdown y texto plano.
 #
 # Por qué existe: para declarar la política de rastreo y apuntar al sitemap.
 # NO para prevenir el bloqueo del 2026-09-07: durante esa caída todo el sitio

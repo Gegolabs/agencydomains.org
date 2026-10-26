@@ -2,6 +2,7 @@
 #
 #   git tag agencydomains-v0.5 && git push --tags   → publica TODO automáticamente
 #   git tag aura-v0.3 && git push --tags            → ídem (el sitio es un solo artefacto)
+#   (los cuatro libros: agencydomains-v* · aura-v* · rte-v* · muerte-v*)
 #
 # También se puede disparar a mano (workflow_dispatch) para republicar el estado
 # actual de main sin crear tag (p. ej. tras editar el shell en site/).
@@ -12,7 +13,7 @@ name: publish
 
 on:
   push:
-    tags: ['agencydomains-v*', 'aura-v*', 'rte-v*']
+    tags: ['agencydomains-v*', 'aura-v*', 'rte-v*', 'muerte-v*']
   workflow_dispatch:
 
 permissions:
@@ -39,14 +40,17 @@ jobs:
           AGD_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/agencydomains/CHANGELOG.md | cut -d" " -f2)
           AURA_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/aura/CHANGELOG.md | cut -d" " -f2)
           RTE_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/rte/CHANGELOG.md | cut -d" " -f2)
+          MUERTE_VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" src/muerte/CHANGELOG.md | cut -d" " -f2)
           echo "AGD_VERSION=$AGD_VERSION" >> "$GITHUB_ENV"
           echo "AURA_VERSION=$AURA_VERSION" >> "$GITHUB_ENV"
           echo "RTE_VERSION=$RTE_VERSION" >> "$GITHUB_ENV"
+          echo "MUERTE_VERSION=$MUERTE_VERSION" >> "$GITHUB_ENV"
           if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
             case "$GITHUB_REF_NAME" in
               agencydomains-*) TAG_V="${GITHUB_REF_NAME#agencydomains-}"; BOOK_V="$AGD_VERSION";;
               aura-*)          TAG_V="${GITHUB_REF_NAME#aura-}";          BOOK_V="$AURA_VERSION";;
               rte-*)           TAG_V="${GITHUB_REF_NAME#rte-}";           BOOK_V="$RTE_VERSION";;
+              muerte-*)        TAG_V="${GITHUB_REF_NAME#muerte-}";        BOOK_V="$MUERTE_VERSION";;
               *) echo "::error::Tag desconocido: $GITHUB_REF_NAME"; exit 1;;
             esac
             if [ "$TAG_V" != "$BOOK_V" ]; then
@@ -57,9 +61,10 @@ jobs:
 
       - name: Guardia — el shell enlaza las versiones que se publican
         run: |
-          # El Libro II (La Empresa en Tiempo Real) nombra sus distribuibles por idioma (RealTimeEnterprise / EmpresaTiempoReal)
+          # Los libros I (La muerte del software) y II (La Empresa en Tiempo Real) nombran sus
+          # distribuibles por idioma (DeathOfSoftware / MuerteDelSoftware · RealTimeEnterprise / EmpresaTiempoReal)
           for f in site/index.html; do   # llms.txt se deriva de plantilla: no puede desalinearse
-            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-"; do
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "RealTimeEnterprise-${RTE_VERSION}-" "DeathOfSoftware-${MUERTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
                 exit 1
@@ -67,7 +72,7 @@ jobs:
             done
           done
           for f in site/es/index.html; do   # ídem
-            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "EmpresaTiempoReal-${RTE_VERSION}-"; do
+            for pref in "AgencyDomains-${AGD_VERSION}-" "AURA-${AURA_VERSION}-" "EmpresaTiempoReal-${RTE_VERSION}-" "MuerteDelSoftware-${MUERTE_VERSION}-"; do
               if ! grep -q "$pref" "$f"; then
                 echo "::error::$f no enlaza ningún archivo ${pref}*. Actualiza los links del shell a la versión nueva."
                 exit 1
@@ -82,7 +87,8 @@ jobs:
           if ! grep -q "${AGD_VERSION}" src/agencydomains/_build/frontmatter.tex; then
             echo "::error::frontmatter.tex de AGD no menciona v${AGD_VERSION} — el PDF llevaría impresa otra versión."; FAIL=1
           fi
-          # 2) el mes/año de las portadas de build coincide con el frontmatter de cada libro
+          # 2) el mes/año de las portadas de build coincide con el frontmatter de cada libro.
+          #    El Libro I no entra: su PDF no lleva fecha fuera del frontmatter y la portada (WeasyPrint).
           for libro in rte aura agencydomains; do
             MES_ES=$(grep -oE "(Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre) 2[0-9]{3}" src/$libro/contenido/00-frontmatter.md | head -1)
             MES_EN=$(grep -oE "(January|February|March|April|May|June|July|August|September|October|November|December) 2[0-9]{3}" src/$libro/contenido-en/00-frontmatter.md | head -1)
@@ -95,7 +101,7 @@ jobs:
           done
           # 3) ningún manifiesto declara que su libro no está publicado
           if grep -rn "sin publicación pública\|not yet publicly published" src/*/para-agent*.md; then
-            echo "::error::Un manifiesto declara «sin publicación pública» — los tres libros están publicados."; FAIL=1
+            echo "::error::Un manifiesto declara «sin publicación pública» — los cuatro libros están publicados."; FAIL=1
           fi
           # 4) el shell cuenta las cinco specs de AURA
           # 4b) la plantilla de llms.txt no lleva versiones escritas a mano.
@@ -103,7 +109,7 @@ jobs:
           #     plantilla el desajuste es imposible, y lo que hay que impedir es que
           #     alguien vuelva a cablear un número.
           if grep -nE 'v[0-9]+\.[0-9]+' site/llms.txt.in site/es/llms.txt.in; then
-            echo "::error::llms.txt.in tiene una versión escrita a mano; usa @AGD_VERSION@ · @AURA_VERSION@ · @RTE_VERSION@."
+            echo "::error::llms.txt.in tiene una versión escrita a mano; usa @AGD_VERSION@ · @AURA_VERSION@ · @RTE_VERSION@ · @MUERTE_VERSION@."
             FAIL=1
           fi
           # 4c) las cinco specs de AURA se cuentan en la plantilla
@@ -119,7 +125,8 @@ jobs:
         run: |
           sudo apt-get update -q
           sudo apt-get install -y -q pandoc texlive-xetex texlive-latex-extra fontconfig poppler-utils
-          # WeasyPrint renderiza las portadas (src/trilogia/portada); fijada a la
+          # WeasyPrint renderiza las portadas (src/trilogia/portada) y el PDF entero
+          # del Libro I (src/muerte/_build/libro.sh); fijada a la
           # versión con que se validó la maqueta. poppler-utils trae pdfinfo, con el
           # que render.sh comprueba que cada portada salga en una sola página.
           pipx install 'weasyprint==66.0'
@@ -150,6 +157,12 @@ jobs:
           bash src/rte/_build/build-en.sh
           bash src/rte/_build/build-web.sh
 
+      - name: Construir La muerte del software como lo conocemos — ES (PDF) · EN (PDF + web) · ES web
+        run: |
+          bash src/muerte/_build/build-pdf.sh
+          bash src/muerte/_build/build-en.sh
+          bash src/muerte/_build/build-web.sh
+
       - name: Manifiesto unificado de la trilogía (agentes, ES+EN)
         run: bash src/trilogia/build-agentes.sh
 
@@ -158,6 +171,7 @@ jobs:
           DIST=src/agencydomains/_dist
           ADIST=src/aura/_dist
           RDIST=src/rte/_dist
+          MDIST=src/muerte/_dist
           mkdir -p _site
           cp -R site/. _site/
           # NO debe existir site/CNAME: el dominio lo sirve CloudFront y Pages
@@ -174,6 +188,7 @@ jobs:
             sed -e "s/@AGD_VERSION@/${AGD_VERSION}/g" \
                 -e "s/@AURA_VERSION@/${AURA_VERSION}/g" \
                 -e "s/@RTE_VERSION@/${RTE_VERSION}/g" \
+                -e "s/@MUERTE_VERSION@/${MUERTE_VERSION}/g" \
                 "site/$f.in" > "_site/$f"
           done
           rm -f _site/llms.txt.in _site/es/llms.txt.in
@@ -182,7 +197,7 @@ jobs:
             exit 1
           fi
           # los libros reemplazan cualquier placeholder del shell en su ruta
-          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real
+          rm -rf _site/agencydomains _site/es/agencydomains _site/aura _site/es/aura _site/real-time-enterprise _site/es/empresa-tiempo-real _site/death-of-software _site/es/muerte-del-software
           # AgencyDomains: EN → /agencydomains/ · ES → /es/agencydomains/
           cp -R "$DIST/web-en" _site/agencydomains
           cp -R "$DIST/web-es" _site/es/agencydomains
@@ -192,6 +207,9 @@ jobs:
           # La Empresa en Tiempo Real: EN → /real-time-enterprise/ · ES → /es/empresa-tiempo-real/
           cp -R "$RDIST/web-en" _site/real-time-enterprise
           cp -R "$RDIST/web-es" _site/es/empresa-tiempo-real
+          # La muerte del software como lo conocemos: EN → /death-of-software/ · ES → /es/muerte-del-software/
+          cp -R "$MDIST/web-en" _site/death-of-software
+          cp -R "$MDIST/web-es" _site/es/muerte-del-software
           # manifiestos para agentes → raíz de cada idioma
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/
@@ -205,6 +223,10 @@ jobs:
           mv _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-agents-en.txt _site/
           mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.md  _site/es/
           mv _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-agents-es.txt _site/es/
+          mv _site/death-of-software/DeathOfSoftware-${MUERTE_VERSION}-agents-en.md  _site/
+          mv _site/death-of-software/DeathOfSoftware-${MUERTE_VERSION}-agents-en.txt _site/
+          mv _site/es/muerte-del-software/MuerteDelSoftware-${MUERTE_VERSION}-agents-es.md  _site/es/
+          mv _site/es/muerte-del-software/MuerteDelSoftware-${MUERTE_VERSION}-agents-es.txt _site/es/
           # alias estables sin versión — siempre la edición vigente (los versionados quedan para cita exacta)
           for ext in md txt; do
             cp _site/AgencyDomains-${AGD_VERSION}-agents-en.$ext      _site/AgencyDomains-agents-en.$ext
@@ -213,6 +235,8 @@ jobs:
             cp _site/es/AgencyDomains-${AGD_VERSION}-agents-es.$ext   _site/es/AgencyDomains-agents-es.$ext
             cp _site/es/AURA-${AURA_VERSION}-agents-es.$ext           _site/es/AURA-agents-es.$ext
             cp _site/es/EmpresaTiempoReal-${RTE_VERSION}-agents-es.$ext _site/es/EmpresaTiempoReal-agents-es.$ext
+            cp _site/DeathOfSoftware-${MUERTE_VERSION}-agents-en.$ext    _site/DeathOfSoftware-agents-en.$ext
+            cp _site/es/MuerteDelSoftware-${MUERTE_VERSION}-agents-es.$ext _site/es/MuerteDelSoftware-agents-es.$ext
           done
           # alias estables para los PDF — el enlace que se comparte no debe caducar.
           # Medido el 2026-09-08: 1.351 peticiones 404 a distribuibles de ediciones
@@ -223,6 +247,8 @@ jobs:
           cp _site/es/aura/AURA-${AURA_VERSION}-es.pdf                              _site/es/aura/AURA-es.pdf
           cp _site/real-time-enterprise/RealTimeEnterprise-${RTE_VERSION}-en.pdf    _site/real-time-enterprise/RealTimeEnterprise-en.pdf
           cp _site/es/empresa-tiempo-real/EmpresaTiempoReal-${RTE_VERSION}-es.pdf   _site/es/empresa-tiempo-real/EmpresaTiempoReal-es.pdf
+          cp _site/death-of-software/DeathOfSoftware-${MUERTE_VERSION}-en.pdf       _site/death-of-software/DeathOfSoftware-en.pdf
+          cp _site/es/muerte-del-software/MuerteDelSoftware-${MUERTE_VERSION}-es.pdf _site/es/muerte-del-software/MuerteDelSoftware-es.pdf
           # manifiesto unificado de la trilogía (URL estable, sin versión en el nombre)
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/
           cp src/trilogia/_dist/AgentiveWorld-Trilogy-agents-en.md  _site/AgentiveWorld-Trilogy-agents-en.txt
@@ -233,7 +259,7 @@ jobs:
           cp src/trilogia/_dist/Trilogia-MundoAgentivo-agentes-es.md _site/es/trilogia.md
           echo "=== contenido del artefacto ===" && find _site -maxdepth 2 | sort
 
-      # La página de vocabulario se DERIVA de los glosarios de los tres libros: no
+      # La página de vocabulario se DERIVA de los glosarios de los cuatro libros: no
       # define nada, enlaza cada término a su entrada de origen. Va antes del
       # sitemap para que éste la liste. Falla si ES y EN no son espejo.
       - name: Vocabulario canónico (derivado de los glosarios, ES + EN)
@@ -294,6 +320,7 @@ jobs:
           sed -e "s/@AGD_VERSION@/${AGD_VERSION}/g" \
               -e "s/@AURA_VERSION@/${AURA_VERSION}/g" \
               -e "s/@RTE_VERSION@/${RTE_VERSION}/g" \
+              -e "s/@MUERTE_VERSION@/${MUERTE_VERSION}/g" \
               .github/functions/router.js.in > /tmp/router.js
           if grep -n '@[A-Z_]*VERSION@' /tmp/router.js; then
             echo "::error::quedaron marcadores sin sustituir en el router."; exit 1
