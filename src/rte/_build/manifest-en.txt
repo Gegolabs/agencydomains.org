@@ -25,3 +25,4 @@ contenido-en/p2-08-la-convergencia.md
 contenido-en/p2-conclusion.md
 contenido-en/glosario.md
 contenido-en/referencias.md
+contenido-en/colofon.md
