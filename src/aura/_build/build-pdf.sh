@@ -13,13 +13,17 @@ VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" CHANGELOG.md | cut -d" "
 MD="_dist/AURA-${VERSION}.md"
 PDF="_dist/AURA-${VERSION}.pdf"
 HEADER="$LIBRO_DIR/../agencydomains/_build/header-libro-extra.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="_dist/portada-es.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" aura es "$PORTADA"
 TMPSRC="$(mktemp -t aura-pdf-XXXXXX).md"
 trap 'rm -f "$TMPSRC"' EXIT
 # Del frontmatter solo sobrevive «La trilogía» (página propia); el resto vive en la portada.
 { awk '/^## La trilogía/{f=1} /^# Prólogo/{f=0} f' "$MD" | sed '1s/^## /# /'
   sed -n '/^# Prólogo/,$p' "$MD"; } > "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
-  --pdf-engine=xelatex -H "$HEADER" \
+  --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
   --metadata title="AURA" --metadata subtitle="El Camino Agentivo" \
   --metadata author="César Obach-Renner" \

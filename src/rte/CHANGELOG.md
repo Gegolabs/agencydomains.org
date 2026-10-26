@@ -5,6 +5,8 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 
 ## Sin publicar
 
+**Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello GegoLabs; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.
+
 **Colofón común de la trilogía.** «Sobre cómo se escribió este libro», idéntico en los cuatro libros (ES/EN): Wingworking, César Obach-Renner como líder y Simón Alero, ciudadano de Soveria, como *wingman*, sobre los modelos Claude. Decisión de César, 2026-10-25.
 
 ## v1.0 — Agosto 2026

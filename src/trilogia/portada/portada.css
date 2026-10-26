@@ -1,0 +1,40 @@
+/* Portada de los Libros II, III y IV de la Trilogía del Mundo Agentivo.
+ * Una sola maqueta: el color del tomo en la pila, título en STIX Two crema,
+ * filete, la pila en miniatura con su libro marcado, autor y sello, y bandas
+ * dobles arriba y abajo. Página carta a sangre, la misma de los PDF.
+ * El Libro I lleva la misma maqueta en su propio repo (muerte-del-software,
+ * libro.css «/* Portada»).
+ * Se renderiza con WeasyPrint (render.sh) y entra como página 1 del PDF. */
+@page { size: letter; margin: 0; }
+@page rte  { margin: 0; background: linear-gradient(172deg,#c98262 0%,#b06a4c 55%,#93553b 100%); }
+@page aura { margin: 0; background: linear-gradient(172deg,#7f9e82 0%,#66876a 55%,#516f55 100%); }
+@page agd  { margin: 0; background: linear-gradient(172deg,#866d9e 0%,#6e5688 55%,#584370 100%); }
+html, body { margin: 0; }
+.portada { position: relative; height: 279.4mm; color: #ece4d4; font-family: "STIX Two Text", serif; }
+.libro-rte  .portada { page: rte; }
+.libro-aura .portada { page: aura; }
+.libro-agd  .portada { page: agd; }
+.portada p { text-align: left; margin: 0; }
+.p-banda { position: absolute; left: 0; right: 0; top: 18mm; height: 0; border-top: 0.6pt solid rgba(236,228,212,.35); border-bottom: 0.6pt solid rgba(236,228,212,.35); padding-top: 1.6mm; }
+.p-banda-pie { top: auto; bottom: 18mm; }
+.p-serie { position: absolute; top: 30mm; left: 28mm; font-size: 9pt; letter-spacing: 3.2pt; text-transform: uppercase; color: rgba(236,228,212,.72); }
+.p-sep { color: rgba(236,228,212,.45); margin: 0 3pt; }
+.p-titulo { position: absolute; top: 74mm; left: 28mm; right: 24mm; }
+.p-t1 { font-size: 60pt; line-height: 1.02; font-weight: 400; letter-spacing: -0.4pt; color: #f3ecdf; }
+.p-t2 { font-size: 28pt; font-style: italic; margin-top: 4mm !important; color: #e3d8c4; }
+.p-filete { width: 34mm; border-top: 1pt solid; margin: 11mm 0 8mm; }
+.libro-rte  .p-filete { border-top-color: #3a2a22; }
+.libro-aura .p-filete { border-top-color: #2d3a2e; }
+.libro-agd  .p-filete { border-top-color: #e9c46a; }
+.p-pila { position: absolute; left: 28mm; bottom: 66mm; width: 46mm; }
+.p-l { display: block; height: 2.6mm; margin-bottom: 1.3mm; border-radius: 0.5mm; }
+.p-l1 { width: 42mm; margin-left: 2mm; background: #2e2d2b; }
+.p-l2 { width: 44mm; background: #d38f6d; }
+.p-l3 { width: 41mm; margin-left: 3mm; background: #7e9f81; }
+.p-l4 { width: 46mm; background: #846a9c; }
+/* El tomo propio: más grueso y con el borde crema pleno, para que se lea
+ * sobre un fondo de su mismo color. Lleva aire arriba y abajo para que el
+ * borde no pise los tomos vecinos. */
+.p-hl { height: 3.6mm; margin-top: 1mm; margin-bottom: 2.3mm; outline: 1.4pt solid #f6efe2; outline-offset: 0.7mm; }
+.p-autor { position: absolute; left: 28mm; bottom: 42mm; font-size: 15pt; letter-spacing: 0.6pt; color: #f3ecdf; }
+.p-sello { position: absolute; left: 28mm; bottom: 31mm; font-size: 9pt; letter-spacing: 1.4pt; text-transform: uppercase; color: rgba(236,228,212,.6); }

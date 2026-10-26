@@ -35,13 +35,17 @@ echo "  ✓ $MD"
 # PDF de revisión (incluye el front matter traducido; metadatos en inglés)
 PDF="$DIST/AgencyDomains-${VERSION}-en.pdf"
 HEADER="$SCRIPT_DIR/header-libro-extra.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="$DIST/portada-en.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" agencydomains en "$PORTADA"
 cd "$LIBRO_DIR"
 echo "→ PDF (xelatex)…"
 TMPPDF="$(mktemp -t agd-en-pdf-XXXXXX).md"
 trap 'rm -f "$TMPPDF"' EXIT
 sed 's|](figuras/|](figuras-en/|g' "$MD" > "$TMPPDF"
 if pandoc "$TMPPDF" -o "$PDF" \
-    --pdf-engine=xelatex -H "$HEADER" \
+    --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
     --metadata title="AgencyDomains" \
     --metadata subtitle="Architecture of the Agentive World" \
     --metadata author="César Obach-Renner" \

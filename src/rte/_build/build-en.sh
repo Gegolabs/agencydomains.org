@@ -11,6 +11,10 @@ VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" CHANGELOG.md | cut -d" "
 MD="_dist/EmpresaTiempoReal-EN-${VERSION}.md"
 PDF="_dist/RealTimeEnterprise-EN-${VERSION}.pdf"
 HEADER="$LIBRO_DIR/../agencydomains/_build/header-libro-extra.tex"
+# Portada (página 1) desde la maqueta de la trilogía; la página de título de
+# pandoc queda detrás como portadilla. Ver ../trilogia/portada/render.sh.
+PORTADA="_dist/portada-en.pdf"
+bash "$LIBRO_DIR/../trilogia/portada/render.sh" rte en "$PORTADA"
 TMPSRC="$(mktemp -t rte-pdf-en-XXXXXX).md"
 TMPHDR="$(mktemp -t rte-hdr-en-XXXXXX).tex"
 trap 'rm -f "$TMPSRC" "$TMPHDR"' EXIT
@@ -24,7 +28,7 @@ sed -i '' 's|](figuras/|](figuras-en/|g' "$TMPSRC" 2>/dev/null || sed -i 's|](fi
 # Teasers de escena → caja cajateaser (ver build-pdf.sh para el detalle).
 perl -0777 -i -pe 's{^> \*\*What you just saw:\*\*\n>\n> ([^\n]*)\n>\n> \*(The commentary for this scene: [^\n]*?)\.?\*\n}{::: {.cajateaser comentario="$2"}\n$1\n:::\n}gm' "$TMPSRC"
 pandoc "$TMPSRC" -o "$PDF" \
-  --pdf-engine=xelatex -H "$HEADER" -H "$SCRIPT_DIR/header-fusion.tex" -H "$TMPHDR" \
+  --pdf-engine=xelatex -H "$HEADER" -H "$SCRIPT_DIR/header-fusion.tex" -H "$TMPHDR" -H "${PORTADA%.pdf}.tex" \
   --lua-filter="$SCRIPT_DIR/teaser.lua" \
   --metadata title="The Real-Time Enterprise" --metadata subtitle="The Agentive World" \
   --metadata author="César Obach-Renner" \
