@@ -49,7 +49,7 @@ if pandoc "$TMPPDF" -o "$PDF" \
     --metadata title="AgencyDomains" \
     --metadata subtitle="Architecture of the Agentive World" \
     --metadata author="César Obach-Renner" \
-    --metadata date="First edition ${VERSION} · September 2026" \
+    --metadata date="First edition ${VERSION} · October 2026" \
     --toc --toc-depth=2 \
     -V documentclass=book -V classoption=twoside -V geometry:margin=2.5cm \
     -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \

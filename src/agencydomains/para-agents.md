@@ -1,15 +1,15 @@
 ---
 title: AgencyDomains — Canonical manifesto for agents
-edition: First edition · v1.2 · September 2026
-canonical_source: libro-agency_domains-v1.2 (human book, Spanish)
+edition: First edition · v1.2.1 · October 2026
+canonical_source: libro-agency_domains-v1.2.1 (human book, Spanish)
 license: GFDL v1.3
 audience: agents that must reason within the framework
-status: v1.2 — first edition, revision 2; references stable since v1.0
+status: v1.2.1 — first edition, revision 2.1; references stable since v1.0
 ---
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v1.2 (first edition, revision 2)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v1.2.1 (first edition, revision 2.1)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 
@@ -17,11 +17,11 @@ status: v1.2 — first edition, revision 2; references stable since v1.0
 
 - **It is canonical context**, not an executive summary. Every definition and property matters for reasoning within the framework.
 - **Series**: AgencyDomains is Book IV of the Agentive World trilogy, in five parts (so far) — *The Death of Software as We Know It* (the starting point; has its own manifesto) · *The Real-Time Enterprise* (the destination; has its own manifesto) · *AURA* (the path; has its own manifesto) · **AgencyDomains** (the architecture). Shared trilogy terms (the Nadella Line, agentive, real-time enterprise, Trust Infrastructure) are consistent across books.
-- **A mirror of v1.2** — the current edition of the book. If this document contradicts the human book, the human book wins.
+- **A mirror of v1.2.1** — the current edition of the book. If this document contradicts the human book, the human book wins.
 - **Mandatory vocabulary**: terms in `code` and **bold** are canonical. Do not substitute synonyms.
 - **MUST/SHOULD conventions**: the spec uses those verbs in the RFC 2119 sense.
-- **v1.2 status**: the book is published as a first edition (v1.0, August 2026; revisions v1.1 and v1.2, September) at agencydomains.org. From this version terms, structures, and numbering are stable: any change is announced in the book's `CHANGELOG.md`.
-- **Changes v1.2.1 vs v1.2** (unpublished): it is made explicit, with a callout in Ch 5 §2, that **Botlets belong to the agent** — its muscle memory, made by the agent that serves the flow and not by someone else for the agent to use; a catalog of others' proto-Botlets is a starting point the agent adopts and makes its own. Invariant across ES/EN.
+- **v1.2.1 status**: the book is published as a first edition (v1.0, August 2026; revisions v1.1 and v1.2, September; v1.2.1, October) at agencydomains.org. From this version terms, structures, and numbering are stable: any change is announced in the book's `CHANGELOG.md`.
+- **Changes v1.2.1 vs v1.2**: it is made explicit, with a callout in Ch 5 §2, that **Botlets belong to the agent** — its muscle memory, made by the agent that serves the flow and not by someone else for the agent to use; a catalog of others' proto-Botlets is a starting point the agent adopts and makes its own. Invariant across ES/EN.
 - **Changes v1.2 vs v1.1**: manifestation has **four families by direction of the effect** — **information** (from the Let to the human: it represents) · **capture** (from the world to the Let: it records something that was not in the system before) · **action** (from the Let to a system: it changes, and the Let closes the loop) · **decision** (it resolves) —, with the membership test *what was in the system before and after the Let?*; an interactive Let composes information and capture ("communication" is not a primitive). **Daftar** enters Ch 9 as Vergis's second proto-Botlet and the reference proto-Botlet of capture (Vergis 0.27.0). Invariant across ES/EN.
 - **Changes v1.1 vs v1.0**: the canon gains **the three Botlet tests** — minion (does it execute, or is it applied?) · specialty (`RISC` versus `CISC`: one specialty per unit) · life (life cycle, or only a version?) — as the identity test of the primitive (Ch 5 §2, glossary). They confirm "one Botlet per `PI`" and settle that Mira is the proto-Botlet, not the Botlet. No structural changes.
 - **Changes v0.7 vs v0.6**: the genus of the packaged pieces of Layer 3 receives a **proper name: Let (plural Lets)** — derived from the family's own `-let` suffix; normed vocabulary at the rank of Botler, not a ninth primitive; "packaged unit of Layer 3" remains as the descriptive definition. Canonical relation: **`1 Process = 1 Botler + N Lets`**. Invariant across ES/EN. Resolves the overload of "unit" (collision with "minimal unit of deployment").

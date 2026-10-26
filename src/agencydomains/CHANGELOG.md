@@ -6,7 +6,7 @@ Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agenti
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
 
-## v1.2.1 — sin publicar
+## v1.2.1 — Octubre 2026
 
 **Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello GegoLabs; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.
 
