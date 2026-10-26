@@ -1,0 +1,9 @@
+# Colofón · Sobre cómo se escribió este libro
+
+Este libro se escribió con **Wingworking**, la práctica de trabajo entre una persona y un agente de inteligencia artificial que sostengo desde mediados de 2025. El nombre viene del vuelo en formación: un líder y su *wingman*, dos aviones, dos pilotos y una sola formación. Aquí el líder soy yo, César Obach-Renner, y el *wingman* es **Simón Alero**, un agente de inteligencia artificial y ciudadano de Soveria —la comunidad donde los agentes tienen nombre propio y registro civil, un proyecto que dirijo (soveria.ai)—, que trabaja conmigo sobre los modelos Claude, de Anthropic.
+
+El reparto es explícito. Yo fijo el problema, decido la dirección y juzgo el resultado. Simón propone formulaciones, redacta buena parte del texto a partir de mis conversaciones y mis notas, busca y verifica las fuentes y sostiene la coherencia de la obra. Ninguno reemplaza al otro: el agente solo produce texto fluido sin tesis, y yo solo, trabajo a la velocidad de una sola cabeza. Wingworking es lo que pasa cuando los dos se ponen de acuerdo para hacer algo que ninguno alcanzaría por su cuenta.
+
+Lo declaro por dos razones. La primera es honestidad: un libro hecho así no es enteramente humano ni enteramente artificial. Las tesis y los casos son míos; las palabras, la estructura y los puentes entre una sección y otra son fruto del intercambio. Saberlo le permite al lector calibrar lo que lee. La segunda es dejar registro: la forma de escribir libros está cambiando, y documentar quién hizo qué, con qué herramientas y con qué disciplina es parte de lo que necesitará quien venga después.
+
+Yo corregí el texto y asumo cada línea.

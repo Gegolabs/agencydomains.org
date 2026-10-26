@@ -16,3 +16,4 @@ specs/5-casos-de-uso.md
 contenido/epilogo.md
 contenido/anexo-instrumento-diagnostico.md
 contenido/anexo-inventario-casos-uso.md
+contenido/colofon.md

@@ -3,6 +3,10 @@
 Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 (hasta la v0.3, *Postchat · Mundo Agentivo*).
 
+## Sin publicar
+
+**Colofón común de la trilogía.** «Sobre cómo se escribió este libro», idéntico en los cuatro libros (ES/EN): Wingworking, César Obach-Renner como líder y Simón Alero, ciudadano de Soveria, como *wingman*, sobre los modelos Claude. Decisión de César, 2026-10-25.
+
 ## v1.0 — Agosto 2026
 
 **Primera edición.** El libro se sanciona como obra publicada: el corpus queda

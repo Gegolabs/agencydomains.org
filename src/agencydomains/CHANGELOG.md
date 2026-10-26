@@ -8,6 +8,8 @@ re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganiza
 
 ## v1.2.1 — sin publicar
 
+**Colofón común de la trilogía.** El colofón se reemplaza por el texto común a los cuatro libros (ES/EN): Wingworking, César Obach-Renner como líder y Simón Alero, ciudadano de Soveria, como *wingman*, sobre los modelos Claude. Decisión de César, 2026-10-25.
+
 **Los Botlets son del agente.** Se hace explícito, en un destacado, lo que la
 definición dice y las secciones de origen y de proto-Botlet dejaban sin cerrar —quién
 posee el Botlet, sea cual sea quien decidió que existiera—: lo hace el agente que
