@@ -6,6 +6,8 @@ Las ediciones del libro, de la más nueva a la más vieja. Términos, estructura
 
 **Citas a *AgencyDomains* con su subtítulo nuevo.** En la edición inglesa, las notas que citan *AgencyDomains* pasan a *AgencyDomains: Agentive Architecture*, paralelo a «Arquitectura Agentiva», que la edición española ya usaba. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-07`).
 
+**Citas a *AURA* con su subtítulo nuevo.** Referencias: *AURA: Camino Agentivo* y, en inglés, *AURA: Agentive Path*, que también nombra al libro en la trilogía de la edición inglesa. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
+
 ## v1.0 — Primera edición
 
 La primera edición, en español.

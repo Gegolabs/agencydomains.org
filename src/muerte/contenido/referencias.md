@@ -22,7 +22,7 @@ Los informes de TM Forum Insight están patrocinados por proveedores de la indus
 ## De la Trilogía del Mundo Agentivo
 
 - Obach-Renner, César. *La Empresa en Tiempo Real*. GegoLabs, 2026.
-- Obach-Renner, César. *AURA: el Camino Agentivo*. GegoLabs, 2026.
+- Obach-Renner, César. *AURA: Camino Agentivo*. GegoLabs, 2026.
 - Obach-Renner, César. *AgencyDomains: Arquitectura Agentiva*. GegoLabs, 2026.
 
 ## Otras

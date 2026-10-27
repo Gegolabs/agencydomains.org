@@ -1,4 +1,4 @@
-# AURA — El Camino Agentivo
+# AURA — Camino Agentivo
 
 ### Libro III de la trilogía del Mundo Agentivo
 

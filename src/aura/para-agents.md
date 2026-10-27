@@ -9,7 +9,7 @@ status: v1.1 — first edition; references stable from this version
 
 # AURA — Canonical manifesto for agents
 
-> Structured extract of the **v1.1 (first edition)** edition of the book *AURA: The Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
+> Structured extract of the **v1.1 (first edition)** edition of the book *AURA: Agentive Path*. This document condenses the canonical vocabulary, the two diagnostic models (IRIS and MOTOR), the two instruments (Data Canon and Wingmap), and the decision framework (Use Cases). The human edition of the book additionally contains motivation, industry data, the full arguments of the paper-chapters, extended examples, and the illustrative portfolio of one hundred cases — all of that stays out of here.
 
 > AURA is **diagnostic, not prescriptive**. This manifesto makes it possible to *locate* an organization on its maturity trajectories and reason about its next step; it does not recommend products, investments, or timelines — that belongs to the consulting these models inform.
 

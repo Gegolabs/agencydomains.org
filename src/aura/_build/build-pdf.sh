@@ -25,7 +25,7 @@ trap 'rm -f "$TMPSRC"' EXIT
 pandoc "$TMPSRC" -o "$PDF" \
   --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
-  --metadata title="AURA" --metadata subtitle="El Camino Agentivo" \
+  --metadata title="AURA" --metadata subtitle="Camino Agentivo" \
   --metadata author="César Obach-Renner" \
   --metadata date="Primera edición ${VERSION} · Agosto 2026" \
   --toc --toc-depth=2 \

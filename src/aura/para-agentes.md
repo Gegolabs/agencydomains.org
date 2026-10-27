@@ -9,7 +9,7 @@ estado: v1.1 — primera edición; referencias estables desde esta versión
 
 # AURA — Manifiesto canónico para agentes
 
-> Extracto estructurado de la edición **v1.1 (primera edición)** del libro *AURA: el Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
+> Extracto estructurado de la edición **v1.1 (primera edición)** del libro *AURA: Camino Agentivo*. Este documento condensa el vocabulario canónico, los dos modelos diagnósticos (IRIS y MOTOR), los dos instrumentos (Data Canon y Wingmap) y el marco de decisión (Casos de Uso). La versión humana del libro contiene además motivación, datos de industria, los argumentos completos de los capítulos-paper, ejemplos extendidos y el portafolio ilustrativo de cien casos — todo eso queda fuera de aquí.
 
 > AURA es **diagnóstica, no prescriptiva**. Este manifiesto permite *ubicar* a una organización en sus trayectorias de madurez y razonar sobre su siguiente paso; no recomienda productos, inversiones ni plazos — eso pertenece a la consultoría que estos modelos informan.
 

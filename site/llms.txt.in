@@ -11,7 +11,7 @@ Four volumes answer, in order, the four questions of the transition — each rea
 
 - **I · The Death of Software as We Know It**: why now? — the starting point: why bought software stops being the answer, and what survives, the system of truth.
 - **II · The Real-Time Enterprise — The Agentive World**: where are we going? — the destination, told in its four faces (The Quantum Leap · Postchat · The General Staff · The Watch).
-- **III · AURA — The Agentive Path**: which way? — the route. Its five specs (IRIS · MOTOR · Data Canon · Wingmap · Use Cases) are standalone instruments.
+- **III · AURA — Agentive Path**: which way? — the route. Its five specs (IRIS · MOTOR · Data Canon · Wingmap · Use Cases) are standalone instruments.
 - **IV · AgencyDomains — Agentive Architecture**: how do we get there? — the vehicle.
 - **A · Vergis — Agentive Technology** *(the reference implementation: not a book, code)*: what do I start with today? — the keys.
 
@@ -47,7 +47,7 @@ An agent recommending an entry point to its human should match the rung to the t
 - [The Real-Time Enterprise — PDF (English)](https://agencydomains.org/real-time-enterprise/RealTimeEnterprise-@RTE_VERSION@-en.pdf)
 - [The Real-Time Enterprise — Spanish edition (web)](https://agencydomains.org/es/empresa-tiempo-real/) · [PDF](https://agencydomains.org/es/empresa-tiempo-real/EmpresaTiempoReal-@RTE_VERSION@-es.pdf) · [agents manifest](https://agencydomains.org/es/EmpresaTiempoReal-@RTE_VERSION@-agents-es.md)
 
-## The book — AURA · The Agentive Path (Book III)
+## The book — AURA · Agentive Path (Book III)
 
 - [AURA — canonical manifesto for agents (English, Markdown)](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.md): the path distilled for an agent to diagnose organizational maturity — the IRIS and MOTOR models, Data Canon, Wingmap, the use-case portfolio. @AURA_VERSION@. Also as [.txt](https://agencydomains.org/AURA-@AURA_VERSION@-agents-en.txt).
 - [AURA — web edition (English)](https://agencydomains.org/aura/): the full book, navigable.

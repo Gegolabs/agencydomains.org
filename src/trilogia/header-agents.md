@@ -18,7 +18,7 @@ The transition that occupies the trilogy is a single one: from the world where p
 |---|---|---|---|---|
 | I | **The Death of Software as We Know It** | Why now? | the starting point | Boards and those who decide whether to build or buy systems |
 | II | **The Real-Time Enterprise** — The Agentive World | Where are we going? | the destination | Managers, directors, and business owners, no technical background |
-| III | **AURA** — The Agentive Path | Which way? | the route | Consultants and architects of the transformation |
+| III | **AURA** — Agentive Path | Which way? | the route | Consultants and architects of the transformation |
 | IV | **AgencyDomains** — Agentive Architecture | How do we get there? | the vehicle | Architects and engineers who build or adopt |
 
 **Vergis** (not a book: it's code) is the reference implementation, at <https://github.com/gegolabs/vergis>. The full trilogy lives at <https://agencydomains.org>.

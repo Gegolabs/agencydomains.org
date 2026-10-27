@@ -24,7 +24,7 @@ Why now? **The starting point.** Why describing a business once and freezing it 
 **II · The Real-Time Enterprise · The Agentive World**
 Where are we going? **The destination.**
 
-**III · AURA · The Agentive Path**
+**III · AURA · Agentive Path**
 Which way? **The route.**
 
 **IV · AgencyDomains · Agentive Architecture**

@@ -11,6 +11,8 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 
 **Citas a *AgencyDomains* con su subtítulo nuevo.** Referencias: *AgencyDomains: Arquitectura Agentiva* y, en inglés, *AgencyDomains: Agentive Architecture*. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-07`).
 
+**Citas a *AURA* con su subtítulo nuevo.** Referencias: *AURA: Camino Agentivo* y, en inglés, *AURA: Agentive Path*, que también nombra al libro en la trilogía de la edición inglesa. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
+
 ## v1.0 — Agosto 2026
 
 **Primera edición.** El libro se sanciona como obra publicada: el corpus queda

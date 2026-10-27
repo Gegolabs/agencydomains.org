@@ -1,6 +1,6 @@
 # AURA
 
-### The Agentive Path
+### Agentive Path
 
 **Author:** César Obach-Renner
 **Publisher:** GegoLabs
@@ -14,7 +14,7 @@
 > used: by an organization on itself, or by a consultant with their clients.
 
 **How to cite:**
-Obach-Renner, César. *AURA: The Agentive Path*. First edition v1.1. GegoLabs, 2026.
+Obach-Renner, César. *AURA: Agentive Path*. First edition v1.1. GegoLabs, 2026.
 
 ## The Trilogy
 
@@ -35,7 +35,7 @@ Where are we going? — **the destination.** For those who want to see the world
 on the other side of the transition: how people work, decide, and compete when
 the enterprise operates in real time — told in its four faces.
 
-**III · AURA — The Agentive Path** *(this book)*
+**III · AURA — Agentive Path** *(this book)*
 Which way? — **the route.** For those who have to make the crossing: leaders
 and advisors of the transformation. Its five specifications are standalone
 instruments for the agentive era — each one can be used separately, without

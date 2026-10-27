@@ -28,7 +28,7 @@ sed -i '' 's|](figuras/|](figuras-en/|g' "$TMPSRC" 2>/dev/null || sed -i 's|](fi
 pandoc "$TMPSRC" -o "$PDF" \
   --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
   --resource-path="$LIBRO_DIR/specs:$LIBRO_DIR" \
-  --metadata title="AURA" --metadata subtitle="The Agentive Path" \
+  --metadata title="AURA" --metadata subtitle="Agentive Path" \
   --metadata author="César Obach-Renner" \
   --metadata date="First edition ${VERSION} · August 2026" \
   --toc --toc-depth=2 \

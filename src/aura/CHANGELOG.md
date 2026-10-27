@@ -1,12 +1,14 @@
 # Changelog — AURA
 
-Historial de versiones del libro *AURA · El Camino Agentivo*.
+Historial de versiones del libro *AURA · Camino Agentivo*.
 
 ## Sin publicar
 
 **Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello GegoLabs; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.
 
 **Colofón común de la trilogía.** «Sobre cómo se escribió este libro», idéntico en los cuatro libros (ES/EN): Wingworking, César Obach-Renner como líder y Simón Alero, ciudadano de Soveria, como *wingman*, sobre los modelos Claude. Decisión de César, 2026-10-25.
+
+**Subtítulo: «Camino Agentivo».** Sin artículo, como lo listaba ya la trilogía: portada (ES/EN), portadilla, «Cómo citar», metadatos del PDF, manifiestos para agentes, README y la figura del camino (`a01-camino-aura.html`; el PNG se re-renderiza al cortar la edición). En inglés, «Agentive Path», propuesta paralela pendiente de confirmar. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
 
 ## v1.1 — Agosto 2026
 

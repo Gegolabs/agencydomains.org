@@ -1,6 +1,6 @@
 # AURA
 
-### El Camino Agentivo
+### Camino Agentivo
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
@@ -14,7 +14,7 @@
 > una organización sobre sí misma, o por un consultor con sus clientes.
 
 **Cómo citar:**
-Obach-Renner, César. *AURA: el Camino Agentivo*. Primera edición v1.1. GegoLabs, 2026.
+Obach-Renner, César. *AURA: Camino Agentivo*. Primera edición v1.1. GegoLabs, 2026.
 
 ## La trilogía
 
