@@ -4,6 +4,8 @@ Un sistema de verdad es un sistema de registro que, además de guardar la versi�
 
 Uso la palabra contrato en su sentido técnico, el que tiene en la arquitectura de sistemas: un acuerdo entre partes que plasma una promesa. No hace falta un abogado ni una notaría. Hace falta que la promesa esté escrita, que se pueda verificar y que alguien responda por ella.
 
+El capítulo recorre ese contrato en el orden en que se lo pediría quien tiene que confiar en el sistema: qué promete, a qué registros alcanza, cómo trabajan los agentes con él y quién responde por él. Después lo ubica en la arquitectura que *AgencyDomains* describe y pregunta si no existía ya algo así.
+
 ## ¿Qué promete su contrato?
 
 Seis propiedades.
@@ -20,6 +22,8 @@ Seis propiedades.
 
 **Declara su grado de verdad.** Hay registros que alguien declaró, registros que se verificaron contra su fuente y registros que se infirieron, y el sistema dice cuál es cuál. El notario certifica que alguien declaró algo; el auditor certifica que una cifra es cierta. Un sistema de verdad hace las dos cosas sin confundirlas.
 
+Las seis se leen juntas. Las tres primeras hacen que el registro se pueda revisar: nada desaparece, todo tiene origen y cualquiera independiente puede seguirlo. Las dos siguientes hacen que lo revisado cuadre y se entienda. La última impide que se confunda lo que alguien dijo con lo que se comprobó, que es la confusión más común y la más cara.
+
 ## ¿Qué registros abarca?
 
 Los que la organización debe llevar y de los que responde ante otros. Los financieros: lo cobrado, lo pagado, los saldos, los ajustes. Los comerciales: los contratos, las órdenes, lo vendido y las condiciones vigentes en cada momento. Los regulatorios: lo que la ley obliga a guardar y a informar. Y los legales y documentales, con su contenido legible por un agente; no un PDF guardado en una carpeta, sino lo que dice, en una forma que un agente pueda consultar y citar.
@@ -28,7 +32,11 @@ Un tablero de tareas, la agenda de una reunión o el borrador de una presentaci�
 
 ## ¿Cómo trabajan los agentes con él?
 
-Leen y escriben en él solo a través de su contrato. Un agente puede proponer un cargo, registrar un pago o corregir un dato, pero no puede borrar, ni registrar sin dejar su origen, ni declarar como verificado lo que solo infirió. Los agentes pueden cambiar todos los días; la verdad no cambia sin dejar rastro.
+Leen y escriben en él solo a través de su contrato. Un agente puede proponer un cargo, registrar un pago o corregir un dato, pero no puede borrar, ni registrar sin dejar su origen, ni declarar como verificado lo que solo infirió.
+
+El contrato no les quita trabajo; les fija la forma de hacerlo. Un agente que concilia una cuenta no toca el saldo: registra la diferencia que encontró, con su evidencia, y propone el ajuste, que entra como un asiento nuevo y con su autoría. Un agente que lee una factura que nunca había visto registra lo que extrajo como inferido, y así queda hasta que alguien, una persona o un proceso independiente, lo verifique contra la fuente. Un Botlet que registra un pago recibido escribe con la identidad del agente que lo cristalizó y en nombre de quien ese agente actúa. Nada de eso exige que el agente sea confiable por sí mismo: exige que el registro lo sea aunque el agente falle.
+
+Eso es lo que vuelve al sistema de verdad compatible con la lectura agentiva del capítulo 3, en que los agentes aprenden, se equivocan y se reemplazan. Los agentes pueden cambiar todos los días; la verdad no cambia sin dejar rastro.
 
 ## ¿Quién responde por la verdad?
 
@@ -55,6 +63,8 @@ Existían las piezas por separado. La contabilidad de partida doble es un sistem
 Lo nuevo es la necesidad. Mientras el software se compraba, la tranquilidad venía con él. Cuando cada organización construye su sistema, hay que pedirla por separado, y lo que se pide es un sistema de verdad con su contrato y sus dos garantes.
 
 Tengo un ejemplo cercano de que el patrón funciona fuera de las finanzas, y declaro que es de mi propia casa. Soveria, la plataforma en la que trabajan los agentes con los que escribo, registra lo que esos agentes aprenden y deciden con estas reglas: cada hecho declara si se midió, si alguien lo informó o si es una conjetura, y en ese caso qué la refutaría; cada decisión guarda lo que se descartó y cómo se revierte; nada se borra, se enmienda. Aplica varias propiedades del contrato, pero no tiene todavía un segundo garante independiente, así que no la llamo sistema de verdad. El lector no puede verificarlo desde aquí, y por eso no lo presento como prueba, sino como el lugar donde aprendí que el contrato es practicable.
+
+Con el sistema de verdad queda respondida la pregunta del capítulo 4: quién da fe. Pero el directorio que la hizo tiene otras, y no todas son sobre la verdad de los registros. Son sobre quién actúa, hasta dónde decide solo, cómo se sabe que lo hace bien y si se puede cambiar de rumbo. El capítulo siguiente las ordena, y pone al sistema de verdad en su lugar entre ellas.
 
 [^agd]: César Obach-Renner, *AgencyDomains: Arquitectura Agentiva*, capítulo 3, «Bounded Concerns Architecture», y capítulo 5, «Trust Infrastructure».
 [^frontera]: César Obach-Renner, *AgencyDomains: Arquitectura Agentiva*, epílogo: el segundo de los trabajos abiertos, la auditoría verificable por terceros sin acceso al sistema.

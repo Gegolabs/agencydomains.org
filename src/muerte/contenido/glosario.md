@@ -1,5 +1,6 @@
 # Glosario
 
+::: glosario
 Los términos de este libro, en una línea cada uno. El desarrollo de cada término vive en el capítulo indicado. Los términos que la trilogía ya definió, como la Línea Nadella o Trust Infrastructure, conservan su definición en el libro que los acuñó; aquí se repite, en una línea, la de los que este libro usa más.
 
 **software como lo conocemos** — El negocio congelado en un software: descrito una vez, y cambiado solo cuando alguien abre un proyecto. Da lo mismo cómo se tenga: arrendado como servicio, licenciado y operado en la propia infraestructura o en la propia nube, o desarrollado a medida. Es lo que muere; no muere todo el software. *(Capítulo 1.)*
@@ -13,6 +14,10 @@ Los términos de este libro, en una línea cada uno. El desarrollo de cada térm
 **Botlet** — Una pieza que el agente ejecuta de memoria: código que resuelve siempre igual lo que se repite, sin consultar ningún modelo. Es la memoria muscular del agente y es suya: la forma, la mantiene y la sustituye él, aunque hoy el cuerpo de la pieza de partida lo escribe quien mantiene el catálogo. El término es de *AgencyDomains*. *(Capítulo 3.)*
 
 **Agentlet** — La pieza hermana del Botlet para lo que se repite en su forma pero pide juicio en cada caso: lleva un encargo declarado y un modelo dimensionado a la tarea, no el más grande, con presupuesto por ejecución, y escala cuando no está segura. También es del agente. El término es de *AgencyDomains*. *(Capítulo 3.)*
+
+**determinismo** — Con las mismas entradas y el mismo proceso, las mismas salidas. El software como lo conocemos lo tiene de nacimiento; el agente, no. Es el argumento más fuerte contra la tesis, y el libro lo concede: en lo inmediato salva el sistema de verdad, no el negocio congelado a su alrededor. *(Capítulo 3.)*
+
+**capa determinista** — Lo que hace siempre lo mismo con las mismas entradas: los Botlets, que el agente cristaliza cuando una tarea deja de necesitar juicio y que nadie escribe para él, y el núcleo de verdad, fuera de toda probabilidad, que opera la organización con un proveedor que responde por él. *(Capítulos 3, 5 y 7.)*
 
 **escalera de tres peldaños** — La forma de ordenar el trabajo del agente por lo que cuesta atenderlo: el Botlet (código, sin modelo), el Agentlet (un modelo dimensionado a la tarea, con presupuesto) y el razonamiento pleno (el modelo de frontera, reservado para lo nuevo). Ordena tres cosas: el costo, el tiempo de respuesta y la dependencia de proveedores ajenos. Dice dónde debería bajar el costo, no cuánto. *(Capítulo 3.)*
 
@@ -55,3 +60,4 @@ Los términos de este libro, en una línea cada uno. El desarrollo de cada térm
 **las personas (dimensión)** — La condición que atraviesa las cinco capas de control: quién opera cada capa y gobierna su evolución, y con qué formación. *(Capítulo 6.)*
 
 **la reversa (dimensión)** — La condición que atraviesa las cinco capas de control: qué pasa cuando algo falla y cómo se vuelve atrás sin detener el negocio. No es la reversibilidad personal del modo agentivo. *(Capítulo 6.)*
+:::

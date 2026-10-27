@@ -10,11 +10,15 @@ La idea nació en una conversación con un amigo que había construido, con ayud
 
 ## ¿Cómo está organizado este libro?
 
-Los capítulos 1 y 2 cuentan la muerte: la del software que congela el negocio, con la señal que dio el mercado de los servicios arrendados y lo que dicen quienes la anuncian y quienes la niegan, y la de la ventaja que daba haber construido las pantallas, ahora que cualquier agente puede desarmar una aplicación.
+Cuenta una historia en tres movimientos, y conviene tenerla entera antes de empezar, porque cada capítulo da por sabido lo que el anterior dejó dicho.
 
-El capítulo 3 cuenta lo que nace en su lugar, y el 4 lo que se pierde. El 5 presenta la pieza que lo recupera, el sistema de verdad, con el contrato que lo define. El 6 ordena todo en cinco capas de control y dos dimensiones que las atraviesan. El 7 lleva el marco al sistema que factura a millones de clientes en una empresa de telecomunicaciones, con lo que esa industria ya publicó.
+El primer movimiento es una muerte, y ocupa los capítulos 1 y 2. El capítulo 1 dice qué muere: no todo el software, sino una forma de automatizar, la del negocio descrito una vez y congelado en un programa; y lo dice con la señal que dio el mercado en febrero y con lo que sostienen quienes anuncian esa muerte y quienes la niegan. El capítulo 2 cuenta una segunda muerte, la de la ventaja que daba haber construido las pantallas, ahora que cualquier agente puede desarmar una aplicación y describir lo que hace. De ahí sale la pregunta que atraviesa el resto del libro: si todo se puede copiar, ¿qué es lo que no se copia?
 
-Cierra el libro un epílogo sobre lo que un directorio puede decidir el lunes.
+El segundo movimiento es un nacimiento y una pérdida. El capítulo 3 cuenta lo que ocupa el lugar del software congelado: organizaciones que tienen un sistema que sus agentes forman y cambian a medida que el trabajo llega. Dice qué hacen los agentes en ese sistema, qué cuesta que lo atiendan, por qué es posible ahora y no antes, y discute la objeción más fuerte que conozco contra todo esto, la del determinismo. El capítulo 4 cuenta lo que esas organizaciones pierden sin darse cuenta: la tranquilidad que venía incluida con el software comprado, y la pregunta que llega cuando ya no está: ¿quién da fe de que lo registrado es verdad?
+
+El tercer movimiento es la respuesta. El capítulo 5 presenta la pieza que recupera esa tranquilidad, el sistema de verdad, con el contrato que lo define y los dos garantes que responden por él. El capítulo 6 lo pone en su lugar dentro de un marco más amplio, cinco capas de control y dos dimensiones que las atraviesan, porque la verdad es la pregunta más grave de quien debe confiar en un sistema, pero no la única. Y el capítulo 7 lleva el marco entero a la industria que mejor lo pone a prueba, la que factura a millones de clientes, con lo que esa industria publicó y con lo que dice en contra.
+
+Cierra el libro un epílogo que vuelve a contar la historia de corrido, en una página, y la convierte en lo que un directorio puede decidir con ella.
 
 ## ¿Qué es, y qué no es, este libro?
 

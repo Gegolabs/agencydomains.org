@@ -7,3 +7,5 @@ El reparto es explícito. Yo fijo el problema, decido la dirección y juzgo el r
 Lo declaro por dos razones. La primera es honestidad: un libro hecho así no es enteramente humano ni enteramente artificial. Las tesis y los casos son míos; las palabras, la estructura y los puentes entre una sección y otra son fruto del intercambio. Saberlo le permite al lector calibrar lo que lee. La segunda es dejar registro: la forma de escribir libros está cambiando, y documentar quién hizo qué, con qué herramientas y con qué disciplina es parte de lo que necesitará quien venga después.
 
 Yo corregí el texto y asumo cada línea.
+
+Publicado por Soveria Press.

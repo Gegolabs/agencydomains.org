@@ -2,10 +2,11 @@
 # Arma el Libro I en un idioma: el Markdown único y el PDF (WeasyPrint).
 # Uso: libro.sh <es|en>  → _dist/<Nombre>-vX.Y.md y _dist/<Nombre>-vX.Y.pdf
 #   es → MuerteDelSoftware · en → DeathOfSoftware
-# El PDF sale del mismo armado con que se publicó la v1.0 en Zenodo (pandoc →
-# HTML con libro.css y la portada del tomo I → WeasyPrint): carta, índice, un
-# capítulo por página y notas al pie de página. Los otros libros se arman con
-# XeLaTeX; este no, para que el PDF del sitio sea el del registro.
+# El PDF sale del mismo armado con que se depositan las versiones en Zenodo
+# (pandoc → HTML con libro.css y la portada del tomo I → WeasyPrint): carta,
+# índice, la dedicatoria en página propia, un capítulo por página y notas al pie
+# de página. Los otros libros se arman con XeLaTeX; este no, para que el PDF del
+# sitio sea el del registro.
 set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 LIBRO_DIR="$( dirname "$SCRIPT_DIR" )"
@@ -20,7 +21,7 @@ VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" CHANGELOG.md | cut -d" "
 mkdir -p _dist
 MD="_dist/$NAME-$VERSION.md"; HTML="_dist/$NAME-$VERSION.html"; PDF="_dist/$NAME-$VERSION.pdf"
 : > "$MD"
-for f in $C/00-frontmatter.md $C/prefacio.md $C/0[1-9]-*.md $C/epilogo.md $C/glosario.md $C/referencias.md $C/colofon.md; do
+for f in $C/00-frontmatter.md $C/dedicatoria.md $C/prefacio.md $C/0[1-9]-*.md $C/epilogo.md $C/glosario.md $C/referencias.md $C/colofon.md; do
   cat "$f" >> "$MD"; printf '\n\n' >> "$MD"
 done
 # Las figuras quedan relativas a _dist/ (../figuras/), donde vive el HTML del PDF.
