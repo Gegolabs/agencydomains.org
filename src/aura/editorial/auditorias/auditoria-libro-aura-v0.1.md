@@ -199,7 +199,7 @@ Dimensiones dominantes: ARTIFACTS (costuras y residuos de transformación), CROS
 - **NUMERIC global**: ~60 verificaciones aritméticas pasadas (conteos de etapas/niveles/principios/fases-parcial, totales del anexo 100/30 exactos, distribuciones 31/38/31 y 19/37/24/20, estadísticas de la Introducción internamente consistentes, factor 4-10 de Wingmap, saltos de IRIS).
 - **Fidelidad del Anexo A**: 0 desviaciones en 260+ líneas de datos contra el inventario fuente.
 - **Marco Citizen/City/DUAL**: fiel al original, con genericización que mejora el framing.
-- **Vocabulario de la trilogía**: expansión de AURA consistente; "Postchat"/"AgencyDomains"/"GegoLabs" correctos.
+- **Vocabulario de la trilogía**: expansión de AURA consistente; "Postchat"/"AgencyDomains"/"Gegolabs" correctos.
 - **Referencias «…» de Data Canon**: 26 verificadas una a una — 23 exactas, todas semánticamente correctas (los defectos son los 7 "del «…»" gramaticales y 2 títulos truncados).
 
 ---
