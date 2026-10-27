@@ -61,7 +61,7 @@ pandoc "$TMPSRC" \
   -H "${PORTADA%.pdf}.tex" \
   --include-before-body="$FRONTMATTER" \
   --metadata title="AgencyDomains" \
-  --metadata subtitle="Arquitectura del Mundo Agentivo" \
+  --metadata subtitle="Arquitectura Agentiva" \
   --metadata author="César Obach-Renner" \
   --metadata date="Primera edición ${VERSION} · Octubre 2026" \
   --toc --toc-depth=2 \

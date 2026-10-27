@@ -52,4 +52,4 @@ Yes, and that is why I think it is a good framework. A suite licensed and operat
 
 What changes is which one costs more. Whoever rents usually struggles with the third control layer, because the agents the vendor adds run in its cloud and are governed by its rules. My observation, without measuring it: whoever licenses and operates in-house struggles less, because they see where they run and what they do. Whoever builds, the first.
 
-[^pilares]: César Obach-Renner, *AgencyDomains: Architecture of the Agentive World*, chapter 5, "Trust Infrastructure", "The five pillars".
+[^pilares]: César Obach-Renner, *AgencyDomains: Agentive Architecture*, chapter 5, "Trust Infrastructure", "The five pillars".

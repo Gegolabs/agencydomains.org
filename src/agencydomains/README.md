@@ -1,6 +1,6 @@
 # AgencyDomains — fuente del libro
 
-Fuente en **Markdown** del libro *AgencyDomains · Arquitectura del Mundo Agentivo*.
+Fuente en **Markdown** del libro *AgencyDomains · Arquitectura Agentiva*.
 Publicado en <https://agencydomains.org>. Licencia: **GNU FDL v1.3**.
 
 ## Estructura

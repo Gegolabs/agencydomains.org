@@ -9,7 +9,7 @@ status: v1.2.1 — first edition, revision 2.1; references stable since v1.0
 
 # AgencyDomains — Canonical manifesto for agents
 
-> Structured extract of the **v1.2.1 (first edition, revision 2.1)** edition of the book *AgencyDomains: Architecture of the Agentive World*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
+> Structured extract of the **v1.2.1 (first edition, revision 2.1)** edition of the book *AgencyDomains: Agentive Architecture*. This document condenses the canonical vocabulary, the formal constructs, and the required properties. The human edition of the book additionally carries motivation, industry data, extended examples, and derivations — all of that lives outside this document.
 
 > This canon contains the **structure and the vocabulary** of the Agentive World: definitions, primitives, required properties, canonical separations. **It does not contain methods to implement or operational catalogs** — those live in complementary bodies. The public reference implementation is **AgencyDomains.org**, materialized in **Vergis**, designed so that any developer or student can download it, read it, run it, and learn how the canon translates into living systems. Other implementers (commercial products, proprietary codices) offer their own complementary bodies over the same canonical structure.
 

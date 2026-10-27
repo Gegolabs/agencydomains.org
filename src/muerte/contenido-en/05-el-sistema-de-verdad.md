@@ -56,5 +56,5 @@ What is new is the need. As long as software was bought, peace of mind came with
 
 I have a close example that the pattern works outside finance, and I declare that it is from my own house. Soveria, the platform where the agents I write with work, records what those agents learn and decide under these rules: every fact declares whether it was measured, whether someone reported it or whether it is a conjecture, and in that case what would refute it; every decision keeps what was discarded and how it is reversed; nothing is deleted, it is amended. It applies several properties of the contract, but it does not yet have an independent second guarantor, so I do not call it a system of truth. The reader cannot verify it from here, and so I do not present it as proof, but as the place where I learned that the contract is practicable.
 
-[^agd]: César Obach-Renner, *AgencyDomains: Architecture of the Agentive World*, chapter 3, "Bounded Concerns Architecture", and chapter 5, "Trust Infrastructure".
-[^frontera]: César Obach-Renner, *AgencyDomains: Architecture of the Agentive World*, epilogue: the second item of open work, third-party verifiable audit without access to the system.
+[^agd]: César Obach-Renner, *AgencyDomains: Agentive Architecture*, chapter 3, "Bounded Concerns Architecture", and chapter 5, "Trust Infrastructure".
+[^frontera]: César Obach-Renner, *AgencyDomains: Agentive Architecture*, epilogue: the second item of open work, third-party verifiable audit without access to the system.

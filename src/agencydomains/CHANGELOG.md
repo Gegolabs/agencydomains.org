@@ -1,10 +1,14 @@
 # Changelog — AgencyDomains
 
-Historial de versiones del libro *AgencyDomains · Arquitectura del Mundo Agentivo*.
+Historial de versiones del libro *AgencyDomains · Arquitectura Agentiva*.
 
 **Numeración de figuras:** desde **v1.0** (primera edición) rige la regla
 **append-only** — cada figura nueva toma el siguiente número disponible al final, sin
 re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganizarse.
+
+## Sin publicar
+
+**Subtítulo: «Arquitectura Agentiva».** El libro cambia de subtítulo y toma el nombre con que la trilogía ya lo listaba: portada (ES/EN), portadilla y página de créditos (`frontmatter.tex`, `00-frontmatter.md`), «Cómo citar», metadatos del PDF, manifiestos para agentes y la figura G1 (fuente; el PNG se re-renderiza al cortar la edición). En inglés, «Agentive Architecture», propuesta paralela pendiente de confirmar. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-07`).
 
 ## v1.2.1 — Octubre 2026
 

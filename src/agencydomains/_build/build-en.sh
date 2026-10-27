@@ -47,7 +47,7 @@ sed 's|](figuras/|](figuras-en/|g' "$MD" > "$TMPPDF"
 if pandoc "$TMPPDF" -o "$PDF" \
     --pdf-engine=xelatex -H "$HEADER" -H "${PORTADA%.pdf}.tex" \
     --metadata title="AgencyDomains" \
-    --metadata subtitle="Architecture of the Agentive World" \
+    --metadata subtitle="Agentive Architecture" \
     --metadata author="César Obach-Renner" \
     --metadata date="First edition ${VERSION} · October 2026" \
     --toc --toc-depth=2 \

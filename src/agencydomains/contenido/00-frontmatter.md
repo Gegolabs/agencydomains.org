@@ -1,6 +1,6 @@
 # AgencyDomains
 
-### Arquitectura del Mundo Agentivo
+### Arquitectura Agentiva
 
 **Autor:** César Obach-Renner
 **Editor:** GegoLabs
@@ -53,7 +53,7 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: arquitectura del Mundo Agentivo*. Primera edición v1.2.1. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Arquitectura Agentiva*. Primera edición v1.2.1. GegoLabs, 2026.
 
 ## La trilogía
 

@@ -2,6 +2,10 @@
 
 Las ediciones del libro, de la más nueva a la más vieja. Términos, estructuras y numeración son estables desde la v1.0; lo que cambie se anuncia aquí.
 
+## Sin publicar
+
+**Citas a *AgencyDomains* con su subtítulo nuevo.** En la edición inglesa, las notas que citan *AgencyDomains* pasan a *AgencyDomains: Agentive Architecture*, paralelo a «Arquitectura Agentiva», que la edición española ya usaba. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-07`).
+
 ## v1.0 — Primera edición
 
 La primera edición, en español.

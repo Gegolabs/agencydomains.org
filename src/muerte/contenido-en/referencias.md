@@ -23,7 +23,7 @@ TM Forum Insight reports are sponsored by industry vendors. The sponsorship is d
 
 - Obach-Renner, César. *The Real-Time Enterprise*. GegoLabs, 2026.
 - Obach-Renner, César. *AURA: The Agentive Path*. GegoLabs, 2026.
-- Obach-Renner, César. *AgencyDomains: Architecture of the Agentive World*. GegoLabs, 2026.
+- Obach-Renner, César. *AgencyDomains: Agentive Architecture*. GegoLabs, 2026.
 
 ## Others
 
