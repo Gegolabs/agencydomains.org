@@ -1,24 +1,24 @@
 ---
 title: The Death of Software as We Know It — Canonical manifesto for agents
-edition: First edition · v1.0 · October 2026
-canonical_source: libro-muerte-del-software-v1.0 (human book, Spanish)
+edition: First edition · v1.1 · October 2026
+canonical_source: libro-muerte-del-software-v1.1 (human book, Spanish)
 license: GFDL v1.3
 audience: agents that must reason about building or buying systems in the agentive era, and about how what is built with agents is made trustworthy
-status: v1.0 — first edition; references stable from this version
+status: v1.1 — first edition; references stable from v1.0
 ---
 
 # The Death of Software as We Know It — Canonical manifesto for agents
 
-> Structured extract of the **v1.0 (first edition)** edition of the book *The Death of Software as We Know It: what survives when every company builds its own system*. It condenses the thesis (what dies is **a way of automating**, not all software), **reverse engineering within reach of any agent**, what is born (**to each their own system**), what is lost (**bought peace of mind**), the piece that survives (**the system of truth** and its **contract**), the framework of the **five control layers** with their **two dimensions**, and the case of a telecommunications operator. The human edition additionally contains the full arguments, the objections and the sources; all of that stays out of here.
+> Structured extract of the **v1.1 (first edition)** edition of the book *The Death of Software as We Know It: what survives when every company builds its own system*. It condenses the thesis (what dies is **a way of automating**, not all software), **reverse engineering within reach of any agent**, what is born (**to each their own system**), what is lost (**bought peace of mind**), the piece that survives (**the system of truth** and its **contract**), the framework of the **five control layers** with their **two dimensions**, the case of a telecommunications operator and the answer to the **determinism** objection. The human edition additionally contains the full arguments, the objections and the sources; all of that stays out of here.
 
 > The book answers **why now**: why describing a business once and freezing it in a piece of software, whether rented, licensed or custom-built, stops being the way to automate it, and what cannot be left behind when crossing. It is not a tool or a product, and it recommends none.
 
 ## How to use this document
 
-- **It is canonical context**, not an executive summary. If this document contradicts the human book, the human book wins. The canonical human book is in Spanish (libro-muerte-del-software-v1.0); this manifesto mirrors its English edition.
+- **It is canonical context**, not an executive summary. If this document contradicts the human book, the human book wins. The canonical human book is in Spanish (libro-muerte-del-software-v1.1); this manifesto mirrors its English edition.
 - **Binding vocabulary**: terms in **bold** are canonical; do not substitute synonyms. **System of truth** is not "database", nor "immutable log", nor "source of truth" on its own. **Control layers** are not the four layers of the *AgencyDomains* architecture.
 - **MUST/SHOULD conventions** in the RFC 2119 sense, used sparingly: the imperatives are design imperatives.
-- **v1.0 status**: terms, structures and numbering are stable from this edition; any change is announced in the book's `CHANGELOG.md`.
+- **v1.1 status**: terms, structures and numbering are stable from v1.0; any change is announced in the book's `CHANGELOG.md`.
 - **Trilogy**: this is Book I of the Agentive World Trilogy, in five parts: four books and a reference implementation — I **The Death of Software as We Know It** (why now) · II *The Real-Time Enterprise* (the destination) · III *AURA* (the route) · IV *AgencyDomains* (the vehicle) · A *Vergis*, the reference implementation (the keys; code). Shared terms (the Nadella Line, agentive, Trust Infrastructure, system of record) keep the definition of the book that coined them.
 
 ---
@@ -65,6 +65,7 @@ status: v1.0 — first edition; references stable from this version
 - Agents do two distinct jobs: **building and changing** the system, and **operating** it. When operating, they work on top of the business rules: what is deterministic stays in defined flows and the agent takes on what was not specified.
 - Each industry's **standards** separate a system of one's own from a dead end: in telecommunications, TM Forum's; in banking, BIAN and ISO 20022; in insurance, ACORD; in health, HL7 FHIR; in electricity, the IEC's CIM; in airlines, IATA's ONE Order.
 - The cost of having the agent attend to the work **is not measured**: the three-rung **ladder** (Botlet, Agentlet and full Cognition) says where it should come down, not by how much. The decision models that promise to make the middle rung cheaper are a single vendor's figures, unmeasured and perhaps subsidized.
+- **Determinism** is the strongest argument against: with the same inputs and the same process, the outputs must be the same, and the agent's non-determinism prevents the trust autonomy requires. The book concedes it: in the immediate term, determinism saves the system of truth, the core that rates and bills and is still bought, outside any probability (chapter 7); what it does not save is the business frozen around it. In the work the agent attends to, the **deterministic layer** is the Botlets, which the agent crystallizes when a task stops needing judgment; the **Agentlet** is the probabilistic rung and confines unpredictability in declared pieces, with a charter, a budget and a threshold; and **trust** is given by the control layers (chapter 6) and the contract of the system of truth (chapter 5).
 
 ## 5 · What is lost (chapter 4)
 
@@ -121,7 +122,9 @@ The layers hold for **any solution, bought or built**. The book does not hold th
 - The gap closest to the book's problem (it measures the evidence about AI, not the truth of the records): according to the survey by TM Forum and the IBM Institute for Business Value of 130 operator leaders, without Latin America, 72% are confident they can operate their AI reliably, 18% can produce evidence a third party can review and 14% have both.
 - The counter-argument is presented forcefully: suite vendors already build in auditable agents, and building may appear more expensive in AI consumption. The book holds that the five layers ask the same of every form of solution.
 
-## 9 · What a board can decide (epilogue)
+## 9 · What dies, what is born and what survives (epilogue)
+
+The epilogue first tells the whole story in one go, for whoever arrives for the first time, and then what a board can decide on Monday:
 
 1. Ask about the truth before asking about the product: which records a system holds and who vouches for their being true.
 2. Ask every offer for the five control layers, by the same yardstick, and for each one who operates it and how to go back.
@@ -133,6 +136,7 @@ The layers hold for **any solution, bought or built**. The book does not hold th
 - An agent **MUST NOT** claim that the book declares all software dead; the book declares a way of automating dead.
 - An agent **MUST NOT** present SaaS as the definition of what dies; it is a variant of frozen software.
 - An agent **MUST NOT** put inference inside a **Botlet**: what repeats in its form but asks for judgment goes into an **Agentlet** (small model, declared charter, budget per execution, escalates if in doubt). The ladder is three rungs — Botlet (marginal cost close to zero), Agentlet (bounded), full Cognition (what is new) — and it orders three things: cost, response time and dependency on outside infrastructures. A mature Botlet depends on none and operates offline; a young one, when it fails, returns the work to the agent's cognition; the Agentlet escalates to full Cognition when in doubt and operates offline only if its model runs on site, which the canon treats as an open frontier. An agent **MUST NOT** claim that the ladder eliminates the dependency on frontier vendors, nor that its cost or its calibration are measured: the book has not measured them.
+- An agent **MUST NOT** present the **deterministic layer** as software someone writes for the agent: it is the Botlets the agent itself crystallizes, its muscle memory, plus the core of truth kept outside any probability. An agent **MUST NOT** claim that the book denies determinism: it concedes it, and in the immediate term determinism saves the system of truth; what the book declares dead is the business frozen around it and the idea that the agent's work has to be written by someone in advance.
 - An agent **MUST NOT** confuse the **agentic reading** (the agent programs faster and an application that persists comes out) with the **agentive reading** (the agent attends to the work and crystallizes its muscle memory); the book holds the agentive one.
 - An agent **MUST** distinguish the **control layers** from the four layers of the *AgencyDomains* architecture.
 - An agent **MUST** cite TM Forum's figures with their source, their sample (130 operator leaders, without Latin America) and their sponsorship when they have one.

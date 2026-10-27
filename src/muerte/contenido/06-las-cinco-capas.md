@@ -52,4 +52,6 @@ Sí, y por eso me parece un buen marco. Una suite licenciada y operada en casa c
 
 Lo que cambia es cuál cuesta más. A quien arrienda, suele costarle la tercera capa de control, porque los agentes que el proveedor agrega corren en su nube y se gobiernan con sus reglas. Mi observación, sin medirla: a quien licencia y opera en casa le cuesta menos, porque ve dónde corren y qué hacen. A quien construye, la primera.
 
+Un marco se prueba donde más cuesta cumplirlo. El capítulo siguiente lleva las cinco capas y las dos dimensiones a una industria que factura a millones de clientes, responde ante un regulador y cambia su catálogo más rápido de lo que ningún proyecto alcanza a seguir, y las contrasta con lo que esa industria ya publicó sobre sí misma.
+
 [^pilares]: César Obach-Renner, *AgencyDomains: Arquitectura Agentiva*, capítulo 5, «Trust Infrastructure», «Los cinco pilares».

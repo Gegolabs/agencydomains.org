@@ -4,6 +4,8 @@ A system of truth is a system of record that, besides keeping the official versi
 
 I use the word contract in its technical sense, the one it has in systems architecture: an agreement between parties that embodies a promise. No lawyer or notary is needed. What is needed is that the promise be written, that it can be verified and that someone answers for it.
 
+The chapter walks through that contract in the order in which whoever has to trust the system would ask for it: what it promises, which records it reaches, how agents work with it and who answers for it. Then it places it in the architecture *AgencyDomains* describes and asks whether something like it did not already exist.
+
 ## What does its contract promise?
 
 Six properties.
@@ -20,6 +22,8 @@ Six properties.
 
 **It declares its degree of truth.** There are records someone declared, records that were verified against their source and records that were inferred, and the system says which is which. The notary certifies that someone declared something; the auditor certifies that a figure is true. A system of truth does both without confusing them.
 
+The six read together. The first three make the record reviewable: nothing disappears, everything has an origin and anyone independent can follow it. The next two make what is reviewed reconcile and be understood. The last one prevents confusing what someone said with what was checked, which is the most common confusion and the most expensive.
+
 ## Which records does it cover?
 
 Those the organization must keep and is accountable to others for. The financial ones: what was collected, what was paid, the balances, the adjustments. The commercial ones: the contracts, the orders, what was sold and the terms in force at each moment. The regulatory ones: what the law requires keeping and reporting. And the legal and documentary ones, with their content readable by an agent; not a PDF kept in a folder, but what it says, in a form an agent can consult and cite.
@@ -28,7 +32,11 @@ A task board, a meeting agenda or the draft of a presentation do not need it. Th
 
 ## How do agents work with it?
 
-They read from it and write to it only through its contract. An agent can propose a charge, record a payment or correct a piece of data, but it cannot delete, nor record without leaving its origin, nor declare as verified what it only inferred. Agents can change every day; the truth does not change without leaving a trace.
+They read from it and write to it only through its contract. An agent can propose a charge, record a payment or correct a piece of data, but it cannot delete, nor record without leaving its origin, nor declare as verified what it only inferred.
+
+The contract does not take work away from them; it fixes the way they do it. An agent that reconciles an account does not touch the balance: it records the difference it found, with its evidence, and proposes the adjustment, which enters as a new entry under its authorship. An agent that reads an invoice it had never seen records what it extracted as inferred, and so it stays until someone, a person or an independent process, verifies it against the source. A Botlet that records a payment received writes with the identity of the agent that crystallized it and on behalf of whoever that agent acts for. None of this requires the agent to be trustworthy on its own: it requires the record to be so even if the agent fails.
+
+That is what makes the system of truth compatible with the agentive reading of chapter 3, in which agents learn, make mistakes and get replaced. Agents can change every day; the truth does not change without leaving a trace.
 
 ## Who answers for the truth?
 
@@ -55,6 +63,8 @@ The pieces existed separately. Double-entry bookkeeping is a system of truth wit
 What is new is the need. As long as software was bought, peace of mind came with it. When every organization builds its system, it has to be asked for separately, and what is asked for is a system of truth with its contract and its two guarantors.
 
 I have a close example that the pattern works outside finance, and I declare that it is from my own house. Soveria, the platform where the agents I write with work, records what those agents learn and decide under these rules: every fact declares whether it was measured, whether someone reported it or whether it is a conjecture, and in that case what would refute it; every decision keeps what was discarded and how it is reversed; nothing is deleted, it is amended. It applies several properties of the contract, but it does not yet have an independent second guarantor, so I do not call it a system of truth. The reader cannot verify it from here, and so I do not present it as proof, but as the place where I learned that the contract is practicable.
+
+With the system of truth, the question of chapter 4 is answered: who vouches for it. But the board that asked it has others, and not all of them are about the truth of the records. They are about who acts, how far it decides on its own, how one knows it does it well and whether course can be changed. The next chapter orders them, and puts the system of truth in its place among them.
 
 [^agd]: César Obach-Renner, *AgencyDomains: Architecture of the Agentive World*, chapter 3, "Bounded Concerns Architecture", and chapter 5, "Trust Infrastructure".
 [^frontera]: César Obach-Renner, *AgencyDomains: Architecture of the Agentive World*, epilogue: the second item of open work, third-party verifiable audit without access to the system.

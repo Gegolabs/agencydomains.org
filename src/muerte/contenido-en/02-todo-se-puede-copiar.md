@@ -14,16 +14,6 @@ I had seen it on a small scale before REA. In the projects I lead we rebuilt, mo
 
 This argument holds for a vendor's software, whatever the form in which it is held. Custom development belongs to the client itself and is weakened by another route, the cost of changing it, which is the one in chapter 1.
 
-## And what does not get copied?
-
-If an application's features can be reproduced, whoever sells software is left with less than they thought. And whoever stops buying it and reproduces it at home loses something worth naming.
-
-They lose the track record. An application that has been running for ten years in thousands of companies brings something no agent can decompile: the accumulated evidence that it works, and a vendor that answers when it fails. The clone brings the screens and the flows, and starts its track record from zero, with a single organization answering for it.
-
-For almost all features that makes no difference. If the clone of a task board fails, someone fixes it and nobody gets hurt. It matters in the records someone is accountable to others for: the invoice charged to a customer, the balance of an account, the signed contract and its terms, the consumption reported to the regulator, the wealth of a family that trusts whoever manages it. In those records, the question is whether what they say is true, and who vouches for it.
-
-Reverse engineering does not answer that question. It makes it urgent, because the easier it is to build a system, the more home-built systems will hold records someone answers for, and the more people will wonder whether they can believe them.
-
 ## Is copying legitimate?
 
 It depends on the country, the method, the licenses and what is copied. The same HackerNoon article sums it up for whoever wants to look closely. In the European Union, reverse engineering a purchased product is permitted under trade-secret law, but decompiling is admitted only for interoperability purposes. In the United States there are rulings in favor of fair use, and nobody yet knows whether a model trained on public code counts as "clean". ArtCraft expressly forbids the agent from reading or decompiling the original code and limits it to studying the behavior, the public format specifications and the appearance, which is the classic clean-room method. And vendors are already changing their contracts to prohibit AI-assisted reverse engineering.[^hackernoon] One journalist put it more harshly: the plagiarism machine used to plagiarize.[^404]
@@ -31,6 +21,22 @@ It depends on the country, the method, the licenses and what is copied. The same
 My position is simpler than the debate. Reproducing what a program does in order to understand it, or to build one's own on one's own data, is what the software industry has always done. Copying someone else's code or assets is not. The boundary stays in the same place. What is new is that anyone can reach it.
 
 When what I want to replace is a rented service, I do not have its code: I have what the service shows me, my data, my screens, my reports. In the European Union and in the United States, looking at that to understand what it does infringes no copyright, because what a system does has no owner. But the rental contract can prohibit using that access to build a substitute, and Salesforce's does: before starting, one has to read it.[^saas]
+
+## And what does not get copied?
+
+Let us suppose the legal side settled, and go back to what copying brings into view. If an application's features can be reproduced, whoever sells software is left with less than they thought. And whoever stops buying it and reproduces it at home loses something worth naming.
+
+They lose the track record. An application that has been running for ten years in thousands of companies brings something no agent can decompile: the accumulated evidence that it works, and a vendor that answers when it fails. The clone brings the screens and the flows, and starts its track record from zero, with a single organization answering for it.
+
+For almost all features that makes no difference. If the clone of a task board fails, someone fixes it and nobody gets hurt. It matters in the records someone is accountable to others for: the invoice charged to a customer, the balance of an account, the signed contract and its terms, the consumption reported to the regulator, the wealth of a family that trusts whoever manages it. In those records, the question is whether what they say is true, and who vouches for it.
+
+Reverse engineering does not answer that question. It makes it urgent, because the easier it is to build a system, the more home-built systems will hold records someone answers for, and the more people will wonder whether they can believe them.
+
+## What is left of the two deaths?
+
+So far, two deaths. That of chapter 1 is the death of the frozen business, and a cost killed it: writing and changing software stopped being expensive. That of this chapter is the death of the advantage of having built the screens, and a tool killed it: any agent can look inside an application and describe what it does. Neither kills all software, and in both the same thing survives: the track record, the evidence that something works, and someone who answers for the records one is accountable to others for.
+
+Both leave the same question open, what an organization has once it no longer buys the software that froze its business and can no longer lean on the advantage of having built it, and the answer comes in two parts that are best read in order. First what is born, which is a new way of having a system. Then what is lost, which is what nobody wrote into the budget.
 
 [^hackernoon]: Maria Mendonca, "Is Software Really Dead? The Rise of AI-Powered Reverse Engineering", *HackerNoon*, October 21, 2026. <https://hackernoon.com/is-software-really-dead-the-rise-of-ai-powered-reverse-engineering>
 [^404]: Jason Koebler, "'Reverse-Engineer Anything' Is the New Wild West of AI", *404 Media*, October 20, 2026. <https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/>

@@ -7,3 +7,5 @@ The division of roles is explicit. I set the problem, decide the direction and j
 I declare it for two reasons. The first is honesty: a book made this way is neither entirely human nor entirely artificial. The theses and the cases are mine; the words, the structure and the bridges between one section and another are the fruit of the exchange. Knowing it lets the reader calibrate what they read. The second is to leave a record: the way of writing books is changing, and documenting who did what, with which tools and with what discipline is part of what whoever comes next will need.
 
 I corrected the text and I stand behind every line.
+
+Published by Soveria Press.

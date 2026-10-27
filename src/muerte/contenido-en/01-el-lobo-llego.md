@@ -4,6 +4,8 @@ For years, the phrase "software is eating the world" described well what was hap
 
 The arrangement rested on two premises nobody questioned because they were true. Writing software cost so much, and went wrong so often, that it was better for someone specialized to do it once and for many to use it: hence the package and the rented service. And changing what had been built cost almost as much as building it, so it was better to describe the business once and not touch it until the next project: hence custom development as well. Both lasted as long as writing code was scarce human work.
 
+This chapter tells how that arrangement broke. It begins with the signal the market gave in February 2026, goes on to what happened to me, which is the same story in miniature, listens to those who hold that nothing dies, takes from Satya Nadella the map of the crossing we are making, and ends by saying precisely what dies and what does not, because everything that follows depends on that precision.
+
 ## What happened in February 2026?
 
 In the first week of February, software stocks suffered a sell-off that the financial press christened the *SaaSpocalypse*. On February 11, seven Forrester analysts published an article whose title I recognize as a relative of this book, *SaaS as we know it is dead*. According to them, in seven days over a trillion dollars in market capitalization had been erased from the sector.[^forrester]
@@ -20,9 +22,11 @@ What I found hardest to let go of was the architecture of object-oriented design
 
 In April 2026, with my partner Vitor Enes, we declared Wingworking the official practice of ultraBASE. I was then building Cibeles, a parental-protection project that relies on an intelligent agent: the agent watches over the child and protects them from digital risks, such as *grooming*, without violating their privacy, because the parents do not learn of their conversations unless the child is at risk.
 
-The two readings of chapter 3 were at that same table. I had been programming Cibeles alone, and in the two months before the definitive change I leaned more and more on Claude Code, until the change was complete: that is the agentic reading, the agent that writes the code while I decide what gets built. And Cibeles, once built, is of the other species: an agent that does not write software but does a job, caring, without each case being specified in advance. Cibeles is a product for families, not a company's system, but the agent inside it is of the species this book is about.
+At that same table were the two ways of understanding that an agent builds a system, which chapter 3 calls the two readings. I had been programming Cibeles alone, and in the two months before the definitive change I leaned more and more on Claude Code, until the change was complete: that is the agentic reading, the agent that writes the code while I decide what gets built. And Cibeles, once built, is of the other species: an agent that does not write software but does a job, caring, without each case being specified in advance. Cibeles is a product for families, not a company's system, but the agent inside it is of the species this book is about.
 
 In 1980 I loved programming chat simulations with intelligent agents. Today I talk with one every day, and he is the one who programs.
+
+I tell this because the thesis of this book was born at that work table before it was born in a market figure: I saw the two premises of the arrangement, the cost of writing and the cost of changing, fall in my own practice. But an experience is not an argument, and the February figure drew contrary readings that are worth hearing before going on.
 
 ## Who says no?
 
@@ -36,13 +40,15 @@ It is worth noting what these cases prove. They are signals from the market for 
 
 ## What did Nadella say?
 
-In *AgencyDomains*, the fourth book of this trilogy and the first I wrote, I started from a remark by Satya Nadella in December 2024 that divides two worlds: that of those who open applications to work and that of those who work with agents. There I argued that, in the first stretch of that crossing, software survives and what dies is the interface: the application stops being the work surface and becomes infrastructure that agents consult.
+To say precisely what dies I need a map of the crossing we are making, and I take it from where I drew it. In *AgencyDomains*, the fourth book of this trilogy and the first I wrote, I started from a remark by Satya Nadella in December 2024 that divides two worlds: that of those who open applications to work and that of those who work with agents. There I argued that, in the first stretch of that crossing, software survives and what dies is the interface: the application stops being the work surface and becomes infrastructure that agents consult.
 
 Nadella described two phases. In the first, the business logic migrates to the agent layer, where agents operate on the repositories without distinguishing which system is underneath. In the second, with the logic already in that layer, people start replacing the systems underneath.[^nadella] This book is about the second phase.
 
 *AgencyDomains* calls the idea of discarding all existing infrastructure "agentive fundamentalism", and holds that the stable state of the crossing is hybrid. I still think so. What dies in the second phase I define below. The system of record survives, with a new demand that is the subject of chapter 5. Technical coexistence remains the rule. What changes is who decides about what coexists.
 
 ## What dies, then?
+
+With Nadella's map and the contrary readings in view, I can say it precisely, and it is the definition the rest of the book rests on.
 
 A way of automating. **What dies is the business frozen in a piece of software: described once, and changed only when someone opens a project.** It makes no difference how it is held: rented as a service, licensed and operated on one's own infrastructure or in one's own cloud, or custom-built. With the rented service the vendor improves its product every week, but what the customer described of its business does not change without a project.
 
@@ -52,7 +58,9 @@ Let me fix two verbs here for the rest of the book. "Buying" means having softwa
 
 What can be automated changes too. Every system automates what someone specified, and around every system there is work nobody specified, which people resolve by hand. In telecommunications companies, for example, TM Forum describes orders that fall out along the way and exception queues that fill up as complexity grows.[^fallout] An agent can help with that work without each case being specified in advance. Software as we know it could not.
 
-My judgment is that the direction has no way back, because it depends on a cost and not on a fashion: writing and changing software costs far less today than two years ago. Operating it with agents is a different calculation, and it may turn out more expensive than expected; I return to that in chapter 7. Eight months after the February sell-off, the market received another signal, and this time it did not come from the stock exchange but from an open-source repository.
+My judgment is that the direction has no way back, because it depends on a cost and not on a fashion: writing and changing software costs far less today than two years ago. Operating it with agents is a different calculation, and it may turn out more expensive than expected; I return to that in chapters 3 and 7.
+
+With this, the questions the rest of the book answers are on the table. If the frozen business dies, what takes its place is the subject of chapter 3, and what is lost by leaving it, that of chapter 4. Before that, a second death has to be told, because the arrangement had one more premise, not of cost but of advantage: that having built a piece of software protected whoever sold it. Eight months after the February sell-off, the market received another signal, and this time it did not come from the stock exchange but from an open-source repository.
 
 [^forrester]: Kate Leggett et al., *SaaS As We Know It Is Dead: How To Survive The SaaS-pocalypse!*, Forrester, February 11, 2026. <https://www.forrester.com/blogs/saas-as-we-know-it-is-dead-how-to-survive-the-saas-pocalypse/>
 [^fortune]: Jeremy Kahn, "AI agents from Anthropic and OpenAI aren't killing SaaS—but incumbent software players can't sleep easy", *Fortune*, February 10, 2026. Author's paraphrase. <https://fortune.com/2026/02/10/ai-agents-anthropic-openai-arent-killing-saas-salesforce-servicenow-microsoft-workday-cant-sleep-easy/>

@@ -1,5 +1,7 @@
 # 4. The Peace of Mind That Used to Be Bought
 
+The previous chapter left a promise pending: software will still be bought, but something else. To know what, one has to look first at what is lost when one stops buying, because that is what the something else is made of.
+
 Whoever bought software took home two things and paid for only one. They paid for the features. The other came included and nobody wrote it into the budget: peace of mind.
 
 ## What was that peace of mind made of?
@@ -9,6 +11,8 @@ Of two certainties. Many others used the same thing, and it worked for them: in 
 That peace of mind belongs to what is bought: to the service that is rented and the package that is licensed. Custom development almost never had it, because a single company uses it and a team that usually leaves answers for it. Whoever comes from there loses little by moving to a system of their own. What they discover is that the question below, who vouches for it, never had an answer.
 
 ## What question arrives when you build?
+
+The loss is not noticed on the day one stops buying. It is noticed later, when the system of one's own is already running and someone asks a question that never needed asking before.
 
 Let us imagine the board of a company that decides to build its system instead of buying it. The IT department gets to work, the agents start operating, and one day someone at the table asks what they never asked of the platform they used to buy: are they doing it right? Are the numbers this system produces correct?
 

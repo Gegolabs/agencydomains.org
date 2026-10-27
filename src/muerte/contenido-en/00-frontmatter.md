@@ -3,12 +3,13 @@
 ### What survives when every company builds its own system
 
 **Author:** César Obach-Renner\
-**Publisher:** GegoLabs\
-**Edition:** First edition · October 2026 · v1.0\
+**Publisher:** Soveria Press\
+**Edition:** First edition · October 2026 · v1.1\
 **License:** GNU Free Documentation License v1.3. Figures 1 and 2 are © TM Forum and fall outside this license.
 
 **How to cite:**
-Obach-Renner, César. *The Death of Software as We Know It*. First edition v1.0. GegoLabs, 2026. DOI: [10.5281/zenodo.23674805](https://doi.org/10.5281/zenodo.23674805).
+Obach-Renner, César. *The Death of Software as We Know It*. First edition v1.1. Soveria Press, 2026. DOI: [10.5281/zenodo.23693160](https://doi.org/10.5281/zenodo.23693160).\
+All versions: DOI [10.5281/zenodo.23674805](https://doi.org/10.5281/zenodo.23674805).
 
 ## The Trilogy
 

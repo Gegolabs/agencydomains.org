@@ -4,7 +4,8 @@ h1 { font-size: 17pt; margin: 0 0 10pt; page-break-before: always; font-weight: 
 h1:first-of-type { page-break-before: avoid; }
 h2 { font-size: 12pt; margin: 16pt 0 6pt; font-weight: 600; }
 h3 { font-size: 11pt; font-style: italic; font-weight: 400; }
-p { margin: 0 0 7pt; text-align: justify; }
+p { margin: 0 0 7pt; text-align: justify; orphans: 3; widows: 3; }
+h2 { page-break-after: avoid; }
 table { border-collapse: collapse; font-size: 8.5pt; margin: 8pt 0; width: 100%; }
 th, td { border-bottom: 0.5pt solid #bbb; padding: 3pt 4pt; text-align: left; vertical-align: top; }
 img { max-width: 100%; }
@@ -23,6 +24,13 @@ nav#TOC a::after { content: leader('.') target-counter(attr(href), page); }
 
 .destacado { margin: 12pt 0; padding: 8pt 12pt; border-left: 3pt solid #333; background: #f2f2f2; font-style: normal; }
 .destacado p { margin: 0; }
+
+/* Dedicatoria: página propia, sin cabecera, antes del prefacio */
+.dedicatoria { page-break-before: always; page-break-after: always; padding-top: 70mm; }
+.revision { display: inline-block; white-space: nowrap; color: #a3271c; border: 0.8pt solid #a3271c; padding: 2pt 7pt; font-size: 8.5pt; font-style: normal; letter-spacing: 1.2pt; text-transform: uppercase; }
+.dedicatoria p { text-align: center; margin: 0 18mm; font-size: 12pt; line-height: 1.6; }
+.dedicatoria .revision { font-size: 7.5pt; margin-bottom: 8mm; }
+.glosario p { margin-bottom: 5pt; }
 
 /* Portada: el tomo I de la pila (tela negra, letras en crema), a sangre */
 @page portada { margin: 0; background: linear-gradient(172deg, #2e2d2b 0%, #1d1c1b 55%, #141312 100%); @bottom-center { content: none; } }

@@ -10,11 +10,15 @@ The idea was born in a conversation with a friend who had built, with the help o
 
 ## How is this book organized?
 
-Chapters 1 and 2 tell of the death: that of the software that freezes the business, with the signal given by the market for rented services and what those who announce it and those who deny it say; and that of the advantage of having built the screens, now that any agent can take an application apart.
+It tells a story in three movements, and it is worth having the whole of it before starting, because each chapter takes for granted what the previous one left said.
 
-Chapter 3 tells what is born in its place, and chapter 4 what is lost. Chapter 5 presents the piece that recovers it, the system of truth, with the contract that defines it. Chapter 6 orders everything into five control layers and two dimensions that cut across them. Chapter 7 takes the framework to the system that bills millions of customers at a telecommunications company, with what that industry has already published.
+The first movement is a death, and it occupies chapters 1 and 2. Chapter 1 says what dies: not all software, but a way of automating, that of the business described once and frozen in a program; and it says so with the signal the market gave in February and with what those who announce that death and those who deny it maintain. Chapter 2 tells a second death, that of the advantage of having built the screens, now that any agent can take an application apart and describe what it does. From there comes the question that runs through the rest of the book: if everything can be copied, what is it that does not get copied?
 
-The book closes with an epilogue on what a board can decide on Monday.
+The second movement is a birth and a loss. Chapter 3 tells what takes the place of frozen software: organizations that have a system their agents shape and change as the work arrives. It says what the agents do in that system, what it costs for them to attend to it, why it is possible now and not before, and it discusses the strongest objection I know against all of this, that of determinism. Chapter 4 tells what those organizations lose without noticing: the peace of mind that came included with bought software, and the question that arrives once it is gone: who vouches that what is recorded is true?
+
+The third movement is the answer. Chapter 5 presents the piece that recovers that peace of mind, the system of truth, with the contract that defines it and the two guarantors who answer for it. Chapter 6 puts it in its place within a broader framework, five control layers and two dimensions that cut across them, because truth is the gravest question of whoever must trust a system, but not the only one. And chapter 7 takes the whole framework to the industry that tests it best, the one that bills millions of customers, with what that industry has published and with what it says against.
+
+The book closes with an epilogue that tells the story again in one go, on a single page, and turns it into what a board can decide with it.
 
 ## What is, and what is not, this book?
 

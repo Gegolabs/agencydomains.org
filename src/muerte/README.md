@@ -2,9 +2,9 @@
 
 ### Libro I de la trilogía del Mundo Agentivo
 
-**Autor:** César Obach-Renner · **Editor:** GegoLabs
-**Edición:** Primera edición · v1.0 · Octubre 2026
-**DOI:** [10.5281/zenodo.23674805](https://doi.org/10.5281/zenodo.23674805) (concepto: apunta siempre a la última versión)
+**Autor:** César Obach-Renner · **Editor:** Soveria Press
+**Edición:** Primera edición · v1.1 · Octubre 2026
+**DOI:** [10.5281/zenodo.23693160](https://doi.org/10.5281/zenodo.23693160) (v1.1) · [10.5281/zenodo.23674805](https://doi.org/10.5281/zenodo.23674805) (concepto: apunta siempre a la última versión)
 *(Slug técnico del libro: `muerte`.)*
 
 ¿Por qué ahora? El punto de partida de la trilogía: por qué deja de ser la forma
@@ -32,8 +32,9 @@ cambio: el sistema de verdad.
 - Tag de publicación: `muerte-vX.Y`, que debe coincidir con el primer `## vX.Y` de `CHANGELOG.md`.
 
 A diferencia de los otros tres libros, el PDF no se arma con XeLaTeX sino con
-WeasyPrint (`_build/libro.sh`), el mismo armado con que se depositó la v1.0 en
-Zenodo: el PDF del sitio es el del registro.
+WeasyPrint (`_build/libro.sh`), el mismo armado con que se depositan las versiones en
+Zenodo. El PDF del sitio es el del registro con una diferencia: «Cómo citar» lleva
+el DOI de su propia versión, que el PDF depositado no puede contener antes de existir.
 
 ## Licencia
 

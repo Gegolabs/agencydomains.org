@@ -1,5 +1,7 @@
 # 4. La tranquilidad que se compraba
 
+El capítulo anterior dejó una promesa pendiente: se seguirá comprando, pero otra cosa. Para saber cuál, hay que mirar primero lo que se pierde cuando se deja de comprar, porque de eso está hecha la otra cosa.
+
 Quien compraba software se llevaba dos cosas y pagaba solo por una. Pagaba por las funciones. La otra venía incluida y nadie la anotaba en el presupuesto: la tranquilidad.
 
 ## ¿De qué estaba hecha esa tranquilidad?
@@ -9,6 +11,8 @@ De dos certezas. Muchos otros usaban lo mismo, y les funcionaba: en mi criterio,
 Esa tranquilidad es de lo que se compra: del servicio que se arrienda y del paquete que se licencia. El desarrollo a medida casi nunca la tuvo, porque lo usa una sola empresa y responde un equipo que suele irse. Quien viene de ahí pierde poco al pasar a un sistema propio. Lo que descubre es que la pregunta de abajo, ¿quién da fe?, nunca tuvo respuesta.
 
 ## ¿Qué pregunta llega cuando se construye?
+
+La pérdida no se nota el día que se deja de comprar. Se nota más tarde, cuando el sistema propio ya funciona y alguien hace una pregunta que antes no hacía falta hacer.
 
 Imaginemos al directorio de una empresa que decide construir su sistema en lugar de comprarlo. El área de sistemas pone manos a la obra, los agentes empiezan a operar, y un día alguien en la mesa pregunta lo que nunca preguntó de la plataforma que compraba: ¿lo están haciendo bien? ¿Los números que arroja este sistema son correctos?
 

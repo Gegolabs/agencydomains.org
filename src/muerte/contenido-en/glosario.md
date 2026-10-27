@@ -1,5 +1,6 @@
 # Glossary
 
+::: glosario
 The book's terms, one line each. The development of each term lives in the chapter indicated. The terms the trilogy has already defined, such as the Nadella Line or Trust Infrastructure, keep their definition in the book that coined them; here the definition of those this book uses most is repeated, in one line.
 
 **software as we know it** — The business frozen in a piece of software: described once, and changed only when someone opens a project. It makes no difference how it is held: rented as a service, licensed and operated on one's own infrastructure or in one's own cloud, or custom-built. It is what dies; not all software dies. *(Chapter 1.)*
@@ -13,6 +14,10 @@ The book's terms, one line each. The development of each term lives in the chapt
 **Botlet** — A piece the agent executes from memory: code that resolves what repeats the same way every time, without consulting any model. It is the agent's muscle memory and it is the agent's own: it shapes it, maintains it and replaces it, although today the body of the starting piece is written by whoever maintains the catalog. The term is from *AgencyDomains*. *(Chapter 3.)*
 
 **Agentlet** — The Botlet's sibling piece for what repeats in its form but asks for judgment in every case: it carries a declared charter and a model sized to the task, not the largest one, with a budget per execution, and it escalates when it is not sure. It is also the agent's. The term is from *AgencyDomains*. *(Chapter 3.)*
+
+**determinism** — With the same inputs and the same process, the same outputs. Software as we know it has it from birth; the agent does not. It is the strongest argument against the thesis, and the book concedes it: in the immediate term it saves the system of truth, not the business frozen around it. *(Chapter 3.)*
+
+**deterministic layer** — What always does the same thing with the same inputs: the Botlets, which the agent crystallizes when a task stops needing judgment and which nobody writes for it, and the core of truth, outside any probability, which the organization operates with a vendor that answers for it. *(Chapters 3, 5 and 7.)*
 
 **three-rung ladder** — The way of ordering the agent's work by what it costs to attend to it: the Botlet (code, no model), the Agentlet (a model sized to the task, with a budget) and full reasoning (the frontier model, reserved for what is new). It orders three things: cost, response time and dependency on outside vendors. It says where cost should come down, not by how much. *(Chapter 3.)*
 
@@ -55,3 +60,4 @@ The book's terms, one line each. The development of each term lives in the chapt
 **people (dimension)** — The condition that cuts across the five control layers: who operates each layer and governs its evolution, and with what training. *(Chapter 6.)*
 
 **reversal (dimension)** — The condition that cuts across the five control layers: what happens when something fails and how to go back without stopping the business. It is not the personal reversibility of the agentive mode. *(Chapter 6.)*
+:::
