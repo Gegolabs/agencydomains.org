@@ -11,13 +11,16 @@ WEBBUILD="$LIBRO_DIR/../agencydomains/_build/web-build.py"
 VERSION=$(grep -m1 -oE "^## v[0-9]+\.[0-9]+(\.[0-9]+)?" "$LIBRO_DIR/CHANGELOG.md" | cut -d" " -f2)
 L="$1"; OUT="$2"
 case "$L" in
-  es) NAME=MuerteDelSoftware; TITLE="La muerte del software como lo conocemos"; BASE=/es/muerte-del-software; AGENTS=para-agentes.md;;
-  en) NAME=DeathOfSoftware;   TITLE="The Death of Software as We Know It";      BASE=/death-of-software;     AGENTS=para-agents.md;;
+  es) NAME=MuerteDelSoftware; TITLE="La muerte del software como lo conocemos"; BASE=/es/muerte-del-software; AGENTS=para-agentes.md; DEDICATORIA=Dedicatoria;;
+  en) NAME=DeathOfSoftware;   TITLE="The Death of Software as We Know It";      BASE=/death-of-software;     AGENTS=para-agents.md;  DEDICATORIA=Dedication;;
   *) echo "uso: web.sh <es|en> <DIR_SALIDA>" >&2; exit 2;;
 esac
 MD="$DIST/$NAME-$VERSION.md"; PDF="$DIST/$NAME-$VERSION.pdf"
 WMD="$DIST/$NAME-$VERSION-web.md"
-sed 's#(\.\./figuras/#(figuras/#g' "$MD" > "$WMD"   # web-build.py sirve las figuras en <base>/figuras/
+# web-build.py sirve las figuras en <base>/figuras/ y corta una página por cada «# »: la
+# dedicatoria no tiene título en el PDF, así que aquí se le pone uno para que sea su propia
+# página, entre la portada y el prefacio (el CSS del sitio lo oculta a la vista).
+sed -e 's#(\.\./figuras/#(figuras/#g' -e "s#^::: dedicatoria\$#\# $DEDICATORIA\n\n&#" "$MD" > "$WMD"
 python3 "$WEBBUILD" \
   --md "$WMD" --figuras "$LIBRO_DIR/figuras" \
   --agents "$LIBRO_DIR/$AGENTS" --pdf "$PDF" \
