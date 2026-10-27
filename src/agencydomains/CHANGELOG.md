@@ -12,6 +12,8 @@ re-enumerar las existentes. En las iteraciones previas a v1.0 podían reorganiza
 
 **AURA con su subtítulo nuevo.** En la edición inglesa, la trilogía lista *AURA — Agentive Path* (la española ya decía «Camino Agentivo»). Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
 
+**Editorial: Soveria Press.** El libro lo publica Soveria Press (<https://press.soveria.ai>): figura como editor en el frontmatter (ES/EN), en «Cómo citar», en el sello de la portada, en la página de créditos del PDF (`frontmatter.tex`), en el README y en una línea nueva al pie del colofón, «Publicado por Soveria Press» («Published by Soveria Press»). Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-03`).
+
 ## v1.2.1 — Octubre 2026
 
 **Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello GegoLabs; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.

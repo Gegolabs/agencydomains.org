@@ -3,7 +3,7 @@
 ### Mundo Agentivo
 
 **Autor:** César Obach-Renner
-**Editor:** GegoLabs
+**Editor:** Soveria Press
 **Edición:** Primera edición · Agosto 2026 · v1.0
 **Licencia:** GNU Free Documentation License v1.3
 
@@ -14,7 +14,7 @@
 > La protagonista y su organización son composiciones ficticias.
 
 **Cómo citar:**
-Obach-Renner, César. *La Empresa en Tiempo Real: Mundo Agentivo*. Primera edición v1.0. GegoLabs, 2026.
+Obach-Renner, César. *La Empresa en Tiempo Real: Mundo Agentivo*. Primera edición v1.0. Soveria Press, 2026.
 
 ## La trilogía
 

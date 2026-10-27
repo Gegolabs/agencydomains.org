@@ -2,7 +2,7 @@
 
 ### Libro II de la trilogía del Mundo Agentivo
 
-**Autor:** César Obach-Renner · **Editor:** GegoLabs
+**Autor:** César Obach-Renner · **Editor:** Soveria Press
 **Edición:** Primera edición · v1.0 · Agosto 2026
 *(Slug técnico del libro: `rte`.)*
 

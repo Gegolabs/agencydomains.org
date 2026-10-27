@@ -3,7 +3,7 @@
 ### Agentive Architecture
 
 **Author:** César Obach-Renner
-**Publisher:** GegoLabs
+**Publisher:** Soveria Press
 **Edition:** First edition · October 2026 · v1.2.1
 **License:** GNU Free Documentation License v1.3
 
@@ -53,7 +53,7 @@ The book is introductory in the sense that it assumes no prior knowledge of spec
 
 ## How to cite
 
-> Obach-Renner, César. *AgencyDomains: Agentive Architecture*. First edition v1.2.1. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Agentive Architecture*. First edition v1.2.1. Soveria Press, 2026.
 
 ## The Trilogy
 

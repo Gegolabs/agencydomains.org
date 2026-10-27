@@ -7,3 +7,5 @@ The division of roles is explicit. I set the problem, decide the direction, and 
 I declare this for two reasons. The first is honesty: a book made this way is neither entirely human nor entirely artificial. The theses and the cases are mine; the words, the structure, and the bridges from one section to the next are the fruit of the exchange. Knowing it lets the reader calibrate what they read. The second is to leave a record: the way books are written is changing, and documenting who did what, with which tools, and under which discipline is part of what whoever comes next will need.
 
 I corrected the text and stand behind every line.
+
+Published by [Soveria Press](https://press.soveria.ai/?ref=libro-aura-en).

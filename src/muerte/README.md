@@ -2,7 +2,7 @@
 
 ### Libro I de la trilogía del Mundo Agentivo
 
-**Autor:** César Obach-Renner · **Editor:** GegoLabs
+**Autor:** César Obach-Renner · **Editor:** Soveria Press
 **Edición:** Primera edición · v1.0 · Octubre 2026
 **DOI:** [10.5281/zenodo.23674805](https://doi.org/10.5281/zenodo.23674805) (concepto: apunta siempre a la última versión)
 *(Slug técnico del libro: `muerte`.)*

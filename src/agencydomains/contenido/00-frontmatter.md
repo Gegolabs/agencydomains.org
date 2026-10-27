@@ -3,7 +3,7 @@
 ### Arquitectura Agentiva
 
 **Autor:** César Obach-Renner
-**Editor:** GegoLabs
+**Editor:** Soveria Press
 **Edición:** Primera edición · Octubre 2026 · v1.2.1
 **Licencia:** GNU Free Documentation License v1.3
 
@@ -53,7 +53,7 @@ El libro es introductorio en el sentido de que no asume conocimiento previo de i
 
 ## Cómo citar
 
-> Obach-Renner, César. *AgencyDomains: Arquitectura Agentiva*. Primera edición v1.2.1. GegoLabs, 2026.
+> Obach-Renner, César. *AgencyDomains: Arquitectura Agentiva*. Primera edición v1.2.1. Soveria Press, 2026.
 
 ## La trilogía
 

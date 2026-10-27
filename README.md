@@ -33,4 +33,4 @@ La **implementación de referencia (Vergis)** vive en su propio repositorio, baj
 - **Vergis (código):** AGPL-3.0 — en su repositorio.
 
 ---
-Editado por **GegoLabs**.
+Editado por **Soveria Press**.

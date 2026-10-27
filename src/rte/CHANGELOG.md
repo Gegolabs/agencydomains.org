@@ -5,13 +5,15 @@ Historial de versiones del libro *La Empresa en Tiempo Real · Mundo Agentivo*
 
 ## Sin publicar
 
-**Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello GegoLabs; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.
+**Portada.** El PDF (ES y EN) abre con la portada de la trilogía: el color del tomo, el título en STIX Two crema, la pila en miniatura con este libro marcado, autor y sello Soveria Press; la página de título pasa a portadilla. La maqueta vive en `src/trilogia/portada/`. Aprobada por César, 2026-10-26.
 
 **Colofón común de la trilogía.** «Sobre cómo se escribió este libro», idéntico en los cuatro libros (ES/EN): Wingworking, César Obach-Renner como líder y Simón Alero, ciudadano de Soveria, como *wingman*, sobre los modelos Claude. Decisión de César, 2026-10-25.
 
 **Citas a *AgencyDomains* con su subtítulo nuevo.** Referencias: *AgencyDomains: Arquitectura Agentiva* y, en inglés, *AgencyDomains: Agentive Architecture*. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-07`).
 
 **Citas a *AURA* con su subtítulo nuevo.** Referencias: *AURA: Camino Agentivo* y, en inglés, *AURA: Agentive Path*, que también nombra al libro en la trilogía de la edición inglesa. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
+
+**Editorial: Soveria Press.** El libro lo publica Soveria Press (<https://press.soveria.ai>): figura como editor en el frontmatter (ES/EN), en «Cómo citar», en el sello de la portada, en el README y en una línea nueva al pie del colofón, «Publicado por Soveria Press» («Published by Soveria Press»). Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-03`).
 
 ## v1.0 — Agosto 2026
 

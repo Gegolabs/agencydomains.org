@@ -3,7 +3,7 @@
 ### Camino Agentivo
 
 **Autor:** César Obach-Renner
-**Editor:** GegoLabs
+**Editor:** Soveria Press
 **Edición:** Primera edición · Agosto 2026 · v1.1
 **Licencia:** GNU Free Documentation License v1.3
 
@@ -14,7 +14,7 @@
 > una organización sobre sí misma, o por un consultor con sus clientes.
 
 **Cómo citar:**
-Obach-Renner, César. *AURA: Camino Agentivo*. Primera edición v1.1. GegoLabs, 2026.
+Obach-Renner, César. *AURA: Camino Agentivo*. Primera edición v1.1. Soveria Press, 2026.
 
 ## La trilogía
 

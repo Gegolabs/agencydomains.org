@@ -26,4 +26,4 @@ Erratas y mejoras vía *pull request* sobre los archivos de `contenido/`.
 Los artefactos de `_dist/` son **generados** — edita siempre la fuente.
 
 ---
-Editado por **GegoLabs** · GNU FDL v1.3.
+Editado por **Soveria Press** · GNU FDL v1.3.

@@ -26,5 +26,5 @@ The "M&Ms" (Managers and Meetings) and the "library rules" are Fried's concepts;
 
 **From the Agentive World trilogy:**
 
-- Obach-Renner, César. *AgencyDomains: Agentive Architecture*. GegoLabs, 2026. <https://agencydomains.org/agencydomains/> — the formal architecture: the Nadella Line, the four layers, the primitives, the Trust Infrastructure.
-- Obach-Renner, César. *AURA: Agentive Path*. GegoLabs, 2026. <https://agencydomains.org/aura/> — the path: the IRIS and MOTOR maturity models, Data Canon, Wingmap, and the use-case portfolio.
+- Obach-Renner, César. *AgencyDomains: Agentive Architecture*. Soveria Press, 2026. <https://agencydomains.org/agencydomains/> — the formal architecture: the Nadella Line, the four layers, the primitives, the Trust Infrastructure.
+- Obach-Renner, César. *AURA: Agentive Path*. Soveria Press, 2026. <https://agencydomains.org/aura/> — the path: the IRIS and MOTOR maturity models, Data Canon, Wingmap, and the use-case portfolio.

@@ -245,6 +245,7 @@ def render_html(lang, books_entries, versions):
         parts.append('</dl>')
     ld = {'@context': 'https://schema.org', '@type': 'DefinedTermSet', 'name': ui['h1'],
           'url': f'{SITE}{ui["path"]}', 'inLanguage': lang, 'license': 'https://www.gnu.org/licenses/fdl-1.3.html',
+          'publisher': {'@type': 'Organization', 'name': 'Soveria Press', 'url': 'https://press.soveria.ai'},
           'hasDefinedTerm': terms_ld}
     eds = ' · '.join(f'{b["num"]} {versions[b["key"]]}' for b in READING)
     toggle = (f'<span><span class="on">ES</span> · <a href="{ui["alt"]}">EN</a></span>' if lang == 'es'

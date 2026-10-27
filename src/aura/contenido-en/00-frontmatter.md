@@ -3,7 +3,7 @@
 ### Agentive Path
 
 **Author:** César Obach-Renner
-**Publisher:** GegoLabs
+**Publisher:** Soveria Press
 **Edition:** First edition · August 2026 · v1.1
 **License:** GNU Free Documentation License v1.3
 
@@ -14,7 +14,7 @@
 > used: by an organization on itself, or by a consultant with their clients.
 
 **How to cite:**
-Obach-Renner, César. *AURA: Agentive Path*. First edition v1.1. GegoLabs, 2026.
+Obach-Renner, César. *AURA: Agentive Path*. First edition v1.1. Soveria Press, 2026.
 
 ## The Trilogy
 

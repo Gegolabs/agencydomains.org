@@ -94,7 +94,7 @@ if [ -f "$PARA_AGENTES_SRC" ]; then
       --pdf-engine=xelatex \
       -H "$HEADER" \
       --metadata title="AgencyDomains — manifiesto para agentes" \
-      --metadata author="César Obach-Renner / GegoLabs" \
+      --metadata author="César Obach-Renner" \
       --toc --toc-depth=2 \
       -V documentclass=article \
       -V geometry:margin=2.5cm \

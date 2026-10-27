@@ -3,7 +3,7 @@
 ### The Agentive World
 
 **Author:** César Obach-Renner
-**Publisher:** GegoLabs
+**Publisher:** Soveria Press
 **Edition:** First edition · August 2026 · v1.0
 **License:** GNU Free Documentation License v1.3
 
@@ -14,7 +14,7 @@
 > The protagonist and her organization are fictional composites.
 
 **How to cite:**
-Obach-Renner, César. *The Real-Time Enterprise: The Agentive World*. First edition v1.0. GegoLabs, 2026.
+Obach-Renner, César. *The Real-Time Enterprise: The Agentive World*. First edition v1.0. Soveria Press, 2026.
 
 ## The Trilogy
 

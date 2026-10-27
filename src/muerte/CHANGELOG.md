@@ -8,6 +8,8 @@ Las ediciones del libro, de la más nueva a la más vieja. Términos, estructura
 
 **Citas a *AURA* con su subtítulo nuevo.** Referencias: *AURA: Camino Agentivo* y, en inglés, *AURA: Agentive Path*, que también nombra al libro en la trilogía de la edición inglesa. Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-08`).
 
+**Editorial: Soveria Press.** El libro lo publica Soveria Press (<https://press.soveria.ai>): figura como editor en el frontmatter (ES/EN), en «Cómo citar», en el sello de la portada, en el README y en una línea nueva al pie del colofón, «Publicado por Soveria Press» («Published by Soveria Press»). Decisión de César, 2026-10-27 (`dec-20261027-647d3f5a-03`). El registro de Zenodo de la v1.0 conserva la editorial con que se depositó; el cambio llega a Zenodo con la próxima versión que se deposite.
+
 ## v1.0 — Primera edición
 
 La primera edición, en español.
