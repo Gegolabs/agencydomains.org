@@ -3,15 +3,9 @@
 | | |
 |---|---|
 | **Versión** | 1.4.4 |
-| **Estado** | Propuesta para la revisión de César Obach-Renner |
-| **Nombre** | Yava (*Yet Another Vergis Architecture*) |
 | **Autores** | César Obach-Renner y Simón Alero |
-| **Revisa y decide** | César Obach-Renner |
-| **Fecha** | 2026-11-06 |
 | **Licencia** | Documentación bajo GNU FDL v1.3 y código bajo AGPL-3.0, como exige el canon a la implementación de referencia |
 | **Marco** | *AgencyDomains: Arquitectura del Mundo Agentivo*, de César Obach-Renner (el canon) |
-| **Cómo leerlo** | Convenciones de nombres y grados de certeza: Anexo A |
-| **Edición pública** | El cuerpo, el Anexo A y las fuentes |
 | **Alcance** | La arquitectura que da vida a todo lo determinista de un AgencyDomain. Quedan fuera la Cognición, los asuntos de proyecto, los lineamientos de construcción y los servicios concretos que se monten sobre ella |
 
 ## ¿Qué es Yava?
@@ -31,9 +25,9 @@
 | **Botlets**, incluidos los de presentación y los de fachada operativa | 3 (invocados desde 1, 2 o por eventos) | Sí: régimen persistente. Cada Botlet es un servicio de aplicación de tipo Botlet, que corre en su contenedor, el Botler |
 | **Facetas** | 1 | Sí: régimen efímero |
 | **Conectores** | 4 | Sí: servicios de plataforma, uno por protocolo de transporte y uno por protocolo de autenticación. Un Conector puede declarar las propiedades del régimen persistente (ver «¿Qué es un Conector?») |
-| **Trust Infrastructure determinista** (políticas, CRUDLEX, log *append-only*) | Transversal | Sí. Sus formas están en este documento: el evento de acto, el vocabulario de permisos y el aprobador autenticado. Su construcción completa, después de que la primera instalación esté en marcha (SI-49) |
+| **Trust Infrastructure determinista** (políticas, CRUDLEX, log *append-only*) | Transversal | Sí. Sus formas están en este documento: el evento de acto, el vocabulario de permisos y el aprobador autenticado. Su construcción completa, después de que la primera instalación esté en marcha |
 | **Botler** (el contenedor de los Botlets) | 3 | Sí: es el corazón de Yava, el runtime genérico que aloja a los Botlets |
-| **Agentlets** | 3 | Su alojamiento, sí: cada Agentlet es un servicio de aplicación de tipo Agentlet, que corre en su contenedor, el Agentler, con presupuesto, límites y consumo. Su cuerpo, que es inferencia, no (SI-45) |
+| **Agentlets** | 3 | Su alojamiento, sí: cada Agentlet es un servicio de aplicación de tipo Agentlet, que corre en su contenedor, el Agentler, con presupuesto, límites y consumo. Su cuerpo, que es inferencia, no |
 | **Interfaz de la Cognición hacia la Capa 3**, por MCP | 2 → 3 | Sí: el conector Herramientas (MCP) |
 | **Cognición, Capabilities, Pattern Recognition, generación de Botlets** | 2 | No |
 | **Validación con modelos** (detección de alucinaciones y similares) | Transversal | No |
@@ -90,7 +84,7 @@ Además de lo anterior, Yava cumple estos requisitos del canon en su ámbito:
 - **los tres tiempos del agente** (Preparación, Atención e Ingeniería): cada operación declara el suyo en su contrato, y la telemetría lo lleva;
 - **la frontera con el exterior:** todo protocolo externo entra o sale por un Conector, y el recorrido de los datos hacia terceros queda trazado (ver «¿Cómo se tratan los datos sensibles?»).
 
-**Salvedad:** la conformidad no es completa todavía. Las brechas con el canon que siguen abiertas (entre SI-42 y SI-54) son **no conformidades pendientes**, y mientras existan, la conformidad se declara con esa salvedad. La conformidad del ciclo de vida del agente se trata en el reprise.
+**Salvedad:** la conformidad no es completa todavía. Las brechas con el canon que siguen abiertas son **no conformidades pendientes**, y mientras existan, la conformidad se declara con esa salvedad. La conformidad del ciclo de vida del agente se trata en el reprise.
 
 ### ¿Qué premisas propias tiene?
 
@@ -159,9 +153,9 @@ Cada servicio de aplicación declara su **tipo**: lo que el equipo construye, ve
 | **Botlet** | Un **Botler** | Las reglas de todo servicio, y lo que el Botlet hace sobre el mundo a través de su handle | El runtime genérico del Botler del canon: el handle controlado, el confinamiento, el fallback hacia la Cognición y las fases de madurez |
 | **ad-hoc** | Ningún contenedor | Solo las reglas de todo servicio: contrato, base propia y RPC sobre MQ | — |
 
-**En G1, lo que llega por la línea de entrega como Botlet es el proto-Botlet forjado.** Cada configuración suya que hace la Cognición es también un Botlet, y se registra en el Botler sin pasar por la línea (SI-42). Esta lectura concilia la regla de los tipos con la generación G1 y es **provisional**: se decide en el reprise, al diseñar el Botler y el proto-Botlet (SI-69). No afecta la primera versión de una instalación que no tenga Botlets.
+**En G1, lo que llega por la línea de entrega como Botlet es el proto-Botlet forjado.** Cada configuración suya que hace la Cognición es también un Botlet, y se registra en el Botler sin pasar por la línea. Esta lectura concilia la regla de los tipos con la generación G1 y es **provisional**: se decide en el reprise, al diseñar el Botler y el proto-Botlet. No afecta la primera versión de una instalación que no tenga Botlets.
 
-Los contratos de cada tipo y de cada contenedor, y cómo llega el contenedor a producción, son un diseño pendiente (SI-69).
+Los contratos de cada tipo y de cada contenedor, y cómo llega el contenedor a producción, son un diseño pendiente.
 
 ---
 
@@ -368,7 +362,7 @@ Cada servicio declara cuál usa. Ninguna de las dos exige que un servicio espere
 
 **Se descartó:** que cada servicio use por su cuenta el almacenamiento de la nube con un mínimo común, porque la identidad de cada servicio ante el almacenamiento, las URL firmadas y la lectura concedida son de plataforma, y se repetirían en cada servicio que guarda bytes.
 
-Su contrato (cómo se declara la lectura, cómo se versiona un artefacto y qué viaja en el aviso) es un diseño pendiente (SI-58).
+Su contrato (cómo se declara la lectura, cómo se versiona un artefacto y qué viaja en el aviso) es un diseño pendiente.
 
 ---
 
@@ -383,7 +377,7 @@ El **gestor de repositorios** es el servicio de plataforma que da a cada servici
 
 **Los bytes son opacos:** el gestor crea, respalda, restaura, exporta e importa sin leer ni interpretar los datos. Por eso no es una excepción a la regla del estado. Lo que un servicio exporta por Dominion o por titular no lo extrae el gestor: lo publica el dueño como artefacto.
 
-Qué opera el gestor como infraestructura y qué pide al dueño por su contrato es un diseño pendiente (SI-59).
+Qué opera el gestor como infraestructura y qué pide al dueño por su contrato es un diseño pendiente.
 
 ---
 
@@ -412,7 +406,7 @@ Con **una sola marca**, declarada en el contrato de cada servicio: un campo de u
 3. **Cumplimiento las invoca** y lleva el acta de cada pedido.
 4. **La retención se declara por clase de dato,** y el borrado al vencer lo ejecuta el dueño. El cierre de un Dominion es un evento que cada servicio consume y confirma, y borra lo del Dominion de punta a punta.
 
-La protección de datos personales es para la instalación una obligación con fecha cierta, que declara su perfil. El contrato de Cumplimiento es un diseño pendiente (SI-62).
+La protección de datos personales es para la instalación una obligación con fecha cierta, que declara su perfil. El contrato de Cumplimiento es un diseño pendiente.
 
 ### ¿Qué hace la tokenización?
 
@@ -422,7 +416,7 @@ La **tokenización** es el servicio de plataforma que reemplaza un dato marcado 
 2. la biblioteca de llamada tokeniza al publicar y destokeniza al recibir, si la autorización lo permite;
 3. el mapa entre token y dato vive en este servicio, y suprimirlo es parte de la supresión.
 
-Sirve también para tokenizar un dato personal antes de enviarlo a una cognición externa. Su costo por mensaje y su comportamiento si cae son parte de su diseño (SI-61).
+Sirve también para tokenizar un dato personal antes de enviarlo a una cognición externa. Su costo por mensaje y su comportamiento si cae son parte de su diseño.
 
 **Se descartó:** dejar la tokenización a cada instalación, porque la marca y el MQ ya son de plataforma, y la tokenización en vuelo solo se puede poner donde viajan los mensajes.
 
@@ -440,7 +434,7 @@ La **supresión a pedido del titular** la implementa cada servicio por su contra
 
 **El mecanismo se construye y se prueba, y queda deshabilitado** con un interruptor. Se habilita cuando estén implementados los mecanismos que garantizan que lo use de manera legítima el dueño del dato que se va a suprimir.
 
-**El registro de actos no se contradice con la supresión** si guarda referencias y huellas con llave (una llave secreta por instalación, que no sale del servicio), y no huellas simples del dato: la huella simple de un dato personal pequeño, como un correo o un nombre, se revierte por fuerza bruta. Qué conserva un servicio después de suprimir (una lápida sin huella del dato, o una huella con llave donde una auditoría necesite probar qué se suprimió) es un diseño pendiente (SI-62).
+**El registro de actos no se contradice con la supresión** si guarda referencias y huellas con llave (una llave secreta por instalación, que no sale del servicio), y no huellas simples del dato: la huella simple de un dato personal pequeño, como un correo o un nombre, se revierte por fuerza bruta. Qué conserva un servicio después de suprimir (una lápida sin huella del dato, o una huella con llave donde una auditoría necesite probar qué se suprimió) es un diseño pendiente.
 
 ---
 
@@ -508,7 +502,7 @@ Si un servicio necesita algo de otro para terminar, tiene dos caminos: **hacer l
 
 Cada operación tiene un **tema por omisión** derivado de su descripción: `<instalación>.<servicio>.<cmd|qry|evt>.<operación>.v<versión>`, para llamadas durables, llamadas volátiles y eventos respectivamente; el primer segmento es el nombre de la instalación.
 
-Un servicio **escucha todas las operaciones de su API con comodines**, por ejemplo `<instalación>.<servicio>.cmd.*.v1`. El MQ elegido admite comodines en los temas (`*` para un segmento, `>` para uno o más al final), en los consumidores de los streams persistentes y en los permisos *(conocimiento previo; se verifica en SI-13)*.
+Un servicio **escucha todas las operaciones de su API con comodines**, por ejemplo `<instalación>.<servicio>.cmd.*.v1`. El MQ elegido admite comodines en los temas (`*` para un segmento, `>` para uno o más al final), en los consumidores de los streams persistentes y en los permisos *(conocimiento previo; se verifica antes de construir)*.
 
 ### ¿Cómo se redirige una operación?
 
@@ -520,7 +514,7 @@ El tema por el que una operación llega a su servicio **se resuelve en tiempo de
 4. **Si el registro no está disponible**, cada servicio sigue con la última vinculación conocida.
 5. **Los eventos nunca se redirigen:** su tema es permanente.
 
-**La vinculación es solo ruteo:** cambia el tema, nunca el servicio que implementa la operación, así que sus resultados, su idempotencia y sus tickets no se ven afectados. Cambiar el servicio que implementa una operación es una **migración del contrato**, un acto aparte que se diseña cuando haga falta (SI-35).
+**La vinculación es solo ruteo:** cambia el tema, nunca el servicio que implementa la operación, así que sus resultados, su idempotencia y sus tickets no se ven afectados. Cambiar el servicio que implementa una operación es una **migración del contrato**, un acto aparte que se diseña cuando haga falta.
 
 **Condiciones que no dependen del caso:**
 
@@ -562,7 +556,7 @@ El tema por el que una operación llega a su servicio **se resuelve en tiempo de
 
 ## ¿Cómo viaja la identidad?
 
-El conector de entrada verifica el token del cliente, que emitió Identidad, y produce el **contexto de identidad firmado** con la firma de Identidad (cómo, sin agregar un salto por llamada, es un diseño pendiente: SI-74). El contexto lleva:
+El conector de entrada verifica el token del cliente, que emitió Identidad, y produce el **contexto de identidad firmado** con la firma de Identidad (cómo, sin agregar un salto por llamada, es un diseño pendiente). El contexto lleva:
 
 - el Dominion;
 - el principal humano;
@@ -622,7 +616,7 @@ Es un servicio de plataforma, con su base y su API por RPC sobre MQ:
 
 **Se descartó:** validar el token con una llamada volátil a Identidad en cada petición, porque la pone en el camino de todo y agrega un salto por llamada. Lo que cuesta: una revocación surte efecto cuando llega su evento, no exactamente en la petición siguiente.
 
-Su contrato es un diseño pendiente (SI-74). Si Identidad y el Conector de autenticación se construyen o se adopta un producto FOSS que cumpla sus mínimos es una decisión pendiente (SI-72).
+Su contrato es un diseño pendiente. Si Identidad y el Conector de autenticación se construyen o se adopta un producto FOSS que cumpla sus mínimos es una decisión pendiente.
 
 ### ¿Qué hace el Conector de autenticación?
 
@@ -641,7 +635,7 @@ Es el Conector por el que un cliente o un humano prueba quién es, en el borde. 
 3. **Las políticas son por tipo de usuario** (agente, humano, servicio) y por relación (quién abre qué Dominion, quién es el operador de qué agente). Las reglas de negocio de la instalación se publican en Autorización como relaciones y políticas.
 4. **La autorización vale igual** para una invocación por las meta-tools que para un atajo.
 
-Es el patrón que separa el punto que decide del que aplica *(conocimiento previo, no verificado)*. Su contrato, cómo falla si cae y los productos FOSS que conviene evaluar antes de construirla son un diseño pendiente (SI-55); también la frontera con el servicio de la instalación que guarda sus reglas de acceso (SI-57) y si la habilitación de un servicio de negocio por Dominion es un campo del registro o una política de Autorización (SI-56).
+Es el patrón que separa el punto que decide del que aplica *(conocimiento previo, no verificado)*. Su contrato, cómo falla si cae y los productos FOSS que conviene evaluar antes de construirla son un diseño pendiente; también la frontera con el servicio de la instalación que guarda sus reglas de acceso y si la habilitación de un servicio de negocio por Dominion es un campo del registro o una política de Autorización.
 
 ### ¿Cómo aprueba un humano?
 
@@ -659,7 +653,7 @@ La decisión y su registro son de Autorización; la espera de un acto largo pued
 El humano que ve algo que no hizo declara que **no lo autorizó**. Eso:
 
 1. **revoca la sesión** en Autorización, que publica la revocación como evento para los conectores y los servicios dueños;
-2. **deja en cuarentena lo que se escribió en esa sesión:** cada servicio dueño deja de mostrarlo sin borrarlo, porque cada escritura guarda su sesión (ver «¿Cómo viaja la identidad?»). Quién levanta la cuarentena es un diseño pendiente (SI-55).
+2. **deja en cuarentena lo que se escribió en esa sesión:** cada servicio dueño deja de mostrarlo sin borrarlo, porque cada escritura guarda su sesión (ver «¿Cómo viaja la identidad?»). Quién levanta la cuarentena es un diseño pendiente.
 
 Es una declaración **después del hecho**. **Se descartó:** exigir aprobación previa de cada sesión nueva.
 
@@ -672,7 +666,7 @@ El **operador** es el humano responsable de lo que hace un agente. La arquitectu
 3. cada transición es un acto registrado;
 4. Autorización sabe quién es el operador de cada agente y lo usa en sus políticas.
 
-Su contrato es un diseño pendiente (SI-68).
+Su contrato es un diseño pendiente.
 
 ### ¿Qué controla el acceso privilegiado?
 
@@ -683,7 +677,7 @@ El **acceso privilegiado** es el del soporte que ve o toca datos de un Dominion.
 3. se registra como evento de acto, con su porqué;
 4. si levanta una protección (desellar, dar acceso, leer datos de un Dominion), exige **cuatro ojos**.
 
-Quién es la segunda persona mientras la plataforma tenga un solo dueño es una decisión pendiente (SI-68).
+Quién es la segunda persona mientras la plataforma tenga un solo dueño es una decisión pendiente.
 
 ### ¿Qué no se hace por GET?
 
@@ -697,7 +691,7 @@ La regla no tiene excepciones. El conector Web (HTTP) la aplica a toda ruta (ver
 
 ## ¿Qué forma tiene el registro de un acto?
 
-El **registro de actos** es el servicio de plataforma que guarda, encadena y sirve el registro de cada acto. El canon lo exige: inmutable, encadenado y con la huella de los parámetros y del resultado en vez de su contenido. Su contrato y sus mínimos (cómo sirve, cómo falla y qué retiene) son un diseño pendiente (SI-73), y cuándo se construye se trata en el reprise.
+El **registro de actos** es el servicio de plataforma que guarda, encadena y sirve el registro de cada acto. El canon lo exige: inmutable, encadenado y con la huella de los parámetros y del resultado en vez de su contenido. Su contrato y sus mínimos (cómo sirve, cómo falla y qué retiene) son un diseño pendiente, y cuándo se construye se trata en el reprise.
 
 **El evento de acto** tiene una forma común, que cada servicio publica en un tema permanente:
 
@@ -711,7 +705,7 @@ El **registro de actos** es el servicio de plataforma que guarda, encadena y sir
 
 **Por omisión lleva referencias y huellas, no datos personales,** y por eso no choca con la supresión. El generador produce el evento de acto de cada operación que cambia estado. La vista para el humano de lo que hizo su agente la arma la instalación encima.
 
-Esta forma, y el registro de actos que la guarda, son la parte de la Trust Infrastructure del canon que está en este documento; el resto sigue en SI-49.
+Esta forma, y el registro de actos que la guarda, son la parte de la Trust Infrastructure del canon que está en este documento; el resto se construye después de que la primera instalación esté en marcha.
 
 ---
 ## ¿Cómo se escribe un contrato?
@@ -749,7 +743,7 @@ El generador produce además **el evento de acto** de cada operación que cambia
 **Cómo se verifica que un cambio no rompe**, en el CI:
 
 - la compatibilidad de los mensajes Protobuf con su versión anterior *(herramienta con licencia Apache-2.0 medida)*;
-- la compatibilidad de las operaciones y eventos de AsyncAPI, por ejemplo que una llamada durable no pase a volátil ni desaparezca un evento *(conocimiento previo; se verifica en SI-13)*;
+- la compatibilidad de las operaciones y eventos de AsyncAPI, por ejemplo que una llamada durable no pase a volátil ni desaparezca un evento *(conocimiento previo; se verifica antes de construir)*;
 - contratos dirigidos por el consumidor, que verifican que lo que el consumidor espera coincide con lo que el proveedor entrega *(licencias MIT medidas)*.
 
 **Por qué importa la serialización binaria** *(magnitudes de conocimiento previo, no medidas en Yava)*: menos CPU por mensaje (bajo carga domina la CPU por petición), mensajes varias veces más chicos en la red, menos disco y menos tráfico de replicación en los streams persistentes (replicados en tres nodos), y más capacidad del MQ antes de crecer. Matices: en mensajes muy pequeños los encabezados pesan tanto como el contenido, y hacia los agentes no aplica, porque MCP habla JSON y el conector convierte una vez por petición. **Lo que cuesta:** el binario no se lee a simple vista, y se compensa con herramientas que lo decodifican en registros, trazas e inspección de colas.
@@ -794,7 +788,7 @@ Igual que los nombres de las herramientas son únicos dentro de un servidor MCP,
 
 **Nadie puede registrar un servicio de negocio ajeno**, y eso no exige administrar nada. Funciona como la tarjeta de acceso de una oficina, que se genera sola a partir del contrato de cada empleado:
 
-- **Del contrato de cada servicio se genera su permiso de registro:** el tema de registro es por servicio de negocio (por ejemplo, `<instalación>.catalogo.cmd.registrar.send_mail`), y solo el servicio de aplicación cuyo contrato declara `send_mail` puede publicar en él. Un servicio que intente registrar un nombre que su contrato no declara es rechazado por el MQ, sin llegar al registro. Lo mismo vale para la API: solo el servicio que implementa un contrato puede registrarlo. *(Que los permisos del MQ admiten este esquema es conocimiento previo; se verifica en SI-13.)*
+- **Del contrato de cada servicio se genera su permiso de registro:** el tema de registro es por servicio de negocio (por ejemplo, `<instalación>.catalogo.cmd.registrar.send_mail`), y solo el servicio de aplicación cuyo contrato declara `send_mail` puede publicar en él. Un servicio que intente registrar un nombre que su contrato no declara es rechazado por el MQ, sin llegar al registro. Lo mismo vale para la API: solo el servicio que implementa un contrato puede registrarlo. *(Que los permisos del MQ admiten este esquema es conocimiento previo; se verifica antes de construir.)*
 - **Si dos contratos declaran el mismo nombre**, la verificación automática del repositorio de entorno, donde se reúnen los permisos de toda la plataforma, rechaza el segundo antes de desplegarlo.
 - **La confianza viene de la línea de entrega:** para tener una identidad en el MQ, un servicio tiene que haberse desplegado con sus juicios, su imagen firmada y la verificación de firma en la admisión.
 
@@ -808,12 +802,12 @@ Además de su nombre, su título, su descripción y la operación que lo impleme
 
 1. **los permisos** que exige, con su clase, que usa Autorización;
 2. **su fase:** abierto, alfa, interno, o descrito sin habilitar;
-3. **los Dominions habilitados,** cuando está en piloto (si esto es un campo del registro o una política de Autorización es un diseño pendiente, SI-56);
+3. **los Dominions habilitados,** cuando está en piloto (si esto es un campo del registro o una política de Autorización es un diseño pendiente);
 4. **el texto de su modo degradado,** lo que el agente recibe cuando el servicio no puede atender;
 5. **si se sugiere como atajo,** y su porqué;
 6. **la URI canónica** de la herramienta (ver «¿Qué es un Dominion?»).
 
-`meta.catalog` lista solo lo que está habilitado para el Dominion que llama. Los servicios de aplicación registran también **las skills** que ofrecen, que la Cognición pide por su meta-tool (SI-70).
+`meta.catalog` lista solo lo que está habilitado para el Dominion que llama. Los servicios de aplicación registran también **las skills** que ofrecen, que la Cognición pide por su meta-tool.
 
 ---
 
@@ -834,7 +828,7 @@ Además de su nombre, su título, su descripción y la operación que lo impleme
 | **Mensajes en vivo** | WebSocket, SSE | Texto, tokens, subtítulos, eventos y audio en frames | Un acompañante que envía audio por frames |
 | **Medios en tiempo real** | WebRTC, SIP/RTP | Audio, video y telefonía | La voz y las llamadas |
 | **Email** | SMTP, IMAP | Envía y lee correo | El correo de los agentes, los buzones de los humanos y los avisos a humanos |
-| **Terminal** | SSH, Telnet | Sesiones de terminal interactivas | Por diseñar (SI-77) |
+| **Terminal** | SSH, Telnet | Sesiones de terminal interactivas | Por diseñar |
 | **Autenticación** | OAuth 2.1, el primero; otro protocolo de autenticación es otro Conector | Prueba quién es el que llega y le entrega los tokens que emite Identidad (ver «¿Cómo se autentican y se autorizan los que llaman?») | Ninguna: las identidades y las sesiones son de Identidad, y lo que cada quien puede hacer, de Autorización |
 
 **Lo que declara cada Conector en su contrato:**
@@ -849,8 +843,8 @@ Además de su nombre, su título, su descripción y la operación que lo impleme
 
 | Conector | Localidad y sin conexión | Tercero y datos | Credenciales | Límites del tercero | Régimen persistente |
 |---|---|---|---|---|---|
-| **Autenticación (OAuth 2.1)** | En el borde del clúster; si cae, los tokens vigentes siguen y fallan los inicios de sesión y las renovaciones | Los clientes y los humanos que se autentican; sus credenciales, marcadas como sensibles | Ninguna propia declarada hoy; si su contrato llega a federar con un proveedor de identidad externo, sus credenciales siguen la regla de «¿Qué patrones son obligatorios en cada servicio?» (las de la plataforma, al almacén de secretos; las de terceros por Dominion, al Vault) y lo decide SI-72 | Ninguno: no habla con un tercero | Ninguna: el estado entre sesiones lo guarda Identidad |
-| **Terminal (SSH · Telnet)** | En el borde del clúster | Por diseñar (SI-77); Telnet no cifra el tránsito (SI-76) | Cómo se autentica una sesión de terminal, por diseñar (SI-75) | Ninguno: no habla con un tercero | Por diseñar (SI-77) |
+| **Autenticación (OAuth 2.1)** | En el borde del clúster; si cae, los tokens vigentes siguen y fallan los inicios de sesión y las renovaciones | Los clientes y los humanos que se autentican; sus credenciales, marcadas como sensibles | Ninguna propia declarada hoy; si su contrato llega a federar con un proveedor de identidad externo, sus credenciales siguen la regla de «¿Qué patrones son obligatorios en cada servicio?» (las de la plataforma, al almacén de secretos; las de terceros por Dominion, al Vault), y está por decidir | Ninguno: no habla con un tercero | Ninguna: el estado entre sesiones lo guarda Identidad |
+| **Terminal (SSH · Telnet)** | En el borde del clúster | Por diseñar; Telnet no cifra el tránsito | Cómo se autentica una sesión de terminal, por diseñar | Ninguno: no habla con un tercero | Por diseñar |
 
 Todo lo que sale del clúster sale por el gateway de salida, en su lista blanca.
 
@@ -865,7 +859,7 @@ El conector Herramientas (MCP) es el único servidor MCP que usan los agentes, c
 ### ¿Cuáles son sus dos planos?
 
 1. **El plano MCP, expuesto a los agentes:** las meta-tools, los atajos, las Tasks de MCP, el piggyback y las notificaciones hacia los agentes. Es el plano de conector propiamente dicho: traduce cada interacción MCP a llamadas RPC sobre MQ.
-2. **El plano de servicio, expuesto a la arquitectura:** el conector Herramientas tiene además su propia API por RPC sobre MQ, con su contrato, sus permisos exclusivos y su propia base, donde guarda las sesiones MCP y el registro de tickets. Le aplican todas las reglas de un servicio, incluida la profundidad uno de las esperas. Su API se define más adelante (SI-37).
+2. **El plano de servicio, expuesto a la arquitectura:** el conector Herramientas tiene además su propia API por RPC sobre MQ, con su contrato, sus permisos exclusivos y su propia base, donde guarda las sesiones MCP y el registro de tickets. Le aplican todas las reglas de un servicio, incluida la profundidad uno de las esperas. Su API se define más adelante.
 
 ### ¿Qué hace el conector Herramientas?
 
@@ -889,7 +883,7 @@ El plano MCP ofrece una **extensión de MCP: cinco meta-tools**, herramientas qu
 | `meta.contract` | Devuelve el contrato de un servicio de negocio: sus esquemas de entrada y salida en JSON Schema |
 | `meta.request` | Invoca un servicio de negocio por su nombre, con sus argumentos y su llave de idempotencia |
 | `meta.result` | Devuelve el estado o el resultado de una invocación por su ticket |
-| La meta-tool de las skills | Lista y entrega las skills que la instalación ofrece a la Cognición. Su nombre y su forma, en particular si una skill es un servicio de negocio con otra forma o un objeto propio del registro, son un diseño pendiente (SI-70) |
+| La meta-tool de las skills | Lista y entrega las skills que la instalación ofrece a la Cognición. Su nombre y su forma, en particular si una skill es un servicio de negocio con otra forma o un objeto propio del registro, son un diseño pendiente |
 
 El prefijo `meta.` usa el espacio de nombres con punto que la especificación de MCP admite, y queda **reservado**: ningún servicio de negocio puede llamarse con ese prefijo. Las reglas de nombres de MCP admiten letras, dígitos, guion bajo, guion y punto, entre 1 y 128 caracteres. *(Verificado.)*
 
@@ -904,7 +898,7 @@ En los dos casos, **el ticket y el identificador de la tarea son la llave de ide
 
 ### ¿Qué son los atajos?
 
-Un servicio de aplicación puede declarar en su contrato que se sugiere presentar uno de sus servicios de negocio como **atajo**, con su porqué. El registro lo guarda, y el conector Herramientas lo publica como **herramienta nativa**, de forma dinámica, además de seguir alcanzable por `meta.request`. El atajo tiene el mismo nombre, la misma autorización y el mismo enrutamiento por el registro que la invocación por las meta-tools, y su esquema lo genera el generador desde el contrato. Cuántos atajos toleran los clientes MCP antes de degradar su elección de herramienta se verifica antes de construir; el contrato de los atajos es un diseño pendiente (SI-71).
+Un servicio de aplicación puede declarar en su contrato que se sugiere presentar uno de sus servicios de negocio como **atajo**, con su porqué. El registro lo guarda, y el conector Herramientas lo publica como **herramienta nativa**, de forma dinámica, además de seguir alcanzable por `meta.request`. El atajo tiene el mismo nombre, la misma autorización y el mismo enrutamiento por el registro que la invocación por las meta-tools, y su esquema lo genera el generador desde el contrato. Cuántos atajos toleran los clientes MCP antes de degradar su elección de herramienta se verifica antes de construir; el contrato de los atajos es un diseño pendiente.
 
 ### ¿Qué es el piggyback?
 
@@ -921,7 +915,7 @@ Sobre el piggyback, una instalación construye la coherencia entre las sesiones 
 
 **Cómo la lee un cliente fuera del clúster:** las novedades le llegan en el piggyback de cada respuesta del conector Herramientas; la versión observable, si el cliente la pide por sí misma, la responde el conector Web (HTTP) desde memoria, autenticada con el token del cliente MCP, con un plazo duro y un valor por omisión. La consulta que un cliente hace antes de cada mensaje sobre la memoria de su agente es una herramienta del servicio de aplicación que la guarda, no una facilidad de Yava.
 
-Su contrato (cómo se deja una nota, cómo se pide lo ocurrido desde un momento dado y cómo se publica la versión observable) es un diseño pendiente (SI-63); también la API del plano de servicio del conector, en la que vive (SI-37).
+Su contrato (cómo se deja una nota, cómo se pide lo ocurrido desde un momento dado y cómo se publica la versión observable) es un diseño pendiente; también la API del plano de servicio del conector, en la que vive.
 
 ### ¿Qué requisitos tiene el conector Herramientas?
 
@@ -949,7 +943,7 @@ Las enruta por RPC sobre MQ a su servicio dueño, que compone la página o atien
 - **una página de mantenimiento** cuando el dueño no responde;
 - **límites por la IP real** del cliente.
 
-**Se descartó:** que cada pieza de borde sirva sus propias páginas, porque cada una hablaría HTTP y repetiría la regla del GET. Si el Conector de autenticación OAuth 2.1 sirve sus páginas, por ser en sí una pieza de borde que habla OAuth sobre HTTP, o todas entran por el conector Web, es un diseño pendiente (SI-64).
+**Se descartó:** que cada pieza de borde sirva sus propias páginas, porque cada una hablaría HTTP y repetiría la regla del GET. Si el Conector de autenticación OAuth 2.1 sirve sus páginas, por ser en sí una pieza de borde que habla OAuth sobre HTTP, o todas entran por el conector Web, es un diseño pendiente.
 
 ---
 
@@ -960,7 +954,7 @@ Son dos, uno por protocolo de transporte:
 1. **Mensajes en vivo** (WebSocket y SSE): texto, tokens, subtítulos, eventos y audio en frames. Es bidireccional y cada frame es un mensaje. El cliente se autentica con un **boleto de un solo uso** que emite una operación de la API del servicio dueño; la conexión se drena y se retoma en otro nodo, y el conector escala por conexiones.
 2. **Medios en tiempo real** (WebRTC y SIP/RTP): audio, video y telefonía, con TURN para atravesar NAT, códecs, manejo del jitter, un SFU para las conversaciones de varias partes y la pasarela SIP.
 
-**El conector termina la conexión y la entrega al servicio dueño,** que pone la regla de negocio. Cómo la recibe el dueño (un rol de proceso vivo del mismo servicio, que corre de la misma imagen con la misma versión) es un diseño pendiente (SI-65), junto con el contrato de los dos conectores y sus productos.
+**El conector termina la conexión y la entrega al servicio dueño,** que pone la regla de negocio. Cómo la recibe el dueño (un rol de proceso vivo del mismo servicio, que corre de la misma imagen con la misma versión) es un diseño pendiente, junto con el contrato de los dos conectores y sus productos.
 
 ---
 
@@ -977,7 +971,7 @@ El **conector Email (SMTP/IMAP)** envía y lee correo con las credenciales que c
 
 **Se descartó:** que cada instalación implemente su propio puerto de notificación, porque el correo es un protocolo que toda instalación necesita y su transporte no depende de la regla de negocio.
 
-Su contrato es un diseño pendiente (SI-66).
+Su contrato es un diseño pendiente.
 
 ---
 
@@ -993,7 +987,7 @@ El **Enlace** es el servicio de plataforma por el que **un agente de un Dominion
 
 **Se descartó:** dejar la comunicación entre Dominions como un patrón que cada instalación implementa, porque cualquier solución que corra sobre Yava con agentes en más de un dominio la necesita.
 
-Su contrato, incluida la confianza en la identidad de un agente de otro AgencyDomain, es un diseño pendiente (SI-67).
+Su contrato, incluida la confianza en la identidad de un agente de otro AgencyDomain, es un diseño pendiente.
 
 ---
 
@@ -1020,7 +1014,7 @@ Es una dependencia de infraestructura, como el MQ: el motor guarda estado y desp
 
 1. **Versionado.** Todo cambio en un flujo marca su versión en el código para que las ejecuciones en curso sigan la rama con la que empezaron, y **antes de desplegar, el CI reproduce historiales reales** contra el código nuevo. Un cambio que no pasa la reproducción no se despliega.
 2. **Compensaciones** con el soporte de sagas del SDK Java del motor, que las acumula y las ejecuta en orden inverso. **Toda compensación lleva reintentos sin límite**, con una alerta cuando acumula demasiados intentos. Lo irreversible va al final.
-3. **Cancelación:** si un procedimiento se cancela, sus compensaciones corren en un contexto desconectado de la cancelación *(conocimiento previo; se ensaya en SI-13)*.
+3. **Cancelación:** si un procedimiento se cancela, sus compensaciones corren en un contexto desconectado de la cancelación *(conocimiento previo; se ensaya antes de construir)*.
 4. **Plazos y *workers* ausentes:** cada tarea declara cuánto puede esperar a que un *worker* la tome, y una alerta salta al vencer. Un *worker* ausente no produce error: la tarea espera en silencio.
 5. **Escalado de los *workers*** por el atraso de su cola, no por CPU.
 6. **Respuestas tardías:** una respuesta que llega después de que el procedimiento ya compensó se compensa también, nunca se ignora.
@@ -1091,9 +1085,9 @@ El ritmo pesa de verdad en G2 y G3. Un Botlet recién generado es **junior**: el
 
 1. **La plataforma, en Java.** El Botler, el registro, el conector Herramientas (MCP), la biblioteca de llamada, los servicios de aplicación y los proto-Botlets forjados se escriben en Java y llegan por la línea de entrega. Ahí valen todos los racionales de la subsección siguiente.
 2. **En G1, los Botlets son configuraciones declarativas**, independientes de lenguaje, validadas por su proto-Botlet y registradas en el Botler.
-3. **El lenguaje de los cuerpos de Botlets para G2 y G3 se decide al entrar en G2**, elegido por agilidad y confinamiento, no por ser el de la plataforma. Los candidatos son **TypeScript sobre un entorno de JavaScript aislado** y **WASM**, que admite varios lenguajes de origen. El Botler, en Java, los aloja, los confina y les entrega su handle controlado (ver los mínimos en «¿Qué exige Yava a cada pieza?», y SI-54).
+3. **El lenguaje de los cuerpos de Botlets para G2 y G3 se decide al entrar en G2**, elegido por agilidad y confinamiento, no por ser el de la plataforma. Los candidatos son **TypeScript sobre un entorno de JavaScript aislado** y **WASM**, que admite varios lenguajes de origen. El Botler, en Java, los aloja, los confina y les entrega su handle controlado (ver los mínimos en «¿Qué exige Yava a cada pieza?»).
 
-**Lo que cuesta:** dos cadenas de herramientas, y que el generador de contratos produzca también los clientes en el lenguaje de los cuerpos. Lo que gana: que la agilidad del ciclo de vida de los Botlets no quede atada a las exigencias de la plataforma, y una relación más simple con el catálogo de Vergis (SI-50).
+**Lo que cuesta:** dos cadenas de herramientas, y que el generador de contratos produzca también los clientes en el lenguaje de los cuerpos. Lo que gana: que la agilidad del ciclo de vida de los Botlets no quede atada a las exigencias de la plataforma, y una relación más simple con el catálogo de Vergis.
 
 ### ¿Por qué Java para la plataforma, y no Python?
 
@@ -1154,7 +1148,7 @@ Cada servicio es **un solo componente**, una imagen de contenedor que corre como
 
 Cada Botlet y cada Agentlet es un servicio de aplicación de su tipo (ver «¿Qué tipos de servicio de aplicación hay?»): se construye, se despliega, se registra y escala como cualquier servicio, y corre en su contenedor:
 
-- **El Botler** corre los Botlets con su runtime genérico: les entrega su handle controlado, los confina y escala su fallo hacia la Cognición (SI-42 a SI-44).
+- **El Botler** corre los Botlets con su runtime genérico: les entrega su handle controlado, los confina y escala su fallo hacia la Cognición.
 - **El Agentler** aloja los Agentlets: piezas que invocan inferencia acotada y presupuestada. El Agentler da a cada Agentlet:
   - el cumplimiento del **charter** que el Agentlet declara en su contrato (tarea, entradas, salidas y límites);
   - el **modelo** que pide y su modo de acceso a la cognición;
@@ -1165,7 +1159,7 @@ Cada Botlet y cada Agentlet es un servicio de aplicación de su tipo (ver «¿Qu
 
 ### ¿Quién administra los recursos de cognición?
 
-Un servicio de plataforma, **dibujado y sin construir:** el que sabe qué modelos tiene la instalación, locales o externos, con qué credenciales, presupuestos y límites, y por el que pasa toda inferencia. Es el punto de control de la inferencia de los Agentlers y la medida del consumo de cognición de la instalación. Su contrato, los de los tipos de servicio de aplicación y los de sus contenedores son un diseño pendiente (SI-69).
+Un servicio de plataforma, **dibujado y sin construir:** el que sabe qué modelos tiene la instalación, locales o externos, con qué credenciales, presupuestos y límites, y por el que pasa toda inferencia. Es el punto de control de la inferencia de los Agentlers y la medida del consumo de cognición de la instalación. Su contrato, los de los tipos de servicio de aplicación y los de sus contenedores son un diseño pendiente.
 
 ### ¿Qué framework?
 
@@ -1242,7 +1236,7 @@ Una plataforma sobre orquestador de contenedores acopla capas: cuando una pieza 
 
 ### ¿Cómo se sabe que la contención funciona?
 
-Con **ensayos de falla** en un clúster de prueba: **apagar** cada pieza compartida y **cambiarla mal a propósito**, verificando que el daño queda dentro de lo esperado (SI-13).
+Con **ensayos de falla** en un clúster de prueba: **apagar** cada pieza compartida y **cambiarla mal a propósito**, verificando que el daño queda dentro de lo esperado.
 
 ### ¿Y el diagnóstico?
 
@@ -1327,7 +1321,7 @@ El **Vault** es el servicio de plataforma que custodia los secretos de terceros 
 
 Las primitivas sirven a cualquier solución que corra sobre Yava. La experiencia de un gestor de secretos para las personas (bóvedas, compartir, recuperar) la pone la instalación encima, y guarda cada secreto en el Vault, no en una base propia. **Yava no admite datos de pago con tarjeta:** se delegan a un tercero que los custodia.
 
-Si el cifrado de sobre lo da el motor de cifrado del almacén de secretos se verifica antes de construir; el contrato del Vault es un diseño pendiente (SI-60).
+Si el cifrado de sobre lo da el motor de cifrado del almacén de secretos se verifica antes de construir; el contrato del Vault es un diseño pendiente.
 
 ---
 
@@ -1510,7 +1504,7 @@ Cada pieza del stack se eligió con su licencia **medida** en el repositorio ofi
 
 ### ¿Cómo se lee?
 
-El texto usa términos comunes (MQ, motor de procedimientos, orquestador de contenedores, base relacional, service mesh) y el vocabulario del canon (AgencyDomain, Dominion, Botler, Botlet, Agentlet, Faceta, Conector, Cognición, Trust Infrastructure). **Yava no nombra productos: exige comportamientos mínimos** (ver «¿Qué exige Yava a cada pieza?»). Los productos que cumplen esos mínimos los elige cada instalación, en su perfil de despliegue. Cada decisión trae su alternativa descartada en su propia sección, bajo «Se descartó». Cada pendiente se nombra con su identificador **SI-n** en la sección donde se declara.
+El texto usa términos comunes (MQ, motor de procedimientos, orquestador de contenedores, base relacional, service mesh) y el vocabulario del canon (AgencyDomain, Dominion, Botler, Botlet, Agentlet, Faceta, Conector, Cognición, Trust Infrastructure). **Yava no nombra productos: exige comportamientos mínimos** (ver «¿Qué exige Yava a cada pieza?»). Los productos que cumplen esos mínimos los elige cada instalación, en su perfil de despliegue. Cada decisión trae su alternativa descartada en su propia sección, bajo «Se descartó». Cada pendiente se declara en la sección donde queda abierto.
 
 ### ¿Qué términos propios usa Yava?
 
@@ -1535,7 +1529,7 @@ El texto usa términos comunes (MQ, motor de procedimientos, orquestador de cont
 | **Agentlet, Botlet, ad-hoc** | Los tipos de servicio de aplicación: lo que se construye, se versiona y se despliega |
 | **Agentler, Botler** | Los contenedores: el runtime que aloja a los Agentlets y a los Botlets y les pone lo que el contrato del contenedor cubre |
 | **Autorización diferida** | La aprobación humana: un acto que espera hasta que un humano autenticado lo concede |
-| **SI-n** | Un pendiente de Yava: un diseño por hacer, una brecha con el canon o una conjetura por medir (SI-13). Se nombra donde se declara abierto |
+| **Pendiente** | Un diseño por hacer, una brecha con el canon o una conjetura por medir. El texto lo declara donde queda abierto («es un diseño pendiente», «se verifica antes de construir») |
 | **El reprise** | La refinación posterior del diseño de Yava, que trata los temas que esta versión no incluye |
 
 ### ¿Qué grado de certeza tiene cada afirmación?
@@ -1548,7 +1542,7 @@ El texto usa términos comunes (MQ, motor de procedimientos, orquestador de cont
 ### ¿Cómo se mantiene?
 
 1. **Las decisiones de arquitectura son de su autor, César Obach-Renner.** Las premisas de Yava son suyas; cada decisión del cuerpo trae su alternativa descartada bajo «Se descartó».
-2. Cada pendiente lleva un identificador **SI-n**, y lo que hay que verificar se verifica antes de que la pieza se construya.
+2. Lo que hay que verificar se verifica antes de que la pieza se construya.
 3. Cada pendiente se cierra incorporado al texto, o descartado con su porqué.
 4. Versionado X.Y[.Z]: **Z** para cambios de forma (sobrescribe), **Y** para cambios de concepto, **X** si cambia el mensaje del documento.
 5. **Su autor declara** cuándo el documento pasa a **Referencia técnica**. Las mediciones no bloquean ese paso; si una refuta una conjetura de diseño, el documento se reabre.

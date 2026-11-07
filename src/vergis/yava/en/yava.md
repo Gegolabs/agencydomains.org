@@ -3,15 +3,9 @@
 | | |
 |---|---|
 | **Version** | 1.4.4 |
-| **Status** | Proposal for review by César Obach-Renner |
-| **Name** | Yava (*Yet Another Vergis Architecture*) |
 | **Authors** | César Obach-Renner and Simón Alero |
-| **Reviews and decides** | César Obach-Renner |
-| **Date** | 2026-11-06 |
 | **License** | Documentation under GNU FDL v1.3 and code under AGPL-3.0, as the canon requires of the reference implementation |
 | **Framework** | *AgencyDomains: Architecture of the Agentive World*, by César Obach-Renner (the canon) |
-| **How to read it** | Naming conventions and degrees of certainty: Annex A |
-| **Public edition** | The body, Annex A and the sources |
 | **Scope** | The architecture that brings to life everything deterministic in an AgencyDomain. Out of scope: Cognition, project matters, construction guidelines and the concrete services built on top of it |
 
 ## What is Yava?
@@ -31,9 +25,9 @@
 | **Botlets**, including presentation Botlets and operational facade Botlets | 3 (invoked from 1, 2 or by events) | Yes: persistent regime. Each Botlet is an application service of type Botlet, which runs in its container, the Botler |
 | **Facets** | 1 | Yes: ephemeral regime |
 | **Connectors** | 4 | Yes: platform services, one per transport protocol and one per authentication protocol. A Connector can declare the properties of the persistent regime (see “What is a Connector?”) |
-| **Deterministic Trust Infrastructure** (policies, CRUDLEX, *append-only* log) | Cross-cutting | Yes. Its forms are in this document: the act event, the permission vocabulary and the authenticated approver. Its full construction comes after the first installation is up and running (SI-49) |
+| **Deterministic Trust Infrastructure** (policies, CRUDLEX, *append-only* log) | Cross-cutting | Yes. Its forms are in this document: the act event, the permission vocabulary and the authenticated approver. Its full construction comes after the first installation is up and running |
 | **Botler** (the container of the Botlets) | 3 | Yes: it is the heart of Yava, the generic runtime that hosts the Botlets |
-| **Agentlets** | 3 | Their hosting, yes: each Agentlet is an application service of type Agentlet, which runs in its container, the Agentler, with budget, limits and consumption. Their body, which is inference, no (SI-45) |
+| **Agentlets** | 3 | Their hosting, yes: each Agentlet is an application service of type Agentlet, which runs in its container, the Agentler, with budget, limits and consumption. Their body, which is inference, no |
 | **Cognition's interface to Layer 3**, over MCP | 2 → 3 | Yes: the Tools connector (MCP) |
 | **Cognition, Capabilities, Pattern Recognition, Botlet generation** | 2 | No |
 | **Validation with models** (hallucination detection and the like) | Cross-cutting | No |
@@ -90,7 +84,7 @@ Beyond the above, Yava meets these requirements of the canon within its scope:
 - **the agent's three times** (Preparation, Attention and Engineering): each operation declares its own in its contract, and the telemetry carries it;
 - **the boundary with the outside:** every external protocol enters or leaves through a Connector, and the path of data toward third parties is traced (see “How is sensitive data handled?”).
 
-**Caveat:** conformance is not yet complete. The gaps with the canon that remain open (between SI-42 and SI-54) are **pending nonconformities**, and while they exist, conformance is declared with that caveat. The conformance of the agent's life cycle is addressed in the reprise.
+**Caveat:** conformance is not yet complete. The gaps with the canon that remain open are **pending nonconformities**, and while they exist, conformance is declared with that caveat. The conformance of the agent's life cycle is addressed in the reprise.
 
 ### What premises of its own does it have?
 
@@ -159,9 +153,9 @@ Each application service declares its **type**: what the team builds, versions a
 | **Botlet** | A **Botler** | The rules of every service, and what the Botlet does in the world through its handle | The generic runtime of the canon's Botler: the controlled handle, confinement, the fallback to Cognition and the maturity phases |
 | **ad-hoc** | No container | Only the rules of every service: contract, its own database and RPC over MQ | — |
 
-**In G1, what arrives through the delivery pipeline as a Botlet is the forged proto-Botlet.** Each configuration of it that Cognition makes is also a Botlet, and is registered in the Botler without going through the pipeline (SI-42). This reading reconciles the rule of types with generation G1 and is **provisional**: it is decided in the reprise, when the Botler and the proto-Botlet are designed (SI-69). It does not affect the first version of an installation that has no Botlets.
+**In G1, what arrives through the delivery pipeline as a Botlet is the forged proto-Botlet.** Each configuration of it that Cognition makes is also a Botlet, and is registered in the Botler without going through the pipeline. This reading reconciles the rule of types with generation G1 and is **provisional**: it is decided in the reprise, when the Botler and the proto-Botlet are designed. It does not affect the first version of an installation that has no Botlets.
 
-The contracts of each type and of each container, and how the container reaches production, are a pending design (SI-69).
+The contracts of each type and of each container, and how the container reaches production, are a pending design.
 
 ---
 
@@ -368,7 +362,7 @@ Each service declares which one it uses. Neither requires one service to wait fo
 
 **Discarded:** having each service use cloud storage on its own with a common minimum, because each service's identity before the storage, the signed URLs and the granted read access belong to the platform, and they would be repeated in every service that stores bytes.
 
-Its contract (how read access is declared, how an artifact is versioned and what travels in the notice) is a pending design (SI-58).
+Its contract (how read access is declared, how an artifact is versioned and what travels in the notice) is a pending design.
 
 ---
 
@@ -383,7 +377,7 @@ The **repository manager** is the platform service that gives each service its d
 
 **The bytes are opaque:** the manager creates, backs up, restores, exports and imports without reading or interpreting the data. That is why it is not an exception to the state rule. What a service exports per Dominion or per data subject is not extracted by the manager: the owner publishes it as an artifact.
 
-What the manager operates as infrastructure and what it asks of the owner through its contract is a pending design (SI-59).
+What the manager operates as infrastructure and what it asks of the owner through its contract is a pending design.
 
 ---
 
@@ -412,7 +406,7 @@ With **a single mark**, declared in each service's contract: a field of a messag
 3. **Compliance invokes them** and keeps the record of each request.
 4. **Retention is declared per data class,** and deletion on expiration is carried out by the owner. The closing of a Dominion is an event that each service consumes and confirms, and it deletes the Dominion's data end to end.
 
-Personal data protection is, for the installation, an obligation with a fixed date, which its profile declares. The Compliance contract is a pending design (SI-62).
+Personal data protection is, for the installation, an obligation with a fixed date, which its profile declares. The Compliance contract is a pending design.
 
 ### What does tokenization do?
 
@@ -422,7 +416,7 @@ Personal data protection is, for the installation, an obligation with a fixed da
 2. the call library tokenizes on publishing and detokenizes on receiving, if authorization allows it;
 3. the map between token and data lives in this service, and deleting it is part of deletion.
 
-It also serves to tokenize personal data before sending it to an external cognition. Its cost per message and its behavior if it goes down are part of its design (SI-61).
+It also serves to tokenize personal data before sending it to an external cognition. Its cost per message and its behavior if it goes down are part of its design.
 
 **Discarded:** leaving tokenization to each installation, because the mark and the MQ already belong to the platform, and in-flight tokenization can only be placed where the messages travel.
 
@@ -440,7 +434,7 @@ For marked data you can query **which services it passed through, which third pa
 
 **The mechanism is built and tested, and left disabled** behind a switch. It is enabled once the mechanisms are implemented that guarantee it is used legitimately by the owner of the data to be deleted.
 
-**The act log does not contradict deletion** if it stores references and keyed fingerprints (one secret key per installation, which never leaves the service), and not plain fingerprints of the data: the plain fingerprint of a small piece of personal data, such as an email address or a name, can be reversed by brute force. What a service keeps after deletion (a tombstone without a fingerprint of the data, or a keyed fingerprint where an audit needs to prove what was deleted) is a pending design (SI-62).
+**The act log does not contradict deletion** if it stores references and keyed fingerprints (one secret key per installation, which never leaves the service), and not plain fingerprints of the data: the plain fingerprint of a small piece of personal data, such as an email address or a name, can be reversed by brute force. What a service keeps after deletion (a tombstone without a fingerprint of the data, or a keyed fingerprint where an audit needs to prove what was deleted) is a pending design.
 
 ---
 
@@ -508,7 +502,7 @@ If a service needs something from another to finish, it has two paths: **make th
 
 Each operation has a **default subject** derived from its description: `<installation>.<service>.<cmd|qry|evt>.<operation>.v<version>`, for durable calls, volatile calls and events respectively; the first segment is the installation's name.
 
-A service **listens to all the operations of its API with wildcards**, for example `<installation>.<service>.cmd.*.v1`. The chosen MQ supports wildcards in subjects (`*` for one segment, `>` for one or more at the end), in the consumers of persistent streams and in permissions *(prior knowledge; to be verified in SI-13)*.
+A service **listens to all the operations of its API with wildcards**, for example `<installation>.<service>.cmd.*.v1`. The chosen MQ supports wildcards in subjects (`*` for one segment, `>` for one or more at the end), in the consumers of persistent streams and in permissions *(prior knowledge; to be verified before building)*.
 
 ### How is an operation redirected?
 
@@ -520,7 +514,7 @@ The subject on which an operation reaches its service **is resolved at run time*
 4. **If the registry is unavailable**, each service continues with the last known binding.
 5. **Events are never redirected:** their subject is permanent.
 
-**Binding is routing only:** it changes the subject, never the service that implements the operation, so its results, its idempotency and its tickets are unaffected. Changing the service that implements an operation is a **contract migration**, a separate act that is designed when needed (SI-35).
+**Binding is routing only:** it changes the subject, never the service that implements the operation, so its results, its idempotency and its tickets are unaffected. Changing the service that implements an operation is a **contract migration**, a separate act that is designed when needed.
 
 **Conditions that do not depend on the case:**
 
@@ -562,7 +556,7 @@ The subject on which an operation reaches its service **is resolved at run time*
 
 ## How does identity travel?
 
-The entry connector verifies the client's token, which Identity issued, and produces the **signed identity context** with Identity's signature (how, without adding a hop per call, is a pending design: SI-74). The context carries:
+The entry connector verifies the client's token, which Identity issued, and produces the **signed identity context** with Identity's signature (how, without adding a hop per call, is a pending design). The context carries:
 
 - the Dominion;
 - the human principal;
@@ -622,7 +616,7 @@ It is a platform service, with its own database and its API over RPC over MQ:
 
 **Discarded:** validating the token with a volatile call to Identity on each request, because it puts Identity in the path of everything and adds a hop per call. What it costs: a revocation takes effect when its event arrives, not exactly on the next request.
 
-Its contract is a pending design (SI-74). Whether Identity and the Authentication connector are built or a FOSS product meeting their minimums is adopted is a pending decision (SI-72).
+Its contract is a pending design. Whether Identity and the Authentication connector are built or a FOSS product meeting their minimums is adopted is a pending decision.
 
 ### What does the Authentication connector do?
 
@@ -641,7 +635,7 @@ It is the Connector through which a client or a human proves who they are, at th
 3. **Policies are per user type** (agent, human, service) and per relationship (who opens which Dominion, who is the operator of which agent). The installation's business rules are published in Authorization as relationships and policies.
 4. **Authorization applies equally** to an invocation through the meta-tools and to a shortcut.
 
-It is the pattern that separates the decision point from the enforcement point *(prior knowledge, not verified)*. Its contract, how it fails if it goes down and the FOSS products worth evaluating before building it are a pending design (SI-55); so are the boundary with the installation's service that stores its access rules (SI-57) and whether enabling a business service per Dominion is a registry field or an Authorization policy (SI-56).
+It is the pattern that separates the decision point from the enforcement point *(prior knowledge, not verified)*. Its contract, how it fails if it goes down and the FOSS products worth evaluating before building it are a pending design; so are the boundary with the installation's service that stores its access rules and whether enabling a business service per Dominion is a registry field or an Authorization policy.
 
 ### How does a human approve?
 
@@ -659,7 +653,7 @@ The decision and its record belong to Authorization; the wait of a long act can 
 The human who sees something they did not do declares that **they did not authorize it**. This:
 
 1. **revokes the session** in Authorization, which publishes the revocation as an event for the connectors and the owning services;
-2. **quarantines what was written in that session:** each owning service stops showing it without deleting it, because every write stores its session (see “How does identity travel?”). Who lifts the quarantine is a pending design (SI-55).
+2. **quarantines what was written in that session:** each owning service stops showing it without deleting it, because every write stores its session (see “How does identity travel?”). Who lifts the quarantine is a pending design.
 
 It is a declaration **after the fact**. **Discarded:** requiring prior approval of every new session.
 
@@ -672,7 +666,7 @@ The **operator** is the human responsible for what an agent does. The architectu
 3. each transition is a recorded act;
 4. Authorization knows who the operator of each agent is and uses it in its policies.
 
-Its contract is a pending design (SI-68).
+Its contract is a pending design.
 
 ### What does privileged access control?
 
@@ -683,7 +677,7 @@ Its contract is a pending design (SI-68).
 3. is recorded as an act event, with its reason;
 4. if it lifts a protection (unsealing, granting access, reading a Dominion's data), requires **four eyes**.
 
-Who the second person is while the platform has a single owner is a pending decision (SI-68).
+Who the second person is while the platform has a single owner is a pending decision.
 
 ### What is not done via GET?
 
@@ -697,7 +691,7 @@ The rule has no exceptions. The Web connector (HTTP) applies it to every route (
 
 ## What shape does the record of an act have?
 
-The **act log** is the platform service that stores, chains and serves the record of each act. The canon requires it: immutable, chained, and with the fingerprint of the parameters and of the result instead of their content. Its contract and its minimums (how it serves, how it fails and what it retains) are a pending design (SI-73), and when it is built is addressed in the reprise.
+The **act log** is the platform service that stores, chains and serves the record of each act. The canon requires it: immutable, chained, and with the fingerprint of the parameters and of the result instead of their content. Its contract and its minimums (how it serves, how it fails and what it retains) are a pending design, and when it is built is addressed in the reprise.
 
 **The act event** has a common shape, which each service publishes on a permanent subject:
 
@@ -711,7 +705,7 @@ The **act log** is the platform service that stores, chains and serves the recor
 
 **By default it carries references and fingerprints, not personal data,** and therefore does not clash with deletion. The generator produces the act event of every operation that changes state. The view for the human of what their agent did is built by the installation on top.
 
-This shape, and the act log that stores it, are the part of the canon's Trust Infrastructure that is in this document; the rest remains in SI-49.
+This shape, and the act log that stores it, are the part of the canon's Trust Infrastructure that is in this document; the rest is built after the first installation is up and running.
 
 ---
 ## How is a contract written?
@@ -749,7 +743,7 @@ The generator also produces **the act event** of every operation that changes st
 **How it is verified that a change does not break anything**, in CI:
 
 - the compatibility of the Protobuf messages with their previous version *(tool with Apache-2.0 license measured)*;
-- the compatibility of the AsyncAPI operations and events, for example that a durable call does not become volatile and that no event disappears *(prior knowledge; to be verified in SI-13)*;
+- the compatibility of the AsyncAPI operations and events, for example that a durable call does not become volatile and that no event disappears *(prior knowledge; to be verified before building)*;
 - consumer-driven contracts, which verify that what the consumer expects matches what the provider delivers *(MIT licenses measured)*.
 
 **Why binary serialization matters** *(magnitudes from prior knowledge, not measured in Yava)*: less CPU per message (under load, per-request CPU dominates), messages several times smaller on the network, less disk and less replication traffic in the persistent streams (replicated across three nodes), and more MQ capacity before growing. Caveats: in very small messages the headers weigh as much as the content, and toward agents it does not apply, because MCP speaks JSON and the connector converts once per request. **What it costs:** binary cannot be read at a glance, and this is offset with tools that decode it in logs, traces and queue inspection.
@@ -794,7 +788,7 @@ Just as tool names are unique within an MCP server, business service names are u
 
 **Nobody can register someone else's business service**, and that requires no administration. It works like an office access card, which is generated automatically from each employee's contract:
 
-- **Each service's registration permission is generated from its contract:** the registration subject is per business service (for example, `<installation>.catalog.cmd.register.send_mail`), and only the application service whose contract declares `send_mail` can publish on it. A service that tries to register a name its contract does not declare is rejected by the MQ, without reaching the registry. The same holds for the API: only the service that implements a contract can register it. *(That the MQ's permissions support this scheme is prior knowledge; it is to be verified in SI-13.)*
+- **Each service's registration permission is generated from its contract:** the registration subject is per business service (for example, `<installation>.catalog.cmd.register.send_mail`), and only the application service whose contract declares `send_mail` can publish on it. A service that tries to register a name its contract does not declare is rejected by the MQ, without reaching the registry. The same holds for the API: only the service that implements a contract can register it. *(That the MQ's permissions support this scheme is prior knowledge; it is to be verified before building.)*
 - **If two contracts declare the same name**, the automatic verification of the environment repository, where the permissions of the whole platform are gathered, rejects the second one before it is deployed.
 - **Trust comes from the delivery pipeline:** to have an identity in the MQ, a service must have been deployed with its reviews, its signed image and signature verification at admission.
 
@@ -808,12 +802,12 @@ Besides its name, its title, its description and the operation that implements i
 
 1. **the permissions** it requires, with their class, which Authorization uses;
 2. **its phase:** open, alpha, internal, or described without being enabled;
-3. **the enabled Dominions,** when it is in pilot (whether this is a registry field or an Authorization policy is a pending design, SI-56);
+3. **the enabled Dominions,** when it is in pilot (whether this is a registry field or an Authorization policy is a pending design);
 4. **the text of its degraded mode,** what the agent receives when the service cannot respond;
 5. **whether it is suggested as a shortcut,** and why;
 6. **the canonical URI** of the tool (see “What is a Dominion?”).
 
-`meta.catalog` lists only what is enabled for the calling Dominion. Application services also register **the skills** they offer, which Cognition requests through its meta-tool (SI-70).
+`meta.catalog` lists only what is enabled for the calling Dominion. Application services also register **the skills** they offer, which Cognition requests through its meta-tool.
 
 ---
 
@@ -834,7 +828,7 @@ Besides its name, its title, its description and the operation that implements i
 | **Live messages** | WebSocket, SSE | Text, tokens, subtitles, events and audio in frames | A companion that sends audio in frames |
 | **Real-time media** | WebRTC, SIP/RTP | Audio, video and telephony | Voice and calls |
 | **Email** | SMTP, IMAP | Sends and reads mail | The agents' mail, the humans' mailboxes and notifications to humans |
-| **Terminal** | SSH, Telnet | Interactive terminal sessions | To be designed (SI-77) |
+| **Terminal** | SSH, Telnet | Interactive terminal sessions | To be designed |
 | **Authentication** | OAuth 2.1, the first one; another authentication protocol is another Connector | Proves who is arriving and hands them the tokens that Identity issues (see “How are callers authenticated and authorized?”) | None: identities and sessions belong to Identity, and what each one can do, to Authorization |
 
 **What each Connector declares in its contract:**
@@ -849,8 +843,8 @@ Besides its name, its title, its description and the operation that implements i
 
 | Connector | Locality and offline | Third party and data | Credentials | Third party's limits | Persistent regime |
 |---|---|---|---|---|---|
-| **Authentication (OAuth 2.1)** | At the edge of the cluster; if it goes down, current tokens keep working and logins and renewals fail | The clients and humans who authenticate; their credentials, marked as sensitive | None of its own declared today; if its contract comes to federate with an external identity provider, its credentials follow the rule of “What patterns are mandatory in every service?” (the platform's, to the secret store; third parties' per Dominion, to the Vault) and SI-72 decides it | None: it does not talk to a third party | None: Identity keeps the state across sessions |
-| **Terminal (SSH · Telnet)** | At the edge of the cluster | To be designed (SI-77); Telnet does not encrypt traffic in transit (SI-76) | How a terminal session is authenticated, to be designed (SI-75) | None: it does not talk to a third party | To be designed (SI-77) |
+| **Authentication (OAuth 2.1)** | At the edge of the cluster; if it goes down, current tokens keep working and logins and renewals fail | The clients and humans who authenticate; their credentials, marked as sensitive | None of its own declared today; if its contract comes to federate with an external identity provider, its credentials follow the rule of “What patterns are mandatory in every service?” (the platform's, to the secret store; third parties' per Dominion, to the Vault), and it is still to be decided | None: it does not talk to a third party | None: Identity keeps the state across sessions |
+| **Terminal (SSH · Telnet)** | At the edge of the cluster | To be designed; Telnet does not encrypt traffic in transit | How a terminal session is authenticated, to be designed | None: it does not talk to a third party | To be designed |
 
 Everything that leaves the cluster leaves through the egress gateway, on its allow list.
 
@@ -865,7 +859,7 @@ The Tools connector (MCP) is the only MCP server that agents use, as the canon r
 ### What are its two planes?
 
 1. **The MCP plane, exposed to agents:** the meta-tools, the shortcuts, MCP Tasks, the piggyback and notifications to agents. It is the connector plane proper: it translates each MCP interaction into RPC calls over MQ.
-2. **The service plane, exposed to the architecture:** the Tools connector also has its own API over RPC on MQ, with its contract, its exclusive permissions and its own database, where it stores the MCP sessions and the ticket log. All the rules of a service apply to it, including the depth-one rule for waits. Its API is defined later (SI-37).
+2. **The service plane, exposed to the architecture:** the Tools connector also has its own API over RPC on MQ, with its contract, its exclusive permissions and its own database, where it stores the MCP sessions and the ticket log. All the rules of a service apply to it, including the depth-one rule for waits. Its API is defined later.
 
 ### What does the Tools connector do?
 
@@ -889,7 +883,7 @@ The MCP plane offers an **extension of MCP: five meta-tools**, tools that serve 
 | `meta.contract` | Returns the contract of a business service: its input and output schemas in JSON Schema |
 | `meta.request` | Invokes a business service by its name, with its arguments and its idempotency key |
 | `meta.result` | Returns the status or the result of an invocation by its ticket |
-| The skills meta-tool | Lists and delivers the skills the installation offers to Cognition. Its name and its form, in particular whether a skill is a business service with another form or an object of the registry's own, are a pending design (SI-70) |
+| The skills meta-tool | Lists and delivers the skills the installation offers to Cognition. Its name and its form, in particular whether a skill is a business service with another form or an object of the registry's own, are a pending design |
 
 The `meta.` prefix uses the dotted namespace that the MCP specification allows, and is **reserved**: no business service may be named with that prefix. MCP's naming rules allow letters, digits, underscore, hyphen and dot, between 1 and 128 characters. *(Verified.)*
 
@@ -904,7 +898,7 @@ In both cases, **the ticket and the task identifier are the idempotency key.** S
 
 ### What are the shortcuts?
 
-An application service can declare in its contract that one of its business services is suggested to be presented as a **shortcut**, with the reason why. The registry stores it, and the Tools connector publishes it as a **native tool**, dynamically, while it remains reachable through `meta.request`. The shortcut has the same name, the same authorization and the same routing through the registry as the invocation through the meta-tools, and its schema is produced by the generator from the contract. How many shortcuts MCP clients tolerate before their tool selection degrades is verified before building; the shortcuts' contract is a pending design (SI-71).
+An application service can declare in its contract that one of its business services is suggested to be presented as a **shortcut**, with the reason why. The registry stores it, and the Tools connector publishes it as a **native tool**, dynamically, while it remains reachable through `meta.request`. The shortcut has the same name, the same authorization and the same routing through the registry as the invocation through the meta-tools, and its schema is produced by the generator from the contract. How many shortcuts MCP clients tolerate before their tool selection degrades is verified before building; the shortcuts' contract is a pending design.
 
 ### What is the piggyback?
 
@@ -921,7 +915,7 @@ On top of the piggyback, an installation builds the coherence across the session
 
 **How a client outside the cluster reads it:** the news reaches it in the piggyback of each response from the Tools connector; the observable version, if the client asks for it on its own, is answered by the Web connector (HTTP) from memory, authenticated with the MCP client's token, with a hard deadline and a default value. The query a client makes before each message about its agent's memory is a tool of the application service that stores that memory, not a Yava facility.
 
-Its contract (how a note is left, how what happened since a given moment is requested and how the observable version is published) is a pending design (SI-63); so is the API of the connector's service plane, where it lives (SI-37).
+Its contract (how a note is left, how what happened since a given moment is requested and how the observable version is published) is a pending design; so is the API of the connector's service plane, where it lives.
 
 ### What requirements does the Tools connector have?
 
@@ -949,7 +943,7 @@ It routes them by RPC over MQ to their owner service, which composes the page or
 - **a maintenance page** when the owner does not respond;
 - **limits by the client’s real IP.**
 
-**Discarded:** having each edge piece serve its own pages, because each would speak HTTP and repeat the GET rule. Whether the OAuth 2.1 Authentication connector serves its own pages, being itself an edge piece that speaks OAuth over HTTP, or all of them come in through the Web connector, is a pending design (SI-64).
+**Discarded:** having each edge piece serve its own pages, because each would speak HTTP and repeat the GET rule. Whether the OAuth 2.1 Authentication connector serves its own pages, being itself an edge piece that speaks OAuth over HTTP, or all of them come in through the Web connector, is a pending design.
 
 ---
 
@@ -960,7 +954,7 @@ There are two, one per transport protocol:
 1. **Live messages** (WebSocket and SSE): text, tokens, subtitles, events and audio in frames. It is bidirectional and each frame is a message. The client authenticates with a **single-use ticket** issued by an operation of the owner service’s API; the connection is drained and resumed on another node, and the connector scales by connections.
 2. **Real-time media** (WebRTC and SIP/RTP): audio, video and telephony, with TURN to traverse NAT, codecs, jitter handling, an SFU for multi-party conversations and the SIP gateway.
 
-**The connector terminates the connection and hands it to the owner service,** which applies the business rule. How the owner receives it (a live-process role of the same service, running from the same image with the same version) is a pending design (SI-65), together with the contract of the two connectors and their products.
+**The connector terminates the connection and hands it to the owner service,** which applies the business rule. How the owner receives it (a live-process role of the same service, running from the same image with the same version) is a pending design, together with the contract of the two connectors and their products.
 
 ---
 
@@ -977,7 +971,7 @@ The **Email connector (SMTP/IMAP)** sends and reads mail with the credentials he
 
 **Discarded:** having each installation implement its own notification port, because mail is a protocol every installation needs and its transport does not depend on the business rule.
 
-Its contract is a pending design (SI-66).
+Its contract is a pending design.
 
 ---
 
@@ -993,7 +987,7 @@ The **Link** is the platform service through which **an agent in one Dominion co
 
 **Discarded:** leaving communication between Dominions as a pattern each installation implements, because any solution running on Yava with agents in more than one domain needs it.
 
-Its contract, including trust in the identity of an agent from another AgencyDomain, is a pending design (SI-67).
+Its contract, including trust in the identity of an agent from another AgencyDomain, is a pending design.
 
 ---
 
@@ -1020,7 +1014,7 @@ It is an infrastructure dependency, like the MQ: the engine stores state and dis
 
 1. **Versioning.** Every change to a flow marks its version in the code so that running executions follow the branch they started with, and **before deploying, CI replays real histories** against the new code. A change that does not pass the replay is not deployed.
 2. **Compensations** with the saga support of the engine’s Java SDK, which accumulates them and runs them in reverse order. **Every compensation carries unlimited retries**, with an alert when it accumulates too many attempts. What is irreversible goes last.
-3. **Cancellation:** if a procedure is canceled, its compensations run in a context disconnected from the cancellation *(prior knowledge; to be rehearsed in SI-13)*.
+3. **Cancellation:** if a procedure is canceled, its compensations run in a context disconnected from the cancellation *(prior knowledge; to be rehearsed before building)*.
 4. **Deadlines and absent *workers*:** each task declares how long it can wait for a *worker* to take it, and an alert fires when that expires. An absent *worker* produces no error: the task waits silently.
 5. **Scaling of *workers*** by their queue backlog, not by CPU.
 6. **Late responses:** a response that arrives after the procedure has already compensated is compensated too, never ignored.
@@ -1035,7 +1029,7 @@ A generic example: service X owns a procedure that requests something from Y and
 ```mermaid
 sequenceDiagram
     participant X as Service X (owner)
-    participant M as procedure engine
+    participant M as Procedure engine
     participant Y as Service Y
     participant Z as Service Z
     X->>M: Start flow
@@ -1091,9 +1085,9 @@ Pace truly matters in G2 and G3. A freshly generated Botlet is **junior**: the c
 
 1. **The platform, in Java.** The Botler, the registry, the Tools connector (MCP), the call library, the application services and the forged proto-Botlets are written in Java and arrive through the delivery pipeline. All the rationales of the next subsection apply there.
 2. **In G1, Botlets are declarative configurations**, language-independent, validated by their proto-Botlet and registered in the Botler.
-3. **The language of Botlet bodies for G2 and G3 is decided on entering G2**, chosen for nimbleness and confinement, not for being the platform’s. The candidates are **TypeScript on an isolated JavaScript environment** and **WASM**, which supports several source languages. The Botler, in Java, hosts them, confines them and gives them their controlled handle (see the minimums in “What does Yava require of each piece?”, and SI-54).
+3. **The language of Botlet bodies for G2 and G3 is decided on entering G2**, chosen for nimbleness and confinement, not for being the platform’s. The candidates are **TypeScript on an isolated JavaScript environment** and **WASM**, which supports several source languages. The Botler, in Java, hosts them, confines them and gives them their controlled handle (see the minimums in “What does Yava require of each piece?”).
 
-**What it costs:** two toolchains, and having the contract generator also produce clients in the body language. What it gains: the nimbleness of the Botlet lifecycle is not tied to the platform’s requirements, and a simpler relationship with the Vergis catalog (SI-50).
+**What it costs:** two toolchains, and having the contract generator also produce clients in the body language. What it gains: the nimbleness of the Botlet lifecycle is not tied to the platform’s requirements, and a simpler relationship with the Vergis catalog.
 
 ### Why Java for the platform, and not Python?
 
@@ -1154,7 +1148,7 @@ Each service is **a single component**, a container image that runs as a pod, on
 
 Each Botlet and each Agentlet is an application service of its type (see “What types of application service are there?”): it is built, deployed, registered and scaled like any service, and it runs in its container:
 
-- **The Botler** runs the Botlets with its generic runtime: it hands them their controlled handle, confines them and escalates their failure to Cognition (SI-42 to SI-44).
+- **The Botler** runs the Botlets with its generic runtime: it hands them their controlled handle, confines them and escalates their failure to Cognition.
 - **The Agentler** hosts the Agentlets: pieces that invoke bounded, budgeted inference. The Agentler gives each Agentlet:
   - enforcement of the **charter** the Agentlet declares in its contract (task, inputs, outputs and limits);
   - the **model** it requests and its mode of access to cognition;
@@ -1165,7 +1159,7 @@ Each Botlet and each Agentlet is an application service of its type (see “What
 
 ### Who manages the Cognition resources?
 
-A platform service, **drawn and not built:** the one that knows which models the installation has, local or external, with which credentials, budgets and limits, and through which all inference passes. It is the inference control point for the Agentlers and the measure of the installation’s cognition consumption. Its contract, those of the application service types and those of their containers are a pending design (SI-69).
+A platform service, **drawn and not built:** the one that knows which models the installation has, local or external, with which credentials, budgets and limits, and through which all inference passes. It is the inference control point for the Agentlers and the measure of the installation’s cognition consumption. Its contract, those of the application service types and those of their containers are a pending design.
 
 ### Which framework?
 
@@ -1242,7 +1236,7 @@ A platform on a container orchestrator couples layers: when a shared piece fails
 
 ### How do we know containment works?
 
-With **failure drills** on a test cluster: **shutting down** each shared piece and **misconfiguring it on purpose**, verifying that the damage stays within what is expected (SI-13).
+With **failure drills** on a test cluster: **shutting down** each shared piece and **misconfiguring it on purpose**, verifying that the damage stays within what is expected.
 
 ### And diagnosis?
 
@@ -1327,7 +1321,7 @@ The **Vault** is the platform service that guards third-party secrets (users’ 
 
 The primitives serve any solution running on Yava. The experience of a secrets manager for people (vaults, sharing, recovery) is built on top by the installation, and it stores each secret in the Vault, not in its own database. **Yava does not accept payment card data:** it is delegated to a third party that guards it.
 
-Whether envelope encryption is provided by the secret store’s encryption engine is verified before building; the Vault’s contract is a pending design (SI-60).
+Whether envelope encryption is provided by the secret store’s encryption engine is verified before building; the Vault’s contract is a pending design.
 
 ---
 
@@ -1510,7 +1504,7 @@ Each piece of the stack was chosen with its license **measured** in the official
 
 ### How is it read?
 
-The text uses common terms (MQ, procedure engine, container orchestrator, relational database, service mesh) and the canon's vocabulary (AgencyDomain, Dominion, Botler, Botlet, Agentlet, Facet, Connector, Cognition, Trust Infrastructure). **Yava does not name products: it requires minimum behaviors** (see “What does Yava require of each piece?”). The products that meet those minimums are chosen by each installation, in its deployment profile. Each decision carries its discarded alternative in its own section, under “Discarded”. Each pending item is named with its identifier **SI-n** in the section where it is declared.
+The text uses common terms (MQ, procedure engine, container orchestrator, relational database, service mesh) and the canon's vocabulary (AgencyDomain, Dominion, Botler, Botlet, Agentlet, Facet, Connector, Cognition, Trust Infrastructure). **Yava does not name products: it requires minimum behaviors** (see “What does Yava require of each piece?”). The products that meet those minimums are chosen by each installation, in its deployment profile. Each decision carries its discarded alternative in its own section, under “Discarded”. Each pending item is declared in the section where it stays open.
 
 ### What terms of its own does Yava use?
 
@@ -1535,7 +1529,7 @@ The text uses common terms (MQ, procedure engine, container orchestrator, relati
 | **Agentlet, Botlet, ad-hoc** | The types of application service: what is built, versioned and deployed |
 | **Agentler, Botler** | The containers: the runtime that hosts the Agentlets and the Botlets and provides them with what the container contract covers |
 | **Deferred authorization** | Human approval: an act that waits until an authenticated human grants it |
-| **SI-n** | A Yava pending item: a design still to be done, a gap with the canon or a conjecture still to be measured (SI-13). It is named where it is declared open |
+| **Pending item** | A design still to be done, a gap with the canon or a conjecture still to be measured. The text declares it where it stays open (“is a pending design”, “is verified before building”) |
 | **The reprise** | The later refinement of Yava's design, which addresses the topics this version does not include |
 
 ### What degree of certainty does each statement have?
@@ -1548,7 +1542,7 @@ The text uses common terms (MQ, procedure engine, container orchestrator, relati
 ### How is it maintained?
 
 1. **The architecture decisions belong to their author, César Obach-Renner.** Yava's premises are his; each decision in the body carries its discarded alternative under “Discarded”.
-2. Each pending item carries an identifier **SI-n**, and whatever must be verified is verified before the piece is built.
+2. Whatever must be verified is verified before the piece is built.
 3. Each pending item is closed by being incorporated into the text, or discarded with its reason.
 4. Versioning X.Y[.Z]: **Z** for changes of form (overwrites), **Y** for changes of concept, **X** if the document's message changes.
 5. **Its author declares** when the document becomes a **Technical reference**. Measurements do not block that step; if one refutes a design conjecture, the document is reopened.
