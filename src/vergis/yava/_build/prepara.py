@@ -15,10 +15,11 @@ import re
 import sys
 
 L, SRC, OUT, VER = sys.argv[1:5]
+VER_N = VER.lstrip("v")  # la cita lleva el número, sin la «v» del nombre del archivo
 T = {
     "es": {
         "cite": "Cómo citar",
-        "cite_txt": f"Obach-Renner, César y Simón Alero. *Yava: arquitectura de lo determinista del AgencyDomain*. Versión {VER}. Gegolabs, 2026.",
+        "cite_txt": f"Obach-Renner, César y Simón Alero. *Yava: arquitectura de lo determinista del AgencyDomain*. Versión {VER_N}. Gegolabs, 2026.",
         "contacto": "Información de contacto",
         "contacto_txt": "Sitio web: agencydomains.org · Repositorio: github.com/gegolabs/agencydomains.org · Errata y comentarios: github.com/gegolabs/agencydomains.org/issues",
         "editor": "Editor",
@@ -28,7 +29,7 @@ T = {
     },
     "en": {
         "cite": "How to cite",
-        "cite_txt": f"Obach-Renner, César and Simón Alero. *Yava: Architecture of the deterministic part of the AgencyDomain*. Version {VER}. Gegolabs, 2026.",
+        "cite_txt": f"Obach-Renner, César and Simón Alero. *Yava: Architecture of the deterministic part of the AgencyDomain*. Version {VER_N}. Gegolabs, 2026.",
         "contacto": "Contact information",
         "contacto_txt": "Website: agencydomains.org · Repository: github.com/gegolabs/agencydomains.org · Errata and comments: github.com/gegolabs/agencydomains.org/issues",
         "editor": "Publisher",

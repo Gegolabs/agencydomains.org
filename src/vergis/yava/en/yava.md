@@ -508,7 +508,7 @@ If a service needs something from another to finish, it has two paths: **make th
 
 Each operation has a **default subject** derived from its description: `<installation>.<service>.<cmd|qry|evt>.<operation>.v<version>`, for durable calls, volatile calls and events respectively; the first segment is the installation's name.
 
-A service **listens to all the operations of its API with wildcards**, for example `<installation>.<service>.cmd.*.v1`. The chosen MQ supports wildcards in subjects (`*` for one segment, `>` for one or more at the end), in the consumers of persistent streams and in permissions *(prior knowledge; verified in SI-13)*.
+A service **listens to all the operations of its API with wildcards**, for example `<installation>.<service>.cmd.*.v1`. The chosen MQ supports wildcards in subjects (`*` for one segment, `>` for one or more at the end), in the consumers of persistent streams and in permissions *(prior knowledge; to be verified in SI-13)*.
 
 ### How is an operation redirected?
 
@@ -749,7 +749,7 @@ The generator also produces **the act event** of every operation that changes st
 **How it is verified that a change does not break anything**, in CI:
 
 - the compatibility of the Protobuf messages with their previous version *(tool with Apache-2.0 license measured)*;
-- the compatibility of the AsyncAPI operations and events, for example that a durable call does not become volatile and that no event disappears *(prior knowledge; verified in SI-13)*;
+- the compatibility of the AsyncAPI operations and events, for example that a durable call does not become volatile and that no event disappears *(prior knowledge; to be verified in SI-13)*;
 - consumer-driven contracts, which verify that what the consumer expects matches what the provider delivers *(MIT licenses measured)*.
 
 **Why binary serialization matters** *(magnitudes from prior knowledge, not measured in Yava)*: less CPU per message (under load, per-request CPU dominates), messages several times smaller on the network, less disk and less replication traffic in the persistent streams (replicated across three nodes), and more MQ capacity before growing. Caveats: in very small messages the headers weigh as much as the content, and toward agents it does not apply, because MCP speaks JSON and the connector converts once per request. **What it costs:** binary cannot be read at a glance, and this is offset with tools that decode it in logs, traces and queue inspection.
@@ -794,7 +794,7 @@ Just as tool names are unique within an MCP server, business service names are u
 
 **Nobody can register someone else's business service**, and that requires no administration. It works like an office access card, which is generated automatically from each employee's contract:
 
-- **Each service's registration permission is generated from its contract:** the registration subject is per business service (for example, `<installation>.catalog.cmd.register.send_mail`), and only the application service whose contract declares `send_mail` can publish on it. A service that tries to register a name its contract does not declare is rejected by the MQ, without reaching the registry. The same holds for the API: only the service that implements a contract can register it. *(That the MQ's permissions support this scheme is prior knowledge; it is verified in SI-13.)*
+- **Each service's registration permission is generated from its contract:** the registration subject is per business service (for example, `<installation>.catalog.cmd.register.send_mail`), and only the application service whose contract declares `send_mail` can publish on it. A service that tries to register a name its contract does not declare is rejected by the MQ, without reaching the registry. The same holds for the API: only the service that implements a contract can register it. *(That the MQ's permissions support this scheme is prior knowledge; it is to be verified in SI-13.)*
 - **If two contracts declare the same name**, the automatic verification of the environment repository, where the permissions of the whole platform are gathered, rejects the second one before it is deployed.
 - **Trust comes from the delivery pipeline:** to have an identity in the MQ, a service must have been deployed with its judgments, its signed image and signature verification at admission.
 
@@ -1020,7 +1020,7 @@ It is an infrastructure dependency, like the MQ: the engine stores state and dis
 
 1. **Versioning.** Every change to a flow marks its version in the code so that running executions follow the branch they started with, and **before deploying, CI replays real histories** against the new code. A change that does not pass the replay is not deployed.
 2. **Compensations** with the saga support of the engine’s Java SDK, which accumulates them and runs them in reverse order. **Every compensation carries unlimited retries**, with an alert when it accumulates too many attempts. What is irreversible goes last.
-3. **Cancellation:** if a procedure is canceled, its compensations run in a context disconnected from the cancellation *(prior knowledge; rehearsed in SI-13)*.
+3. **Cancellation:** if a procedure is canceled, its compensations run in a context disconnected from the cancellation *(prior knowledge; to be rehearsed in SI-13)*.
 4. **Deadlines and absent *workers*:** each task declares how long it can wait for a *worker* to take it, and an alert fires when that expires. An absent *worker* produces no error: the task waits silently.
 5. **Scaling of *workers*** by their queue backlog, not by CPU.
 6. **Late responses:** a response that arrives after the procedure has already compensated is compensated too, never ignored.
@@ -1136,6 +1136,7 @@ In the AI ecosystem, where most libraries for agents and models come out first, 
 - **Precautions with virtual threads:** a native call pins the virtual thread to the real one; CPU work goes to normal threads; and per-thread state (`ThreadLocal`) can consume a lot of memory with hundreds of thousands of threads.
 
 ---
+
 ## How do the services run?
 
 Each service is **a single component**, a container image that runs as a pod, on the JVM or as a native executable depending on what the load test measures. A service:
@@ -1483,7 +1484,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 ### What is required of the Agentler, the runtime of the Agentlets?
 
 1. **Budget and limits** per execution.
-2. **Inference checkpoint,** which measures it, budgets it and records it.
+2. **Inference control point,** which measures it, budgets it and records it.
 3. **Metered consumption.**
 4. **Fallback to full Cognition.**
 
