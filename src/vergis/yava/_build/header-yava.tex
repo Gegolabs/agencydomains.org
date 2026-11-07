@@ -1,0 +1,52 @@
+% Cabecera propia de Yava. Se suma a la de los libros (src/agencydomains/_build/header-libro-extra.tex),
+% que pone el estilo O'Reilly de cabeceras y pies, la página en blanco con leyenda y los glifos de reserva.
+% Yava no tiene capítulos: sus secciones (las preguntas de primer nivel) son la unidad, numeradas 1, 2, 3…
+\usepackage{float}
+\usepackage[figuresright]{rotating}          % sidewaysfigure: las láminas 2 y 5, apaisadas a página completa
+\usepackage{needspace}
+\usepackage{url}              % las URL de las fuentes se cortan donde haga falta (xurl no está en todas las instalaciones)
+\makeatletter\g@addto@macro{\UrlBreaks}{\UrlOrds}\makeatother
+\usepackage{xcolor}
+\definecolor{vergis}{HTML}{35606F}
+
+% Numeración sin capítulo: 1, 1.1, 1.1.1
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+% Cabeceras: el nombre del libro en las pares, la sección en las impares
+\fancyhead[LE]{\nouppercase{\small\itshape Yava}}
+\fancyhead[RO]{\nouppercase{\small\itshape\rightmark}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\subsectionmark}[1]{}
+
+% Títulos: la sección, grande y con su número en el color de Vergis; cada sección pide aire antes de empezar
+\usepackage{titlesec}
+\titleformat{\section}{\needspace{8\baselineskip}\normalfont\LARGE\raggedright}{\textcolor{vergis}{\thesection}}{0.6em}{}
+\titlespacing*{\section}{0pt}{3.2ex plus 1ex minus .2ex}{1.6ex plus .2ex}
+\titleformat{\subsection}{\normalfont\Large\itshape\raggedright}{\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{2.6ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+\titleformat{\subsubsection}{\normalfont\large\bfseries\raggedright}{\thesubsubsection}{0.6em}{}
+
+% Índice: espacio para los números de dos cifras
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.2em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.2em}{3.0em}}
+\makeatother
+
+% Tablas: un punto menos, filas con algo de aire
+\AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.15}}
+
+% Las figuras flotan pero no se adelantan a su sección
+\usepackage[section]{placeins}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{totalnumber}{3}
+
+% Párrafos de tabla y texto: menos viudas y huérfanas
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Holgura para que ninguna línea se salga de la caja (URL largas, palabras largas en negrita)
+\setlength{\emergencystretch}{3em}
+\Urlmuskip=0mu plus 2mu
