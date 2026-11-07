@@ -155,7 +155,7 @@ Each application service declares its **type**: what the team builds, versions a
 
 | Type | Runs in | What the type's contract covers | What the container provides |
 |---|---|---|---|
-| **Agentlet** | An **Agentler** | The rules of every service, and the Agentlet's charter (task, inputs, outputs and limits) with the model it requests | The per-execution budget, the resource limits, the measured consumption and inference through cognition resource management (see “How do Botlets and Agentlets run?”) |
+| **Agentlet** | An **Agentler** | The rules of every service, and the Agentlet's charter (task, inputs, outputs and limits) with the model it requests | The per-execution budget, the resource limits, the metered consumption and inference through cognition resource management (see “How do Botlets and Agentlets run?”) |
 | **Botlet** | A **Botler** | The rules of every service, and what the Botlet does in the world through its handle | The generic runtime of the canon's Botler: the controlled handle, confinement, the fallback to Cognition and the maturity phases |
 | **ad-hoc** | No container | Only the rules of every service: contract, its own database and RPC over MQ | — |
 
@@ -215,7 +215,7 @@ What is required of each piece is in “What does Yava require of each piece?”
   4. **format declared as a contract,** versioned like an API when it is not a standard.
 - **Every service is consumed over RPC over MQ** (see “How do services communicate?”).
 - **No accepted durable call is lost** even if the caller, the service or the connection goes down midway: it is persisted in the MQ, with its publish confirmation, before responding.
-- **No intermediate state of a procedure is visible** to a reader: it exists only as reservation state until it is confirmed.
+- **No intermediate state of a procedure is visible** to a reader: it exists only in an on-hold state until it is confirmed.
 - **`main` is never ahead of production:** `main` is always the last commit that passed the canary.
 - **No action with an effect is executed via GET,** and every confirmation requires a POST from an authenticated human (see “How are callers authenticated and authorized?”).
 - **Every service that stores personal data knows how to delete it,** through its contract (see “How is sensitive data handled?”).
@@ -226,13 +226,13 @@ What is required of each piece is in “What does Yava require of each piece?”
 
 Each service has its own integration branch, **`develop`**, and its own production branch, **`main`**. Changes are integrated into `develop`, the canary runs from `develop`, and `main` advances only up to the commit that passed the canary. This way, integration is the forge's standard one and `main` is always exactly what is in production.
 
-### What judgments does a change go through?
+### What reviews does a change go through?
 
 Three, each on a different object *(the models are chosen by each installation, in its profile)*:
 
-1. **Design:** judged by the highest-capability model.
-2. **Construction:** judged by the high-end model opposite to the one that built it, so that the review has different blind spots from the author.
-3. **Integration:** judged by the **lowest-cost high-end model**, as a mandatory *check* before integrating into `develop`. It reviews what only appears on integration: the result of combining the change with what is already in `develop`, such as badly resolved conflicts, interactions with other recent changes, APIs that no longer match what other services expect, or undeclared boundaries crossed. It is **tied to the result of the integration**: if `develop` advanced and the change has to be combined again, it is judged again. Forges can automatically dismiss approvals when a PR receives new commits *(prior knowledge)*.
+1. **Design:** reviewed by the highest-capability model.
+2. **Construction:** reviewed by the high-end model opposite to the one that built it, so that the review has different blind spots from the author.
+3. **Integration:** reviewed by the **lowest-cost high-end model**, as a mandatory *check* before integrating into `develop`. It reviews what only appears on integration: the result of combining the change with what is already in `develop`, such as badly resolved conflicts, interactions with other recent changes, APIs that no longer match what other services expect, or undeclared boundaries crossed. It is **tied to the result of the integration**: if `develop` advanced and the change has to be combined again, it is reviewed again. Forges can automatically dismiss approvals when a PR receives new commits *(prior knowledge)*.
 
 ### What are the steps?
 
@@ -250,14 +250,14 @@ Three, each on a different object *(the models are chosen by each installation, 
 - **A broken `develop` blocks what comes behind it:** after an aborted canary, the changes integrated later cannot be promoted until `develop` is fixed. This is mitigated with frequent canaries, small changes and reverting quickly in `develop`.
 - **Everything goes through `develop`, including emergencies:** nothing is integrated directly into `main`. An emergency goes through its canary, perhaps with a shorter analysis.
 
-**Discarded:** an **in-house merge queue** that promotes before integrating, because it required building and maintaining a critical piece of our own, and `develop` with a promoter gives the same guarantee with standard integration; **integrating directly into `main` and promoting afterwards**, because `main` would be ahead of production during a canary that aborts, and its history would accumulate reverts; and an **integration review by a model different from the author's**, because the risk of shared blind spots is already covered by the cross judgment of the construction.
+**Discarded:** an **in-house merge queue** that promotes before integrating, because it required building and maintaining a critical piece of our own, and `develop` with a promoter gives the same guarantee with standard integration; **integrating directly into `main` and promoting afterwards**, because `main` would be ahead of production during a canary that aborts, and its history would accumulate reverts; and an **integration review by a model different from the author's**, because the risk of shared blind spots is already covered by the cross review of the construction.
 
 ### How does a database schema change?
 
 During a canary two versions of a service coexist on the same database, so every schema change follows the **expand, migrate and contract** pattern:
 
 1. **Each version of a service is compatible with the schema of the previous one and of the next one.**
-2. **The migration that adds runs before the canary,** as a step of the delivery pipeline executed by the repository manager (see “What does the Repository manager do?”), with schema compatibility verified in the CI against the previous version.
+2. **The migration that adds runs before the canary,** as a step of the delivery pipeline executed by the repository manager (see “What does the repository manager do?”), with schema compatibility verified in the CI against the previous version.
 3. **The migration that removes is applied in a later version,** when no replica uses what was removed.
 4. **No replica refuses to operate because of the schema version** within the same major version.
 
@@ -286,7 +286,7 @@ Data that a service shares meets **four premises**:
 
 **The notice travels by *claim check*:** what travels over the MQ is the artifact's reference and fingerprint, not its bytes. For example, the raw transcript of a session: its owner closes it and publishes it in Objects, gives notice over the MQ with the reference, and each reader with permission downloads it with a short-lived read permission.
 
-**The Repository manager is not an exception:** it operates each service's containers as opaque bytes (create, back up, restore, export, import), without reading or interpreting the data (see “What does the Repository manager do?”).
+**The repository manager is not an exception:** it operates each service's containers as opaque bytes (create, back up, restore, export, import), without reading or interpreting the data (see “What does the repository manager do?”).
 
 ### What replaces shared state?
 
@@ -303,11 +303,11 @@ Six patterns, one for each way a component might want another's state:
 
 The copies a service keeps from others' events are its own state, and they follow the rule “no one decides with derived data” (see “What rules protect the boundaries between services?”). A service's read model is internal to it: it is not a copy in another service.
 
-**Discarded:** a platform exception for backup, restore, export and import, because the Repository manager performs them on opaque bytes, without accessing state; and service-to-service exceptions for bulky data, which goes by *claim check*.
+**Discarded:** a platform exception for backup, restore, export and import, because the repository manager performs them on opaque bytes, without accessing state; and service-to-service exceptions for bulky data, which goes by *claim check*.
 
 ### Where do the databases live?
 
-One **logical database per service**, with its own credentials, **grouped in a few instances** of the managed relational database, according to their criticality. Access isolation is total from day one; moving a database to its own instance later is an operation, not a redesign. Several databases in one instance share its CPU, its memory and its failure, so the instance is a shared piece in the cascading failures section. The Procedure engine has its own database, in a platform instance. The databases are provisioned and operated by the Repository manager.
+One **logical database per service**, with its own credentials, **grouped in a few instances** of the managed relational database, according to their criticality. Access isolation is total from day one; moving a database to its own instance later is an operation, not a redesign. Several databases in one instance share its CPU, its memory and its failure, so the instance is a shared piece in the cascading failures section. The procedure engine has its own database, in a platform instance. The databases are provisioned and operated by the repository manager.
 
 **Discarded:** a **database instance per service from the start**, because it requires a high-availability instance per service; it is reserved for the database that needs it.
 
@@ -326,7 +326,7 @@ The second also protects against a code error, and requires that the database an
 2. **Direct publication, where there is no own state.** Whoever only enqueues, without changing a database of its own, publishes directly to the MQ and waits for the publish acknowledgment, which ensures the message was persisted. *(Verified.)*
 3. **Results by key.** Every durable call carries an idempotency key, and the service stores the result of each one by its key. This is what keeps a repeated call from executing twice and what allows its result to be queried later. **The same key with a different content fingerprint is a rejection, not a repetition.**
 4. **Inbox for consumed events.** Each event a service consumes is recorded by its identifier before being processed, and a repeated one is discarded: the MQ delivers at least once.
-5. **Invisible reservation states.** What is not yet confirmed in a multi-step operation exists in a state that no reader exposes as valid, and every reader respects those states.
+5. **Invisible on-hold states.** What is not yet confirmed in a multi-step operation exists in a state that no reader exposes as valid, and every reader respects those states.
 6. **No credential material.** A service refuses to store credential material (passwords, tokens, keys) in its database: third-party credentials go to the Vault, and the platform's, to the secret store.
 
 **Discarded:** feeding the outbox with **change data capture (CDC)** from the database, because the service's own publisher does not need logical decoding in the database.
@@ -342,7 +342,7 @@ Each service declares which one it uses. Neither requires one service to wait fo
 
 ### How is a service's data backed up, restored and ported?
 
-1. **Backup and restore belong to the Repository manager,** on opaque bytes, and the unit of restore is the service. Restore is rehearsed.
+1. **Backup and restore belong to the repository manager,** on opaque bytes, and the unit of restore is the service. Restore is rehearsed.
 2. **Each service exports a Dominion's or a data subject's data** through an operation of its API, in a neutral, documented format, and **publishes it as an artifact**. This is the portability the canon requires.
 3. **A procedure composes the full export** of a Dominion or a data subject from each service's artifacts.
 4. **Deletion reaches backups** as they expire (see “How is sensitive data handled?”).
@@ -364,7 +364,7 @@ Each service declares which one it uses. Neither requires one service to wait fo
 5. **The owner decides deletion,** and the deletion of an artifact is carried out by the owner; readers tolerate “it no longer exists.”
 6. **Each service has its own identity before Objects,** and an external client uploads and downloads with short-lived signed URLs, without passing the bytes through the service.
 
-**Operation** is handled by the Repository manager, which treats each Objects container as one more type of repository: it provisions it, backs it up, exports it and deletes it on opaque bytes.
+**Operation** is handled by the repository manager, which treats each Objects container as one more type of repository: it provisions it, backs it up, exports it and deletes it on opaque bytes.
 
 **Discarded:** having each service use cloud storage on its own with a common minimum, because each service's identity before the storage, the signed URLs and the granted read access belong to the platform, and they would be repeated in every service that stores bytes.
 
@@ -372,14 +372,14 @@ Its contract (how read access is declared, how an artifact is versioned and what
 
 ---
 
-## What does the Repository manager do?
+## What does the repository manager do?
 
-The **Repository manager** is the platform service that gives each service its data repositories (its databases and its Objects containers) and operates their life:
+The **repository manager** is the platform service that gives each service its data repositories (its databases and its Objects containers) and operates their life:
 
 1. **provisioning them,** with their configuration and their credentials;
 2. **backing them up and recovering them,** per service;
 3. **exporting and importing them;**
-4. **migrating their schema** as a step of the Delivery pipeline (see “How does a database schema change?”).
+4. **migrating their schema** as a step of the delivery pipeline (see “How does a database schema change?”).
 
 **The bytes are opaque:** the manager creates, backs up, restores, exports and imports without reading or interpreting the data. That is why it is not an exception to the state rule. What a service exports per Dominion or per data subject is not extracted by the manager: the owner publishes it as an artifact.
 
@@ -440,13 +440,13 @@ For marked data you can query **which services it passed through, which third pa
 
 **The mechanism is built and tested, and left disabled** behind a switch. It is enabled once the mechanisms are implemented that guarantee it is used legitimately by the owner of the data to be deleted.
 
-**The Act log does not contradict deletion** if it stores references and keyed fingerprints (one secret key per installation, which never leaves the service), and not plain fingerprints of the data: the plain fingerprint of a small piece of personal data, such as an email address or a name, can be reversed by brute force. What a service keeps after deletion (a tombstone without a fingerprint of the data, or a keyed fingerprint where an audit needs to prove what was deleted) is a pending design (SI-62).
+**The act log does not contradict deletion** if it stores references and keyed fingerprints (one secret key per installation, which never leaves the service), and not plain fingerprints of the data: the plain fingerprint of a small piece of personal data, such as an email address or a name, can be reversed by brute force. What a service keeps after deletion (a tombstone without a fingerprint of the data, or a keyed fingerprint where an audit needs to prove what was deleted) is a pending design (SI-62).
 
 ---
 
 ## How do services communicate?
 
-**Every service is consumed by RPC over MQ**: the caller sends a request and waits for its response, as in an ordinary call, but the transport is the MQ and not a direct connection. **Each service's API** is the set of operations it exposes this way, described in AsyncAPI with messages in Protobuf. A service talks to the MQ, to its own database, to the Procedure engine if it has procedures, to Objects for bytes, and to the platform (secrets and telemetry).
+**Every service is consumed by RPC over MQ**: the caller sends a request and waits for its response, as in an ordinary call, but the transport is the MQ and not a direct connection. **Each service's API** is the set of operations it exposes this way, described in AsyncAPI with messages in Protobuf. A service talks to the MQ, to its own database, to the procedure engine if it has procedures, to Objects for bytes, and to the platform (secrets and telemetry).
 
 ![The MQ between the application services and the platform services](figuras/fig-06-mq.png)
 
@@ -515,7 +515,7 @@ A service **listens to all the operations of its API with wildcards**, for examp
 The subject on which an operation reaches its service **is resolved at run time** and can be changed live, in the style of a per-operation WSDL *endpoint*, or of UDDI.
 
 1. **A bindings table** stores only the exceptions: `operation → subject`. The key is the operation's identity, that is, the Java interface generated from its contract, with its version, plus the operation's name. Without an entry, the operation uses its default subject.
-2. The table lives in the **Service registry**, which is the single place that answers what exists, how it is used and how it is reached. Each service keeps an in-memory copy, which the registry updates by publishing an event every time a binding changes.
+2. The table lives in the **service registry**, which is the single place that answers what exists, how it is used and how it is reached. Each service keeps an in-memory copy, which the registry updates by publishing an event every time a binding changes.
 3. **On each call**, the library looks up the operation in the in-memory copy and publishes on the subject bound at that instant. It is a local lookup, with no added latency.
 4. **If the registry is unavailable**, each service continues with the last known binding.
 5. **Events are never redirected:** their subject is permanent.
@@ -546,15 +546,15 @@ The subject on which an operation reaches its service **is resolved at run time*
 - **It can publish** on the subjects of any service's operations and on the subjects of its own events.
 - **It can subscribe** to any service's events and to the results of what it requested.
 - **Only it consumes the subjects of its own API.** That anyone can request does not mean anyone can serve: if another service could consume someone else's queue, it could take the requests addressed to another and respond in its name.
-- **Only it registers its API and the business services of its contract** in the Service registry (see “How does the service registry work?”).
+- **Only it registers its API and the business services of its contract** in the service registry (see “How does the service registry work?”).
 
 **The exclusive permissions are generated from the contracts and the bindings:** the one to consume the subjects of each API, including the subjects to which an operation was redirected, and the one to register each API and each business service in the registry. The service mesh encrypts the connections to the MQ with mTLS, but it does not see which subject each message goes to: that is why the MQ's permissions are indispensable for those two exclusivities.
 
 **What is restricted is restricted by who acts,** not by which service calls: each call carries the signed identity context (see “How does identity travel?”), and what a subject can do is decided by Authorization (see “How are callers authenticated and authorized?”).
 
-**What is accepted:** the reach of a compromised service grows, because it could call any operation of any service, though not on behalf of a Dominion that no one delegated to it. Trust rests on the Delivery pipeline: the three judgments, the signed image and its verification at admission. **The dependency map is discovered instead of declared:** telemetry shows who calls whom, and the integration review reviews each new dependency.
+**What is accepted:** the reach of a compromised service grows, because it could call any operation of any service, though not on behalf of a Dominion that no one delegated to it. Trust rests on the delivery pipeline: the three reviews, the signed image and its verification at admission. **The dependency map is discovered instead of declared:** telemetry shows who calls whom, and the integration review examines each new dependency.
 
-**Self-discovery** is provided by the Service registry: any service can query which APIs the others offer.
+**Self-discovery** is provided by the service registry: any service can query which APIs the others offer.
 
 **Discarded:** having an operation's contract declare a list of callers and having the MQ enforce it, because restricting callers within the architecture undermines the services' ability to act dynamically.
 
@@ -588,7 +588,7 @@ The **Dominion** is each agent's territory within the AgencyDomain. The canon na
 - **the human principals who open it,** with the roles the installation defines;
 - **what passes through it:** the identity of each call, the data each service stores about it, the usage limits and the record of its acts.
 
-**Canonical URIs.** The AgencyDomain, each agent (`{domain}/agents/{agent}`) and each tool have a canonical URI, which resolves to its Dominion. The scheme is the canon's; the proper names (the *handles*, the numbers) are set by the installation. The Service registry stores the URI of each tool.
+**Canonical URIs.** The AgencyDomain, each agent (`{domain}/agents/{agent}`) and each tool have a canonical URI, which resolves to its Dominion. The scheme is the canon's; the proper names (the *handles*, the numbers) are set by the installation. The service registry stores the URI of each tool.
 
 **Limits,** in the Tools connector (MCP) and on writes, are applied per Dominion and per principal.
 
@@ -636,7 +636,7 @@ It is the Connector through which a client or a human proves who they are, at th
 
 **Authorization** is the platform service that decides whether a subject may use an operation:
 
-1. **Each service declares in its contract the permissions each operation requires,** with a class (create, read, update, delete, list or execute) from a vocabulary that can grow to CRUDLEX. The Service registry stores it.
+1. **Each service declares in its contract the permissions each operation requires,** with a class (create, read, update, delete, list or execute) from a vocabulary that can grow to CRUDLEX. The service registry stores it.
 2. **The query is volatile:** “may this subject perform this operation on this Dominion?”, with the identity context as the subject.
 3. **Policies are per user type** (agent, human, service) and per relationship (who opens which Dominion, who is the operator of which agent). The installation's business rules are published in Authorization as relationships and policies.
 4. **Authorization applies equally** to an invocation through the meta-tools and to a shortcut.
@@ -652,7 +652,7 @@ It is the pattern that separates the decision point from the enforcement point *
 3. **the decision recorded** as an act event;
 4. **batch approval,** recorded.
 
-The decision and its record belong to Authorization; the wait of a long act can run on the Procedure engine; the notice to the human is composed by the application and carried by a connector. The confirmation is a POST from the authenticated approver.
+The decision and its record belong to Authorization; the wait of a long act can run on the procedure engine; the notice to the human is composed by the application and carried by a connector. The confirmation is a POST from the authenticated approver.
 
 ### What happens if the human did not authorize something?
 
@@ -697,7 +697,7 @@ The rule has no exceptions. The Web connector (HTTP) applies it to every route (
 
 ## What shape does the record of an act have?
 
-The **Act log** is the platform service that stores, chains and serves the record of each act. The canon requires it: immutable, chained, and with the fingerprint of the parameters and of the result instead of their content. Its contract and its minimums (how it serves, how it fails and what it retains) are a pending design (SI-73), and when it is built is addressed in the reprise.
+The **act log** is the platform service that stores, chains and serves the record of each act. The canon requires it: immutable, chained, and with the fingerprint of the parameters and of the result instead of their content. Its contract and its minimums (how it serves, how it fails and what it retains) are a pending design (SI-73), and when it is built is addressed in the reprise.
 
 **The act event** has a common shape, which each service publishes on a permanent subject:
 
@@ -711,7 +711,7 @@ The **Act log** is the platform service that stores, chains and serves the recor
 
 **By default it carries references and fingerprints, not personal data,** and therefore does not clash with deletion. The generator produces the act event of every operation that changes state. The view for the human of what their agent did is built by the installation on top.
 
-This shape, and the Act log that stores it, are the part of the canon's Trust Infrastructure that is in this document; the rest remains in SI-49.
+This shape, and the act log that stores it, are the part of the canon's Trust Infrastructure that is in this document; the rest remains in SI-49.
 
 ---
 ## How is a contract written?
@@ -783,9 +783,9 @@ The **service registry** is a **platform service**, built as part of Yava, in th
 
 ```json
 {
-  "servicios": [
-    { "id": "send_mail", "titulo": "Send an email", "modo": "durable" },
-    { "id": "read_inbox", "titulo": "Read the inbox", "modo": "volatil" }
+  "services": [
+    { "id": "send_mail", "title": "Send an email", "mode": "durable" },
+    { "id": "read_inbox", "title": "Read the inbox", "mode": "volatile" }
   ]
 }
 ```
@@ -796,7 +796,7 @@ Just as tool names are unique within an MCP server, business service names are u
 
 - **Each service's registration permission is generated from its contract:** the registration subject is per business service (for example, `<installation>.catalog.cmd.register.send_mail`), and only the application service whose contract declares `send_mail` can publish on it. A service that tries to register a name its contract does not declare is rejected by the MQ, without reaching the registry. The same holds for the API: only the service that implements a contract can register it. *(That the MQ's permissions support this scheme is prior knowledge; it is to be verified in SI-13.)*
 - **If two contracts declare the same name**, the automatic verification of the environment repository, where the permissions of the whole platform are gathered, rejects the second one before it is deployed.
-- **Trust comes from the delivery pipeline:** to have an identity in the MQ, a service must have been deployed with its judgments, its signed image and signature verification at admission.
+- **Trust comes from the delivery pipeline:** to have an identity in the MQ, a service must have been deployed with its reviews, its signed image and signature verification at admission.
 
 **Versions that coexist.** A business service **only evolves compatibly**: adding optional fields is allowed; removing fields or changing their meaning is not, and CI verifies it. An incompatible change is a new business service, with another name, and the previous one is retired explicitly. During a canary, the replicas of the new version register their description as **pending promotion**; the registry keeps offering the current description, and **the promoter activates the new one** when the canary promotes. If it aborts, the pending description was never offered. So an agent never sends a field that the replica serving it does not know.
 
@@ -874,7 +874,7 @@ The Tools connector (MCP) is the only MCP server that agents use, as the canon r
 3. **It applies envelope sanity checks:** format and size of the request, existence of the service and the operation, a mandatory idempotency key on every durable call, content fingerprint and limits per Dominion and per principal. Every automatic limit or block is applied per Dominion and per principal, or by the client's real IP as delivered by a trusted proxy, and never blocks internal ranges or the addresses of the ingress itself.
 4. **It translates** each invocation of a business service into an RPC call over MQ to the operation of the application service that implements it, according to the service registry, with the call library, and converts between MCP's JSON and the contract's Protobuf.
 5. **It stores MCP sessions** and the task log in its own database, never only in a process's memory: the connector scales horizontally and a replica that restarts cannot lose sessions. **The session is bound to the principal** and to the token family that opened it: another principal of the same Dominion gets `404`, and a renewal by the same principal adopts the new family.
-6. **It responds with the two outputs** of a durable call: the result if it arrives in time, or pending with its ticket. Since every durable call is persisted in the MQ before waiting, the agent gets a ticket even if the service is down, and the request is served when it comes back.
+6. **It responds with the two outcomes** of a durable call: the result if it arrives in time, or pending with its ticket. Since every durable call is persisted in the MQ before waiting, the agent gets a ticket even if the service is down, and the request is served when it comes back.
 7. **It attaches the piggyback** to each response (see “What is the piggyback?”).
 
 The connector contains no logic of any service and does not store their results, which live in each service by key, nor the record of business services, which lives in the registry: **the meta-tools read the registry** to list, describe and route. The connector knows no services by name.
@@ -1035,7 +1035,7 @@ A generic example: service X owns a procedure that requests something from Y and
 ```mermaid
 sequenceDiagram
     participant X as Service X (owner)
-    participant M as Procedure engine
+    participant M as procedure engine
     participant Y as Service Y
     participant Z as Service Z
     X->>M: Start flow
@@ -1224,7 +1224,7 @@ A platform on a container orchestrator couples layers: when a shared piece fails
 2. **Probes that check dependencies:** a liveness probe that checks the database turns a slow database into mass restarts.
 3. **Retry storms:** with three retries per layer there are four attempts per layer, and across three layers that is 4³ = 64 calls for each original call.
 4. **The autoscaler that amplifies:** failing replicas raise the apparent load and saturate the database; and if the failure is not one of capacity, queue-based scaling drives the consumers to their maximum and adds nodes that solve nothing.
-5. **Shared pieces:** the cluster DNS, a node’s proxy, the control plane of the mesh and of the orchestrator, **the MQ**, **the procedure engine**, **the Service registry**, **Identity**, **Authorization**, **the Connectors** (including the Authentication connector), **Objects**, **the Vault**, **tokenization**, **the Repository manager**, **each database instance** (shared by its group) and **the key that encrypts the cluster’s secrets**.
+5. **Shared pieces:** the cluster DNS, a node’s proxy, the control plane of the mesh and of the orchestrator, **the MQ**, **the procedure engine**, **the service registry**, **Identity**, **Authorization**, **the connectors** (including the Authentication connector), **Objects**, **the Vault**, **tokenization**, **the repository manager**, **each database instance** (shared by its group) and **the key that encrypts the cluster’s secrets**.
 6. **A change to a shared piece:** admission and authorization policies, routing, secrets configuration, autoscalers, mesh configuration and **registry bindings** apply to everyone at once and do not go through any service’s canary.
 
 ### What does the design require?
@@ -1258,7 +1258,7 @@ More layers make diagnosis costlier; this is offset by observability from the fi
 ### What scales automatically?
 
 1. **The services**, by the largest of their signals: the depth of their durable subjects and the load of their volatile calls.
-2. **The Connectors**: the MCP one, by active sessions or open requests; the ones for what streams live, by connections.
+2. **The connectors**: the MCP one, by active sessions or open requests; the connectors for live transmission, by connections.
 3. **The procedure engine *workers***, by their queue backlog.
 4. **The nodes**, when the pods do not fit.
 
@@ -1424,7 +1424,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **Image signing** and **verification at admission**, which fails closed only for the signature.
 6. **Image registry** that speaks the OCI distribution specification.
 7. **Compatibility checking** of Protobuf messages and AsyncAPI descriptions, and **consumer-driven contracts** for Protobuf messages.
-8. **Judgment models:** the most capable one for design; the high-end one opposite to the one that built it for construction; and the lowest-cost high-end one for integration.
+8. **Review models:** the most capable one for design; the high-end one opposite to the one that built it for construction; and the lowest-cost high-end one for integration.
 
 ### What is required of observability?
 
