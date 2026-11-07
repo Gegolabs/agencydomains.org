@@ -1,0 +1,195 @@
+{
+  "_": "La biblioteca de referencias de Vergis: las fuentes que consultan sus documentos, por tema. Cada entrada: título y línea («por qué importa») en las dos lenguas, sus enlaces, y dónde la cita cada documento (el título de la sección, tal como está en el documento; el build lo resuelve a su página y falla si no existe). Para sumar un documento, se agregan sus citas; para sumar una fuente, una entrada.",
+  "temas": [
+    {
+      "id": "canon",
+      "es": "El canon",
+      "en": "The canon",
+      "fuentes": [
+        {
+          "es": {"titulo": "AgencyDomains: Arquitectura del Mundo Agentivo", "por": "La norma que los documentos de Vergis implementan: Yava declara su conformidad con sus capítulos 4, 5 y 9, y no repite lo que el canon ya dice."},
+          "en": {"titulo": "AgencyDomains: Architecture of the Agentive World", "por": "The norm that Vergis's documents implement: Yava declares its conformance with chapters 4, 5 and 9, and does not repeat what the canon already says."},
+          "enlaces": {"es": ["/es/agencydomains/"], "en": ["/agencydomains/"]},
+          "citas": {"es": [["yava", "¿Qué conformidad declara con el canon?"]], "en": [["yava", "What conformance does it declare with the canon?"]]}
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "es": "Los agentes y sus herramientas (MCP)",
+      "en": "Agents and their tools (MCP)",
+      "fuentes": [
+        {
+          "es": {"titulo": "Model Context Protocol, especificación 2025-11-25: Tasks y transportes", "por": "Cómo un cliente marca una llamada como tarea y recoge su resultado después, y el transporte Streamable HTTP: la base del conector Herramientas, el único servidor MCP que usan los agentes."},
+          "en": {"titulo": "Model Context Protocol, specification 2025-11-25: Tasks and transports", "por": "How a client marks a call as a task and collects its result later, and the Streamable HTTP transport: the basis of the Tools connector, the only MCP server agents use."},
+          "enlaces": ["https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks", "https://modelcontextprotocol.io/specification/latest/basic/transports"],
+          "citas": {"es": [["yava", "¿Cómo se recuperan los resultados asíncronos?"], ["yava", "¿Qué se exige a la base del conector Herramientas (MCP)?"]], "en": [["yava", "How are asynchronous results retrieved?"], ["yava", "What is required of the base of the Tools connector (MCP)?"]]}
+        },
+        {
+          "es": {"titulo": "MCP, SEP-986: el formato de los nombres de herramientas", "por": "Los nombres de herramientas son únicos dentro de un servidor MCP; Yava aplica la misma regla a los servicios de negocio, únicos en el registro."},
+          "en": {"titulo": "MCP, SEP-986: the format of tool names", "por": "Tool names are unique within an MCP server; Yava applies the same rule to business services, unique in the registry."},
+          "enlaces": ["https://modelcontextprotocol.io/seps/986-specify-format-for-tool-names"],
+          "citas": {"es": [["yava", "¿Cómo se registran las APIs y los servicios de negocio?"]], "en": [["yava", "How are APIs and business services registered?"]]}
+        }
+      ]
+    },
+    {
+      "id": "mq",
+      "es": "La mensajería (el MQ)",
+      "en": "Messaging (the MQ)",
+      "fuentes": [
+        {
+          "es": {"titulo": "NATS JetStream: confirmación de publicación y deduplicación", "por": "Persistir con confirmación y descartar duplicados por identificador de mensaje: dos de los mínimos que Yava exige al MQ para que ninguna llamada durable aceptada se pierda ni se repita."},
+          "en": {"titulo": "NATS JetStream: publish acknowledgement and deduplication", "por": "Persisting with acknowledgement and discarding duplicates by message identifier: two of the minimums Yava requires of the MQ so that no accepted durable call is lost or repeated."},
+          "enlaces": ["https://www.synadia.com/blog/jetstream-reliable-delivery-dlq-replay"],
+          "citas": {"es": [["yava", "¿Qué se exige al MQ?"]], "en": [["yava", "What is required of the MQ?"]]}
+        },
+        {
+          "es": {"titulo": "NATS: mapeo de temas", "por": "Redirigir mensajes en el servidor del MQ: la alternativa que Yava evaluó y descartó a favor de vinculaciones explícitas por operación, ligadas al contrato."},
+          "en": {"titulo": "NATS: subject mapping", "por": "Redirecting messages in the MQ server: the alternative Yava weighed and discarded in favour of explicit per-operation bindings tied to the contract."},
+          "enlaces": ["https://docs.nats.io/nats-concepts/subject_mapping"],
+          "citas": {"es": [["yava", "¿Cómo se redirige una operación?"]], "en": [["yava", "How is an operation redirected?"]]}
+        }
+      ]
+    },
+    {
+      "id": "durable",
+      "es": "La ejecución durable (el motor de procedimientos)",
+      "en": "Durable execution (the procedure engine)",
+      "fuentes": [
+        {
+          "es": {"titulo": "Cadence: versionado y reproducción de flujos", "por": "Marcas de versión en el código de los flujos y reproducción de historiales reales en el CI: lo que permite cambiar un flujo sin romper las ejecuciones en curso."},
+          "en": {"titulo": "Cadence: workflow versioning and replay", "por": "Version markers in flow code and replay of real histories in CI: what lets a flow change without breaking the executions in progress."},
+          "enlaces": ["https://cadenceworkflow.io/docs/java-client/versioning", "https://cadenceworkflow.io/docs/go-client/workflow-replay-shadowing"],
+          "citas": {"es": [["yava", "¿Qué reglas siguen los flujos?"], ["yava", "¿Qué se exige al motor de procedimientos?"]], "en": [["yava", "What rules do flows follow?"], ["yava", "What is required of the procedure engine?"]]}
+        },
+        {
+          "es": {"titulo": "Cadence en la CNCF", "por": "Un motor de flujos durables que pasa a una fundación neutral: dato de gobernanza para elegir el motor de procedimientos."},
+          "en": {"titulo": "Cadence joins the CNCF", "por": "A durable-workflow engine moving to a neutral foundation: a governance fact for choosing the procedure engine."},
+          "enlaces": ["https://cadenceworkflow.io/blog/2025/10/06/cadence-joins-cncf-cloud-native-computing-foundation"],
+          "citas": {"es": [["yava", "¿Qué se exige al motor de procedimientos?"]], "en": [["yava", "What is required of the procedure engine?"]]}
+        },
+        {
+          "es": {"titulo": "DBOS: recuperación de flujos y Conductor", "por": "La ejecución durable embebida en cada servicio, sobre su propia base: el modelo que Yava contrastó y descartó a favor de un motor de plataforma."},
+          "en": {"titulo": "DBOS: workflow recovery and Conductor", "por": "Durable execution embedded in each service, on its own database: the model Yava weighed and discarded in favour of a platform engine."},
+          "enlaces": ["https://docs.dbos.dev/production/workflow-recovery", "https://docs.dbos.dev/production/hosting-conductor-with-kubernetes"],
+          "citas": {"es": [["yava", "¿Cómo funciona el motor?"]], "en": [["yava", "How does the engine work?"]]}
+        },
+        {
+          "es": {"titulo": "Temporal: financiamiento e ingresos (2026)", "por": "El peso de la ejecución durable en el mercado: respalda que es una categoría consolidada del estado del arte."},
+          "en": {"titulo": "Temporal: funding and revenue (2026)", "por": "The weight of durable execution in the market: it backs durable execution as an established category of the state of the art."},
+          "enlaces": ["https://www.geekwire.com/2026/temporal-raises-550m-hits-12-55b-valuation-as-agentic-ai-wave-fuels-massive-growth/"],
+          "citas": {"es": [["yava", "¿Qué dice el estado del arte?"]], "en": [["yava", "What does the state of the art say?"]]}
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "es": "Los datos",
+      "en": "Data",
+      "fuentes": [
+        {
+          "es": {"titulo": "PgBouncer: qué funciona en cada modo", "por": "Lo que se pierde con un pooler en modo transacción: de ahí sale la exigencia de que la seguridad por fila funcione en ese modo y de que el aviso de la base vaya por una conexión directa."},
+          "en": {"titulo": "PgBouncer: what works in each mode", "por": "What is lost with a pooler in transaction mode: hence the requirement that row-level security work in that mode and that database notifications go over a direct connection."},
+          "enlaces": ["https://doc.pigsty.io/docs/pgbouncer/features/"],
+          "citas": {"es": [["yava", "¿Qué se exige a la base relacional y al *pooler*?"]], "en": [["yava", "What is required of the relational database and the *pooler*?"]]}
+        },
+        {
+          "es": {"titulo": "OCI Database with PostgreSQL: formas y cambio de forma", "por": "Cómo crece una base relacional administrada: el crecimiento vertical planificable que Yava exige a la base."},
+          "en": {"titulo": "OCI Database with PostgreSQL: shapes and shape change", "por": "How a managed relational database grows: the plannable vertical growth Yava requires of the database."},
+          "enlaces": ["https://docs.oracle.com/iaas/Content/postgresql/supported-shapes.htm", "https://docs.oracle.com/en-us/iaas/Content/postgresql/update-db-shape.htm"],
+          "citas": {"es": [["yava", "¿Qué se exige a la base relacional y al *pooler*?"]], "en": [["yava", "What is required of the relational database and the *pooler*?"]]}
+        }
+      ]
+    },
+    {
+      "id": "lenguajes",
+      "es": "Los lenguajes y el runtime",
+      "en": "Languages and runtime",
+      "fuentes": [
+        {
+          "es": {"titulo": "JEP 486: el Security Manager, deshabilitado de forma permanente", "por": "El JDK ya no puede confinar código no confiable dentro de la JVM: por eso el código que generan los agentes en G2 y G3 no se escribe en Java."},
+          "en": {"titulo": "JEP 486: the Security Manager, permanently disabled", "por": "The JDK can no longer confine untrusted code inside the JVM: that is why the code agents generate in G2 and G3 is not written in Java."},
+          "enlaces": ["https://openjdk.org/jeps/486", "https://docs.oracle.com/en/java/javase/25/security/security-manager-is-permanently-disabled.html"],
+          "citas": {"es": [["yava", "¿Por qué Java complica G2 y G3?"]], "en": [["yava", "Why does Java complicate G2 and G3?"]]}
+        },
+        {
+          "es": {"titulo": "WASM e isolates como confinamiento por capacidades", "por": "Las dos formas de aislar el código que escribe un agente que quedan como candidatas para los cuerpos de los Botlets cuando el AgencyDomain entre en G2."},
+          "en": {"titulo": "WASM and isolates as capability-based confinement", "por": "The two ways of isolating agent-written code that remain the candidates for Botlet bodies when the AgencyDomain enters G2."},
+          "enlaces": ["https://nicolas-dorriere.fr/assets/files/A_field_guide_to_sandboxes_for_AI_.html", "https://www.morphllm.com/comparisons/wasm-vs-docker", "https://api.emergentmind.com/topics/webassembly-wasi-sandbox"],
+          "citas": {"es": [["yava", "¿Qué se decide?"]], "en": [["yava", "What is decided?"]]}
+        },
+        {
+          "es": {"titulo": "Python 3.14 y el PEP 779", "por": "El Python sin GIL ya tiene soporte oficial, pero no es el modo por omisión: uno de los racionales para escribir la plataforma en Java."},
+          "en": {"titulo": "Python 3.14 and PEP 779", "por": "Python without the GIL is officially supported but not the default mode: one of the rationales for writing the platform in Java."},
+          "enlaces": ["https://pydevtools.com/handbook/explanation/what-is-pep-779/"],
+          "citas": {"es": [["yava", "¿Cuáles son los racionales?"]], "en": [["yava", "What are the rationales?"]]}
+        },
+        {
+          "es": {"titulo": "Hilos virtuales frente a programación reactiva en 2026", "por": "La industria vuelve al estilo secuencial con hilos virtuales para petición y respuesta, y deja lo reactivo para el streaming: el modelo que Yava adopta para la lógica de los servicios."},
+          "en": {"titulo": "Virtual threads versus reactive programming in 2026", "por": "The industry returns to the sequential style with virtual threads for request and response, and keeps reactive for streaming: the model Yava adopts for service logic."},
+          "enlaces": ["https://lucaberton.com/blog/spring-reactor-reactive-java-2026/"],
+          "citas": {"es": [["yava", "¿Cuáles son los racionales?"]], "en": [["yava", "What are the rationales?"]]}
+        },
+        {
+          "es": {"titulo": "Helidon 4", "por": "Un framework de servicios con los hilos virtuales como arquitectura y con su API vuelta bloqueante: el tipo de framework que Yava pide."},
+          "en": {"titulo": "Helidon 4", "por": "A service framework with virtual threads as its architecture and its API turned blocking: the kind of framework Yava asks for."},
+          "enlaces": ["https://helidon.io/docs/v4/se/introduction"],
+          "citas": {"es": [["yava", "¿Qué framework?"]], "en": [["yava", "Which framework?"]]}
+        },
+        {
+          "es": {"titulo": "Quarkus en la Commonhaus Foundation", "por": "Un framework con gobernanza neutral: la alternativa declarada frente al riesgo de depender de una sola empresa."},
+          "en": {"titulo": "Quarkus moves to the Commonhaus Foundation", "por": "A framework under neutral governance: the declared alternative to the risk of depending on a single company."},
+          "enlaces": ["https://quarkus.io/blog/quarkus-moving-to-commonhaus/"],
+          "citas": {"es": [["yava", "¿Qué framework?"]], "en": [["yava", "Which framework?"]]}
+        },
+        {
+          "es": {"titulo": "Spring bajo Broadcom", "por": "El licenciamiento de un framework popular tras su cambio de dueño: el riesgo de gobernanza que se pesó al elegir el framework."},
+          "en": {"titulo": "Spring under Broadcom", "por": "The licensing of a popular framework after its change of owner: the governance risk weighed when choosing the framework."},
+          "enlaces": ["https://redresscompliance.com/vmware-tanzu-licensing-broadcom-era"],
+          "citas": {"es": [["yava", "¿Qué framework?"]], "en": [["yava", "Which framework?"]]}
+        }
+      ]
+    },
+    {
+      "id": "red",
+      "es": "La red (el service mesh)",
+      "en": "The network (the service mesh)",
+      "fuentes": [
+        {
+          "es": {"titulo": "Istio: ambient estable y multiclúster en beta", "por": "El mesh sin sidecar, con L4 en cada nodo y L7 solo donde hace falta, ya estable; y su multiclúster, todavía en beta: lo que Yava adopta hoy y lo que deja preparado."},
+          "en": {"titulo": "Istio: ambient GA and multicluster in beta", "por": "The sidecarless mesh, with L4 on every node and L7 only where needed, now stable; and its multicluster, still in beta: what Yava adopts today and what it leaves prepared."},
+          "enlaces": ["https://istio.io/news/releases/1.24.x/announcing-1.24", "https://istio.io/latest/blog/2026/ambient-multinetwork-multicluster-beta/"],
+          "citas": {"es": [["yava", "¿Cómo es el service mesh?"], ["yava", "¿Cómo se prepara un eventual multiclúster?"]], "en": [["yava", "What is the service mesh like?"], ["yava", "How is an eventual multicluster prepared for?"]]}
+        }
+      ]
+    },
+    {
+      "id": "secretos",
+      "es": "Los secretos",
+      "en": "Secrets",
+      "fuentes": [
+        {
+          "es": {"titulo": "OpenBao: sello con el gestor de llaves de OCI", "por": "El desellado automático con el gestor de llaves de la nube, y la salida a fragmentos de llave: el mínimo que Yava exige al almacén de secretos."},
+          "en": {"titulo": "OpenBao: seal with the OCI key manager", "por": "Automatic unsealing with the cloud's key manager, and the way out to key shares: the minimum Yava requires of the secret store."},
+          "enlaces": ["https://github.com/openbao/openbao"],
+          "nota": {"es": "El documento: website/content/docs/configuration/seal/ocikms.mdx, en el repositorio.", "en": "The document: website/content/docs/configuration/seal/ocikms.mdx, in the repository."},
+          "citas": {"es": [["yava", "¿Dónde corre el almacén de secretos?"]], "en": [["yava", "Where does the secret store run?"]]}
+        }
+      ]
+    },
+    {
+      "id": "licencias",
+      "es": "Las licencias",
+      "en": "Licences",
+      "fuentes": [
+        {
+          "es": {"titulo": "Los archivos de licencia de cada repositorio oficial", "por": "Leídos en la raíz de cada repositorio, pieza por pieza: la medición que sostiene que todo el software de la plataforma es libre."},
+          "en": {"titulo": "The licence files of each official repository", "por": "Read at the root of each repository, piece by piece: the measurement behind the claim that all of the platform's software is free and open source."},
+          "enlaces": [],
+          "citas": {"es": [["yava", "¿Cómo se cumple P4 (todo FOSS)?"]], "en": [["yava", "How is P4 (all FOSS) met?"]]}
+        }
+      ]
+    }
+  ]
+}

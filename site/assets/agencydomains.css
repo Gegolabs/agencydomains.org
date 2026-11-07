@@ -161,6 +161,8 @@ article.book code{font-family:var(--mono);font-size:.84em;background:var(--paper
 article.book pre{background:var(--ink);color:#F3EFE4;border-radius:8px;padding:1.1rem 1.25rem;overflow-x:auto;
   font-size:.84rem;line-height:1.6;margin:1.6rem 0;box-shadow:0 18px 40px -28px rgba(40,30,20,.6)}
 article.book pre code{background:none;border:0;padding:0;color:inherit;font-size:1em}
+/* un código o una URL más largos que la columna se cortan, en vez de desbordar la página en el teléfono */
+article.book p code,article.book li code,article.book p a,article.book li a{overflow-wrap:anywhere}
 article.book hr{border:0;height:1px;background:var(--rule);margin:2.6rem auto;width:40%}
 article.book .footnotes{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.92rem;color:var(--ink-soft)}
 article.book .footnotes hr{display:none}

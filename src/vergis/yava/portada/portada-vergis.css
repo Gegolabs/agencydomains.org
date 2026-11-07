@@ -1,0 +1,16 @@
+/* Portada de los libros de Vergis (la implementación de referencia, tomo «A»).
+ * Hereda la maqueta de la trilogía (../../../trilogia/portada/portada.css): la
+ * misma página carta a sangre, título en STIX Two crema, filete, pila, autor,
+ * sello y bandas dobles. Lo propio de Vergis: el color de página (azul pizarra),
+ * el filete en verde agua y la pila con los cuatro tomos de la trilogía en
+ * sordina y el tomo de Vergis marcado debajo, aparte, como «A». */
+@import url("../../../trilogia/portada/portada.css");
+@page vergis { margin: 0; background: linear-gradient(172deg,#4d7a8f 0%,#35606f 55%,#264a57 100%); }
+.libro-vergis .portada { page: vergis; }
+.libro-vergis .p-filete { border-top-color: #a8dcc9; }
+.libro-vergis .p-t2 { max-width: 150mm; line-height: 1.18; }
+.p-nota-in { font-size: 12.5pt; letter-spacing: 0.5pt; color: rgba(236,228,212,.8); }
+.libro-vergis .p-pila .p-l1, .libro-vergis .p-pila .p-l2,
+.libro-vergis .p-pila .p-l3, .libro-vergis .p-pila .p-l4 { opacity: .55; }
+.p-l5 { width: 46mm; background: #3f6d80; height: 3.6mm; margin-top: 3.4mm; outline: 1.4pt solid #f6efe2; outline-offset: 0.7mm; }
+.libro-vergis .p-pila { bottom: 62mm; }

@@ -64,4 +64,7 @@ An agent recommending an entry point to its human should match the rung to the t
 ## Reference implementation
 
 - [Vergis (code, AGPL-3.0)](https://github.com/gegolabs/vergis): the AgencyDomain made operational — Botler + Mira.
+- [Vergis — what it is](https://agencydomains.org/vergis/): the reference implementation in plain words, and its place in the Agentive World.
+- [Vergis — documents](https://agencydomains.org/vergis/documents/): its technical documentation (GNU FDL), read on the web chapter by chapter or as PDF. First document: [Yava — Architecture of the deterministic part of the AgencyDomain](https://agencydomains.org/vergis/yava/) · [PDF, current edition](https://agencydomains.org/vergis/yava/Yava-en.pdf) · [Spanish edition](https://agencydomains.org/es/vergis/yava/).
+- [Vergis — reference library](https://agencydomains.org/vergis/library/): the sources its documents consult, by theme, each with what it contributes and where it is cited.
 

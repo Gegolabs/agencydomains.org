@@ -1,0 +1,20 @@
+{
+  "_": "La colección de documentos de Vergis, en el orden en que se muestran. Cada documento vive en src/vergis/<id>/ con su build; el build de Vergis (src/vergis/_build/build-web.sh) lo construye y lo pone en /vergis/<id>/ (en) y /es/vergis/<id>/ (es). La versión, los capítulos y las páginas de cada PDF se leen del documento y de sus PDF, no se escriben aquí.",
+  "documentos": [
+    {
+      "id": "yava",
+      "fuente": {"es": "yava/es/yava.md", "en": "yava/en/yava.md"},
+      "titulo": "Yava",
+      "es": {
+        "subtitulo": "Arquitectura de lo determinista del AgencyDomain",
+        "autores": "César Obach-Renner y Simón Alero",
+        "resumen": "La arquitectura de todo lo que en un AgencyDomain corre como código determinista: los servicios de plataforma y de aplicación, los Conectores por los que entra y sale lo de afuera, el estado que no se comparte, la identidad que viaja en cada llamada y lo que se le exige a cada pieza para crecer sola, resistir fallas y quedarse en software libre. Se diseña para ser la base determinista de Vergis."
+      },
+      "en": {
+        "subtitulo": "Architecture of the deterministic part of the AgencyDomain",
+        "autores": "César Obach-Renner and Simón Alero",
+        "resumen": "The architecture of everything in an AgencyDomain that runs as deterministic code: the platform and application services, the Connectors through which the outside comes in and goes out, state that is never shared, the identity that travels with every call, and what each piece must do to grow on its own, withstand failures and stay free software. It is designed to become the deterministic base of Vergis."
+      }
+    }
+  ]
+}
