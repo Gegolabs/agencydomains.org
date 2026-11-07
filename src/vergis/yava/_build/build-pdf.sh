@@ -74,6 +74,16 @@ TEX
     xelatex -interaction=nonstopmode -halt-on-error -output-directory="$W" "$W/yava.tex" > "$W/xelatex.log" 2>&1 \
       || { tail -40 "$W/xelatex.log" >&2; echo "✗ xelatex falló ($L)" >&2; exit 1; }
   done
+  # 6. Lo que xelatex reporta y no detiene el build: se cuenta y se dice. Un glifo que falta sale como
+  #    un cuadro vacío en la página, así que un «Missing character» detiene el build.
+  local HB VB MC HH
+  HB=$(grep -c 'Overfull \\hbox' "$W/yava.log" || true)
+  VB=$(grep -c 'Overfull \\vbox' "$W/yava.log" || true)
+  MC=$(grep -c 'Missing character' "$W/yava.log" || true)
+  HH=$(grep -c 'headheight is too small' "$W/yava.log" || true)
+  echo "  log de xelatex ($L): Overfull \\hbox $HB · Overfull \\vbox $VB · Missing character $MC · \\headheight corto $HH"
+  grep -A1 'Overfull \\hbox' "$W/yava.log" | grep -v '^--' | sed 's/^/    /' | head -20 || true
+  [ "$MC" = 0 ] || { grep 'Missing character' "$W/yava.log" | sort | uniq -c >&2; echo "✗ faltan glifos ($L)" >&2; exit 1; }
   cp "$W/yava.pdf" "$DIST/Yava-$VERSION-$L.pdf"
   echo "✓ $DIST/Yava-$VERSION-$L.pdf · $(pdfinfo "$DIST/Yava-$VERSION-$L.pdf" | awk '/^Pages:/{print $2}') páginas"
 }

@@ -40,7 +40,7 @@
 \usepackage[section]{placeins}
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\textfraction}{0.08}
-\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\floatpagefraction}{0.9}  % una figura de columna alta (la 8, ~0,8 de la caja) va arriba de una página con texto, no sola
 \setcounter{totalnumber}{3}
 
 % Párrafos de tabla y texto: menos viudas y huérfanas
@@ -49,4 +49,5 @@
 
 % Holgura para que ninguna línea se salga de la caja (URL largas, palabras largas en negrita)
 \setlength{\emergencystretch}{3em}
-\Urlmuskip=0mu plus 2mu
+\Urlmuskip=0mu               % las URL no se estiran («https : / /»); se cortan tras cualquier carácter
+\setlength{\headheight}{14pt} % fancyhdr pide 13,6 pt con STIX Two a 11 pt

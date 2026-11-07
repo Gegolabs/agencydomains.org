@@ -102,7 +102,9 @@ for p in parts:
         out.append("```{=latex}\n\\phantomsection\n"
                    f"\\section*{{{tex_escape_plain(T['fuentes'])}}}\n"
                    f"\\addcontentsline{{toc}}{{section}}{{{tex_escape_plain(T['fuentes'])}}}\n"
-                   f"\\markright{{{T['fuentes_corto']}}}\n```\n" + rest)
+                   f"\\markright{{{T['fuentes_corto']}}}\n"
+                   # las fuentes, en bandera: una lista de URL largas no se justifica
+                   "\\begingroup\\raggedright\n```\n" + rest.rstrip() + "\n\n```{=latex}\n\\par\\endgroup\n```\n")
         continue
     out.append(p)
 b = "".join(out)
