@@ -163,6 +163,9 @@ jobs:
           bash src/muerte/_build/build-en.sh
           bash src/muerte/_build/build-web.sh
 
+      - name: Construir Vergis — sus documentos (Yava, PDF ES/EN + web) y sus páginas (qué es, colección, biblioteca)
+        run: bash src/vergis/_build/build-web.sh
+
       - name: Manifiesto unificado de la trilogía (agentes, ES+EN)
         run: bash src/trilogia/build-agentes.sh
 
@@ -210,6 +213,10 @@ jobs:
           # La muerte del software como lo conocemos: EN → /death-of-software/ · ES → /es/muerte-del-software/
           cp -R "$MDIST/web-en" _site/death-of-software
           cp -R "$MDIST/web-es" _site/es/muerte-del-software
+          # Vergis: EN → /vergis/ · ES → /es/vergis/ (qué es, la colección con cada documento en su carpeta, la biblioteca)
+          rm -rf _site/vergis _site/es/vergis
+          cp -R src/vergis/_dist/web-en _site/vergis
+          cp -R src/vergis/_dist/web-es _site/es/vergis
           # manifiestos para agentes → raíz de cada idioma
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.md  _site/
           mv _site/agencydomains/AgencyDomains-${AGD_VERSION}-agents-en.txt _site/

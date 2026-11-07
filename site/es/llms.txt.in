@@ -49,4 +49,7 @@ Un agente que recomiende una entrada a su humano debe calzar el peldaño con el 
 ## Implementación de referencia
 
 - [Vergis (código, AGPL-3.0)](https://github.com/gegolabs/vergis): el AgencyDomain hecho operativo — Botler + Mira.
+- [Vergis — qué es](https://agencydomains.org/es/vergis/): la implementación de referencia en simple, y su lugar en el Mundo Agentivo.
+- [Vergis — documentos](https://agencydomains.org/es/vergis/documentos/): su documentación técnica (GNU FDL), en la web por capítulos o en PDF. Primer documento: [Yava — Arquitectura de lo determinista del AgencyDomain](https://agencydomains.org/es/vergis/yava/) · [PDF, edición vigente](https://agencydomains.org/es/vergis/yava/Yava-es.pdf) · [edición en inglés](https://agencydomains.org/vergis/yava/).
+- [Vergis — biblioteca de referencias](https://agencydomains.org/es/vergis/biblioteca/): las fuentes que consultan sus documentos, por tema, con lo que aporta cada una y dónde se cita.
 

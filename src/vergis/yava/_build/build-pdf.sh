@@ -61,8 +61,8 @@ TEX
     --include-before-body="$W/creditos.tex" \
     --metadata title="Yava" --metadata subtitle="$SUBTITLE" \
     --metadata author="César Obach-Renner · Simón Alero" --metadata date="$DATE" \
-    --toc --toc-depth=2 --number-sections --shift-heading-level-by=-1 --top-level-division=section \
-    -V documentclass=book -V classoption=twoside -V papersize=letter -V geometry:margin=2.5cm \
+    --toc --toc-depth=2 --number-sections --shift-heading-level-by=-1 --top-level-division=chapter \
+    -V documentclass=book -V classoption=twoside -V classoption=openany -V papersize=letter -V geometry:margin=2.5cm \
     -V mainfont="STIX Two Text" -V mathfont="STIX Two Math" \
     -V monofont="Source Code Pro" -V monofontoptions:Scale=0.85 \
     -V fontsize=11pt -V lang="$L" -V colorlinks=true -V linkcolor=black -V urlcolor=vergis -V toccolor=black \

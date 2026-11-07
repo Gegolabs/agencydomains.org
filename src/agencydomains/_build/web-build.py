@@ -108,6 +108,8 @@ def main():
     ap.add_argument('--title', default=None)               # título visible (default: --name)
     ap.add_argument('--lang', default='es', choices=('es', 'en'))
     ap.add_argument('--version', required=True)           # vX.Y — nombra los distribuibles
+    ap.add_argument('--home', default='/')                 # a dónde vuelve la barra superior
+    ap.add_argument('--home-label', default='← AgencyDomains.org')
     a = ap.parse_args()
     a.title = a.title or a.name
     UI = STRINGS[a.lang]
@@ -173,7 +175,7 @@ def main():
             f'<title>{p["title"] if p["title"] == a.title else p["title"] + " · " + a.title}</title>\n{FONTS}\n'
             f'<link rel="canonical" href="{SITE}{url(p)}">\n'
             f'<link rel="stylesheet" href="/assets/agencydomains.css">\n</head>\n<body>\n'
-            f'<div class="book-topbar"><a class="home" href="/">← AgencyDomains.org</a>'
+            f'<div class="book-topbar"><a class="home" href="{a.home}">{a.home_label}</a>'
             f'<span class="crumb">{crumb}</span></div>\n'
             f'<div class="book-shell">\n'
             f'<nav class="book-nav" aria-label="{UI["nav_aria"]}"><p class="nav-label">{UI["book"]} · {a.version}</p>'

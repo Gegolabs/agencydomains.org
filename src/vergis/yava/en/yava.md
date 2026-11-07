@@ -8,7 +8,9 @@
 | **Framework** | *AgencyDomains: Architecture of the Agentive World*, by César Obach-Renner (the canon) |
 | **Scope** | The architecture that brings to life everything deterministic in an AgencyDomain. Out of scope: Cognition, project matters, construction guidelines and the concrete services built on top of it |
 
-## What is Yava?
+## What is Yava, and what does it start from?
+
+### What is Yava?
 
 **Yava is the architecture that brings to life everything deterministic in an AgencyDomain.** The canon defines four layers (Interaction, Cognition, Autonomy and Access) and a cross-cutting Trust Infrastructure. Yava is not bounded by layer but by **nature**: it covers everything that runs as deterministic code, whatever layer it is in, and leaves out what does not.
 
@@ -55,13 +57,11 @@
 | Service registry | Runtime registry of what exists and how to reach it; distinct from the canon's **catalog**, which is the repertoire of proto-Botlets and Capabilities |
 | Procedure engine | Durable execution substrate on which deterministic flows run; it is not Layer 3 itself, which the canon distinguishes from static flow orchestrators |
 
----
-
-## What does Yava start from?
+### What does Yava start from?
 
 Yava starts from its conformance with the canon and from four premises of its own. If any of them changes, the architecture is reviewed from that point. The conditions specific to each installation are in its deployment profile.
 
-### What conformance does it declare with the canon?
+#### What conformance does it declare with the canon?
 
 **Yava is a conforming implementation of *AgencyDomains: Architecture of the Agentive World* (v1.2.1) in its deterministic scope.** It meets all the mandatory requirements (MUST) of the specification that apply to the deterministic part, and the canon is the norm: this document does not repeat it, and describes in each section how Yava meets what applies to it.
 
@@ -86,7 +86,7 @@ Beyond the above, Yava meets these requirements of the canon within its scope:
 
 **Caveat:** conformance is not yet complete. The gaps with the canon that remain open are **pending nonconformities**, and while they exist, conformance is declared with that caveat. The conformance of the agent's life cycle is addressed in the reprise.
 
-### What premises of its own does it have?
+#### What premises of its own does it have?
 
 - **P1.** Yava must be **highly scalable, robust and secure** from the start.
 - **P2.** **The platform scales automatically with demand**, within declared maximums of scale and cost.
@@ -95,9 +95,7 @@ Beyond the above, Yava meets these requirements of the canon within its scope:
 
 The architecture decisions (medium-grained services, one database per service, RPC over MQ, the language, the external secret store) are not premises: each one lives in its section, with its justification and what was discarded.
 
----
-
-## What does the state of the art say?
+### What does the state of the art say?
 
 In 2026 the state of the art is not about splitting the system further, but about managing fewer, better-bounded services, on lighter infrastructure and with an internal platform that absorbs the complexity.
 
@@ -109,7 +107,9 @@ In 2026 the state of the art is not about splitting the system further, but abou
 
 ---
 
-## What types of service are there?
+## How is the platform put together?
+
+### What types of service are there?
 
 The architecture distinguishes three types of service, which match the three layers of The Open Group's ArchiMate modeling standard: business, application and technology *(prior knowledge)*.
 
@@ -139,7 +139,7 @@ Where each piece runs is an operations decision of the installation, not of the 
 
 An application service can bring several business services to life, and it **registers** them in the service registry when it comes up (see “How does the service registry work?”). ArchiMate calls the deployable piece an “application component” and the behavior it exposes an “application service”; this document uses “application service” for both. **When the document says just “service”, it means any service with an API over RPC over MQ, whether an application service or a platform service built as part of Yava.**
 
-### What types of application service are there?
+#### What types of application service are there?
 
 Each application service declares its **type**: what the team builds, versions and deploys through the delivery pipeline, and what is registered in the service registry and scales. The first two types are canon pieces that run inside a **container**, the runtime that hosts them; the container is not a type, but the place where each piece of the type lives.
 
@@ -157,9 +157,7 @@ Each application service declares its **type**: what the team builds, versions a
 
 The contracts of each type and of each container, and how the container reaches production, are a pending design.
 
----
-
-## What architecture is proposed per layer?
+### What architecture is proposed per layer?
 
 ![Yava, level 2, detailed view](figuras/fig-05-nivel2-vista-detallada-2x.png)
 
@@ -200,7 +198,7 @@ The contracts of each type and of each container, and how the container reaches 
 
 What is required of each piece is in “What does Yava require of each piece?”, and the products are chosen by each installation, in its deployment profile.
 
-### What is kept invariant?
+#### What is kept invariant?
 
 - **State is not shared; artifacts are published.** No service accesses another's state, without exception. The only thing shared between services are **artifacts**, and only if they meet four premises (see “How is data organized?”):
   1. **immutable:** they are not edited; a change is a new version, with a different reference;
@@ -214,13 +212,11 @@ What is required of each piece is in “What does Yava require of each piece?”
 - **No action with an effect is executed via GET,** and every confirmation requires a POST from an authenticated human (see “How are callers authenticated and authorized?”).
 - **Every service that stores personal data knows how to delete it,** through its contract (see “How is sensitive data handled?”).
 
----
-
-## How does a change reach production?
+### How does a change reach production?
 
 Each service has its own integration branch, **`develop`**, and its own production branch, **`main`**. Changes are integrated into `develop`, the canary runs from `develop`, and `main` advances only up to the commit that passed the canary. This way, integration is the forge's standard one and `main` is always exactly what is in production.
 
-### What reviews does a change go through?
+#### What reviews does a change go through?
 
 Three, each on a different object *(the models are chosen by each installation, in its profile)*:
 
@@ -228,7 +224,7 @@ Three, each on a different object *(the models are chosen by each installation, 
 2. **Construction:** reviewed by the high-end model opposite to the one that built it, so that the review has different blind spots from the author.
 3. **Integration:** reviewed by the **lowest-cost high-end model**, as a mandatory *check* before integrating into `develop`. It reviews what only appears on integration: the result of combining the change with what is already in `develop`, such as badly resolved conflicts, interactions with other recent changes, APIs that no longer match what other services expect, or undeclared boundaries crossed. It is **tied to the result of the integration**: if `develop` advanced and the change has to be combined again, it is reviewed again. Forges can automatically dismiss approvals when a PR receives new commits *(prior knowledge)*.
 
-### What are the steps?
+#### What are the steps?
 
 1. **Unit of change:** the PR, per service.
 2. **Mandatory checks** of the PR: build, tests, contract compatibility verification and integration review. With all of them green, the PR is integrated into `develop` with the forge's standard integration.
@@ -237,7 +233,7 @@ Three, each on a different object *(the models are chosen by each installation, 
 5. The environment repository is pointed at that image; the GitOps deployment converges and progressive delivery runs the **canary** with its analysis (metrics and semantic health).
 6. If the canary **promotes**, the **promoter** advances `main` by *fast-forward* exactly to the tested commit and activates in the service registry the business service descriptions that the new version registered as pending. If it **aborts**, the canary is rolled back in production and the problem is fixed or reverted in `develop`; `main` was never touched.
 
-### What needs care?
+#### What needs care?
 
 - **The promoter promotes the tested commit, not the tip of `develop`.** While a canary runs, more PRs can be integrated into `develop`; whatever arrived later waits for its own canary. The promoter is a small automation and the **only identity with permission to write to `main`**.
 - **One `develop` per service**, simplest with one repository per service. A `develop` shared by several services would make one canary test several services together and would break independent deployment.
@@ -246,7 +242,7 @@ Three, each on a different object *(the models are chosen by each installation, 
 
 **Discarded:** an **in-house merge queue** that promotes before integrating, because it required building and maintaining a critical piece of our own, and `develop` with a promoter gives the same guarantee with standard integration; **integrating directly into `main` and promoting afterwards**, because `main` would be ahead of production during a canary that aborts, and its history would accumulate reverts; and an **integration review by a model different from the author's**, because the risk of shared blind spots is already covered by the cross review of the construction.
 
-### How does a database schema change?
+#### How does a database schema change?
 
 During a canary two versions of a service coexist on the same database, so every schema change follows the **expand, migrate and contract** pattern:
 
@@ -258,7 +254,10 @@ During a canary two versions of a service coexist on the same database, so every
 **Discarded:** migrating when each replica starts, because several replicas compete for the same migration and a canary that aborts leaves the schema halfway.
 
 ---
-## How is data organized?
+
+## How is data kept and protected?
+
+### How is data organized?
 
 **State is not shared; artifacts are published.**
 
@@ -269,7 +268,7 @@ During a canary two versions of a service coexist on the same database, so every
 
 **Each service has its own database, and no service reads or writes another's database**. What a service needs from another it obtains through that other service's API, by RPC over MQ, from the events that other service publishes, or from the artifacts that other service publishes and grants it read access to.
 
-### What is an artifact?
+#### What is an artifact?
 
 Data that a service shares meets **four premises**:
 
@@ -282,7 +281,7 @@ Data that a service shares meets **four premises**:
 
 **The repository manager is not an exception:** it operates each service's containers as opaque bytes (create, back up, restore, export, import), without reading or interpreting the data (see “What does the repository manager do?”).
 
-### What replaces shared state?
+#### What replaces shared state?
 
 Six patterns, one for each way a component might want another's state:
 
@@ -299,13 +298,13 @@ The copies a service keeps from others' events are its own state, and they follo
 
 **Discarded:** a platform exception for backup, restore, export and import, because the repository manager performs them on opaque bytes, without accessing state; and service-to-service exceptions for bulky data, which goes by *claim check*.
 
-### Where do the databases live?
+#### Where do the databases live?
 
 One **logical database per service**, with its own credentials, **grouped in a few instances** of the managed relational database, according to their criticality. Access isolation is total from day one; moving a database to its own instance later is an operation, not a redesign. Several databases in one instance share its CPU, its memory and its failure, so the instance is a shared piece in the cascading failures section. The procedure engine has its own database, in a platform instance. The databases are provisioned and operated by the repository manager.
 
 **Discarded:** a **database instance per service from the start**, because it requires a high-availability instance per service; it is reserved for the database that needs it.
 
-### How does a service isolate its Dominions within its database?
+#### How does a service isolate its Dominions within its database?
 
 Isolation between Dominions is as mandatory as between services. It is **logical by default**: the Dominion's identity goes in every row and in every call, verified. There are two ways to apply it:
 
@@ -314,7 +313,7 @@ Isolation between Dominions is as mandatory as between services. It is **logical
 
 The second also protects against a code error, and requires that the database and the *pooler* in transaction mode support it; the first does not depend on the database. Physical isolation (a database or a space per Dominion) is used only by declared exception.
 
-### What patterns are mandatory in every service?
+#### What patterns are mandatory in every service?
 
 1. **Outbox, where there is a state change and a publication.** When a service changes its database **and** publishes something that depends on that change (a result, an event), it writes the message to a table in its database in the same transaction, and a publisher sends it to the MQ.
 2. **Direct publication, where there is no own state.** Whoever only enqueues, without changing a database of its own, publishes directly to the MQ and waits for the publish acknowledgment, which ensures the message was persisted. *(Verified.)*
@@ -325,7 +324,7 @@ The second also protects against a code error, and requires that the database an
 
 **Discarded:** feeding the outbox with **change data capture (CDC)** from the database, because the service's own publisher does not need logical decoding in the database.
 
-### How are operations on the same Dominion ordered?
+#### How are operations on the same Dominion ordered?
 
 When operations on the same Dominion have to run one at a time, there are two ways:
 
@@ -334,7 +333,7 @@ When operations on the same Dominion have to run one at a time, there are two wa
 
 Each service declares which one it uses. Neither requires one service to wait for another.
 
-### How is a service's data backed up, restored and ported?
+#### How is a service's data backed up, restored and ported?
 
 1. **Backup and restore belong to the repository manager,** on opaque bytes, and the unit of restore is the service. Restore is rehearsed.
 2. **Each service exports a Dominion's or a data subject's data** through an operation of its API, in a neutral, documented format, and **publishes it as an artifact**. This is the portability the canon requires.
@@ -343,13 +342,11 @@ Each service declares which one it uses. Neither requires one service to wait fo
 
 **Discarded:** an export service that reads everyone, because it would read other services' state.
 
----
-
-## How does Objects work?
+### How does Objects work?
 
 **Objects** is the platform service where artifacts are published and where services store their bytes. It exposes **containers per service and per Dominion**, with quota, short-lived signed URLs and lifecycle (expiration and sweeping of what was left unreferenced).
 
-### What rules does it follow?
+#### What rules does it follow?
 
 1. **Bytes do not travel over the MQ.** What travels over the MQ is the reference and the fingerprint (*claim check*).
 2. **The owner publishes an immutable artifact** with its declared format; a change is a new version, with another reference.
@@ -364,9 +361,7 @@ Each service declares which one it uses. Neither requires one service to wait fo
 
 Its contract (how read access is declared, how an artifact is versioned and what travels in the notice) is a pending design.
 
----
-
-## What does the repository manager do?
+### What does the repository manager do?
 
 The **repository manager** is the platform service that gives each service its data repositories (its databases and its Objects containers) and operates their life:
 
@@ -379,13 +374,11 @@ The **repository manager** is the platform service that gives each service its d
 
 What the manager operates as infrastructure and what it asks of the owner through its contract is a pending design.
 
----
-
-## How is sensitive data handled?
+### How is sensitive data handled?
 
 Yava does not guess which data is sensitive, nor does it know what the installation stores: **it respects it where the service marked it**.
 
-### How is sensitive data marked?
+#### How is sensitive data marked?
 
 With **a single mark**, declared in each service's contract: a field of a message, or a value, is secret, personal or sensitive. The same mark serves five uses:
 
@@ -397,7 +390,7 @@ With **a single mark**, declared in each service's contract: a field of a messag
 
 **What does not appear in telemetry:** logs, traces, health and errors carry no payloads, secrets or personal data. Payloads go by their fingerprint, errors by a code from a closed list, and what travels in headers is limited to identifiers.
 
-### What does Compliance do?
+#### What does Compliance do?
 
 **Compliance** is the platform service that keeps the **map of which sensitive data of which data subject is in which service**, and that coordinates the data subject's rights:
 
@@ -408,7 +401,7 @@ With **a single mark**, declared in each service's contract: a field of a messag
 
 Personal data protection is, for the installation, an obligation with a fixed date, which its profile declares. The Compliance contract is a pending design.
 
-### What does tokenization do?
+#### What does tokenization do?
 
 **Tokenization** is the platform service that replaces marked data with a token while it travels over the MQ, and returns it to whoever has permission to see it:
 
@@ -420,7 +413,7 @@ It also serves to tokenize personal data before sending it to an external cognit
 
 **Discarded:** leaving tokenization to each installation, because the mark and the MQ already belong to the platform, and in-flight tokenization can only be placed where the messages travel.
 
-### How do you know where a piece of data has been?
+#### How do you know where a piece of data has been?
 
 For marked data you can query **which services it passed through, which third parties it went out to and where it ended up**:
 
@@ -428,7 +421,7 @@ For marked data you can query **which services it passed through, which third pa
 2. outbound connectors record which class of data went out to which third party;
 3. Compliance stores where it ended up.
 
-### How is personal data deleted?
+#### How is personal data deleted?
 
 **Deletion at the data subject's request** is implemented by each service through its contract and orchestrated by Compliance: a deletion request that each service handles and confirms, within its deadline. The service deletes the content, reaches the backups as they expire and, for an artifact, carries out the deletion itself, while readers tolerate “it no longer exists.”
 
@@ -438,7 +431,9 @@ For marked data you can query **which services it passed through, which third pa
 
 ---
 
-## How do services communicate?
+## How do services talk, and who is speaking?
+
+### How do services communicate?
 
 **Every service is consumed by RPC over MQ**: the caller sends a request and waits for its response, as in an ordinary call, but the transport is the MQ and not a direct connection. **Each service's API** is the set of operations it exposes this way, described in AsyncAPI with messages in Protobuf. A service talks to the MQ, to its own database, to the procedure engine if it has procedures, to Objects for bytes, and to the platform (secrets and telemetry).
 
@@ -446,7 +441,7 @@ For marked data you can query **which services it passed through, which third pa
 
 *Figure 6 · Everything goes through the MQ: application services request and serve, and publish events and claim checks; platform services hang from it with two-headed arrows, because everyone calls everyone.*
 
-### What types of operation are there?
+#### What types of operation are there?
 
 All the operations of an API are **RPC calls**. Each one declares whether it is **durable** or **volatile**, and in addition a service can publish **events**:
 
@@ -466,7 +461,7 @@ A volatile call is not persisted because a late response is of no use to anyone:
 
 **Discarded:** **HTTP communication between services**, because the durability of calls would have to be built into every calling service, with its own outbox and dispatcher, and the target service would not see its pending work to scale on it.
 
-### What does a call look like?
+#### What does a call look like?
 
 For whoever writes a service, calling another is **a typed call**: you call, wait for the response with a deadline, and continue. That model is provided by a **common call library**, pure infrastructure, which encapsulates correlation, the return address, the deadline, the idempotency key, the current binding, result retrieval and the circuit breaker against unhealthy dependencies. Waiting blocks a virtual thread, not a real one, so thousands of calls can wait at once at almost no cost.
 
@@ -477,7 +472,7 @@ A durable call has **two outcomes**:
 
 A volatile call returns its response or fails when its deadline expires.
 
-### How is the response to a durable call received?
+#### How is the response to a durable call received?
 
 In three ways, uniform for all:
 
@@ -492,19 +487,19 @@ Rules:
 - **Every API offers two standard operations:** the query of status and result by key, and a results subject where each result is published.
 - **Retention:** each result is kept for a period declared per service; after that period, the ticket responds “expired.”
 
-### How long can a chain of waits be?
+#### How long can a chain of waits be?
 
 **Waits have depth one: a service handling a call does not, in turn, wait for the response to another durable call.** If A waits for B, which waits for C, A's time is the sum of all of them, and if C slows down, A and B are left waiting with it. The MQ guarantees that the request is not lost, but it does not remove the coupling of whoever waits.
 
 If a service needs something from another to finish, it has two paths: **make the call without waiting for its result**, if it does not condition its own response, or **turn the operation into a procedure** (see its section), if it does. A volatile call to obtain data needed instantly is the only wait allowed within the handling of a call, provided the service queried does not, in turn, wait for a third. The steps of a procedure fall outside this rule, because their wait is managed by the engine.
 
-### How are subjects named?
+#### How are subjects named?
 
 Each operation has a **default subject** derived from its description: `<installation>.<service>.<cmd|qry|evt>.<operation>.v<version>`, for durable calls, volatile calls and events respectively; the first segment is the installation's name.
 
 A service **listens to all the operations of its API with wildcards**, for example `<installation>.<service>.cmd.*.v1`. The chosen MQ supports wildcards in subjects (`*` for one segment, `>` for one or more at the end), in the consumers of persistent streams and in permissions *(prior knowledge; to be verified before building)*.
 
-### How is an operation redirected?
+#### How is an operation redirected?
 
 The subject on which an operation reaches its service **is resolved at run time** and can be changed live, in the style of a per-operation WSDL *endpoint*, or of UDDI.
 
@@ -531,7 +526,7 @@ The subject on which an operation reaches its service **is resolved at run time*
 
 **Discarded:** **subject mapping on the MQ server** as a redirection mechanism, because explicit per-operation bindings give an indirection that is visible and tied to the contract; weighted distribution remains an option of the call library.
 
-### Who can talk to whom?
+#### Who can talk to whom?
 
 **All services can call all others and listen to everyone's events; each one serves only its own and registers only its own.** Once on the network, a service can use what others offer and act dynamically, without asking permission for each new dependency.
 
@@ -552,9 +547,7 @@ The subject on which an operation reaches its service **is resolved at run time*
 
 **Discarded:** having an operation's contract declare a list of callers and having the MQ enforce it, because restricting callers within the architecture undermines the services' ability to act dynamically.
 
----
-
-## How does identity travel?
+### How does identity travel?
 
 The entry connector verifies the client's token, which Identity issued, and produces the **signed identity context** with Identity's signature (how, without adding a hop per call, is a pending design). The context carries:
 
@@ -572,9 +565,7 @@ The entry connector verifies the client's token, which Identity issued, and prod
 
 **Discarded:** forwarding the client's token to every service, because it exposes it to all of them; and a short-lived per-call credential issued by Identity, because it adds a hop per call and puts Identity in the path of everything.
 
----
-
-## What is a Dominion?
+### What is a Dominion?
 
 The **Dominion** is each agent's territory within the AgencyDomain. The canon names it in its glossary as the Domain an agent obtains; Yava uses the term for both ways of arriving at it, obtained or assigned. A Dominion has:
 
@@ -586,9 +577,7 @@ The **Dominion** is each agent's territory within the AgencyDomain. The canon na
 
 **Limits,** in the Tools connector (MCP) and on writes, are applied per Dominion and per principal.
 
----
-
-## How are callers authenticated and authorized?
+### How are callers authenticated and authorized?
 
 Three roles, each in its own piece, with different questions:
 
@@ -604,7 +593,7 @@ The Authentication connector proves who arrives and asks Identity for its tokens
 
 *Figure 7 · Where each role lives: Authentication is a Connector (OAuth 2.1, the first one), in the Connectors band; Identification and Authorization are two platform services, Identity and Authorization.*
 
-### What does Identity do?
+#### What does Identity do?
 
 It is a platform service, with its own database and its API over RPC over MQ:
 
@@ -618,7 +607,7 @@ It is a platform service, with its own database and its API over RPC over MQ:
 
 Its contract is a pending design. Whether Identity and the Authentication connector are built or a FOSS product meeting their minimums is adopted is a pending decision.
 
-### What does the Authentication connector do?
+#### What does the Authentication connector do?
 
 It is the Connector through which a client or a human proves who they are, at the edge. There is **one per authentication protocol**; the first is **OAuth 2.1**, which speaks over HTTP:
 
@@ -626,7 +615,7 @@ It is the Connector through which a client or a human proves who they are, at th
 2. **What it does not do:** it does not store identities, tokens or sessions, which belong to Identity; and it does not decide what anyone can do, which belongs to Authorization.
 3. **How it behaves if it goes down:** current tokens keep working; new logins and renewals fail.
 
-### What does Authorization do?
+#### What does Authorization do?
 
 **Authorization** is the platform service that decides whether a subject may use an operation:
 
@@ -637,7 +626,7 @@ It is the Connector through which a client or a human proves who they are, at th
 
 It is the pattern that separates the decision point from the enforcement point *(prior knowledge, not verified)*. Its contract, how it fails if it goes down and the FOSS products worth evaluating before building it are a pending design; so are the boundary with the installation's service that stores its access rules and whether enabling a business service per Dominion is a registry field or an Authorization policy.
 
-### How does a human approve?
+#### How does a human approve?
 
 **Human approval is a deferred authorization:** an act waits until an authenticated human grants it. It follows the canon's rules:
 
@@ -648,7 +637,7 @@ It is the pattern that separates the decision point from the enforcement point *
 
 The decision and its record belong to Authorization; the wait of a long act can run on the procedure engine; the notice to the human is composed by the application and carried by a connector. The confirmation is a POST from the authenticated approver.
 
-### What happens if the human did not authorize something?
+#### What happens if the human did not authorize something?
 
 The human who sees something they did not do declares that **they did not authorize it**. This:
 
@@ -657,7 +646,7 @@ The human who sees something they did not do declares that **they did not author
 
 It is a declaration **after the fact**. **Discarded:** requiring prior approval of every new session.
 
-### What is an operator?
+#### What is an operator?
 
 The **operator** is the human responsible for what an agent does. The architecture accounts for its existence and its generic lifecycle, and the installation builds its own rules on top:
 
@@ -668,7 +657,7 @@ The **operator** is the human responsible for what an agent does. The architectu
 
 Its contract is a pending design.
 
-### What does privileged access control?
+#### What does privileged access control?
 
 **Privileged access** is that of support staff who see or touch a Dominion's data. Every privileged access operation:
 
@@ -679,7 +668,7 @@ Its contract is a pending design.
 
 Who the second person is while the platform has a single owner is a pending decision.
 
-### What is not done via GET?
+#### What is not done via GET?
 
 1. **No action with an effect is executed via GET.**
 2. **Every confirmation requires a POST** from a human authenticated by the Authentication connector.
@@ -687,9 +676,7 @@ Who the second person is while the platform has a single owner is a pending deci
 
 The rule has no exceptions. The Web connector (HTTP) applies it to every route (see “How does the Web connector (HTTP) work?”).
 
----
-
-## What shape does the record of an act have?
+### What shape does the record of an act have?
 
 The **act log** is the platform service that stores, chains and serves the record of each act. The canon requires it: immutable, chained, and with the fingerprint of the parameters and of the result instead of their content. Its contract and its minimums (how it serves, how it fails and what it retains) are a pending design, and when it is built is addressed in the reprise.
 
@@ -707,8 +694,7 @@ The **act log** is the platform service that stores, chains and serves the recor
 
 This shape, and the act log that stores it, are the part of the canon's Trust Infrastructure that is in this document; the rest is built after the first installation is up and running.
 
----
-## How is a contract written?
+### How is a contract written?
 
 Each service's API has two layers, each with its standard:
 
@@ -750,9 +736,7 @@ The generator also produces **the act event** of every operation that changes st
 
 **Rules for every operation that may take part in a procedure:** it is idempotent with a key; its compensation is another operation of the same API; and if it is durable, its state and result can be queried by key.
 
----
-
-## How does the service registry work?
+### How does the service registry work?
 
 The **service registry** is a **platform service**, built as part of Yava, in the style of UDDI: the single place that answers **what exists, how it is used and how to reach it**. It has its own database and its API over RPC on MQ, and it stores three things:
 
@@ -764,7 +748,7 @@ The **service registry** is a **platform service**, built as part of Yava, in th
 
 **If the registry goes down, everything keeps working** with the last known copy. New registrations are durable calls, so they wait in the MQ and are applied when the registry comes back. It is a critical shared piece, with high availability (see “How are cascading failures contained?”).
 
-### How are APIs and business services registered?
+#### How are APIs and business services registered?
 
 **APIs and business services self-register**, without anyone administering the registry:
 
@@ -796,7 +780,7 @@ Just as tool names are unique within an MCP server, business service names are u
 
 **The registry does not depend on the service being alive.** If the application service goes down, its business services stay listed, because durable invocations wait in the MQ until it comes back. Retiring a business service is an explicit act.
 
-### What else does it store about each business service?
+#### What else does it store about each business service?
 
 Besides its name, its title, its description and the operation that implements it, the registry stores, generated from the contract:
 
@@ -811,7 +795,9 @@ Besides its name, its title, its description and the operation that implements i
 
 ---
 
-## What is a Connector?
+## How does the outside come in and go out?
+
+### What is a Connector?
 
 **Every external protocol comes in or goes out through a Connector, and no service speaks any protocol other than RPC over MQ.** “Connector” is the single term, the same as the canon's: the piece through which something external enters the architecture or leaves it, and which translates it into RPC calls over MQ. “Adapter” remains only as the name of the ports-and-adapters pattern. **Connector is a single concept:** a connector with a third party is a Connector for its protocol.
 
@@ -850,18 +836,16 @@ Everything that leaves the cluster leaves through the egress gateway, on its all
 
 **Discarded:** that an application service speak its own external protocol as a declared exception, because each exception repeats in one service what a Connector solves for all; and a single Connector for everything that streams live, because frame-based messages and real-time media require different pieces (TURN, codecs, SFU, SIP gateway) that messages do not use; and distinguishing as another class the Connector that talks to a particular third party, because a connector with a third party is a Connector for its protocol: what the canon says about the Layer 4 Connector are properties that a Connector declares.
 
----
-
-## How does the Tools connector (MCP) work?
+### How does the Tools connector (MCP) work?
 
 The Tools connector (MCP) is the only MCP server that agents use, as the canon requires: the Botler exposes MCP servers and Cognition is their client. Each name stays in its own plane: **Tools connector** is its role in the architecture; **MCP server** is its role in the protocol, facing the agents; and **connector** is also how users of clients such as Claude add it.
 
-### What are its two planes?
+#### What are its two planes?
 
 1. **The MCP plane, exposed to agents:** the meta-tools, the shortcuts, MCP Tasks, the piggyback and notifications to agents. It is the connector plane proper: it translates each MCP interaction into RPC calls over MQ.
 2. **The service plane, exposed to the architecture:** the Tools connector also has its own API over RPC on MQ, with its contract, its exclusive permissions and its own database, where it stores the MCP sessions and the ticket log. All the rules of a service apply to it, including the depth-one rule for waits. Its API is a pending design.
 
-### What does the Tools connector do?
+#### What does the Tools connector do?
 
 1. **It verifies the token** of the caller, which Identity issued when the Authentication connector authenticated it (OAuth 2.1): it verifies it locally, with the revocations received through events, and produces the signed identity context (see “How does identity travel?”).
 2. **It authorizes each invocation by business service,** not by tool: it asks Authorization for the decision with what the contract requires and the identity context, and applies it the same way to a meta-tool as to a shortcut.
@@ -873,7 +857,7 @@ The Tools connector (MCP) is the only MCP server that agents use, as the canon r
 
 The connector contains no logic of any service and does not store their results, which live in each service by key, nor the record of business services, which lives in the registry: **the meta-tools read the registry** to list, describe and route. The connector knows no services by name.
 
-### What are the meta-tools?
+#### What are the meta-tools?
 
 The MCP plane offers an **extension of MCP: five meta-tools**, tools that serve to access the installation's business services and skills:
 
@@ -887,7 +871,7 @@ The MCP plane offers an **extension of MCP: five meta-tools**, tools that serve 
 
 The `meta.` prefix uses the dotted namespace that the MCP specification allows, and is **reserved**: no business service may be named with that prefix. MCP's naming rules allow letters, digits, underscore, hyphen and dot, between 1 and 128 characters. *(Verified.)*
 
-### How are asynchronous results retrieved?
+#### How are asynchronous results retrieved?
 
 There are two paths, which coexist:
 
@@ -896,11 +880,11 @@ There are two paths, which coexist:
 
 In both cases, **the ticket and the task identifier are the idempotency key.** Since `tasks/get` and `meta.result` carry only that key, **the connector records which operation each ticket it issues corresponds to**, in its own store and for the result's retention period, and so it knows which service to ask.
 
-### What are the shortcuts?
+#### What are the shortcuts?
 
 An application service can declare in its contract that one of its business services is suggested to be presented as a **shortcut**, with the reason why. The registry stores it, and the Tools connector publishes it as a **native tool**, dynamically, while it remains reachable through `meta.request`. The shortcut has the same name, the same authorization and the same routing through the registry as the invocation through the meta-tools, and its schema is produced by the generator from the contract. How many shortcuts MCP clients tolerate before their tool selection degrades is verified before building; the shortcuts' contract is a pending design.
 
-### What is the piggyback?
+#### What is the piggyback?
 
 **Change detection is a platform feature, implicit in every MCP interaction:** the Tools connector attaches to every response, by *piggyback*, what is new since the session's last call. It relies on the **observable version** that each service publishes: a monotonic counter per Dominion, which each service publishes through an event.
 
@@ -917,7 +901,7 @@ On top of the piggyback, an installation builds the coherence across the session
 
 Its contract (how a note is left, how what happened since a given moment is requested and how the observable version is published) is a pending design; so is the API of the connector's service plane, where it lives.
 
-### What requirements does the Tools connector have?
+#### What requirements does the Tools connector have?
 
 1. **Aligned timeouts** across the whole chain: the shortest one rules, and a value meant for short requests silently cuts long streams.
 2. **Orderly draining:** each deployment or scale-down closes long connections; the deployment advances when the ingress load balancer sees the new backend as healthy, not only when the pod's readiness turns green *(the provider's mechanism is not verified)*.
@@ -925,9 +909,7 @@ Its contract (how a note is left, how what happened since a given moment is requ
 4. **Reconnection storm, solved on the server side**, because MCP clients belong to third parties: staggered session draining; paced reconnection with SSE's `retry` field *(reported by a mirror of the specification; the possibility of closing without ending the stream is verified)*; resumption with `Last-Event-ID`, with pending events in the connector's store *(verified)*; a 404 response to a lost session, which forces the client to start another *(verified)*; admission with `Retry-After` and low `maxUnavailable`.
 5. **Observability** per tool, per Dominion and per principal.
 
----
-
-## How does the Web connector (HTTP) work?
+### How does the Web connector (HTTP) work?
 
 The **Web connector (HTTP)** receives three kinds of input:
 
@@ -945,9 +927,7 @@ It routes them by RPC over MQ to their owner service, which composes the page or
 
 **Discarded:** having each edge piece serve its own pages, because each would speak HTTP and repeat the GET rule. Whether the OAuth 2.1 Authentication connector serves its own pages, being itself an edge piece that speaks OAuth over HTTP, or all of them come in through the Web connector, is a pending design.
 
----
-
-## How do the connectors for live transmission work?
+### How do the connectors for live transmission work?
 
 There are two, one per transport protocol:
 
@@ -956,9 +936,7 @@ There are two, one per transport protocol:
 
 **The connector terminates the connection and hands it to the owner service,** which applies the business rule. How the owner receives it (a live-process role of the same service, running from the same image with the same version) is a pending design, together with the contract of the two connectors and their products.
 
----
-
-## How does the Email connector (SMTP/IMAP) work?
+### How does the Email connector (SMTP/IMAP) work?
 
 The **Email connector (SMTP/IMAP)** sends and reads mail with the credentials held by the Vault, within the third party’s limits and with egress through the egress gateway. On top of it, application services apply their rules: agents’ mail, humans’ mailboxes and notifications to humans.
 
@@ -973,9 +951,7 @@ The **Email connector (SMTP/IMAP)** sends and reads mail with the credentials he
 
 Its contract is a pending design.
 
----
-
-## How does the Link work?
+### How does the Link work?
 
 The **Link** is the platform service through which **an agent in one Dominion communicates with one in another**, both between Dominions of the same AgencyDomain and between AgencyDomains. It carries:
 
@@ -991,15 +967,17 @@ Its contract, including trust in the identity of an agent from another AgencyDom
 
 ---
 
-## How are procedures executed?
+## How is the work executed, and under what rules?
+
+### How are procedures executed?
 
 A **procedure** is an operation that changes state in **several services** and needs **compensations** if a later step fails. It is an orchestrated saga, and it is executed by a platform **procedure engine**.
 
-### What qualifies as a procedure?
+#### What qualifies as a procedure?
 
 **Admission rule:** an operation enters the engine only if it crosses stateful services **and** needs compensation, and it declares why. Everything else goes through cheaper paths: a single-service operation with its local transaction, and a chain without compensation with outbox and events. This way, the engine’s load grows with the number of procedures, not with traffic.
 
-### How does the engine work?
+#### How does the engine work?
 
 1. **A central server** keeps the history and the deadlines of each execution, in its own database. It contains no logic: it does not receive the flow definitions.
 2. **The flow lives in the procedure’s owner service**, in Java, in its **engine *workers***, which exist only in services that own procedures. The *workers* open the connection to the server and ask it for work; the server dispatches tasks to them over that connection.
@@ -1010,7 +988,7 @@ It is an infrastructure dependency, like the MQ: the engine stores state and dis
 
 **Discarded:** an **engine embedded in each service**, with its state in its own database, which was the closest fit to a distributed architecture, because the distributed recovery of the alternatives evaluated is not FOSS; and **special engine contracts between services**, because they would force each participant to publish a second contract and to depend on the engine.
 
-### What rules do flows follow?
+#### What rules do flows follow?
 
 1. **Versioning.** Every change to a flow marks its version in the code so that running executions follow the branch they started with, and **before deploying, CI replays real histories** against the new code. A change that does not pass the replay is not deployed.
 2. **Compensations** with the saga support of the engine’s Java SDK, which accumulates them and runs them in reverse order. **Every compensation carries unlimited retries**, with an alert when it accumulates too many attempts. What is irreversible goes last.
@@ -1022,7 +1000,7 @@ It is an infrastructure dependency, like the MQ: the engine stores state and dis
 
 **Irreversible decision:** the number of history partitions is fixed when the engine server is created; it is chosen with headroom *(prior knowledge, not verified today)*.
 
-### What does a procedure look like?
+#### What does a procedure look like?
 
 A generic example: service X owns a procedure that requests something from Y and from Z.
 
@@ -1048,12 +1026,11 @@ sequenceDiagram
 
 Each arrow from the engine to X is a task delivered to a *worker* of X over a connection the *worker* opened; the decisions live in the flow code, in X. Y and Z receive ordinary calls to their API.
 
----
-## What languages does Yava use?
+### What languages does Yava use?
 
 Yava uses **two languages, depending on who writes the code and at what pace it reaches production**: the **platform** language, which is Java, and the language of the **Botlet bodies**, which depends on the generation the AgencyDomain operates in. The distinction matters because Yava is the platform of the Botlets, and the Botlet lifecycle is managed by agents, as nimbly as possible.
 
-### How is a Botlet’s code born in each generation?
+#### How is a Botlet’s code born in each generation?
 
 The canon defines three generations according to how much of the Botlet’s code the agent writes, and in which time *(chapter 5, §2)*:
 
@@ -1065,7 +1042,7 @@ The canon defines three generations according to how much of the Botlet’s code
 
 The architecture is the same in all three; what changes is the scope of what the agent does in Engineering. And, as the canon warns, a higher generation is not a destination: it measures authoring capacity, which is an axis distinct from the operational maturity of each Botlet.
 
-### What does each generation require of the language?
+#### What does each generation require of the language?
 
 | | G1 | G2 | G3 |
 |---|---|---|---|
@@ -1075,13 +1052,13 @@ The architecture is the same in all three; what changes is the scope of what the
 
 Pace truly matters in G2 and G3. A freshly generated Botlet is **junior**: the canon assigns it a typical proportion of 60 % normal executions, 35 % failures due to environment variants and 5 % regenerations, which converges over time to 95/4/1 *(chapter 5, §2)*. Each regeneration is a cycle of generating, validating, confining and loading, and that cycle has to be nimble.
 
-### Why does Java complicate G2 and G3?
+#### Why does Java complicate G2 and G3?
 
 1. **The generate-and-run cycle is heavier.** A new body in Java has to be compiled and loaded into a running JVM, or a separate process started; native compilation takes minutes. In interpreted languages or on WASM, generated code loads and runs almost immediately.
 2. **In-process confinement.** The canon requires that the Botlet act on the world only through a **controlled handle** that the Botler gives it, so that bypassing it is structurally impossible *(chapter 5, §2)*. The JDK no longer offers a mechanism to confine untrusted code within the same JVM: the Security Manager has been permanently disabled since Java 24, and it cannot be enabled at startup nor can a custom one be installed at runtime *(verified in JEP 486 and in the Java 25 documentation)*. Since Yava requires Java 25, that mechanism is not available in any case. A body generated in Java would have to be isolated outside the JVM, in a separate process, container or MicroVM, which is heavier. By contrast, WASM and JavaScript *isolates* confine code inside the runtime: the code has no access of its own to files or the network, and receives only the capabilities the host gives it, which is the same principle as the controlled handle; and a WASM module starts in under a millisecond *(reported by technical analyses from 2026)*. Memory and capability confinement does not by itself solve resource consumption: explicit CPU and memory limits per execution are needed, and they are one of the minimums of the body runtime *(reported)*.
 3. **The ecosystem:** models generate TypeScript with great fluency, and Vergis’s first proto-Botlet is written in TypeScript.
 
-### What is decided?
+#### What is decided?
 
 1. **The platform, in Java.** The Botler, the registry, the Tools connector (MCP), the call library, the application services and the forged proto-Botlets are written in Java and arrive through the delivery pipeline. All the rationales of the next subsection apply there.
 2. **In G1, Botlets are declarative configurations**, language-independent, validated by their proto-Botlet and registered in the Botler.
@@ -1089,16 +1066,16 @@ Pace truly matters in G2 and G3. A freshly generated Botlet is **junior**: the c
 
 **What it costs:** two toolchains, and having the contract generator also produce clients in the body language. What it gains: the nimbleness of the Botlet lifecycle is not tied to the platform’s requirements, and a simpler relationship with the Vergis catalog.
 
-### Why Java for the platform, and not Python?
+#### Why Java for the platform, and not Python?
 
 **Java is the platform language**: the Botler, the service registry, the Tools connector, the call library, the application services and the forged proto-Botlets. This subsection documents the rationales, because it is one of the decisions that most condition construction and operation.
 
-#### What was the starting point?
+##### What was the starting point?
 
 - **No legacy from earlier systems conditions the decision.**
 - The language was evaluated for what Yava is: a platform of medium-grained services, mostly I/O-bound, with thousands of agents and long-lived sessions (each installation’s target is in its profile), automatic scaling (P2), RPC over MQ, durable procedures, and code written largely by agents and reviewed by a person.
 
-#### What are the rationales?
+##### What are the rationales?
 
 **1. The concurrency model.** This is the most important advantage: services spend most of their time waiting (on the database, the MQ, other services).
 
@@ -1120,18 +1097,16 @@ Pace truly matters in G2 and G3. A freshly generated Botlet is **junior**: the c
 
 **8. Startup, solved.** The JVM’s slow startup, which matters because of P2, is solved with native compilation, at the cost of slower builds and avoiding undeclared reflection. *(Prior knowledge.)*
 
-#### Where does Python win?
+##### Where does Python win?
 
 In the AI ecosystem, where most libraries for agents and models come out first, or only, in Python; in less code per feature; in lower memory at rest; and in not having to configure the heap or the collector. That is why the rule is **Java by default and another language only with a declared reason**, for example a service with model-intensive work. With one database per service and RPC over MQ, mixing languages breaks nothing.
 
-#### What version and what precautions?
+##### What version and what precautions?
 
 - **Java 25 at minimum:** the chosen framework requires Java 21 and recommends 25 or later *(verified in its documentation)*, and version 25 includes the fix for virtual-thread pinning in `synchronized` blocks and is long-term support *(prior knowledge)*.
 - **Precautions with virtual threads:** a native call pins the virtual thread to the real one; CPU work goes to normal threads; and per-thread state (`ThreadLocal`) can consume a lot of memory with hundreds of thousands of threads.
 
----
-
-## How do the services run?
+### How do the services run?
 
 Each service is **a single component**, a container image that runs as a pod, on the JVM or as a native executable depending on what the load test measures. A service:
 
@@ -1144,7 +1119,7 @@ Each service is **a single component**, a container image that runs as a pod, on
 
 **Discarded:** **splitting each service into an entry point and its executors**, because it duplicated the pieces of every service to cover a single case, the service being completely down, which the MQ already covers: durable calls wait in their queue.
 
-### How do Botlets and Agentlets run?
+#### How do Botlets and Agentlets run?
 
 Each Botlet and each Agentlet is an application service of its type (see “What types of application service are there?”): it is built, deployed, registered and scaled like any service, and it runs in its container:
 
@@ -1157,11 +1132,11 @@ Each Botlet and each Agentlet is an application service of its type (see “What
 
   **All inference goes through a control point** (the canon’s `cognition_call`), which meters it, budgets it and records it. The body of the Agentlet, which is inference, stays outside the deterministic scope. A service does not call a model on its own.
 
-### Who manages the Cognition resources?
+#### Who manages the Cognition resources?
 
 A platform service, **drawn and not built:** the one that knows which models the installation has, local or external, with which credentials, budgets and limits, and through which all inference passes. It is the inference control point for the Agentlers and the measure of the installation’s cognition consumption. Its contract, those of the application service types and those of their containers are a pending design.
 
-### Which framework?
+#### Which framework?
 
 An **explicit services framework, with virtual threads as the architecture**  *(each installation chooses the product, in its profile, with the alternatives evaluated)*:
 
@@ -1171,17 +1146,13 @@ An **explicit services framework, with virtual threads as the architecture**  *(
 
 **Accepted risks:** it depends on a single company, offset by the low coupling, with a declared alternative under neutral governance; and **agents know it far less** than the more popular frameworks, with an API that changed significantly between its versions 3 and 4 *(verified)*. **Mitigation:** a *skill* with its documentation and correct examples, the version pinned in the build, and the compiler rejecting what does not exist.
 
----
-
-## What rules protect the boundaries between services?
+### What rules protect the boundaries between services?
 
 1. **Declared owner and explicit boundaries.** Each service has a declared owner: an agent or a human. **Crossing a boundary** (calling a new operation of another service, consuming a new event, moving a responsibility) is free on the platform, because everyone can call everyone, but it does not go unnoticed: the integration review examines every new dependency, and telemetry shows in production who calls whom. It protects the visibility of boundaries, because in Yava services are built by agents and there are no human teams per service to defend them.
 2. **No one decides with derived data.** What a service needs to know about another, it asks that other service, which owns the data. No service makes a decision by reading derived records, replicas or aggregates of other services’ data, which may lag behind; those are read to observe, audit or rebuild, never on the path of a decision.
 3. **Shared libraries for infrastructure only.** Code reused across services (call library, outbox, inbox, generator) contains only infrastructure, never business concepts. It is versioned, and each service upgrades at its own pace. A little duplication of domain code is preferable to coupling.
 
----
-
-## Where does Yava depart from orthodox microservices?
+### Where does Yava depart from orthodox microservices?
 
 Taking as reference the classic characterization by Lewis and Fowler (2014) *(prior knowledge)*:
 
@@ -1194,7 +1165,10 @@ Taking as reference the classic characterization by Lewis and Fowler (2014) *(pr
 **What is not a deviation:** the procedure engine is central, but it only stores state and dispatches; the logic lives in the owning service. It is infrastructure, like the MQ.
 
 ---
-## What is the service mesh like?
+
+## How does it hold up, grow, and keep its secrets?
+
+### What is the service mesh like?
 
 A **sidecar-less service mesh**, which delivers robustness from the start (P3) without charging for complexity not yet in use:
 
@@ -1206,13 +1180,11 @@ A **sidecar-less service mesh**, which delivers robustness from the start (P3) w
 
 **What keeps it robust over time:** update discipline, with a defined cadence, control plane updates through canary revisions, and an owner.
 
----
-
-## How are cascading failures contained?
+### How are cascading failures contained?
 
 A platform on a container orchestrator couples layers: when a shared piece fails, it can drag the others down and make diagnosis hard. *(Reported, from the experience of an external reviewer.)* The cause is not the orchestrator itself, but the coupling between layers. Experience shows that the chain usually starts when someone **changes** a shared piece, more than when it goes down, and that the most serious failure is the one nobody notices. This section covers all three cases.
 
-### Which mechanisms are prevented?
+#### Which mechanisms are prevented?
 
 1. **Admission that fails closed:** if it goes down and rejects when in doubt, no pod can be created, including the ones that would repair it.
 2. **Probes that check dependencies:** a liveness probe that checks the database turns a slow database into mass restarts.
@@ -1221,7 +1193,7 @@ A platform on a container orchestrator couples layers: when a shared piece fails
 5. **Shared pieces:** the cluster DNS, a node’s proxy, the control plane of the mesh and of the orchestrator, **the MQ**, **the procedure engine**, **the service registry**, **Identity**, **Authorization**, **the connectors** (including the Authentication connector), **Objects**, **the Vault**, **tokenization**, **the repository manager**, **each database instance** (shared by its group) and **the key that encrypts the cluster’s secrets**.
 6. **A change to a shared piece:** admission and authorization policies, routing, secrets configuration, autoscalers, mesh configuration and **registry bindings** apply to everyone at once and do not go through any service’s canary.
 
-### What does the design require?
+#### What does the design require?
 
 1. **Each platform dependency declares how it fails:** admission fails closed only for signature verification and open for everything else, and the platform namespaces stay outside admission, so that repair is always possible.
 2. **Liveness does not check dependencies**; readiness checks the service’s own health, and semantic health is left to the canary analysis. **Readiness does not drop because of a shared dependency being down** (the database, the MQ): the service stays in service and responds with an explicit rejection and its retry interval, so that load balancing does not pull all replicas at once.
@@ -1234,22 +1206,20 @@ A platform on a container orchestrator couples layers: when a shared piece fails
 9. **The database is protected as a shared piece:** statement, lock and idle-transaction timeouts per role; idempotent writes; and limits per Dominion and per principal on the write path too.
 10. **Waits of depth one** (see “How long can a chain of waits be?”).
 
-### How do we know containment works?
+#### How do we know containment works?
 
 With **failure drills** on a test cluster: **shutting down** each shared piece and **misconfiguring it on purpose**, verifying that the damage stays within what is expected.
 
-### And diagnosis?
+#### And diagnosis?
 
 More layers make diagnosis costlier; this is offset by observability from the first service, a runbook per piece, and the rule of restoring first and then looking for the root cause. With GitOps, restoring usually means going back to the last declared state that worked. And since diagnosis starts when someone finds out:
 
 1. **Alerts on visible symptoms**, such as the success rate per operation, and not only on probes.
 2. **An external heartbeat of the alerts, watched from outside the cluster**, because an outage of the cluster would also take down the notice of that outage.
 
----
+### How does the platform grow on its own (P2)?
 
-## How does the platform grow on its own (P2)?
-
-### What scales automatically?
+#### What scales automatically?
 
 1. **The services**, by the largest of their signals: the depth of their durable subjects and the load of their volatile calls.
 2. **The connectors**: the MCP one, by active sessions or open requests; the connectors for live transmission, by connections.
@@ -1258,7 +1228,7 @@ More layers make diagnosis costlier; this is offset by observability from the fi
 
 **Common rules:** each service’s maximum number of replicas matches the pooler’s connections; each service has its disruption budget, so that node scaling does not drain too many replicas at once; and scale-down is slow, with a wide stabilization window, because scaling down closes long-lived connections.
 
-### What does not scale on its own?
+#### What does not scale on its own?
 
 1. **Writes to each database instance:** each instance has a single primary that grows vertically; a growing database is moved to its own instance. The vertical ceiling depends on the installation’s provider; if changing shape forces reconnection, growth is planned before it is needed. **The procedure engine’s database** concentrates the load of all procedures and is sized for its expected volume.
 2. **Cloud quotas:** they are managed in advance, with an alert before they are reached.
@@ -1268,21 +1238,17 @@ More layers make diagnosis costlier; this is offset by observability from the fi
 
 **Capacity is planned by the agent’s time:** telemetry carries the time of each operation (Preparation, Attention or Engineering), and capacity is measured and planned for each one.
 
-### What shows that P2 holds?
+#### What shows that P2 holds?
 
 A **load test before setting capacities**, which answers where the ceiling of each database instance, the MQ and the procedure engine lies, and whether the system reacts in time to a burst, including the reconnection storm. Its input is a **per-agent load model**: peak-hour concurrency, calls per minute, proportion of durable and volatile calls, session duration and bursts. **The installation estimates it in three scenarios** (quiet, normal and extreme), the test runs with all three, and in production the real behavior is measured from day one to correct them. If the extreme scenario works, the ceilings are far away; if not, the test says where they are. That **one cluster is enough** for the installation’s goal is a conjecture that the test confirms or refutes.
 
----
-
-## What runs outside the cluster?
+### What runs outside the cluster?
 
 Clients and processes that run on people’s machines or in other environments. For each one: signed, verifiable **distribution**; **updates** with a channel, a cadence and compatibility with the previous version of the Connector; and **authentication** with OAuth 2.1 and revocable credentials.
 
 **A client that stores what it could not send** sets the idempotency key when creating the request, not when sending it, and declares what it does if the contract changed while it was waiting.
 
----
-
-## How is an eventual multicluster prepared for?
+### How is an eventual multicluster prepared for?
 
 Multicluster means several clusters working as one, for geography, blast radius or regulation, almost never for size. In the chosen mesh, multicluster is in beta and not yet recommended for production *(verified)*. While the installation uses a single cluster, only what would be expensive to change later is paid for. **Decisions that are irreversible or expensive to change:**
 
@@ -1292,9 +1258,7 @@ Multicluster means several clusters working as one, for geography, blast radius 
 4. **The own key that encrypts the cluster’s secrets**, which is chosen when the cluster is created and cannot be changed afterward.
 5. **The number of partitions of the procedure engine’s history.**
 
----
-
-## Where does the secret store run?
+### Where does the secret store run?
 
 The secret store holds the secrets and the mesh’s root of trust, so it is a critical stateful service:
 
@@ -1307,9 +1271,7 @@ The secret store holds the secrets and the mesh’s root of trust, so it is a cr
 
 The secret store guards the platform’s secrets. Those of users toward third parties are guarded by the Vault.
 
----
-
-## What does the Vault do?
+### What does the Vault do?
 
 The **Vault** is the platform service that guards third-party secrets (users’ credentials and authorizations toward other services) **per Dominion and per principal**. Its primitives:
 
@@ -1325,7 +1287,9 @@ Whether envelope encryption is provided by the secret store’s encryption engin
 
 ---
 
-## What does Yava require of each piece?
+## What does Yava require?
+
+### What does Yava require of each piece?
 
 Yava does not name products: it requires **minimum behaviors**, and each installation selects the products that meet them. Each installation's selection is in its deployment profile. The list gathers every behavior the design of this document depends on; a product that fails any one of them does not serve, even if it meets the rest.
 
@@ -1333,13 +1297,13 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 
 *Figure 9 · The pieces Yava requires without naming products: orchestration and scaling, databases, storage, network, secrets, delivery pipeline, runtime and portal; each installation chooses the product.*
 
-### What is required of every piece?
+#### What is required of every piece?
 
 - **FOSS license**, measured in the official repository (P4). A managed service is accepted if it exposes a standard API and has a self-hostable FOSS equivalent.
 - **Governance:** neutral foundations are preferred; a single-company piece is accepted with its relicensing risk recorded and an alternative identified.
 - **Image provenance:** built from the official code or taken from the project's official registry, mirrored in the own registry, pinned by digest, and with the provenance signature verified when it exists.
 
-### What is required of the MQ?
+#### What is required of the MQ?
 
 1. **Persistence with publish acknowledgment:** the acknowledgment ensures the message was persisted.
 2. **Deduplication by message identifier**, with a configurable window per stream.
@@ -1351,7 +1315,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 8. **Replication** across at least three nodes.
 9. **Queue depth metrics** consumable by the autoscaler.
 
-### What is required of the procedure engine?
+#### What is required of the procedure engine?
 
 1. **Durable history per execution** and **durable timers**, stored on the server, with no logic on the server: the definitions live in the owning service.
 2. ***Workers* that open the connection and request work** through task queues.
@@ -1363,7 +1327,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 8. **Persistence on the relational database** required below.
 9. **Visibility of executions** and manual intervention (resume from a point in the history).
 
-### What is required of the relational database and the *pooler*?
+#### What is required of the relational database and the *pooler*?
 
 1. **ACID transactions**, and multiple logical databases per instance, with **one role per database**.
 2. **TLS** with verification of the server certificate.
@@ -1372,27 +1336,27 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **A *pooler* in transaction mode**, with a connection limit per database. The database notification (LISTEN), if used, goes over a direct connection, outside the *pooler*. Row-level security works with the *pooler* in transaction mode, or the alternative is declared.
 6. If the database is managed, a declared **FOSS exit**.
 
-### What is required of the platform runtime?
+#### What is required of the platform runtime?
 
 1. **Java 25 or later**, with **virtual threads** as the concurrency model.
 2. **An explicit framework**, without annotations that hide what runs, and with low coupling of the domain code.
 3. **Native compilation** available, for the services that need it.
 4. **Products are used behind interfaces of our own:** the call library, the generator and the services talk to the MQ and to the procedure engine through ports, so that changing a product that meets the minimums means changing an adapter, not rewriting.
 
-### What is required of the runtime for Botlet bodies (G2 and G3)?
+#### What is required of the runtime for Botlet bodies (G2 and G3)?
 
 1. **Near-immediate loading and startup** of a new or regenerated body, without restarting the Botler.
 2. **Strong confinement**: the body cannot access anything the Botler does not hand it; its only path to the Capabilities, the log and the world is the controlled handle.
 3. **Resource limits** per execution (memory, time, CPU).
 4. **A language that models generate fluently**, and compatible with Vergis's catalog of proto-Botlets.
 
-### What is required of the orchestrator and scaling?
+#### What is required of the orchestrator and scaling?
 
 1. **A standard container orchestrator**, with namespaces, disruption budgets and configurable stabilization windows.
 2. **Pod scaling** by each service's own metrics, by queue depth and by open sessions, with multiple triggers per service.
 3. **Node scaling**, with manageable quotas.
 
-### What is required of the service mesh?
+#### What is required of the service mesh?
 
 1. **No sidecar:** shared L4 per node and optional L7 per namespace or service.
 2. **Strict mTLS**, with identity per workload, and **deny-all-by-default policies**.
@@ -1400,7 +1364,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 4. **Pluggable intermediate CA**, provided from outside the cluster.
 5. **Control plane upgrades through canary revisions.**
 
-### What is required of the secret store and key management?
+#### What is required of the secret store and key management?
 
 1. **Outside the cluster**, with **consensus-based high availability** across at least three nodes.
 2. **Auto-unseal** with an external key manager, and **seal migration**, including migration to key shares (Shamir).
@@ -1409,7 +1373,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **Envelope encryption** as a service, with key rotation, for the Vault.
 6. From the key manager: **own keys** with restricted deletion permissions, **auditing of every use** and keys in different regions.
 
-### What is required of the delivery pipeline?
+#### What is required of the delivery pipeline?
 
 1. **Forge** with PRs, required *checks*, dismissal of approvals when the PR changes, and **exclusive write** on `main` for the promoter, advancing by *fast-forward*.
 2. **CI in the cluster**, in a FOSS format, triggered by the forge.
@@ -1420,7 +1384,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 7. **Compatibility checking** of Protobuf messages and AsyncAPI descriptions, and **consumer-driven contracts** for Protobuf messages.
 8. **Review models:** the most capable one for design; the high-end one opposite to the one that built it for construction; and the lowest-cost high-end one for integration.
 
-### What is required of observability?
+#### What is required of observability?
 
 1. **OpenTelemetry**, with the trace context propagated in the headers of each message.
 2. **Queryable metrics** for canary analysis and for the autoscalers.
@@ -1429,7 +1393,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **No payloads, secrets or personal data** in logs, traces, health and errors: payloads, by their fingerprint; errors, by a code from a closed list; headers, only with identifiers. What the contract marks as sensitive does not leave.
 6. **The agent's time** of each operation and **the class of the marked data,** as trace attributes.
 
-### What is required of the base of the Tools connector (MCP)?
+#### What is required of the base of the Tools connector (MCP)?
 
 1. **MCP server** with Streamable HTTP transport, **OAuth 2.1**, and authorization per business service with Authorization's decision.
 2. **Sessions outside the process memory**, with resumption by `Last-Event-ID`, the SSE `retry` field and a 404 response for a lost session. **Session bound to the principal** and to the token family that opened it.
@@ -1438,7 +1402,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **Tokens verified locally,** with revocations received through events and kept in memory.
 6. **Tools published dynamically,** for the shortcuts, and responses that can carry the piggyback notes.
 
-### What is required of Identity?
+#### What is required of Identity?
 
 1. **Locally verifiable access tokens** (signed), with published rotatable keys.
 2. **Atomic renewal,** which never widens permissions.
@@ -1448,7 +1412,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 6. **The query to Authorization** of the Dominions that open to a human.
 7. **FOSS license and governance,** like every piece.
 
-### What is required of the OAuth 2.1 Authentication connector?
+#### What is required of the OAuth 2.1 Authentication connector?
 
 1. **OAuth 2.1 with PKCE,** and dynamic client registration (RFC 7591).
 2. **Clients identified by URL** (CIMD), with protection against SSRF.
@@ -1457,7 +1421,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **The authentication of the approver** of a deferred authorization.
 6. **FOSS license and governance,** like every piece.
 
-### What is required of Objects?
+#### What is required of Objects?
 
 1. **Standard API** with a FOSS exit (P4).
 2. **Short-lived signed URLs** and, where requested, single-use ones.
@@ -1466,7 +1430,7 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **Storage classes** and **lifecycle per object.**
 6. **Logging of every access.**
 
-### What is required of the Web connector (HTTP)?
+#### What is required of the Web connector (HTTP)?
 
 1. **TLS.**
 2. **Routing by owning service,** via RPC over MQ.
@@ -1475,16 +1439,14 @@ Yava does not name products: it requires **minimum behaviors**, and each install
 5. **The GET rule,** on every route.
 6. **Human sessions** authenticated by the Authentication connector, with their Identity session.
 
-### What is required of the Agentler, the runtime of the Agentlets?
+#### What is required of the Agentler, the runtime of the Agentlets?
 
 1. **Budget and limits** per execution.
 2. **Inference control point,** which measures it, budgets it and records it.
 3. **Metered consumption.**
 4. **Fallback to full Cognition.**
 
----
-
-## How is P4 (all FOSS) met?
+### How is P4 (all FOSS) met?
 
 Each piece of the stack was chosen with its license **measured** in the official repository; each installation selects products that meet Yava's minimums and measures their licenses; each installation's selection is in its deployment profile.
 
@@ -1493,13 +1455,12 @@ Each piece of the stack was chosen with its license **measured** in the official
 3. **Governance as a weight, not as an exclusion:** neutral foundations are preferred; a single-company piece is accepted with its relicensing risk recorded and an alternative identified.
 4. **Image provenance:** images are built from the official code or taken from each project's official registry, mirrored in the own registry, pinned by digest, and the provenance signature is verified when it exists.
 
----
-
-## What does the platform require?
+### What does the platform require?
 
 **Each piece of the platform has an owner, a runbook and an update cadence:** the orchestrator, the mesh, the service registry, the connectors, Identity, Authorization, Objects, the Vault, the Link, Compliance, tokenization, the repository manager, the act log, the GitOps deployment, progressive delivery, the promoter, the secret synchronizer, the secret store, the metrics and alerting system, the autoscalers, the MQ, the procedure engine, the image registry and the relationship with the managed database.
 
 ---
+
 ## Annex A. How is this document read and maintained?
 
 ### How is it read?

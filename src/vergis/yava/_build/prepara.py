@@ -6,13 +6,18 @@ Escribe en <dir_salida>:
   ficha-<L>.md   la ficha del documento (la tabla de cabecera) + cómo citar + contacto → página de créditos
   cuerpo-<L>.md  el cuerpo y el Anexo A, listo para pandoc:
                  · sin el título (va en la portada y la portadilla) ni la ficha;
-                 · secciones (##) numeradas; el Anexo A y las fuentes, sin número y al índice;
+                 · capítulos (##) y sus secciones (###) numerados; el Anexo A y las fuentes, capítulos
+                   sin número y al índice;
+                 · las referencias cruzadas («¿Título?» / “Title?”), enlazadas al título que nombran;
+                   una que no nombre un título del documento detiene el build;
                  · figuras: las de columna en su ancho, la 2 y la 5 como láminas apaisadas a página completa;
                  · tablas: anchos de columna según su contenido (pandoc los lee de los guiones de la separación).
   Yava-<version>-<L>.md  lo que se publica: la ficha, cómo citar y el cuerpo, en Markdown limpio (lo que se coteja).
 """
 import re
 import sys
+
+from referencias import enlaza_referencias
 
 L, SRC, OUT, VER = sys.argv[1:5]
 VER_N = VER.lstrip("v")  # la cita lleva el número, sin la «v» del nombre del archivo
@@ -66,7 +71,7 @@ open(f"{OUT}/Yava-{VER}-{L}.md", "w", encoding="utf-8").write(publicado.rstrip()
 
 # 3. Cuerpo para pandoc
 b = body_md
-b = re.sub(r"\n---\n", "\n", b)  # los separadores: la sección ya separa
+b = re.sub(r"\n---\n", "\n", b)  # los separadores: el capítulo ya separa
 
 
 def tex_escape_plain(s):
@@ -77,8 +82,14 @@ def tex_escape_plain(s):
 # Anexo A y fuentes: sin número, al índice, con su marca de cabecera; sus subsecciones sin número
 def heading_unnumbered(m):
     text = m.group(2)
+    if text.endswith("}"):  # ya trae su id: {#ref-…} → {#ref-… .unnumbered}
+        return f"{m.group(1)} {text[:-1]} .unnumbered}}"
     return f"{m.group(1)} {text} {{.unnumbered}}"
 
+
+# Referencias cruzadas: cada título lleva un id propio, y cada cita de un título se enlaza a él.
+# Una cita entre comillas con forma de título (pregunta con mayúscula) que no es un título es una referencia rota.
+b, nref = enlaza_referencias(b, L)
 
 parts = re.split(r"(?m)^(?=## )", b)
 out = []
@@ -89,22 +100,25 @@ for p in parts:
     h = p.split("\n", 1)[0]
     if h.startswith("## Anexo A") or h.startswith("## Annex A"):
         in_annex = True
-        title = h[3:].strip()
+        title = re.sub(r"\s*\{#[^}]*\}$", "", h[3:]).strip()
         rest = p.split("\n", 1)[1]
         rest = re.sub(r"(?m)^(###+) (.+)$", heading_unnumbered, rest)
         out.append("```{=latex}\n\\clearpage\n\\phantomsection\n"
-                   f"\\section*{{{tex_escape_plain(title)}}}\n"
-                   f"\\addcontentsline{{toc}}{{section}}{{{tex_escape_plain(title)}}}\n"
+                   f"\\chapter*{{{tex_escape_plain(title)}}}\n"
+                   f"\\addcontentsline{{toc}}{{chapter}}{{{tex_escape_plain(title)}}}\n"
+                   f"\\markboth{{{T['annex']}}}{{{T['annex']}}}\n"
                    f"\\markright{{{T['annex']}}}\n```\n" + rest)
         continue
     if h.startswith("## " + T["fuentes"]):
         rest = p.split("\n", 1)[1]
         out.append("```{=latex}\n\\phantomsection\n"
-                   f"\\section*{{{tex_escape_plain(T['fuentes'])}}}\n"
-                   f"\\addcontentsline{{toc}}{{section}}{{{tex_escape_plain(T['fuentes'])}}}\n"
+                   f"\\chapter*{{{tex_escape_plain(T['fuentes'])}}}\n"
+                   f"\\addcontentsline{{toc}}{{chapter}}{{{tex_escape_plain(T['fuentes'])}}}\n"
+                   f"\\markboth{{{T['fuentes_corto']}}}{{{T['fuentes_corto']}}}\n"
                    f"\\markright{{{T['fuentes_corto']}}}\n"
-                   # las fuentes, en bandera: una lista de URL largas no se justifica
-                   "\\begingroup\\raggedright\n```\n" + rest.rstrip() + "\n\n```{=latex}\n\\par\\endgroup\n```\n")
+                   # las fuentes, en bandera: una lista de URL largas no se justifica; la página
+                   # admite tres líneas más, para que la lista no deje su última entrada sola en otra
+                   "\\enlargethispage{3\\baselineskip}\\begingroup\\raggedright\n```\n" + rest.rstrip() + "\n\n```{=latex}\n\\par\\endgroup\n```\n")
         continue
     out.append(p)
 b = "".join(out)
@@ -135,7 +149,8 @@ assert nfig == 9, nfig
 # Tablas de tubos: anchos según el contenido (pandoc respeta la proporción de los guiones)
 def anchos(block):
     rows = block.strip("\n").split("\n")
-    cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in rows]
+    # los enlaces de las referencias cruzadas no ocupan ancho: se mide su texto
+    cells = [[re.sub(r"\[([^\]]*)\]\(#[^)]*\)", r"\1", c.strip()) for c in r.strip().strip("|").split("|")] for r in rows]
     sep = 1
     ncol = len(cells[0])
     if any(len(c) != ncol for c in cells):
@@ -160,4 +175,4 @@ def anchos(block):
 b = re.sub(r"(?m)(^\|.*\|\n)+", lambda m: anchos(m.group(0)), b)
 
 open(f"{OUT}/cuerpo-{L}.md", "w", encoding="utf-8").write(b)
-print(f"prepara {L}: {nfig} figuras · cuerpo {len(b.split())} palabras")
+print(f"prepara {L}: {nfig} figuras · {nref} referencias cruzadas enlazadas · cuerpo {len(b.split())} palabras")

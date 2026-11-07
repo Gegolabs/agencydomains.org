@@ -8,7 +8,9 @@
 | **Marco** | *AgencyDomains: Arquitectura del Mundo Agentivo*, de César Obach-Renner (el canon) |
 | **Alcance** | La arquitectura que da vida a todo lo determinista de un AgencyDomain. Quedan fuera la Cognición, los asuntos de proyecto, los lineamientos de construcción y los servicios concretos que se monten sobre ella |
 
-## ¿Qué es Yava?
+## ¿Qué es Yava y de qué parte?
+
+### ¿Qué es Yava?
 
 **Yava es la arquitectura que da vida a todo lo determinista de un AgencyDomain.** El canon define cuatro capas (Interacción, Cognición, Autonomía y Acceso) y una Trust Infrastructure transversal. Yava no se delimita por capa, sino por **naturaleza**: abarca todo lo que se ejecuta como código determinista, esté en la capa que esté, y deja fuera lo que no lo es.
 
@@ -55,13 +57,11 @@
 | Registro de servicios | Registro en ejecución de lo que existe y por dónde se llega; distinto del **catálogo** del canon, que es el repertorio de proto-Botlets y Capabilities |
 | Motor de procedimientos | Sustrato de ejecución durable sobre el que corren flujos deterministas; no es la Capa 3 misma, que el canon distingue de los orquestadores de flujos estáticos |
 
----
-
-## ¿De qué parte Yava?
+### ¿De qué parte Yava?
 
 Yava parte de su conformidad con el canon y de cuatro premisas propias. Si alguna cambia, la arquitectura se revisa desde ese punto. Las condiciones propias de cada instalación están en su perfil de despliegue.
 
-### ¿Qué conformidad declara con el canon?
+#### ¿Qué conformidad declara con el canon?
 
 **Yava es una implementación conforme de *AgencyDomains: Arquitectura del Mundo Agentivo* (v1.2.1) en su ámbito determinista.** Cumple todos los requisitos obligatorios (MUST) de la especificación que aplican a lo determinista, y el canon es la norma: este documento no lo repite, y describe en cada sección cómo Yava cumple lo que le aplica.
 
@@ -86,7 +86,7 @@ Además de lo anterior, Yava cumple estos requisitos del canon en su ámbito:
 
 **Salvedad:** la conformidad no es completa todavía. Las brechas con el canon que siguen abiertas son **no conformidades pendientes**, y mientras existan, la conformidad se declara con esa salvedad. La conformidad del ciclo de vida del agente se trata en el reprise.
 
-### ¿Qué premisas propias tiene?
+#### ¿Qué premisas propias tiene?
 
 - **P1.** Yava debe ser **muy escalable, robusta y segura** desde el inicio.
 - **P2.** **La plataforma escala automáticamente con la demanda**, dentro de máximos declarados de escala y de costo.
@@ -95,9 +95,7 @@ Además de lo anterior, Yava cumple estos requisitos del canon en su ámbito:
 
 Las decisiones de arquitectura (servicios de grano medio, una base por servicio, RPC sobre MQ, el lenguaje, el almacén de secretos externo) no son premisas: cada una vive en su sección, con su justificación y lo que se descartó.
 
----
-
-## ¿Qué dice el estado del arte?
+### ¿Qué dice el estado del arte?
 
 En 2026 el estado del arte no consiste en partir más el sistema, sino en gestionar menos servicios, mejor delimitados, sobre infraestructura más liviana y con una plataforma interna que absorba la complejidad.
 
@@ -109,7 +107,9 @@ En 2026 el estado del arte no consiste en partir más el sistema, sino en gestio
 
 ---
 
-## ¿Qué tipos de servicio hay?
+## ¿Cómo se arma la plataforma?
+
+### ¿Qué tipos de servicio hay?
 
 La arquitectura distingue tres tipos de servicio, que coinciden con las tres capas del estándar de modelado ArchiMate, de The Open Group: negocio, aplicación y tecnología *(conocimiento previo)*.
 
@@ -139,7 +139,7 @@ Dónde corre cada pieza es una decisión de operación de la instalación, no de
 
 Un servicio de aplicación puede dar vida a varios servicios de negocio, y los **registra** en el registro de servicios al aparecer (ver «¿Cómo funciona el registro de servicios?»). ArchiMate llama «componente de aplicación» a la pieza desplegable y «servicio de aplicación» al comportamiento que expone; este documento usa «servicio de aplicación» para las dos cosas. **Cuando el documento dice «servicio» a secas, se refiere a cualquier servicio con API por RPC sobre MQ, de aplicación o de plataforma construido como parte de Yava.**
 
-### ¿Qué tipos de servicio de aplicación hay?
+#### ¿Qué tipos de servicio de aplicación hay?
 
 Cada servicio de aplicación declara su **tipo**: lo que el equipo construye, versiona y despliega por la línea de entrega, y lo que se registra en el registro de servicios y escala. Los dos primeros tipos son piezas del canon que corren dentro de un **contenedor**, el runtime que las aloja; el contenedor no es un tipo, sino el lugar donde vive cada pieza del tipo.
 
@@ -157,9 +157,7 @@ Cada servicio de aplicación declara su **tipo**: lo que el equipo construye, ve
 
 Los contratos de cada tipo y de cada contenedor, y cómo llega el contenedor a producción, son un diseño pendiente.
 
----
-
-## ¿Qué arquitectura se propone por capa?
+### ¿Qué arquitectura se propone por capa?
 
 ![Yava, nivel 2, vista detallada](figuras/fig-05-nivel2-vista-detallada-2x.png)
 
@@ -200,7 +198,7 @@ Los contratos de cada tipo y de cada contenedor, y cómo llega el contenedor a p
 
 Lo que se exige a cada pieza está en «¿Qué exige Yava a cada pieza?», y los productos los elige cada instalación, en su perfil de despliegue.
 
-### ¿Qué se mantiene como invariante?
+#### ¿Qué se mantiene como invariante?
 
 - **El estado no se comparte; se publican artefactos.** Ningún servicio accede al estado de otro, sin excepciones. Lo único que se comparte entre servicios son **artefactos**, y solo si cumplen cuatro premisas (ver «¿Cómo se organizan los datos?»):
   1. **inmutables:** no se editan; un cambio es una versión nueva, con otra referencia;
@@ -214,13 +212,11 @@ Lo que se exige a cada pieza está en «¿Qué exige Yava a cada pieza?», y los
 - **Ninguna acción con efecto se ejecuta por GET,** y toda confirmación exige un POST de un humano autenticado (ver «¿Cómo se autentican y se autorizan los que llaman?»).
 - **Todo servicio que guarda un dato personal sabe suprimirlo,** por su contrato (ver «¿Cómo se tratan los datos sensibles?»).
 
----
-
-## ¿Cómo llega un cambio a producción?
+### ¿Cómo llega un cambio a producción?
 
 Cada servicio tiene su propia rama de integración, **`develop`**, y su propia rama de producción, **`main`**. Los cambios se integran a `develop`, el canary corre desde `develop`, y `main` avanza solo hasta el commit que pasó el canary. Así, la integración es la estándar de la forja y `main` siempre es exactamente lo que está en producción.
 
-### ¿Qué juicios pasa un cambio?
+#### ¿Qué juicios pasa un cambio?
 
 Tres, cada uno sobre un objeto distinto  *(los modelos los elige cada instalación, en su perfil)*:
 
@@ -228,7 +224,7 @@ Tres, cada uno sobre un objeto distinto  *(los modelos los elige cada instalaci�
 2. **Construcción:** la juzga el modelo de alta gama opuesto al que construyó, para que la revisión tenga otros puntos ciegos que el autor.
 3. **Integración:** la juzga el **modelo de alta gama de menor costo**, como *check* obligatorio antes de integrar a `develop`. Revisa lo que solo aparece al integrar: el resultado de combinar el cambio con lo que ya está en `develop`, como conflictos mal resueltos, interacciones con otros cambios recientes, APIs que dejaron de calzar con lo que esperan otros servicios o límites cruzados sin declarar. Queda **atado al resultado de la integración**: si `develop` avanzó y el cambio se tiene que volver a combinar, se juzga de nuevo. Las forjas pueden descartar automáticamente las aprobaciones cuando un PR recibe commits nuevos *(conocimiento previo)*.
 
-### ¿Cuáles son los pasos?
+#### ¿Cuáles son los pasos?
 
 1. **Unidad de cambio:** el PR, por servicio.
 2. **Checks obligatorios** del PR: construcción, pruebas, verificación de compatibilidad de contratos y juicio de integración. Con todos en verde, el PR se integra a `develop` con la integración estándar de la forja.
@@ -237,7 +233,7 @@ Tres, cada uno sobre un objeto distinto  *(los modelos los elige cada instalaci�
 5. El repositorio de entorno pasa a apuntar a esa imagen; el despliegue GitOps converge y la entrega progresiva corre el **canary** con su análisis (métricas y salud semántica).
 6. Si el canary **promueve**, el **promotor** avanza `main` por *fast-forward* exactamente al commit probado y activa en el registro de servicios las descripciones de servicios de negocio que la versión nueva haya registrado como pendientes. Si **aborta**, el canary se revierte en producción y el problema se corrige o se revierte en `develop`; `main` nunca se tocó.
 
-### ¿Qué hay que cuidar?
+#### ¿Qué hay que cuidar?
 
 - **El promotor promueve el commit probado, no la punta de `develop`.** Mientras corre un canary pueden integrarse más PR a `develop`; lo que llegó después espera su propio canary. El promotor es un automatismo chico y la **única identidad con permiso para escribir en `main`**.
 - **Un `develop` por servicio**, lo más simple con un repositorio por servicio. Un `develop` común a varios servicios haría que un canary probara varios servicios juntos y rompería el despliegue independiente.
@@ -246,7 +242,7 @@ Tres, cada uno sobre un objeto distinto  *(los modelos los elige cada instalaci�
 
 **Se descartó:** una **cola de integración propia** que promueva antes de integrar, porque exigía construir y mantener una pieza crítica propia, y `develop` con promotor da la misma garantía con integración estándar; **integrar directo a `main` y promover después**, porque `main` iría por delante de producción durante un canary que aborta, y su historia acumularía reversiones; y un **juicio de integración por un modelo distinto al autor**, porque el riesgo de puntos ciegos compartidos ya lo cubre el juicio cruzado de la construcción.
 
-### ¿Cómo cambia el esquema de una base?
+#### ¿Cómo cambia el esquema de una base?
 
 Durante un canary conviven dos versiones de un servicio sobre la misma base, así que todo cambio de esquema sigue el patrón **expandir, migrar y contraer**:
 
@@ -258,7 +254,10 @@ Durante un canary conviven dos versiones de un servicio sobre la misma base, as�
 **Se descartó:** migrar al arrancar cada réplica, porque varias réplicas compiten por la misma migración y un canary que aborta deja el esquema a medio camino.
 
 ---
-## ¿Cómo se organizan los datos?
+
+## ¿Cómo se guardan y se protegen los datos?
+
+### ¿Cómo se organizan los datos?
 
 **El estado no se comparte; se publican artefactos.**
 
@@ -269,7 +268,7 @@ Durante un canary conviven dos versiones de un servicio sobre la misma base, as�
 
 **Cada servicio tiene su propia base, y ningún servicio lee ni escribe la base de otro**. Lo que un servicio necesita de otro lo obtiene a través de la API de ese otro, por RPC sobre MQ, de los eventos que ese otro publica, o de los artefactos que ese otro publica y le concede leer.
 
-### ¿Qué es un artefacto?
+#### ¿Qué es un artefacto?
 
 Un dato que un servicio comparte cumple **cuatro premisas**:
 
@@ -282,7 +281,7 @@ Un dato que un servicio comparte cumple **cuatro premisas**:
 
 **El gestor de repositorios no es una excepción:** opera los contenedores de cada servicio como bytes opacos (crear, respaldar, restaurar, exportar, importar), sin leer ni interpretar los datos (ver «¿Qué hace el gestor de repositorios?»).
 
-### ¿Qué reemplaza al estado compartido?
+#### ¿Qué reemplaza al estado compartido?
 
 Seis patrones, uno para cada forma en que un componente podría querer el estado de otro:
 
@@ -299,13 +298,13 @@ Las copias que un servicio mantiene a partir de eventos ajenos son su propio est
 
 **Se descartó:** una excepción de plataforma para el respaldo, la restauración, la exportación y la importación, porque el gestor de repositorios las hace sobre bytes opacos, sin acceder al estado; y las excepciones de servicio a servicio para los datos voluminosos, que van por *claim check*.
 
-### ¿Dónde viven las bases?
+#### ¿Dónde viven las bases?
 
 Una **base lógica por servicio**, con credenciales propias, **agrupadas en pocas instancias** de la base relacional administrada, según su criticidad. El aislamiento de acceso es total desde el primer día; llevar una base a su propia instancia más adelante es una operación, no un rediseño. Varias bases en una instancia comparten su CPU, su memoria y su falla, así que la instancia es una pieza compartida en la sección de fallas en cadena. El motor de procedimientos tiene su propia base, en una instancia de plataforma. Las bases las habilita y las opera el gestor de repositorios.
 
 **Se descartó:** una **instancia de base por servicio desde el inicio**, porque exige una instancia con alta disponibilidad por servicio; se reserva para la base que lo necesite.
 
-### ¿Cómo aísla un servicio a sus Dominions dentro de su base?
+#### ¿Cómo aísla un servicio a sus Dominions dentro de su base?
 
 El aislamiento entre Dominions es tan obligatorio como entre servicios. Es **lógico por omisión**: la identidad del Dominion va en cada fila y en cada llamada, verificada. Hay dos formas de aplicarlo:
 
@@ -314,7 +313,7 @@ El aislamiento entre Dominions es tan obligatorio como entre servicios. Es **ló
 
 La segunda protege también contra un error del código, y exige que la base y el *pooler* en modo transacción la soporten; la primera no depende de la base. Un aislamiento físico (una base o un espacio por Dominion) se usa solo por excepción declarada.
 
-### ¿Qué patrones son obligatorios en cada servicio?
+#### ¿Qué patrones son obligatorios en cada servicio?
 
 1. **Outbox, donde hay cambio de estado y publicación.** Cuando un servicio cambia su base **y** publica algo que depende de ese cambio (un resultado, un evento), escribe el mensaje en una tabla de su base en la misma transacción, y un publicador lo envía al MQ.
 2. **Publicación directa, donde no hay estado propio.** Quien solo encola, sin cambiar una base propia, publica directo en el MQ y espera la confirmación de publicación, que asegura que el mensaje quedó persistido. *(Verificado.)*
@@ -325,7 +324,7 @@ La segunda protege también contra un error del código, y exige que la base y e
 
 **Se descartó:** alimentar el outbox con **captura de cambios (CDC)** desde la base, porque el publicador propio no necesita decodificación lógica en la base.
 
-### ¿Cómo se ordena lo de un mismo Dominion?
+#### ¿Cómo se ordena lo de un mismo Dominion?
 
 Cuando las operaciones sobre un mismo Dominion tienen que ejecutarse de a una, hay dos formas:
 
@@ -334,7 +333,7 @@ Cuando las operaciones sobre un mismo Dominion tienen que ejecutarse de a una, h
 
 Cada servicio declara cuál usa. Ninguna de las dos exige que un servicio espere a otro.
 
-### ¿Cómo se respalda, se restaura y se porta lo de un servicio?
+#### ¿Cómo se respalda, se restaura y se porta lo de un servicio?
 
 1. **El respaldo y la restauración son del gestor de repositorios,** sobre bytes opacos, y la unidad de restauración es el servicio. La restauración se ensaya.
 2. **Cada servicio exporta lo de un Dominion o de un titular** por una operación de su API, en un formato neutro y documentado, y **lo publica como artefacto**. Es la portabilidad que exige el canon.
@@ -343,13 +342,11 @@ Cada servicio declara cuál usa. Ninguna de las dos exige que un servicio espere
 
 **Se descartó:** un servicio de exportación que lee a todos, porque leería el estado de otros servicios.
 
----
-
-## ¿Cómo funciona Objetos?
+### ¿Cómo funciona Objetos?
 
 **Objetos** es el servicio de plataforma donde se publican los artefactos y donde los servicios guardan sus bytes. Expone **contenedores por servicio y por Dominion**, con cuota, URL firmadas de vida corta y ciclo de vida (vencimiento y barrido de lo que quedó sin referencia).
 
-### ¿Qué reglas sigue?
+#### ¿Qué reglas sigue?
 
 1. **Los bytes no viajan por el MQ.** Por el MQ viajan la referencia y la huella (*claim check*).
 2. **El dueño publica un artefacto inmutable** con su formato declarado; un cambio es una versión nueva, con otra referencia.
@@ -364,9 +361,7 @@ Cada servicio declara cuál usa. Ninguna de las dos exige que un servicio espere
 
 Su contrato (cómo se declara la lectura, cómo se versiona un artefacto y qué viaja en el aviso) es un diseño pendiente.
 
----
-
-## ¿Qué hace el gestor de repositorios?
+### ¿Qué hace el gestor de repositorios?
 
 El **gestor de repositorios** es el servicio de plataforma que da a cada servicio sus repositorios de datos (sus bases y sus contenedores de Objetos) y opera su vida:
 
@@ -379,13 +374,11 @@ El **gestor de repositorios** es el servicio de plataforma que da a cada servici
 
 Qué opera el gestor como infraestructura y qué pide al dueño por su contrato es un diseño pendiente.
 
----
-
-## ¿Cómo se tratan los datos sensibles?
+### ¿Cómo se tratan los datos sensibles?
 
 Yava no adivina qué dato es sensible ni sabe qué es lo que la instalación guarda: **lo respeta donde el servicio lo marcó**.
 
-### ¿Cómo se marca un dato sensible?
+#### ¿Cómo se marca un dato sensible?
 
 Con **una sola marca**, declarada en el contrato de cada servicio: un campo de un mensaje, o un valor, es secreto, personal o sensible. La misma marca sirve a cinco usos:
 
@@ -397,7 +390,7 @@ Con **una sola marca**, declarada en el contrato de cada servicio: un campo de u
 
 **Lo que no sale en la telemetría:** los registros, las trazas, la salud y los errores no llevan cargas, secretos ni datos personales. Las cargas van por su huella, los errores por un código de una lista cerrada, y lo que viaja en los encabezados se limita a identificadores.
 
-### ¿Qué hace Cumplimiento?
+#### ¿Qué hace Cumplimiento?
 
 **Cumplimiento** (en la cara pública en inglés, *Compliance*) es el servicio de plataforma que lleva el **mapa de qué datos sensibles de qué titular están en qué servicio**, y que coordina los derechos del titular:
 
@@ -408,7 +401,7 @@ Con **una sola marca**, declarada en el contrato de cada servicio: un campo de u
 
 La protección de datos personales es para la instalación una obligación con fecha cierta, que declara su perfil. El contrato de Cumplimiento es un diseño pendiente.
 
-### ¿Qué hace la tokenización?
+#### ¿Qué hace la tokenización?
 
 La **tokenización** es el servicio de plataforma que reemplaza un dato marcado por un token mientras viaja por el MQ, y lo devuelve a quien tiene permiso de verlo:
 
@@ -420,7 +413,7 @@ Sirve también para tokenizar un dato personal antes de enviarlo a una cognició
 
 **Se descartó:** dejar la tokenización a cada instalación, porque la marca y el MQ ya son de plataforma, y la tokenización en vuelo solo se puede poner donde viajan los mensajes.
 
-### ¿Cómo se sabe por dónde pasó un dato?
+#### ¿Cómo se sabe por dónde pasó un dato?
 
 Para un dato marcado se puede consultar **por qué servicios pasó, a qué terceros salió y dónde quedó**:
 
@@ -428,7 +421,7 @@ Para un dato marcado se puede consultar **por qué servicios pasó, a qué terce
 2. los conectores de salida registran qué clase de dato salió hacia qué tercero;
 3. Cumplimiento guarda dónde quedó.
 
-### ¿Cómo se suprime un dato personal?
+#### ¿Cómo se suprime un dato personal?
 
 La **supresión a pedido del titular** la implementa cada servicio por su contrato y la orquesta Cumplimiento: un pedido de supresión que cada servicio atiende y confirma, con su plazo. El servicio borra el contenido, alcanza los respaldos a medida que vencen y, en un artefacto, ejecuta él la supresión, mientras los lectores toleran el «ya no existe».
 
@@ -438,7 +431,9 @@ La **supresión a pedido del titular** la implementa cada servicio por su contra
 
 ---
 
-## ¿Cómo se comunican los servicios?
+## ¿Cómo se hablan los servicios y quién habla?
+
+### ¿Cómo se comunican los servicios?
 
 **Todo servicio se consume por RPC sobre MQ**: quien llama envía una petición y espera su respuesta, como en una llamada común, pero el transporte es el MQ y no una conexión directa. La **API de cada servicio** es el conjunto de operaciones que expone de esa forma, descrito en AsyncAPI con mensajes en Protobuf. Un servicio habla con el MQ, con su propia base, con el motor de procedimientos si tiene procedimientos, con Objetos para los bytes, y con la plataforma (secretos y telemetría).
 
@@ -446,7 +441,7 @@ La **supresión a pedido del titular** la implementa cada servicio por su contra
 
 *Figura 6 · Todo pasa por el MQ: los servicios de aplicación piden y atienden, y publican eventos y claim checks; los servicios de plataforma cuelgan de él con flechas de dos puntas, porque todos llaman a todos.*
 
-### ¿Qué tipos de operación hay?
+#### ¿Qué tipos de operación hay?
 
 Todas las operaciones de una API son **llamadas RPC**. Cada una declara si es **durable** o **volátil**, y además un servicio puede publicar **eventos**:
 
@@ -466,7 +461,7 @@ Una llamada volátil no se persiste porque una respuesta tardía no le sirve a n
 
 **Se descartó:** la **comunicación por HTTP entre servicios**, porque la durabilidad de las llamadas habría que construirla en cada servicio que llama, con un outbox y un repartidor propios, y el servicio destino no vería su trabajo pendiente para escalar por él.
 
-### ¿Cómo se ve una llamada?
+#### ¿Cómo se ve una llamada?
 
 Para quien escribe un servicio, llamar a otro es **una llamada tipada**: se llama, se espera la respuesta con un plazo y se sigue. Ese modelo lo da una **biblioteca de llamada común**, de infraestructura pura, que encapsula la correlación, la dirección de retorno, el plazo, la llave de idempotencia, la vinculación vigente, la recuperación del resultado y el interruptor frente a dependencias enfermas. Esperar bloquea un hilo virtual, no uno real, así que miles de llamadas pueden esperar a la vez a costo casi nulo.
 
@@ -477,7 +472,7 @@ Una llamada durable tiene **dos salidas**:
 
 Una llamada volátil devuelve su respuesta o falla al vencer su plazo.
 
-### ¿Cómo se recibe la respuesta de una llamada durable?
+#### ¿Cómo se recibe la respuesta de una llamada durable?
 
 De tres formas, uniformes para todas:
 
@@ -492,19 +487,19 @@ Reglas:
 - **Toda API ofrece dos operaciones estándar:** la consulta de estado y resultado por llave, y un tema de resultados donde se publica cada resultado.
 - **Retención:** cada resultado se conserva por un plazo declarado por servicio; pasado ese plazo, el ticket responde «vencido».
 
-### ¿Cuánto se puede esperar en cadena?
+#### ¿Cuánto se puede esperar en cadena?
 
 **Las esperas tienen profundidad uno: un servicio que atiende una llamada no espera, a su vez, la respuesta de otra llamada durable.** Si A espera a B, que espera a C, el tiempo de A es la suma de todos, y si C se pone lento, A y B quedan esperando con él. El MQ garantiza que la petición no se pierda, pero no elimina el acoplamiento de quien espera.
 
 Si un servicio necesita algo de otro para terminar, tiene dos caminos: **hacer la llamada sin esperar su resultado**, si no condiciona su propia respuesta, o **convertir la operación en un procedimiento** (ver su sección), si sí la condiciona. Una llamada volátil para obtener un dato que se necesita al instante es la única espera permitida dentro de la atención de una llamada, siempre que el servicio consultado no espere, a su vez, a un tercero. Los pasos de un procedimiento quedan fuera de esta regla, porque su espera la gestiona el motor.
 
-### ¿Cómo se nombran los temas?
+#### ¿Cómo se nombran los temas?
 
 Cada operación tiene un **tema por omisión** derivado de su descripción: `<instalación>.<servicio>.<cmd|qry|evt>.<operación>.v<versión>`, para llamadas durables, llamadas volátiles y eventos respectivamente; el primer segmento es el nombre de la instalación.
 
 Un servicio **escucha todas las operaciones de su API con comodines**, por ejemplo `<instalación>.<servicio>.cmd.*.v1`. El MQ elegido admite comodines en los temas (`*` para un segmento, `>` para uno o más al final), en los consumidores de los streams persistentes y en los permisos *(conocimiento previo; se verifica antes de construir)*.
 
-### ¿Cómo se redirige una operación?
+#### ¿Cómo se redirige una operación?
 
 El tema por el que una operación llega a su servicio **se resuelve en tiempo de ejecución** y puede cambiarse en caliente, al estilo de un *endpoint* por operación de WSDL, o de UDDI.
 
@@ -531,7 +526,7 @@ El tema por el que una operación llega a su servicio **se resuelve en tiempo de
 
 **Se descartó:** el **mapeo de temas en el servidor del MQ** como mecanismo de redirección, porque las vinculaciones explícitas por operación dan una indirección visible y ligada al contrato; el reparto por pesos queda como opción de la biblioteca de llamada.
 
-### ¿Quién puede hablar con quién?
+#### ¿Quién puede hablar con quién?
 
 **Todos los servicios pueden llamar a todos y escuchar los eventos de todos; cada uno atiende solo lo suyo y registra solo lo suyo.** Una vez en la red, un servicio puede usar lo que otros ofrecen y actuar de forma dinámica, sin pedir permiso para cada dependencia nueva.
 
@@ -552,9 +547,7 @@ El tema por el que una operación llega a su servicio **se resuelve en tiempo de
 
 **Se descartó:** que el contrato de una operación declare una lista de llamadores y que el MQ la haga cumplir, porque restringir a los llamadores dentro de la arquitectura atenta contra la capacidad de los servicios de actuar de forma dinámica.
 
----
-
-## ¿Cómo viaja la identidad?
+### ¿Cómo viaja la identidad?
 
 El conector de entrada verifica el token del cliente, que emitió Identidad, y produce el **contexto de identidad firmado** con la firma de Identidad (cómo, sin agregar un salto por llamada, es un diseño pendiente). El contexto lleva:
 
@@ -572,9 +565,7 @@ El conector de entrada verifica el token del cliente, que emitió Identidad, y p
 
 **Se descartó:** reenviar el token del cliente a cada servicio, porque lo expone a todos; y una credencial de corta vida por llamada emitida por Identidad, porque agrega un salto por llamada y lo pone en el camino de todo.
 
----
-
-## ¿Qué es un Dominion?
+### ¿Qué es un Dominion?
 
 El **Dominion** es el territorio de cada agente dentro del AgencyDomain. El canon lo nombra en su glosario como el Domain que un agente consigue; Yava usa el término para las dos maneras de llegar a él, conseguido o asignado. Un Dominion tiene:
 
@@ -586,9 +577,7 @@ El **Dominion** es el territorio de cada agente dentro del AgencyDomain. El cano
 
 **Los límites,** en el conector Herramientas (MCP) y en la escritura, se aplican por Dominion y por principal.
 
----
-
-## ¿Cómo se autentican y se autorizan los que llaman?
+### ¿Cómo se autentican y se autorizan los que llaman?
 
 Tres papeles, cada uno en su pieza, con preguntas distintas:
 
@@ -604,7 +593,7 @@ El Conector de autenticación prueba quién llega y le pide a Identidad sus toke
 
 *Figura 7 · Dónde vive cada papel: la Autenticación es un Conector (OAuth 2.1, el primero), en la banda de conectores; la Identificación y la Autorización son dos servicios de plataforma, Identidad y Autorización.*
 
-### ¿Qué hace Identidad?
+#### ¿Qué hace Identidad?
 
 Es un servicio de plataforma, con su base y su API por RPC sobre MQ:
 
@@ -618,7 +607,7 @@ Es un servicio de plataforma, con su base y su API por RPC sobre MQ:
 
 Su contrato es un diseño pendiente. Si Identidad y el Conector de autenticación se construyen o se adopta un producto FOSS que cumpla sus mínimos es una decisión pendiente.
 
-### ¿Qué hace el Conector de autenticación?
+#### ¿Qué hace el Conector de autenticación?
 
 Es el Conector por el que un cliente o un humano prueba quién es, en el borde. Hay **uno por protocolo de autenticación**; el primero es **OAuth 2.1**, que habla sobre HTTP:
 
@@ -626,7 +615,7 @@ Es el Conector por el que un cliente o un humano prueba quién es, en el borde. 
 2. **Qué no hace:** no guarda las identidades, los tokens ni las sesiones, que son de Identidad; y no decide qué puede hacer nadie, que es de Autorización.
 3. **Cómo se comporta si cae:** los tokens vigentes siguen funcionando; fallan los inicios de sesión nuevos y las renovaciones.
 
-### ¿Qué hace Autorización?
+#### ¿Qué hace Autorización?
 
 **Autorización** es el servicio de plataforma que decide si un sujeto puede usar una operación:
 
@@ -637,7 +626,7 @@ Es el Conector por el que un cliente o un humano prueba quién es, en el borde. 
 
 Es el patrón que separa el punto que decide del que aplica *(conocimiento previo, no verificado)*. Su contrato, cómo falla si cae y los productos FOSS que conviene evaluar antes de construirla son un diseño pendiente; también la frontera con el servicio de la instalación que guarda sus reglas de acceso y si la habilitación de un servicio de negocio por Dominion es un campo del registro o una política de Autorización.
 
-### ¿Cómo aprueba un humano?
+#### ¿Cómo aprueba un humano?
 
 **La aprobación humana es una autorización diferida:** un acto espera hasta que un humano autenticado la concede. Sigue las reglas del canon:
 
@@ -648,7 +637,7 @@ Es el patrón que separa el punto que decide del que aplica *(conocimiento previ
 
 La decisión y su registro son de Autorización; la espera de un acto largo puede correr sobre el motor de procedimientos; el aviso al humano lo compone la aplicación y lo transporta un conector. La confirmación es un POST del aprobador autenticado.
 
-### ¿Qué pasa si el humano no autorizó algo?
+#### ¿Qué pasa si el humano no autorizó algo?
 
 El humano que ve algo que no hizo declara que **no lo autorizó**. Eso:
 
@@ -657,7 +646,7 @@ El humano que ve algo que no hizo declara que **no lo autorizó**. Eso:
 
 Es una declaración **después del hecho**. **Se descartó:** exigir aprobación previa de cada sesión nueva.
 
-### ¿Qué es un operador?
+#### ¿Qué es un operador?
 
 El **operador** es el humano responsable de lo que hace un agente. La arquitectura considera su existencia y su ciclo de vida genérico, y la instalación monta encima sus propias reglas:
 
@@ -668,7 +657,7 @@ El **operador** es el humano responsable de lo que hace un agente. La arquitectu
 
 Su contrato es un diseño pendiente.
 
-### ¿Qué controla el acceso privilegiado?
+#### ¿Qué controla el acceso privilegiado?
 
 El **acceso privilegiado** es el del soporte que ve o toca datos de un Dominion. Toda operación de acceso privilegiado:
 
@@ -679,7 +668,7 @@ El **acceso privilegiado** es el del soporte que ve o toca datos de un Dominion.
 
 Quién es la segunda persona mientras la plataforma tenga un solo dueño es una decisión pendiente.
 
-### ¿Qué no se hace por GET?
+#### ¿Qué no se hace por GET?
 
 1. **Ninguna acción con efecto se ejecuta por GET.**
 2. **Toda confirmación exige un POST** de un humano autenticado por el Conector de autenticación.
@@ -687,9 +676,7 @@ Quién es la segunda persona mientras la plataforma tenga un solo dueño es una 
 
 La regla no tiene excepciones. El conector Web (HTTP) la aplica a toda ruta (ver «¿Cómo funciona el conector Web (HTTP)?»).
 
----
-
-## ¿Qué forma tiene el registro de un acto?
+### ¿Qué forma tiene el registro de un acto?
 
 El **registro de actos** es el servicio de plataforma que guarda, encadena y sirve el registro de cada acto. El canon lo exige: inmutable, encadenado y con la huella de los parámetros y del resultado en vez de su contenido. Su contrato y sus mínimos (cómo sirve, cómo falla y qué retiene) son un diseño pendiente, y cuándo se construye se trata en el reprise.
 
@@ -707,8 +694,7 @@ El **registro de actos** es el servicio de plataforma que guarda, encadena y sir
 
 Esta forma, y el registro de actos que la guarda, son la parte de la Trust Infrastructure del canon que está en este documento; el resto se construye después de que la primera instalación esté en marcha.
 
----
-## ¿Cómo se escribe un contrato?
+### ¿Cómo se escribe un contrato?
 
 La API de cada servicio tiene dos capas, cada una con su estándar:
 
@@ -750,9 +736,7 @@ El generador produce además **el evento de acto** de cada operación que cambia
 
 **Reglas de toda operación que pueda participar en un procedimiento:** es idempotente con llave; su compensación es otra operación de la misma API; y si es durable, su estado y resultado se pueden consultar por llave.
 
----
-
-## ¿Cómo funciona el registro de servicios?
+### ¿Cómo funciona el registro de servicios?
 
 El **registro de servicios** es un **servicio de plataforma**, construido como parte de Yava, al estilo de UDDI: el lugar único donde se responde **qué existe, cómo se usa y por dónde se llega**. Tiene su propia base y su API por RPC sobre MQ, y guarda tres cosas:
 
@@ -764,7 +748,7 @@ El **registro de servicios** es un **servicio de plataforma**, construido como p
 
 **Si el registro cae, todo sigue funcionando** con la última copia conocida. Los registros nuevos son llamadas durables, así que esperan en el MQ y se aplican cuando el registro vuelve. Es una pieza compartida crítica, con alta disponibilidad (ver «¿Cómo se contienen las fallas en cadena?»).
 
-### ¿Cómo se registran las APIs y los servicios de negocio?
+#### ¿Cómo se registran las APIs y los servicios de negocio?
 
 **Las APIs y los servicios de negocio se auto-registran**, sin que nadie administre el registro:
 
@@ -796,7 +780,7 @@ Igual que los nombres de las herramientas son únicos dentro de un servidor MCP,
 
 **El registro no depende de que el servicio esté vivo.** Si el servicio de aplicación cae, sus servicios de negocio siguen listados, porque las invocaciones durables esperan en el MQ hasta que vuelva. Retirar un servicio de negocio es un acto explícito.
 
-### ¿Qué más guarda de cada servicio de negocio?
+#### ¿Qué más guarda de cada servicio de negocio?
 
 Además de su nombre, su título, su descripción y la operación que lo implementa, el registro guarda, generado desde el contrato:
 
@@ -811,7 +795,9 @@ Además de su nombre, su título, su descripción y la operación que lo impleme
 
 ---
 
-## ¿Qué es un Conector?
+## ¿Cómo entra y sale lo de afuera?
+
+### ¿Qué es un Conector?
 
 **Todo protocolo externo entra o sale por un Conector, y ningún servicio habla otro protocolo que RPC sobre MQ.** «Conector» es el término único, el mismo del canon: la pieza por la que algo externo entra a la arquitectura o sale de ella, y lo traduce a llamadas RPC sobre MQ. «Adaptador» queda solo como el nombre del patrón de puertos y adaptadores. **Conector es un solo concepto:** un conector con un tercero es un Conector de su protocolo.
 
@@ -850,18 +836,16 @@ Todo lo que sale del clúster sale por el gateway de salida, en su lista blanca.
 
 **Se descartó:** que un servicio de aplicación hable su propio protocolo externo como excepción declarada, porque cada excepción repite en un servicio lo que un Conector resuelve para todos; y un solo Conector para todo lo que transmite en vivo, porque los mensajes por frames y los medios en tiempo real piden piezas distintas (TURN, códecs, SFU, pasarela SIP) que los mensajes no usan; y distinguir como otra clase al Conector que habla con un tercero en particular, porque un conector con un tercero es un Conector de su protocolo: lo que el canon dice del Conector de la Capa 4 son propiedades que un Conector declara.
 
----
-
-## ¿Cómo funciona el conector Herramientas (MCP)?
+### ¿Cómo funciona el conector Herramientas (MCP)?
 
 El conector Herramientas (MCP) es el único servidor MCP que usan los agentes, como exige el canon: el Botler expone servidores MCP y la Cognición es su cliente. Cada nombre queda en su plano: **conector Herramientas** es su papel en la arquitectura; **servidor MCP** es su papel en el protocolo, frente a los agentes; y también **conector** es como lo agregan los usuarios de clientes como Claude.
 
-### ¿Cuáles son sus dos planos?
+#### ¿Cuáles son sus dos planos?
 
 1. **El plano MCP, expuesto a los agentes:** las meta-tools, los atajos, las Tasks de MCP, el piggyback y las notificaciones hacia los agentes. Es el plano de conector propiamente dicho: traduce cada interacción MCP a llamadas RPC sobre MQ.
 2. **El plano de servicio, expuesto a la arquitectura:** el conector Herramientas tiene además su propia API por RPC sobre MQ, con su contrato, sus permisos exclusivos y su propia base, donde guarda las sesiones MCP y el registro de tickets. Le aplican todas las reglas de un servicio, incluida la profundidad uno de las esperas. Su API es un diseño pendiente.
 
-### ¿Qué hace el conector Herramientas?
+#### ¿Qué hace el conector Herramientas?
 
 1. **Verifica el token** de quien llama, que emitió Identidad cuando el Conector de autenticación lo autenticó (OAuth 2.1): lo verifica localmente, con las revocaciones recibidas por eventos, y produce el contexto de identidad firmado (ver «¿Cómo viaja la identidad?»).
 2. **Autoriza cada invocación por el servicio de negocio,** no por la herramienta: le pide la decisión a Autorización con lo que el contrato exige y el contexto de identidad, y la aplica igual a una meta-tool que a un atajo.
@@ -873,7 +857,7 @@ El conector Herramientas (MCP) es el único servidor MCP que usan los agentes, c
 
 El conector no contiene lógica de ningún servicio ni guarda sus resultados, que viven en cada servicio por llave, ni el registro de los servicios de negocio, que vive en el registro: **las meta-tools leen el registro** para listar, describir y enrutar. El conector no conoce servicios por nombre.
 
-### ¿Qué son las meta-tools?
+#### ¿Qué son las meta-tools?
 
 El plano MCP ofrece una **extensión de MCP: cinco meta-tools**, herramientas que sirven para acceder a los servicios de negocio y a las skills de la instalación:
 
@@ -887,7 +871,7 @@ El plano MCP ofrece una **extensión de MCP: cinco meta-tools**, herramientas qu
 
 El prefijo `meta.` usa el espacio de nombres con punto que la especificación de MCP admite, y queda **reservado**: ningún servicio de negocio puede llamarse con ese prefijo. Las reglas de nombres de MCP admiten letras, dígitos, guion bajo, guion y punto, entre 1 y 128 caracteres. *(Verificado.)*
 
-### ¿Cómo se recuperan los resultados asíncronos?
+#### ¿Cómo se recuperan los resultados asíncronos?
 
 Hay dos caminos, que conviven:
 
@@ -896,11 +880,11 @@ Hay dos caminos, que conviven:
 
 En los dos casos, **el ticket y el identificador de la tarea son la llave de idempotencia.** Como `tasks/get` y `meta.result` traen solo esa llave, **el conector registra a qué operación corresponde cada ticket que emite**, en su propio almacén y por el plazo de retención del resultado, y así sabe a qué servicio preguntar.
 
-### ¿Qué son los atajos?
+#### ¿Qué son los atajos?
 
 Un servicio de aplicación puede declarar en su contrato que se sugiere presentar uno de sus servicios de negocio como **atajo**, con su porqué. El registro lo guarda, y el conector Herramientas lo publica como **herramienta nativa**, de forma dinámica, además de seguir alcanzable por `meta.request`. El atajo tiene el mismo nombre, la misma autorización y el mismo enrutamiento por el registro que la invocación por las meta-tools, y su esquema lo genera el generador desde el contrato. Cuántos atajos toleran los clientes MCP antes de degradar su elección de herramienta se verifica antes de construir; el contrato de los atajos es un diseño pendiente.
 
-### ¿Qué es el piggyback?
+#### ¿Qué es el piggyback?
 
 La **detección de cambios es de plataforma, e implícita en cada interacción MCP:** el conector Herramientas adjunta en toda respuesta, por *piggyback*, las novedades desde la última llamada de la sesión. Se apoya en la **versión observable** que publica cada servicio: un contador monótono por Dominion, que cada servicio publica por evento.
 
@@ -917,7 +901,7 @@ Sobre el piggyback, una instalación construye la coherencia entre las sesiones 
 
 Su contrato (cómo se deja una nota, cómo se pide lo ocurrido desde un momento dado y cómo se publica la versión observable) es un diseño pendiente; también la API del plano de servicio del conector, en la que vive.
 
-### ¿Qué requisitos tiene el conector Herramientas?
+#### ¿Qué requisitos tiene el conector Herramientas?
 
 1. **Timeouts alineados** en toda la cadena: el más corto manda, y un valor pensado para peticiones cortas corta los streams largos en silencio.
 2. **Drenaje ordenado:** cada despliegue o reducción cierra conexiones largas; el despliegue avanza cuando el balanceador de entrada ve sano al backend nuevo, no solo cuando la readiness del pod da verde *(el mecanismo del proveedor no está verificado)*.
@@ -925,9 +909,7 @@ Su contrato (cómo se deja una nota, cómo se pide lo ocurrido desde un momento 
 4. **Tormenta de reconexión, resuelta del lado del servidor**, porque los clientes MCP son de terceros: drenaje escalonado de sesiones; reconexión pautada con el campo `retry` de SSE *(reportado por un espejo de la especificación; la posibilidad de cerrar sin terminar el stream está verificada)*; reanudación con `Last-Event-ID`, con los eventos pendientes en el almacén del conector *(verificado)*; respuesta 404 ante una sesión perdida, que obliga al cliente a iniciar otra *(verificado)*; admisión con `Retry-After` y `maxUnavailable` bajo.
 5. **Observabilidad** por herramienta, por Dominion y por principal.
 
----
-
-## ¿Cómo funciona el conector Web (HTTP)?
+### ¿Cómo funciona el conector Web (HTTP)?
 
 El **conector Web (HTTP)** recibe tres clases de entrada:
 
@@ -945,9 +927,7 @@ Las enruta por RPC sobre MQ a su servicio dueño, que compone la página o atien
 
 **Se descartó:** que cada pieza de borde sirva sus propias páginas, porque cada una hablaría HTTP y repetiría la regla del GET. Si el Conector de autenticación OAuth 2.1 sirve sus páginas, por ser en sí una pieza de borde que habla OAuth sobre HTTP, o todas entran por el conector Web, es un diseño pendiente.
 
----
-
-## ¿Cómo funcionan los conectores de lo que transmite en vivo?
+### ¿Cómo funcionan los conectores de lo que transmite en vivo?
 
 Son dos, uno por protocolo de transporte:
 
@@ -956,9 +936,7 @@ Son dos, uno por protocolo de transporte:
 
 **El conector termina la conexión y la entrega al servicio dueño,** que pone la regla de negocio. Cómo la recibe el dueño (un rol de proceso vivo del mismo servicio, que corre de la misma imagen con la misma versión) es un diseño pendiente, junto con el contrato de los dos conectores y sus productos.
 
----
-
-## ¿Cómo funciona el conector Email (SMTP/IMAP)?
+### ¿Cómo funciona el conector Email (SMTP/IMAP)?
 
 El **conector Email (SMTP/IMAP)** envía y lee correo con las credenciales que custodia el Vault, con los límites del tercero y con la salida por el gateway de salida. Sobre él, los servicios de aplicación ponen sus reglas: el correo de los agentes, los buzones de los humanos y los avisos a humanos.
 
@@ -973,9 +951,7 @@ El **conector Email (SMTP/IMAP)** envía y lee correo con las credenciales que c
 
 Su contrato es un diseño pendiente.
 
----
-
-## ¿Cómo funciona el Enlace?
+### ¿Cómo funciona el Enlace?
 
 El **Enlace** es el servicio de plataforma por el que **un agente de un Dominion se comunica con uno de otro**, tanto entre Dominions del mismo AgencyDomain como entre AgencyDomains. Lleva:
 
@@ -991,15 +967,17 @@ Su contrato, incluida la confianza en la identidad de un agente de otro AgencyDo
 
 ---
 
-## ¿Cómo se ejecutan los procedimientos?
+## ¿Cómo se ejecuta el trabajo y con qué reglas?
+
+### ¿Cómo se ejecutan los procedimientos?
 
 Un **procedimiento** es una operación que cambia estado en **varios servicios** y necesita **compensaciones** si un paso posterior falla. Es una saga orquestada, y la ejecuta un **motor de procedimientos** de plataforma.
 
-### ¿Qué entra como procedimiento?
+#### ¿Qué entra como procedimiento?
 
 **Regla de admisión:** una operación entra al motor solo si cruza servicios con estado **y** necesita compensación, y declara por qué. Todo lo demás va por caminos más baratos: una operación de un solo servicio con su transacción local, y una cadena sin compensación con outbox y eventos. Así, la carga del motor crece con la cantidad de procedimientos, no con el tráfico.
 
-### ¿Cómo funciona el motor?
+#### ¿Cómo funciona el motor?
 
 1. **Un servidor central** guarda el historial y los plazos de cada ejecución, en su propia base. No contiene lógica: no recibe las definiciones de los flujos.
 2. **El flujo vive en el servicio dueño del procedimiento**, en Java, en sus ***workers* del motor**, que solo existen en los servicios dueños de procedimientos. Los *workers* abren la conexión hacia el servidor y le piden trabajo; el servidor les despacha tareas por esa conexión.
@@ -1010,7 +988,7 @@ Es una dependencia de infraestructura, como el MQ: el motor guarda estado y desp
 
 **Se descartó:** un **motor embebido en cada servicio**, con el estado en su propia base, que era el más afín a una arquitectura distribuida, porque la recuperación distribuida de las alternativas evaluadas no es FOSS; y los **contratos especiales del motor entre servicios**, porque obligarían a cada participante a publicar un segundo contrato y a depender del motor.
 
-### ¿Qué reglas siguen los flujos?
+#### ¿Qué reglas siguen los flujos?
 
 1. **Versionado.** Todo cambio en un flujo marca su versión en el código para que las ejecuciones en curso sigan la rama con la que empezaron, y **antes de desplegar, el CI reproduce historiales reales** contra el código nuevo. Un cambio que no pasa la reproducción no se despliega.
 2. **Compensaciones** con el soporte de sagas del SDK Java del motor, que las acumula y las ejecuta en orden inverso. **Toda compensación lleva reintentos sin límite**, con una alerta cuando acumula demasiados intentos. Lo irreversible va al final.
@@ -1022,7 +1000,7 @@ Es una dependencia de infraestructura, como el MQ: el motor guarda estado y desp
 
 **Decisión irreversible:** el número de particiones del historial se fija al crear el servidor del motor; se elige con margen *(conocimiento previo, no verificado hoy)*.
 
-### ¿Cómo se ve un procedimiento?
+#### ¿Cómo se ve un procedimiento?
 
 Un ejemplo genérico: el servicio X es dueño de un procedimiento que pide algo a Y y a Z.
 
@@ -1048,12 +1026,11 @@ sequenceDiagram
 
 Cada flecha del motor hacia X es una tarea entregada a un *worker* de X por una conexión que abrió el *worker*; las decisiones viven en el código del flujo, en X. Y y Z reciben llamadas comunes de su API.
 
----
-## ¿Qué lenguajes usa Yava?
+### ¿Qué lenguajes usa Yava?
 
 Yava usa **dos lenguajes, según quién escribe el código y con qué ritmo llega a producción**: el de la **plataforma**, que es Java, y el de los **cuerpos de los Botlets**, que depende de la generación en que opere el AgencyDomain. La distinción importa porque Yava es la plataforma de los Botlets, y el ciclo de vida de los Botlets lo gestionan agentes, de la forma más ágil posible.
 
-### ¿Cómo nace el código de un Botlet en cada generación?
+#### ¿Cómo nace el código de un Botlet en cada generación?
 
 El canon define tres generaciones según cuánto del código del Botlet escribe el agente, y en qué tiempo *(capítulo 5, §2)*:
 
@@ -1065,7 +1042,7 @@ El canon define tres generaciones según cuánto del código del Botlet escribe 
 
 La arquitectura es la misma en las tres; cambia el alcance de lo que el agente hace en Ingeniería. Y, como advierte el canon, una generación más alta no es un destino: mide la capacidad de autoría, que es un eje distinto de la madurez operativa de cada Botlet.
 
-### ¿Qué exige cada generación al lenguaje?
+#### ¿Qué exige cada generación al lenguaje?
 
 | | G1 | G2 | G3 |
 |---|---|---|---|
@@ -1075,13 +1052,13 @@ La arquitectura es la misma en las tres; cambia el alcance de lo que el agente h
 
 El ritmo pesa de verdad en G2 y G3. Un Botlet recién generado es **junior**: el canon le asigna una proporción típica de 60 % de ejecuciones normales, 35 % de fallos por variantes del ambiente y 5 % de regeneraciones, que con el tiempo converge a 95/4/1 *(capítulo 5, §2)*. Cada regeneración es un ciclo de generar, validar, confinar y cargar, y ese ciclo tiene que ser ágil.
 
-### ¿Por qué Java complica G2 y G3?
+#### ¿Por qué Java complica G2 y G3?
 
 1. **El ciclo de generar y ejecutar es más pesado.** Un cuerpo nuevo en Java hay que compilarlo y cargarlo en una JVM en marcha, o arrancar un proceso aparte; la compilación nativa tarda minutos. En lenguajes interpretados o sobre WASM, el código generado se carga y ejecuta casi de inmediato.
 2. **El confinamiento dentro del proceso.** El canon exige que el Botlet solo actúe sobre el mundo a través de un **handle controlado** que le entrega el Botler, de modo que eludirlo sea estructuralmente imposible *(capítulo 5, §2)*. El JDK ya no ofrece un mecanismo para confinar código no confiable dentro de la misma JVM: el Security Manager quedó deshabilitado de forma permanente desde Java 24, y no se puede habilitar al arrancar ni instalar uno propio en ejecución *(verificado en el JEP 486 y en la documentación de Java 25)*. Como Yava exige Java 25, ese mecanismo no está disponible en ningún caso. Un cuerpo generado en Java tendría que aislarse fuera de la JVM, en un proceso, un contenedor o una MicroVM aparte, que es más pesado. En cambio, WASM y los *isolates* de JavaScript confinan el código dentro del runtime: el código no tiene acceso propio a archivos ni a la red, y solo recibe las capacidades que el anfitrión le entrega, que es el mismo principio del handle controlado; y un módulo WASM arranca en menos de un milisegundo *(reportado por análisis técnicos de 2026)*. El confinamiento de memoria y de capacidades no resuelve por sí solo el consumo de recursos: hacen falta límites explícitos de CPU y memoria por ejecución, que son uno de los mínimos del runtime de los cuerpos *(reportado)*.
 3. **El ecosistema:** los modelos generan TypeScript con mucha fluidez, y el primer proto-Botlet de Vergis está escrito en TypeScript.
 
-### ¿Qué se decide?
+#### ¿Qué se decide?
 
 1. **La plataforma, en Java.** El Botler, el registro, el conector Herramientas (MCP), la biblioteca de llamada, los servicios de aplicación y los proto-Botlets forjados se escriben en Java y llegan por la línea de entrega. Ahí valen todos los racionales de la subsección siguiente.
 2. **En G1, los Botlets son configuraciones declarativas**, independientes de lenguaje, validadas por su proto-Botlet y registradas en el Botler.
@@ -1089,16 +1066,16 @@ El ritmo pesa de verdad en G2 y G3. Un Botlet recién generado es **junior**: el
 
 **Lo que cuesta:** dos cadenas de herramientas, y que el generador de contratos produzca también los clientes en el lenguaje de los cuerpos. Lo que gana: que la agilidad del ciclo de vida de los Botlets no quede atada a las exigencias de la plataforma, y una relación más simple con el catálogo de Vergis.
 
-### ¿Por qué Java para la plataforma, y no Python?
+#### ¿Por qué Java para la plataforma, y no Python?
 
 **Java es el lenguaje de la plataforma**: el Botler, el registro de servicios, el conector Herramientas, la biblioteca de llamada, los servicios de aplicación y los proto-Botlets forjados. Esta subsección documenta los racionales, porque es una de las decisiones que más condicionan la construcción y la operación.
 
-#### ¿De qué se partió?
+##### ¿De qué se partió?
 
 - **Ninguna herencia de sistemas anteriores condiciona la decisión.**
 - Se evaluó el lenguaje para lo que Yava es: una plataforma de servicios de grano medio, mayormente de E/S, con miles de agentes y sesiones de larga duración (el objetivo de cada instalación está en su perfil), escalado automático (P2), RPC sobre MQ, procedimientos durables y código escrito en gran parte por agentes y revisado por una persona.
 
-#### ¿Cuáles son los racionales?
+##### ¿Cuáles son los racionales?
 
 **1. El modelo de concurrencia.** Es la ventaja más importante: los servicios pasan la mayor parte del tiempo esperando (a la base, al MQ, a otros servicios).
 
@@ -1120,18 +1097,16 @@ El ritmo pesa de verdad en G2 y G3. Un Botlet recién generado es **junior**: el
 
 **8. El arranque, resuelto.** El arranque lento de la JVM, que importa por P2, se resuelve con compilación nativa, a cambio de builds más lentos y de evitar la reflexión no declarada. *(Conocimiento previo.)*
 
-#### ¿Dónde gana Python?
+##### ¿Dónde gana Python?
 
 En el ecosistema de IA, donde la mayoría de las bibliotecas para agentes y modelos salen primero, o solo, en Python; en menos código por funcionalidad; en menor memoria en reposo; y en no tener que configurar heap ni recolector. Por eso la regla es **Java por omisión y otro lenguaje solo con una razón declarada**, por ejemplo un servicio con trabajo intensivo de modelos. Con una base por servicio y RPC sobre MQ, mezclar lenguajes no rompe nada.
 
-#### ¿Qué versión y qué cuidados?
+##### ¿Qué versión y qué cuidados?
 
 - **Java 25 como mínimo:** el framework elegido requiere Java 21 y recomienda 25 o posterior *(verificado en su documentación)*, y la versión 25 incluye la corrección del anclaje de hilos virtuales en bloques `synchronized` y es de soporte largo *(conocimiento previo)*.
 - **Cuidados con los hilos virtuales:** una llamada nativa ancla el hilo virtual al real; el trabajo de CPU va a hilos normales; y el estado por hilo (`ThreadLocal`) puede consumir mucha memoria con cientos de miles de hilos.
 
----
-
-## ¿Cómo corren los servicios?
+### ¿Cómo corren los servicios?
 
 Cada servicio es **un solo componente**, una imagen de contenedor que corre como pod, sobre la JVM o como ejecutable nativo según lo que mida la prueba de carga. Un servicio:
 
@@ -1144,7 +1119,7 @@ Cada servicio es **un solo componente**, una imagen de contenedor que corre como
 
 **Se descartó:** **separar cada servicio en una entrada y sus ejecutores**, porque duplicaba las piezas de todos los servicios para cubrir un solo caso, el servicio completamente caído, que el MQ ya cubre: las llamadas durables esperan en su cola.
 
-### ¿Cómo corren los Botlets y los Agentlets?
+#### ¿Cómo corren los Botlets y los Agentlets?
 
 Cada Botlet y cada Agentlet es un servicio de aplicación de su tipo (ver «¿Qué tipos de servicio de aplicación hay?»): se construye, se despliega, se registra y escala como cualquier servicio, y corre en su contenedor:
 
@@ -1157,11 +1132,11 @@ Cada Botlet y cada Agentlet es un servicio de aplicación de su tipo (ver «¿Qu
 
   **Toda inferencia pasa por un punto de control** (el `cognition_call` del canon), que la mide, la presupuesta y la registra. El cuerpo del Agentlet, que es inferencia, queda fuera del alcance determinista. Un servicio no llama a un modelo por su cuenta.
 
-### ¿Quién administra los recursos de cognición?
+#### ¿Quién administra los recursos de cognición?
 
 Un servicio de plataforma, **dibujado y sin construir:** el que sabe qué modelos tiene la instalación, locales o externos, con qué credenciales, presupuestos y límites, y por el que pasa toda inferencia. Es el punto de control de la inferencia de los Agentlers y la medida del consumo de cognición de la instalación. Su contrato, los de los tipos de servicio de aplicación y los de sus contenedores son un diseño pendiente.
 
-### ¿Qué framework?
+#### ¿Qué framework?
 
 Un **framework de servicios explícito, con los hilos virtuales como arquitectura**  *(el producto lo elige cada instalación, en su perfil, con las alternativas evaluadas)*:
 
@@ -1171,17 +1146,13 @@ Un **framework de servicios explícito, con los hilos virtuales como arquitectur
 
 **Riesgos aceptados:** depende de una sola empresa, compensado por el bajo acoplamiento, con una alternativa declarada de gobernanza neutral; y **los agentes lo conocen mucho menos** que a los frameworks más populares, con una API que cambió de forma significativa entre sus versiones 3 y 4 *(verificado)*. **Mitigación:** una *skill* con su documentación y ejemplos correctos, la versión fijada en el build y el compilador rechazando lo que no exista.
 
----
-
-## ¿Qué reglas protegen los límites entre servicios?
+### ¿Qué reglas protegen los límites entre servicios?
 
 1. **Dueño declarado y límites explícitos.** Cada servicio tiene un dueño declarado: un agente o un humano. **Cruzar un límite** (llamar a una operación nueva de otro servicio, consumir un evento nuevo, mover una responsabilidad) es libre en la plataforma, porque todos pueden llamar a todos, pero no pasa inadvertido: el juicio de integración revisa cada dependencia nueva, y la telemetría muestra en producción quién llama a quién. Protege que los límites sean visibles, porque en Yava los servicios los construyen agentes y no hay equipos humanos por servicio que los defiendan.
 2. **Nadie decide con datos derivados.** Lo que un servicio necesita saber de otro se lo pregunta a ese otro, que es el dueño del dato. Ningún servicio toma una decisión leyendo registros derivados, réplicas o agregados de datos ajenos, que pueden ir atrasados; esos se leen para mirar, auditar o reconstruir, nunca en el camino de una decisión.
 3. **Bibliotecas compartidas solo de infraestructura.** El código que se reusa entre servicios (biblioteca de llamada, outbox, inbox, generador) contiene solo infraestructura, nunca conceptos del negocio. Se versiona, y cada servicio actualiza a su ritmo. Un poco de duplicación de código de dominio es preferible al acoplamiento.
 
----
-
-## ¿En qué se aparta Yava de los microservicios ortodoxos?
+### ¿En qué se aparta Yava de los microservicios ortodoxos?
 
 Tomando como referencia la caracterización clásica de Lewis y Fowler (2014) *(conocimiento previo)*:
 
@@ -1194,7 +1165,10 @@ Tomando como referencia la caracterización clásica de Lewis y Fowler (2014) *(
 **Lo que no es desviación:** el motor de procedimientos es central, pero solo guarda estado y despacha; la lógica vive en el servicio dueño. Es infraestructura, como el MQ.
 
 ---
-## ¿Cómo es el service mesh?
+
+## ¿Cómo resiste, crece y guarda sus secretos?
+
+### ¿Cómo es el service mesh?
 
 Un **service mesh sin sidecar**, que entrega robustez desde el inicio (P3) sin cobrar complejidad que todavía no se usa:
 
@@ -1206,13 +1180,11 @@ Un **service mesh sin sidecar**, que entrega robustez desde el inicio (P3) sin c
 
 **Qué lo hace robusto en el tiempo:** la disciplina de actualización, con cadencia definida, actualizaciones del plano de control por revisiones canary y un dueño.
 
----
-
-## ¿Cómo se contienen las fallas en cadena?
+### ¿Cómo se contienen las fallas en cadena?
 
 Una plataforma sobre orquestador de contenedores acopla capas: cuando una pieza compartida falla, puede arrastrar a las demás y volver difícil el diagnóstico. *(Reportado, desde la experiencia de un revisor externo.)* La causa no es el orquestador en sí, sino el acoplamiento entre capas. La experiencia muestra que la cadena suele empezar cuando alguien **cambia** una pieza compartida, más que cuando se cae, y que la falla más grave es la que nadie nota. Esta sección cubre los tres casos.
 
-### ¿Qué mecanismos se previenen?
+#### ¿Qué mecanismos se previenen?
 
 1. **La admisión que falla cerrado:** si cae y rechaza ante la duda, no se puede crear ningún pod, incluidos los que la repararían.
 2. **Sondas que miran dependencias:** una liveness que revisa la base convierte una base lenta en reinicios masivos.
@@ -1221,7 +1193,7 @@ Una plataforma sobre orquestador de contenedores acopla capas: cuando una pieza 
 5. **Piezas compartidas:** el DNS del clúster, el proxy de un nodo, el plano de control del mesh y del orquestador, **el MQ**, **el motor de procedimientos**, **el registro de servicios**, **Identidad**, **Autorización**, **los conectores** (incluido el de autenticación), **Objetos**, **el Vault**, **la tokenización**, **el gestor de repositorios**, **cada instancia de base** (compartida por su grupo) y **la llave de cifrado de los secretos del clúster**.
 6. **Un cambio en una pieza compartida:** políticas de admisión y de autorización, enrutamiento, configuración de secretos, escaladores, configuración del mesh y **vinculaciones del registro** se aplican a todos a la vez y no pasan por el canary de ningún servicio.
 
-### ¿Qué exige el diseño?
+#### ¿Qué exige el diseño?
 
 1. **Cada dependencia de la plataforma declara cómo falla:** la admisión falla cerrada solo en la verificación de firmas y abierta en todo lo demás, y los namespaces de la plataforma quedan fuera de la admisión, para que siempre se pueda reparar.
 2. **La liveness no mira dependencias**; la readiness consulta la salud propia y la salud semántica queda en el análisis del canary. **La readiness no cae por una dependencia compartida caída** (la base, el MQ): el servicio sigue en servicio y responde con un rechazo explícito y su plazo de reintento, para que el balanceo no saque todas las réplicas a la vez.
@@ -1234,22 +1206,20 @@ Una plataforma sobre orquestador de contenedores acopla capas: cuando una pieza 
 9. **La base se protege como pieza compartida:** timeouts de sentencia, de bloqueo y de transacción inactiva por rol; escrituras idempotentes; y límites por Dominion y por principal también en el camino de escritura.
 10. **Esperas de profundidad uno** (ver «¿Cuánto se puede esperar en cadena?»).
 
-### ¿Cómo se sabe que la contención funciona?
+#### ¿Cómo se sabe que la contención funciona?
 
 Con **ensayos de falla** en un clúster de prueba: **apagar** cada pieza compartida y **cambiarla mal a propósito**, verificando que el daño queda dentro de lo esperado.
 
-### ¿Y el diagnóstico?
+#### ¿Y el diagnóstico?
 
 Más capas encarecen el diagnóstico; se compensa con observabilidad desde el primer servicio, un runbook por pieza y la regla de primero restaurar y después buscar la causa raíz. Con GitOps, restaurar suele ser volver al último estado declarado que funcionaba. Y como el diagnóstico empieza cuando alguien se entera:
 
 1. **Alertas por síntoma visible**, como la tasa de éxito por operación, y no solo por sondas.
 2. **Un pulso externo de las alertas, vigilado desde fuera del clúster**, porque una caída del clúster se llevaría también el aviso de esa caída.
 
----
+### ¿Cómo crece la plataforma sola (P2)?
 
-## ¿Cómo crece la plataforma sola (P2)?
-
-### ¿Qué escala automáticamente?
+#### ¿Qué escala automáticamente?
 
 1. **Los servicios**, por la mayor de sus señales: la profundidad de sus temas durables y la carga de sus llamadas volátiles.
 2. **Los conectores**: el MCP, por sesiones activas o peticiones abiertas; los de lo que transmite en vivo, por conexiones.
@@ -1258,7 +1228,7 @@ Más capas encarecen el diagnóstico; se compensa con observabilidad desde el pr
 
 **Reglas comunes:** el máximo de réplicas de cada servicio calza con las conexiones del pooler; cada servicio tiene su presupuesto de interrupciones, para que el escalado de nodos no drene demasiadas réplicas a la vez; y la reducción es lenta, con una ventana de estabilización amplia, porque reducir cierra conexiones largas.
 
-### ¿Qué no escala solo?
+#### ¿Qué no escala solo?
 
 1. **Las escrituras en cada instancia de base:** cada instancia tiene un único primario que crece verticalmente; una base que crece se lleva a su propia instancia. El techo vertical depende del proveedor de la instalación; si cambiar de forma obliga a reconectar, el crecimiento se planifica antes de necesitarlo. **La base del motor de procedimientos** concentra la carga de todos los procedimientos y se dimensiona con su volumen esperado.
 2. **Las cuotas de la nube:** se gestionan con anticipación y se alerta antes de llegar a ellas.
@@ -1268,21 +1238,17 @@ Más capas encarecen el diagnóstico; se compensa con observabilidad desde el pr
 
 **La capacidad se planifica por tiempo del agente:** la telemetría lleva el tiempo de cada operación (Preparación, Atención o Ingeniería), y la capacidad se mide y se planifica por cada uno.
 
-### ¿Qué demuestra que P2 se cumple?
+#### ¿Qué demuestra que P2 se cumple?
 
 Una **prueba de carga antes de fijar capacidades**, que responde dónde está el techo de cada instancia de base, del MQ y del motor de procedimientos, y si el sistema reacciona a tiempo ante una ráfaga, incluida la tormenta de reconexión. Su entrada es un **modelo de carga por agente**: concurrencia en la hora punta, llamadas por minuto, proporción de llamadas durables y volátiles, duración de sesión y ráfagas. **La instalación lo estima en tres escenarios** (tranquilo, normal y extremo), la prueba corre con los tres, y en producción se mide el comportamiento real desde el primer día para corregirlos. Si el escenario extremo funciona, los techos están lejos; si no, la prueba dice dónde están. Que **un clúster alcance** para el objetivo de la instalación es una conjetura que la prueba confirma o refuta.
 
----
-
-## ¿Qué corre fuera del clúster?
+### ¿Qué corre fuera del clúster?
 
 Clientes y procesos que corren en máquinas de personas o en otros entornos. Para cada uno: **distribución** firmada y verificable; **actualización** con canal, cadencia y compatibilidad con la versión anterior del conector; y **autenticación** con OAuth 2.1 y credenciales revocables.
 
 **Un cliente que guarda lo que no pudo enviar** fija la llave de idempotencia al crear el pedido, no al enviarlo, y declara qué hace si el contrato cambió mientras esperaba.
 
----
-
-## ¿Cómo se prepara un eventual multiclúster?
+### ¿Cómo se prepara un eventual multiclúster?
 
 Multiclúster significa varios clústeres funcionando como uno solo, por geografía, radio de explosión o regulación, casi nunca por tamaño. En el mesh elegido, el multiclúster está en beta y no se recomienda aún para producción *(verificado)*. Mientras la instalación use un solo clúster, solo se paga lo que sería caro cambiar después. **Decisiones irreversibles o caras de cambiar:**
 
@@ -1292,9 +1258,7 @@ Multiclúster significa varios clústeres funcionando como uno solo, por geograf
 4. **La llave propia que cifra los secretos del clúster**, que se elige al crearlo y no se puede cambiar después.
 5. **El número de particiones del historial del motor de procedimientos.**
 
----
-
-## ¿Dónde corre el almacén de secretos?
+### ¿Dónde corre el almacén de secretos?
 
 El almacén de secretos guarda los secretos y la raíz de confianza del mesh, así que es un servicio crítico con estado:
 
@@ -1307,9 +1271,7 @@ El almacén de secretos guarda los secretos y la raíz de confianza del mesh, as
 
 El almacén de secretos custodia los secretos de la plataforma. Los de los usuarios ante terceros los custodia el Vault.
 
----
-
-## ¿Qué hace el Vault?
+### ¿Qué hace el Vault?
 
 El **Vault** es el servicio de plataforma que custodia los secretos de terceros (las credenciales y las autorizaciones de los usuarios ante otros servicios) **por Dominion y por principal**. Sus primitivas:
 
@@ -1325,7 +1287,9 @@ Si el cifrado de sobre lo da el motor de cifrado del almacén de secretos se ver
 
 ---
 
-## ¿Qué exige Yava a cada pieza?
+## ¿Qué exige Yava?
+
+### ¿Qué exige Yava a cada pieza?
 
 Yava no nombra productos: exige **comportamientos mínimos**, y cada instalación selecciona los productos que los cumplen. La selección de cada instalación está en su perfil de despliegue. La lista recoge cada comportamiento del que depende el diseño de este documento; un producto que no cumpla alguno no sirve, aunque cumpla los demás.
 
@@ -1333,13 +1297,13 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 
 *Figura 9 · Las piezas que Yava exige sin nombrar productos: orquestación y escalado, bases, almacenamiento, red, secretos, línea de entrega, runtime y portal; el producto lo elige cada instalación.*
 
-### ¿Qué se exige a todas las piezas?
+#### ¿Qué se exige a todas las piezas?
 
 - **Licencia FOSS**, medida en el repositorio oficial (P4). Un servicio administrado se acepta si expone una API estándar y tiene un equivalente FOSS autoalojable.
 - **Gobernanza:** se prefieren las fundaciones neutrales; una pieza de una sola empresa se acepta con su riesgo de relicenciamiento registrado y una alternativa identificada.
 - **Origen de las imágenes:** construidas desde el código oficial o tomadas del registro oficial del proyecto, replicadas en el registro propio, fijadas por digest y con la firma de origen verificada cuando existe.
 
-### ¿Qué se exige al MQ?
+#### ¿Qué se exige al MQ?
 
 1. **Persistencia con confirmación de publicación:** la confirmación asegura que el mensaje quedó persistido.
 2. **Deduplicación por identificador de mensaje**, con una ventana configurable por stream.
@@ -1351,7 +1315,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 8. **Replicación** en al menos tres nodos.
 9. **Métricas de profundidad de cola** consumibles por el escalador.
 
-### ¿Qué se exige al motor de procedimientos?
+#### ¿Qué se exige al motor de procedimientos?
 
 1. **Historial durable por ejecución** y **plazos durables**, guardados en el servidor, sin lógica en el servidor: las definiciones viven en el servicio dueño.
 2. ***Workers* que abren la conexión y piden trabajo** por colas de tareas.
@@ -1363,7 +1327,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 8. **Persistencia sobre la base relacional** exigida más abajo.
 9. **Visibilidad de las ejecuciones** e intervención manual (reanudar desde un punto del historial).
 
-### ¿Qué se exige a la base relacional y al *pooler*?
+#### ¿Qué se exige a la base relacional y al *pooler*?
 
 1. **Transacciones ACID**, y varias bases lógicas por instancia, con **un rol por base**.
 2. **TLS** con verificación del certificado del servidor.
@@ -1372,27 +1336,27 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **Un *pooler* en modo transacción**, con límite de conexiones por base. El aviso de la base (LISTEN), si se usa, va por una conexión directa, fuera del *pooler*. La seguridad por fila funciona con el *pooler* en modo transacción, o se declara la alternativa.
 6. Si la base es administrada, **salida FOSS** declarada.
 
-### ¿Qué se exige al runtime de la plataforma?
+#### ¿Qué se exige al runtime de la plataforma?
 
 1. **Java 25 o posterior**, con **hilos virtuales** como modelo de concurrencia.
 2. **Un framework explícito**, sin anotaciones que escondan lo que corre, y con bajo acoplamiento del código de dominio.
 3. **Compilación nativa** disponible, para los servicios que la necesiten.
 4. **Los productos se usan detrás de interfaces propias:** la biblioteca de llamada, el generador y los servicios hablan con el MQ y con el motor de procedimientos a través de puertos, para que cambiar un producto que cumpla los mínimos sea cambiar un adaptador y no reescribir.
 
-### ¿Qué se exige al runtime de los cuerpos de Botlets (G2 y G3)?
+#### ¿Qué se exige al runtime de los cuerpos de Botlets (G2 y G3)?
 
 1. **Carga y arranque casi inmediatos** de un cuerpo nuevo o regenerado, sin reiniciar el Botler.
 2. **Confinamiento fuerte**: el cuerpo no puede acceder a nada que el Botler no le entregue; su única vía hacia las Capabilities, el log y el mundo es el handle controlado.
 3. **Límites de recursos** por ejecución (memoria, tiempo, CPU).
 4. **Un lenguaje que los modelos generen con fluidez**, y compatible con el catálogo de proto-Botlets de Vergis.
 
-### ¿Qué se exige al orquestador y al escalado?
+#### ¿Qué se exige al orquestador y al escalado?
 
 1. **Un orquestador de contenedores estándar**, con namespaces, presupuestos de interrupción y ventanas de estabilización configurables.
 2. **Escalado de pods** por métricas propias de cada servicio, por profundidad de cola y por sesiones abiertas, con varios disparadores por servicio.
 3. **Escalado de nodos**, con cuotas gestionables.
 
-### ¿Qué se exige al service mesh?
+#### ¿Qué se exige al service mesh?
 
 1. **Sin sidecar:** L4 compartido por nodo y L7 opcional por namespace o servicio.
 2. **mTLS estricto**, con identidad por workload, y **políticas que niegan todo por defecto**.
@@ -1400,7 +1364,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 4. **CA intermedia conectable**, provista desde fuera del clúster.
 5. **Actualizaciones del plano de control por revisiones canary.**
 
-### ¿Qué se exige al almacén de secretos y a la gestión de llaves?
+#### ¿Qué se exige al almacén de secretos y a la gestión de llaves?
 
 1. **Fuera del clúster**, con **alta disponibilidad por consenso** de al menos tres nodos.
 2. **Sello automático** con un gestor de llaves externo, y **migración de sello**, incluida la migración a fragmentos de llave (Shamir).
@@ -1409,7 +1373,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **Cifrado de sobre** como servicio, con rotación de llaves, para el Vault.
 6. Del gestor de llaves: **llaves propias** con permisos de borrado restringidos, **auditoría de cada uso** y llaves en regiones distintas.
 
-### ¿Qué se exige a la línea de entrega?
+#### ¿Qué se exige a la línea de entrega?
 
 1. **Forja** con PR, *checks* obligatorios, descarte de aprobaciones cuando el PR cambia, y **escritura exclusiva** sobre `main` para el promotor, con avance por *fast-forward*.
 2. **CI en el clúster**, en formato FOSS, disparado por la forja.
@@ -1420,7 +1384,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 7. **Verificación de compatibilidad** de los mensajes Protobuf y de las descripciones AsyncAPI, y **contratos dirigidos por el consumidor** para mensajes Protobuf.
 8. **Modelos de juicio:** el de mayor capacidad para el diseño; el de alta gama opuesto al que construyó para la construcción; y el de alta gama de menor costo para la integración.
 
-### ¿Qué se exige a la observabilidad?
+#### ¿Qué se exige a la observabilidad?
 
 1. **OpenTelemetry**, con el contexto de traza propagado en los encabezados de cada mensaje.
 2. **Métricas consultables** por el análisis del canary y por los escaladores.
@@ -1429,7 +1393,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **Sin cargas, secretos ni datos personales** en los registros, las trazas, la salud y los errores: las cargas, por su huella; los errores, por un código de una lista cerrada; los encabezados, solo con identificadores. Lo marcado como sensible en el contrato no sale.
 6. **El tiempo del agente** de cada operación y **la clase de los datos marcados,** como atributos de la traza.
 
-### ¿Qué se exige a la base del conector Herramientas (MCP)?
+#### ¿Qué se exige a la base del conector Herramientas (MCP)?
 
 1. **Servidor MCP** con transporte Streamable HTTP, **OAuth 2.1**, y autorización por servicio de negocio con la decisión de Autorización.
 2. **Sesiones fuera de la memoria del proceso**, con reanudación por `Last-Event-ID`, campo `retry` de SSE y respuesta 404 ante una sesión perdida. **Sesión atada al principal** y a la familia del token que la abrió.
@@ -1438,7 +1402,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **Tokens verificados localmente,** con las revocaciones recibidas por eventos y mantenidas en memoria.
 6. **Herramientas publicadas de forma dinámica,** para los atajos, y respuestas que pueden llevar las notas del piggyback.
 
-### ¿Qué se exige a Identidad?
+#### ¿Qué se exige a Identidad?
 
 1. **Tokens de acceso verificables localmente** (firmados), con claves rotables publicadas.
 2. **Renovación atómica,** que nunca amplía permisos.
@@ -1448,7 +1412,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 6. **La consulta a Autorización** de los Dominions que le abren a un humano.
 7. **Licencia FOSS y gobernanza,** como toda pieza.
 
-### ¿Qué se exige al Conector de autenticación OAuth 2.1?
+#### ¿Qué se exige al Conector de autenticación OAuth 2.1?
 
 1. **OAuth 2.1 con PKCE,** y registro dinámico de clientes (RFC 7591).
 2. **Clientes identificados por URL** (CIMD), con protección contra SSRF.
@@ -1457,7 +1421,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **La autenticación del aprobador** de una autorización diferida.
 6. **Licencia FOSS y gobernanza,** como toda pieza.
 
-### ¿Qué se exige a Objetos?
+#### ¿Qué se exige a Objetos?
 
 1. **API estándar** con salida FOSS (P4).
 2. **URL firmadas de vida corta** y, donde se pida, de un solo uso.
@@ -1466,7 +1430,7 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **Clases de almacenamiento** y **ciclo de vida por objeto.**
 6. **Registro de cada acceso.**
 
-### ¿Qué se exige al conector Web (HTTP)?
+#### ¿Qué se exige al conector Web (HTTP)?
 
 1. **TLS.**
 2. **Enrutamiento por servicio dueño,** por RPC sobre MQ.
@@ -1475,16 +1439,14 @@ Yava no nombra productos: exige **comportamientos mínimos**, y cada instalació
 5. **La regla del GET,** en toda ruta.
 6. **Sesiones de humano** autenticadas por el Conector de autenticación, con su sesión de Identidad.
 
-### ¿Qué se exige al Agentler, el runtime de los Agentlets?
+#### ¿Qué se exige al Agentler, el runtime de los Agentlets?
 
 1. **Presupuesto y límites** por ejecución.
 2. **Punto de control de la inferencia,** que la mide, la presupuesta y la registra.
 3. **Consumo medido.**
 4. **Fallback hacia la Cognición plena.**
 
----
-
-## ¿Cómo se cumple P4 (todo FOSS)?
+### ¿Cómo se cumple P4 (todo FOSS)?
 
 Cada pieza del stack se eligió con su licencia **medida** en el repositorio oficial; cada instalación selecciona productos que cumplen los mínimos de Yava y mide sus licencias; la selección de cada instalación está en su perfil de despliegue.
 
@@ -1493,13 +1455,12 @@ Cada pieza del stack se eligió con su licencia **medida** en el repositorio ofi
 3. **Gobernanza como peso, no como exclusión:** se prefieren las fundaciones neutrales; una pieza de una sola empresa se acepta con su riesgo de relicenciamiento registrado y una alternativa identificada.
 4. **Origen de imágenes:** se construyen desde el código oficial o se toman del registro oficial de cada proyecto, se replican en el registro propio, se fijan por digest y se verifica la firma de origen cuando existe.
 
----
-
-## ¿Qué exige la plataforma?
+### ¿Qué exige la plataforma?
 
 **Cada pieza de la plataforma tiene dueño, runbook y cadencia de actualización:** el orquestador, el mesh, el registro de servicios, los conectores, Identidad, Autorización, Objetos, el Vault, el Enlace, Cumplimiento, la tokenización, el gestor de repositorios, el registro de actos, el despliegue GitOps, la entrega progresiva, el promotor, el sincronizador de secretos, el almacén de secretos, el sistema de métricas y alertas, los escaladores, el MQ, el motor de procedimientos, el registro de imágenes y la relación con la base administrada.
 
 ---
+
 ## Anexo A. ¿Cómo se lee y se mantiene este documento?
 
 ### ¿Cómo se lee?

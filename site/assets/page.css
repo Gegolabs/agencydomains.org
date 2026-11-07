@@ -83,3 +83,48 @@ figure.g52 figcaption{font-family:var(--mono);font-size:.7rem;color:var(--faint)
   .g52-line{width:auto;height:4px;margin:1.1rem 12%}
   .g52-line span{writing-mode:horizontal-tb;transform:translate(-50%,-50%);padding:.28rem .8rem}
 }
+
+/* ------------------------------------------------------------
+   Vergis (/vergis/ · /es/vergis/) — qué es, la colección de documentos y la
+   biblioteca de referencias; páginas generadas por src/vergis/_build/build-sitio.py.
+   El acento toma el color de Vergis, el de la portada de sus documentos.
+   ------------------------------------------------------------ */
+.page.vg{--accent:#35606F;--accent-deep:#22414C;--accent-tint:#DCE7EA}
+.vg-entradas{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:2.2rem 0 0}
+.vg-entrada{display:flex;flex-direction:column;gap:.25rem;padding:1rem 1.1rem 1.1rem;border:1px solid var(--rule);
+  border-top:2px solid var(--accent);border-radius:0 0 8px 8px;background:var(--paper);color:var(--ink);transition:background .15s}
+.vg-entrada:hover{background:var(--paper-2);text-decoration:none}
+.vg-entrada .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.vg-entrada b{font-family:var(--display);font-weight:560;font-size:1.12rem;line-height:1.2}
+.vg-entrada span:last-child{font-size:.86rem;line-height:1.45;color:var(--ink-soft)}
+.vg-doc{margin:2.2rem 0 0;padding:1.4rem 1.4rem 1.2rem;border:1px solid var(--rule);border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;background:var(--paper)}
+.vg-doc .vg-n{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0}
+.page .vg-doc h2{font-size:2rem;margin:.2rem 0 0}
+.vg-doc h2 a{color:var(--ink)}
+.vg-doc .vg-sub{font-family:var(--display);font-style:italic;font-size:1.12rem;color:var(--ink-soft);margin:.15rem 0 0}
+.vg-doc .vg-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;color:var(--faint);margin:.6rem 0 0}
+.vg-acc{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-family:var(--mono);font-size:.76rem;margin:1rem 0 0}
+.vg-acc a{color:var(--ink-soft)}.vg-acc a:hover{color:var(--accent)}
+.vg-acc a.vg-leer{color:var(--accent);font-weight:500}
+.vg-caps{margin:1.1rem 0 0;padding-top:.8rem;border-top:1px solid var(--rule-soft)}
+.vg-caps summary{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);cursor:pointer}
+.page .vg-caps ol{margin:.6rem 0 0;padding-left:1.5rem;font-size:.95rem}
+.page .vg-caps li{margin:.25rem 0}
+.vg-siguen{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-top:1.6rem}
+.vg-temas{font-family:var(--mono);font-size:.72rem;line-height:1.9;color:var(--faint);margin:1.2rem 0 0}
+.vg-temas a{color:var(--ink-soft)}.vg-temas a:hover{color:var(--accent)}
+.page .vg h2[id],.page.vg h2[id]{scroll-margin-top:1.5rem}
+.page ul.vg-refs{list-style:none;padding:0;margin:.6rem 0 0}
+.page .vg-refs li{margin:0;padding:.85rem 0;border-bottom:1px solid var(--rule-soft)}
+.vg-refs p{margin:0}
+.vg-refs .vg-t{font-family:var(--display);font-weight:560;font-size:1.04rem;line-height:1.3}
+.vg-refs .vg-t .vg-mas{font-family:var(--mono);font-weight:400;font-size:.66rem;color:var(--faint);overflow-wrap:anywhere}
+.vg-refs .vg-por{color:var(--ink-soft);font-size:.95rem;line-height:1.55;margin-top:.25rem}
+.vg-refs .vg-nota{font-family:var(--mono);font-size:.68rem;color:var(--faint);margin-top:.3rem;overflow-wrap:anywhere}
+.vg-refs .vg-cita{font-family:var(--mono);font-size:.7rem;color:var(--faint);margin-top:.35rem}
+.vg-refs .vg-cita a{color:var(--accent)}
+@media(max-width:40rem){
+  .vg-entradas{grid-template-columns:1fr}
+  .vg-doc{padding:1.1rem 1rem 1rem}
+}

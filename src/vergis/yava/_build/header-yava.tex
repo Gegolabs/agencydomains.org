@@ -1,6 +1,6 @@
 % Cabecera propia de Yava. Se suma a la de los libros (src/agencydomains/_build/header-libro-extra.tex),
 % que pone el estilo O'Reilly de cabeceras y pies, la página en blanco con leyenda y los glifos de reserva.
-% Yava no tiene capítulos: sus secciones (las preguntas de primer nivel) son la unidad, numeradas 1, 2, 3…
+% Yava va en ocho capítulos (las preguntas de primer nivel), cada uno con sus secciones: 1, 1.1, 1.1.1…
 \usepackage{float}
 \usepackage[figuresright]{rotating}          % sidewaysfigure: las láminas 2 y 5, apaisadas a página completa
 \usepackage{needspace}
@@ -9,28 +9,31 @@
 \usepackage{xcolor}
 \definecolor{vergis}{HTML}{35606F}
 
-% Numeración sin capítulo: 1, 1.1, 1.1.1
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% Numeración por capítulo: 1, 1.1, 1.1.1 (la de la clase book); las subsecciones también llevan número
+\setcounter{secnumdepth}{2}
 
-% Cabeceras: el nombre del libro en las pares, la sección en las impares
-\fancyhead[LE]{\nouppercase{\small\itshape Yava}}
+% Cabeceras: el capítulo en las pares, la sección en las impares
+\fancyhead[LE]{\nouppercase{\small\itshape\leftmark}}
 \fancyhead[RO]{\nouppercase{\small\itshape\rightmark}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{\thechapter.\ #1}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \renewcommand{\subsectionmark}[1]{}
 
-% Títulos: la sección, grande y con su número en el color de Vergis; cada sección pide aire antes de empezar
+% Títulos: el capítulo abre página, con su número grande en el color de Vergis; la sección, con su número
+% en el color de Vergis, pide aire antes de empezar
 \usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\raggedright}{\fontsize{40}{40}\selectfont\textcolor{vergis}{\thechapter}}{1.2ex}{\huge}
+\titleformat{name=\chapter,numberless}{\normalfont\raggedright}{}{0pt}{\huge}
+\titlespacing*{\chapter}{0pt}{2ex}{5ex}
 \titleformat{\section}{\needspace{8\baselineskip}\normalfont\LARGE\raggedright}{\textcolor{vergis}{\thesection}}{0.6em}{}
 \titlespacing*{\section}{0pt}{3.2ex plus 1ex minus .2ex}{1.6ex plus .2ex}
 \titleformat{\subsection}{\normalfont\Large\itshape\raggedright}{\thesubsection}{0.6em}{}
 \titlespacing*{\subsection}{0pt}{2.6ex plus 1ex minus .2ex}{1.0ex plus .2ex}
 \titleformat{\subsubsection}{\normalfont\large\bfseries\raggedright}{\thesubsubsection}{0.6em}{}
 
-% Índice: espacio para los números de dos cifras
+% Índice: los capítulos en redonda con aire antes; las secciones con espacio para «8.12»
 \makeatletter
-\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.2em}}
-\renewcommand*\l@subsection{\@dottedtocline{2}{2.2em}{3.0em}}
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.6em}}
 \makeatother
 
 % Tablas: un punto menos, filas con algo de aire
