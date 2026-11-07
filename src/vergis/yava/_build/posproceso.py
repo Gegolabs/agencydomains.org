@@ -2,11 +2,13 @@
 """Posproceso del .tex de Yava: las tablas cortas no se rompen; las otras se cortan con cabecera repetida.
 
 pandoc escribe cada tabla como longtable, que repite la cabecera (\\endhead) cuando se corta.
-Las cortas (hasta ~20 líneas estimadas) no se cortan: cada fin de fila del cuerpo pasa a \\\\* (longtable
+Las cortas (hasta ~16 líneas estimadas) no se cortan: cada fin de fila del cuerpo pasa a \\\\* (longtable
 no corta la página en un \\\\*) y la tabla entera va a la página siguiente si no cabe donde cae. Las
-medianas y largas sí se cortan, con su cabecera repetida, pero nunca dejan solas menos de 3 filas al
+medianas y largas sí se cortan, con su cabecera repetida, pero nunca dejan solas menos de 2 filas al
 empezar ni menos de 2 al terminar: así una tabla alta no deja en blanco el resto de una página (el
-tercio bajo la figura 8) y tampoco deja una fila huérfana.
+tercio bajo la figura 8) y tampoco deja una fila huérfana. Si la tabla viene presentada por un párrafo
+que termina en «:» (también en negrita, «:}»), el \\needspace va antes de ese párrafo y suma su alto: la frase de entrada viaja con su tabla; y si
+lo precede un título, va antes del título, que tampoco queda solo al pie.
 Uso: posproceso.py yava.tex
 """
 import math
@@ -80,5 +82,27 @@ t = re.sub(r"\\texttt\{((?:[^{}]|\{[^{}]*\})*)\}", corta_codigo, t)
 procesa.cortas = 0
 procesa.largas = []
 t = re.sub(r"\\begin\{longtable\}.*?\\end\{longtable\}", procesa, t, flags=re.S)
+
+
+def con_su_entrada(m):
+    par, n = m.group(1), int(m.group(2))
+    lineas = math.ceil(len(plano(par)) / 95) + 1
+    con_su_entrada.n += 1
+    return "\n\n" + f"\\needspace{{{n + lineas}\\baselineskip}}\n{par}\n\n\\begin{{longtable}}"
+
+
+con_su_entrada.n = 0
+# el párrafo de entrada (termina en «:») y el \\needspace de su tabla: el espacio se pide antes del párrafo
+t = re.sub(r"\n\n((?:(?!\n\n)[^\\]|\\(?!begin|end|section|needspace))+?:\}?)\n\n\\needspace\{(\d+)\\baselineskip\}\n\\begin\{longtable\}",
+           con_su_entrada, t)
+def con_su_titulo(m):
+    con_su_titulo.n += 1
+    return f"\\needspace{{{int(m.group(2)) + 4}\\baselineskip}}\n" + m.group(1)
+
+
+con_su_titulo.n = 0
+# y si lo que pide espacio viene justo después de un título, el título va con él: no queda solo al pie
+t = re.sub(r"(\\hypertarget\{[^}]*\}\{%\n\\(?:sub)*section\{(?:[^{}]|\{[^{}]*\})*\}\\label\{[^}]*\}\}\n\n)\\needspace\{(\d+)\\baselineskip\}\n",
+           con_su_titulo, t)
 open(p, "w", encoding="utf-8").write(t)
-print(f"posproceso: {procesa.cortas} tablas que no se cortan · {len(procesa.largas)} que se cortan con cabecera repetida (líneas estimadas: {procesa.largas})")
+print(f"posproceso: {con_su_entrada.n} tablas con su párrafo de entrada · {con_su_titulo.n} con su título · {procesa.cortas} tablas que no se cortan · {len(procesa.largas)} que se cortan con cabecera repetida (líneas estimadas: {procesa.largas})")
