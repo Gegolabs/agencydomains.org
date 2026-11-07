@@ -859,7 +859,7 @@ The Tools connector (MCP) is the only MCP server that agents use, as the canon r
 ### What are its two planes?
 
 1. **The MCP plane, exposed to agents:** the meta-tools, the shortcuts, MCP Tasks, the piggyback and notifications to agents. It is the connector plane proper: it translates each MCP interaction into RPC calls over MQ.
-2. **The service plane, exposed to the architecture:** the Tools connector also has its own API over RPC on MQ, with its contract, its exclusive permissions and its own database, where it stores the MCP sessions and the ticket log. All the rules of a service apply to it, including the depth-one rule for waits. Its API is defined later.
+2. **The service plane, exposed to the architecture:** the Tools connector also has its own API over RPC on MQ, with its contract, its exclusive permissions and its own database, where it stores the MCP sessions and the ticket log. All the rules of a service apply to it, including the depth-one rule for waits. Its API is a pending design.
 
 ### What does the Tools connector do?
 

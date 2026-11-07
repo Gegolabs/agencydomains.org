@@ -859,7 +859,7 @@ El conector Herramientas (MCP) es el único servidor MCP que usan los agentes, c
 ### ¿Cuáles son sus dos planos?
 
 1. **El plano MCP, expuesto a los agentes:** las meta-tools, los atajos, las Tasks de MCP, el piggyback y las notificaciones hacia los agentes. Es el plano de conector propiamente dicho: traduce cada interacción MCP a llamadas RPC sobre MQ.
-2. **El plano de servicio, expuesto a la arquitectura:** el conector Herramientas tiene además su propia API por RPC sobre MQ, con su contrato, sus permisos exclusivos y su propia base, donde guarda las sesiones MCP y el registro de tickets. Le aplican todas las reglas de un servicio, incluida la profundidad uno de las esperas. Su API se define más adelante.
+2. **El plano de servicio, expuesto a la arquitectura:** el conector Herramientas tiene además su propia API por RPC sobre MQ, con su contrato, sus permisos exclusivos y su propia base, donde guarda las sesiones MCP y el registro de tickets. Le aplican todas las reglas de un servicio, incluida la profundidad uno de las esperas. Su API es un diseño pendiente.
 
 ### ¿Qué hace el conector Herramientas?
 
