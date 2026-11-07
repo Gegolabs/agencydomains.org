@@ -2,8 +2,9 @@
 
 El texto cita sus secciones por el título entre comillas: «¿Qué es un Conector?» en español,
 “What is a Connector?” en inglés. Cada título recibe un id estable (ref-<título en ASCII>) y cada
-cita de un título se vuelve un enlace a ese id. Una cita con forma de título (una pregunta que empieza
-con mayúscula) que no nombra ningún título del documento es una referencia rota y detiene el build.
+cita de un título se vuelve un enlace a ese id. Toda cita entrecomillada que termina en «?» tiene que
+nombrar un título del documento, salvo las preguntas que el texto cita como preguntas y no como títulos
+(NO_SON_TITULOS); si no, es una referencia rota y detiene el build.
 """
 import re
 import sys
@@ -15,6 +16,12 @@ def ref_id(titulo):
 
 
 COMILLAS = {"es": ("«", "»"), "en": ("\u201c", "\u201d")}
+
+# Preguntas que el texto cita entre comillas sin que sean títulos: la lista blanca del detector.
+NO_SON_TITULOS = {
+    "es": {"¿puede este sujeto hacer esta operación sobre este Dominion?"},
+    "en": {"may this subject perform this operation on this Dominion?"},
+}
 
 
 def enlaza_referencias(md, lang, nivel_min=2):
@@ -39,7 +46,7 @@ def enlaza_referencias(md, lang, nivel_min=2):
         t = m.group(1)
         if t in titulos:
             return f"[{a}{t}{c}](#{titulos[t]})"
-        if t.endswith("?") and re.match(r"^¿?[A-ZÁÉÍÓÚÑ]", t):  # una pregunta con mayúscula: el formato de un título
+        if t.endswith("?") and t not in NO_SON_TITULOS[lang]:
             rotas.append(t)
         return m.group(0)
 

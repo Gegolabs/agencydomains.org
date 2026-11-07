@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Versión** | 1.4.4 |
+| **Versión** | 1.4.5 |
 | **Autores** | César Obach-Renner y Simón Alero |
 | **Licencia** | Documentación bajo GNU FDL v1.3 y código bajo AGPL-3.0, como exige el canon a la implementación de referencia |
 | **Marco** | *AgencyDomains: Arquitectura del Mundo Agentivo*, de César Obach-Renner (el canon) |
@@ -1526,7 +1526,7 @@ El texto usa términos comunes (MQ, motor de procedimientos, orquestador de cont
 - WASM e *isolates* como confinamiento por capacidades: https://nicolas-dorriere.fr/assets/files/A_field_guide_to_sandboxes_for_AI_.html, https://www.morphllm.com/comparisons/wasm-vs-docker y https://api.emergentmind.com/topics/webassembly-wasi-sandbox
 - Python 3.14 y el PEP 779: https://pydevtools.com/handbook/explanation/what-is-pep-779/
 - Hilos virtuales frente a programación reactiva en 2026: https://lucaberton.com/blog/spring-reactor-reactive-java-2026/
-- Helidon 4: https://helidon.io/docs/v4/about/intro
+- Helidon 4: https://helidon.io/docs/v4/se/introduction
 - Quarkus en la Commonhaus Foundation: https://quarkus.io/blog/quarkus-moving-to-commonhaus/
 - Spring bajo Broadcom: https://redresscompliance.com/vmware-tanzu-licensing-broadcom-era
 - Istio, ambient GA y multiclúster: https://istio.io/news/releases/1.24.x/announcing-1.24 y https://istio.io/latest/blog/2026/ambient-multinetwork-multicluster-beta/
