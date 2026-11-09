@@ -272,6 +272,23 @@ jobs:
       - name: Vocabulario canónico (derivado de los glosarios, ES + EN)
         run: python3 .github/scripts/gen-vocabulario.py _site
 
+      # La pieza de las cuatro medidas (/four-measures/: hoja para ejecutivos + kit para
+      # agentes) es un derivado del Libro II escrito a mano. Se verifica contra las
+      # fuentes de ESTE build: cada definición idéntica al vocabulario recién generado,
+      # su tabla idéntica a la de la Conclusión, cada cita literal en el libro o en el
+      # manifiesto vigente, la edición citada = la vigente, y los enlaces internos
+      # existen. Si deriva, no se publica nada: manda el libro, se corrige la pieza.
+      # Decisión de César (2026-11-09): la pieza va en el sitio con este verificador.
+      - name: Guardia — la pieza de las cuatro medidas no deriva del libro
+        run: |
+          python3 .github/scripts/verificar-cuatro-medidas.py \
+            --vocab _site/vocabulary/vocabulary.md \
+            --libro src/rte/contenido-en \
+            --manifiesto "_site/RealTimeEnterprise-${RTE_VERSION}-agents-en.md" \
+            --version "${RTE_VERSION}" \
+            --sitio _site \
+            _site/four-measures/index.html _site/four-measures/agent-kit.md
+
       - name: Sitemap (derivado del sitio ya ensamblado)
         run: python3 .github/scripts/gen-sitemap.py _site
 
